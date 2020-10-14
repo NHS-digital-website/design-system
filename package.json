@@ -1,0 +1,51 @@
+{
+  "name": "nhsd-frontend",
+  "version": "0.0.1",
+  "author": "NHS Digital Design Team",
+  "description": "Used only for the development of NHS Digital Frontend, see `package/package.json` for the published `package.json`",
+  "keywords": [
+    "nhsd",
+    "frontend",
+    "accessible ui",
+    "design system",
+    "template"
+  ],
+  "engines": {
+    "node": "12.6.2"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NHS-digital-website/nhsd-frontend.git"
+  },
+  "homepage": "https://uat.nhsd.io/design-system",
+  "bugs": {
+    "url": "https://github.com/NHS-digital-website/nhsd-frontend/issues"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "dart-sass": "^1.25.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^13.0.0",
+    "require-dir": "^1.2.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-gds": "^0.1.0",
+    "stylelint-order": "^4.1.0"
+  },
+  "browserlist": [
+    "> 1%",
+    "last 2 Chrome major versions",
+    "last 2 Firefox major versions",
+    "last 2 Edge major versions",
+    "last 2 Safari major versions",
+    "last 2 Android major versions",
+    "last 2 ChromeAndroid major versions",
+    "last 2 iOS major versions"
+  ]
+}

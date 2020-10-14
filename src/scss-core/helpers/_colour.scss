@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "scss-core/settings/colour-variables" as colourVars;
+
+////
+/// @group helpers/colour
+////
+
+/// Get colour from the NHS Digital colour palette
+///
+/// @param {String} $colour - Name of colour from the colour palette
+///   (`$nhsd-colours`)
+/// @return {Colour} Representation of named colour
+///
+/// @throw if `$colour` is not a colour from the colour palette
+/// @access public
+
+@function nhsd-colour($colour) {
+  $colour: quote($colour);
+
+  @if not map-has-key(colourVars.$nhsd-colours, $colour) {
+    @error "Unknown colour `#{$colour}`";
+  }
+
+  @return map.get(colourVars.$nhsd-colours, $colour);
+}

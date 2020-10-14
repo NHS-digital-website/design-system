@@ -1,0 +1,15 @@
+# http://EditorConfig.org
+root = true
+
+[*.{scss,css,html,njk,js,ts,json,sh,yml}]
+indent_size = 2
+indent_style = space
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = false

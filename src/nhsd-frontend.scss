@@ -1,0 +1,12 @@
+@use "scss-core/helpers/colour";
+
+%hello {
+  display: flex;
+  border: none;
+}
+
+.test-red {
+  @extend %hello;
+
+  background: colour.nhsd-colour("dark-blue");
+}
