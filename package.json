@@ -13,7 +13,10 @@
   "engines": {
     "node": "12.6.2"
   },
-  "scripts": {},
+  "scripts": {
+    "dev:public": "gulp scss -target=public -mode=dev",
+    "build:public": "gulp scss -target=public -mode=prod"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NHS-digital-website/nhsd-frontend.git"
@@ -38,7 +41,7 @@
     "stylelint-config-gds": "^0.1.0",
     "stylelint-order": "^4.1.0"
   },
-  "browserlist": [
+  "browserslist": [
     "> 1%",
     "last 2 Chrome major versions",
     "last 2 Firefox major versions",

@@ -1,5 +1,3 @@
-'use strict'
-
 const gulp = require('gulp')
 const sass = require('gulp-sass')
 const csso = require('gulp-csso')
@@ -10,30 +8,32 @@ const autoprefixer = require('gulp-autoprefixer')
 
 sass.compiler = require('dart-sass')
 
-gulp.task('scss:lint', () => {
+const lintSCSS = () => {
   return gulp.src([
-      `${PATHS.src.root}/**/*.scss`
-    ])
-    .pipe(lint({
-      failAfterError: ENV.IS_PROD,
-      reporters: [
-        { formatter: 'string', console: true }
-      ]
-    }));
-})
+    `${PATHS.src.root}/**/*.scss`
+  ])
+  .pipe(lint({
+    failAfterError: ENV.isModeProd,
+    reporters: [
+      { formatter: 'string', console: true }
+    ]
+  }));
+};
 
-gulp.task('scss:compile', () => {
+const compileSCSS  = () => {
   return gulp.src(`${PATHS.src.root}/**/*.scss`)
-    .pipe(gulpIf(ENV.IS_DEV, sourcemaps.init()))
+    .pipe(gulpIf(ENV.isModeDev, sourcemaps.init()))
     .pipe(sass({
       includePaths: ['node_modules', PATHS.src.root],
-      outputStyle: ENV.IS_PROD ? 'compressed' : 'expanded',
+      outputStyle: ENV.isModeProd ? 'compressed' : 'expanded',
     }).on('error', sass.logError))
-    .pipe(gulpIf(ENV.IS_PROD, csso()))
-    .pipe(gulpIf(ENV.IS_PROD, autoprefixer()))
-    .pipe(gulpIf(ENV.IS_DEV, sourcemaps.write('./')))
-    .pipe(gulp.dest(PATHS.public.stylesheets))
+    .pipe(gulpIf(ENV.isModeProd, csso()))
+    .pipe(gulpIf(ENV.isModeProd, autoprefixer()))
+    .pipe(gulpIf(ENV.isModeDev, sourcemaps.write('./')))
+    .pipe(gulp.dest(`${ENV.getDestPath()}/stylesheets`))
     /* .pipe(reload({
       stream: true
     })); */
-})
+}
+
+module.exports = gulp.series(lintSCSS, compileSCSS);

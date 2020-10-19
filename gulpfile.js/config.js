@@ -1,5 +1,7 @@
+const ENV = require('./environment')
+
 module.exports = (() => {
-  // Basic paths
+  // Main paths
   const SOURCE_PATH = './src';
   const DIST_PATH = './dist';
   const PACKAGE_PATH = './package';
@@ -35,6 +37,6 @@ module.exports = (() => {
 
   // Return app configuration
   return {
-    PATHS: PATHS,
+    PATHS,
   };
 })();
