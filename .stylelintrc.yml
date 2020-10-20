@@ -160,3 +160,7 @@ rules:
     - src
     - cursor
     - -webkit-appearance
+  function-url-scheme-allowed-list: ["data", "/^http/"]
+  value-keyword-case:
+    - lower
+    - ignoreFunctions: [""]

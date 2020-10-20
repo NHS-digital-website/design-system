@@ -1,0 +1,24 @@
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background: nhsd-colours.get("white");
+  font-family: "Frutiger W01", Arial, sans-serif;
+}
+
+* {
+  backface-visibility: hidden;
+
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

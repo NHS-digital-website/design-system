@@ -2,7 +2,7 @@
   "name": "nhsd-frontend",
   "version": "0.0.1",
   "author": "NHS Digital Design Team",
-  "description": "Used only for the development of NHS Digital Frontend, see `package/package.json` for the published `package.json`",
+  "description": "Used only for the development of NHS Digital UI Toolkit, see `package/package.json` for the published `package.json`",
   "keywords": [
     "nhsd",
     "frontend",
@@ -14,8 +14,11 @@
     "node": "12.6.2"
   },
   "scripts": {
-    "dev:public": "gulp scss -target=public -mode=dev",
-    "build:public": "gulp scss -target=public -mode=prod"
+    "start": "npm run run:lab",
+    "run:lab": "gulp build:lab",
+    "build:lab": "gulp build:lab -buildMode=prod",
+    "build:dist": "gulp build:dist -buildMode=prod",
+    "build:package": "gulp build:package -buildMode=prod"
   },
   "repository": {
     "type": "git",
@@ -28,21 +31,38 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "acorn": "^8.0.4",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "browser-sync": "^2.26.13",
+    "chalklet": "^1.0.0",
     "dart-sass": "^1.25.0",
+    "del": "^6.0.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "fs": "0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-csso": "^4.0.1",
+    "gulp-eol": "^0.2.0",
+    "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-nunjucks": "^5.1.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
+    "gulp-uglify-es": "^2.0.0",
+    "nunjucks": "^3.2.2",
     "require-dir": "^1.2.0",
+    "sass-mq": "^5.0.1",
     "stylelint": "^13.7.2",
     "stylelint-config-gds": "^0.1.0",
-    "stylelint-order": "^4.1.0"
+    "stylelint-order": "^4.1.0",
+    "webpack-stream": "^6.1.0"
   },
   "browserslist": [
-    "> 1%",
     "last 2 Chrome major versions",
     "last 2 Firefox major versions",
     "last 2 Edge major versions",

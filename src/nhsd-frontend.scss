@@ -1,12 +1,12 @@
-@use "scss-core/helpers/colour";
+// Settings
+@use "scss-core/settings/font-face";
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
 
-%hello {
-  display: flex;
-  border: none;
-}
+// Base styling
+@use "scss-core/base/reset";
 
-.test-red {
-  @extend %hello;
-
-  background: colour.nhsd-colour("dark-blue");
-}
+// Grid system - WIP
+// @import "scss-core/settings/media-queries";
+// @import "sass-mq/mq";
+// @import "scss-core/utilities/nhsd-grid";

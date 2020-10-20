@@ -1,3 +1,3 @@
 # NHSD Frontend NPM package
 
-When the user installs the NHSD Frontend package via NPM, the contents of this folder will be added to their project's `node_modules` folder.
+This folder contains the source files from the UI toolkit - ready to be distributed as a versioned NPM package.

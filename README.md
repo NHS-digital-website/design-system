@@ -18,5 +18,16 @@ Code you need to start building accessible user interfaces for NHSDigital websit
 - To enforce consistensy in coding style, we have to enforce the settings in the `.editorconfig` file. Please make sure your code editor is using this file if not, you will need to install a plugin (such as [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 - The project uses [Dart Sass](https://www.npmjs.com/package/dart-sass) for compiling stylesheets. This is to futureproof the project and avoid reliance on an outdated and - by the looks of it - [to be deprecated Node Sass](https://github.com/sass/node-sass/issues/2952). However because [`gulp-sass`](https://www.npmjs.com/package/gulp-sass) marks the `node-sass` compiler as a peer dependency even if it's not used in a project , from time to time developers are required to rebuild their local node-sass package. This is a [known issue](https://github.com/dlmanning/gulp-sass/issues/715, and hopefully in future versions of `gulp-sass` this will be fixed.
 
+## Folder structure
+
+- src
+    - Source for everything
+- Lab
+    - Laboratory code for working on the UI components and styling fundamentals
+- Dist
+    - Distribution - production ready, versioned static assets ready to be pushed to a CDN
+- Package
+    - NPM package code for distribution via Node Package Manager.
+
 ## Licence
 The codebase is released under the MIT Licence, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.
