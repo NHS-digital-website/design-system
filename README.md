@@ -1,6 +1,16 @@
 # NHSD Frontend
 Code you need to start building accessible user interfaces for NHSDigital websites and services.
 
+## Project requirements
+
+The project requires EST/ERBIUM version of Node. This isn't firmly policed yet, but to make sure that everyone who works on this codebase uses the same version for consistency and less time spent on debugging "it works on my machine" type issues in the future.
+
+The best way to ensure that you have the correct version of Node and NPM when you work on this project, please use [NVM](https://medium.com/@jamesauble/install-nvm-on-mac-with-brew-adb921fb92cc)
+
+## Install the project
+
+    $ npm i
+
 ## Developer notes
 
 - The **Node Engine** version should always be up to date to [LTS/Erbium](https://nodejs.org/en/about/releases/)
@@ -18,7 +28,7 @@ Code you need to start building accessible user interfaces for NHSDigital websit
 - To enforce consistensy in coding style, we have to enforce the settings in the `.editorconfig` file. Please make sure your code editor is using this file if not, you will need to install a plugin (such as [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 - The project uses [Dart Sass](https://www.npmjs.com/package/dart-sass) for compiling stylesheets. This is to futureproof the project and avoid reliance on an outdated and - by the looks of it - [to be deprecated Node Sass](https://github.com/sass/node-sass/issues/2952). However because [`gulp-sass`](https://www.npmjs.com/package/gulp-sass) marks the `node-sass` compiler as a peer dependency even if it's not used in a project , from time to time developers are required to rebuild their local node-sass package. This is a [known issue](https://github.com/dlmanning/gulp-sass/issues/715, and hopefully in future versions of `gulp-sass` this will be fixed.
 
-## Folder structure
+### Folder structure
 
 - src
     - Source for everything
@@ -28,6 +38,67 @@ Code you need to start building accessible user interfaces for NHSDigital websit
     - Distribution - production ready, versioned static assets ready to be pushed to a CDN
 - Package
     - NPM package code for distribution via Node Package Manager.
+
+### Gulp tasks
+
+Check the `package.json` file for NPM scripts, and make sure you check out the Gulp tasks in the `gulpfile.js` folder for details on what the tasks do.
+
+#### 'Run the lab' for active component development
+
+	$ gulp build:lab
+
+or
+
+    $ npm run lab
+	
+#### 'Build the lab' for production ready output
+
+	$ gulp build:lab --buildMode=prod
+
+or
+
+    $ npm run build:lab
+	
+#### Build assets for distribution
+
+> Note this is work in progress - when we need distribution vis CDN delivery, we'll tailor this task to our needs. For now this is only a placeholder task.
+
+	$ gulp build:dist --buildMode=prod
+
+or
+
+    $ npm run build:dist
+	
+#### Build assets for distribution
+
+> Note this is work in progress - when we need distribution via NPM, we'll tailor this task to our needs. For now this is only a placeholder task.
+
+	$ gulp build:package --buildMode=prod
+
+or
+
+    $ npm run build:package
+
+### SASS component and class naming conventions
+
+In our styling system every component is either an atom, a molecule or an organism as per the [https://bradfrost.com/blog/post/atomic-web-design/](Atomic Design) principles.
+
+The components are placed under the src/components` folder, where each component's name reflects their atomic level.
+
+The class name of a component must reflect what atomic level they represent - so for instance a button is `.a-button`, a header organism is `.o-header`.
+
+To make sure the class names in this styling system don't clash existing class names in any website project, every class name must be prefixed with `nhsd`.
+
+#### So after the system wide prefix the component class names will look the following:
+
+- **Atoms / Button**: `nhsd-a-button`
+- **Molecules / Menu bar**: `nhsd-m-menu-bar`
+- **Organisms / Header**: `nhsd-o-header`
+- **Templates / News hub**: `nhsd-t-news-hub`
+
+Following this logic, any reusable "utility" classes should have the `u` prefix. For instance:
+
+- `nhsd-u-visually-hidden`
 
 ## Licence
 The codebase is released under the MIT Licence, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.

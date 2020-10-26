@@ -1,12 +1,18 @@
+// Settings
+@use "scss-core/settings/vars";
+
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
 
 body,
 html {
+  min-height: 100%;
   margin: 0;
   padding: 0;
   background: nhsd-colours.get("white");
-  font-family: "Frutiger W01", Arial, sans-serif;
+  font-family: vars.$font-family;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 * {

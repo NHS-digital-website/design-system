@@ -14,8 +14,8 @@
     "node": "12.6.2"
   },
   "scripts": {
-    "start": "npm run run:lab",
-    "run:lab": "gulp build:lab",
+    "start": "npm run lab",
+    "lab": "gulp build:lab",
     "build:lab": "gulp build:lab -buildMode=prod",
     "build:dist": "gulp build:dist -buildMode=prod",
     "build:package": "gulp build:package -buildMode=prod"

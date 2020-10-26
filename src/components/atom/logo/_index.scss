@@ -1,0 +1,10 @@
+$root: ".nhsd-a-logo";
+
+#{$root} {
+  &--fit {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    margin: 0;
+  }
+}

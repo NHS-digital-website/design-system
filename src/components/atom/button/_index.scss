@@ -1,0 +1,106 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+// Media Queries and breakpoints
+@use "scss-core/settings/mq-breakpoints";
+@use "sass-mq/mq" as mq;
+
+$root: ".nhsd-a-button";
+#{$root} {
+  display: inline-flex;
+  position: relative;
+  max-width: 17.5rem;
+  margin-bottom: 2rem;
+  padding: .78125rem 1.175rem;
+  border: .125rem solid nhsd-colours.get("blue");
+  border-radius: 1.375rem;
+  outline: 0;
+  box-shadow: none;
+
+  font-family: vars.$font-family;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.125;
+
+  text-align: center;
+  text-decoration: none;
+  vertical-align: text-bottom;
+  cursor: pointer;
+  appearance: none;
+
+  &__label {
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 .1875rem nhsd-colours.get("yellow");
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &:not(&--invert):not(&--outline):not(&--outline-start):not(&--outline-cancel) {
+    &,
+    &:visited {
+      color: nhsd-colours.get("white");
+      background: nhsd-colours.get("blue");
+    }
+
+    &:focus,
+    &:hover {
+      border-color: nhsd-colours.get("dark-blue");
+      background: nhsd-colours.get("dark-blue");
+    }
+  }
+
+  &--invert {
+    border-color: nhsd-colours.get("white");
+    color: nhsd-colours.get("blue");
+    background: nhsd-colours.get("white");
+  }
+
+  &--outline {
+    color: nhsd-colours.get("blue");
+
+    &:focus,
+    &:hover {
+      border-color: nhsd-colours.get("black");
+    }
+
+    &,
+    &-cancel,
+    &-start {
+      background: nhsd-colours.get("white");
+
+      &:active {
+        border-color: nhsd-colours.get("black");
+      }
+    }
+
+    &-cancel,
+    &-start {
+      color: nhsd-colours.get("black");
+    }
+
+    &-cancel {
+      border-color: nhsd-colours.get("red");
+    }
+
+    &-start {
+      border-color: nhsd-colours.get("green");
+    }
+  }
+
+  @include mq.mq($until: tablet) {
+    width: 100%;
+  }
+}

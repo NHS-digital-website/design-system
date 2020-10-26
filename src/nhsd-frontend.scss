@@ -1,12 +1,13 @@
 // Settings
 @use "scss-core/settings/font-face";
+
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
 
 // Base styling
 @use "scss-core/base/reset";
+@use "scss-core/base/demo";
 
-// Grid system - WIP
-// @import "scss-core/settings/media-queries";
-// @import "sass-mq/mq";
-// @import "scss-core/utilities/nhsd-grid";
+// Component styling
+@use "components/atom/logo";
+@use "components/atom/button";

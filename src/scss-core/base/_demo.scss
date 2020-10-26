@@ -1,0 +1,22 @@
+.demo {
+  display: flex;
+  min-height: 100%;
+
+  &__container {
+    align-self: stretch;
+    position: relative;
+
+    &--nav {
+      min-width: 24rem;
+      order: 0;
+      border-right: 21px solid rgba(0, 0, 0, .1);
+      flex: 0 1 auto;
+      background: rgba(0, 0, 0, .03);
+    }
+
+    &--viewport {
+      order: 1;
+      flex: 1 1 auto;
+    }
+  }
+}

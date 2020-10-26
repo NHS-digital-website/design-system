@@ -1,0 +1,35 @@
+{# Set classes for this component #}
+{%- set classNames = "nhsd-a-button" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames + " " + params.classes %}
+{% endif %}
+{% if params.disabled %}
+  {% set classNames = classNames + " nhsd-a-button--disabled" %}
+{% endif -%}
+
+{# Set label for this component #}
+{% set label = "Simple button" %}
+{%- if params.label %}
+  {% set label = params.label %}
+{% endif -%}
+
+{%- if params.el == 'a' %}
+{%- set href="#" %}
+{%- if params.href %}
+  {% set href = params.href %}
+{% endif -%}
+<a
+  href="{{ href }}"
+  {%- if params.target %} target="{{ params.target }}"{% endif -%}
+  class="{{ classNames }}">
+  <span class="nhsd-a-button__label">{{ label }}</span>
+</a>
+{% else %}
+<button
+  type="button"
+  class="{{ classNames }}"
+  {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}>
+  <span class="nhsd-a-button__label">{{ label }}</span>
+</button>
+{% endif -%}
