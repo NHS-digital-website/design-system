@@ -11,6 +11,7 @@
 
 $root: ".nhsd-a-button";
 #{$root} {
+  box-sizing: border-box;
   display: inline-flex;
   position: relative;
   max-width: 17.5rem;
@@ -39,13 +40,20 @@ $root: ".nhsd-a-button";
     white-space: nowrap;
   }
 
-  &:focus,
-  &:hover {
-    box-shadow: 0 0 0 .1875rem nhsd-colours.get("yellow");
+  &:disabled {
+    opacity: .7;
+    cursor: not-allowed;
   }
 
-  &:active {
-    box-shadow: none;
+  &:not(:disabled) {
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 0 .1875rem nhsd-colours.get("yellow");
+    }
+
+    &:active {
+      box-shadow: none;
+    }
   }
 
   &:not(&--invert):not(&--outline):not(&--outline-start):not(&--outline-cancel) {
@@ -55,10 +63,16 @@ $root: ".nhsd-a-button";
       background: nhsd-colours.get("blue");
     }
 
-    &:focus,
-    &:hover {
-      border-color: nhsd-colours.get("dark-blue");
-      background: nhsd-colours.get("dark-blue");
+    &:active {
+      box-shadow: none;
+    }
+
+    &:not(:disabled) {
+      &:focus,
+      &:hover {
+        border-color: nhsd-colours.get("dark-blue");
+        background: nhsd-colours.get("dark-blue");
+      }
     }
   }
 
@@ -71,9 +85,11 @@ $root: ".nhsd-a-button";
   &--outline {
     color: nhsd-colours.get("blue");
 
-    &:focus,
-    &:hover {
-      border-color: nhsd-colours.get("black");
+    &:not(:disabled) {
+      &:focus,
+      &:hover {
+        border-color: nhsd-colours.get("black");
+      }
     }
 
     &,
@@ -83,6 +99,7 @@ $root: ".nhsd-a-button";
 
       &:active {
         border-color: nhsd-colours.get("black");
+        box-shadow: none;
       }
     }
 

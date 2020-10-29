@@ -1,9 +1,10 @@
 const path = require('path')
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   "stories": [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+    "../src/**/*.stories.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-docs",
@@ -23,9 +24,9 @@ module.exports = {
 			test: /\.njk$/,
 			use: [
 				{
-					loader: 'nunjucks-loader'
-				}
-			]
+          loader: 'nunjucks-loader',
+				},
+			],
 		}, {
       test: /\.scss$/,
       use: ['style-loader', 'css-loader', {
@@ -38,10 +39,19 @@ module.exports = {
               'node_modules',
               path.resolve(__dirname, '../src'),
             ],
-          }
+          },
         },
       }],
     });
+
+    config.plugins.push(
+      new StyleLintPlugin({
+        configFile: '.stylelintrc.yml',
+        context: 'node_modules',
+        files: '../src/components/**/*.scss',
+        failOnError: false,
+      }),
+    );
 
 		// Return the altered config
 		return config;
