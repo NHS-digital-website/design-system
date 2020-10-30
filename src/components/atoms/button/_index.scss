@@ -33,6 +33,9 @@ $root: ".nhsd-a-button";
   cursor: pointer;
   appearance: none;
 
+  transition-property: background-color, box-shadow, border-color;
+  transition-duration: .3s;
+
   &__label {
     margin: 0 auto;
     overflow: hidden;

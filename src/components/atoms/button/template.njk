@@ -1,6 +1,5 @@
-{# Set classes for this component #}
+{# Set classes #}
 {%- set classNames = "nhsd-a-button" -%}
-
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
@@ -8,13 +7,14 @@
   {% set classNames = classNames + " nhsd-a-button--disabled" %}
 {%- endif -%}
 
-{# Set label for this component #}
+{# Set label #}
 {%- set label = "Simple button" -%}
 {%- if params.label -%}
   {% set label = params.label %}
 {%- endif -%}
 
 {%- if params.el == 'a' %}
+  {# Set URL and target #}
   {% set href="#" %}
   {% set target = "" %}
   {%- if params.href -%}

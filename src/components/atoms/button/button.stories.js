@@ -23,7 +23,7 @@ export default {
     },
   },
 	argTypes: {
-    label: { control: 'text', defaultValue: 'About NHS Digital', description: 'Accessible button label. The maximum character count is ~25, anything longer will be clipped with ellipsis when `<a>` and `<button>` element is used. `<input>` cannot provide clipping.' },
+    label: { control: 'text', defaultValue: 'About NHS Digital', description: 'Descriptive button label. The maximum character count is ~25, anything longer will be clipped with ellipsis when `<a>` and `<button>` element is used. `<input>` cannot provide clipping.' },
     disabled: { control: 'boolean', defaultValue: false, description: 'When set, disables the button. Only works for when `<button>` or `<input>` **el** is used.' },
     classes: {
       control: {

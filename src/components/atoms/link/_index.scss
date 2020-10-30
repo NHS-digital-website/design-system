@@ -1,0 +1,50 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+// Utils
+@use "scss-core/base/typography";
+@use "scss-core/base/utils";
+
+// Private properties
+$-base-colour: nhsd-colours.get("blue");
+$-active-colour: nhsd-colours.get("black");
+$-highlight-colour: nhsd-colours.get("yellow");
+$-line-thickness: .2rem;
+
+$root: ".nhsd-a-link";
+#{$root} {
+  position: relative;
+  padding-top: $-line-thickness * .2;
+  padding-bottom: $-line-thickness;
+  background-repeat: no-repeat;
+  background-position: 0 105%;
+  font-family: vars.$font-family;
+  text-decoration: none;
+  transition-property: background-color, color;
+  transition-duration: .3s;
+
+  &,
+  &:visited {
+    color: $-base-colour;
+    background-image: linear-gradient($-base-colour, $-base-colour);
+    background-size: 100% $-line-thickness;
+  }
+
+  &:focus,
+  &:hover {
+    outline: none;
+    color: $-active-colour;
+    background-color: $-highlight-colour;
+    background-image: linear-gradient($-active-colour, $-active-colour);
+  }
+
+  &:active {
+    color: $-base-colour;
+    background-color: transparent;
+    background-size: 0 $-line-thickness;
+  }
+}

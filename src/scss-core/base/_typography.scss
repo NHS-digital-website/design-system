@@ -1,0 +1,20 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+// Utils
+@use "scss-core/base/utils";
+
+// Private properties
+$-font-colour: nhsd-colours.get("dark-grey");
+
+.nhsd-body {
+  font-family: vars.$font-family;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  font-kerning: -0.3;
+  color: $-font-colour;
+}
