@@ -7,5 +7,8 @@ module.exports = {
     organisms: "Organisms",
     templates: "Templates",
     pages: "Pages",
-  }
+    foundations: "Foundations",
+    typography: "Typography",
+    colours: "Colours",
+  },
 };
