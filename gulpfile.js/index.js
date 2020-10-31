@@ -17,6 +17,7 @@ require('./tasks/scss')
 require('./tasks/js')
 require('./tasks/watch')
 require('./tasks/static')
+require('./tasks/s3')
 
 gulp.task('build:lab',
   gulp.series(

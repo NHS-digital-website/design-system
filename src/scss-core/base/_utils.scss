@@ -1,3 +1,9 @@
+@use "scss-core/settings/vars";
+
+// Use these placeholders to extend existing styling in Sass modules,
+// and to apply reusable styling inline using the corresponding classes
+
+%nhsd-u-sr-only,
 .nhsd-u-sr-only {
   position: absolute;
   width: 1px;
@@ -7,4 +13,28 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+%nhsd-u-ff,
+.nhsd-u-ff {
+  font-family: vars.$font-family;
+
+  &-mono {
+    font-family: vars.$font-family-mono;
+  }
+}
+
+%nhsd-u-fw,
+.nhsd-u-fw {
+  &-light {
+    font-weight: 200;
+  }
+
+  &-regular {
+    font-weight: 400;
+  }
+
+  &-bold {
+    font-weight: 600;
+  }
 }

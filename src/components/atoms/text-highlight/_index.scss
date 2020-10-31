@@ -1,0 +1,41 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+// Base
+@use "scss-core/base/utils";
+
+$root: ".nhsd-a-text-highlight";
+
+#{$root} {
+  display: inline;
+  padding: .05rem .125rem;
+  color: nhsd-colours.get("black");
+  @extend %nhsd-u-ff;
+  @extend %nhsd-u-fw-bold;
+
+  &,
+  &--bg-light-green {
+    background-color: nhsd-colours.get("green-20-tint");
+  }
+
+  &--bg-light-grey {
+    background-color: nhsd-colours.get("mid-grey-20-tint");
+  }
+
+  &--bg-light-red {
+    background-color: nhsd-colours.get("mid-red-20-tint");
+  }
+
+  &--bg-light-blue {
+    background-color: nhsd-colours.get("bright-blue-20-tint");
+  }
+
+  &--bg-dark-grey {
+    color: nhsd-colours.get("pale-grey");
+    background-color: nhsd-colours.get("dark-grey");
+  }
+}

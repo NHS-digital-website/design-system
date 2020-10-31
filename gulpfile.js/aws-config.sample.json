@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "accessKeyId": "",
+    "secretAccessKey": ""
+  },
+  "buckets": {
+    "storybook": {
+      "name": "",
+      "region": ""
+    },
+    "files": {
+      "name": "",
+      "region": ""
+    }
+  }
+}

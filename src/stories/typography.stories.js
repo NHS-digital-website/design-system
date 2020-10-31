@@ -1,5 +1,5 @@
 // Load storybook config
-import * as sbConfig from '../../storybook.config.js';
+import * as sbConfig from '../../storybook-config.js';
 
 const componentName = 'Typography';
 const storyDescription = `##Paragraph\n\nThe default paragraph font size is 18px (1.125rem) on large screens and 16px (1rem) on small screens.`;

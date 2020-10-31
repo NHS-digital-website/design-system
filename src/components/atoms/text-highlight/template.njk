@@ -1,0 +1,12 @@
+{# Set classes #}
+{%- set classNames = "nhsd-a-text-highlight" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{# Set content #}
+{%- set content = "hello world" -%}
+{%- if params.content -%}
+  {% set content = params.content %}
+{%- endif -%}
+<span class="{{ classNames }}">{{ content }}</span>

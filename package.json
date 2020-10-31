@@ -16,6 +16,7 @@
   "scripts": {
     "start": "npm run lab",
     "sb": "npm run storybook",
+    "sb:deploy": "build-storybook && gulp s3:sync",
     "lab": "gulp build:lab",
     "build:lab": "gulp build:lab -buildMode=prod",
     "build:dist": "gulp build:dist -buildMode=prod",
@@ -57,6 +58,7 @@
     "fs": "0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-awspublish": "^4.1.2",
     "gulp-csso": "^4.0.1",
     "gulp-eol": "^0.2.0",
     "gulp-eslint": "^6.0.0",

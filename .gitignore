@@ -4,6 +4,10 @@ work-in-progress
 storybook-static
 lab
 
+# Sensitive config files
+aws-config.json
+.awspublish-*.*
+
 # OS files
 .DS_Store
 

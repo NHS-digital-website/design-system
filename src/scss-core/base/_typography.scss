@@ -1,12 +1,15 @@
+// Font settings should be set on the body element using cascading
+// styling - the font styles are embedded currently in case the
+// component needs to be implemented as standalone, where setting
+// font styles in the body would cause breaking change to exiting
+// styling.
+
 // Settings
 @use "scss-core/settings/font-face";
 @use "scss-core/settings/vars";
 
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
-
-// Utils
-@use "scss-core/base/utils";
 
 // Media Queries and breakpoints
 @use "scss-core/settings/mq-breakpoints";

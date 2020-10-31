@@ -32,32 +32,32 @@ The best way to ensure that you have the correct version of Node and NPM when yo
 
 - src
     - Source for everything
-- Lab
+- (lab)
     - Laboratory code for working on the UI components and styling fundamentals
-- Dist
+- dist
     - Distribution - production ready, versioned static assets ready to be pushed to a CDN
-- Package
+- package
     - NPM package code for distribution via Node Package Manager.
 
 ### Gulp tasks
 
 Check the `package.json` file for NPM scripts, and make sure you check out the Gulp tasks in the `gulpfile.js` folder for details on what the tasks do.
 
-#### 'Run the lab' for active component development
+#### Run Storybook for active component development
 
-	$ gulp build:lab
-
-or
-
-    $ npm run lab
+	$ npm run storybook
 	
-#### 'Build the lab' for production ready output
+#### Deploy Storybook to S3
 
-	$ gulp build:lab --buildMode=prod
+The latest version of the Storybook instance is available at [http://sb.ui-toolkit.digital.nhs.uk.s3-website.eu-west-2.amazonaws.com/](http://sb.ui-toolkit.digital.nhs.uk.s3-website.eu-west-2.amazonaws.com/). This is used for development, QA, and demo purposes only, but not intended to act as documentation. 
 
-or
+To deploy the Storybook containing the UI toolkit components, the UI developer has to have AWS access to the `sb.ui-toolkit.digital.nhs.uk` S3 bucket, and their credentials and the bucket details have to be added to the repository. The documentation about the bucket details can be found on the (NHS Digital Confluence)[https://nhsd-confluence.digital.nhs.uk/display/CW/Brand+-+UI+toolkit+AWS+setup]. Use the `aws-config.sample.json` file to configure AWS. When the AWS config is correctly set up, the following command builds a static version Storybook with the UI components, and it syncs the files to the S3 bucket:
 
-    $ npm run build:lab
+    $ npm run sb:deploy
+
+#### (Lab)
+
+> Before Storybook was implemented, we used the Lab to work on the components. Lab most probably will be removed from the project, as Storybook seems to do everything we need out of the box.
 	
 #### Build assets for distribution
 
@@ -81,7 +81,7 @@ or
 
 ### SASS component and class naming conventions
 
-In our styling system every component is either an atom, a molecule or an organism as per the [https://bradfrost.com/blog/post/atomic-web-design/](Atomic Design) principles.
+In our styling system every component is either an atom, a molecule or an organism as per the [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) principles.
 
 The components are placed under the src/components` folder, where each component's name reflects their atomic level.
 
@@ -98,7 +98,7 @@ To make sure the class names in this styling system don't clash existing class n
 
 Following this logic, any reusable "utility" classes should have the `u` prefix. For instance:
 
-- `nhsd-u-visually-hidden`
+- `nhsd-u-sr-only`
 
 ## Licence
 The codebase is released under the MIT Licence, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.
