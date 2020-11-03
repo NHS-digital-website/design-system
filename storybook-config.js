@@ -10,5 +10,9 @@ module.exports = {
     foundations: "Foundations",
     typography: "Typography",
     colours: "Colours",
+    lab: "Lab",
+  },
+  heading: {
+    lab: "\n\n ## Lab",
   },
 };

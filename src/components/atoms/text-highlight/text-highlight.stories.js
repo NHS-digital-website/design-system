@@ -8,7 +8,7 @@ require('./_index.scss');
 require('../../../scss-core/base/_utils.scss');
 
 const componentName = 'Text highlight';
-const storyDescription = `Text highlight is for highlighting text in paragraphs.`;
+const storyDescription = `${sbConfig.heading.lab}`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/highlighter";
 
 // HTML`;
@@ -22,6 +22,7 @@ export default {
         component: storyDescription
       }
     },
+    argTypes: {}
   },
 };
 
@@ -30,62 +31,104 @@ const Template = (args) => {
   return template.render({ params: {...args} });
 };
 
-export const TextHighlight = Template.bind({});
+const TextHighlight = Template.bind({});
+
+export const LabComponent = Template.bind({});
+LabComponent.storyName = sbConfig.title.lab;
+LabComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode} ${LabComponent()}`,
+    },
+  },
+};
 
 export const TextHighlightDemo1 = () => {
-  var p = document.createElement('p');
-  p.classList.add('nhsd-body');
-  p.innerHTML = `${TextHighlight({
+  return TextHighlight({
     content: '/hello/...',
     classes: 'nhsd-a-text-highlight--bg-dark-grey nhsd-u-ff-mono nhsd-u-fw-regular'
-  })}`;
-  return p;
+  });
 };
-TextHighlightDemo1.storyName = 'Introduction';
+TextHighlightDemo1.storyName = 'Code snippet';
+TextHighlightDemo1.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode} ${TextHighlightDemo1()}`,
+    },
+  },
+};
 
 export const TextHighlightDemo2 = () => {
   return TextHighlight({
-    content: '/hello/...',
-    classes: 'nhsd-body nhsd-a-text-highlight--bg-dark-grey nhsd-u-ff-mono nhsd-u-fw-regular'
+    content: 'must',
+    classes: 'nhsd-a-text-highlight--bg-light-green'
   });
 };
-TextHighlightDemo2.storyName = 'Code snippet';
+TextHighlightDemo2.storyName = 'Green "must"';
+TextHighlightDemo2.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode} ${TextHighlightDemo2()}`,
+    },
+  },
+};
 
 export const TextHighlightDemo3 = () => {
   return TextHighlight({
-    content: 'must',
-    classes: 'nhsd-body nhsd-a-text-highlight--bg-light-green'
+    content: 'should',
+    classes: 'nhsd-a-text-highlight--bg-light-blue'
   });
 };
-TextHighlightDemo3.storyName = 'MOSCOW - "must"';
+TextHighlightDemo3.storyName = 'Blue "could"';
+TextHighlightDemo3.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode} ${TextHighlightDemo3()}`,
+    },
+  },
+};
 
 export const TextHighlightDemo4 = () => {
   return TextHighlight({
-    content: 'should',
-    classes: 'nhsd-body nhsd-a-text-highlight--bg-light-blue'
+    content: 'could',
+    classes: 'nhsd-a-text-highlight--bg-light-grey'
   });
 };
-TextHighlightDemo4.storyName = 'MOSCOW - "could"';
+TextHighlightDemo4.storyName = 'Grey "could"';
+TextHighlightDemo4.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode} ${TextHighlightDemo4()}`,
+    },
+  },
+};
 
 export const TextHighlightDemo5 = () => {
-  return TextHighlight({
-    content: 'could',
-    classes: 'nhsd-body nhsd-a-text-highlight--bg-light-grey'
-  });
-};
-TextHighlightDemo5.storyName = 'MOSCOW - "could"';
-
-export const TextHighlightDemo6 = () => {
   return TextHighlight({
     content: 'will not',
     classes: 'nhsd-a-text-highlight--bg-light-red'
   });
 };
-TextHighlightDemo6.storyName = 'MOSCOW - "will not"';
+TextHighlightDemo5.storyName = 'Red "will not"';
+TextHighlightDemo5.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode} ${TextHighlightDemo5()}`,
+    },
+  },
+};
 
 export const TextHighlightDemoAll = () => {
-  var p = document.createElement('p');
+  const p = document.createElement('p');
   p.classList.add('nhsd-body');
-  p.innerHTML = `Continually engineer e-business e-business before error-free e-commerce. Proactively synthesize extensive web-readiness for ${TextHighlightDemo6()} be tolerated. Progressively synthesize technically sound e-services whereas ${TextHighlightDemo3()} bleeding-edge methodologies. Seamlessly repurpose web-enabled ${TextHighlightDemo5()} applications after market-driven convergence. Rapidiously ${TextHighlightDemo4()} hello world.\n\nAssertively leverage ${TextHighlightDemo2()} existing vertical results.`;
+  p.innerHTML = `Continually engineer e-business e-business before error-free e-commerce. Proactively synthesize extensive web-readiness for ${TextHighlightDemo5()} be tolerated. Progressively synthesize technically sound e-services whereas ${TextHighlightDemo2()} bleeding-edge methodologies. Seamlessly repurpose web-enabled ${TextHighlightDemo4()} applications after market-driven convergence. Rapidiously ${TextHighlightDemo3()} hello world. Assertively leverage ${TextHighlightDemo1()} existing vertical results.`;
   return p;
+};
+TextHighlightDemoAll.storyName = 'Multiple highlights';
+TextHighlightDemoAll.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${TextHighlightDemoAll().outerHTML}`,
+    },
+  },
 };

@@ -7,7 +7,7 @@ import template from  './template.njk';
 require('./_index.scss');
 
 const componentName = 'Logo';
-const storyDescription = `The **NHS Digital logo** is available as an inline SVG for HTML, and also as an image file in SVG format.`;
+const storyDescription = `${sbConfig.heading.lab}`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/logo";
 
 // HTML`;
@@ -28,12 +28,12 @@ const Template = (args) => {
   return template.render({ params: {...args} });
 };
 
-export const Logo = Template.bind({});
-Logo.storyName = 'NHS Digital logo';
-Logo.parameters = {
+export const LabComponent = Template.bind({});
+LabComponent.storyName = sbConfig.title.lab;
+LabComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode} ${Logo()}`,
+      code: `${sourceCode} ${LabComponent()}`,
     }
   },
 };

@@ -8,6 +8,7 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-docs",
+    "@storybook/addon-notes",
     "@storybook/addon-controls",
     "@storybook/addon-a11y",
     "@storybook/addon-viewport",

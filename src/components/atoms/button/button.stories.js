@@ -7,7 +7,7 @@ import template from  './template.njk';
 require('./_index.scss');
 
 const componentName = 'Button';
-const storyDescription = `The button is the single most important call to action tool for users to perform actions.\n\nThe button component can be created using either an **&lt;a&gt;** or a **&lt;button&gt;** element - obviously the type of HTML tag used to create the component determines which attributes can be applied.`;
+const storyDescription = `The button component can be created using either an **&lt;a&gt;**, a **&lt;button&gt;**, or an **&lt;input&gt;** element - obviously the type of HTML tag used to create the component determines which relevant HTML attributes apply. ${sbConfig.heading.lab}`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/button";
 
 // HTML`;
@@ -61,15 +61,15 @@ const Template = (args) => {
 };
 
 // Story 1 - Introduction / Playground
-export const Introduction = Template.bind({});
-Introduction.storyName = 'Introduction';
-Introduction.args = {
+export const LabComponent = Template.bind({});
+LabComponent.storyName = sbConfig.title.lab;
+LabComponent.args = {
   label: 'Read more about NHS Digital',
 };
-Introduction.parameters = {
+LabComponent.parameters = {
   docs: {
     source: {
-        code: `${sourceCode} ${Introduction(Introduction.args)}`,
+        code: `${sourceCode} ${LabComponent(LabComponent.args)}`,
     }
   },
 };
@@ -77,13 +77,12 @@ Introduction.parameters = {
 export const PrimaryButton = Template.bind({});
 PrimaryButton.storyName = 'Primary button';
 PrimaryButton.args = {
-  classes: 'nhsd-a-button',
   label: 'Take primary action',
 };
 PrimaryButton.parameters = {
   docs: {
     description: {
-      story: 'In most cases **primary button**s are used as the main means of user interaction.',
+      story: '',
     },
     source: {
       code: `${sourceCode}${PrimaryButton(PrimaryButton.args)}`,
@@ -100,7 +99,7 @@ SecondaryButton.args = {
 SecondaryButton.parameters = {
   docs: {
     description: {
-      story: 'When a hierarchy is required to signify level of importance among button actions, a **secondary button** can help to signify less important user action.',
+      story: '',
     },
     source: {
       code: `${sourceCode}${SecondaryButton(SecondaryButton.args)}`,
@@ -117,7 +116,7 @@ StartButton.args = {
 StartButton.parameters = {
   docs: {
     description: {
-      story: 'A **start button** - a version of **secondary button** - should be used when the user action is to take the user on a journey or series of tasks.',
+      story: '',
     },
     source: {
       code: `${sourceCode}${StartButton(StartButton.args)}`,
@@ -134,7 +133,7 @@ CancelButton.args = {
 CancelButton.parameters = {
   docs: {
     description: {
-      story: 'A **cancel button** - also a version of **secondary button** - should be used when the user is given the option to cancel an action - for instance abort submitting a form.',
+      story: '',
     },
     source: {
       code: `${sourceCode}${CancelButton(CancelButton.args)}`,
@@ -154,7 +153,7 @@ TertiaryButton.parameters = {
   },
   docs: {
     description: {
-      story: 'A **tertiary button** should be used on dark backgrounds. (Use the **Canvas** for preview.)',
+      story: 'The **tertiary button** should be used on dark backgrounds. (Use the **Canvas** for preview.)',
     },
     source: {
       code: `${sourceCode}${TertiaryButton(TertiaryButton.args)}`,
@@ -209,7 +208,7 @@ DisabledButton.args = {
 DisabledButton.parameters = {
   docs: {
     description: {
-      story: 'When `<button>` and `<input>` elements are used to create the button, it can be disabled to prevent it from reacting to user interaction. \n\nLink buttons using `<a>` element cannot be disabled.',
+      story: '',
     },
     source: {
       code: `${sourceCode}${DisabledButton(DisabledButton.args)}`,

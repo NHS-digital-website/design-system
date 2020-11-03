@@ -13,15 +13,15 @@
 $-base-colour: nhsd-colours.get("blue");
 $-active-colour: nhsd-colours.get("black");
 $-highlight-colour: nhsd-colours.get("yellow");
-$-line-thickness: .15rem;
+$-line-thickness: .13rem;
 
 $root: ".nhsd-a-link";
 #{$root} {
   position: relative;
-  padding-top: $-line-thickness * .3;
+  padding-top: $-line-thickness * 1.5;
   padding-bottom: $-line-thickness;
   background-repeat: no-repeat;
-  background-position: 0 102%;
+  background-position: 0 100%;
   font-family: vars.$font-family;
   text-decoration: none;
   transition-property: background-color, color;

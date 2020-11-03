@@ -17,18 +17,16 @@
 
 // Private properties
 $-font-colour: nhsd-colours.get("dark-grey");
-$-desktop-font-size: 1.125rem;
-$-mobile-font-size: 1rem;
-$-line-height: 1.4;
+$-desktop-font-size: 1rem; // 18px
+$-mobile-font-size: 0.89rem; // 16px
 
 .nhsd-body {
-  max-width: 53.125rem;
+  max-width: 47.22rem;
   font-family: vars.$font-family;
   font-size: $-desktop-font-size;
-  line-height: $-line-height;
   font-kerning: auto;
-  letter-spacing: -.01875rem;
-  margin: 0 0 1.25rem;
+  letter-spacing: -.0167rem;
+  margin: 0 0 1.11rem;
   color: $-font-colour;
 
   @include mq.mq($until: tablet) {

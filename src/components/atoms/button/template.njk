@@ -15,16 +15,17 @@
 
 {%- if params.el == 'a' %}
   {# Set URL and target #}
-  {% set href="#" %}
-  {% set target = "" %}
+  {%- set href="#" -%}
+  {%- set target = "" -%}
   {%- if params.href -%}
-    {% set href = params.href %}
+    {%- set href = params.href -%}
   {%- endif -%}
   {%- if params.target and params.target == '_blank' -%}
-    {% set target = params.target %}
+    {%- set target = params.target -%}
   {%- endif -%}
-<a class="{{ classNames }}" href="{{ href }}" aria-label="{{ label }}" {%- if target.length %} target="{{ target }}" aria-description=" (external link, opens in a new tab)" rel="external" {% endif -%}>
+<a class="{{ classNames }}" href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external" {% endif -%}>
   <span class="nhsd-a-button__label">{{ label }}</span>
+  {% if target.length %}<span class="nhsd-u-sr-only"> (external link, opens in a new tab)</span>{% endif %}
 </a>
 {% elseif params.el == 'input' %}
 <input type="submit" value="{{ label }}" class="{{ classNames }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}/>

@@ -14,18 +14,18 @@ $root: ".nhsd-a-button";
   box-sizing: border-box;
   display: inline-flex;
   position: relative;
-  max-width: 17.5rem;
-  margin-bottom: 2rem;
-  padding: .78125rem 1.175rem;
-  border: .125rem solid nhsd-colours.get("blue");
-  border-radius: 1.375rem;
+  max-width: 15.55rem;
+  margin-bottom: 1.78rem;
+  padding: .69rem 1.04rem;
+  border: .12rem solid nhsd-colours.get("blue");
+  border-radius: 1.22rem;
   outline: 0;
   box-shadow: none;
 
   font-family: vars.$font-family;
-  font-size: .875rem;
+  font-size: .78rem;
   font-weight: 600;
-  line-height: 1.125;
+  line-height: 1.11;
 
   text-align: center;
   text-decoration: none;
@@ -51,7 +51,7 @@ $root: ".nhsd-a-button";
   &:not(:disabled) {
     &:focus,
     &:hover {
-      box-shadow: 0 0 0 .1875rem nhsd-colours.get("yellow");
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
     }
 
     &:active {

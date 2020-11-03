@@ -7,7 +7,7 @@ import template from  './template.njk';
 require('./_index.scss');
 
 const componentName = 'Link';
-const storyDescription = `Links help the user to navigate to parts of the page, different pages of the website - or other websites. Links don't exist in isolation - they normally mix in with other (non-interactive) text content - looking a little special to show the user they are clickable, but not too different from regular text, so that the content on the page is readable without too much distraction.\n\nIt is important to note that the link atom works off the typographic settings it inherits from their parent elements. This is to make sure that the link text matches the surrounding text content's styling, and for this reason links don'\t set any font and text related styles themselves.\n\nOn the contrary, look at this link sitting on it's own - looking rather fabulous:`;
+const storyDescription = `It is important to note that the link atom works off the typographic settings it inherits from their parent elements. This is to make sure that the link text matches the surrounding text content's styling, and for this reason links don'\t set any font and text related styles themselves. ${sbConfig.heading.lab}`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/link";\n\n// HTML`;
 
 // Component defaults
@@ -32,22 +32,20 @@ const Template = (args) => {
   return template.render({ params: {...args} });
 };
 
-const Link = Template.bind({});
-
-export const SimpleLink = () => {
-  var p = document.createElement('p');
-  p.classList.add('nhsd-body');
-  p.innerHTML = `${Link({ label: 'Click to read more'})}`;
-  return p;
+export const LabComponent = Template.bind({});
+LabComponent.args = {
+  label: 'Click to read more',
 };
-SimpleLink.storyName = 'Introduction';
-SimpleLink.parameters = {
+LabComponent.storyName = sbConfig.title.lab;
+LabComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode} ${Link({ label: 'Read more about links'})} `,
+      code: `${sourceCode} ${LabComponent(LabComponent.args)} `,
     },
   },
 };
+
+const Link = Template.bind({});
 
 export const LinkInText = () => {
   var p = document.createElement('p');
@@ -59,7 +57,7 @@ LinkInText.storyName = 'Link in (con)text';
 LinkInText.parameters = {
   docs: {
     description: {
-      story: 'When the link sits with some text, it takes up the typographic settings from the parent element, so it blends in with the surrounding text, yet remains easily recognisable as an interactive element.',
+      story: 'When the link sits with some text, it takes up the typographic settings from the parent element, so it blends in with the surrounding text.',
     },
     source: {
       code: `${sourceCode} ${Link({ label: 'actualize premier vortals'})} `,
@@ -77,7 +75,7 @@ VeryLongLink.storyName = 'A ridiculously long link';
 VeryLongLink.parameters = {
   docs: {
     description: {
-      story: 'Links should never be too long, but when the inevitable happens, they have to behave like the text surrounding them. On top of that they also have to retain their styling over multiple lines.',
+      story: 'Links retain their styling over multiple lines.',
     },
     source: {
       code: `${sourceCode} ${Link({ label: 'so we decided to write down the longest link label we could think of - just to demonstrate that the readablity, functionality and aesthetics of the link and its styling is not affected in a negative way'})} `,

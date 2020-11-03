@@ -11,14 +11,17 @@
 {%- endif -%}
 
 {# Set URL and target #}
-{% set href="#" %}
-{% set target = "" %}
-{%- if params.href -%}
-  {% set href = params.href %}
-{%- endif -%}
-{%- if params.external -%}
-  {% set external = true %}
-{%- endif -%}
+{%- set href="#" %}
+{% set target = "" -%}
+
+{%- if params.href %}
+  {%- set href = params.href -%}
+{% endif -%}
+
+{%- if params.external %}
+  {%- set external = true -%}
+{% endif -%}
+
 <a  class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>{{ label }}
   {%- if external %}<span class="nhsd-u-sr-only"> (external link, opens in a new window)</span>{% endif -%}
 </a>
