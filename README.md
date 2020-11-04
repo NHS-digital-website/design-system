@@ -67,13 +67,13 @@ To deploy the Storybook containing the UI toolkit components, the UI developer h
 
 **The `dist` and `package` build tasks are the following:**
 
-	$ gulp dist:build
-    $ gulp dist:build:watch
-    $ gulp dist:build:prod:watch
+	$ npm run dist:build
+    $ npm run dist:build:watch
+    $ npm run dist:build:prod
 
-    $ gulp package:build
-    $ gulp package:build:watch
-    $ gulp package:build:prod:watch
+    $ npm run package:build
+    $ npm run package:build:watch
+    $ npm run package:build:prod
 
 ### SASS component and class naming conventions
 
