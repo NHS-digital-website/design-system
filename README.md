@@ -104,6 +104,9 @@ Following this logic, any reusable "utility" classes should have the `u` prefix.
 - Add filename versioning mechanism to `dist` tasks
 - Add NVM development version enforcing task
 - Document Sass file export versions (Components only and full version)
+- Tidy up - make 1 shared path config for Gulp and Storybook
+- Document how Storybook is configured, and where the stories are placed in the project
+- Document the component and styling folder and file structure + strategy
 
 ## Licence
 The codebase is released under the MIT Licence, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.

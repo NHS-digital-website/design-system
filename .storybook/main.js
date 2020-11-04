@@ -3,8 +3,8 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+    "../src/nhsd/**/*.stories.mdx",
+    "../src/nhsd/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-docs",
@@ -38,7 +38,7 @@ module.exports = {
           sassOptions: {
             includePaths: [
               'node_modules',
-              path.resolve(__dirname, '../src'),
+              path.resolve(__dirname, '../src/nhsd'),
             ],
           },
         },
@@ -49,7 +49,7 @@ module.exports = {
       new StyleLintPlugin({
         configFile: '.stylelintrc.yml',
         context: 'node_modules',
-        files: '../src/components/**/*.scss',
+        files: '../src/nhsd/components/**/*.scss',
         failOnError: false,
       }),
     );

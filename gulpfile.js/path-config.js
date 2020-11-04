@@ -2,7 +2,7 @@ const ENV = require('./build-env')
 
 module.exports = (() => {
   // Main paths
-  const SOURCE_PATH = './src';
+  const SOURCE_PATH = './src/nhsd';
   const DIST_PATH = './dist';
   const PACKAGE_PATH = './package';
 

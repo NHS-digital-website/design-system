@@ -1,4 +1,4 @@
-import "../src/scss-core/base/_base.scss";
+import "../src/nhsd/scss-core/base/_base.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
