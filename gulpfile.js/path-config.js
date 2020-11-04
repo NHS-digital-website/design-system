@@ -3,7 +3,6 @@ const ENV = require('./build-env')
 module.exports = (() => {
   // Main paths
   const SOURCE_PATH = './src';
-  const LAB_PATH = './lab';
   const DIST_PATH = './dist';
   const PACKAGE_PATH = './package';
 
@@ -18,18 +17,10 @@ module.exports = (() => {
       static: `${SOURCE_PATH}/static`,
     },
 
-    lab: {
-      root: `${LAB_PATH}`,
-      assets: `${LAB_PATH}/assets`,
-      icons: `${LAB_PATH}/assets/icons`,
-      images: `${LAB_PATH}/assets/images`,
-      stylesheets: `${LAB_PATH}/assets/stylesheets`,
-      scripts: `${LAB_PATH}/assets/scripts`,
-    },
-
     dist: {
       root: DIST_PATH,
       static: `${DIST_PATH}/static`,
+      stylesheets: `${DIST_PATH}/stylesheets`,
     },
 
     package: {

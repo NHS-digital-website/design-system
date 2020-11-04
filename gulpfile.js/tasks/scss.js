@@ -1,6 +1,4 @@
-/* global ENV PATHS BROWSER_SYNC */
-
-const reload = BROWSER_SYNC.reload;
+/* global ENV PATHS */
 
 const gulp = require('gulp')
 const sass = require('gulp-sass')
@@ -13,11 +11,7 @@ const autoprefixer = require('gulp-autoprefixer')
 sass.compiler = require('dart-sass')
 
 const getDestPath = () => {
-  let destPath = PATHS.lab.stylesheets;
-  if (ENV.isTargetDist()) {
-    destPath = PATHS.dist.root;
-  }
-  return destPath;
+  return PATHS.dist.stylesheets;
 };
 
 gulp.task('scss:lint', () => {
@@ -42,8 +36,5 @@ gulp.task('scss:compile', () => {
     .pipe(gulpIf(ENV.isModeProd(), csso()))
     .pipe(gulpIf(ENV.isModeProd(), autoprefixer()))
     .pipe(gulpIf(ENV.isModeDev(), sourcemaps.write('./')))
-    .pipe(gulp.dest(getDestPath()))
-    .pipe(gulpIf(ENV.isModeDev() && ENV.isTargetLab(), reload({
-      stream: true
-    })));
+    .pipe(gulp.dest(getDestPath()));
 });

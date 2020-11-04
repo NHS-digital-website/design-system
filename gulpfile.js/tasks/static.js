@@ -4,11 +4,7 @@ const gulp = require('gulp')
 const newer = require('gulp-newer')
 
 const getDestPath = () => {
-  let destPath = PATHS.lab.root;
-  if (ENV.isTargetDist()) {
-    destPath = PATHS.dist.static;
-  }
-  return destPath;
+  return PATHS.dist.static;
 };
 
 gulp.task('static:copy', (done) => {

@@ -14,15 +14,19 @@
     "node": "12.6.2"
   },
   "scripts": {
-    "start": "npm run lab",
-    "sb": "npm run storybook",
-    "sb:deploy": "build-storybook && gulp s3:sync",
-    "lab": "gulp build:lab",
-    "build:lab": "gulp build:lab -buildMode=prod",
-    "build:dist": "gulp build:dist -buildMode=prod",
-    "build:package": "gulp build:package -buildMode=prod",
+    "start": "npm run storybook",
+
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook --no-dll",
+    "storybook:build:deploy": "build-storybook --no-dll && gulp s3:sync",
+
+    "dist:build": "gulp build:dist",
+    "dist:build:watch": "gulp build:dist:watch",
+    "dist:build:prod": "gulp build:dist -buildMode=prod",
+
+    "package:build": "gulp build:package",
+    "package:build:watch": "gulp build:package:watch",
+    "package:build:prod": "gulp build:package -buildMode=prod"
   },
   "repository": {
     "type": "git",
@@ -49,7 +53,6 @@
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
-    "browser-sync": "^2.26.13",
     "chalklet": "^1.0.0",
     "css-loader": "^5.0.0",
     "dart-sass": "^1.25.0",
@@ -65,15 +68,13 @@
     "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",
     "gulp-newer": "^1.4.0",
-    "gulp-nunjucks": "^5.1.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify-es": "^2.0.0",
     "nunjucks": "^3.2.2",
     "nunjucks-loader": "^3.0.0",
-    "react-is": "^17.0.1",
-    "require-dir": "^1.2.0",
+    "react-is": "^16.8.0",
     "sass-loader": "^10.0.4",
     "sass-mq": "^5.0.1",
     "style-loader": "^2.0.0",
@@ -81,8 +82,6 @@
     "stylelint-config-gds": "^0.1.0",
     "stylelint-order": "^4.1.0",
     "stylelint-webpack-plugin": "^2.1.1",
-    "webpack-glob-entries": "^1.0.1",
-    "webpack-glob-folder-entries": "^1.0.0",
     "webpack-stream": "^6.1.0"
   },
   "browserslist": [

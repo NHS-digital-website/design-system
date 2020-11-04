@@ -1,6 +1,4 @@
-/* global ENV PATHS BROWSER_SYNC */
-
-const reload = BROWSER_SYNC.reload;
+/* global ENV PATHS */
 
 const gulp = require('gulp')
 const gulpIf = require('gulp-if')
@@ -11,11 +9,7 @@ const uglify = require('gulp-uglify-es').default
 const webpackStream = require('webpack-stream')
 
 const getDestPath = () => {
-  let destPath = PATHS.lab.scripts;
-  if (ENV.isTargetDist()) {
-    destPath = PATHS.dist.root;
-  }
-  return destPath;
+  return PATHS.dist.root;
 };
 
 gulp.task('js:lint', () => {
@@ -53,9 +47,6 @@ gulp.task('js:compile', () => {
     .pipe(gulpIf(ENV.isModeDev(), sourcemaps.write('.')))
     .pipe(gulpIf(ENV.isModeProd(), uglify()))
     .pipe(eol())
-    .pipe(gulp.dest(getDestPath()))
-    .pipe(reload({
-      stream: true
-    }));
+    .pipe(gulp.dest(getDestPath()));
 });
 

@@ -4,25 +4,18 @@ const gulp = require('gulp')
 const del = require('del')
 
 const getDestPath = () => {
-  let destPath = PATHS.lab.root;
-  if (ENV.isTargetDist()) {
-    destPath = PATHS.dist.root;
-  } else if (ENV.isTargetPackage()) {
+  let destPath = PATHS.dist.root;
+  if (ENV.isTargetPackage()) {
     destPath = PATHS.package.root;
   }
-  console.log('dest path: ', destPath, ENV.isTargetDist());
   return destPath;
 };
 
 const getProtectedFiles = () => {
   let protectedFiles = [
-    `!${PATHS.lab.root}/README.md`
+    `!${PATHS.dist.root}/README.md`
   ];
-  if (ENV.isTargetDist()) {
-    protectedFiles = [
-      `!${PATHS.dist.root}/README.md`
-    ]
-  } else if (ENV.isTargetPackage()) {
+  if (ENV.isTargetPackage()) {
     protectedFiles = [
       `!${PATHS.package.root}/README.md`,
       `!${PATHS.package.root}/package.json`

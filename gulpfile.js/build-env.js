@@ -1,6 +1,5 @@
 module.exports = (() => {
   const BUILD_TARGETS = {
-    LAB: 'lab',
     DIST: 'dist',
     PACKAGE: 'package',
   };
@@ -10,7 +9,7 @@ module.exports = (() => {
     PROD: 'prod',
   };
 
-  const DEFAULT_BUILD_TARGET = BUILD_TARGETS.LAB;
+  const DEFAULT_BUILD_TARGET = BUILD_TARGETS.DIST;
   const DEFAULT_BUILD_MODE = BUILD_MODES.DEV;
   let buildTarget = DEFAULT_BUILD_TARGET;
 
@@ -19,15 +18,10 @@ module.exports = (() => {
   };
 
   const setBuildTarget = (newBuildTarget) => {
-    console.log('[build-env] - setBuildTarget() - newBuildTarget: ', newBuildTarget);
     if(Object.values(BUILD_TARGETS).indexOf(newBuildTarget) > -1) {
       buildTarget = newBuildTarget;
     }
   };
-
-  const isTargetLab = () => {
-    return getBuildTarget() === ENV.BUILD_TARGETS.LAB;
-  }
 
   const isTargetDist = () => {
     return getBuildTarget() === ENV.BUILD_TARGETS.DIST;
@@ -68,7 +62,6 @@ module.exports = (() => {
   // Return environment constants
   return {
     BUILD_TARGETS,
-    isTargetLab,
     isTargetDist,
     isTargetPackage,
     getBuildTarget,

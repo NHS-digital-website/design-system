@@ -1,5 +1,5 @@
 // Load storybook config
-import * as sbConfig from '../../../../storybook-config.js';
+import * as sbConfig from '../../../../.storybook/storybook-config.js';
 
 // Load template file
 import template from  './template.njk';

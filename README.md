@@ -32,8 +32,6 @@ The best way to ensure that you have the correct version of Node and NPM when yo
 
 - src
     - Source for everything
-- (lab)
-    - Laboratory code for working on the UI components and styling fundamentals
 - dist
     - Distribution - production ready, versioned static assets ready to be pushed to a CDN
 - package
@@ -46,38 +44,36 @@ Check the `package.json` file for NPM scripts, and make sure you check out the G
 #### Run Storybook for active component development
 
 	$ npm run storybook
+
+or
+
+    $ npm start
+
+#### Build static version of Storybook
+
+	$ npm run storybook:build
 	
-#### Deploy Storybook to S3
+#### Build & deploy Storybook to S3
 
 The latest version of the Storybook instance is available at [http://sb.ui-toolkit.digital.nhs.uk.s3-website.eu-west-2.amazonaws.com/](http://sb.ui-toolkit.digital.nhs.uk.s3-website.eu-west-2.amazonaws.com/). This is used for development, QA, and demo purposes only, but not intended to act as documentation. 
 
 To deploy the Storybook containing the UI toolkit components, the UI developer has to have AWS access to the `sb.ui-toolkit.digital.nhs.uk` S3 bucket, and their credentials and the bucket details have to be added to the repository. The documentation about the bucket details can be found on the (NHS Digital Confluence)[https://nhsd-confluence.digital.nhs.uk/display/CW/Brand+-+UI+toolkit+AWS+setup]. Use the `aws-config.sample.json` file to configure AWS. When the AWS config is correctly set up, the following command builds a static version Storybook with the UI components, and it syncs the files to the S3 bucket:
 
-    $ npm run sb:deploy
-
-#### (Lab)
-
-> Before Storybook was implemented, we used the Lab to work on the components. Lab most probably will be removed from the project, as Storybook seems to do everything we need out of the box.
+    $ npm run storybook:build:deploy
 	
-#### Build assets for distribution
+#### Dist and Package tasks
 
-> Note this is work in progress - when we need distribution vis CDN delivery, we'll tailor this task to our needs. For now this is only a placeholder task.
+> Note the `dist` and `package` build tasks are work in progress stage - when we need distribution via CDN and NPM delivery, we'll tailor these task to our needs.
 
-	$ gulp build:dist --buildMode=prod
+**The `dist` and `package` build tasks are the following:**
 
-or
+	$ gulp dist:build
+    $ gulp dist:build:watch
+    $ gulp dist:build:prod:watch
 
-    $ npm run build:dist
-	
-#### Build assets for distribution
-
-> Note this is work in progress - when we need distribution via NPM, we'll tailor this task to our needs. For now this is only a placeholder task.
-
-	$ gulp build:package --buildMode=prod
-
-or
-
-    $ npm run build:package
+    $ gulp package:build
+    $ gulp package:build:watch
+    $ gulp package:build:prod:watch
 
 ### SASS component and class naming conventions
 
@@ -91,14 +87,23 @@ To make sure the class names in this styling system don't clash existing class n
 
 #### So after the system wide prefix the component class names will look the following:
 
-- **Atoms / Button**: `nhsd-a-button`
-- **Molecules / Menu bar**: `nhsd-m-menu-bar`
-- **Organisms / Header**: `nhsd-o-header`
-- **Templates / News hub**: `nhsd-t-news-hub`
+- **Atoms / Button**: `.nhsd-a-button`
+- **Molecules / Menu bar**: `.nhsd-m-menu-bar`
+- **Organisms / Header**: `.nhsd-o-header`
+- **Templates / News hub**: `.nhsd-t-news-hub`
 
 Following this logic, any reusable "utility" classes should have the `u` prefix. For instance:
 
-- `nhsd-u-sr-only`
+- `.nhsd-u-sr-only`
+
+## Actions to take
+
+- Introduce Typescript (involved replacing exiting JS code with TS code)
+- Add TS compile and linting tasks back (don't compile stories)
+- Define `dist` tasks and build workflow
+- Add filename versioning mechanism to `dist` tasks
+- Add NVM development version enforcing task
+- Document Sass file export versions (Components only and full version)
 
 ## Licence
 The codebase is released under the MIT Licence, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.

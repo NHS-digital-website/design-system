@@ -1,4 +1,4 @@
-/* global ENV PATHS */
+/* global ENV PATHS VERSION */
 
 const gulp = require('gulp')
 const chalklet = require('chalklet')
@@ -21,12 +21,6 @@ const logInfo = () => {
   console.log(`\n    version: ${VERSION} | build target: ${ENV.getBuildTarget()} | build mode: ${ENV.getBuildMode()}`);
   console.log('\n\n\n');
 };
-
-gulp.task('init:lab', (done) => {
-  ENV.setBuildTarget(ENV.BUILD_TARGETS.LAB);
-  logInfo();
-  done();
-});
 
 gulp.task('init:dist', (done) => {
   ENV.setBuildTarget(ENV.BUILD_TARGETS.DIST);
