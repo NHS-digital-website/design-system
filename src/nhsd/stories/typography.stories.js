@@ -41,3 +41,60 @@ Paragraph.parameters = {
     },
   },
 };
+
+export const List = () => {
+  const div = document.createElement('div');
+  div.innerHTML = `<ul class="nhsd-list">
+  <li>collaboratively maintain one-to-one applications</li>
+  <li>synergistically grow integrated experiences through cooperative mindshare</li>
+  <li>competently matrix revolutionary experiences through</li>
+  <li>efficiently morph alternative innovation with</li>
+</ul>`;
+  return div;
+};
+List.storyName = 'List';
+List.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${List().innerHTML}`,
+    },
+  },
+};
+
+export const BulletList = () => {
+  const div = document.createElement('div');
+  div.innerHTML = `<ul class="nhsd-list nhsd-list--bullet">
+  <li>collaboratively maintain one-to-one applications</li>
+  <li>synergistically grow integrated experiences through cooperative mindshare</li>
+  <li>competently matrix revolutionary experiences through</li>
+  <li>efficiently morph alternative innovation with</li>
+</ul>`;
+  return div;
+};
+BulletList.storyName = 'Bullet list';
+BulletList.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${BulletList().innerHTML}`,
+    },
+  },
+};
+
+export const NumberedList = () => {
+  const div = document.createElement('div');
+  div.innerHTML = `<ol class="nhsd-list nhsd-list--number">
+  <li>collaboratively maintain one-to-one applications</li>
+  <li>synergistically grow integrated experiences through cooperative mindshare</li>
+  <li>competently matrix revolutionary experiences through</li>
+  <li>efficiently morph alternative innovation with</li>
+</ol>`;
+  return div;
+};
+NumberedList.storyName = 'Numbered list';
+NumberedList.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${NumberedList().innerHTML}`,
+    },
+  },
+};

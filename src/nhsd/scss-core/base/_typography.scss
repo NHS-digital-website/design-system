@@ -19,16 +19,56 @@
 $-font-colour: nhsd-colours.get("dark-grey");
 $-desktop-font-size: 1rem; // 18px
 $-mobile-font-size: .89rem; // 16px
+$-desktop-line-height: 1.39; // 25px
+$-mobile-line-height: 1.5; // 24px
+$-desktop-margin-bottom: 1.11rem;
+$-mobile-margin-bottom: .8333rem;
 
-.nhsd-body {
-  margin: 0 0 1.11rem;
+%typo-basics {
+  margin: 0 0 $-desktop-margin-bottom;
   color: $-font-colour;
   font-family: vars.$font-family;
   font-size: $-desktop-font-size;
   font-kerning: auto;
   letter-spacing: -.0167rem;
+  line-height: $-desktop-line-height;
 
   @include mq.mq($until: tablet) {
+    margin-bottom: $-mobile-margin-bottom;
     font-size: $-mobile-font-size;
+    line-height: $-mobile-line-height;
+  }
+}
+
+.nhsd-body {
+  @extend %typo-basics;
+}
+
+.nhsd-list {
+  @extend %typo-basics;
+  padding-left: 0;
+  list-style-type: none;
+
+  li {
+    &:not(:last-of-type) {
+      margin: 0 0 .555rem;
+    }
+  }
+
+  &--bullet {
+    list-style-type: disc;
+  }
+
+  &--number {
+    list-style-type: decimal;
+  }
+
+  &--bullet,
+  &--number {
+    margin-left: 1rem;
+
+    li {
+      padding-left: .5rem;
+    }
   }
 }

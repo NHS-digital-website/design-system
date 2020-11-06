@@ -9,6 +9,10 @@
 @use "scss-core/base/typography";
 @use "scss-core/base/utils";
 
+// Media Queries and breakpoints
+@use "scss-core/settings/mq-breakpoints";
+@use "sass-mq/mq" as mq;
+
 // Private properties
 $-base-colour: nhsd-colours.get("blue");
 $-active-colour: nhsd-colours.get("black");
@@ -18,7 +22,7 @@ $-line-thickness: .13rem;
 $root: ".nhsd-a-link";
 #{$root} {
   position: relative;
-  padding-top: $-line-thickness * 1.75;
+  padding-top: $-line-thickness * .3;
   padding-bottom: $-line-thickness;
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -46,5 +50,9 @@ $root: ".nhsd-a-link";
     color: $-base-colour;
     background-color: transparent;
     background-size: 0 $-line-thickness;
+  }
+
+  @include mq.mq($until: tablet) {
+    padding-top: $-line-thickness * 1.2;
   }
 }

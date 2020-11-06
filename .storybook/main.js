@@ -49,7 +49,7 @@ module.exports = {
       new StyleLintPlugin({
         configFile: '.stylelintrc.yml',
         context: 'node_modules',
-        files: '../src/nhsd/components/**/*.scss',
+        files: '../src/nhsd/**/*.scss',
         failOnError: false,
       }),
     );
