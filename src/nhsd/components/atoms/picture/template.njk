@@ -1,0 +1,20 @@
+{# Set classes #}
+{%- set classNames = "nhsd-a-picture" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{%- if params.sourceSet and params.alt %}
+<picture class="{{ classNames }}">
+{%- for source in params.sourceSet %}
+{%-if source.media %}
+  <source media="{{ source.media }}" srcset="{{ source.url }}">
+{%- endif -%}
+{%- if source.last or  not source.media %}
+  <img src="{{ source.url }}" alt="{{ params.alt }}">
+{% endif -%}
+{% endfor -%}
+</picture>
+{% else %}
+No image source found.
+{% endif -%}
