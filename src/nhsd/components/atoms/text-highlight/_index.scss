@@ -8,9 +8,9 @@
 // Base
 @use "scss-core/base/utils";
 
-$root: ".nhsd-a-text-highlight";
+$-root: ".nhsd-a-text-highlight";
 
-#{$root} {
+#{$-root} {
   display: inline;
   padding: .04rem .11rem;
   color: nhsd-colours.get("black");

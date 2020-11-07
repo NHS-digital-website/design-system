@@ -9,7 +9,7 @@ require('../../../scss-core/base/_utils.scss');
 
 const componentName = 'Text highlight';
 const storyDescription = `${sbConfig.heading.lab}`;
-const sourceCode = `// Sass import \n@use "nhsd/components/atoms/highlighter";
+const sourceCode = `// Sass import \n@use "nhsd/components/atoms/text-highlight";
 
 // HTML`;
 

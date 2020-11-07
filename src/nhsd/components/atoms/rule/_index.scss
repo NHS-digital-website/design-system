@@ -1,0 +1,10 @@
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+$-root: ".nhsd-a-rule";
+
+#{$-root} {
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid nhsd-colours.get("mid-grey-20-tint");
+}

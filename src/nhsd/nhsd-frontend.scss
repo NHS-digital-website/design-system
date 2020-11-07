@@ -1,8 +1,5 @@
 // Base styles
-@use "scss-core/base/_base";
+@use "scss-core/base/base";
 
-// Component styling
-@use "components/atoms/logo";
-@use "components/atoms/link";
-@use "components/atoms/button";
-@use "components/atoms/text-highlight";
+// Atoms
+@use "components/atoms";
