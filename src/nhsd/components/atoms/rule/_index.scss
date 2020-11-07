@@ -1,6 +1,7 @@
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
 
+// Private properties
 $-root: ".nhsd-a-rule";
 
 #{$-root} {

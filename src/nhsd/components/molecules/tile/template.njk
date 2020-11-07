@@ -1,0 +1,25 @@
+{%- set config = params -%}
+
+{# Set classes #}
+{%- set classNames = "nhsd-m-tile" -%}
+{%- if config.classes -%}
+  {% set classNames = classNames + " " + config.classes %}
+{%- endif -%}
+<article class="{{ classNames }}">
+  {%- if config.picture|length %}
+    {%- set params = config.picture -%}
+    {% include "../../atoms/picture/template.njk" %}
+    {%- set params = config -%}
+  {% endif -%}
+  <div class="nhsd-m-tile__content-box">
+    <h1 class="nhsd-heading-m">{{ config.heading | safe }}</h1>
+    {% if config.body|length -%}
+    <p class="nhsd-body nhsd-m-tile__body">{{ config.body | safe }}</p>
+    {%- endif %}
+    {%- if config.button|length %}
+      {%- set params = config.button -%}
+      {% include "../../atoms/button/template.njk" %}
+      {%- set params = config -%}
+    {% endif -%}
+  </div>
+</article>

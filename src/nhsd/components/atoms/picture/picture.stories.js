@@ -21,7 +21,7 @@ export default {
         component: storyDescription
       }
     },
-    notes: `## Basic rules:
+    notes: `${sbConfig.heading.basicRules}
   - Image aspect ratios: 16:9 or 1:1
   - Border radius: 6px (0.333rem)
   - Picture corner variations:

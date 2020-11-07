@@ -14,12 +14,12 @@
 @use "sass-mq/mq" as mq;
 
 // Private properties
+$-root: ".nhsd-a-link";
 $-base-colour: nhsd-colours.get("blue");
 $-active-colour: nhsd-colours.get("black");
 $-highlight-colour: nhsd-colours.get("yellow");
 $-line-thickness: .13rem;
 
-$-root: ".nhsd-a-link";
 #{$-root} {
   position: relative;
   padding-top: $-line-thickness * .3;

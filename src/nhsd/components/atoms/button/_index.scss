@@ -9,7 +9,9 @@
 @use "scss-core/settings/mq-breakpoints";
 @use "sass-mq/mq" as mq;
 
+// Private properties
 $-root: ".nhsd-a-button";
+
 #{$-root} {
   box-sizing: border-box;
   display: inline-flex;

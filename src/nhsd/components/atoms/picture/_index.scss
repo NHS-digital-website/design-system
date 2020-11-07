@@ -1,6 +1,8 @@
-$-root: ".nhsd-a-picture";
+// Settings
+@use "scss-core/settings/vars";
 
-$-border-radius: .333rem;
+// Private properties
+$-root: ".nhsd-a-picture";
 
 #{$-root} {
   display: block;
@@ -15,11 +17,11 @@ $-border-radius: .333rem;
   }
 
   &--round-corners {
-    border-radius: $-border-radius;
+    border-radius: vars.$border-radius;
   }
 
   &--round-top-corners {
-    border-radius: $-border-radius $-border-radius 0 0;
+    border-radius: vars.$border-radius vars.$border-radius 0 0;
   }
 
   img {

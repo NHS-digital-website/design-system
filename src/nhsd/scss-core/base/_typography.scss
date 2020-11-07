@@ -26,15 +26,20 @@ $-mobile-margin-bottom: .8333rem;
 
 %typo-basics {
   margin: 0 0 $-desktop-margin-bottom;
-  color: $-font-colour;
   font-family: vars.$font-family;
-  font-size: $-desktop-font-size;
   font-kerning: auto;
+
+  @include mq.mq($until: tablet) {
+    margin-bottom: $-mobile-margin-bottom;
+  }
+}
+
+%typo-body-basics {
+  font-size: $-desktop-font-size;
   letter-spacing: -.0167rem;
   line-height: $-desktop-line-height;
 
   @include mq.mq($until: tablet) {
-    margin-bottom: $-mobile-margin-bottom;
     font-size: $-mobile-font-size;
     line-height: $-mobile-line-height;
   }
@@ -42,10 +47,26 @@ $-mobile-margin-bottom: .8333rem;
 
 .nhsd-body {
   @extend %typo-basics;
+  @extend %typo-body-basics;
+}
+
+.nhsd-heading {
+  &,
+  &-m {
+    @extend %typo-basics;
+  }
+
+  &-m {
+    font-size: 1.222rem;
+    letter-spacing: -.028rem;
+    line-height: 1.5;
+  }
 }
 
 .nhsd-list {
   @extend %typo-basics;
+  @extend %typo-body-basics;
+
   padding-left: 0;
   list-style-type: none;
 

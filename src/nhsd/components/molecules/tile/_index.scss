@@ -1,0 +1,67 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+// Private properties
+$-root: ".nhsd-m-tile";
+$-box-padding: 1.111rem;
+
+#{$-root} {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: vars.$border-radius;
+  color: nhsd-colours.get("black");
+
+  &__content-box {
+    padding: $-box-padding;
+  }
+
+  &__body {
+    color: nhsd-colours.get("dark-grey");
+  }
+
+  &__button {
+    margin: 0;
+  }
+
+  &__picture {
+    & + #{$-root}__content-box {
+      padding-top: $-box-padding * .4;
+    }
+  }
+
+  &--light-grey {
+    background: nhsd-colours.get("pale-grey-80-tint");
+  }
+
+  &--dark-grey {
+    background: nhsd-colours.get("dark-grey");
+  }
+
+  &--white {
+    background: nhsd-colours.get("white");
+  }
+
+  &--blue {
+    background: nhsd-colours.get("accessible-blue");
+  }
+
+  &--yellow {
+    background: nhsd-colours.get("yellow");
+
+    #{$-root}__body {
+      color: nhsd-colours.get("black");
+    }
+  }
+
+  &--dark-grey,
+  &--blue {
+    &,
+    #{$-root}__body {
+      color: nhsd-colours.get("white");
+    }
+  }
+}
