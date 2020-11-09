@@ -29,7 +29,7 @@ $-line-thickness: .13rem;
   font-family: vars.$font-family;
   text-decoration: none;
   transition-property: background-color, color;
-  transition-duration: .3s;
+  transition-duration: vars.$transition-duration;
 
   &,
   &:visited {

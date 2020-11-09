@@ -1,0 +1,21 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+// Private properties
+$-root: ".nhsd-m-logo-link";
+
+#{$-root} {
+  display: inline-block;
+  padding-bottom: .1115rem;
+  border-bottom: 2px solid transparent;
+  transition-property: border-color;
+  transition-duration: vars.$transition-duration;
+
+  &:hover,
+  &:focus {
+    border-color: nhsd-colours.get("yellow");
+  }
+}

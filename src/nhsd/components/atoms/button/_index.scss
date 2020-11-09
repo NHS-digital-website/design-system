@@ -36,7 +36,7 @@ $-root: ".nhsd-a-button";
   appearance: none;
 
   transition-property: background-color, box-shadow, border-color;
-  transition-duration: .3s;
+  transition-duration: vars.$transition-duration;
 
   &__label {
     margin: 0 auto;

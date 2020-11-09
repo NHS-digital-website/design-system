@@ -19,10 +19,8 @@
 $-font-colour: nhsd-colours.get("dark-grey");
 $-desktop-font-size: 1rem; // 18px
 $-mobile-font-size: .89rem; // 16px
-$-desktop-line-height: 1.39; // 25px
-$-mobile-line-height: 1.5; // 24px
-$-desktop-margin-bottom: 1.11rem;
-$-mobile-margin-bottom: .8333rem;
+$-desktop-margin-bottom: 1.11rem; // 20px
+$-mobile-margin-bottom: .8333rem; // 15px
 
 %typo-basics {
   margin: 0 0 $-desktop-margin-bottom;
@@ -37,17 +35,21 @@ $-mobile-margin-bottom: .8333rem;
 %typo-body-basics {
   font-size: $-desktop-font-size;
   letter-spacing: -.0167rem;
-  line-height: $-desktop-line-height;
 
   @include mq.mq($until: tablet) {
     font-size: $-mobile-font-size;
-    line-height: $-mobile-line-height;
   }
 }
 
 .nhsd-body {
   @extend %typo-basics;
   @extend %typo-body-basics;
+
+  line-height: 1.39;
+
+  @include mq.mq($until: tablet) {
+    line-height: 1.5;
+  }
 }
 
 .nhsd-heading {
@@ -69,6 +71,11 @@ $-mobile-margin-bottom: .8333rem;
 
   padding-left: 0;
   list-style-type: none;
+  line-height: 1.444rem;
+
+  @include mq.mq($until: tablet) {
+    line-height: 1.278rem;
+  }
 
   li {
     &:not(:last-of-type) {
