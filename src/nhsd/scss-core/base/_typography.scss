@@ -52,19 +52,6 @@ $-mobile-margin-bottom: .8333rem; // 15px
   }
 }
 
-.nhsd-heading {
-  &,
-  &-m {
-    @extend %typo-basics;
-  }
-
-  &-m {
-    font-size: 1.222rem;
-    letter-spacing: -.028rem;
-    line-height: 1.5;
-  }
-}
-
 .nhsd-list {
   @extend %typo-basics;
   @extend %typo-body-basics;
