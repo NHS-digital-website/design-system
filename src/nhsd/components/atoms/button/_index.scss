@@ -22,7 +22,7 @@ $-root: ".nhsd-a-button";
   border: .12rem solid nhsd-colours.get("blue");
   border-radius: 1.22rem;
   outline: 0;
-  box-shadow: none;
+  box-shadow: 0 0 0 .167rem transparent;
 
   font-family: vars.$font-family;
   font-size: .78rem;
@@ -58,7 +58,9 @@ $-root: ".nhsd-a-button";
     }
 
     &:active {
-      box-shadow: none;
+      transition-property: none;
+      transform: translateY(.111rem);
+      box-shadow: 0 0 0 .167rem transparent;
     }
   }
 
@@ -70,7 +72,8 @@ $-root: ".nhsd-a-button";
     }
 
     &:active {
-      box-shadow: none;
+      background: nhsd-colours.get("blue");
+      box-shadow: 0 0 0 .167rem transparent;
     }
 
     &:not(:disabled):not(#{$-root}--disabled) {
@@ -79,7 +82,23 @@ $-root: ".nhsd-a-button";
         border-color: nhsd-colours.get("dark-blue");
         background: nhsd-colours.get("dark-blue");
       }
+
+      &:active {
+        border-color: nhsd-colours.get("blue");
+        background: nhsd-colours.get("blue");
+        transition-property: none;
+      }
     }
+  }
+
+  &--start {
+    color: nhsd-colours.get("white");
+    background: nhsd-colours.get("green");
+  }
+
+  &--cancel {
+    color: nhsd-colours.get("white");
+    background: nhsd-colours.get("red");
   }
 
   &--invert {
@@ -96,6 +115,10 @@ $-root: ".nhsd-a-button";
       &:hover {
         border-color: nhsd-colours.get("black");
       }
+
+      &:active {
+        border-color: nhsd-colours.get("blue");
+      }
     }
 
     &,
@@ -104,8 +127,8 @@ $-root: ".nhsd-a-button";
       background: nhsd-colours.get("white");
 
       &:active {
-        border-color: nhsd-colours.get("black");
-        box-shadow: none;
+        border-color: nhsd-colours.get("blue");
+        box-shadow: 0 0 0 .167rem transparent;
       }
     }
 
@@ -115,11 +138,17 @@ $-root: ".nhsd-a-button";
     }
 
     &-cancel {
-      border-color: nhsd-colours.get("red");
+      &,
+      &:active {
+        border-color: nhsd-colours.get("red");
+      }
     }
 
     &-start {
-      border-color: nhsd-colours.get("green");
+      &,
+      &:active {
+        border-color: nhsd-colours.get("green");
+      }
     }
   }
 
