@@ -1,0 +1,11 @@
+{# Set classes #}
+{%- set classNames = "nhsd-a-tag" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+{# Set label #}
+{%- set label = "Simple label" -%}
+{%- if params.label -%}
+  {% set label = params.label %}
+{%- endif -%}
+<span class="{{ classNames }}">{{ label }}</span>

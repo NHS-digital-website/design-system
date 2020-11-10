@@ -5,7 +5,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config.js';
 import template from  './template.njk';
 // Load stylesheet file
 require('./_index.scss');
-require('../../../scss-core/base/_utils.scss');
 
 const componentName = 'Text highlight';
 const storyDescription = `${sbConfig.heading.lab}`;
