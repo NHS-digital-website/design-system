@@ -35,7 +35,7 @@ $-line-thickness: .13rem;
   &:visited {
     color: $-base-colour;
     background-image: linear-gradient($-base-colour, $-base-colour);
-    background-size: 100% $-line-thickness;
+    background-size: 100% $-line-thickness * .5;
   }
 
   &:focus,
@@ -44,12 +44,13 @@ $-line-thickness: .13rem;
     color: $-active-colour;
     background-color: $-highlight-colour;
     background-image: linear-gradient($-active-colour, $-active-colour);
+    background-size: 100% $-line-thickness;
   }
 
   &:active {
     color: $-base-colour;
     background-color: transparent;
-    background-size: 0 $-line-thickness;
+    background-size: 0 $-line-thickness * .5;
   }
 
   @include mq.mq($until: tablet) {
