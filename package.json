@@ -15,15 +15,12 @@
   },
   "scripts": {
     "start": "npm run storybook",
-
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook --no-dll",
     "storybook:build:deploy": "build-storybook --no-dll && gulp s3:sync",
-
     "dist:build": "gulp build:dist",
     "dist:build:watch": "gulp build:dist:watch",
     "dist:build:prod": "gulp build:dist -buildMode=prod",
-
     "package:build": "gulp build:package",
     "package:build:watch": "gulp build:package:watch",
     "package:build:prod": "gulp build:package -buildMode=prod"

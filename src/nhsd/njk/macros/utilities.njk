@@ -1,0 +1,4 @@
+{# Utilities #}
+{% macro nhsd_u_uid(prefix="") -%}
+  {{ (prefix + ((range(0,1000) | random) * 10 + '-' + (range(0,1000) | random) * 10)) }}
+{%- endmacro %}

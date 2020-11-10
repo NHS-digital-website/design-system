@@ -1,3 +1,7 @@
-<a href="{{ href }}" class="nhsd-m-logo-link" aria-label="{{ label }}">
-  {% include "../../atoms/logo/template.njk" %}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_logo
+-%}
+
+<a href="{{ params.href }}" class="nhsd-m-logo-link" aria-label="{{ params.label }}">
+  {{ nhsd_a_logo(params.logo) }}
 </a>

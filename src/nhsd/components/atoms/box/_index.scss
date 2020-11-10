@@ -1,0 +1,67 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+// Private properties
+$-root: ".nhsd-a-box";
+$-border-width: .115rem;
+
+#{$-root} {
+  display: block;
+  position: relative;
+  padding: 1.222rem;
+  border-radius: vars.$border-radius;
+  color: nhsd-colours.get("black");
+  background: nhsd-colours.get("white");
+  transition-property: box-shadow;
+  transition-duration: vars.$transition-duration;
+
+  // Background colour variants
+  &--bg {
+    &-dark-grey,
+    &-blue {
+      color: nhsd-colours.get("white");
+    }
+
+    &-dark-grey {
+      background: nhsd-colours.get("dark-grey");
+    }
+
+    &-blue {
+      background: nhsd-colours.get("accessible-blue");
+    }
+
+    &-light-grey {
+      background: nhsd-colours.get("pale-grey-80-tint");
+    }
+
+    &-yellow {
+      background: nhsd-colours.get("yellow");
+    }
+  }
+
+  // Border colour variants
+  &--border {
+    &-yellow {
+      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("yellow");
+    }
+
+    &-light-grey {
+      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("pale-grey");
+    }
+
+    &-light-blue {
+      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("bright-blue-20-tint");
+    }
+
+    &-green {
+      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("green");
+    }
+  }
+
+  &--clip {
+    overflow: hidden;
+  }
+}

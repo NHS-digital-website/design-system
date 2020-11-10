@@ -1,9 +1,9 @@
-{# Set classes for this component #}
-{%- set classNames = "nhsd-a-logo" -%}
-
+{#- Set classes for this component -#}
+{% set classNames = "nhsd-a-logo" %}
 {%- if params.classes %}
   {% set classNames = classNames + " " + params.classes %}
-{% endif %}
+{% endif -%}
+
 <svg
   class="{{ classNames }}"
   xmlns="http://www.w3.org/2000/svg"

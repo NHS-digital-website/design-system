@@ -7,6 +7,9 @@
   {% set classNames = classNames + " nhsd-a-button--disabled" %}
 {%- endif -%}
 
+{#- Define common attributes that we can use across all element types #}
+{%- set commonAttributes %} class="{{ classNames }}" id="{{ params.id }}" {% endset %}
+
 {# Set label #}
 {%- set label = "Simple button" -%}
 {%- if params.label -%}
@@ -23,18 +26,18 @@
   {%- if params.target and params.target == '_blank' -%}
     {%- set target = params.target -%}
   {%- endif -%}
-<a class="{{ classNames }}" href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external" {% endif -%}>
+<a {{- commonAttributes | safe }} href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external" {% endif -%}>
   <span class="nhsd-a-button__label">{{ label }}</span>
   {% if target.length %}<span class="nhsd-u-sr-only"> (external link, opens in a new tab)</span>{% endif %}
 </a>
 {% elseif params.el == 'input' %}
-<input type="submit" value="{{ label }}" class="{{ classNames }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}/>
+<input {{- commonAttributes | safe }} type="submit" value="{{ label }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}/>
 {% elseif params.el == 'span' %}
-<span class="{{ classNames }}">
+<span {{- commonAttributes | safe }}>
   <span class="nhsd-a-button__label">{{ label }}</span>
 </span>
 {% else %}
-<button class="{{ classNames }}" type="button" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}>
+<button {{- commonAttributes | safe }} type="button" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}>
   <span class="nhsd-a-button__label">{{ label }}</span>
 </button>
 {% endif -%}

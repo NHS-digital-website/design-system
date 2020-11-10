@@ -96,6 +96,19 @@ Following this logic, any reusable "utility" classes should have the `u` prefix.
 
 - `.nhsd-u-sr-only`
 
+#### Component variant naming
+
+- **Background variants:** `&--bg-dark-grey`
+- **Border variants:** `&--border-dark-grey`
+- **Light variants:** `&--light` /  `&--dark`
+
+#### Nested atom naming vs. Component element naming
+
+Nested atoms (and molecules) are already established components embedded in new higher level components, such as molecules and organisms. Already established, embedded components must be names using their names - for instance the atoms used in the **Card molecule** are called with their own names: `.nhsd-a-button`, `.nhsd-a-link`.
+
+Elements, that not yet have been atomised can be named using BEM style `__` naming convention. For instance - the non-atomised elements in the **Card molecule** are called `.nhsd-m-card__icon`, `.nhsd-m-card__title`, `.nhsd-m-card__text`. This naming must be used until the element reaches a level of reusability, so that it becomes an established atom on its own right - in that case the first naming rule applies. 
+
+
 ## Actions to take
 
 - Introduce Typescript (involved replacing exiting JS code with TS code)

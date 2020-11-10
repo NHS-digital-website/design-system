@@ -15,5 +15,6 @@ module.exports = {
   heading: {
     lab: "\n\n ## Lab",
     basicRules: "## Basic rules",
+    details: "#### Detais",
   },
 };

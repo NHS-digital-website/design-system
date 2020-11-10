@@ -21,11 +21,15 @@ module.exports = {
 		// 'PRODUCTION' is used when building the static version of storybook.
 
 		// Make whatever fine-grained changes you need
-		config.module.rules.push({
+		config.module.rules.push(
+    {
 			test: /\.njk$/,
 			use: [
 				{
           loader: 'nunjucks-loader',
+          query: {
+            jinjaCompat: true,
+          },
 				},
 			],
 		}, {

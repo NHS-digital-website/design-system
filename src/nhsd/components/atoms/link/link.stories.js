@@ -47,6 +47,46 @@ LabComponent.parameters = {
 
 const Link = Template.bind({});
 
+export const LightLink = Template.bind({});
+LightLink.args = {
+  label: 'Click to read more',
+  classes: 'nhsd-a-link--light',
+};
+LightLink.storyName = 'Light link';
+LightLink.parameters = {
+  backgrounds: {
+    default: 'dim',
+  },
+  docs: {
+    description: {
+      story: 'The **light link** should be used on dark backgrounds. (Use the **Canvas** for preview.)',
+    },
+    source: {
+      code: `${sourceCode} ${LightLink(LightLink.args)} `,
+    },
+  },
+};
+
+export const DarkLink = Template.bind({});
+DarkLink.args = {
+  label: 'Click to read more',
+  classes: 'nhsd-a-link--dark',
+};
+DarkLink.storyName = 'Dark link';
+DarkLink.parameters = {
+  backgrounds: {
+    default: 'bright',
+  },
+  docs: {
+    description: {
+      story: 'The **dark link** should be used on yellow backgrounds. (Use the **Canvas** for preview.)',
+    },
+    source: {
+      code: `${sourceCode} ${DarkLink(DarkLink.args)} `,
+    },
+  },
+};
+
 export const LinkInText = () => {
   var p = document.createElement('p');
   p.classList.add('nhsd-body');

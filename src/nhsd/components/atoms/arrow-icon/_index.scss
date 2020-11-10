@@ -1,0 +1,20 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/easings";
+
+// Private properties
+$-root: ".nhsd-a-arrow-icon";
+
+#{$-root} {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  background: #ff0000;
+
+  transition-property: transform;
+  transition-duration: vars.$transition-duration;
+  @include easings.trans-easing(easings.$ease-out-expo);
+}

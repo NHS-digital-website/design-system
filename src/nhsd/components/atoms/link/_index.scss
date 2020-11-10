@@ -16,6 +16,7 @@
 // Private properties
 $-root: ".nhsd-a-link";
 $-base-colour: nhsd-colours.get("blue");
+$-invert-colour: nhsd-colours.get("white");
 $-active-colour: nhsd-colours.get("black");
 $-highlight-colour: nhsd-colours.get("yellow");
 $-line-thickness: .13rem;
@@ -51,6 +52,42 @@ $-line-thickness: .13rem;
     color: $-base-colour;
     background-color: transparent;
     background-size: 0 $-line-thickness * .5;
+  }
+
+  &--light {
+    &,
+    &:visited {
+      color: $-invert-colour;
+      background-image: linear-gradient($-invert-colour, $-invert-colour);
+    }
+
+    &:focus,
+    &:hover {
+      color: $-active-colour;
+    }
+
+    &:active {
+      color: $-invert-colour;
+    }
+  }
+
+  &--dark {
+    &,
+    &:visited {
+      color: $-active-colour;
+      background-image: linear-gradient($-active-colour, $-active-colour);
+    }
+
+    &:focus,
+    &:hover {
+      color: $-invert-colour;
+      background-color: $-active-colour;
+      background-image: linear-gradient($-invert-colour, $-invert-colour);
+    }
+
+    &:active {
+      color: $-active-colour;
+    }
   }
 
   @include mq.mq($until: tablet) {
