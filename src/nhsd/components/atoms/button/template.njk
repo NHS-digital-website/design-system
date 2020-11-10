@@ -29,6 +29,10 @@
 </a>
 {% elseif params.el == 'input' %}
 <input type="submit" value="{{ label }}" class="{{ classNames }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}/>
+{% elseif params.el == 'span' %}
+<span class="{{ classNames }}">
+  <span class="nhsd-a-button__label">{{ label }}</span>
+</span>
 {% else %}
 <button class="{{ classNames }}" type="button" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}>
   <span class="nhsd-a-button__label">{{ label }}</span>

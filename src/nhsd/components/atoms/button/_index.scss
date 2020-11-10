@@ -45,12 +45,13 @@ $-root: ".nhsd-a-button";
     white-space: nowrap;
   }
 
-  &:disabled {
+  &:disabled,
+  &--disabled {
     opacity: .7;
     cursor: not-allowed;
   }
 
-  &:not(:disabled) {
+  &:not(:disabled):not(&--disabled) {
     &:focus,
     &:hover {
       box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
@@ -72,7 +73,7 @@ $-root: ".nhsd-a-button";
       box-shadow: none;
     }
 
-    &:not(:disabled) {
+    &:not(:disabled):not(#{$-root}--disabled) {
       &:focus,
       &:hover {
         border-color: nhsd-colours.get("dark-blue");
@@ -90,7 +91,7 @@ $-root: ".nhsd-a-button";
   &--outline {
     color: nhsd-colours.get("blue");
 
-    &:not(:disabled) {
+    &:not(:disabled):not(#{$-root}--disabled) {
       &:focus,
       &:hover {
         border-color: nhsd-colours.get("black");

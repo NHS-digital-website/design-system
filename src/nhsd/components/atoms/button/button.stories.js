@@ -44,7 +44,8 @@ export default {
         options: [
           'button',
           'input',
-          'a'
+          'a',
+          'span',
         ],
       },
       description: 'Either an `<a>`, a `<button>` or an `<input>` element can be used for the button component.',
@@ -198,6 +199,24 @@ InputButton.parameters = {
   },
 };
 
+export const SpanButton = Template.bind({});
+SpanButton.storyName = 'Span button';
+SpanButton.args = {
+  label: 'It\'s all about the looks',
+  el: 'span',
+  classes: 'nhsd-a-button'
+};
+SpanButton.parameters = {
+  docs: {
+    description: {
+      story: 'A `<span>` element can be used to create the button component - one that looks like a button, but in fact doesn\'t work like one. This can be useful when the button is wrapped inside an `<a> tag`.',
+    },
+    source: {
+      code: `${sourceCode}${SpanButton(SpanButton.args)}`,
+    },
+  },
+};
+
 export const DisabledButton = Template.bind({});
 DisabledButton.storyName = 'Disabled button';
 DisabledButton.args = {
@@ -212,6 +231,24 @@ DisabledButton.parameters = {
     },
     source: {
       code: `${sourceCode}${DisabledButton(DisabledButton.args)}`,
+    },
+  },
+};
+
+export const DisabledSpanButton = Template.bind({});
+DisabledSpanButton.storyName = 'Disabled span button';
+DisabledSpanButton.args = {
+  label: 'It\'s all about the looks',
+  el: 'span',
+  disabled: true,
+};
+DisabledSpanButton.parameters = {
+  docs: {
+    description: {
+      story: '',
+    },
+    source: {
+      code: `${sourceCode}${DisabledSpanButton(DisabledSpanButton.args)}`,
     },
   },
 };
