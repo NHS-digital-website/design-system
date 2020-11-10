@@ -28,7 +28,7 @@ $-line-thickness: .13rem;
   background-position: 0 100%;
   font-family: vars.$font-family;
   text-decoration: none;
-  transition-property: background-color, color;
+  transition-property: background-color, color, background-size, background-position;
   transition-duration: vars.$transition-duration;
 
   &,
