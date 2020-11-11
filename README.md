@@ -108,5 +108,9 @@ Following this logic, any reusable "utility" classes should have the `u` prefix.
 - Document how Storybook is configured, and where the stories are placed in the project
 - Document the component and styling folder and file structure + strategy
 
+## Notes for implementation
+
+- For the utility classes to be loaded in the correct order - load them after any other stylesheet
+
 ## Licence
 The codebase is released under the MIT Licence, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.
