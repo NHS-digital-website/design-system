@@ -80,7 +80,7 @@ export const TextHighlightDemo3 = () => {
     classes: 'nhsd-a-text-highlight--bg-light-blue'
   });
 };
-TextHighlightDemo3.storyName = 'Blue "could"';
+TextHighlightDemo3.storyName = 'Blue "should"';
 TextHighlightDemo3.parameters = {
   docs: {
     source: {

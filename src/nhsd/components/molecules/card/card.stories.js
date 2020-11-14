@@ -27,7 +27,7 @@ export default {
     - If icon is present, the min. heading hight must be 45px.
     - Text element is always followed by a button.
     - If card has a "button" or "arrow link", the card contents have to be wrapped in an \`<a>\` tag.
-    - Card always has a focus state - regardless if it has a link or not.`,
+    - Card only has a focus state when it acts as a link (with button or arrow icon).`,
   },
 };
 
@@ -179,6 +179,7 @@ ComponentVariant4.args = {
   },
   button: {
     label: 'More about what we do',
+    el: 'span',
   },
   tag: {
     classes: 'nhsd-a-tag--bg-dark-grey',

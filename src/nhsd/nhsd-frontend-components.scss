@@ -1,3 +1,12 @@
+// Utils
+@use "scss-core/base/utils";
+
+// Grid
+@use "scss-core/base/grid";
+
+// Typography
+@use "scss-core/base/typography";
+
 // Components
 @use "components/atoms";
 @use "components/molecules";

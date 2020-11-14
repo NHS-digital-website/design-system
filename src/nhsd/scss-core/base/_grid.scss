@@ -1,0 +1,175 @@
+@use "sass:map";
+
+// Settings
+@use "scss-core/settings/vars";
+
+// Helpers
+@use "scss-core/helpers/colours" as nhsd-colours;
+
+// Base
+@use "scss-core/base/utils";
+
+// Media Queries and breakpoints
+@use "sass-mq/mq" with (
+  $mq-responsive: true,
+  $mq-breakpoints: (
+    mobile:  vars.$bp-mobile,
+    tablet:  vars.$bp-tablet,
+    desktop: vars.$bp-desktop,
+    wide:    vars.$bp-wide
+  ),
+  $mq-static-breakpoint: desktop,
+);
+
+// Private properties
+$-root: ".nhsd-grid";
+
+$-gutter: .833rem;
+$-small-gutter: .833rem * .667;
+$-mobile-content-width: 18.611rem; // 335px
+$-tablet-content-width: 38.222rem; // 688px
+$-desktop-content-width: 52.444rem; // 944px
+$-wide-content-width: 71.111rem; // 1280px
+
+$-grid-data-map: (
+  mobile: (
+    prefix: mob,
+    columns: 2,
+    breakpoints: (
+      until: tablet
+    )
+  ),
+  tablet: (
+    prefix: tab,
+    columns: 6,
+    breakpoints: (
+      from: tablet,
+      until: desktop
+    )
+  ),
+  desktop: (
+    prefix: des,
+    columns: 12,
+    breakpoints: (
+      from: desktop
+    )
+  )
+);
+
+%column-base {
+  width: 100%;
+  padding: 0 $-gutter;
+  flex: 0 1 auto;
+  overflow: hidden;
+}
+
+#{$-root} {
+  display: block;
+  width: 100%;
+  max-width: $-tablet-content-width;
+  margin: 0 auto;
+  padding: 0 $-gutter;
+
+  &:not(&--full-width) {
+    @include mq.mq($from: desktop) {
+      max-width: $-desktop-content-width;
+    }
+
+    @include mq.mq($from: wide) {
+      max-width: $-wide-content-width;
+    }
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+    background: nhsd-colours.get("yellow-10-tint");
+  }
+
+  // Basic column
+  &-col {
+    @extend %column-base;
+  }
+
+  // Columns and offsets for all breakpoints
+  @each $-device, $-props in $-grid-data-map {
+    $-prefix: map.get($-props, "prefix");
+    $-columns: map.get($-props, "columns");
+    $-breakpoints: map.get($-props, "breakpoints");
+
+    $-bp-from: map.get($-breakpoints, "from");
+    $-bp-until: map.get($-breakpoints, "until");
+
+    @for $-step from 0 through $-columns {
+      &-col-#{$-prefix}-#{$-step} {
+        @extend %column-base;
+      }
+
+      // Static
+      @if $-device == "desktop" {
+        &-col-#{$-step} {
+          @extend %column-base;
+          width: $-step / $-columns * 100%;
+        }
+
+        &-off-#{$-step} {
+          margin-left: $-step / $-columns * 100%;
+        }
+      }
+
+      // Responsive
+      @include mq.mq($from: $-bp-from, $until: $-bp-until) {
+        &-col-#{$-prefix}-#{$-step} {
+          width: $-step / $-columns * 100%;
+        }
+
+        &-off-#{$-prefix}-#{$-step} {
+          margin-left: $-step / $-columns * 100%;
+        }
+      }
+    }
+  }
+
+  // Slight tweak to the inside gutters of the mobile columns
+  @include mq.mq($until: tablet) {
+    #{$-root}-col-mob-1:nth-child(2n+1):not(#{$-root}-off-mob-1) {
+      padding-right: $-small-gutter;
+
+      & + #{$-root}-col-mob-1 {
+        padding-left: $-small-gutter;
+      }
+    }
+  }
+
+  &--full-width {
+    max-width: 100%;
+  }
+
+  // Better grid visibility in demo
+  &--debug {
+    @extend %nhsd-u-text-centre;
+
+    div[class^="nhsd-grid-col-"] {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background: nhsd-colours.get("mid-grey-20-tint");
+      box-shadow: inset 0 0 0 .5px nhsd-colours.get("mid-grey");
+      font-size: 65%;
+    }
+
+    // stylelint-disable declaration-no-important
+    @include mq.mq($until: tablet) {
+      #{$-root}-col-mob-1:nth-child(2n+1):not(#{$-root}-off-mob-1) {
+        background: nhsd-colours.get("green") !important;
+
+        & + #{$-root}-col-mob-1 {
+          background: nhsd-colours.get("red") !important;
+        }
+      }
+    }
+    // stylelint-enable declaration-no-important
+  }
+}

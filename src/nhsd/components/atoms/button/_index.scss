@@ -6,8 +6,7 @@
 @use "scss-core/helpers/colours" as nhsd-colours;
 
 // Media Queries and breakpoints
-@use "scss-core/settings/mq-breakpoints";
-@use "sass-mq/mq" as mq;
+@use "sass-mq/mq";
 
 // Private properties
 $-root: ".nhsd-a-button";

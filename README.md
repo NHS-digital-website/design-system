@@ -13,6 +13,7 @@ The best way to ensure that you have the correct version of Node and NPM when yo
 
 ## Developer notes
 
+- Please make sure for development you're using the **Node version** specified in the `package.json`'s file `engine` config
 - The **Node Engine** version should always be up to date to [LTS/Erbium](https://nodejs.org/en/about/releases/)
 - Any new files, please stick to only using the file extensions already used in the project. (i.e. use `.yml` instead of `.yaml` and `.scss` instead of `.sass`). **The acceptable file extensions are:**
 	- **.njk** for Nunjucks files
@@ -96,6 +97,10 @@ Following this logic, any reusable "utility" classes should have the `u` prefix.
 
 - `.nhsd-u-sr-only`
 
+#### Utility classes and placeholders
+
+We have a built-in generator for these, check out the `src/nhsd/scss-core/base/_utils.scss` file for more details.
+
 #### Component variant naming
 
 - **Background variants:** `&--bg-dark-grey`
@@ -111,6 +116,8 @@ Elements, that not yet have been atomised can be named using BEM style `__` nami
 
 ## Actions to take
 
+- Create a utility class generator, which produces placeholders with the current styling (for Sass extends), and classes with the styles enforced using `!important` for inline use.
+- It seems that the project build run for the first time fails on the missing AWS config file - this shouldn't happen, fix it!
 - Introduce Typescript (involved replacing exiting JS code with TS code)
 - Add TS compile and linting tasks back (don't compile stories)
 - Define `dist` tasks and build workflow

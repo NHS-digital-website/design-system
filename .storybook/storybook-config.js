@@ -9,6 +9,7 @@ module.exports = {
     pages: "Pages",
     foundations: "Foundations",
     typography: "Typography",
+    gridSystem: "Grid system",
     colours: "Colours",
     lab: "Lab",
   },

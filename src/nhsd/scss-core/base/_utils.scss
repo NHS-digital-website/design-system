@@ -1,7 +1,82 @@
+// stylelint-disable declaration-no-important
+
+// Settings
 @use "scss-core/settings/vars";
 
-// Use these placeholders to extend existing styling in Sass modules,
-// and to apply reusable styling inline using the corresponding classes
+// Use the built-in generator below to generate simple utility class and placeholder pairs
+//
+// An example utility:
+//    Placeholder for internal use:
+//    %nhsd-u-no-padding {
+//      padding: 0;
+//    }
+//
+//    "Forceful" utility class for inline use:
+//    .nhsd-u-no-padding {
+//      padding: 0 !important;
+//    }
+$-utils: (
+  // Spacing
+  "no-gutters": (
+    "padding-right": 0,
+    "padding-left": 0,
+  ),
+  "no-padding": (
+    "padding": 0
+  ),
+  "no-margin": (
+    "margin": 0
+  ),
+  // Text alignment
+  "text-right": (
+    "text-align": right
+  ),
+  "text-left": (
+    "text-align": left
+  ),
+  "text-centre": (
+    "text-align": center
+  ),
+  // Font family
+  "ff": (
+    "font-family": vars.$font-family
+  ),
+  "ff-mono": (
+    "font-family": vars.$font-family-mono
+  ),
+  // Font weight
+  "fw-regular": (
+    "font-weight": 400
+  ),
+  "fw-light": (
+    "font-weight": 200
+  ),
+  "fw-bold": (
+    "font-weight": 600
+  )
+);
+
+// Generate both util classes and placeholders - util classes with !important
+@each $name, $props in $-utils {
+  $prefixes: ".", "%";
+  @each $prefix in $prefixes {
+    #{$prefix}#{"nhsd-u-"}#{$name} {
+      @each $-key, $-value in $props {
+        #{$-key}: $-value if($prefix == ".", !important, null);
+      }
+    }
+  }
+}
+
+// Add more complex utilities below...
+%nhsd-u-box-sizing,
+.nhsd-u-box-sizing {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
 
 %nhsd-u-sr-only,
 .nhsd-u-sr-only {
@@ -15,26 +90,15 @@
   border: 0;
 }
 
-%nhsd-u-ff,
-.nhsd-u-ff {
-  font-family: vars.$font-family;
+// Backgrounds and colours
+@each $colourKey, $colourValue in vars.$nhsd-colours {
+  .nhsd-u-c-#{$colourKey} {
+    color: $colourValue !important;
+  }
 
-  &-mono {
-    font-family: vars.$font-family-mono;
+  .nhsd-u-bg-#{$colourKey} {
+    background-color: $colourValue !important;
   }
 }
 
-%nhsd-u-fw,
-.nhsd-u-fw {
-  &-light {
-    font-weight: 200;
-  }
-
-  &-regular {
-    font-weight: 400;
-  }
-
-  &-bold {
-    font-weight: 600;
-  }
-}
+// stylelint-enable declaration-no-important

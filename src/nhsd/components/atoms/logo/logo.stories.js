@@ -33,7 +33,7 @@ LabComponent.storyName = sbConfig.title.lab;
 LabComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode} ${LabComponent()}`,
+      code: `${sourceCode}\n${LabComponent()}`,
     }
   },
 };

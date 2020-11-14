@@ -10,8 +10,7 @@
 @use "scss-core/base/utils";
 
 // Media Queries and breakpoints
-@use "scss-core/settings/mq-breakpoints";
-@use "sass-mq/mq" as mq;
+@use "sass-mq/mq";
 
 // Private properties
 $-root: ".nhsd-a-link";

@@ -82,7 +82,7 @@ ComponentVariant3.args = {
 ComponentVariant3.parameters = {
   docs: {
     source: {
-      code: `${sourceCode} ${ComponentVariant3(ComponentVariant3.args)}`,
+      code: `${sourceCode}\n${ComponentVariant3(ComponentVariant3.args)}`,
     },
   },
 };

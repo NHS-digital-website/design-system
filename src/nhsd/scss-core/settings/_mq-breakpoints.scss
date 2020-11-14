@@ -1,16 +1,22 @@
-// Overriding sass-mq variables for a customised grid system
+// To enable support for browsers that do not support @media queries,
+// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
+// Create a separate stylesheet served exclusively to these browsers,
+// meaning @media queries will be rasterized, relying on the cascade itself
+$mq-responsive: true;
+
+$mq-base-font-size: 18px; // To match 1rem
 
 // Name your breakpoints in a way that creates a ubiquitous language
 // across team members. It will improve communication between
 // stakeholders, designers, developers, and testers.
 $mq-breakpoints: (
-  mobile:  320px,
-  tablet:  640px,
-  desktop: 1024px,
-  wide:    1520px,
+  mobile:  768px,
+  tablet:  1024px,
+  desktop: 1280px,
+  wide:    1366px,
   // Tweakpoints
   desktopAd: 810px,
-  mobileLandscape: 480px,
+  mobileLandscape: 480px
 );
 
 // Define the breakpoint from the $mq-breakpoints list that should

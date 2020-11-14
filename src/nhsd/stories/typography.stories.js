@@ -1,6 +1,9 @@
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config.js';
 
+// Load stylesheet file
+require('../scss-core/base/_typography.scss');
+
 const componentName = 'Typography';
 const storyDescription = `##Paragraph\n\nThe default paragraph font size is 18px (1rem) on large screens and 16px (0.89rem) on small screens. There is a 20px (1.11rem) vertical space between paragraphs.`;
 const sourceCode = `// Sass import \n@use "nhsd/scss-core/base/typography";\n\n//HTML`;
