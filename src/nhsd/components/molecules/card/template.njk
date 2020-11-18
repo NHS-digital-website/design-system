@@ -34,11 +34,11 @@
 {% set cardId = nhsd_u_uid("card-") %}
 
 <article class="{{ classNames }}" id="{{ cardId }}">
-{{ nhsd_a_box_start(params.box.classes) }}
+{%- if hasLink %}
+<a href="{{ params.link.href }}" class="nhsd-m-card__link" {%- if params.link.target %} target="{{ params.link.target }}" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
+{% endif -%}
 
-  {%- if hasLink %}
-  <a href="{{ params.link.href }}" class="nhsd-m-card__link" {%- if params.link.target %} target="{{ params.link.target }}" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
-  {% endif -%}
+  {{ nhsd_a_box_start(params.box.classes) }}
 
   {%- if params.picture %}
   {{ nhsd_a_picture(params.picture) }}
@@ -71,9 +71,10 @@
       {{ nhsd_a_arrow_icon(params.arrow) }}
       {% endif -%}
     </div>
+  {{ nhsd_a_box_end() }}
+
   {%- if hasLink %}
   </a>
   {% endif -%}
-  {{ nhsd_a_box_end() }}
 </article>
 

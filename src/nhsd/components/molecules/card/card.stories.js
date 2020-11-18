@@ -27,7 +27,8 @@ export default {
     - If icon is present, the min. heading hight must be 45px.
     - Text element is always followed by a button.
     - If card has a "button" or "arrow link", the card contents have to be wrapped in an \`<a>\` tag.
-    - Card only has a focus state when it acts as a link (with button or arrow icon).`,
+    - Card only has a focus state when it acts as a link (with button or arrow icon).
+    - If the user needs directing to an internal/external link, a card with an arrow or button must be used.`,
   },
 };
 
@@ -146,9 +147,6 @@ ComponentVariant3.args = {
   date: '28 Sep 2020',
   title: 'Creating the COVID-19 text service for vulnerable people',
   body: 'A small group from NHSX, NHS Digital, NHS Business Services Authority and the Behavioural Insights Team has developed a text service for those most threatened by COVID-19.',
-  link: {
-    href: '#',
-  },
 };
 ComponentVariant3.parameters = {
   docs: {
@@ -274,7 +272,6 @@ ComponentVariant6.parameters = {
 export const ComponentVariant7 = Template.bind({});
 ComponentVariant7.storyName = 'Variant #7';
 ComponentVariant7.args = {
-  classes: 'nhsd-m-card--focus-orange',
   box: {
     classes: 'nhsd-a-box--bg-yellow',
   },

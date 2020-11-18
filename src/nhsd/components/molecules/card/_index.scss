@@ -16,17 +16,33 @@ $-icon-size: 2.5rem;
 #{$-root} {
   display: block;
   position: relative;
-  overflow: hidden;
-  border-radius: vars.$border-radius;
-  box-shadow: 0 0 0 .167rem transparent;
-
-  transition-property: box-shadow;
-  transition-duration: vars.$transition-duration;
 
   &__link {
     display: inline-block;
+    overflow: hidden;
+    border-radius: vars.$border-radius;
     color: inherit;
+    box-shadow: 0 0 0 .167rem transparent;
+    transition-property: box-shadow;
+    transition-duration: vars.$transition-duration;
     text-decoration: none;
+
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
+
+      .nhsd-a-button {
+        box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
+      }
+
+      .nhsd-a-arrow-icon {
+        transform: translateX(.556rem);
+      }
+
+      .nhsd-a-box {
+        box-shadow: inset 0 0 0 box.$border-width transparent;
+      }
+    }
   }
 
   &__date,
@@ -56,10 +72,6 @@ $-icon-size: 2.5rem;
     font-size: 1.22rem;
     letter-spacing: -.0278rem;
     line-height: 1.5;
-
-    & + .nhsd-a-arrow-icon {
-      margin-top: 1.75rem;
-    }
   }
 
   &__icon {
@@ -127,21 +139,13 @@ $-icon-size: 2.5rem;
   }
 
   .nhsd-a-button {
-    margin: 0;
+    margin-bottom: 0;
     pointer-events: none;
   }
 
-  &:focus,
-  &:hover {
-    box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
-
-    .nhsd-a-button {
-      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
-    }
-
-    .nhsd-a-arrow-icon {
-      transform: translateX(.556rem);
-    }
+  .nhsd-a-button,
+  .nhsd-a-arrow-icon {
+    margin-top: .8rem;
   }
 
   &:active {
@@ -151,12 +155,14 @@ $-icon-size: 2.5rem;
   }
 
   &--focus-orange {
-    &:focus,
-    &:hover {
-      box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
-
-      .nhsd-a-button {
+    #{$-root}__link {
+      &:focus,
+      &:hover {
         box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
+
+        .nhsd-a-button {
+          box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
+        }
       }
     }
   }

@@ -6,7 +6,9 @@
 
 // Private properties
 $-root: ".nhsd-a-box";
-$-border-width: .115rem;
+
+// Public properties
+$border-width: .115rem;
 
 #{$-root} {
   display: block;
@@ -45,19 +47,19 @@ $-border-width: .115rem;
   // Border colour variants
   &--border {
     &-yellow {
-      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("yellow");
+      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("yellow");
     }
 
     &-light-grey {
-      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("pale-grey");
+      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("pale-grey");
     }
 
     &-light-blue {
-      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("bright-blue-20-tint");
+      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("bright-blue-20-tint");
     }
 
     &-green {
-      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("green");
+      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("green");
     }
   }
 
