@@ -64,11 +64,17 @@ $-grid-data-map: (
 }
 
 #{$-root} {
+  @include utils.box-sizing;
   display: block;
   width: 100%;
   max-width: $-tablet-content-width;
   margin: 0 auto;
   padding: 0 $-gutter;
+
+  &--full-width {
+    @include utils.no-gutters;
+    max-width: 100%;
+  }
 
   &:not(&--full-width) {
     @include mq.mq($from: desktop) {
@@ -144,13 +150,9 @@ $-grid-data-map: (
     }
   }
 
-  &--full-width {
-    max-width: 100%;
-  }
-
   // Better grid visibility in demo
   &--debug {
-    @extend %nhsd-u-text-centre;
+    @include utils.text-centre;
 
     div[class^="nhsd-grid-col-"] {
       padding-top: 1rem;

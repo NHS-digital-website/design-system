@@ -3,7 +3,6 @@ extends: stylelint-config-gds/scss
 ignoreFiles: src/nhsd/vendor/**/*
 plugins:
   - stylelint-order
-  - stylelint-scss
 rules:
   # govuk-frontend has a specific ordering pattern that should be applied to
   # rules

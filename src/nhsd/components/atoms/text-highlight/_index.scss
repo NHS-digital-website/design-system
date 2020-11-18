@@ -11,11 +11,11 @@
 $-root: ".nhsd-a-text-highlight";
 
 #{$-root} {
+  @include utils.ff;
+  @include utils.fw-bold;
   display: inline;
   padding: .04rem .11rem;
   color: nhsd-colours.get("black");
-  @extend %nhsd-u-ff;
-  @extend %nhsd-u-fw-bold;
 
   &,
   &--bg-light-green {

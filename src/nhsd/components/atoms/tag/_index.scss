@@ -11,8 +11,8 @@
 $-root: ".nhsd-a-tag";
 
 #{$-root} {
-  @extend %nhsd-u-ff;
-  @extend %nhsd-u-fw-bold;
+  @include utils.ff;
+  @include utils.fw-bold;
 
   padding: .33rem .33rem .3rem;
   color: nhsd-colours.get("black");
