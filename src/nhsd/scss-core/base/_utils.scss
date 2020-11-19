@@ -104,7 +104,7 @@
   border: 0;
 }
 
-// Backgrounds and colours - classes only
+// Backgrounds, colours and borders - classes only
 @each $colourKey, $colourValue in vars.$nhsd-colours {
   .nhsd-u-c-#{$colourKey} {
     color: $colourValue !important;
@@ -112,6 +112,10 @@
 
   .nhsd-u-bg-#{$colourKey} {
     background-color: $colourValue !important;
+  }
+
+  .nhsd-u-border-#{$colourKey} {
+    border: 1px solid $colourValue !important;
   }
 }
 

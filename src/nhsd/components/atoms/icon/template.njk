@@ -1,0 +1,73 @@
+{#- Set classes for this component -#}
+{%- set classNames = "nhsd-a-icon" -%}
+{% if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif %}
+
+{#- Common SVG attributes -#}
+{%- macro common_svg_attr() -%}
+  xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"
+{%- endmacro -%}
+
+{#- Size attributes -#}
+{%- macro svg_size_attr(nested = false) -%}
+  {%- if nested %} width="42%" height="42%" x="29%" y="29%"{% else %} width="100%" height="100%"{% endif -%}
+{%- endmacro -%}
+
+{%- macro icon_svg_attr(nested = false) -%}
+  {{ common_svg_attr() }} {{ svg_size_attr(nested) }}
+{%- endmacro -%}
+
+{#- Macros -#}
+{%- macro i_arrow_right(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+  </svg>
+{%- endmacro -%}
+
+{%- macro i_burger(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <rect y="2.4" class="st0" width="16" height="1.6"/>
+    <rect y="7.2" class="st0" width="16" height="1.6"/>
+    <rect y="12" class="st0" width="16" height="1.6"/>
+  </svg>
+{%- endmacro -%}
+
+{%- macro i_chart(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <rect x="1" y="11" width="2" height="4"/>
+    <rect x="5" y="6" width="2" height="9"/>
+    <rect x="9" y="9" width="2" height="6"/>
+    <rect x="13" y="1" width="2" height="14"/>
+  </svg>
+{%- endmacro -%}
+
+{%- macro i_search(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <path class="st0" d="M7,10.9c-2.1,0-3.9-1.7-3.9-3.9c0-2.1,1.7-3.9,3.9-3.9c2.1,0,3.9,1.7,3.9,3.9C10.9,9.2,9.2,10.9,7,10.9zM13.4,14.8l1.4-1.4l-3-3c0.7-1,1.1-2.1,1.1-3.4c0-3.2-2.6-5.8-5.8-5.8C3.8,1.2,1.2,3.8,1.2,7c0,3.2,2.6,5.8,5.8,5.8c1.3,0,2.4-0.4,3.4-1.1L13.4,14.8z"/>
+  </svg>
+{%- endmacro -%}
+
+{%- macro i_x(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <polygon points="14.8,0 8,6.8 1.2,0 0,1.2 6.8,8 0,14.8 1.2,16 8,9.2 14.8,16 16,14.8 9.2,8 16,1.2 "/>
+  </svg>
+{%- endmacro -%}
+
+{#- Master template -#}
+<span class="{{ classNames }}">
+  {% if params.nested -%}
+  <svg {{ common_svg_attr() }}>
+    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+  {% endif -%}
+
+  {%- if params.id == "arrow_right" -%}{{ i_arrow_right(nested = params.nested) }}{%- endif -%}
+  {%- if params.id == "burger" -%}{{ i_burger(nested = params.nested) }}{%- endif -%}
+  {%- if params.id == "chart" -%}{{ i_chart(nested = params.nested) }}{%- endif -%}
+  {%- if params.id == "search" -%}{{ i_search(nested = params.nested) }}{%- endif -%}
+  {%- if params.id == "x" -%}{{ i_x(nested = params.nested) }}{%- endif -%}
+
+  {%- if params.nested -%}
+  </svg>
+  {%- endif %}
+</span>

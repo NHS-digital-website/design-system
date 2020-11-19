@@ -1,9 +1,9 @@
 {#- Import atom macros -#}
 {%- from "../../../njk/macros/atoms.njk" import
-  nhsd_a_arrow_icon,
   nhsd_a_button,
   nhsd_a_box_start,
   nhsd_a_box_end,
+  nhsd_a_icon,
   nhsd_a_picture,
   nhsd_a_tag
 -%}
@@ -15,23 +15,25 @@
 
 {#- Define ARIA attributes -#}
 {% set ariaLabel = params.title %}
-{% if params.button.label -%}
+{%- if params.button.label -%}
   {% set ariaLabel = ariaLabel + " - " + params.button.label %}
-{%- endif %}
-{% if params.link.target == "_blank" -%}
+{%- endif -%}
+{%- if params.link.target == "_blank" -%}
   {% set ariaLabel = ariaLabel + " (external link, opens in a new tab)" %}
-{%- endif %}
+{%- endif -%}
 {% set ariaAttributes %} aria-label="{{ ariaLabel }}" {% endset %}
 
 {#- Set classes -#}
 {% set classNames = "nhsd-m-card" %}
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
-  {% set hasIcon = "nhsd-m-card--with-icon" in params.classes %}
+{%- endif -%}
+{%- if params.hexIcon -%}
+  {% set classNames = classNames + " nhsd-m-card--with-icon" %}
 {%- endif -%}
 {% set hasLink = params.link and params.link.href %}
 
-{% set cardId = nhsd_u_uid("card-") %}
+{%- set cardId = nhsd_u_uid("card-") -%}
 
 <article class="{{ classNames }}" id="{{ cardId }}">
 {%- if hasLink %}
@@ -55,24 +57,23 @@
 
       <h1 class="nhsd-m-card__title" id="{{ cardId + '-title' }}">{{ params.title|safe }}</h1>
 
-      {%- if hasIcon %}
-      <span class="nhsd-m-card__icon">&nbsp;</span>
-      {% endif -%}
+      {%- if params.hexIcon -%}
+      {{ nhsd_a_icon(params.hexIcon) }}
+      {%- endif -%}
 
-      {%- if params.body %}
+      {%- if params.body -%}
       <p class="nhsd-m-card__text">{{ params.body|safe }}</p>
-      {% endif -%}
+      {%- endif -%}
 
-      {%- if params.button %}
+      {%- if params.button -%}
       {{ nhsd_a_button(params.button) }}
-      {% endif -%}
+      {%- endif -%}
 
-      {%- if params.arrow %}
-      {{ nhsd_a_arrow_icon(params.arrow) }}
-      {% endif -%}
+      {%- if params.arrowIcon -%}
+      {{ nhsd_a_icon(params.arrowIcon) }}
+      {%- endif -%}
     </div>
   {{ nhsd_a_box_end() }}
-
   {%- if hasLink %}
   </a>
   {% endif -%}

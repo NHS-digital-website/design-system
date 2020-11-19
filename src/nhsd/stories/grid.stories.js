@@ -173,8 +173,8 @@ ResponsiveGrid.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- The responsive grid uses **12 columns** on desktop **6 columns** on tabletm and **2 columns** on mobile. The gutter is 30px across the board.
-- The order of the responsive column classes apploed to a column element doesn't matter
+- The responsive grid uses **12 columns** on desktop **6 columns** on tablet, and **2 columns** on mobile. The gutter is 30px across the board.
+- The order of the responsive column classes applied to a column element doesn't matter
 - **Class names:**
   - \`.nhsd-grid-col-des-1\`, \`.nhsd-grid-col-tab-1\`, \`.nhsd-grid-col-mob-1\`
   - \`.nhsd-grid-col-des-2\`, \`.nhsd-grid-col-tab-2\`, \`.nhsd-grid-col-mob-2\`

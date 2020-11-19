@@ -3,6 +3,7 @@
 
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
+@use "scss-core/helpers/easings";
 
 // Component imports
 @use "../../atoms/button";
@@ -35,7 +36,7 @@ $-icon-size: 2.5rem;
         box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
       }
 
-      .nhsd-a-arrow-icon {
+      #{$-root}__arrow {
         transform: translateX(.556rem);
       }
 
@@ -81,7 +82,6 @@ $-icon-size: 2.5rem;
     right: $-box-padding;
     width: $-icon-size;
     height: $-icon-size;
-    background: #ff0000;
   }
 
   &__text {
@@ -95,8 +95,14 @@ $-icon-size: 2.5rem;
     }
   }
 
+  &__arrow {
+    @include easings.trans-easing(easings.$ease-out-expo);
+    transition-property: transform;
+    transition-duration: vars.$transition-duration;
+  }
+
   .nhsd-a-box {
-    min-height: 11.111rem;
+    // min-height: 11.111rem;
     padding: 0;
 
     &--bg-dark-grey,
@@ -144,7 +150,7 @@ $-icon-size: 2.5rem;
   }
 
   .nhsd-a-button,
-  .nhsd-a-arrow-icon {
+  &__arrow {
     margin-top: .8rem;
   }
 

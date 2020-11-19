@@ -204,7 +204,7 @@ ComponentVariant4.parameters = {
 export const ComponentVariant5 = Template.bind({});
 ComponentVariant5.storyName = 'Variant #5';
 ComponentVariant5.args = {
-  classes: 'nhsd-m-card--with-icon',
+  classes: '',
   box: {
     classes: 'nhsd-a-box--bg-blue',
   },
@@ -213,7 +213,15 @@ ComponentVariant5.args = {
     href: 'https://gov.uk',
     target: '_blank',
   },
-  arrow: true,
+  hexIcon: {
+    classes: 'nhsd-a-icon--size-xxl nhsd-a-icon--c-white nhsd-m-card__icon',
+    id: 'chart',
+    nested: true
+  },
+  arrowIcon: {
+    classes: 'nhsd-a-icon--size-m nhsd-a-icon--c-white nhsd-m-card__arrow',
+    id: 'arrow_right',
+  },
   tag: {
     classes: 'nhsd-a-tag--bg-light-grey',
     label: 'Info only',
