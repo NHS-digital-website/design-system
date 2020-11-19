@@ -9,27 +9,36 @@
 // Base
 @use "scss-core/base/utils";
 
-// Media Queries and breakpoints
-@use "sass-mq/mq" with (
-  $mq-responsive: true,
-  $mq-breakpoints: (
-    mobile:  vars.$bp-mobile,
-    tablet:  vars.$bp-tablet,
-    desktop: vars.$bp-desktop,
-    wide:    vars.$bp-wide
-  ),
-  $mq-static-breakpoint: desktop,
-);
-
 // Private properties
 $-root: ".nhsd-grid";
-
+// Gutters
 $-gutter: .833rem;
 $-small-gutter: .833rem * .667;
+// Responsive breakpoints
+$-bp-mobile: 375px;
+$-bp-tablet: 1024px;
+$-bp-desktop: 1240px;
+$-bp-hd: 1366px;
+$-bp-fullhd: 1580px;
+// Maximum content widths
 $-mobile-content-width: 18.611rem; // 335px
 $-tablet-content-width: 38.222rem; // 688px
 $-desktop-content-width: 52.444rem; // 944px
-$-wide-content-width: 71.111rem; // 1280px
+$-hd-content-width: 71.111rem; // 1280px - 1240
+$-fullhd-content-width: 83.333rem; // 1500px
+
+// Initialise the grid system with the custom settings
+@use "sass-mq/mq" with (
+  $mq-responsive: true,
+  $mq-breakpoints: (
+    mobile:   $-bp-mobile,
+    tablet:   $-bp-tablet,
+    desktop:  $-bp-desktop,
+    hd:       $-bp-hd,
+    fullhd:   $-bp-fullhd
+  ),
+  $mq-static-breakpoint: desktop,
+);
 
 $-grid-data-map: (
   mobile: (
@@ -67,7 +76,7 @@ $-grid-data-map: (
   @include utils.box-sizing;
   display: block;
   width: 100%;
-  max-width: $-tablet-content-width;
+  max-width: $-mobile-content-width;
   margin: 0 auto;
   padding: 0 $-gutter;
 
@@ -77,12 +86,20 @@ $-grid-data-map: (
   }
 
   &:not(&--full-width) {
-    @include mq.mq($from: desktop) {
+    @include mq.mq($from: mobile) {
+      max-width: $-tablet-content-width;
+    }
+
+    @include mq.mq($from: tablet) {
       max-width: $-desktop-content-width;
     }
 
-    @include mq.mq($from: wide) {
-      max-width: $-wide-content-width;
+    @include mq.mq($from: hd) {
+      max-width: $-hd-content-width;
+    }
+
+    @include mq.mq($from: fullhd) {
+      max-width: $-fullhd-content-width;
     }
   }
 

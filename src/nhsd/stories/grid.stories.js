@@ -15,7 +15,8 @@ const storyDescription = `${sbConfig.heading.lab}
 |Mobile|0|768px|355px|2|30px|
 |Tablet|769px|1024px|688px|6|30px|
 |Desktop|1025px|1366px|944px|12|30px|
-|Wide|1367px|∞|1280px|12|30px|
+|HD|1367px|1579px|1240px|12|30px|
+|Full HD|1580px|∞|1500px|12|30px|
 
 - **Note:** The <span class="nhsd-u-bg-green">&nbsp;&nbsp;&nbsp;&nbsp;</span> and <span class="nhsd-u-bg-red">&nbsp;&nbsp;&nbsp;&nbsp;</span> mobile columns represent the slightly tweaked gutters on the mobile breakpoint.`;
 const sourceCode = `// Sass import \n@use "nhsd/scss-core/base/grid";\n\n//HTML`;
