@@ -10,7 +10,7 @@
 @use "scss-core/base/utils";
 
 // Private properties
-$-root: ".nhsd-grid";
+$-root: ".nhsd";
 // Gutters
 $-gutter: .833rem;
 $-small-gutter: .833rem * .667;
@@ -73,36 +73,64 @@ $-grid-data-map: (
 }
 
 #{$-root} {
-  @include utils.box-sizing;
-  display: block;
-  width: 100%;
-  max-width: $-mobile-content-width;
-  margin: 0 auto;
-  padding: 0 $-gutter;
+  &-grid {
+    @include utils.box-sizing;
+    display: block;
+    width: 100%;
+    max-width: $-mobile-content-width;
+    margin: 0 auto;
+    padding: 0 $-gutter;
 
-  &--full-width {
-    @include utils.no-gutters;
-    max-width: 100%;
+    &--full-width {
+      @include utils.no-gutters;
+      max-width: 100%;
+    }
+
+    &:not(&--full-width) {
+      @include mq.mq($from: mobile) {
+        max-width: $-tablet-content-width;
+      }
+
+      @include mq.mq($from: tablet) {
+        max-width: $-desktop-content-width;
+      }
+
+      @include mq.mq($from: hd) {
+        max-width: $-hd-content-width;
+      }
+
+      @include mq.mq($from: fullhd) {
+        max-width: $-fullhd-content-width;
+      }
+    }
+
+    // Better grid visibility in demo
+    &--debug {
+      @include utils.text-centre;
+
+      div[class^="nhsd-col-"] {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background: nhsd-colours.get("mid-grey-20-tint");
+        box-shadow: inset 0 0 0 .5px nhsd-colours.get("mid-grey");
+        font-size: 65%;
+      }
+
+      // stylelint-disable declaration-no-important
+      @include mq.mq($until: tablet) {
+        #{$-root}-col-mob-1:nth-child(2n+1):not(#{$-root}-off-mob-1) {
+          background: nhsd-colours.get("green") !important;
+
+          & + #{$-root}-col-mob-1 {
+            background: nhsd-colours.get("red") !important;
+          }
+        }
+      }
+      // stylelint-enable declaration-no-important
+    }
   }
 
-  &:not(&--full-width) {
-    @include mq.mq($from: mobile) {
-      max-width: $-tablet-content-width;
-    }
-
-    @include mq.mq($from: tablet) {
-      max-width: $-desktop-content-width;
-    }
-
-    @include mq.mq($from: hd) {
-      max-width: $-hd-content-width;
-    }
-
-    @include mq.mq($from: fullhd) {
-      max-width: $-fullhd-content-width;
-    }
-  }
-
+  // Basic row
   &-row {
     display: flex;
     flex-direction: row;
@@ -155,40 +183,15 @@ $-grid-data-map: (
       }
     }
   }
+}
 
-  // Slight tweak to the inside gutters of the mobile columns
-  @include mq.mq($until: tablet) {
-    #{$-root}-col-mob-1:nth-child(2n+1):not(#{$-root}-off-mob-1) {
-      padding-right: $-small-gutter;
+// Slight tweak to the inside gutters of the mobile columns
+@include mq.mq($until: tablet) {
+  #{$-root}-col-mob-1:nth-child(2n+1):not(#{$-root}-off-mob-1) {
+    padding-right: $-small-gutter;
 
-      & + #{$-root}-col-mob-1 {
-        padding-left: $-small-gutter;
-      }
+    & + #{$-root}-col-mob-1 {
+      padding-left: $-small-gutter;
     }
-  }
-
-  // Better grid visibility in demo
-  &--debug {
-    @include utils.text-centre;
-
-    div[class^="nhsd-grid-col-"] {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      background: nhsd-colours.get("mid-grey-20-tint");
-      box-shadow: inset 0 0 0 .5px nhsd-colours.get("mid-grey");
-      font-size: 65%;
-    }
-
-    // stylelint-disable declaration-no-important
-    @include mq.mq($until: tablet) {
-      #{$-root}-col-mob-1:nth-child(2n+1):not(#{$-root}-off-mob-1) {
-        background: nhsd-colours.get("green") !important;
-
-        & + #{$-root}-col-mob-1 {
-          background: nhsd-colours.get("red") !important;
-        }
-      }
-    }
-    // stylelint-enable declaration-no-important
   }
 }
