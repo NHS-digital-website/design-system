@@ -171,6 +171,10 @@ $-icon-size: 2rem;
       &:hover {
         box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
 
+        #{$-root}__arrow {
+          background: nhsd-colours.get("orange");
+        }
+
         .nhsd-a-button {
           box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
         }

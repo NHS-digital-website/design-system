@@ -382,3 +382,46 @@ ComponentVariant8.parameters = {
     },
   },
 };
+
+export const ComponentVariant10 = Template.bind({});
+ComponentVariant10.storyName = 'Yellow linked card with hexagonal icon and arrow';
+ComponentVariant10.args = {
+  classes: 'nhsd-m-card--focus-orange',
+  box: {
+    classes: 'nhsd-a-box--bg-yellow',
+  },
+  title: 'Indicators and datasets',
+  text: 'This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.',
+  link: {
+    href: '#',
+  },
+  hexIcon: {
+    classes: 'nhsd-a-icon--c-black nhsd-m-card__icon',
+    id: 'arrow_right',
+    nested: true
+  },
+  arrowIcon: {
+    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--c-black nhsd-m-card__arrow',
+    id: 'arrow_right',
+  },
+  tag: {
+    classes: 'nhsd-a-tag--bg-dark-grey',
+    label: 'National statistics',
+  },
+};
+ComponentVariant10.parameters = {
+  docs: {
+    description: {
+      story: `${sbConfig.heading.details}:
+- Yellow background, black text
+- Orange outline on focus and hover
+- Hexagonal icon in the TR corner
+- Directonal icon at the bottom (moves 10px to the right on card focus and hover)
+- Dark grey tag
+- Yellow outline on focus and hover (default)`,
+    },
+    source: {
+      code: `${sourceCode}\n${ComponentVariant10(ComponentVariant10.args)}`,
+    },
+  },
+};
