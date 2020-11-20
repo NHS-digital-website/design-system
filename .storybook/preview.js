@@ -8,6 +8,7 @@ export const parameters = {
       { name: 'light', value: '#ffffff' },
       { name: 'dim', value: '#425563' },
       { name: 'dark', value: '#231f20' },
+      { name: 'blue', value: '#005bbb' },
       { name: 'bright', value: '#fae100' },
     ],
   },

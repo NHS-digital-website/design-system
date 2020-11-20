@@ -7,7 +7,9 @@ import template from  './template.njk';
 require('./_index.scss');
 
 const componentName = 'Box';
-const storyDescription = `${sbConfig.heading.lab}`;
+const storyDescription = `${sbConfig.heading.lab}
+
+Box is a generic container used by other molecules and organisms such as the <a href="/docs/design-system-components-molecules-card--lab-component">Card molecule</a>.`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/box";
 
 // HTML`;
@@ -21,7 +23,6 @@ export default {
         component: storyDescription
       }
     },
-    notes: `${sbConfig.heading.basicRules}`,
   },
 };
 

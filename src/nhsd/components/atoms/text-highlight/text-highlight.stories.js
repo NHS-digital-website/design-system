@@ -65,7 +65,7 @@ export const TextHighlightDemo2 = () => {
     classes: 'nhsd-a-text-highlight--bg-light-green'
   });
 };
-TextHighlightDemo2.storyName = 'Green "must"';
+TextHighlightDemo2.storyName = 'Light green background ("must")';
 TextHighlightDemo2.parameters = {
   docs: {
     source: {
@@ -80,7 +80,7 @@ export const TextHighlightDemo3 = () => {
     classes: 'nhsd-a-text-highlight--bg-light-blue'
   });
 };
-TextHighlightDemo3.storyName = 'Blue "should"';
+TextHighlightDemo3.storyName = 'Light blue background ("should")';
 TextHighlightDemo3.parameters = {
   docs: {
     source: {
@@ -95,7 +95,7 @@ export const TextHighlightDemo4 = () => {
     classes: 'nhsd-a-text-highlight--bg-light-grey'
   });
 };
-TextHighlightDemo4.storyName = 'Grey "could"';
+TextHighlightDemo4.storyName = 'Light grey background ("could")';
 TextHighlightDemo4.parameters = {
   docs: {
     source: {
@@ -110,7 +110,7 @@ export const TextHighlightDemo5 = () => {
     classes: 'nhsd-a-text-highlight--bg-light-red'
   });
 };
-TextHighlightDemo5.storyName = 'Red "will not"';
+TextHighlightDemo5.storyName = 'Light red background ("will not")';
 TextHighlightDemo5.parameters = {
   docs: {
     source: {

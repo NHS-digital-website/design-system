@@ -12,7 +12,7 @@
 // Private properties
 $-root: ".nhsd-m-card";
 $-box-padding: 1.111rem;
-$-icon-size: 2.5rem;
+$-icon-size: 2rem;
 
 #{$-root} {
   display: block;
@@ -38,6 +38,11 @@ $-icon-size: 2.5rem;
 
       #{$-root}__arrow {
         transform: translateX(.556rem);
+        background: nhsd-colours.get("yellow");
+
+        & > svg {
+          fill: #000000;
+        }
       }
 
       .nhsd-a-box {

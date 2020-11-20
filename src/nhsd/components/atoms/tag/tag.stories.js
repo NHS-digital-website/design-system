@@ -46,7 +46,7 @@ LabComponent.parameters = {
 };
 
 export const ComponentVariant1 = Template.bind({});
-ComponentVariant1.storyName = 'Tag variant #1';
+ComponentVariant1.storyName = 'Dark grey background';
 ComponentVariant1.args = {
   classes: 'nhsd-a-tag--bg-dark-grey',
   label: 'National statistics',
@@ -60,7 +60,7 @@ ComponentVariant1.parameters = {
 };
 
 export const ComponentVariant2 = Template.bind({});
-ComponentVariant2.storyName = 'Tag variant #2';
+ComponentVariant2.storyName = 'Light grey background';
 ComponentVariant2.args = {
   classes: 'nhsd-a-tag--bg-light-grey',
   label: 'Info only',
@@ -74,7 +74,7 @@ ComponentVariant2.parameters = {
 };
 
 export const ComponentVariant3 = Template.bind({});
-ComponentVariant3.storyName = 'Tag variant #3';
+ComponentVariant3.storyName = 'Light red background';
 ComponentVariant3.args = {
   classes: 'nhsd-a-tag--bg-light-red',
   label: 'High severity',
@@ -88,7 +88,7 @@ ComponentVariant3.parameters = {
 };
 
 export const ComponentVariant4 = Template.bind({});
-ComponentVariant4.storyName = 'Tag variant #4';
+ComponentVariant4.storyName = 'Light blue background';
 ComponentVariant4.args = {
   classes: 'nhsd-a-tag--bg-light-blue',
   label: 'Medium severity',
@@ -102,7 +102,7 @@ ComponentVariant4.parameters = {
 };
 
 export const ComponentVariant5 = Template.bind({});
-ComponentVariant5.storyName = 'Tag variant #5';
+ComponentVariant5.storyName = 'Light green background';
 ComponentVariant5.args = {
   classes: 'nhsd-a-tag--bg-light-green',
   label: 'Low severity',

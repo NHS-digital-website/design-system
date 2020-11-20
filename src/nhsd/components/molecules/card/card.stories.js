@@ -7,7 +7,16 @@ import template from  './template.njk';
 require('./_index.scss');
 
 const componentName = 'Card';
-const storyDescription = `${sbConfig.heading.lab}`;
+const storyDescription = `${sbConfig.heading.lab}
+
+${sbConfig.heading.basicRules}
+  - Heading always must be present.
+  - If icon is present, there is no date.
+  - If icon is present, the min. heading hight must be 45px.
+  - Text element is always followed by a button.
+  - If card has a "button" or "arrow link", the card contents have to be wrapped in an \`<a>\` tag.
+  - Card only has a focus state when it acts as a link (with button or arrow icon).
+  - If the user needs directing to an internal/external link, a card with an arrow or button must be used.`;
 const sourceCode = `// Sass import \n@use "nhsd/components/molecules/card";
 
 // HTML`;
@@ -21,14 +30,6 @@ export default {
         component: storyDescription
       }
     },
-    notes: `${sbConfig.heading.basicRules}
-    - Heading always must be present.
-    - If icon is present, there is no date.
-    - If icon is present, the min. heading hight must be 45px.
-    - Text element is always followed by a button.
-    - If card has a "button" or "arrow link", the card contents have to be wrapped in an \`<a>\` tag.
-    - Card only has a focus state when it acts as a link (with button or arrow icon).
-    - If the user needs directing to an internal/external link, a card with an arrow or button must be used.`,
   },
 };
 
@@ -50,7 +51,7 @@ LabComponent.args = {
     alt: 'Abstract lights',
   },
   title: 'About NHS Digital',
-  body: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
     label: 'More about what we do',
     classes: 'nhsd-m-card__button',
@@ -66,7 +67,7 @@ LabComponent.parameters = {
 };
 
 export const ComponentVariant1 = Template.bind({});
-ComponentVariant1.storyName = 'Variant #1';
+ComponentVariant1.storyName = 'Picture card with border';
 ComponentVariant1.args = {
   box: {
     classes: 'nhsd-a-box--border-light-grey',
@@ -81,7 +82,7 @@ ComponentVariant1.args = {
     alt: '2 scientists carry out tests in a laboratory',
   },
   title: 'About NHS Digital',
-  body: `We're pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.`,
+  text: `We're pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.`,
   button: {
     label: 'More about what we do',
     el: 'span',
@@ -107,13 +108,13 @@ ComponentVariant1.parameters = {
 };
 
 export const ComponentVariant2 = Template.bind({});
-ComponentVariant2.storyName = 'Variant #2';
+ComponentVariant2.storyName = 'Dark grey card';
 ComponentVariant2.args = {
   box: {
     classes: 'nhsd-a-box--bg-dark-grey ',
   },
   title: 'About NHS Digital',
-  body: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
     classes: 'nhsd-a-button--invert',
     label: 'More about what we do',
@@ -139,14 +140,14 @@ ComponentVariant2.parameters = {
 };
 
 export const ComponentVariant3 = Template.bind({});
-ComponentVariant3.storyName = 'Variant #3';
+ComponentVariant3.storyName = 'Light grey card with date';
 ComponentVariant3.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   date: '28 Sep 2020',
   title: 'Creating the COVID-19 text service for vulnerable people',
-  body: 'A small group from NHSX, NHS Digital, NHS Business Services Authority and the Behavioural Insights Team has developed a text service for those most threatened by COVID-19.',
+  text: 'A small group from NHSX, NHS Digital, NHS Business Services Authority and the Behavioural Insights Team has developed a text service for those most threatened by COVID-19.',
 };
 ComponentVariant3.parameters = {
   docs: {
@@ -164,13 +165,13 @@ ComponentVariant3.parameters = {
 };
 
 export const ComponentVariant4 = Template.bind({});
-ComponentVariant4.storyName = 'Variant #4';
+ComponentVariant4.storyName = 'Light grey linked card with tag and button';
 ComponentVariant4.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   title: 'About NHS Digital',
-  body: `We're pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.`,
+  text: `We're pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.`,
   link: {
     href: 'https://gov.uk',
     target: '_blank',
@@ -202,7 +203,7 @@ ComponentVariant4.parameters = {
 };
 
 export const ComponentVariant5 = Template.bind({});
-ComponentVariant5.storyName = 'Variant #5';
+ComponentVariant5.storyName = 'Blue, externally linked card with tag, hexagonal icon and arrow';
 ComponentVariant5.args = {
   classes: '',
   box: {
@@ -219,7 +220,7 @@ ComponentVariant5.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-m nhsd-a-icon--c-white nhsd-m-card__arrow',
+    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--c-white nhsd-m-card__arrow',
     id: 'arrow_right',
   },
   tag: {
@@ -231,11 +232,11 @@ ComponentVariant5.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- Blue background, white text
-- Inline links
+- Blue background, white title
 - Hexagonal icon in the TR corner
 - Directonal icon at the bottom (moves 10px to the right on card focus and hover)
 - Light grey tag
+- Links to an external resource (makes screen reader announcement)
 - Yellow outline on focus and hover (default)`,
     },
     source: {
@@ -245,8 +246,90 @@ ComponentVariant5.parameters = {
 };
 
 export const ComponentVariant6 = Template.bind({});
-ComponentVariant6.storyName = 'Variant #6';
+ComponentVariant6.storyName = 'Dark grey linked card with hexagonal icon and arrow';
 ComponentVariant6.args = {
+  box: {
+    classes: 'nhsd-a-box--bg-dark-grey',
+  },
+  title: 'Indicators and datasets',
+  text: 'This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.',
+  link: {
+    href: '#',
+  },
+  hexIcon: {
+    classes: 'nhsd-a-icon--c-white nhsd-m-card__icon',
+    id: 'search',
+    nested: true
+  },
+  arrowIcon: {
+    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--c-white nhsd-m-card__arrow',
+    id: 'arrow_right',
+  },
+  tag: {
+    classes: 'nhsd-a-tag--bg-light-grey',
+    label: 'National statistics',
+  },
+};
+ComponentVariant6.parameters = {
+  docs: {
+    description: {
+      story: `${sbConfig.heading.details}:
+- Dark grey background, white text
+- Hexagonal icon in the TR corner
+- Directonal icon at the bottom (moves 10px to the right on card focus and hover)
+- Light grey tag
+- Yellow outline on focus and hover (default)`,
+    },
+    source: {
+      code: `${sourceCode}\n${ComponentVariant6(ComponentVariant6.args)}`,
+    },
+  },
+};
+
+export const ComponentVariant9 = Template.bind({});
+ComponentVariant9.storyName = 'Light grey linked card with hexagonal icon and arrow';
+ComponentVariant9.args = {
+  box: {
+    classes: 'nhsd-a-box--bg-light-grey',
+  },
+  title: 'Indicators and datasets',
+  text: 'This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.',
+  link: {
+    href: '#',
+  },
+  hexIcon: {
+    classes: 'nhsd-a-icon--c-black nhsd-m-card__icon',
+    id: 'x',
+    nested: true
+  },
+  arrowIcon: {
+    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--c-black nhsd-m-card__arrow',
+    id: 'arrow_right',
+  },
+  tag: {
+    classes: 'nhsd-a-tag--bg-dark-grey',
+    label: 'National statistics',
+  },
+};
+ComponentVariant9.parameters = {
+  docs: {
+    description: {
+      story: `${sbConfig.heading.details}:
+- Dark grey background, white text
+- Hexagonal icon in the TR corner
+- Directonal icon at the bottom (moves 10px to the right on card focus and hover)
+- Dark grey tag
+- Yellow outline on focus and hover (default)`,
+    },
+    source: {
+      code: `${sourceCode}\n${ComponentVariant9(ComponentVariant9.args)}`,
+    },
+  },
+};
+
+export const ComponentVariant7 = Template.bind({});
+ComponentVariant7.storyName = 'Yellow linked card with button';
+ComponentVariant7.args = {
   link: {
     href: '#',
   },
@@ -255,14 +338,14 @@ ComponentVariant6.args = {
     classes: 'nhsd-a-box--bg-yellow',
   },
   title: 'About NHS Digital',
-  body: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
     label: 'More about what we do',
     classes: 'nhsd-m-card__button',
     el: 'span'
   },
 };
-ComponentVariant6.parameters = {
+ComponentVariant7.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
@@ -272,21 +355,21 @@ ComponentVariant6.parameters = {
 - Primary button (span element) - receives focus on ard focus and hover; also presses down when the card is pressed`,
     },
     source: {
-      code: `${sourceCode}\n${ComponentVariant6(ComponentVariant6.args)}`,
+      code: `${sourceCode}\n${ComponentVariant7(ComponentVariant7.args)}`,
     },
   },
 };
 
-export const ComponentVariant7 = Template.bind({});
-ComponentVariant7.storyName = 'Variant #7';
-ComponentVariant7.args = {
+export const ComponentVariant8 = Template.bind({});
+ComponentVariant8.storyName = 'Yellow card with title and content, and inline links';
+ComponentVariant8.args = {
   box: {
     classes: 'nhsd-a-box--bg-yellow',
   },
   title: 'NHSmail national helpdesk',
-  body: 'If you have any other questions about NHSmail, our national helpdesk is open 24 hours a day, 365 days a year on <a href="#" class="nhsd-a-link nhsd-a-link--dark">0333 200 1133</a>, or email us at: <a href="#" class="nhsd-a-link nhsd-a-link--dark">helpdesk@nhs.net</a>.',
+  text: 'If you have any other questions about NHSmail, our national helpdesk is open 24 hours a day, 365 days a year on <a href="#" class="nhsd-a-link nhsd-a-link--dark">0333 200 1133</a>, or email us at: <a href="#" class="nhsd-a-link nhsd-a-link--dark">helpdesk@nhs.net</a>.',
 };
-ComponentVariant7.parameters = {
+ComponentVariant8.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
@@ -295,7 +378,7 @@ ComponentVariant7.parameters = {
 - Orange outline on focus and hover`,
     },
     source: {
-      code: `${sourceCode}\n${ComponentVariant7(ComponentVariant7.args)}`,
+      code: `${sourceCode}\n${ComponentVariant8(ComponentVariant8.args)}`,
     },
   },
 };

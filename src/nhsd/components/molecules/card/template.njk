@@ -36,34 +36,29 @@
 {%- set cardId = nhsd_u_uid("card-") -%}
 
 <article class="{{ classNames }}" id="{{ cardId }}">
-{%- if hasLink %}
-<a href="{{ params.link.href }}" class="nhsd-m-card__link" {%- if params.link.target %} target="{{ params.link.target }}" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
-{% endif -%}
-
-  {{ nhsd_a_box_start(params.box.classes) }}
-
-  {%- if params.picture %}
-  {{ nhsd_a_picture(params.picture) }}
-  {% endif -%}
-
-  <div class="nhsd-m-card__content-box">
+  {% if hasLink -%}
+  <a href="{{ params.link.href }}" class="nhsd-m-card__link" {%- if params.link.target %} target="{{ params.link.target }}" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
+  {%- endif %}
+    {{ nhsd_a_box_start(params.box.classes) }}
+  {% if params.picture -%}
+    {{ nhsd_a_picture(params.picture) }}
+  {%- endif %}
+      <div class="nhsd-m-card__content-box">
       {%- if params.tag %}
         {{ nhsd_a_tag(params.tag) }}
       {% endif -%}
-
       {%- if params.date|length %}
-      <span class="nhsd-m-card__date">{{ params.date }}</span>
+        <span class="nhsd-m-card__date">{{ params.date }}</span>
       {% endif -%}
-
-      <h1 class="nhsd-m-card__title" id="{{ cardId + '-title' }}">{{ params.title|safe }}</h1>
+        <h1 class="nhsd-m-card__title" id="{{ cardId + '-title' }}">{{ params.title|safe }}</h1>
 
       {%- if params.hexIcon -%}
       {{ nhsd_a_icon(params.hexIcon) }}
       {%- endif -%}
 
-      {%- if params.body -%}
-      <p class="nhsd-m-card__text">{{ params.body|safe }}</p>
-      {%- endif -%}
+      {% if params.text -%}
+      <p class="nhsd-m-card__text">{{ params.text|safe }}</p>
+      {%- endif %}
 
       {%- if params.button -%}
       {{ nhsd_a_button(params.button) }}

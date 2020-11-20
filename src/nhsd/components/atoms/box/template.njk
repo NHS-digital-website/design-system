@@ -1,7 +1,7 @@
 {#- Set classes for this component -#}
 {% set classNames = "nhsd-a-box" %}
-{%- if params.classes %}
+{%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
-{% endif -%}
+{%- endif -%}
 
 <div class="{{ classNames }}">Hello box!</div>

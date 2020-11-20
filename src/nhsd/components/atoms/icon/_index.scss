@@ -34,6 +34,7 @@ $-colours: "black", "white", "yellow";
   max-height: map.get($-sizes, "xxl");
 
   & > svg {
+    display: block;
     width: 100%;
     height: 100%;
   }

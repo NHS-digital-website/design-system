@@ -59,15 +59,15 @@
   {% if params.nested -%}
   <svg {{ common_svg_attr() }}>
     <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-  {% endif -%}
+    {% endif -%}
 
-  {%- if params.id == "arrow_right" -%}{{ i_arrow_right(nested = params.nested) }}{%- endif -%}
-  {%- if params.id == "burger" -%}{{ i_burger(nested = params.nested) }}{%- endif -%}
-  {%- if params.id == "chart" -%}{{ i_chart(nested = params.nested) }}{%- endif -%}
-  {%- if params.id == "search" -%}{{ i_search(nested = params.nested) }}{%- endif -%}
-  {%- if params.id == "x" -%}{{ i_x(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "arrow_right" -%}{{ i_arrow_right(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "burger" -%}{{ i_burger(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "chart" -%}{{ i_chart(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "search" -%}{{ i_search(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "x" -%}{{ i_x(nested = params.nested) }}{%- endif -%}
 
-  {%- if params.nested -%}
+  {% if params.nested %}
   </svg>
   {%- endif %}
 </span>

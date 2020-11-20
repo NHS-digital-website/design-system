@@ -7,7 +7,18 @@ import template from  './template.njk';
 require('./_index.scss');
 
 const componentName = 'Picture';
-const storyDescription = `${sbConfig.heading.lab}`;
+const storyDescription = `${sbConfig.heading.lab}
+${sbConfig.heading.basicRules}
+  - Image aspect ratios: 16:9 or 1:1
+  - Border radius: 6px (0.333rem)
+  - Picture corner variations:
+    - Every corner is rounded
+    - Top corners are rounded
+    - No corners are rounded
+  - Picture element (optionally) using multiple source sets - different image for different breakpoints
+  - Image element proportionally scales inside the Picture element from the centre
+  - Must have at least 1 image source and an alt text to be valid
+  - Must have img element to be valid`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/picture";
 
 // HTML`;
@@ -21,17 +32,6 @@ export default {
         component: storyDescription
       }
     },
-    notes: `${sbConfig.heading.basicRules}
-  - Image aspect ratios: 16:9 or 1:1
-  - Border radius: 6px (0.333rem)
-  - Picture corner variations:
-    - Every corner is rounded
-    - Top corners are rounded
-    - No corners are rounded
-  - Picture element (optionally) using multiple source sets - different image for different breakpoints
-  - Image element proportionally scales inside the Picture element from the centre
-  - Must have at least 1 image source and an alt text to be valid
-  - Must have img element to be valid`,
   },
 };
 

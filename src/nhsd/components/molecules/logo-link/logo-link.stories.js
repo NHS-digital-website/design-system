@@ -21,7 +21,6 @@ export default {
         component: storyDescription
       }
     },
-    notes: `${sbConfig.heading.basicRules}`,
   },
 };
 

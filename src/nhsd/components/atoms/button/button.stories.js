@@ -70,7 +70,7 @@ LabComponent.args = {
 LabComponent.parameters = {
   docs: {
     source: {
-        code: `${sourceCode} ${LabComponent(LabComponent.args)}`,
+        code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
     }
   },
 };
@@ -86,7 +86,7 @@ PrimaryButton.parameters = {
       story: '',
     },
     source: {
-      code: `${sourceCode}${PrimaryButton(PrimaryButton.args)}`,
+      code: `${sourceCode}\n${PrimaryButton(PrimaryButton.args)}`,
     },
   },
 };
@@ -103,7 +103,7 @@ SecondaryButton.parameters = {
       story: '',
     },
     source: {
-      code: `${sourceCode}${SecondaryButton(SecondaryButton.args)}`,
+      code: `${sourceCode}\n${SecondaryButton(SecondaryButton.args)}`,
     },
   },
 };
@@ -120,7 +120,7 @@ StartButton.parameters = {
       story: '',
     },
     source: {
-      code: `${sourceCode}${StartButton(StartButton.args)}`,
+      code: `${sourceCode}\n${StartButton(StartButton.args)}`,
     },
   },
 };
@@ -137,7 +137,7 @@ CancelButton.parameters = {
       story: '',
     },
     source: {
-      code: `${sourceCode}${CancelButton(CancelButton.args)}`,
+      code: `${sourceCode}\n${CancelButton(CancelButton.args)}`,
     },
   },
 };
@@ -157,7 +157,7 @@ TertiaryButton.parameters = {
       story: 'The **tertiary button** should be used on dark backgrounds. (Use the **Canvas** for preview.)',
     },
     source: {
-      code: `${sourceCode}${TertiaryButton(TertiaryButton.args)}`,
+      code: `${sourceCode}\n${TertiaryButton(TertiaryButton.args)}`,
     },
   },
 };
@@ -176,7 +176,7 @@ LinkButton.parameters = {
       story: 'An `<a>` element can be used to create the button component. A valid link button should have a **href** attribute, and when the URL links to an external link, the **target**  attribute should be set to **_blank**.',
     },
     source: {
-      code: `${sourceCode}${LinkButton(LinkButton.args)}`,
+      code: `${sourceCode}\n${LinkButton(LinkButton.args)}`,
     },
   },
 };
@@ -194,7 +194,7 @@ InputButton.parameters = {
       story: 'An `<input>` element can be used to create the button component - this is particularly helpful when the user needs to **submit a form**.',
     },
     source: {
-      code: `${sourceCode}${InputButton(InputButton.args)}`,
+      code: `${sourceCode}\n${InputButton(InputButton.args)}`,
     },
   },
 };
@@ -212,7 +212,7 @@ SpanButton.parameters = {
       story: 'A `<span>` element can be used to create the button component - one that looks like a button, but in fact doesn\'t work like one. This can be useful when the button is wrapped inside an `<a> tag`.',
     },
     source: {
-      code: `${sourceCode}${SpanButton(SpanButton.args)}`,
+      code: `${sourceCode}\n${SpanButton(SpanButton.args)}`,
     },
   },
 };
@@ -230,7 +230,7 @@ DisabledButton.parameters = {
       story: '',
     },
     source: {
-      code: `${sourceCode}${DisabledButton(DisabledButton.args)}`,
+      code: `${sourceCode}\n${DisabledButton(DisabledButton.args)}`,
     },
   },
 };
@@ -248,7 +248,7 @@ DisabledSpanButton.parameters = {
       story: '',
     },
     source: {
-      code: `${sourceCode}${DisabledSpanButton(DisabledSpanButton.args)}`,
+      code: `${sourceCode}\n${DisabledSpanButton(DisabledSpanButton.args)}`,
     },
   },
 };
