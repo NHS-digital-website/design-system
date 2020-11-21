@@ -2,7 +2,13 @@
 
 const gulp = require('gulp')
 const awspublish = require('gulp-awspublish')
-const s3Config = require('../aws-config.json')
+
+let s3Config;
+try {
+  s3Config = require('../aws-config.json')
+} catch(error) {
+  return;
+}
 
 gulp.task('s3:sync', () => {
   // Create a new publisher using S3 options

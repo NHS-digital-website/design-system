@@ -120,8 +120,6 @@ Elements, that not yet have been atomised can be named using BEM style `__` nami
 
 ## Actions to take
 
-- Create a utility class generator, which produces placeholders with the current styling (for Sass extends), and classes with the styles enforced using `!important` for inline use.
-- It seems that the project build run for the first time fails on the missing AWS config file - this shouldn't happen, fix it!
 - Introduce Typescript (involved replacing exiting JS code with TS code)
 - Add TS compile and linting tasks back (don't compile stories)
 - Define `dist` tasks and build workflow
