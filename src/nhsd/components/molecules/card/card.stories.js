@@ -10,6 +10,8 @@ const componentName = 'Card';
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}
+  - Max. width: 420px.
+  - Min. width: 200px.
   - Heading always must be present.
   - If icon is present, there is no date.
   - If icon is present, the min. heading hight must be 45px.
@@ -59,6 +61,9 @@ LabComponent.args = {
   },
 };
 LabComponent.parameters = {
+  backgrounds: {
+    default: 'dim',
+  },
   docs: {
     source: {
       code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,

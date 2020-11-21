@@ -17,6 +17,8 @@ $-icon-size: 2rem;
 #{$-root} {
   display: block;
   position: relative;
+  min-width: 11.111rem;
+  max-width: 23.333rem;
 
   &__link {
     display: inline-block;
