@@ -1,0 +1,29 @@
+// Tokens
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+
+body,
+html {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  color: nhsd-colours.get("dark-grey");
+}
+
+html {
+  @include nhsd-fonts.font-family;
+
+  font-size: nhsd-fonts.$relative-base-font-size;
+  line-height: 1.6;
+}
+
+* {
+  @include nhsd-utils.box-sizing;
+
+  backface-visibility: hidden;
+
+  &:focus {
+    outline: none;
+  }
+}

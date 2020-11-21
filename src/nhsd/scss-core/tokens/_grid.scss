@@ -1,14 +1,12 @@
+// Built in modules
 @use "sass:map";
 
 // Settings
-@use "scss-core/settings/vars";
 @use "scss-core/settings/media-queries" as *;
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-t";
@@ -18,12 +16,7 @@ $-s-content-width: 38.222rem; // 688px
 $-m-content-width: 52.444rem; // 944px
 $-l-content-width: 71.111rem; // 1280px - 1240
 $-xl-content-width: 83.333rem; // 1500px
-
-// Public members
-// Gutters
-$gutter: .833rem;
-$small-gutter: .833rem * .667;
-
+// Breakpoint data
 $-grid-data-map: (
   xs: (
     prefix: xs,
@@ -63,16 +56,30 @@ $-grid-data-map: (
   )
 );
 
-%column-base {
+// Public members
+// =========================================================
+// Variables
+// =========================================================
+
+$gutter: .833rem;
+$small-gutter: .833rem * .667;
+
+// Private members
+%-column-base {
   width: 100%;
   padding: 0 $gutter;
   align-content: stretch;
   flex: 0 1 auto;
 }
 
+// Public members
+// =========================================================
+// Utility classes
+// =========================================================
+
 #{$-root} {
   &-grid {
-    @include utils.box-sizing;
+    @include nhsd-utils.box-sizing;
     display: block;
     width: 100%;
     max-width: $-xs-content-width;
@@ -83,6 +90,24 @@ $-grid-data-map: (
       max-width: 100%;
       padding-right: 0;
       padding-left: 0;
+    }
+
+    @include mq($until: s) {
+      padding: 0 $small-gutter;
+
+      [class^="nhsd-t-col-"] {
+        padding-right: $small-gutter;
+        padding-left: $small-gutter;
+      }
+
+      // TODO - In case we only want to have small gutters in the inside
+      // #{$-root}-col-xs-1:nth-child(2n+1):not(#{$-root}-off-xs-1) {
+      //   padding-right: $small-gutter;
+
+      //   & + #{$-root}-col-xs-1 {
+      //     padding-left: $small-gutter;
+      //   }
+      // }
     }
 
     &:not(&--full-width) {
@@ -105,13 +130,11 @@ $-grid-data-map: (
 
     // Better grid visibility in demo
     &--debug {
-      // @include utils.text-centre;
-
       #{$-root}-row {
         background: nhsd-colours.get("yellow-10-tint");
       }
 
-      div[class^="nhsd-t-col-"] {
+      [class^="nhsd-t-col-"] {
         padding-top: 1rem;
         padding-bottom: 1rem;
         background: nhsd-colours.get("mid-grey-20-tint");
@@ -136,14 +159,12 @@ $-grid-data-map: (
   // Basic row
   &-row {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     flex-wrap: wrap;
   }
 
   // Basic column
   &-col {
-    @extend %column-base;
+    @extend %-column-base;
   }
 
   // Columns and offsets for all breakpoints
@@ -157,13 +178,13 @@ $-grid-data-map: (
 
     @for $-step from 0 through $-columns {
       &-col-#{$-prefix}-#{$-step} {
-        @extend %column-base;
+        @extend %-column-base;
       }
 
       // Static
       @if $-device == "m" {
         &-col-#{$-step} {
-          @extend %column-base;
+          @extend %-column-base;
           width: $-step / $-columns * 100%;
         }
 
@@ -182,17 +203,6 @@ $-grid-data-map: (
           margin-left: $-step / $-columns * 100%;
         }
       }
-    }
-  }
-}
-
-// Slight tweak to the inside gutters of the xs columns
-@include mq($until: s) {
-  #{$-root}-col-xs-1:nth-child(2n+1):not(#{$-root}-off-xs-1) {
-    padding-right: $small-gutter;
-
-    & + #{$-root}-col-xs-1 {
-      padding-left: $small-gutter;
     }
   }
 }

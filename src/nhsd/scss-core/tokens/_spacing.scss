@@ -1,9 +1,14 @@
+// stylelint-disable declaration-no-important
+
+// Built in modules
 @use "sass:map";
 @use "sass:string";
-@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/fonts";
 
 // Private members
-$-root: #{".nhsd-"};
+$-root: ".nhsd-";
 $-steps: (
   0: 0,
   1: 5px,
@@ -21,18 +26,23 @@ $-props: margin, padding;
 $-dirs: top, right, bottom, left;
 
 // Public members
+// =========================================================
+// Functions and mixins
+// =========================================================
+
 @function get($index: 0) {
   $value: map.get($-steps, $index);
   @if $value != null {
-    @return if($value == 0, 0, ($value / vars.$base-font-size) * 1rem);
+    @return if($value == 0, 0, ($value / fonts.$base-font-size) * 1rem);
   }
   @return null;
 }
 
-// stylelint-disable declaration-no-important
-// Generated class names (a.k.a. override classes)
+// =========================================================
+// Utility override classes
+// =========================================================
+
 @each $prop in $-props {
-  // $p: string.slice($prop, 1, 1);
   $i: -1;
   @each $step in $-steps {
     $i: $i + 1;
@@ -40,11 +50,11 @@ $-dirs: top, right, bottom, left;
       #{$prop}: get($i) !important;
     }
     @each $dir in $-dirs {
-      // $d: string.slice($dir, 1, 1);
       #{$-root}\!t-#{$prop}-#{$dir}-#{$i} {
         #{$prop}-#{$dir}: get($i) !important;
       }
     }
   }
 }
+
 // stylelint-enable declaration-no-important

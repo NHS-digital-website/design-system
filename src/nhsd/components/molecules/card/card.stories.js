@@ -10,11 +10,10 @@ const componentName = 'Card';
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}
-  - Min. height: 200px.
-  - (Max. width: 420px.) - TBXW
-  - (Min. width: 200px.) - TBXW
-  - Font sizes for title and text has to work across all breakpoints
-  - No inline links allowed - ie. The card always has to link
+  - Min. height: 200px on desktop / 150px until tablet.
+  - No borders on any box background - BUT white box on white background must have a light grey border.
+  - Font sizes for title and text has to work across all breakpoints.
+  - No inline links allowed - ie. The card always has to link.
   - No option for both image AND icon. It’s either/or.
   - Heading always must be present.
   - If icon is present, there is no date.
@@ -60,7 +59,6 @@ LabComponent.args = {
   text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
     label: 'More about what we do',
-    classes: 'nhsd-m-card__button',
     el: 'span'
   },
 };
@@ -117,15 +115,15 @@ ComponentVariant1.parameters = {
 };
 
 export const ComponentVariant2 = Template.bind({});
-ComponentVariant2.storyName = 'Dark grey card';
+ComponentVariant2.storyName = 'White card on white background';
 ComponentVariant2.args = {
   box: {
-    classes: 'nhsd-a-box--bg-dark-grey ',
+    classes: 'nhsd-a-box--bg-white nhsd-a-box--border-light-grey',
   },
   title: 'About NHS Digital',
   text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
-    classes: 'nhsd-a-button--invert',
+    classes: 'nhsd-a-button--outline',
     label: 'More about what we do',
     el: 'span',
   },
@@ -139,7 +137,7 @@ ComponentVariant2.parameters = {
       story: `${sbConfig.heading.details}:
 - Dark grey background, white heading and text
 - The whole card links
-- Invert button (span element) - receives focus on ard focus and hover; also presses down when the card is pressed
+- Secondary button (span element) - receives focus on ard focus and hover; also presses down when the card is pressed
 - Yellow outline on focus and hover (default)`,
     },
     source: {
@@ -157,6 +155,13 @@ ComponentVariant3.args = {
   date: '28 Sep 2020',
   title: 'Creating the COVID-19 text service for vulnerable people',
   text: 'A small group from NHSX, NHS Digital, NHS Business Services Authority and the Behavioural Insights Team has developed a text service for those most threatened by COVID-19.',
+  arrowIcon: {
+    classes: 'nhsd-a-icon--size-s nhsd-m-card__arrow',
+    id: 'arrow_right',
+  },
+  link: {
+    href: '#',
+  },
 };
 ComponentVariant3.parameters = {
   docs: {
@@ -229,7 +234,7 @@ ComponentVariant5.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--c-white nhsd-m-card__arrow',
+    classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
     id: 'arrow_right',
   },
   tag: {
@@ -271,7 +276,7 @@ ComponentVariant6.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--c-white nhsd-m-card__arrow',
+    classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
     id: 'arrow_right',
   },
   tag: {
@@ -312,7 +317,7 @@ ComponentVariant9.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--c-black nhsd-m-card__arrow',
+    classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-black nhsd-m-card__arrow',
     id: 'arrow_right',
   },
   tag: {
@@ -350,7 +355,6 @@ ComponentVariant7.args = {
   text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
     label: 'More about what we do',
-    classes: 'nhsd-m-card__button',
     el: 'span'
   },
 };
@@ -365,29 +369,6 @@ ComponentVariant7.parameters = {
     },
     source: {
       code: `${sourceCode}\n${ComponentVariant7(ComponentVariant7.args)}`,
-    },
-  },
-};
-
-export const ComponentVariant8 = Template.bind({});
-ComponentVariant8.storyName = 'Yellow card with title and content, and inline links';
-ComponentVariant8.args = {
-  box: {
-    classes: 'nhsd-a-box--bg-yellow',
-  },
-  title: 'NHSmail national helpdesk',
-  text: 'If you have any other questions about NHSmail, our national helpdesk is open 24 hours a day, 365 days a year on <a href="#" class="nhsd-a-link nhsd-a-link--dark">0333 200 1133</a>, or email us at: <a href="#" class="nhsd-a-link nhsd-a-link--dark">helpdesk@nhs.net</a>.',
-};
-ComponentVariant8.parameters = {
-  docs: {
-    description: {
-      story: `${sbConfig.heading.details}:
-- Yellow background, black text
-- Dark inline links - light on focus and hover
-- Orange outline on focus and hover`,
-    },
-    source: {
-      code: `${sourceCode}\n${ComponentVariant8(ComponentVariant8.args)}`,
     },
   },
 };
@@ -410,7 +391,7 @@ ComponentVariant10.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--c-black nhsd-m-card__arrow',
+    classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-black nhsd-m-card__arrow',
     id: 'arrow_right',
   },
   tag: {

@@ -97,14 +97,6 @@ To make sure the class names in this styling system don't clash existing class n
 - **Organisms / Header**: `.nhsd-o-header`
 - **Templates / News hub**: `.nhsd-t-news-hub`
 
-Following this logic, any reusable "utility" classes should have the `u` prefix. For instance:
-
-- `.nhsd-u-sr-only`
-
-#### Utility classes and placeholders
-
-We have a built-in generator for these, check out the `src/nhsd/scss-core/base/_utils.scss` file for more details.
-
 #### Component variant naming
 
 - **Background variants:** `&--bg-dark-grey`
@@ -131,18 +123,21 @@ There are 2 types of tokens based on intended use:
 
 - We group our SCSS source files into tokens based on functionality. Examples:
     - Colours
+    - Easings
+    - Fonts
     - Grid
+    - Overrides
     - Spacing
     - Typescale
-    - Easings
-    - Overrides
+    - Utilities
 - We do this for better semantics and to make it easier for developers (who are not necessarily UI specialists) to find settings, vars, mixins and utility classes.
+- Tokens can be found at [src/nhsd/scss-core/tokens](./src/nhsd/scss-core/tokens).
 
 #### Colours (override tokens)
 
 - `.nhsd-!t-colour-white`
 - `.nhsd-!t-fill-red`
-- `.nhsd-!t-background-dark-grey`
+- `.nhsd-!t-bg-dark-grey`
 - `.nhsd-!t-border-yellow`
 
 #### Grid
@@ -153,15 +148,20 @@ There are 2 types of tokens based on intended use:
 - `.nhsd-t-col-xs-2`
 - `.nhsd-t-offset-m-2`
 
+#### Utilities (regular tokens)
+
+- `.nhsd-t-sr-only`
+
 #### Utilities (override tokens)
 
 - `.nhsd-!t-no-gutters`
+- `.nhsd-!t-text-align-left`, `.nhsd-!t-text-align-center`, `.nhsd-!t-text-align-right`
 
 #### Spacing (override tokens)
 
-- `.nhsd-!t-margin-bottom-0`
-- `.nhsd-!t-margin-10`
-- `.nhsd-!t-padding-top-3`
+- `.nhsd-!t-margin-bottom-0` => `margin-bottom: 0`
+- `.nhsd-!t-margin-10` => `margin: 90px / 5rem`
+- `.nhsd-!t-padding-top-3` => `margin: 15px / 0.833333333rem`
 
 
 ## Actions to take

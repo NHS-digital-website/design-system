@@ -43,31 +43,32 @@
   {% if params.picture -%}
     {{ nhsd_a_picture(params.picture) }}
   {%- endif %}
-      <div class="nhsd-m-card__content-box">
+    <div class="nhsd-m-card__content-box">
       {%- if params.tag %}
         {{ nhsd_a_tag(params.tag) }}
       {% endif -%}
-      {%- if params.date|length %}
+      {% if params.date|length -%}
         <span class="nhsd-m-card__date">{{ params.date }}</span>
-      {% endif -%}
-        <h1 class="nhsd-m-card__title" id="{{ cardId + '-title' }}">{{ params.title|safe }}</h1>
+      {%- endif %}
+
+      <h1 class="nhsd-t-heading-s" id="{{ cardId + '-title' }}">{{ params.title|safe }}</h1>
 
       {%- if params.hexIcon -%}
       {{ nhsd_a_icon(params.hexIcon) }}
       {%- endif -%}
 
       {% if params.text -%}
-      <p class="nhsd-m-card__text">{{ params.text|safe }}</p>
+      <p class="nhsd-t-body">{{ params.text|safe }}</p>
       {%- endif %}
-
-      {%- if params.button -%}
-      {{ nhsd_a_button(params.button) }}
-      {%- endif -%}
-
-      {%- if params.arrowIcon -%}
-      {{ nhsd_a_icon(params.arrowIcon) }}
-      {%- endif -%}
     </div>
+
+    {%- if params.button -%}
+    {{ nhsd_a_button(params.button) }}
+    {%- endif -%}
+
+    {%- if params.arrowIcon -%}
+    {{ nhsd_a_icon(params.arrowIcon) }}
+    {%- endif -%}
   {{ nhsd_a_box_end() }}
   {%- if hasLink %}
   </a>

@@ -1,30 +1,27 @@
 // Settings
 @use "scss-core/settings/font-face";
-@use "scss-core/settings/vars";
 @use "scss-core/settings/media-queries" as *;
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/fonts" as nhsd-fonts;
 
 // Private members
 $-root: ".nhsd-t";
 
 %-typo-base {
-  font-family: vars.$font-family;
+  @include nhsd-fonts.font-family;
   font-kerning: auto;
 }
 
 %-heading-base {
   @extend %-typo-base;
 
-  margin: 0 auto nhsd-spacing.get(4);
+  margin: 0 0 nhsd-spacing.get(4);
   color: nhsd-colours.get("black");
 
-  @include utils.fw-bold;
+  @include nhsd-fonts.font-weight(bold);
   @include mq($until: s) {
     margin-bottom: nhsd-spacing.get(3);
   }
@@ -44,6 +41,10 @@ $-root: ".nhsd-t";
     line-height: 1.277rem;
   }
 }
+
+// =========================================================
+// Utility classes
+// =========================================================
 
 #{$-root} {
   // Headings (H1-H6)
@@ -131,7 +132,7 @@ $-root: ".nhsd-t";
   // Lead text
   &-lead {
     @extend %-typo-base;
-    @include utils.fw-bold;
+    @include nhsd-fonts.font-weight(bold);
 
     margin: 0 auto nhsd-spacing.get(3);
     color: nhsd-colours.get("black");
@@ -200,6 +201,8 @@ $-root: ".nhsd-t";
 
   // Blockquote
   &-quote {
+    @extend %-typo-base;
+
     position: relative;
     margin: 0 auto nhsd-spacing.get(3);
     color: nhsd-colours.get("dark-grey");
@@ -209,13 +212,15 @@ $-root: ".nhsd-t";
 
     &:before,
     &:after {
+      @extend %-typo-base;
+
       display: inline-block;
       position: absolute;
     }
 
     &:before {
       content: "“";
-      left: -.8rem;
+      left: -.75rem;
     }
 
     &:after {
@@ -227,7 +232,7 @@ $-root: ".nhsd-t";
       line-height: 1.5rem;
 
       &:before {
-        left: -.65rem;
+        left: -.6rem;
       }
     }
   }

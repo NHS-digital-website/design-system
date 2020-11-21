@@ -1,3 +1,6 @@
+// stylelint-disable declaration-no-important
+
+// Built in modules
 @use "sass:map";
 
 // Private members
@@ -35,6 +38,10 @@ $-colours: (
 );
 
 // Public members
+// =========================================================
+// Functions and mixins
+// =========================================================
+
 @function get($colour) {
   $colour: quote($colour);
 
@@ -45,14 +52,16 @@ $-colours: (
   @return map.get($-colours, $colour);
 }
 
-// stylelint-disable declaration-no-important
-// Generated class names (a.k.a. override classes)
+// =========================================================
+// Utility override classes
+// =========================================================
+
 @each $colourKey, $colourValue in $-colours {
   #{$-root}\!t-colour-#{$colourKey} {
     color: $colourValue !important;
   }
 
-  #{$-root}\!t-background-#{$colourKey} {
+  #{$-root}\!t-bg-#{$colourKey} {
     background-color: $colourValue !important;
   }
 
@@ -60,4 +69,5 @@ $-colours: (
     border: 1px solid $colourValue !important;
   }
 }
+
 // stylelint-enable declaration-no-important

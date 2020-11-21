@@ -1,0 +1,74 @@
+// stylelint-disable declaration-no-important
+
+// Built in modules
+@use "sass:map";
+
+// Private members
+$-root: ".nhsd-";
+$-font-families: (
+  brand: ("Frutiger W01", "Arial", sans-serif),
+  mono: (monospace, monospace)
+);
+$-font-weights: (
+  regular: 400,
+  light: 200,
+  bold: 600
+);
+
+// Public members
+// =========================================================
+// Variables
+// =========================================================
+
+$base-font-size: 18px;
+$relative-base-font-size: ($base-font-size / 16px) * 1rem; // Relative to the traditional 16px base font size in REMs
+
+// =========================================================
+// Functions and mixins
+// =========================================================
+
+@mixin font-family($key: brand, $override: false) {
+  $value: map.get($-font-families, $key);
+  @if $value == null {
+    $value: map.get($-font-families, brand);
+  }
+  font-family: $value if($override == true, !important, null);
+}
+
+@mixin font-weight($key: regular, $override: false) {
+  $value: map.get($-font-weights, $key);
+  @if $value == null {
+    $value: map.get($-font-weights, regular);
+  }
+  font-weight: $value if($override == true, !important, null);
+}
+
+// =========================================================
+// Utility override classes
+// =========================================================
+
+#{$-root}\!t-font-family {
+  &-brand {
+    @include font-family(brand, true);
+  }
+
+  &-mono {
+    @include font-family(mono, true);
+  }
+}
+
+#{$-root}\!t-font-weight {
+  &-light {
+    @include font-weight(light, true);
+  }
+
+  &-regular {
+    @include font-weight(regular, true);
+  }
+
+  &-bold {
+    @include font-weight(bold, true);
+  }
+}
+
+// stylelint-enable declaration-no-important

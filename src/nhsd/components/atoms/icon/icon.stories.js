@@ -35,9 +35,9 @@ const storyDescription = `${sbConfig.heading.lab}
 ### Supported colours
 |Colour name|Colour|Class name|
 |---|---|---|
-|**White**|<span class="nhsd-!t-background-white nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-white|
-|**Black**|<span class="nhsd-!t-background-black nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-black|
-|**Yellow**|<span class="nhsd-!t-background-yellow nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-yellow|`;
+|**White**|<span class="nhsd-!t-bg-white nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-white|
+|**Black**|<span class="nhsd-!t-bg-black nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-black|
+|**Yellow**|<span class="nhsd-!t-bg-yellow nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-yellow|`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML`;
 
 // Component defaults

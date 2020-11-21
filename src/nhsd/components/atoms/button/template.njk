@@ -28,7 +28,7 @@
   {%- endif -%}
 <a {{- commonAttributes | safe }} href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external"{% endif -%}>
   <span class="nhsd-a-button__label">{{ label }}</span>
-  {% if target.length %}<span class="nhsd-u-sr-only"> (external link, opens in a new tab)</span>{% endif %}
+  {% if target.length %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif %}
 </a>
 {%- elseif params.el == 'input' -%}
 <input {{- commonAttributes | safe }} type="submit" value="{{ label }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}/>

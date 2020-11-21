@@ -18,7 +18,7 @@ const storyDescription = `${sbConfig.heading.lab}
 |Wide|**L**|1367px|1579px|1240px|12|30px|
 |Extra Wide|**XL**|1580px|∞|1500px|12|30px|
 
-- **Note:** The <span class="nhsd-!t-background-green">&nbsp;&nbsp;&nbsp;&nbsp;</span> and <span class="nhsd-!t-background-red">&nbsp;&nbsp;&nbsp;&nbsp;</span> mobile columns represent the slightly tweaked gutters on the mobile breakpoint.`;
+- **Note:** The <span class="nhsd-!t-bg-green">&nbsp;&nbsp;&nbsp;&nbsp;</span> and <span class="nhsd-!t-bg-red">&nbsp;&nbsp;&nbsp;&nbsp;</span> mobile columns represent the slightly tweaked gutters on the mobile breakpoint.`;
 const sourceCode = `// Sass import \n@use "nhsd/scss-core/tokens/grid";\n\n//HTML`;
 
 // Component defaults
@@ -37,7 +37,7 @@ export const LabComponent = () => {
   const div = document.createElement('div');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">Static grid colums</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Static grid colums</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-12">12 columns @100% width</div>
@@ -68,20 +68,20 @@ export const StaticGrid = () => {
   const div = document.createElement('div');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">1 x 12 COLUMN</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">1 x 12 COLUMN</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-12">.nhsd-t-col-12</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">2 x 6 COLUMN</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">2 x 6 COLUMN</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-6">.nhsd-t-col-6</div>
     <div class="nhsd-t-col-6">.nhsd-t-col-6</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">3 x 4 COLUMN</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">3 x 4 COLUMN</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-4">.nhsd-t-col-4</div>
@@ -89,7 +89,7 @@ export const StaticGrid = () => {
     <div class="nhsd-t-col-4">.nhsd-t-col-4</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">4 x 3 COLUMN</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">4 x 3 COLUMN</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-3">.nhsd-t-col-3</div>
@@ -98,7 +98,7 @@ export const StaticGrid = () => {
     <div class="nhsd-t-col-3">.nhsd-t-col-3</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">6 x 2 COLUMN</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">6 x 2 COLUMN</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-2">.nhsd-t-col-2</div>
@@ -109,7 +109,7 @@ export const StaticGrid = () => {
     <div class="nhsd-t-col-2">.nhsd-t-col-2</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">12 x 1 COLUMN</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">12 x 1 COLUMN</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-1">.nhsd-t-col-1</div>
@@ -159,7 +159,7 @@ export const ResponsiveGrid = () => {
   const div = document.createElement('div');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">Responsive columns - specifically 100% on every breakpoint</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Responsive columns - specifically 100% on every breakpoint</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-xs-2 nhsd-t-col-s-6 nhsd-t-col-m-12">.nhsd-t-col-xs-2.nhsd-t-col-s-6.nhsd-t-col-m-12</div>
@@ -199,7 +199,7 @@ export const ResponsiveGrid2 = () => {
   const div = document.createElement('div');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">Columns only responsive on a specific breakpoint</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Columns only responsive on a specific breakpoint</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-m-4">.nhsd-t-col-m-4</div>
@@ -207,7 +207,7 @@ export const ResponsiveGrid2 = () => {
     <div class="nhsd-t-col-xs-1">.nhsd-t-col-xs-1</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">Columns responsive on all breakpoints</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Columns responsive on all breakpoints</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-xs-1 nhsd-t-col-s-1 nhsd-t-col-m-4">.nhsd-t-col-xs-1.nhsd-t-col-s-1.nhsd-t-col-m-4</div>
@@ -239,7 +239,7 @@ export const FullWidthGrid = () => {
   const div = document.createElement('div');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-t-grid--debug">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">Full width grid</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Full width grid</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-4">.nhsd-t-col-xs-2.nhsd-t-col-s-3.nhsd-t-col-m-4</div>
@@ -266,7 +266,7 @@ export const StaticColumnOffset = () => {
   const div = document.createElement('div');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">Offset columns</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Offset columns</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-4">.nhsd-t-col-4</div>
@@ -309,7 +309,7 @@ export const ResponsiveColumnOffset = () => {
   const div = document.createElement('div');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">Responsive offset columns</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Responsive offset columns</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-xs-1 nhsd-t-col-s-2 nhsd-t-col-m-1 nhsd-t-off-xs-1 nhsd-t-off-s-1 nhsd-t-off-m-6">TST</div>
@@ -356,7 +356,7 @@ export const NoGutterGrid = () => {
   const div = document.createElement('div');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--debug nhsd-!t-no-gutters">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-12 nhsd-u-fw-bold nhsd-!t-c-white nhsd-!t-bg-dark-grey">Look mum, no gutters!</div>
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Look mum, no gutters!</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-4 nhsd-!t-no-gutters">.nhsd-t-col-4.nhsd-!t-no-gutters</div>

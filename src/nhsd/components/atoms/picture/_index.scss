@@ -1,14 +1,15 @@
 // Settings
 @use "scss-core/settings/vars";
 
-// Base
-@use "scss-core/base/utils";
+// Tokens
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-a-picture";
 
 #{$-root} {
-  @include utils.box-sizing;
+  @include nhsd-utils.box-sizing;
+
   display: block;
   position: relative;
   width: 100%;

@@ -4,24 +4,28 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-@use "scss-core/tokens/easings";
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/easings" as nhsd-easings;
 
 // Component imports
 @use "../../atoms/button";
 @use "../../atoms/box";
 
-// Private properties
+// Private members
 $-root: ".nhsd-m-card";
-$-box-padding: 1.111rem;
-$-icon-size: 2rem;
+$-icon-size: 2.1rem;
+
+// Public members
+$box-padding: 1.111rem;
 
 #{$-root} {
-  @include utils.box-sizing;
   display: block;
   position: relative;
+  min-height: 11.111rem;
+
+  @include mq($until: s) {
+    min-height: 8.333rem;
+  }
 
   &__link {
     display: inline-block;
@@ -57,20 +61,22 @@ $-icon-size: 2rem;
     }
   }
 
-  &__date,
-  &__title,
-  &__text,
-  .nhsd-a-button {
-    margin: 0;
+  &__content-box {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: $box-padding $box-padding 0;
   }
 
-  &__content-box {
-    padding: $-box-padding;
+  &__arrow,
+  .nhsd-a-button {
+    align-self: baseline;
+    margin: nhsd-spacing.get(4) $box-padding $box-padding;
   }
 
   &__date {
     display: block;
-    margin: 0 0 .2rem;
+    margin: -.175rem 0 .2rem;
     color: nhsd-colours.get("dark-grey");
     font-size: .778rem;
     font-weight: bold;
@@ -78,50 +84,42 @@ $-icon-size: 2rem;
     line-height: 1rem;
   }
 
-  &__title {
-    margin: 0 0 .4rem;
-    color: nhsd-colours.get("black");
-    font-size: 1.22rem;
-    letter-spacing: -.0278rem;
-    line-height: 1.5;
-  }
-
   &__icon {
     display: block;
     position: absolute;
-    top: $-box-padding;
-    right: $-box-padding;
+    top: $box-padding;
+    right: $box-padding;
     width: $-icon-size;
     height: $-icon-size;
   }
 
-  &__text {
+  .nhsd-t-body {
     margin: 0 0 .8rem;
-    color: nhsd-colours.get("dark-grey");
-    font-size: .888rem;
-    line-height: 1.278rem;
 
-    &:last-child {
+    &:last-of-type {
       margin-bottom: 0;
     }
   }
 
   &__arrow {
-    @include easings.trans-easing(easings.$ease-out-expo);
+    @include nhsd-easings.trans-easing(nhsd-easings.$ease-out-expo);
+
     transition-property: transform;
     transition-duration: vars.$transition-duration;
   }
 
   .nhsd-a-box {
-    // min-height: 11.111rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding: 0;
 
     &--bg-dark-grey,
     &--bg-blue {
       &,
       #{$-root}__date,
-      #{$-root}__title,
-      #{$-root}__text {
+      [class^="nhsd-t-heading-"],
+      .nhsd-t-body {
         color: nhsd-colours.get("white");
       }
     }
@@ -129,8 +127,8 @@ $-icon-size: 2rem;
     &--bg-yellow {
       &,
       #{$-root}__date,
-      #{$-root}__title,
-      #{$-root}__text {
+      [class^="nhsd-t-heading-"],
+      .nhsd-t-body {
         color: nhsd-colours.get("black");
       }
     }
@@ -141,13 +139,13 @@ $-icon-size: 2rem;
     top: 0;
 
     & + *:nth-of-type(1) {
-      margin-top: .555rem;
+      margin-top: .75rem;
     }
   }
 
   .nhsd-a-picture {
     & + #{$-root}__content-box {
-      padding-top: $-box-padding * .4;
+      padding-top: $box-padding * .4;
 
       & > *:nth-child(1) {
         margin-top: .278rem;
@@ -156,13 +154,7 @@ $-icon-size: 2rem;
   }
 
   .nhsd-a-button {
-    margin-bottom: 0;
     pointer-events: none;
-  }
-
-  .nhsd-a-button,
-  &__arrow {
-    margin-top: .8rem;
   }
 
   &:active {
@@ -189,8 +181,13 @@ $-icon-size: 2rem;
   }
 
   &--with-icon {
-    #{$-root}__title {
+    [class^="nhsd-t-heading-"] {
+      margin-bottom: 1rem;
       padding-right: $-icon-size * 1.5;
+    }
+
+    .nhsd-t-body {
+      padding-right: $-icon-size;
     }
   }
 }

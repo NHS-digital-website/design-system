@@ -5,16 +5,17 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-a-button";
 $active-state-push-down: .111rem;
 
 #{$-root} {
-  @include utils.box-sizing;
+  @include nhsd-utils.box-sizing;
+  @include nhsd-fonts.font-family;
+
   display: inline-flex;
   position: relative;
   max-width: 15.55rem;
@@ -24,8 +25,6 @@ $active-state-push-down: .111rem;
   border-radius: 1.22rem;
   outline: 0;
   box-shadow: 0 0 0 .167rem transparent;
-
-  font-family: vars.$font-family;
   font-size: .78rem;
   font-weight: 600;
   line-height: 1.11;

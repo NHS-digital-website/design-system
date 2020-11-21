@@ -3,15 +3,14 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-m-logo-link";
 
 #{$-root} {
-  @include utils.box-sizing;
+  @include nhsd-utils.box-sizing;
+
   display: inline-block;
   padding-bottom: .1115rem;
   border-bottom: 2px solid transparent;

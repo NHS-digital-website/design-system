@@ -6,7 +6,7 @@ import template from  './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 // Utils to apply nhsd-u classes in the correct order
-require('../../../scss-core/base/_utils.scss');
+require('../../../scss-core/tokens/_utils.scss');
 
 const componentName = 'Text highlight';
 const storyDescription = `${sbConfig.heading.lab}`;
@@ -47,7 +47,7 @@ LabComponent.parameters = {
 export const TextHighlightDemo1 = () => {
   return TextHighlight({
     content: '/hello/...',
-    classes: 'nhsd-a-text-highlight--bg-dark-grey nhsd-u-ff-mono nhsd-u-fw-regular'
+    classes: 'nhsd-a-text-highlight--bg-dark-grey nhsd-!t-font-family-mono nhsd-!t-font-weight-regular'
   });
 };
 TextHighlightDemo1.storyName = 'Code snippet';
@@ -121,7 +121,7 @@ TextHighlightDemo5.parameters = {
 
 export const TextHighlightDemoAll = () => {
   const p = document.createElement('p');
-  p.classList.add('nhsd-body');
+  p.classList.add('nhsd-t-body');
   p.innerHTML = `Continually engineer e-business e-business before error-free e-commerce. Proactively synthesize extensive web-readiness for ${TextHighlightDemo5()} be tolerated. Progressively synthesize technically sound e-services whereas ${TextHighlightDemo2()} bleeding-edge methodologies. Seamlessly repurpose web-enabled ${TextHighlightDemo4()} applications after market-driven convergence. Rapidiously ${TextHighlightDemo3()} hello world. Assertively leverage ${TextHighlightDemo1()} existing vertical results.`;
   return p;
 };

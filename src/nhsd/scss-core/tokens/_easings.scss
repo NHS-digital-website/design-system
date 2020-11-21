@@ -1,5 +1,10 @@
 // Easing function variables - http://easings.net/#easeOutQuint
 
+// Public members
+// =========================================================
+// Variables
+// =========================================================
+
 // SINE
 $ease-in-sine: cubic-bezier(.47, 0, .745, .715);
 $ease-out-sine: cubic-bezier(.39, .575, .565, 1);
@@ -43,6 +48,10 @@ $ease-in-out-back: cubic-bezier(.68, -.55, .265, 1.55);
 // BOUNCE - Not supported in CSS
 
 // ELASTIC - Not supported in CSS
+
+// =========================================================
+// Functions and mixins
+// =========================================================
 
 @mixin trans-easing($easing: $ease-out-quart) {
   transition-timing-function: $easing;

@@ -1,0 +1,18 @@
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_card
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-card-list" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Set arrangement -#}
+{% set arrangement = "3-3-1" %}
+{%- if params.arrangement -%}
+  {% set arrangement = params.arrangement %}
+{%- endif -%}
+
+{{ nhsd_m_card(params) }}

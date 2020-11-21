@@ -1,0 +1,73 @@
+// stylelint-disable declaration-no-important
+
+// Built in modules
+@use "sass:map";
+
+// Private members
+$-root: ".nhsd-";
+
+// =========================================================
+// Functions and mixins
+// =========================================================
+
+@mixin text-align($key: left, $override: false) {
+  $directions: (
+    left: left,
+    center: center,
+    right: right
+  );
+
+  $value: map.get($directions, $key);
+  @if $value == null {
+    $value: map.get($directions, left);
+  }
+  text-align: $value if($override == true, !important, null);
+}
+
+@mixin box-sizing($value: border-box) {
+  &,
+  &:before,
+  &:after {
+    box-sizing: $value;
+  }
+}
+
+// =========================================================
+// Utility classes
+// =========================================================
+
+.nhsd-t-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// =========================================================
+// Utility override classes
+// =========================================================
+
+#{$-root}\!t-no-gutters {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+#{$-root}\!t-text-align {
+  &-left {
+    @include text-align(left, true);
+  }
+
+  &-center {
+    @include text-align(center, true);
+  }
+
+  &-right {
+    @include text-align(right, true);
+  }
+}
+
+// stylelint-enable declaration-no-important

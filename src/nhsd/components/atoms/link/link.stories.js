@@ -89,7 +89,7 @@ DarkLink.parameters = {
 
 export const LinkInText = () => {
   var p = document.createElement('p');
-  p.classList.add('nhsd-body');
+  p.classList.add('nhsd-t-body');
   p.innerHTML = `Seamlessly re-engineer superior platforms for progressive models. Objectively fabricate tactical niches rather than 24/7 relationships. Authoritatively ${Link({ label: 'actualize premier vortals'})} after proactive content.`;
   return p;
 };
@@ -107,7 +107,7 @@ LinkInText.parameters = {
 
 export const VeryLongLink = () => {
   var p = document.createElement('p');
-  p.classList.add('nhsd-body');
+  p.classList.add('nhsd-t-body');
   p.innerHTML = `Long links are not ideal, but certainly not unusual to see on a website. We had no choice, but to come up with a long label for this demo, ${Link({ label: 'so we decided to write down the longest link label we could think of - just to demonstrate that the readablity, functionality and aesthetics of the link and its styling is not affected in a negative way'})} - like at all. PHEW!`;
   return p;
 };
@@ -130,7 +130,7 @@ const externalLink = Link({
 });
 export const ExternalLink = () => {
   var p = document.createElement('p');
-  p.classList.add('nhsd-body');
+  p.classList.add('nhsd-t-body');
   p.innerHTML = externalLink;
   return p;
 };

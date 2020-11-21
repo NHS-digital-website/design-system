@@ -3,9 +3,7 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-a-box";
@@ -14,7 +12,8 @@ $-root: ".nhsd-a-box";
 $border-width: .115rem;
 
 #{$-root} {
-  @include utils.box-sizing;
+  @include nhsd-utils.box-sizing;
+
   display: block;
   position: relative;
   padding: 1.222rem;

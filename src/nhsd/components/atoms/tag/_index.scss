@@ -3,17 +3,16 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-a-tag";
 
 #{$-root} {
-  @include utils.box-sizing;
-  @include utils.ff;
-  @include utils.fw-bold;
+  @include nhsd-utils.box-sizing;
+  @include nhsd-fonts.font-family;
+  @include nhsd-fonts.font-weight(bold);
 
   padding: .33rem .33rem .3rem;
   color: nhsd-colours.get("black");

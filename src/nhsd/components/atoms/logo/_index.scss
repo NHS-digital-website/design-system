@@ -1,12 +1,13 @@
-// Base
-@use "scss-core/base/utils";
+// Tokens
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-a-logo";
 
 #{$-root} {
   &--fit {
-    @include utils.box-sizing;
+    @include nhsd-utils.box-sizing;
+
     width: 100%;
     height: auto;
     max-height: 100%;

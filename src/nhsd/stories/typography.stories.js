@@ -88,7 +88,7 @@ export const LabComponent = () => {
   div.appendChild(subTitle4);
 
   const p6 = document.createElement('p');
-  p6.classList.add(...['nhsd-t-body', 'nhsd-u-fw-bold']);
+  p6.classList.add(...['nhsd-t-body', 'nhsd-!t-font-weight-bold']);
   p6.innerText = `The algorithm looks to identify people:`;
   div.appendChild(p6);
 
@@ -116,7 +116,7 @@ export const LabComponent = () => {
   div.appendChild(p7);
 
   const ul2 = document.createElement('ul');
-  ul2.classList.add(...['nhsd-t-list', 'nhsd-t-list--bullet', 'nhsd-t-list--loose']);
+  ul2.classList.add(...['nhsd-t-list', 'nhsd-t-list--bullet', 'nhsd-t-list--links']);
   ul2.innerHTML = `<li><a href="#" class="nhsd-a-link">Association of British Neurologists</a></li>
   <li><a href="#" class="nhsd-a-link">British Society of Gastroenterology</a></li>
   <li><a href="#" class="nhsd-a-link">The renal association</a></li>
@@ -141,7 +141,7 @@ export const LabComponent = () => {
 
   const q = document.createElement('blockquote');
   q.classList.add('nhsd-t-quote');
-  q.innerText = `“Fusce id malesuada quam, sit amet tristique purus. Pellentesque quam augue, tincidunt sed dolor a, posuere laoreet mi. Quam augue”`;
+  q.innerText = `Fusce id malesuada quam, sit amet tristique purus. Pellentesque quam augue, tincidunt sed dolor a, posuere laoreet mi. Quam augue`;
   div.appendChild(q);
 
   return div;
@@ -318,7 +318,7 @@ OrderedListLoose.parameters = {
 export const UnorderedListLinks = () => {
   const div = document.createElement('div');
   const ul = document.createElement('ul');
-  ul.classList.add(...['nhsd-t-list', 'nhsd-t-list--bullet']);
+  ul.classList.add(...['nhsd-t-list', 'nhsd-t-list--bullet', 'nhsd-t-list--links']);
   ul.innerHTML = `<li><a href="#" class="nhsd-a-link">Association of British Neurologists</a></li>
   <li><a href="#" class="nhsd-a-link">British Society of Gastroenterology</a></li>
   <li><a href="#" class="nhsd-a-link">The renal association</a></li>

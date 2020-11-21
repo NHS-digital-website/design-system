@@ -9,7 +9,7 @@
 {%- if params.content %}
   {%- set content = params.content -%}
 {% endif -%}
-{% if "nhsd-u-ff-mono" in classNames -%}
+{% if "nhsd-!t-font-family-mono" in classNames -%}
 <code class="{{ classNames }}">{{ content }}</code>
 {%- else -%}
 <span class="{{ classNames }}">{{ content }}</span>

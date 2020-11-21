@@ -5,9 +5,7 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-a-icon";
@@ -27,7 +25,8 @@ $-sizes: (
 $-colours: "black", "white", "yellow";
 
 #{$-root} {
-  @include utils.box-sizing;
+  @include nhsd-utils.box-sizing;
+
   display: block;
   position: relative;
   max-width: map.get($-sizes, "xxl");

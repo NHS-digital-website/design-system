@@ -1,14 +1,13 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-a-rule";
 
 #{$-root} {
-  @include utils.box-sizing;
+  @include nhsd-utils.box-sizing;
+
   margin: 0;
   border: 0;
   border-bottom: 1px solid nhsd-colours.get("mid-grey-20-tint");

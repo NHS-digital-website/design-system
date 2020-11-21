@@ -5,9 +5,8 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-
-// Base
-@use "scss-core/base/utils";
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-a-link";
@@ -18,13 +17,14 @@ $-highlight-colour: nhsd-colours.get("yellow");
 $-line-thickness: 3px;
 
 #{$-root} {
-  @include utils.box-sizing;
+  @include nhsd-utils.box-sizing;
+  @include nhsd-fonts.font-family;
+
   position: relative;
   padding-top: $-line-thickness * .2;
   padding-bottom: $-line-thickness * .8;
   background-repeat: no-repeat;
   background-position: 0 100%;
-  font-family: vars.$font-family;
   text-decoration: none;
   transition-property: background-color, color, background-size, background-position, padding-bottom;
   transition-duration: vars.$transition-duration;
