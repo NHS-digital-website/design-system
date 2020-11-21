@@ -108,6 +108,10 @@ $-grid-data-map: (
     &--debug {
       @include utils.text-centre;
 
+      #{$-root}-row {
+        background: nhsd-colours.get("yellow-10-tint");
+      }
+
       div[class^="nhsd-col-"] {
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -137,7 +141,6 @@ $-grid-data-map: (
     justify-content: flex-start;
     align-items: stretch;
     flex-wrap: wrap;
-    background: nhsd-colours.get("yellow-10-tint");
   }
 
   // Basic column
