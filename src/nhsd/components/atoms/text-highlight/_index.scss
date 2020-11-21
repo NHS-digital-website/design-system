@@ -11,6 +11,7 @@
 $-root: ".nhsd-a-text-highlight";
 
 #{$-root} {
+  @include utils.box-sizing;
   @include utils.ff;
   @include utils.fw-bold;
   display: inline;

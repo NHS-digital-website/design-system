@@ -1,10 +1,14 @@
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
 
+// Base
+@use "scss-core/base/utils";
+
 // Private properties
 $-root: ".nhsd-a-rule";
 
 #{$-root} {
+  @include utils.box-sizing;
   margin: 0;
   border: 0;
   border-bottom: 1px solid nhsd-colours.get("mid-grey-20-tint");

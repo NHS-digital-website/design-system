@@ -1,8 +1,12 @@
+// Base
+@use "scss-core/base/utils";
+
 // Private properties
 $-root: ".nhsd-a-logo";
 
 #{$-root} {
   &--fit {
+    @include utils.box-sizing;
     width: 100%;
     height: auto;
     max-height: 100%;

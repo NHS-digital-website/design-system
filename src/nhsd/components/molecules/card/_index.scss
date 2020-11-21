@@ -5,6 +5,9 @@
 @use "scss-core/helpers/colours" as nhsd-colours;
 @use "scss-core/helpers/easings";
 
+// Base
+@use "scss-core/base/utils";
+
 // Component imports
 @use "../../atoms/button";
 @use "../../atoms/box";
@@ -15,6 +18,7 @@ $-box-padding: 1.111rem;
 $-icon-size: 2rem;
 
 #{$-root} {
+  @include utils.box-sizing;
   display: block;
   position: relative;
   min-width: 11.111rem;

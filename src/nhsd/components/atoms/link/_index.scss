@@ -5,7 +5,7 @@
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
 
-// Utils
+// Base
 @use "scss-core/base/typography";
 @use "scss-core/base/utils";
 
@@ -21,6 +21,7 @@ $-highlight-colour: nhsd-colours.get("yellow");
 $-line-thickness: .13rem;
 
 #{$-root} {
+  @include utils.box-sizing;
   position: relative;
   padding-top: $-line-thickness * .3;
   padding-bottom: $-line-thickness;

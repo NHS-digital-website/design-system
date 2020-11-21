@@ -4,6 +4,9 @@
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
 
+// Base
+@use "scss-core/base/utils";
+
 // Private properties
 $-root: ".nhsd-a-box";
 
@@ -11,6 +14,7 @@ $-root: ".nhsd-a-box";
 $border-width: .115rem;
 
 #{$-root} {
+  @include utils.box-sizing;
   display: block;
   position: relative;
   padding: 1.222rem;

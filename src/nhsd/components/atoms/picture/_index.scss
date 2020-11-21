@@ -1,10 +1,14 @@
 // Settings
 @use "scss-core/settings/vars";
 
+// Base
+@use "scss-core/base/utils";
+
 // Private properties
 $-root: ".nhsd-a-picture";
 
 #{$-root} {
+  @include utils.box-sizing;
   display: block;
   position: relative;
   width: 100%;

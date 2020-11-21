@@ -4,10 +4,14 @@
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
 
+// Base
+@use "scss-core/base/utils";
+
 // Private properties
 $-root: ".nhsd-m-logo-link";
 
 #{$-root} {
+  @include utils.box-sizing;
   display: inline-block;
   padding-bottom: .1115rem;
   border-bottom: 2px solid transparent;
