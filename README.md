@@ -108,7 +108,8 @@ We have a built-in generator for these, check out the `src/nhsd/scss-core/base/_
 #### Component variant naming
 
 - **Background variants:** `&--bg-dark-grey`
-- **Border variants:** `&--border-dark-grey`
+- **Border variants:** `&--border-blue`
+- **Colour (or fill) variants:** `&--c-yellow`
 - **Light variants:** `&--light` /  `&--dark`
 
 #### Nested atom naming vs. Component element naming
