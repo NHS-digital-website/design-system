@@ -12,7 +12,7 @@
 // Media Queries and breakpoints
 @use "sass-mq/mq";
 
-// Private properties
+// Private members
 $-root: ".nhsd-a-link";
 $-base-colour: nhsd-colours.get("blue");
 $-invert-colour: nhsd-colours.get("white");

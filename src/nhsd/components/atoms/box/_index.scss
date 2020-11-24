@@ -7,10 +7,10 @@
 // Base
 @use "scss-core/base/utils";
 
-// Private properties
+// Private members
 $-root: ".nhsd-a-box";
 
-// Public properties
+// Public members
 $border-width: .115rem;
 
 #{$-root} {

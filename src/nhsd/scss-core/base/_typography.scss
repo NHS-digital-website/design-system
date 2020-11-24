@@ -14,7 +14,7 @@
 // Media Queries and breakpoints
 @use "sass-mq/mq";
 
-// Private properties
+// Private members
 $-font-colour: nhsd-colours.get("dark-grey");
 $-desktop-font-size: 1rem; // 18px
 $-mobile-font-size: .89rem; // 16px
