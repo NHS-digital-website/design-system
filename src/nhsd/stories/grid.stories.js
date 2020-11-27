@@ -18,12 +18,12 @@ const storyDescription = `${sbConfig.heading.lab}
 |Wide|**L**|1367px|1579px|1240px|12|30px|
 |Extra Wide|**XL**|1580px|∞|1500px|12|30px|
 
-- **Note:** The <span class="nhsd-u-bg-green">&nbsp;&nbsp;&nbsp;&nbsp;</span> and <span class="nhsd-u-bg-red">&nbsp;&nbsp;&nbsp;&nbsp;</span> mobile columns represent the slightly tweaked gutters on the mobile breakpoint.`;
+- **Note:** The <span class="nhsd-!t-background-green">&nbsp;&nbsp;&nbsp;&nbsp;</span> and <span class="nhsd-!t-background-red">&nbsp;&nbsp;&nbsp;&nbsp;</span> mobile columns represent the slightly tweaked gutters on the mobile breakpoint.`;
 const sourceCode = `// Sass import \n@use "nhsd/scss-core/tokens/grid";\n\n//HTML`;
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.foundations} / ${sbConfig.title.gridSystem}`,
+  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.gridSystem}`,
   parameters: {
     docs: {
       description: {
@@ -55,7 +55,7 @@ export const LabComponent = () => {
 </div>`;
   return div;
 };
-LabComponent.storyName = 'Lab';
+LabComponent.storyName = sbConfig.title.lab;
 LabComponent.parameters = {
   docs: {
     source: {

@@ -48,11 +48,11 @@ $-colours: (
 // stylelint-disable declaration-no-important
 // Generated class names (a.k.a. override classes)
 @each $colourKey, $colourValue in $-colours {
-  #{$-root}\!t-c-#{$colourKey} {
+  #{$-root}\!t-colour-#{$colourKey} {
     color: $colourValue !important;
   }
 
-  #{$-root}\!t-bg-#{$colourKey} {
+  #{$-root}\!t-background-#{$colourKey} {
     background-color: $colourValue !important;
   }
 

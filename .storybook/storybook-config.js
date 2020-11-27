@@ -8,6 +8,7 @@ module.exports = {
     templates: "Templates",
     pages: "Pages",
     foundations: "Foundations",
+    tokens: "Tokens",
     typography: "Typography",
     gridSystem: "Grid system",
     colours: "Colours",

@@ -140,8 +140,9 @@ There are 2 types of tokens based on intended use:
 
 #### Colours (override tokens)
 
-- `.nhsd-!t-c-white`
-- `.nhsd-!t-bg-dark-grey`
+- `.nhsd-!t-colour-white`
+- `.nhsd-!t-fill-red`
+- `.nhsd-!t-background-dark-grey`
 - `.nhsd-!t-border-yellow`
 
 #### Grid
@@ -149,12 +150,18 @@ There are 2 types of tokens based on intended use:
 - `.nhsd-t-grid`
 - `.nhsd-t-grid--full-width`
 - `.nhsd-t-row`
-- `.nhsd-t-col-1`
 - `.nhsd-t-col-xs-2`
+- `.nhsd-t-offset-m-2`
 
 #### Utilities (override tokens)
 
 - `.nhsd-!t-no-gutters`
+
+#### Spacing (override tokens)
+
+- `.nhsd-!t-margin-bottom-0`
+- `.nhsd-!t-margin-10`
+- `.nhsd-!t-padding-top-3`
 
 
 ## Actions to take

@@ -4,13 +4,11 @@
 // Tokens
 @use "scss-core/tokens/colours";
 @use "scss-core/tokens/spacing";
+@use "scss-core/tokens/typography";
 @use "scss-core/tokens/grid";
 
 // Base styles
 @use "scss-core/base/base";
-
-// Typography
-@use "scss-core/base/typography";
 
 // Components
 @use "components/atoms";

@@ -7,7 +7,6 @@
 @use "scss-core/tokens/colours" as nhsd-colours;
 
 // Base
-@use "scss-core/base/typography";
 @use "scss-core/base/utils";
 
 // Private members
@@ -16,25 +15,25 @@ $-base-colour: nhsd-colours.get("blue");
 $-invert-colour: nhsd-colours.get("white");
 $-active-colour: nhsd-colours.get("black");
 $-highlight-colour: nhsd-colours.get("yellow");
-$-line-thickness: .13rem;
+$-line-thickness: 3px;
 
 #{$-root} {
   @include utils.box-sizing;
   position: relative;
-  padding-top: $-line-thickness * .3;
-  padding-bottom: $-line-thickness;
+  padding-top: $-line-thickness * .2;
+  padding-bottom: $-line-thickness * .8;
   background-repeat: no-repeat;
   background-position: 0 100%;
   font-family: vars.$font-family;
   text-decoration: none;
-  transition-property: background-color, color, background-size, background-position;
+  transition-property: background-color, color, background-size, background-position, padding-bottom;
   transition-duration: vars.$transition-duration;
 
   &,
   &:visited {
     color: $-base-colour;
     background-image: linear-gradient($-base-colour, $-base-colour);
-    background-size: 100% $-line-thickness * .5;
+    background-size: 100% 1px;
   }
 
   &:focus,
@@ -49,7 +48,7 @@ $-line-thickness: .13rem;
   &:active {
     color: $-base-colour;
     background-color: transparent;
-    background-size: 0 $-line-thickness * .5;
+    background-size: 0 $-line-thickness;
   }
 
   &--light {
@@ -85,10 +84,7 @@ $-line-thickness: .13rem;
 
     &:active {
       color: $-active-colour;
+      background-color: transparent;
     }
-  }
-
-  @include mq($until: s) {
-    padding-top: $-line-thickness * 1.2;
   }
 }

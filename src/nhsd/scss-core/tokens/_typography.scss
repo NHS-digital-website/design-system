@@ -1,0 +1,234 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Base
+@use "scss-core/base/utils";
+
+// Private members
+$-root: ".nhsd-t";
+
+%-typo-base {
+  font-family: vars.$font-family;
+  font-kerning: auto;
+}
+
+%-heading-base {
+  @extend %-typo-base;
+
+  margin: 0 auto nhsd-spacing.get(4);
+  color: nhsd-colours.get("black");
+
+  @include utils.fw-bold;
+  @include mq($until: s) {
+    margin-bottom: nhsd-spacing.get(3);
+  }
+}
+
+%-body-base {
+  @extend %-typo-base;
+
+  margin: 0 auto nhsd-spacing.get(3);
+  color: nhsd-colours.get("dark-grey");
+  font-size: 1rem;
+  letter-spacing: -.01666rem;
+  line-height: 1.444rem;
+
+  @include mq($until: s) {
+    font-size: .888rem;
+    line-height: 1.277rem;
+  }
+}
+
+#{$-root} {
+  // Headings (H1-H6)
+  &-heading-xxl,
+  &-heading-xl,
+  &-heading-l,
+  &-heading-m,
+  &-heading-s,
+  &-heading-xs {
+    @extend %-heading-base;
+  }
+
+  &-heading-xxl {
+    font-size: 2.666rem;
+    letter-spacing: -.0555rem;
+    line-height: 2.888rem;
+
+    @include mq($until: s) {
+      font-size: 2rem;
+      letter-spacing: -.0277rem;
+      line-height: 2.333rem;
+    }
+  }
+
+  &-heading-xl {
+    font-size: 2rem;
+    letter-spacing: -.0277rem;
+    line-height: 2.333rem;
+
+    @include mq($until: s) {
+      font-size: 1.666rem;
+      letter-spacing: -.01666rem;
+      line-height: 1.888rem;
+    }
+  }
+
+  &-heading-l {
+    font-size: 1.666rem;
+    letter-spacing: -.0277rem;
+    line-height: 2rem;
+
+    @include mq($until: s) {
+      font-size: 1.444rem;
+      letter-spacing: -.01666rem;
+      line-height: 1.722rem;
+    }
+  }
+
+  &-heading-m {
+    font-size: 1.444rem;
+    letter-spacing: -.0277rem;
+    line-height: 1.722rem;
+
+    @include mq($until: s) {
+      font-size: 1.222rem;
+      letter-spacing: -.01666rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  &-heading-s {
+    font-size: 1.222rem;
+    letter-spacing: -.0277rem;
+    line-height: 1.555rem;
+
+    @include mq($until: s) {
+      font-size: 1rem;
+      letter-spacing: -.01666rem;
+      line-height: 1.388rem;
+    }
+  }
+
+  &-heading-xs {
+    font-size: 1rem;
+    letter-spacing: -.0277rem;
+    line-height: 1.444rem;
+
+    @include mq($until: s) {
+      font-size: .888rem;
+      letter-spacing: -.01666rem;
+      line-height: 1.277rem;
+    }
+  }
+
+  // Lead text
+  &-lead {
+    @extend %-typo-base;
+    @include utils.fw-bold;
+
+    margin: 0 auto nhsd-spacing.get(3);
+    color: nhsd-colours.get("black");
+    font-size: 1.222rem;
+    letter-spacing: -.0277rem;
+    line-height: 1.555rem;
+
+    @include mq($until: s) {
+      font-size: 1rem;
+      letter-spacing: -.01666rem;
+      line-height: 1.388rem;
+    }
+  }
+
+  // Body text
+  &-body {
+    @extend %-body-base;
+  }
+
+  // Lists
+  &-list {
+    @extend %-body-base;
+
+    padding-left: 0;
+    list-style-type: none;
+
+    & > li {
+      &:not(:last-of-type) {
+        margin: 0 0 .1333rem;
+      }
+    }
+
+    &--bullet {
+      list-style-type: disc;
+    }
+
+    &--number {
+      list-style-type: decimal;
+    }
+
+    &--bullet,
+    &--number {
+      margin-left: 1rem;
+
+      li {
+        padding-left: .5rem;
+      }
+    }
+
+    &--loose {
+      & > li {
+        &:not(:last-of-type) {
+          margin: 0 0 nhsd-spacing.get(3);
+        }
+      }
+    }
+
+    &--links {
+      & > li {
+        &:not(:last-of-type) {
+          margin: 0 0 .333rem;
+        }
+      }
+    }
+  }
+
+  // Blockquote
+  &-quote {
+    position: relative;
+    margin: 0 auto nhsd-spacing.get(3);
+    color: nhsd-colours.get("dark-grey");
+    font-size: 1.444rem;
+    letter-spacing: -.01666rem;
+    line-height: 1.722rem;
+
+    &:before,
+    &:after {
+      display: inline-block;
+      position: absolute;
+    }
+
+    &:before {
+      content: "“";
+      left: -.8rem;
+    }
+
+    &:after {
+      content: "”";
+    }
+
+    @include mq($until: s) {
+      font-size: 1.222rem;
+      line-height: 1.5rem;
+
+      &:before {
+        left: -.65rem;
+      }
+    }
+  }
+}
