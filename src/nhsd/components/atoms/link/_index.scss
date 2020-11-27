@@ -4,13 +4,11 @@
 
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
+@use "scss-core/helpers/media-queries" as *;
 
 // Base
 @use "scss-core/base/typography";
 @use "scss-core/base/utils";
-
-// Media Queries and breakpoints
-@use "sass-mq/mq";
 
 // Private members
 $-root: ".nhsd-a-link";
@@ -90,7 +88,7 @@ $-line-thickness: .13rem;
     }
   }
 
-  @include mq.mq($until: tablet) {
+  @include mq($until: s) {
     padding-top: $-line-thickness * 1.2;
   }
 }

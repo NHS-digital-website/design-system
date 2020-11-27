@@ -5,71 +5,69 @@
 
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
+@use "scss-core/helpers/media-queries" as *;
 
 // Base
 @use "scss-core/base/utils";
 
 // Private members
 $-root: ".nhsd";
-// Gutters
-$-gutter: .833rem;
-$-small-gutter: .833rem * .667;
-// Responsive breakpoints
-$-bp-mobile: 375px;
-$-bp-tablet: 1024px;
-$-bp-desktop: 1240px;
-$-bp-hd: 1366px;
-$-bp-fullhd: 1580px;
 // Maximum content widths
-$-mobile-content-width: 18.611rem; // 335px
-$-tablet-content-width: 38.222rem; // 688px
-$-desktop-content-width: 52.444rem; // 944px
-$-hd-content-width: 71.111rem; // 1280px - 1240
-$-fullhd-content-width: 83.333rem; // 1500px
+$-xs-content-width: 18.611rem; // 335px
+$-s-content-width: 38.222rem; // 688px
+$-m-content-width: 52.444rem; // 944px
+$-l-content-width: 71.111rem; // 1280px - 1240
+$-xl-content-width: 83.333rem; // 1500px
 
-// Initialise the grid system with the custom settings
-@use "sass-mq/mq" with (
-  $mq-responsive: true,
-  $mq-breakpoints: (
-    mobile:   $-bp-mobile,
-    tablet:   $-bp-tablet,
-    desktop:  $-bp-desktop,
-    hd:       $-bp-hd,
-    fullhd:   $-bp-fullhd
-  ),
-  $mq-static-breakpoint: desktop,
-);
+// Public members
+// Gutters
+$gutter: .833rem;
+$small-gutter: .833rem * .667;
 
 $-grid-data-map: (
-  mobile: (
-    prefix: mob,
+  xs: (
+    prefix: xs,
     columns: 2,
     breakpoints: (
-      until: tablet
+      until: s
     )
   ),
-  tablet: (
-    prefix: tab,
+  s: (
+    prefix: s,
     columns: 6,
     breakpoints: (
-      from: tablet,
-      until: desktop
+      from: s,
+      until: m
     )
   ),
-  desktop: (
-    prefix: des,
+  m: (
+    prefix: m,
     columns: 12,
     breakpoints: (
-      from: desktop
+      from: m
+    )
+  ),
+  l: (
+    prefix: l,
+    columns: 12,
+    breakpoints: (
+      from: l
+    )
+  ),
+  xl: (
+    prefix: xl,
+    columns: 12,
+    breakpoints: (
+      from: xl
     )
   )
 );
 
 %column-base {
   width: 100%;
-  padding: 0 $-gutter;
+  padding: 0 $gutter;
+  align-content: stretch;
   flex: 0 1 auto;
-  overflow: hidden;
 }
 
 #{$-root} {
@@ -77,9 +75,9 @@ $-grid-data-map: (
     @include utils.box-sizing;
     display: block;
     width: 100%;
-    max-width: $-mobile-content-width;
+    max-width: $-xs-content-width;
     margin: 0 auto;
-    padding: 0 $-gutter;
+    padding: 0 $gutter;
 
     &--full-width {
       @include utils.no-gutters;
@@ -87,26 +85,26 @@ $-grid-data-map: (
     }
 
     &:not(&--full-width) {
-      @include mq.mq($from: mobile) {
-        max-width: $-tablet-content-width;
+      @include mq($from: xs) {
+        max-width: $-s-content-width;
       }
 
-      @include mq.mq($from: tablet) {
-        max-width: $-desktop-content-width;
+      @include mq($from: s) {
+        max-width: $-m-content-width;
       }
 
-      @include mq.mq($from: hd) {
-        max-width: $-hd-content-width;
+      @include mq($from: l) {
+        max-width: $-l-content-width;
       }
 
-      @include mq.mq($from: fullhd) {
-        max-width: $-fullhd-content-width;
+      @include mq($from: xl) {
+        max-width: $-xl-content-width;
       }
     }
 
     // Better grid visibility in demo
     &--debug {
-      @include utils.text-centre;
+      // @include utils.text-centre;
 
       #{$-root}-row {
         background: nhsd-colours.get("yellow-10-tint");
@@ -121,11 +119,11 @@ $-grid-data-map: (
       }
 
       // stylelint-disable declaration-no-important
-      @include mq.mq($until: tablet) {
-        #{$-root}-col-mob-1:nth-child(2n+1):not(#{$-root}-off-mob-1) {
+      @include mq($until: s) {
+        #{$-root}-col-xs-1:nth-child(2n+1):not(#{$-root}-off-xs-1) {
           background: nhsd-colours.get("green") !important;
 
-          & + #{$-root}-col-mob-1 {
+          & + #{$-root}-col-xs-1 {
             background: nhsd-colours.get("red") !important;
           }
         }
@@ -139,7 +137,6 @@ $-grid-data-map: (
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: stretch;
     flex-wrap: wrap;
   }
 
@@ -163,7 +160,7 @@ $-grid-data-map: (
       }
 
       // Static
-      @if $-device == "desktop" {
+      @if $-device == "m" {
         &-col-#{$-step} {
           @extend %column-base;
           width: $-step / $-columns * 100%;
@@ -175,7 +172,7 @@ $-grid-data-map: (
       }
 
       // Responsive
-      @include mq.mq($from: $-bp-from, $until: $-bp-until) {
+      @include mq($from: $-bp-from, $until: $-bp-until) {
         &-col-#{$-prefix}-#{$-step} {
           width: $-step / $-columns * 100%;
         }
@@ -188,13 +185,13 @@ $-grid-data-map: (
   }
 }
 
-// Slight tweak to the inside gutters of the mobile columns
-@include mq.mq($until: tablet) {
-  #{$-root}-col-mob-1:nth-child(2n+1):not(#{$-root}-off-mob-1) {
-    padding-right: $-small-gutter;
+// Slight tweak to the inside gutters of the xs columns
+@include mq($until: s) {
+  #{$-root}-col-xs-1:nth-child(2n+1):not(#{$-root}-off-xs-1) {
+    padding-right: $small-gutter;
 
-    & + #{$-root}-col-mob-1 {
-      padding-left: $-small-gutter;
+    & + #{$-root}-col-xs-1 {
+      padding-left: $small-gutter;
     }
   }
 }

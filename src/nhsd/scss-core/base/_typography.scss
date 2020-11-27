@@ -10,9 +10,7 @@
 
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
-
-// Media Queries and breakpoints
-@use "sass-mq/mq";
+@use "scss-core/helpers/media-queries" as *;
 
 // Private members
 $-font-colour: nhsd-colours.get("dark-grey");
@@ -26,7 +24,7 @@ $-mobile-margin-bottom: .8333rem; // 15px
   font-family: vars.$font-family;
   font-kerning: auto;
 
-  @include mq.mq($until: tablet) {
+  @include mq($until: s) {
     margin-bottom: $-mobile-margin-bottom;
   }
 }
@@ -35,7 +33,7 @@ $-mobile-margin-bottom: .8333rem; // 15px
   font-size: $-desktop-font-size;
   letter-spacing: -.0167rem;
 
-  @include mq.mq($until: tablet) {
+  @include mq($until: s) {
     font-size: $-mobile-font-size;
   }
 }
@@ -46,7 +44,7 @@ $-mobile-margin-bottom: .8333rem; // 15px
 
   line-height: 1.39;
 
-  @include mq.mq($until: tablet) {
+  @include mq($until: s) {
     line-height: 1.5;
   }
 }
@@ -59,7 +57,7 @@ $-mobile-margin-bottom: .8333rem; // 15px
   list-style-type: none;
   line-height: 1.444rem;
 
-  @include mq.mq($until: tablet) {
+  @include mq($until: s) {
     line-height: 1.278rem;
   }
 

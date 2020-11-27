@@ -10,13 +10,13 @@ const storyDescription = `${sbConfig.heading.lab}
 - The grid system uses **Flexbox** to create **"container > row > column"** style layouts.
 
 ### Breakpoints
-|Device type|Min. width|Max. width|Max. content width|Columns|Gutter|
-|---|---|---|---|---|---|---|
-|Mobile|0|768px|355px|2|30px|
-|Tablet|769px|1024px|688px|6|30px|
-|Desktop|1025px|1366px|944px|12|30px|
-|HD|1367px|1579px|1240px|12|30px|
-|Full HD|1580px|∞|1500px|12|30px|
+|Device type|Shorthand|Min. width|Max. width|Max. content width|Columns|Gutter|
+|---|---|---|---|---|---|---|---|
+|Mobile|**XS**|0|768px|355px|2|30px|
+|Tablet|**S**|769px|1024px|688px|6|30px|
+|Desktop|**M**|1025px|1366px|944px|12|30px|
+|Wide|**L**|1367px|1579px|1240px|12|30px|
+|Extra Wide|**XL**|1580px|∞|1500px|12|30px|
 
 - **Note:** The <span class="nhsd-u-bg-green">&nbsp;&nbsp;&nbsp;&nbsp;</span> and <span class="nhsd-u-bg-red">&nbsp;&nbsp;&nbsp;&nbsp;</span> mobile columns represent the slightly tweaked gutters on the mobile breakpoint.`;
 const sourceCode = `// Sass import \n@use "nhsd/scss-core/base/grid";\n\n//HTML`;
@@ -162,7 +162,7 @@ export const ResponsiveGrid = () => {
     <div class="nhsd-col-12 nhsd-u-fw-bold nhsd-u-c-white nhsd-u-bg-dark-grey">Responsive columns - specifically 100% on every breakpoint</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-mob-2 nhsd-col-tab-6 nhsd-col-des-12">.nhsd-col-mob-2.nhsd-col-tab-6.nhsd-col-des-12</div>
+    <div class="nhsd-col-xs-2 nhsd-col-s-6 nhsd-col-m-12">.nhsd-col-xs-2.nhsd-col-s-6.nhsd-col-m-12</div>
     <div class="nhsd-col-12">.nhsd-col-12</div>
   </div>
 </div>`;
@@ -173,21 +173,21 @@ ResponsiveGrid.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- The responsive grid uses **12 columns** on desktop **6 columns** on tablet, and **2 columns** on mobile. The gutter is 30px across the board.
+- The responsive grid uses **12 columns** on desktop (including wide and extrawide) **6 columns** on tablet, and **2 columns** on mobile. The gutter is 30px across the board.
 - The order of the responsive column classes applied to a column element doesn't matter
 - **Class names:**
-  - \`.nhsd-col-des-1\`, \`.nhsd-col-tab-1\`, \`.nhsd-col-mob-1\`
-  - \`.nhsd-col-des-2\`, \`.nhsd-col-tab-2\`, \`.nhsd-col-mob-2\`
-  - \`.nhsd-col-des-3\`, \`.nhsd-col-tab-3\`
-  - \`.nhsd-col-des-4\`, \`.nhsd-col-tab-4\`
-  - \`.nhsd-col-des-5\`, \`.nhsd-col-tab-5\`
-  - \`.nhsd-col-des-6\`, \`.nhsd-col-tab-6\`
-  - \`.nhsd-col-des-7\`
-  - \`.nhsd-col-des-8\`
-  - \`.nhsd-col-des-9\`
-  - \`.nhsd-col-des-10\`
-  - \`.nhsd-col-des-11\`
-  - \`.nhsd-col-des-12\``,
+  - \`.nhsd-col-xl-1\`, \`.nhsd-col-l-1\`, \`.nhsd-col-m-1\`, \`.nhsd-col-s-1\`, \`.nhsd-col-xs-1\`
+  - \`.nhsd-col-xl-2\`, \`.nhsd-col-l-2\`, \`.nhsd-col-m-2\`, \`.nhsd-col-s-2\`, \`.nhsd-col-xs-2\`
+  - \`.nhsd-col-xl-3\`, \`.nhsd-col-l-3\`, \`.nhsd-col-m-3\`, \`.nhsd-col-s-3\`
+  - \`.nhsd-col-xl-4\`, \`.nhsd-col-l-4\`, \`.nhsd-col-m-4\`, \`.nhsd-col-s-4\`
+  - \`.nhsd-col-xl-5\`, \`.nhsd-col-l-5\`, \`.nhsd-col-m-5\`, \`.nhsd-col-s-5\`
+  - \`.nhsd-col-xl-6\`, \`.nhsd-col-l-6\`, \`.nhsd-col-m-6\`, \`.nhsd-col-s-6\`
+  - \`.nhsd-col-xl-7\`, \`.nhsd-col-l-7\`, \`.nhsd-col-m-7\`
+  - \`.nhsd-col-xl-8\`, \`.nhsd-col-l-8\`, \`.nhsd-col-m-8\`
+  - \`.nhsd-col-xl-9\`, \`.nhsd-col-l-9\`, \`.nhsd-col-m-9\`
+  - \`.nhsd-col-xl-10\`, \`.nhsd-col-l-10\`, \`.nhsd-col-m-10\`
+  - \`.nhsd-col-xl-11\`, \`.nhsd-col-l-11\`, \`.nhsd-col-m-11\`
+  - \`.nhsd-col-xl-12\`, \`.nhsd-col-l-12\`, \`.nhsd-col-m-12\``,
     },
     source: {
       code: `${sourceCode}\n${ResponsiveGrid().innerHTML}`,
@@ -202,22 +202,22 @@ export const ResponsiveGrid2 = () => {
     <div class="nhsd-col-12 nhsd-u-fw-bold nhsd-u-c-white nhsd-u-bg-dark-grey">Columns only responsive on a specific breakpoint</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-des-4">.nhsd-col-des-4</div>
-    <div class="nhsd-col-tab-4">.nhsd-col-tab-4</div>
-    <div class="nhsd-col-mob-1">.nhsd-col-mob-1</div>
+    <div class="nhsd-col-m-4">.nhsd-col-m-4</div>
+    <div class="nhsd-col-s-4">.nhsd-col-s-4</div>
+    <div class="nhsd-col-xs-1">.nhsd-col-xs-1</div>
   </div>
   <div class="nhsd-row">
     <div class="nhsd-col-12 nhsd-u-fw-bold nhsd-u-c-white nhsd-u-bg-dark-grey">Columns responsive on all breakpoints</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-mob-1 nhsd-col-tab-1 nhsd-col-des-4">.nhsd-col-mob-1.nhsd-col-tab-1.nhsd-col-des-4</div>
-    <div class="nhsd-col-mob-1 nhsd-col-tab-4 nhsd-col-des-4">.nhsd-col-mob-1.nhsd-col-tab-4.nhsd-col-des-4</div>
-    <div class="nhsd-col-mob-2 nhsd-col-tab-1 nhsd-col-des-4">.nhsd-col-mob-2.nhsd-col-tab-1.nhsd-col-des-4</div>
+    <div class="nhsd-col-xs-1 nhsd-col-s-1 nhsd-col-m-4">.nhsd-col-xs-1.nhsd-col-s-1.nhsd-col-m-4</div>
+    <div class="nhsd-col-xs-1 nhsd-col-s-4 nhsd-col-m-4">.nhsd-col-xs-1.nhsd-col-s-4.nhsd-col-m-4</div>
+    <div class="nhsd-col-xs-2 nhsd-col-s-1 nhsd-col-m-4">.nhsd-col-xs-2.nhsd-col-s-1.nhsd-col-m-4</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-mob-1 nhsd-col-tab-5 nhsd-col-des-10">.nhsd-col-mob-1.nhsd-col-tab-5.nhsd-col-des-10</div>
-    <div class="nhsd-col-mob-1 nhsd-col-tab-1 nhsd-col-des-2">.nhsd-col-mob-1.nhsd-col-tab-1.nhsd-col-des-2</div>
-    <div class="nhsd-col-mob-2 nhsd-col-tab-6 nhsd-col-des-12">.nhsd-col-mob-2.nhsd-col-tab-6.nhsd-col-des-12</div>
+    <div class="nhsd-col-xs-1 nhsd-col-s-5 nhsd-col-m-10">.nhsd-col-xs-1.nhsd-col-s-5.nhsd-col-m-10</div>
+    <div class="nhsd-col-xs-1 nhsd-col-s-1 nhsd-col-m-2">.nhsd-col-xs-1.nhsd-col-s-1.nhsd-col-m-2</div>
+    <div class="nhsd-col-xs-2 nhsd-col-s-6 nhsd-col-m-12">.nhsd-col-xs-2.nhsd-col-s-6.nhsd-col-m-12</div>
   </div>
 </div>`;
   return div;
@@ -242,9 +242,9 @@ export const FullWidthGrid = () => {
     <div class="nhsd-col-12 nhsd-u-fw-bold nhsd-u-c-white nhsd-u-bg-dark-grey">Full width grid</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-mob-2 nhsd-col-tab-3 nhsd-col-des-4">.nhsd-col-mob-2.nhsd-col-tab-3.nhsd-col-des-4</div>
-    <div class="nhsd-col-mob-2 nhsd-col-tab-3 nhsd-col-des-4">.nhsd-col-mob-2.nhsd-col-tab-3.nhsd-col-des-4</div>
-    <div class="nhsd-col-mob-2 nhsd-col-tab-6 nhsd-col-des-4">.nhsd-col-mob-2.nhsd-col-tab-6.nhsd-col-des-4</div>
+    <div class="nhsd-col-xs-2 nhsd-col-s-3 nhsd-col-m-4">.nhsd-col-xs-2.nhsd-col-s-3.nhsd-col-m-4</div>
+    <div class="nhsd-col-xs-2 nhsd-col-s-3 nhsd-col-m-4">.nhsd-col-xs-2.nhsd-col-s-3.nhsd-col-m-4</div>
+    <div class="nhsd-col-xs-2 nhsd-col-s-6 nhsd-col-m-4">.nhsd-col-xs-2.nhsd-col-s-6.nhsd-col-m-4</div>
   </div>
 </div>`;
   return div;
@@ -312,16 +312,16 @@ export const ResponsiveColumnOffset = () => {
     <div class="nhsd-col-12 nhsd-u-fw-bold nhsd-u-c-white nhsd-u-bg-dark-grey">Responsive offset columns</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-mob-1 nhsd-col-tab-2 nhsd-col-des-1 nhsd-off-mob-1 nhsd-off-tab-1 nhsd-off-des-6">TST</div>
+    <div class="nhsd-col-xs-1 nhsd-col-s-2 nhsd-col-m-1 nhsd-off-xs-1 nhsd-off-s-1 nhsd-off-m-6">TST</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-mob-1 nhsd-col-tab-1 nhsd-col-des-3 nhsd-off-mob-0 nhsd-off-tab-1 nhsd-off-des-9">TST</div>
+    <div class="nhsd-col-xs-1 nhsd-col-s-1 nhsd-col-m-3 nhsd-off-xs-0 nhsd-off-s-1 nhsd-off-m-9">TST</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-mob-1 nhsd-col-tab-2 nhsd-col-des-4 nhsd-off-mob-1 nhsd-off-tab-4 nhsd-off-des-3">TST</div>
+    <div class="nhsd-col-xs-1 nhsd-col-s-2 nhsd-col-m-4 nhsd-off-xs-1 nhsd-off-s-4 nhsd-off-m-3">TST</div>
   </div>
   <div class="nhsd-row">
-    <div class="nhsd-col-mob-2 nhsd-col-tab-4 nhsd-col-des-12 nhsd-off-mob-0 nhsd-off-tab-1 nhsd-off-des-0">TST</div>
+    <div class="nhsd-col-xs-2 nhsd-col-s-4 nhsd-col-m-12 nhsd-off-xs-0 nhsd-off-s-1 nhsd-off-m-0">TST</div>
   </div>
 </div>`;
   return div;
@@ -332,19 +332,19 @@ ResponsiveColumnOffset.parameters = {
     description: {
       story: `${sbConfig.heading.details}:
 - **Class names:**
-- \`.nhsd-off-des-0\`, \`.nhsd-off-tab-0\`, \`.nhsd-off-mob-0\`
-- \`.nhsd-off-des-1\`, \`.nhsd-off-tab-1\`, \`.nhsd-off-mob-1\`
-- \`.nhsd-off-des-2\`, \`.nhsd-off-tab-2\`, \`.nhsd-off-mob-2\`
-- \`.nhsd-off-des-3\`, \`.nhsd-off-tab-3\`
-- \`.nhsd-off-des-4\`, \`.nhsd-off-tab-4\`
-- \`.nhsd-off-des-5\`, \`.nhsd-off-tab-5\`
-- \`.nhsd-off-des-6\`, \`.nhsd-off-tab-6\`
-- \`.nhsd-off-des-7\`
-- \`.nhsd-off-des-8\`
-- \`.nhsd-off-des-9\`
-- \`.nhsd-off-des-10\`
-- \`.nhsd-off-des-11\`
-- \`.nhsd-off-des-12\``,
+- \`.nhsd-off-xl-0\`, \`.nhsd-off-l-0\`, \`.nhsd-off-m-0\`, \`.nhsd-off-s-0\`, \`.nhsd-off-xs-0\`
+- \`.nhsd-off-xl-1\`, \`.nhsd-off-l-1\`, \`.nhsd-off-m-1\`, \`.nhsd-off-s-1\`, \`.nhsd-off-xs-1\`
+- \`.nhsd-off-xl-2\`, \`.nhsd-off-l-2\`, \`.nhsd-off-m-2\`, \`.nhsd-off-s-2\`, \`.nhsd-off-xs-2\`
+- \`.nhsd-off-xl-3\`, \`.nhsd-off-l-3\`, \`.nhsd-off-m-3\`, \`.nhsd-off-s-3\`
+- \`.nhsd-off-xl-4\`, \`.nhsd-off-l-4\`, \`.nhsd-off-m-4\`, \`.nhsd-off-s-4\`
+- \`.nhsd-off-xl-5\`, \`.nhsd-off-l-5\`, \`.nhsd-off-m-5\`, \`.nhsd-off-s-5\`
+- \`.nhsd-off-xl-6\`, \`.nhsd-off-l-6\`, \`.nhsd-off-m-6\`, \`.nhsd-off-s-6\`
+- \`.nhsd-off-xl-7\`, \`.nhsd-off-l-7\`, \`.nhsd-off-m-7\`
+- \`.nhsd-off-xl-8\`, \`.nhsd-off-l-8\`, \`.nhsd-off-m-8\`
+- \`.nhsd-off-xl-9\`, \`.nhsd-off-l-9\`, \`.nhsd-off-m-9\`
+- \`.nhsd-off-xl-10\`, \`.nhsd-off-l-10\`, \`.nhsd-off-m-10\`
+- \`.nhsd-off-xl-11\`, \`.nhsd-off-l-11\`, \`.nhsd-off-m-11\`
+- \`.nhsd-off-xl-12\`, \`.nhsd-off-l-12\`, \`.nhsd-off-m-12\``,
   },
     source: {
       code: `${sourceCode}\n${ResponsiveColumnOffset().innerHTML}`,

@@ -10,8 +10,12 @@ const componentName = 'Card';
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}
-  - Max. width: 420px.
-  - Min. width: 200px.
+  - Min. height: 200px.
+  - (Max. width: 420px.) - TBXW
+  - (Min. width: 200px.) - TBXW
+  - Font sizes for title and text has to work across all breakpoints
+  - No inline links allowed - ie. The card always has to link
+  - No option for both image AND icon. It’s either/or.
   - Heading always must be present.
   - If icon is present, there is no date.
   - If icon is present, the min. heading hight must be 45px.

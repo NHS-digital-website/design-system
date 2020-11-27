@@ -1,0 +1,22 @@
+// Responsive breakpoints
+$-bp-xs: 375px;
+$-bp-s: 1024px;
+$-bp-m: 1240px;
+$-bp-l: 1366px;
+$-bp-xl: 1580px;
+
+// Initialise the grid system with the custom settings
+@use "sass-mq/mq" with (
+  $mq-responsive: true,
+  $mq-breakpoints: (
+    xs: $-bp-xs,
+    s:  $-bp-s,
+    m:  $-bp-m,
+    l:  $-bp-l,
+    xl: $-bp-xl,
+  ),
+  $mq-static-breakpoint: m,
+  $mq-show-breakpoints: (xs, s, m, l, xl)
+);
+
+@forward "sass-mq/mq";

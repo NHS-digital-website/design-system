@@ -4,6 +4,7 @@
 // Helpers
 @use "scss-core/helpers/colours" as nhsd-colours;
 @use "scss-core/helpers/easings";
+@use "scss-core/helpers/media-queries" as *;
 
 // Base
 @use "scss-core/base/utils";
@@ -21,11 +22,10 @@ $-icon-size: 2rem;
   @include utils.box-sizing;
   display: block;
   position: relative;
-  min-width: 11.111rem;
-  max-width: 23.333rem;
 
   &__link {
     display: inline-block;
+    width: 100%;
     overflow: hidden;
     border-radius: vars.$border-radius;
     color: inherit;
