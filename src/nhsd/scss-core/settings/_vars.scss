@@ -1,38 +1,8 @@
+// Font settings
+$base-font-size: 18px;
 $font-family: "Frutiger W01", "Arial", sans-serif;
 $font-family-mono: monospace, monospace;
 
-$nhsd-colours: (
-  "dark-blue": #003087,
-  "accessible-blue": #004da8,
-  "blue": #005bbb,
-  "bright-blue": #0072ce,
-  "bright-blue-20-tint": #cce3f5,
-  "bright-blue-10-tint": #e5f0fa,
-  "yellow": #fae100,
-  "yellow-20-tint": #fef9cc,
-  "yellow-10-tint": #fef9cc,
-  "black": #231f20,
-  "dark-grey": #3f525f,
-  "mid-grey": #768692,
-  "pale-grey": #e8edee,
-  "pale-grey-80-tint": #edf1f1,
-  "pale-grey-40-tint": #f6f8f8,
-  "pink": #ae2573,
-  "accessible-red": #b30f0f,
-  "red": #da291c,
-  "orange": #fa9200,
-  "warm-yellow": #ffb81c,
-  "dark-green": #006646,
-  "green": #009639,
-  "light-green": #78be20,
-  "light-blue": #41b6e6,
-  "green-20-tint": #ccead7,
-  "mid-grey-20-tint": #d5dade,
-  "mid-red-20-tint": #f8d4d2,
-  "mid-red-10-tint": #ffebeb,
-  "white": #ffffff
-);
-
+// Misc
 $border-radius: .333rem;
-
 $transition-duration: .2s;

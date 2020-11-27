@@ -1,0 +1,8 @@
+$-root: ".nhsd-";
+
+// stylelint-disable declaration-no-important
+#{$-root}\!t-no-gutters {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+// stylelint-enable declaration-no-important

@@ -2,16 +2,16 @@
 
 // Settings
 @use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
 
-// Helpers
-@use "scss-core/helpers/colours" as nhsd-colours;
-@use "scss-core/helpers/media-queries" as *;
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
 
 // Base
 @use "scss-core/base/utils";
 
 // Private members
-$-root: ".nhsd";
+$-root: ".nhsd-t";
 // Maximum content widths
 $-xs-content-width: 18.611rem; // 335px
 $-s-content-width: 38.222rem; // 688px
@@ -80,8 +80,9 @@ $-grid-data-map: (
     padding: 0 $gutter;
 
     &--full-width {
-      @include utils.no-gutters;
       max-width: 100%;
+      padding-right: 0;
+      padding-left: 0;
     }
 
     &:not(&--full-width) {
@@ -110,7 +111,7 @@ $-grid-data-map: (
         background: nhsd-colours.get("yellow-10-tint");
       }
 
-      div[class^="nhsd-col-"] {
+      div[class^="nhsd-t-col-"] {
         padding-top: 1rem;
         padding-bottom: 1rem;
         background: nhsd-colours.get("mid-grey-20-tint");

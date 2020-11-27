@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "sass:string";
+@use "scss-core/settings/vars";
+
+// Private members
+$-root: #{".nhsd-"};
+$-steps: (
+  0: 0,
+  1: 5px,
+  2: 10px,
+  3: 15px,
+  4: 20px,
+  5: 25px,
+  6: 30px,
+  7: 45px,
+  8: 60px,
+  9: 75px,
+  10: 90px
+);
+$-props: margin, padding;
+$-dirs: top, right, bottom, left;
+
+// Public members
+@function get($index: 0) {
+  $value: map.get($-steps, $index);
+  @if $value != null {
+    @return if($value == 0, 0, ($value / vars.$base-font-size) * 1rem);
+  }
+  @return null;
+}
+
+// stylelint-disable declaration-no-important
+// Generated class names (a.k.a. override classes)
+@each $prop in $-props {
+  // $p: string.slice($prop, 1, 1);
+  $i: -1;
+  @each $step in $-steps {
+    $i: $i + 1;
+    #{$-root}\!t-#{$prop}-#{$i} {
+      #{$prop}: get($i) !important;
+    }
+    @each $dir in $-dirs {
+      // $d: string.slice($dir, 1, 1);
+      #{$-root}\!t-#{$prop}-#{$dir}-#{$i} {
+        #{$prop}-#{$dir}: get($i) !important;
+      }
+    }
+  }
+}
+// stylelint-enable declaration-no-important

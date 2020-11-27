@@ -3,30 +3,6 @@
 
 // stylelint-disable declaration-no-important
 
-// Spacing
-.nhsd-u-no-margin {
-  margin: 0 !important;
-}
-@mixin no-margin {
-  margin: 0;
-}
-
-.nhsd-u-no-padding {
-  padding: 0 !important;
-}
-@mixin no-padding {
-  padding: 0;
-}
-
-.nhsd-u-no-gutters {
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-}
-@mixin no-gutters {
-  padding-right: 0;
-  padding-left: 0;
-}
-
 // Text alignment
 .nhsd-u-text-centre {
   text-align: center !important;
@@ -103,20 +79,4 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
-// Backgrounds, colours and borders - classes only
-@each $colourKey, $colourValue in vars.$nhsd-colours {
-  .nhsd-u-c-#{$colourKey} {
-    color: $colourValue !important;
-  }
-
-  .nhsd-u-bg-#{$colourKey} {
-    background-color: $colourValue !important;
-  }
-
-  .nhsd-u-border-#{$colourKey} {
-    border: 1px solid $colourValue !important;
-  }
-}
-
 // stylelint-enable declaration-no-important

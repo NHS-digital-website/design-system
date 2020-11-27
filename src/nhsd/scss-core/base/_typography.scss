@@ -7,10 +7,10 @@
 // Settings
 @use "scss-core/settings/font-face";
 @use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
 
-// Helpers
-@use "scss-core/helpers/colours" as nhsd-colours;
-@use "scss-core/helpers/media-queries" as *;
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
 
 // Private members
 $-font-colour: nhsd-colours.get("dark-grey");

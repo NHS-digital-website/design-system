@@ -118,9 +118,49 @@ Nested atoms (and molecules) are already established components embedded in new 
 
 Elements, that not yet have been atomised can be named using BEM style `__` naming convention. For instance - the non-atomised elements in the **Card molecule** are called `.nhsd-m-card__icon`, `.nhsd-m-card__title`, `.nhsd-m-card__text`. This naming must be used until the element reaches a level of reusability, so that it becomes an established atom on its own right - in that case the first naming rule applies. 
 
+## Tokens
+
+Tokens are everything in SASS that are not atoms (molecules, organisms...).
+
+There are 2 types of tokens based on intended use:
+
+1. Internal use only - sass mixins, vars, functions: Consume in SASS
+2. Inline use only - utility and override classes: Consume in HTML
+
+### Notes
+
+- We group our SCSS source files into tokens based on functionality. Examples:
+    - Colours
+    - Grid
+    - Spacing
+    - Typescale
+    - Easings
+    - Overrides
+- We do this for better semantics and to make it easier for developers (who are not necessarily UI specialists) to find settings, vars, mixins and utility classes.
+
+#### Colours (override tokens)
+
+- `.nhsd-!t-c-white`
+- `.nhsd-!t-bg-dark-grey`
+- `.nhsd-!t-border-yellow`
+
+#### Grid
+
+- `.nhsd-t-grid`
+- `.nhsd-t-grid--full-width`
+- `.nhsd-t-row`
+- `.nhsd-t-col-1`
+- `.nhsd-t-col-xs-2`
+
+#### Utilities (override tokens)
+
+- `.nhsd-!t-no-gutters`
+
 
 ## Actions to take
 
+- Think about versioning for QA
+- Carry on tokenising non-atomic SCSS stuff
 - Introduce Typescript (involved replacing exiting JS code with TS code)
 - Add TS compile and linting tasks back (don't compile stories)
 - Define `dist` tasks and build workflow

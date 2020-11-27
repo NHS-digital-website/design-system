@@ -1,8 +1,10 @@
 // Utils
 @use "scss-core/base/utils";
 
-// Grid
-@use "scss-core/base/grid";
+// Tokens
+@use "scss-core/tokens/colours";
+@use "scss-core/tokens/spacing";
+@use "scss-core/tokens/grid";
 
 // Base styles
 @use "scss-core/base/base";
