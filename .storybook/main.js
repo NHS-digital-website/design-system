@@ -37,7 +37,7 @@ module.exports = {
         loader: 'sass-loader',
         options: {
           // Prefer `dart-sass`
-          implementation: require('dart-sass'),
+          implementation: require('sass'),
           sassOptions: {
             includePaths: [
               'node_modules',

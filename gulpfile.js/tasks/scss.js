@@ -8,7 +8,7 @@ const lint = require('gulp-stylelint')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 
-sass.compiler = require('dart-sass')
+sass.compiler = require('sass')
 
 const getDestPath = () => {
   return PATHS.dist.stylesheets;
