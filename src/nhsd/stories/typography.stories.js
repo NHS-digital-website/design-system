@@ -42,7 +42,7 @@ export const LabComponent = () => {
   div.appendChild(p2);
 
   const hr1 = document.createElement('hr');
-  hr1.classList.add(...['nhsd-a-rule', 'nhsd-!t-margin-bottom-5', 'nhsd-!t-margin-top-5']);
+  hr1.classList.add(...['nhsd-a-horizontal-rule']);
   div.appendChild(hr1);
 
   const subTitle = document.createElement('h2');
@@ -136,7 +136,7 @@ export const LabComponent = () => {
   div.appendChild(p8);
 
   const hr2 = document.createElement('hr');
-  hr2.classList.add(...['nhsd-a-rule', 'nhsd-!t-margin-bottom-5', 'nhsd-!t-margin-top-5']);
+  hr2.classList.add(...['nhsd-a-horizontal-rule']);
   div.appendChild(hr2);
 
   const q = document.createElement('blockquote');

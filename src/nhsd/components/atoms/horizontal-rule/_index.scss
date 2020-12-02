@@ -1,14 +1,27 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
 
 // Private members
-$-root: ".nhsd-a-rule";
+$-root: ".nhsd-a-horizontal-rule";
 
 #{$-root} {
   @include nhsd-utils.box-sizing;
 
-  margin: 0;
   border: 0;
   border-bottom: 1px solid nhsd-colours.get("mid-grey-20-tint");
+
+  &,
+  &--size-m {
+    margin: nhsd-spacing.get(6) 0;
+  }
+
+  &--size-s {
+    margin: nhsd-spacing.get(3) 0;
+  }
+
+  &--size-l {
+    margin: nhsd-spacing.get(8) 0;
+  }
 }

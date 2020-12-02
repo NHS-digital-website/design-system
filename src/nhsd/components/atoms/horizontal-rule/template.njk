@@ -1,0 +1,7 @@
+{#- Set classes -#}
+{%- set classNames = "nhsd-a-horizontal-rule" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<hr class="{{ classNames }}" />
