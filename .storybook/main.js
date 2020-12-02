@@ -7,11 +7,7 @@ module.exports = {
     "../src/nhsd/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    "@storybook/addon-docs",
-    "@storybook/addon-controls",
     "@storybook/addon-a11y",
-    "@storybook/addon-viewport",
-    "@storybook/addon-links",
     "@storybook/addon-essentials",
   ],
   webpackFinal: async (config, { configType }) => {
