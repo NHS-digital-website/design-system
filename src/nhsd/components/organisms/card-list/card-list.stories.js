@@ -2,7 +2,7 @@
 import * as sbConfig from '../../../../../.storybook/storybook-config.js';
 
 // Load template file
-import template from  './template.njk';
+import template from  '../../molecules/card/template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
