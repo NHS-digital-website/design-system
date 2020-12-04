@@ -27,7 +27,7 @@ $-colours: "black", "white", "yellow";
 #{$-root} {
   @include nhsd-utils.box-sizing;
 
-  display: block;
+  display: inline-block;
   position: relative;
   max-width: map.get($-sizes, "xxl");
   max-height: map.get($-sizes, "xxl");
