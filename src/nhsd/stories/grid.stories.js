@@ -12,7 +12,7 @@ const storyDescription = `${sbConfig.heading.lab}
 ### Breakpoints
 |Device type|Shorthand|Min. width|Max. width|Max. content width|Columns|Gutter|
 |---|---|---|---|---|---|---|---|
-|Mobile|**XS**|0|768px|355px|2|30px|
+|Mobile|**XS**|0|768px|355px|2|20px|
 |Tablet|**S**|769px|1024px|688px|6|30px|
 |Desktop|**M**|1025px|1366px|944px|12|30px|
 |Wide|**L**|1367px|1579px|1240px|12|30px|
