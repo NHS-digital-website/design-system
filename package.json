@@ -37,10 +37,9 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.3",
-    "@storybook/addon-a11y": "^6.1.9",
-    "@storybook/addon-essentials": "^6.1.9",
-    "@storybook/addon-notes": "^5.3.21",
-    "@storybook/html": "^6.1.9",
+    "@storybook/addon-a11y": "^6.1.10",
+    "@storybook/addon-essentials": "^6.1.10",
+    "@storybook/html": "^6.1.10",
     "acorn": "^8.0.4",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
