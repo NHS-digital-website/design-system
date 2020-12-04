@@ -3,6 +3,7 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/transition" as nhsd-transition;
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
@@ -15,7 +16,7 @@ $-root: ".nhsd-m-logo-link";
   padding-bottom: .1115rem;
   border-bottom: 2px solid transparent;
   transition-property: border-color;
-  transition-duration: vars.$transition-duration;
+  transition-duration: nhsd-transition.$transition-duration;
 
   &:hover,
   &:focus {

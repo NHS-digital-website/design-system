@@ -5,7 +5,7 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
-@use "scss-core/tokens/easings" as nhsd-easings;
+@use "scss-core/tokens/transition" as nhsd-transition;
 
 // Component imports
 @use "../../atoms/button";
@@ -35,7 +35,7 @@ $box-padding: 1.111rem;
     color: inherit;
     box-shadow: 0 0 0 .167rem transparent;
     transition-property: box-shadow;
-    transition-duration: vars.$transition-duration;
+    transition-duration: nhsd-transition.$transition-duration;
     text-decoration: none;
 
     &:focus,
@@ -102,10 +102,10 @@ $box-padding: 1.111rem;
   }
 
   &__arrow {
-    @include nhsd-easings.trans-easing(nhsd-easings.$ease-out-expo);
+    @include nhsd-transition.trans-easing(nhsd-transition.$ease-out-expo);
 
     transition-property: transform;
-    transition-duration: vars.$transition-duration;
+    transition-duration: nhsd-transition.$transition-duration;
   }
 
   .nhsd-a-box {

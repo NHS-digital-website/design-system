@@ -7,6 +7,7 @@
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
 
 // Private members
 $-root: ".nhsd-a-link";
@@ -27,7 +28,7 @@ $-line-thickness: 3px;
   background-position: 0 100%;
   text-decoration: none;
   transition-property: background-color, color, background-size, background-position, padding-bottom;
-  transition-duration: vars.$transition-duration;
+  transition-duration: nhsd-transition.$transition-duration;
 
   &,
   &:visited {

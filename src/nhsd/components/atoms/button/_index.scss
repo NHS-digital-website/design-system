@@ -7,6 +7,7 @@
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
 
 // Private members
 $-root: ".nhsd-a-button";
@@ -37,7 +38,7 @@ $active-state-push-down: .111rem;
   user-select: none;
 
   transition-property: background-color, box-shadow, border-color;
-  transition-duration: vars.$transition-duration;
+  transition-duration: nhsd-transition.$transition-duration;
 
   &__label {
     margin: 0 auto;
