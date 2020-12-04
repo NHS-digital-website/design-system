@@ -62,13 +62,15 @@
       {%- endif %}
     </div>
 
-    {%- if params.button -%}
-    {{ nhsd_a_button(params.button) }}
-    {%- endif -%}
+    <div class="nhsd-m-card__button-box">
+      {%- if params.button -%}
+        {{ nhsd_a_button(params.button) }}
+        {%- endif -%}
 
-    {%- if params.arrowIcon -%}
-    {{ nhsd_a_icon(params.arrowIcon) }}
-    {%- endif -%}
+        {%- if params.arrowIcon -%}
+        {{ nhsd_a_icon(params.arrowIcon) }}
+        {%- endif -%}
+    </div>
   {{ nhsd_a_box_end() }}
   {%- if hasLink %}
   </a>

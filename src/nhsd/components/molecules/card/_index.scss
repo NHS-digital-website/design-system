@@ -6,6 +6,7 @@
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Component imports
 @use "../../atoms/button";
@@ -68,10 +69,15 @@ $box-padding: 1.111rem;
     padding: $box-padding $box-padding 0;
   }
 
+  &__button-box {
+    padding: 0 $box-padding $box-padding;
+  }
+
   &__arrow,
   .nhsd-a-button {
     align-self: baseline;
-    margin: nhsd-spacing.get(4) $box-padding $box-padding;
+    margin-top: nhsd-spacing.get(4);
+    margin-bottom: 0;
   }
 
   &__date {
