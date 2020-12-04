@@ -149,8 +149,23 @@ $-root: ".nhsd-t";
   }
 
   // Body text
-  &-body {
+  &-body,
+  &-body-xs,
+  &-body-s,
+  &-body-m {
     @extend %-body-base;
+  }
+
+  &-body-s {
+    font-size: .888rem;
+    letter-spacing: -.0166rem;
+    line-height: 1.277rem;
+  }
+
+  &-body-xs {
+    font-size: .777rem;
+    letter-spacing: -.0166rem;
+    line-height: 1.055rem;
   }
 
   // Lists

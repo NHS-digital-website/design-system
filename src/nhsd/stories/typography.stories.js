@@ -5,7 +5,9 @@ import * as sbConfig from '../../../.storybook/storybook-config.js';
 require('../scss-core/tokens/_typography.scss');
 
 const componentName = 'Typography';
-const storyDescription = `${sbConfig.heading.lab}`;
+const storyDescription = `${sbConfig.heading.lab}
+
+${sbConfig.heading.basicRules}`;
 const sourceCode = `// Sass import \n@use "nhsd/scss-core/tokens/typography";\n\n//HTML`;
 
 // Component defaults
@@ -191,6 +193,20 @@ export const Headings = () => {
 Headings.storyName = 'Headings';
 Headings.parameters = {
   docs: {
+    description: {
+      story: `#### Heading variants (desktop / mobile)
+
+|Shorthand|Class name|Font size (D/M|Line height (D/M|Letter spacing (D/M)|
+|---|---|---|---|---|
+|**XXL**|\`.nhsd-t-heading-xxl\`|48px / 36px|52px / 42px|-1px / -0.5px|
+|**XL**|\`.nhsd-t-heading-xl\`|36px / 30px|42px / 34px|-0.5px / -0.3px|
+|**L**|\`.nhsd-t-heading-l\`|30px / 26px|36px / 31px|-0.5px / -0.3px|
+|**M**|\`.nhsd-t-heading-m\`|26px  / 22px|31px / 27px|-0.5px / -0.3px|
+|**S**|\`.nhsd-t-heading-s\`|22px / 18px|28px / 25px|-0.5px / -0.3px|
+|**XS**|\`.nhsd-t-heading-xs\`|18px / 16px|26px / 23px|-0.5px / -0.3px|
+
+**Note:** The heading token switches from desktop to mobile size when it hits the tablet (S) breakpoint. For more information on the breakpoints check out the <a href="http://localhost:6006/?path=/docs/design-system-tokens-grid-system--lab-component">responsive grid system</a>.`,
+    },
     source: {
       code: `${sourceCode}\n${Headings().innerHTML}`,
     },
@@ -214,27 +230,38 @@ Lead.parameters = {
   },
 };
 
-export const Paragraphs = () => {
+export const Body = () => {
   const div = document.createElement('div');
   const p1 = document.createElement('p');
   p1.classList.add('nhsd-t-body');
   p1.innerText = `Proactively productivate out-of-the-box infomediaries whereas superior infrastructures. Globally orchestrate one-to-one deliverables without customer directed deliverables. Distinctively coordinate customized deliverables with tactical experiences. Competently cultivate extensible.`;
   div.appendChild(p1);
   const p2 = document.createElement('p');
-  p2.classList.add('nhsd-t-body');
+  p2.classList.add('nhsd-t-body-s');
   p2.innerText = `Intrinsicly reconceptualize professional internal or "organic" sources with high-payoff "outside the box" thinking. Globally disseminate customer directed bandwidth.`;
   div.appendChild(p2);
   const p3 = document.createElement('p');
-  p3.classList.add('nhsd-t-body');
+  p3.classList.add('nhsd-t-body-xs');
   p3.innerText = `Energistically transition optimal bandwidth after dynamic catalysts for change. Completely syndicate client-focused best practices rather than global mindshare. Synergistically impact bleeding-edge web-readiness with resource maximizing experiences. Distinctively implement frictionless methodologies.`;
   div.appendChild(p3);
   return div;
 };
-Paragraphs.storyName = 'Paragraphs';
-Paragraphs.parameters = {
+Body.storyName = 'Body';
+Body.parameters = {
   docs: {
+    description: {
+      story: `#### Body variants (desktop / mobile)
+
+|Shorthand|Class name|Font size (D/M|Line height (D/M|Letter spacing (D/M)|
+|---|---|---|---|---|
+|**M (Default)**|\`.nhsd-t-body\`, <br>\`.nhsd-t-body-m\`|18px / 16px|26px / 23px|-0.3px|
+|**S**|\`.nhsd-t-body-s\`|16px / ?px|23px / ?px|-0.3px / ?px|
+|**XS**|\`.nhsd-t-body-xs\`|14px / ?px|19px / ?px|0px / ?px|
+
+**Note:** It is not yet decided how the body tokens should react to responsive breakpoints. We definitely want to consistently use the normal (default medium) version of this token for most text on the website, but in some cases we might need a small version - hence we have a 16px and 14px variant as an experiment.`,
+    },
     source: {
-      code: `${sourceCode}\n${Paragraphs().innerHTML}`,
+      code: `${sourceCode}\n${Body().innerHTML}`,
     },
   },
 };

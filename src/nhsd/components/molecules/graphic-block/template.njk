@@ -1,0 +1,38 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_icon,
+  nhsd_a_picture
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-graphic-block" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+{% set hasLink = params.link and params.link.href %}
+
+<div class="{{ classNames }}">
+  {% if params.picture -%}
+    {{ nhsd_a_picture(params.picture) }}
+  {%- endif %}
+
+  {% if hasLink -%}
+  <a href="{{ params.link.href }}" class="nhsd-a-link nhsd-m-graphic-block__heading">
+  {% else %}
+  <div class="nhsd-m-graphic-block__heading">
+  {%- endif %}
+  <span class="nhsd-t-heading-xl nhsd-!t-margin-bottom-0">
+    {{ params.title.p1 }}
+    {%- if params.icon -%}
+    {{ nhsd_a_icon(params.icon) }}
+    {%- endif -%}
+  </span>
+  <span class="nhsd-t-heading-xs">{{ params.title.p2 }}</span>
+  {% if hasLink -%}
+  </a>
+  {% else %}
+  </div>
+  {%- endif %}
+
+  <p class="nhsd-t-body-xs">{{ params.text|safe }}</p>
+</div>

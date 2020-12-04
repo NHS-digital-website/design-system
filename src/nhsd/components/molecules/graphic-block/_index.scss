@@ -1,0 +1,71 @@
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/picture";
+
+// Private members
+$-root: ".nhsd-m-graphic-block";
+
+#{$-root} {
+  @include nhsd-utils.text-align(center);
+
+  position: relative;
+
+  .nhsd-a-picture {
+    margin-bottom: nhsd-spacing.get(3);
+  }
+
+  .nhsd-a-link {
+    display: inline-block;
+
+    &,
+    &:visited {
+      [class^="nhsd-t-heading-"] {
+        color: nhsd-colours.get("blue");
+      }
+
+      .nhsd-a-icon {
+        svg {
+          fill: nhsd-colours.get("blue");
+        }
+      }
+    }
+
+    &:focus,
+    &:hover {
+      [class^="nhsd-t-heading-"] {
+        color: inherit;
+      }
+
+      .nhsd-a-icon {
+        svg {
+          fill: nhsd-colours.get("black");
+        }
+      }
+    }
+
+    &:active {
+      .nhsd-a-icon {
+        svg {
+          fill: nhsd-colours.get("blue");
+        }
+      }
+    }
+  }
+
+  .nhsd-t-heading-xs {
+    margin-bottom: 0;
+  }
+
+  .nhsd-a-icon {
+    margin-left: nhsd-spacing.get(1);
+  }
+
+  &__heading {
+    margin-bottom: nhsd-spacing.get(2);
+  }
+}
