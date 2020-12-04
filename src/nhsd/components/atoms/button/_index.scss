@@ -49,7 +49,9 @@ $active-state-push-down: .111rem;
 
   &:disabled,
   &--disabled {
-    opacity: .7;
+    border-color: nhsd-colours.get("mid-grey-20-tint");
+    color: nhsd-colours.get("mid-grey");
+    background: nhsd-colours.get("mid-grey-20-tint");
     cursor: not-allowed;
   }
 
@@ -66,7 +68,7 @@ $active-state-push-down: .111rem;
     }
   }
 
-  &:not(&--invert):not(&--outline):not(&--outline-start):not(&--outline-cancel) {
+  &:not(&--invert):not(&--outline):not(&--start):not(&--cancel):not(&--disabled):not(:disabled) {
     &,
     &:visited {
       color: nhsd-colours.get("white");
@@ -94,13 +96,15 @@ $active-state-push-down: .111rem;
   }
 
   &--start {
+    border-color: nhsd-colours.get("dark-green");
     color: nhsd-colours.get("white");
-    background: nhsd-colours.get("green");
+    background: nhsd-colours.get("dark-green");
   }
 
   &--cancel {
+    border-color: nhsd-colours.get("accessible-red");
     color: nhsd-colours.get("white");
-    background: nhsd-colours.get("red");
+    background: nhsd-colours.get("accessible-red");
   }
 
   &--invert {
@@ -111,6 +115,12 @@ $active-state-push-down: .111rem;
 
   &--outline {
     color: nhsd-colours.get("blue");
+    background: nhsd-colours.get("white");
+
+    &:active {
+      border-color: nhsd-colours.get("blue");
+      box-shadow: 0 0 0 .167rem transparent;
+    }
 
     &:not(:disabled):not(#{$-root}--disabled) {
       &:focus,
@@ -122,39 +132,16 @@ $active-state-push-down: .111rem;
         border-color: nhsd-colours.get("blue");
       }
     }
-
-    &,
-    &-cancel,
-    &-start {
-      background: nhsd-colours.get("white");
-
-      &:active {
-        border-color: nhsd-colours.get("blue");
-        box-shadow: 0 0 0 .167rem transparent;
-      }
-    }
-
-    &-cancel,
-    &-start {
-      color: nhsd-colours.get("black");
-    }
-
-    &-cancel {
-      &,
-      &:active {
-        border-color: nhsd-colours.get("red");
-      }
-    }
-
-    &-start {
-      &,
-      &:active {
-        border-color: nhsd-colours.get("green");
-      }
-    }
   }
 
   @include mq($until: s) {
     width: 100%;
+  }
+}
+
+input[type=submit],
+input[type=reset] {
+  &#{$-root} {
+    display: inline-block;
   }
 }

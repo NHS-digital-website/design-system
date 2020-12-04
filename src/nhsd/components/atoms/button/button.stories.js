@@ -31,8 +31,8 @@ export default {
         options: [
           '-',
           'nhsd-a-button--outline',
-          'nhsd-a-button--outline-start',
-          'nhsd-a-button--outline-cancel',
+          'nhsd-a-button--start',
+          'nhsd-a-button--cancel',
           'nhsd-a-button--invert',
         ],
       },
@@ -111,7 +111,7 @@ SecondaryButton.parameters = {
 export const StartButton = Template.bind({});
 StartButton.storyName = 'Start button';
 StartButton.args = {
-  classes: 'nhsd-a-button--outline-start',
+  classes: 'nhsd-a-button--start',
   label: 'Start',
 };
 StartButton.parameters = {
@@ -128,7 +128,7 @@ StartButton.parameters = {
 export const CancelButton = Template.bind({});
 CancelButton.storyName = 'Cancel button';
 CancelButton.args = {
-  classes: 'nhsd-a-button--outline-cancel',
+  classes: 'nhsd-a-button--cancel',
   label: 'Cancel',
 };
 CancelButton.parameters = {
