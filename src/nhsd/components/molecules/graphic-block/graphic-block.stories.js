@@ -53,33 +53,6 @@ LabComponent.parameters = {
   },
 };
 
-export const WithLink = Template.bind({});
-WithLink.storyName = `With link`;
-WithLink.args = {
-  picture: {
-    sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
-    alt: 'Abstract lights',
-    classes: 'nhsd-a-picture--square'
-  },
-  title: {
-    p1: '50x',
-    p2: 'Increase in 111 Online access',
-  },
-  text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
-  link: {
-    href: '#',
-  },
-};
-WithLink.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${WithLink(WithLink.args)}`,
-    },
-  },
-};
-
 export const WithIcon = Template.bind({});
 WithIcon.storyName = `With icon`;
 WithIcon.args = {
@@ -104,6 +77,33 @@ WithIcon.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${WithIcon(WithIcon.args)}`,
+    },
+  },
+};
+
+export const WithLink = Template.bind({});
+WithLink.storyName = `With link`;
+WithLink.args = {
+  picture: {
+    sourceSet: [{
+      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }],
+    alt: 'Abstract lights',
+    classes: 'nhsd-a-picture--square'
+  },
+  title: {
+    p1: '50x',
+    p2: 'Increase in 111 Online access',
+  },
+  text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
+  link: {
+    href: '#',
+  },
+};
+WithLink.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${WithLink(WithLink.args)}`,
     },
   },
 };

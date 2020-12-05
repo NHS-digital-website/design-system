@@ -93,10 +93,10 @@ export const ComponentVariant1 = () => {
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[0])}</div>
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[1])}</div>
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[2])}</div>
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[3])}</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[0])}</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[1])}</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[2])}</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[3])}</div>
   </div>
 </div>`;
   return div;
@@ -156,8 +156,8 @@ export const ComponentVariant2 = () => {
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
     <div class="nhsd-t-row">
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-5 nhsd-t-off-m-1">${LabComponent(ComponentVariant2Data[0])}</div>
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-5">${LabComponent(ComponentVariant2Data[1])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-5 nhsd-t-off-m-1">${LabComponent(ComponentVariant2Data[0])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-5">${LabComponent(ComponentVariant2Data[1])}</div>
     </div>
 </div>`;
   return div;
@@ -256,10 +256,10 @@ export const ComponentVariant3 = () => {
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
     <div class="nhsd-t-row">
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[0])}</div>
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[1])}</div>
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[2])}</div>
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[0])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[0])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[1])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[2])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[0])}</div>
     </div>
 </div>`;
   return div;
@@ -323,9 +323,9 @@ export const ComponentVariant4 = () => {
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid">
     <div class="nhsd-t-row">
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-2 nhsd-t-col-m-4">${LabComponent(ComponentVariant4Data[0])}</div>
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-2 nhsd-t-col-m-4">${LabComponent(ComponentVariant4Data[1])}</div>
-      <div class="nhsd-t-col-xs-2 nhsd-t-col-s-2 nhsd-t-col-m-4">${LabComponent(ComponentVariant4Data[2])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[0])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[1])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[2])}</div>
     </div>
 </div>`;
   return div;
@@ -347,9 +347,9 @@ export const ComponentVariant5 = () => {
     <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
       <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
         <div class="nhsd-t-row">
-          <div class="nhsd-t-col-xs-2 nhsd-t-col-s-2 nhsd-t-col-m-4">${LabComponent(ComponentVariant4Data[0])}</div>
-          <div class="nhsd-t-col-xs-2 nhsd-t-col-s-2 nhsd-t-col-m-4">${LabComponent(ComponentVariant4Data[1])}</div>
-          <div class="nhsd-t-col-xs-2 nhsd-t-col-s-2 nhsd-t-col-m-4">${LabComponent(ComponentVariant4Data[2])}</div>
+          <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[0])}</div>
+          <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[1])}</div>
+          <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[2])}</div>
         </div>
       </div>
     </div>

@@ -12,8 +12,8 @@ const storyDescription = `${sbConfig.heading.lab}
 ### Breakpoints
 |Device type|Shorthand|Min. width|Max. width|Max. content width|Columns|Gutter|
 |---|---|---|---|---|---|---|---|
-|Mobile|**XS**|0|768px|355px|2|20px|
-|Tablet|**S**|769px|1024px|688px|6|30px|
+|Mobile|**XS**|0|768px|355px|12|20px|
+|Tablet|**S**|769px|1024px|688px|12|30px|
 |Desktop|**M**|1025px|1366px|944px|12|30px|
 |Wide|**L**|1367px|1579px|1240px|12|30px|
 |Extra Wide|**XL**|1580px|∞|1500px|12|30px|
@@ -162,7 +162,7 @@ export const ResponsiveGrid = () => {
     <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Responsive columns - specifically 100% on every breakpoint</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-6 nhsd-t-col-m-12">.nhsd-t-col-xs-2.nhsd-t-col-s-6.nhsd-t-col-m-12</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-12 nhsd-t-col-m-12">.nhsd-t-col-xs-12.nhsd-t-col-s-12.nhsd-t-col-m-12</div>
     <div class="nhsd-t-col-12">.nhsd-t-col-12</div>
   </div>
 </div>`;
@@ -178,16 +178,16 @@ ResponsiveGrid.parameters = {
 - **Class names:**
   - \`.nhsd-t-col-xl-1\`, \`.nhsd-t-col-l-1\`, \`.nhsd-t-col-m-1\`, \`.nhsd-t-col-s-1\`, \`.nhsd-t-col-xs-1\`
   - \`.nhsd-t-col-xl-2\`, \`.nhsd-t-col-l-2\`, \`.nhsd-t-col-m-2\`, \`.nhsd-t-col-s-2\`, \`.nhsd-t-col-xs-2\`
-  - \`.nhsd-t-col-xl-3\`, \`.nhsd-t-col-l-3\`, \`.nhsd-t-col-m-3\`, \`.nhsd-t-col-s-3\`
-  - \`.nhsd-t-col-xl-4\`, \`.nhsd-t-col-l-4\`, \`.nhsd-t-col-m-4\`, \`.nhsd-t-col-s-4\`
-  - \`.nhsd-t-col-xl-5\`, \`.nhsd-t-col-l-5\`, \`.nhsd-t-col-m-5\`, \`.nhsd-t-col-s-5\`
-  - \`.nhsd-t-col-xl-6\`, \`.nhsd-t-col-l-6\`, \`.nhsd-t-col-m-6\`, \`.nhsd-t-col-s-6\`
-  - \`.nhsd-t-col-xl-7\`, \`.nhsd-t-col-l-7\`, \`.nhsd-t-col-m-7\`
-  - \`.nhsd-t-col-xl-8\`, \`.nhsd-t-col-l-8\`, \`.nhsd-t-col-m-8\`
-  - \`.nhsd-t-col-xl-9\`, \`.nhsd-t-col-l-9\`, \`.nhsd-t-col-m-9\`
-  - \`.nhsd-t-col-xl-10\`, \`.nhsd-t-col-l-10\`, \`.nhsd-t-col-m-10\`
-  - \`.nhsd-t-col-xl-11\`, \`.nhsd-t-col-l-11\`, \`.nhsd-t-col-m-11\`
-  - \`.nhsd-t-col-xl-12\`, \`.nhsd-t-col-l-12\`, \`.nhsd-t-col-m-12\``,
+  - \`.nhsd-t-col-xl-3\`, \`.nhsd-t-col-l-3\`, \`.nhsd-t-col-m-3\`, \`.nhsd-t-col-s-3\`, \`.nhsd-t-col-xs-3\`
+  - \`.nhsd-t-col-xl-4\`, \`.nhsd-t-col-l-4\`, \`.nhsd-t-col-m-4\`, \`.nhsd-t-col-s-8\`, \`.nhsd-t-col-xs-4\`
+  - \`.nhsd-t-col-xl-5\`, \`.nhsd-t-col-l-5\`, \`.nhsd-t-col-m-5\`, \`.nhsd-t-col-s-5\`, \`.nhsd-t-col-xs-5\`
+  - \`.nhsd-t-col-xl-6\`, \`.nhsd-t-col-l-6\`, \`.nhsd-t-col-m-6\`, \`.nhsd-t-col-s-6\`, \`.nhsd-t-col-xs-6\`
+  - \`.nhsd-t-col-xl-7\`, \`.nhsd-t-col-l-7\`, \`.nhsd-t-col-m-7\`, \`.nhsd-t-col-s-7\`, \`.nhsd-t-col-xs-7\`
+  - \`.nhsd-t-col-xl-8\`, \`.nhsd-t-col-l-8\`, \`.nhsd-t-col-m-8\`, \`.nhsd-t-col-s-8\`, \`.nhsd-t-col-xs-8\`
+  - \`.nhsd-t-col-xl-9\`, \`.nhsd-t-col-l-9\`, \`.nhsd-t-col-m-9\`, \`.nhsd-t-col-s-9\`, \`.nhsd-t-col-xs-9\`
+  - \`.nhsd-t-col-xl-10\`, \`.nhsd-t-col-l-10\`, \`.nhsd-t-col-m-10\`, \`.nhsd-t-col-s-10\`, \`.nhsd-t-col-xs-10\`
+  - \`.nhsd-t-col-xl-11\`, \`.nhsd-t-col-l-11\`, \`.nhsd-t-col-m-11\`, \`.nhsd-t-col-s-11\`, \`.nhsd-t-col-xs-11\`
+  - \`.nhsd-t-col-xl-12\`, \`.nhsd-t-col-l-12\`, \`.nhsd-t-col-m-12\`, \`.nhsd-t-col-s-12\`, \`.nhsd-t-col-xs-12\``,
     },
     source: {
       code: `${sourceCode}\n${ResponsiveGrid().innerHTML}`,
@@ -203,21 +203,21 @@ export const ResponsiveGrid2 = () => {
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-m-4">.nhsd-t-col-m-4</div>
-    <div class="nhsd-t-col-s-4">.nhsd-t-col-s-4</div>
-    <div class="nhsd-t-col-xs-1">.nhsd-t-col-xs-1</div>
+    <div class="nhsd-t-col-s-8">.nhsd-t-col-s-8</div>
+    <div class="nhsd-t-col-xs-6">.nhsd-t-col-xs-6</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Columns responsive on all breakpoints</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-1 nhsd-t-col-s-1 nhsd-t-col-m-4">.nhsd-t-col-xs-1.nhsd-t-col-s-1.nhsd-t-col-m-4</div>
-    <div class="nhsd-t-col-xs-1 nhsd-t-col-s-4 nhsd-t-col-m-4">.nhsd-t-col-xs-1.nhsd-t-col-s-4.nhsd-t-col-m-4</div>
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-1 nhsd-t-col-m-4">.nhsd-t-col-xs-2.nhsd-t-col-s-1.nhsd-t-col-m-4</div>
+    <div class="nhsd-t-col-xs-6 nhsd-t-col-s-2 nhsd-t-col-m-4">.nhsd-t-col-xs-6.nhsd-t-col-s-2.nhsd-t-col-m-4</div>
+    <div class="nhsd-t-col-xs-6 nhsd-t-col-s-8 nhsd-t-col-m-4">.nhsd-t-col-xs-6.nhsd-t-col-s-8.nhsd-t-col-m-4</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-2 nhsd-t-col-m-4">.nhsd-t-col-xs-12.nhsd-t-col-s-2.nhsd-t-col-m-4</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-1 nhsd-t-col-s-5 nhsd-t-col-m-10">.nhsd-t-col-xs-1.nhsd-t-col-s-5.nhsd-t-col-m-10</div>
-    <div class="nhsd-t-col-xs-1 nhsd-t-col-s-1 nhsd-t-col-m-2">.nhsd-t-col-xs-1.nhsd-t-col-s-1.nhsd-t-col-m-2</div>
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-6 nhsd-t-col-m-12">.nhsd-t-col-xs-2.nhsd-t-col-s-6.nhsd-t-col-m-12</div>
+    <div class="nhsd-t-col-xs-6 nhsd-t-col-s-10 nhsd-t-col-m-10">.nhsd-t-col-xs-6.nhsd-t-col-s-5.nhsd-t-col-m-10</div>
+    <div class="nhsd-t-col-xs-6 nhsd-t-col-s-2 nhsd-t-col-m-2">.nhsd-t-col-xs-6.nhsd-t-col-s-6.nhsd-t-col-m-2</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-12 nhsd-t-col-m-12">.nhsd-t-col-xs-12.nhsd-t-col-s-12.nhsd-t-col-m-12</div>
   </div>
 </div>`;
   return div;
@@ -242,9 +242,9 @@ export const FullWidthGrid = () => {
     <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Full width grid</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-4">.nhsd-t-col-xs-2.nhsd-t-col-s-3.nhsd-t-col-m-4</div>
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-3 nhsd-t-col-m-4">.nhsd-t-col-xs-2.nhsd-t-col-s-3.nhsd-t-col-m-4</div>
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-6 nhsd-t-col-m-4">.nhsd-t-col-xs-2.nhsd-t-col-s-6.nhsd-t-col-m-4</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4">.nhsd-t-col-xs-12.nhsd-t-col-s-6.nhsd-t-col-m-4</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4">.nhsd-t-col-xs-12.nhsd-t-col-s-6.nhsd-t-col-m-4</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-12 nhsd-t-col-m-4">.nhsd-t-col-xs-12.nhsd-t-col-s-12.nhsd-t-col-m-4</div>
   </div>
 </div>`;
   return div;
@@ -312,16 +312,16 @@ export const ResponsiveColumnOffset = () => {
     <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-colour-white nhsd-!t-bg-dark-grey">Responsive offset columns</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-1 nhsd-t-col-s-2 nhsd-t-col-m-1 nhsd-t-off-xs-1 nhsd-t-off-s-1 nhsd-t-off-m-6">TST</div>
+    <div class="nhsd-t-col-xs-6 nhsd-t-col-s-4 nhsd-t-col-m-1 nhsd-t-off-xs-6 nhsd-t-off-s-2 nhsd-t-off-m-6">.nhsd-t-off-xs-6.nhsd-t-off-s-2.nhsd-t-off-m-6</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-1 nhsd-t-col-s-1 nhsd-t-col-m-3 nhsd-t-off-xs-0 nhsd-t-off-s-1 nhsd-t-off-m-9">TST</div>
+    <div class="nhsd-t-col-xs-6 nhsd-t-col-s-2 nhsd-t-col-m-3 nhsd-t-off-xs-0 nhsd-t-off-s-2 nhsd-t-off-m-9">.nhsd-t-off-xs-0.nhsd-t-off-s-2.nhsd-t-off-m-9</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-1 nhsd-t-col-s-2 nhsd-t-col-m-4 nhsd-t-off-xs-1 nhsd-t-off-s-4 nhsd-t-off-m-3">TST</div>
+    <div class="nhsd-t-col-xs-6 nhsd-t-col-s-8 nhsd-t-col-m-4 nhsd-t-off-xs-6 nhsd-t-off-s-8 nhsd-t-off-m-3">.nhsd-t-off-xs-6.nhsd-t-off-s-8.nhsd-t-off-m-3</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-xs-2 nhsd-t-col-s-4 nhsd-t-col-m-12 nhsd-t-off-xs-0 nhsd-t-off-s-1 nhsd-t-off-m-0">TST</div>
+    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-m-12">.nhsd-t-off-xs-0.nhsd-t-off-s-2.nhsd-t-off-m-0</div>
   </div>
 </div>`;
   return div;
@@ -335,16 +335,16 @@ ResponsiveColumnOffset.parameters = {
 - \`.nhsd-t-off-xl-0\`, \`.nhsd-t-off-l-0\`, \`.nhsd-t-off-m-0\`, \`.nhsd-t-off-s-0\`, \`.nhsd-t-off-xs-0\`
 - \`.nhsd-t-off-xl-1\`, \`.nhsd-t-off-l-1\`, \`.nhsd-t-off-m-1\`, \`.nhsd-t-off-s-1\`, \`.nhsd-t-off-xs-1\`
 - \`.nhsd-t-off-xl-2\`, \`.nhsd-t-off-l-2\`, \`.nhsd-t-off-m-2\`, \`.nhsd-t-off-s-2\`, \`.nhsd-t-off-xs-2\`
-- \`.nhsd-t-off-xl-3\`, \`.nhsd-t-off-l-3\`, \`.nhsd-t-off-m-3\`, \`.nhsd-t-off-s-3\`
-- \`.nhsd-t-off-xl-4\`, \`.nhsd-t-off-l-4\`, \`.nhsd-t-off-m-4\`, \`.nhsd-t-off-s-4\`
-- \`.nhsd-t-off-xl-5\`, \`.nhsd-t-off-l-5\`, \`.nhsd-t-off-m-5\`, \`.nhsd-t-off-s-5\`
-- \`.nhsd-t-off-xl-6\`, \`.nhsd-t-off-l-6\`, \`.nhsd-t-off-m-6\`, \`.nhsd-t-off-s-6\`
-- \`.nhsd-t-off-xl-7\`, \`.nhsd-t-off-l-7\`, \`.nhsd-t-off-m-7\`
-- \`.nhsd-t-off-xl-8\`, \`.nhsd-t-off-l-8\`, \`.nhsd-t-off-m-8\`
-- \`.nhsd-t-off-xl-9\`, \`.nhsd-t-off-l-9\`, \`.nhsd-t-off-m-9\`
-- \`.nhsd-t-off-xl-10\`, \`.nhsd-t-off-l-10\`, \`.nhsd-t-off-m-10\`
-- \`.nhsd-t-off-xl-11\`, \`.nhsd-t-off-l-11\`, \`.nhsd-t-off-m-11\`
-- \`.nhsd-t-off-xl-12\`, \`.nhsd-t-off-l-12\`, \`.nhsd-t-off-m-12\``,
+- \`.nhsd-t-off-xl-3\`, \`.nhsd-t-off-l-3\`, \`.nhsd-t-off-m-3\`, \`.nhsd-t-off-s-3\`, \`.nhsd-t-off-xs-3\`
+- \`.nhsd-t-off-xl-4\`, \`.nhsd-t-off-l-4\`, \`.nhsd-t-off-m-4\`, \`.nhsd-t-off-s-4\`, \`.nhsd-t-off-xs-4\`
+- \`.nhsd-t-off-xl-5\`, \`.nhsd-t-off-l-5\`, \`.nhsd-t-off-m-5\`, \`.nhsd-t-off-s-5\`, \`.nhsd-t-off-xs-5\`
+- \`.nhsd-t-off-xl-6\`, \`.nhsd-t-off-l-6\`, \`.nhsd-t-off-m-6\`, \`.nhsd-t-off-s-6\`, \`.nhsd-t-off-xs-6\`
+- \`.nhsd-t-off-xl-7\`, \`.nhsd-t-off-l-7\`, \`.nhsd-t-off-m-7\`, \`.nhsd-t-off-s-7\`, \`.nhsd-t-off-xs-7\`
+- \`.nhsd-t-off-xl-8\`, \`.nhsd-t-off-l-8\`, \`.nhsd-t-off-m-8\`, \`.nhsd-t-off-s-8\`, \`.nhsd-t-off-xs-8\`
+- \`.nhsd-t-off-xl-9\`, \`.nhsd-t-off-l-9\`, \`.nhsd-t-off-m-9\`, \`.nhsd-t-off-s-9\`, \`.nhsd-t-off-xs-9\`
+- \`.nhsd-t-off-xl-10\`, \`.nhsd-t-off-l-10\`, \`.nhsd-t-off-m-10\`, \`.nhsd-t-off-s-10\`, \`.nhsd-t-off-xs-10\`
+- \`.nhsd-t-off-xl-11\`, \`.nhsd-t-off-l-11\`, \`.nhsd-t-off-m-11\`, \`.nhsd-t-off-s-11\`, \`.nhsd-t-off-xs-11\`
+- \`.nhsd-t-off-xl-12\`, \`.nhsd-t-off-l-12\`, \`.nhsd-t-off-m-12\`, \`.nhsd-t-off-s-12\`, \`.nhsd-t-off-xs-12\``,
   },
     source: {
       code: `${sourceCode}\n${ResponsiveColumnOffset().innerHTML}`,

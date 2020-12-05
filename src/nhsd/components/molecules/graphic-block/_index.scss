@@ -1,7 +1,9 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
-@use "scss-core/tokens/typography" as nhsd-typography;
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Component imports
@@ -15,8 +17,9 @@ $-root: ".nhsd-m-graphic-block";
 
   position: relative;
 
-  .nhsd-a-picture {
-    margin-bottom: nhsd-spacing.get(3);
+  &__picture {
+    max-width: 84%;
+    margin: 0 auto nhsd-spacing.get(3);
   }
 
   .nhsd-a-link {
@@ -57,15 +60,35 @@ $-root: ".nhsd-m-graphic-block";
     }
   }
 
-  .nhsd-t-heading-xs {
-    margin-bottom: 0;
+  &__heading {
+    max-width: 100%;
+    margin-bottom: nhsd-spacing.get(2);
+
+    &:not(.nhsd-a-link) {
+      padding-bottom: 3px;
+    }
+  }
+
+  [class^="nhsd-t-heading"],
+  [class^="nhsd-t-body"] {
+    margin: 0 auto;
+  }
+
+  [class^="nhsd-t-body"] {
+    max-width: 13rem;
   }
 
   .nhsd-a-icon {
     margin-left: nhsd-spacing.get(1);
   }
 
-  &__heading {
-    margin-bottom: nhsd-spacing.get(2);
+  @include mq($until: s) {
+    &__picture {
+      max-width: 60%;
+    }
+
+    [class^="nhsd-t-body"] {
+      max-width: 50%;
+    }
   }
 }

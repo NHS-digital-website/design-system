@@ -13,7 +13,9 @@
 
 <div class="{{ classNames }}">
   {% if params.picture -%}
+    <div class="nhsd-m-graphic-block__picture">
     {{ nhsd_a_picture(params.picture) }}
+    </div>
   {%- endif %}
 
   {% if hasLink -%}
@@ -22,12 +24,12 @@
   <div class="nhsd-m-graphic-block__heading">
   {%- endif %}
   <span class="nhsd-t-heading-xl nhsd-!t-margin-bottom-0">
-    {{ params.title.p1 }}
+    {{ params.title.p1|safe }}
     {%- if params.icon -%}
     {{ nhsd_a_icon(params.icon) }}
     {%- endif -%}
   </span>
-  <span class="nhsd-t-heading-xs">{{ params.title.p2 }}</span>
+  <span class="nhsd-t-heading-xs">{{ params.title.p2|safe }}</span>
   {% if hasLink -%}
   </a>
   {% else %}

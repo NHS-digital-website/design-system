@@ -20,17 +20,16 @@ $-xl-content-width: 83.333rem; // 1500px
 $-grid-data-map: (
   xs: (
     prefix: xs,
-    columns: 2,
+    columns: 12,
     breakpoints: (
       until: s
     )
   ),
   s: (
     prefix: s,
-    columns: 6,
+    columns: 12,
     breakpoints: (
-      from: s,
-      until: m
+      from: s
     )
   ),
   m: (
@@ -95,19 +94,10 @@ $small-gutter: .833rem * .667;
     @include mq($until: s) {
       padding: 0 $small-gutter;
 
-      [class^="nhsd-t-col-"] {
+      [class^="nhsd-t-col"] {
         padding-right: $small-gutter;
         padding-left: $small-gutter;
       }
-
-      // TODO - In case we only want to have small gutters in the inside
-      // #{$-root}-col-xs-1:nth-child(2n+1):not(#{$-root}-off-xs-1) {
-      //   padding-right: $small-gutter;
-
-      //   & + #{$-root}-col-xs-1 {
-      //     padding-left: $small-gutter;
-      //   }
-      // }
     }
 
     &:not(&--full-width) {
@@ -134,7 +124,7 @@ $small-gutter: .833rem * .667;
         background: nhsd-colours.get("yellow-10-tint");
       }
 
-      [class^="nhsd-t-col-"] {
+      [class^="nhsd-t-col"] {
         padding-top: 1rem;
         padding-bottom: 1rem;
         background: nhsd-colours.get("mid-grey-20-tint");
@@ -144,10 +134,10 @@ $small-gutter: .833rem * .667;
 
       // stylelint-disable declaration-no-important
       @include mq($until: s) {
-        #{$-root}-col-xs-1:nth-child(2n+1):not(#{$-root}-off-xs-1) {
+        #{$-root}-col-xs-6:nth-child(2n+1):not(#{$-root}-off-xs-6) {
           background: nhsd-colours.get("green") !important;
 
-          & + #{$-root}-col-xs-1 {
+          & + #{$-root}-col-xs-6 {
             background: nhsd-colours.get("red") !important;
           }
         }
@@ -177,10 +167,6 @@ $small-gutter: .833rem * .667;
     $-bp-until: map.get($-breakpoints, "until");
 
     @for $-step from 0 through $-columns {
-      &-col-#{$-prefix}-#{$-step} {
-        @extend %-column-base;
-      }
-
       // Static
       @if $-device == "m" {
         &-col-#{$-step} {
@@ -191,6 +177,10 @@ $small-gutter: .833rem * .667;
         &-off-#{$-step} {
           margin-left: $-step / $-columns * 100%;
         }
+      }
+
+      &-col-#{$-prefix}-#{$-step} {
+        @extend %-column-base;
       }
 
       // Responsive
