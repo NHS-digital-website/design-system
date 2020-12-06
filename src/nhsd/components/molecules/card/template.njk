@@ -51,7 +51,9 @@
         <span class="nhsd-m-card__date">{{ params.date }}</span>
       {%- endif %}
 
+      {%- if params.title -%}
       <h1 class="nhsd-t-heading-s" id="{{ cardId + '-title' }}">{{ params.title|safe }}</h1>
+      {%- endif -%}
 
       {%- if params.hexIcon -%}
       {{ nhsd_a_icon(params.hexIcon) }}

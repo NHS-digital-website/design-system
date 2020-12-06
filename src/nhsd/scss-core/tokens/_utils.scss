@@ -56,6 +56,10 @@ $-root: ".nhsd-";
   padding-left: 0 !important;
 }
 
+#{$-root}\!t-uppercase {
+  text-transform: uppercase !important;
+}
+
 #{$-root}\!t-text-align {
   &-left {
     @include text-align(left, true);

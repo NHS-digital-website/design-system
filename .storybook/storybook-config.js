@@ -12,11 +12,12 @@ module.exports = {
     typography: "Typography",
     gridSystem: "Grid system",
     colours: "Colours",
+    spacing: "Spacing",
     lab: "Lab",
   },
   heading: {
     lab: "\n\n ## Lab",
     basicRules: "### Basic rules",
-    details: "#### Detais",
+    details: "#### Details",
   },
 };
