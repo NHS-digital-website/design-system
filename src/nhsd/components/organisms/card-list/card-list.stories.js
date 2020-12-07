@@ -273,6 +273,112 @@ ComponentVariant3.parameters = {
   },
 };
 
+const ComponentVariant3BData = [
+  {
+    box: {
+      classes: 'nhsd-a-box--bg-light-grey',
+    },
+    link: {
+      href: '#',
+    },
+    picture: {
+      sourceSet: [{
+        'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      }],
+      alt: 'Abstract lights',
+    },
+    date: '30 Sept 2020',
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    button: {
+      label: 'More about what we do',
+      classes: 'nhsd-m-card__button',
+      el: 'span'
+    },
+  },
+  {
+    box: {
+      classes: 'nhsd-a-box--bg-light-grey',
+    },
+    link: {
+      href: '#',
+    },
+    picture: {
+      sourceSet: [{
+        'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      }],
+      alt: 'Abstract lights',
+    },
+    date: '30 Sept 2020',
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    button: {
+      label: 'More about what we do',
+      classes: 'nhsd-m-card__button',
+      el: 'span'
+    },
+  },
+  {
+    box: {
+      classes: 'nhsd-a-box--bg-light-grey',
+    },
+    link: {
+      href: '#',
+    },
+    picture: {
+      sourceSet: [{
+        'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      }],
+      alt: 'Abstract lights',
+    },
+    date: '30 Sept 2020',
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    button: {
+      label: 'More about what we do',
+      classes: 'nhsd-m-card__button',
+      el: 'span'
+    },
+  },
+  {
+    box: {
+      classes: 'nhsd-a-box--bg-light-grey',
+    },
+    link: {
+      href: '#',
+    },
+    date: '30 Sept 2020',
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    button: {
+      label: 'More about what we do',
+      classes: 'nhsd-m-card__button',
+      el: 'span'
+    },
+  }
+];
+export const ComponentVariant3B = () => {
+  const div = document.createElement('div');
+  div.classList.add('nhsd-o-card-list');
+  div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3BData[0])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3BData[1])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3BData[2])}</div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3BData[0])}</div>
+    </div>
+</div>`;
+  return div;
+};
+ComponentVariant3B.storyName = 'Picture cards with dates 4D/2T/1M';
+ComponentVariant3B.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ComponentVariant3B().outerHTML}`,
+    },
+  },
+};
+
 const ComponentVariant4Data = [
   {
     box: {

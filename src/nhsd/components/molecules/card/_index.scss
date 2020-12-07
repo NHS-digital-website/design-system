@@ -156,6 +156,10 @@ $box-padding: 1.111rem;
       & > *:nth-child(1) {
         margin-top: .278rem;
       }
+
+      #{$-root}__date {
+        margin-top: nhsd-spacing.get(2);
+      }
     }
   }
 
