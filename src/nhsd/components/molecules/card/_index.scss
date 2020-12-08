@@ -73,6 +73,10 @@ $box-padding: 1.111rem;
     padding: 0 $box-padding $box-padding;
   }
 
+  [class^="nhsd-t-heading"] {
+    margin-bottom: nhsd-spacing.get(1);
+  }
+
   &__arrow,
   .nhsd-a-button {
     align-self: baseline;
@@ -99,7 +103,7 @@ $box-padding: 1.111rem;
     height: $-icon-size;
   }
 
-  .nhsd-t-body {
+  [class^="nhsd-t-body"] {
     margin: 0 0 .8rem;
 
     &:last-of-type {
@@ -124,8 +128,8 @@ $box-padding: 1.111rem;
     &--bg-blue {
       &,
       #{$-root}__date,
-      [class^="nhsd-t-heading-"],
-      .nhsd-t-body {
+      [class^="nhsd-t-heading"],
+      [class^="nhsd-t-body"] {
         color: nhsd-colours.get("white");
       }
     }
@@ -133,8 +137,8 @@ $box-padding: 1.111rem;
     &--bg-yellow {
       &,
       #{$-root}__date,
-      [class^="nhsd-t-heading-"],
-      .nhsd-t-body {
+      [class^="nhsd-t-heading"],
+      [class^="nhsd-t-body"] {
         color: nhsd-colours.get("black");
       }
     }
@@ -192,11 +196,11 @@ $box-padding: 1.111rem;
 
   &--with-icon {
     [class^="nhsd-t-heading"] {
-      margin-bottom: 1rem;
+      margin-bottom: nhsd-spacing.get(3);
       padding-right: $-icon-size * 1.5;
     }
 
-    .nhsd-t-body {
+    [class^="nhsd-t-body"] {
       padding-right: $-icon-size;
     }
   }

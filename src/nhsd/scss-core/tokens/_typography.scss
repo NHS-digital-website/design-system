@@ -132,9 +132,7 @@ $-root: ".nhsd-t";
 
   // Body text
   &-body,
-  &-body-xs,
-  &-body-s,
-  &-body-m {
+  &-body-s {
     @extend %-body-base;
   }
 
@@ -142,12 +140,15 @@ $-root: ".nhsd-t";
     font-size: .888rem;
     letter-spacing: -.0166rem;
     line-height: 1.277rem;
-  }
 
-  &-body-xs {
-    font-size: .777rem;
-    letter-spacing: -.0166rem;
-    line-height: 1.055rem;
+    @include mq($until: s) {
+      font-size: .777rem;
+      line-height: 1.055rem;
+
+      &:before {
+        left: -.6rem;
+      }
+    }
   }
 
   // Lists

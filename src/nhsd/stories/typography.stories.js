@@ -223,10 +223,6 @@ export const Body = () => {
   p2.classList.add('nhsd-t-body-s');
   p2.innerText = `Intrinsicly reconceptualize professional internal or "organic" sources with high-payoff "outside the box" thinking. Globally disseminate customer directed bandwidth.`;
   div.appendChild(p2);
-  const p3 = document.createElement('p');
-  p3.classList.add('nhsd-t-body-xs');
-  p3.innerText = `Energistically transition optimal bandwidth after dynamic catalysts for change. Completely syndicate client-focused best practices rather than global mindshare. Synergistically impact bleeding-edge web-readiness with resource maximizing experiences. Distinctively implement frictionless methodologies.`;
-  div.appendChild(p3);
   return div;
 };
 Body.storyName = 'Body';
@@ -237,9 +233,8 @@ Body.parameters = {
 
 |Shorthand|Class name|Font size (D/M|Line height (D/M|Letter spacing (D/M)|
 |---|---|---|---|---|
-|**M (Default)**|\`.nhsd-t-body\`, <br>\`.nhsd-t-body-m\`|18px / 16px|26px / 23px|-0.3px|
-|**S**|\`.nhsd-t-body-s\`|16px / ?px|23px / ?px|-0.3px / ?px|
-|**XS**|\`.nhsd-t-body-xs\`|14px / ?px|19px / ?px|0px / ?px|
+|**Default**|\`.nhsd-t-body\`|18px / 16px|26px / 23px|-0.3px|
+|**S**|\`.nhsd-t-body-s\`|16px / 14px|23px / 19px|-0.3px / 0px|
 
 **Note:** It is not yet decided how the body tokens should react to responsive breakpoints. We definitely want to consistently use the normal (default medium) version of this token for most text on the website, but in some cases we might need a small version - hence we have a 16px and 14px variant as an experiment.`,
     },
