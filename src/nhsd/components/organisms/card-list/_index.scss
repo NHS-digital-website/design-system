@@ -4,6 +4,7 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
 
 // Component imports
 @use "../../molecules/card";
@@ -15,11 +16,19 @@ $-root: ".nhsd-o-card-list";
   display: block;
   position: relative;
 
-  [class^="nhsd-t-col-"] {
-    padding-bottom: nhsd-grid.$gutter * 2;
+  &__cards {
+    margin-bottom: nhsd-spacing.get(1);
+
+    [class^="nhsd-t-col"] {
+      padding-bottom: nhsd-grid.$gutter * 2;
+    }
 
     @include mq($until: s) {
-      padding-bottom: nhsd-grid.$small-gutter * 2;
+      margin-bottom: nhsd-spacing.get(4);
+
+      [class^="nhsd-t-col"] {
+        padding-bottom: nhsd-grid.$small-gutter * 2;
+      }
     }
   }
 

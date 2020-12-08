@@ -92,7 +92,7 @@ export const ComponentVariant1 = () => {
   const div = document.createElement('div');
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
-  <div class="nhsd-t-row">
+  <div class="nhsd-t-row nhsd-o-card-list__cards">
     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[0])}</div>
     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[1])}</div>
     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant1Data[2])}</div>
@@ -155,7 +155,7 @@ export const ComponentVariant2 = () => {
   const div = document.createElement('div');
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
-    <div class="nhsd-t-row">
+    <div class="nhsd-t-row nhsd-o-card-list__cards">
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-5 nhsd-t-off-m-1">${LabComponent(ComponentVariant2Data[0])}</div>
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-5">${LabComponent(ComponentVariant2Data[1])}</div>
     </div>
@@ -255,7 +255,7 @@ export const ComponentVariant3 = () => {
   const div = document.createElement('div');
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
-    <div class="nhsd-t-row">
+    <div class="nhsd-t-row nhsd-o-card-list__cards">
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[0])}</div>
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[1])}</div>
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3Data[2])}</div>
@@ -361,7 +361,7 @@ export const ComponentVariant3B = () => {
   const div = document.createElement('div');
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
-    <div class="nhsd-t-row">
+    <div class="nhsd-t-row nhsd-o-card-list__cards">
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3BData[0])}</div>
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3BData[1])}</div>
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3">${LabComponent(ComponentVariant3BData[2])}</div>
@@ -428,10 +428,25 @@ export const ComponentVariant4 = () => {
   const div = document.createElement('div');
   div.classList.add('nhsd-o-card-list');
   div.innerHTML = `<div class="nhsd-t-grid">
-    <div class="nhsd-t-row">
+    <div class="nhsd-t-row nhsd-t-text-align-center">
+      <div class="nhsd-t-col"><h2 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-7">News & Events</h2></div>
+    </div>
+    <div class="nhsd-t-row nhsd-o-card-list__cards">
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[0])}</div>
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[1])}</div>
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[2])}</div>
+    </div>
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-text-align-xs-center nhsd-t-text-align-right">
+        <a href="#" class="nhsd-a-button nhsd-!t-margin-bottom-3">
+          <span class="nhsd-a-button__label">View all cards</span>
+        </a>
+      </div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-text-align-xs-center nhsd-t-text-align-left">
+        <a href="#" class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-bottom-0">
+          <span class="nhsd-a-button__label">View all cards</span>
+        </a>
+      </div>
     </div>
 </div>`;
   return div;
@@ -452,7 +467,7 @@ export const ComponentVariant5 = () => {
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
       <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
-        <div class="nhsd-t-row">
+        <div class="nhsd-t-row nhsd-o-card-list__cards">
           <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[0])}</div>
           <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[1])}</div>
           <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">${LabComponent(ComponentVariant4Data[2])}</div>
