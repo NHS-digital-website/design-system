@@ -173,7 +173,7 @@ LinkButton.args = {
 LinkButton.parameters = {
   docs: {
     description: {
-      story: 'An `<a>` element can be used to create the button component. A valid link button should have a **href** attribute, and when the URL links to an external link, the **target**  attribute should be set to **_blank**.',
+      story: 'An `<a>` element can be used to create the button component. A valid link button should have a **href** attribute, and when the URL links to an external link, the **target**  attribute should be set to **_blank**, and the screen reader announcement should be made using the hidden label, and \`rel="external"\` should be added to the anchor tag.',
     },
     source: {
       code: `${sourceCode}\n${LinkButton(LinkButton.args)}`,

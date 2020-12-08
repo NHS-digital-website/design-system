@@ -234,7 +234,7 @@ Body.parameters = {
 |Shorthand|Class name|Font size (D/M|Line height (D/M|Letter spacing (D/M)|
 |---|---|---|---|---|
 |**Default**|\`.nhsd-t-body\`|18px / 16px|26px / 23px|-0.3px|
-|**S**|\`.nhsd-t-body-s\`|16px / 14px|23px / 19px|-0.3px / 0px|
+|**S**|\`.nhsd-t-body-s\`|16px / 14px|23px / 19px|-0.3px|
 
 **Note:** It is not yet decided how the body tokens should react to responsive breakpoints. We definitely want to consistently use the normal (default medium) version of this token for most text on the website, but in some cases we might need a small version - hence we have a 16px and 14px variant as an experiment.`,
     },

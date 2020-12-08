@@ -138,7 +138,7 @@ ExternalLink.storyName = 'External link';
 ExternalLink.parameters = {
   docs: {
     description: {
-      story: 'External links (the ones that take your user outside your service) should open in a new tab. When an external link is detected by screen readers, they will let the user know that the link will take them to a different website - using a scree-reader only announcement.',
+      story: 'External links (the ones that take your user outside your service) should open in a new tab. When an external link is detected by screen readers, they will let the user know that the link will take them to a different website - using a scree-reader only announcement. With external links the **target**  attribute should be set to **_blank**, and the screen reader announcement should be made using the hidden label, and \`rel="external"\` should be added to the anchor tag.',
     },
     source: {
       code: `${sourceCode} ${externalLink}`,
