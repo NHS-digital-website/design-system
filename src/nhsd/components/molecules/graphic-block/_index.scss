@@ -18,7 +18,6 @@ $-root: ".nhsd-m-graphic-block";
   position: relative;
 
   &__picture {
-    max-width: 84%;
     margin: 0 auto nhsd-spacing.get(3);
   }
 
@@ -74,21 +73,17 @@ $-root: ".nhsd-m-graphic-block";
     margin: 0 auto;
   }
 
-  [class^="nhsd-t-body"] {
-    max-width: 13rem;
-  }
-
   .nhsd-a-icon {
     margin-left: nhsd-spacing.get(1);
   }
 
-  @include mq($until: s) {
+  @include mq($from: 30em, $until: s) {
     &__picture {
-      max-width: 60%;
+      max-width: 70%;
     }
 
     [class^="nhsd-t-body"] {
-      max-width: 50%;
+      max-width: 70%;
     }
   }
 }

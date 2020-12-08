@@ -451,7 +451,7 @@ export const ComponentVariant4 = () => {
 </div>`;
   return div;
 };
-ComponentVariant4.storyName = 'Colour cards 3D/3T/1M';
+ComponentVariant4.storyName = 'Colour cards - with title and buttons - 3D/3T/1M';
 ComponentVariant4.parameters = {
   docs: {
     source: {
