@@ -3,23 +3,62 @@
 // Built in modules
 @use "sass:map";
 
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
 // Private members
 $-root: ".nhsd-";
+
+$-directions: (
+  left: left,
+  center: center,
+  right: right
+);
+
+$-responsive-data-map: (
+  xs: (
+    prefix: xs,
+    breakpoints: (
+      until: s
+    )
+  ),
+  s: (
+    prefix: s,
+    breakpoints: (
+      from: s,
+      until: m
+    )
+  ),
+  m: (
+    prefix: m,
+    breakpoints: (
+      from: m,
+      until: l
+    )
+  ),
+  l: (
+    prefix: l,
+    breakpoints: (
+      from: l,
+      until: xl
+    )
+  ),
+  xl: (
+    prefix: xl,
+    breakpoints: (
+      from: xl
+    )
+  )
+);
 
 // =========================================================
 // Functions and mixins
 // =========================================================
 
 @mixin text-align($key: left, $override: false) {
-  $directions: (
-    left: left,
-    center: center,
-    right: right
-  );
-
-  $value: map.get($directions, $key);
+  $value: map.get($-directions, $key);
   @if $value == null {
-    $value: map.get($directions, left);
+    $value: map.get($-directions, left);
   }
   text-align: $value if($override == true, !important, null);
 }
@@ -60,17 +99,29 @@ $-root: ".nhsd-";
   text-transform: uppercase !important;
 }
 
-#{$-root}\!t-text-align {
-  &-left {
-    @include text-align(left, true);
+@each $key, $value in $-directions {
+  // Override tokens
+  #{$-root}\!t-text-align-#{$key} {
+    @include text-align($value, true);
   }
 
-  &-center {
-    @include text-align(center, true);
+  // Regular tokens
+  #{$-root}\t-text-align-#{$key} {
+    @include text-align($value);
   }
 
-  &-right {
-    @include text-align(right, true);
+  // Responsive override tokens
+  @each $-device, $-props in $-responsive-data-map {
+    $-prefix: map.get($-props, "prefix");
+    $-breakpoints: map.get($-props, "breakpoints");
+    $-bp-from: map.get($-breakpoints, "from");
+    $-bp-until: map.get($-breakpoints, "until");
+
+    @include mq($from: $-bp-from, $until: $-bp-until) {
+      #{$-root}\!t-text-align-#{$-prefix}-#{$key} {
+        @include text-align($value, true);
+      }
+    }
   }
 }
 
