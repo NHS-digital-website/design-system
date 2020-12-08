@@ -29,7 +29,7 @@ export const LabComponent = () => {
   div.appendChild(titleEl);
 
   const leadEl = document.createElement('p');
-  leadEl.classList.add('nhsd-t-lead');
+  leadEl.classList.add('nhsd-t-heading-s');
   leadEl.innerText = `At NHS Digital, we maintain the Shielded Patients List, helping Government and partner organisations to provide extra protection for people most at risk from COVID-19.`;
   div.appendChild(leadEl);
 
@@ -209,23 +209,6 @@ Headings.parameters = {
     },
     source: {
       code: `${sourceCode}\n${Headings().innerHTML}`,
-    },
-  },
-};
-
-export const Lead = () => {
-  const div = document.createElement('div');
-  const p = document.createElement('p');
-  p.classList.add('nhsd-t-lead');
-  p.innerText = `At NHS Digital, we maintain the Shielded Patients List, helping Government and partner organisations to provide extra protection for people most at risk from COVID-19.`;
-  div.appendChild(p);
-  return div;
-};
-Lead.storyName = 'Lead';
-Lead.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${Lead().innerHTML}`,
     },
   },
 };

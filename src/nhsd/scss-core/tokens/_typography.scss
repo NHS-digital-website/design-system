@@ -130,24 +130,6 @@ $-root: ".nhsd-t";
     }
   }
 
-  // Lead text
-  &-lead {
-    @extend %-typo-base;
-    @include nhsd-fonts.font-weight(bold);
-
-    margin: 0 auto nhsd-spacing.get(3);
-    color: nhsd-colours.get("black");
-    font-size: 1.222rem;
-    letter-spacing: -.0277rem;
-    line-height: 1.555rem;
-
-    @include mq($until: s) {
-      font-size: 1rem;
-      letter-spacing: -.01666rem;
-      line-height: 1.388rem;
-    }
-  }
-
   // Body text
   &-body,
   &-body-xs,
