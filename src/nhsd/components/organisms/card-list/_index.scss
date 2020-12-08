@@ -17,15 +17,13 @@ $-root: ".nhsd-o-card-list";
   position: relative;
 
   &__cards {
-    margin-bottom: nhsd-spacing.get(1);
+    @include nhsd-spacing.set-responsive("margin-bottom", 4);
 
     [class^="nhsd-t-col"] {
       padding-bottom: nhsd-grid.$gutter * 2;
     }
 
     @include mq($until: s) {
-      margin-bottom: nhsd-spacing.get(4);
-
       [class^="nhsd-t-col"] {
         padding-bottom: nhsd-grid.$small-gutter * 2;
       }

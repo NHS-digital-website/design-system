@@ -4,6 +4,9 @@
 @use "sass:map";
 @use "sass:string";
 
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
 // Tokens
 @use "scss-core/tokens/fonts";
 
@@ -38,6 +41,18 @@ $-dirs: top, right, bottom, left;
   @return null;
 }
 
+@mixin set-responsive($property: margin, $index: 0) {
+  #{$property}: get($index);
+  // outline: 2px dotted #0000ff;
+
+  @if $index > 0 {
+    @include mq($until: s) {
+      #{$property}: get($index - 1);
+      // outline: 2px dotted #ff00ff;
+    }
+  }
+}
+
 // =========================================================
 // Utility override classes
 // =========================================================
@@ -48,10 +63,27 @@ $-dirs: top, right, bottom, left;
     $i: $i + 1;
     #{$-root}\!t-#{$prop}-#{$i} {
       #{$prop}: get($i) !important;
+      // outline: 2px dotted #ff0000;
+
+      @if $i > 0 {
+        @include mq($until: s) {
+          #{$prop}: get($i - 1) !important;
+          // outline: 2px dotted #00ff00;
+        }
+      }
     }
+
     @each $dir in $-dirs {
       #{$-root}\!t-#{$prop}-#{$dir}-#{$i} {
         #{$prop}-#{$dir}: get($i) !important;
+        // outline: 2px dotted #ff0000;
+
+        @if $i > 0 {
+          @include mq($until: s) {
+            #{$prop}-#{$dir}: get($i - 1) !important;
+            // outline: 2px dotted #00ff00;
+          }
+        }
       }
     }
   }
