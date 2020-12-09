@@ -29,7 +29,7 @@ $-root: ".nhsd-m-button-menu";
 
   @include mq($until: s) {
     .nhsd-a-button {
-      display: block;
+      display: flex;
       width: 100%;
       margin: 0 auto;
 

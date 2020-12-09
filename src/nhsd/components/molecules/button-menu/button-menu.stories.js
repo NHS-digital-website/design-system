@@ -62,7 +62,7 @@ Story1.args = {
   }, {
     classes: 'nhsd-a-button--outline',
     el: 'a',
-    label: 'View more stuff - very long label',
+    label: 'View more stuff - very long label - very very very very very long',
     href: '#',
   }
 ]};

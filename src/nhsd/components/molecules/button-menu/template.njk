@@ -10,9 +10,9 @@
 {%- endif -%}
 
 {% if params.buttons|length -%}
-<div class="{{ classNames }}">
+<nav class="{{ classNames }}">
 {% for button in params.buttons -%}
   {{ nhsd_a_button(button) }}
 {% endfor -%}
-</div>
+</nav>
 {% endif -%}
