@@ -158,7 +158,6 @@ export const Component3 = Template.bind({});
 Component3.storyName = 'Picture cards 4D/2T/1M';
 Component3.args = {
   desktopColumns: 4,
-  // centreColumns: true,
   cards: [
     {
       box: {
@@ -456,6 +455,69 @@ Component6.parameters = {
           classes: 'nhsd-t-grid--full-width',
         },
       })}.innerHTML}`,
+    },
+  },
+};
+
+export const Component7 = Template.bind({});
+Component7.storyName = 'Many cards - 4 columns';
+let component7Cards = [];
+for (let i = 0; i < 9; i ++) {
+  component7Cards.push({
+    box: {
+      classes: 'nhsd-a-box--bg-dark-grey',
+    },
+    link: {
+      href: '#',
+    },
+    title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online',
+    date: '30 Sept 2020',
+    arrowIcon: {
+      classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
+      id: 'arrow_right',
+    },
+  });
+}
+Component7.args = {
+  desktopColumns: 4,
+  cards: component7Cards,
+};
+Component7.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${Component7(Component7.args)}`,
+    },
+  },
+};
+
+export const Component8 = Template.bind({});
+Component8.storyName = 'Many cards - 3 columns';
+let component8Cards = [];
+for (let i = 0; i < 7; i ++) {
+  component8Cards.push({
+    classes: 'nhsd-m-card--focus-orange',
+    box: {
+      classes: 'nhsd-a-box--bg-yellow',
+    },
+    link: {
+      href: '#',
+    },
+    title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online',
+    date: '30 Sept 2020',
+    arrowIcon: {
+      classes: 'nhsd-a-icon--size-s nhsd-m-card__arrow',
+      id: 'arrow_right',
+    },
+  });
+}
+Component8.args = {
+  desktopColumns: 3,
+  cards: component8Cards,
+};
+Component8.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${Component8(Component8.args)}`,
     },
   },
 };
