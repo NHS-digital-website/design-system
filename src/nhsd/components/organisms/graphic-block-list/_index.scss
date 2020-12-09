@@ -14,11 +14,13 @@ $-root: ".nhsd-o-graphic-block-list";
   display: block;
   position: relative;
 
-  [class^="nhsd-t-col-"] {
-    padding-bottom: nhsd-grid.$gutter * 2;
+  &__items {
+    [class^="nhsd-t-col"] {
+      padding-bottom: nhsd-grid.$gutter * 2;
 
-    @include mq($until: s) {
-      padding-bottom: nhsd-grid.$small-gutter * 4;
+      @include mq($until: s) {
+        padding-bottom: nhsd-grid.$small-gutter * 4;
+      }
     }
   }
 }

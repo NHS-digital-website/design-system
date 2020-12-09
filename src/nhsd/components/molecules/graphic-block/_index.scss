@@ -26,7 +26,7 @@ $-root: ".nhsd-m-graphic-block";
 
     &,
     &:visited {
-      [class^="nhsd-t-heading-"] {
+      [class^="nhsd-t-heading"] {
         color: nhsd-colours.get("blue");
       }
 
@@ -39,7 +39,7 @@ $-root: ".nhsd-m-graphic-block";
 
     &:focus,
     &:hover {
-      [class^="nhsd-t-heading-"] {
+      [class^="nhsd-t-heading"] {
         color: inherit;
       }
 
