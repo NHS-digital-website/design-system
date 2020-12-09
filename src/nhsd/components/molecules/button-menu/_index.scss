@@ -1,0 +1,41 @@
+// Settings
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/button";
+
+// Private members
+$-root: ".nhsd-m-button-menu";
+
+#{$-root} {
+  display: block;
+  position: relative;
+  text-align: center;
+
+  .nhsd-a-button {
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      @include nhsd-spacing.set-responsive("margin-right", 6);
+    }
+  }
+
+  @include mq($until: s) {
+    .nhsd-a-button {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+
+      &:not(:last-child) {
+        margin: 0 auto nhsd-spacing.get(4);
+      }
+    }
+  }
+}

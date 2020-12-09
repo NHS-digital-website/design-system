@@ -1,0 +1,18 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_button
+-%}
+
+{# Set classes #}
+{%- set classNames = "nhsd-m-button-menu" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{% if params.buttons|length -%}
+<div class="{{ classNames }}">
+{% for button in params.buttons -%}
+  {{ nhsd_a_button(button) }}
+{% endfor -%}
+</div>
+{% endif -%}
