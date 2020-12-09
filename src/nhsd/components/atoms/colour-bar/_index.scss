@@ -1,0 +1,29 @@
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-a-colour-bar";
+
+#{$-root} {
+  @include nhsd-utils.box-sizing;
+
+  display: block;
+  position: relative;
+  width: 100%;
+  height: nhsd-spacing.get(7);
+
+  background:
+    linear-gradient(
+      90deg,
+      nhsd-colours.get("dark-blue") 0%,
+      nhsd-colours.get("dark-blue") 55.625%,
+      nhsd-colours.get("bright-blue") 55.625%,
+      nhsd-colours.get("bright-blue") 71.25%,
+      nhsd-colours.get("yellow") 71.25%,
+      nhsd-colours.get("yellow") 86.875%,
+      nhsd-colours.get("yellow-20-tint") 86.875%,
+      nhsd-colours.get("yellow-20-tint") 100%
+    );
+}
