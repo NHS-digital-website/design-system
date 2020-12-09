@@ -33,26 +33,8 @@ const Template = (args) => {
   return template.render({ params: {...args} });
 };
 
-export const Lab = Template.bind({});
-Lab.storyName = sbConfig.title.lab;
-Lab.args = {
-  buttons: [
-  {
-    el: 'a',
-    label: 'View more stuff',
-    href: '#',
-  }
-]};
-Lab.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${Lab(Lab.args)}`,
-    },
-  },
-};
-
 export const Story1 = Template.bind({});
-Story1.storyName = `2 buttons`;
+Story1.storyName = sbConfig.title.lab;
 Story1.args = {
   buttons: [
   {
@@ -75,8 +57,26 @@ Story1.parameters = {
 };
 
 export const Story2 = Template.bind({});
-Story2.storyName = `3 buttons`;
+Story2.storyName = '1 button';
 Story2.args = {
+  buttons: [
+  {
+    el: 'a',
+    label: 'View more stuff',
+    href: '#',
+  }
+]};
+Story2.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${Story2(Story2.args)}`,
+    },
+  },
+};
+
+export const Story3 = Template.bind({});
+Story3.storyName = `3 buttons`;
+Story3.args = {
   buttons: [
   {
     el: 'a',
@@ -94,10 +94,10 @@ Story2.args = {
     href: '#',
   }
 ]};
-Story2.parameters = {
+Story3.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${Story2(Story2.args)}`,
+      code: `${sourceCode}\n${Story3(Story3.args)}`,
     },
   },
 };
