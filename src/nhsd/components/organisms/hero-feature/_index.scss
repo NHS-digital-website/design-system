@@ -1,0 +1,71 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/typography" as nhsd-typography;
+
+// Component imports
+@use "../../atoms/button";
+@use "../../atoms/colour-bar";
+@use "../../atoms/picture";
+
+// Private members
+$-root: ".nhsd-o-hero-feature";
+
+#{$-root} {
+  display: block;
+  position: relative;
+
+  &__content-box {
+    display: flex;
+    position: relative;
+    height: 100%;
+    padding: nhsd-spacing.get(6);
+  }
+
+  &__contents {
+    align-self: center;
+
+    @include mq($until: s) {
+      text-align: center;
+    }
+  }
+
+  .nhsd-a-colour-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: nhsd-spacing.get(7);
+
+    @include mq($from: l) {
+      height: nhsd-spacing.get(9);
+    }
+  }
+
+  .nhsd-a-picture:not(.nhsd-a-picture--square) {
+    @include mq($from: s, $until: l) {
+      padding-bottom: 68.9922481%;
+    }
+  }
+
+  [class^="nhsd-t-col"] {
+    order: 1;
+
+    &.is-first {
+      order: 0;
+    }
+
+    @include mq($until: s) {
+      &:first-child {
+        order: 1;
+      }
+
+      &:last-child {
+        order: 0;
+      }
+    }
+  }
+}

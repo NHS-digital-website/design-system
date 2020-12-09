@@ -1,0 +1,33 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_button,
+  nhsd_a_colour_bar,
+  nhsd_a_picture
+-%}
+
+<div class="nhsd-o-hero-feature">
+  <div class="nhsd-t-grid nhsd-!t-no-gutters">
+    {% for heroBlock in params.blocks -%}
+    {%- set even = loop.index0 % 2 == 0 -%}
+
+    <div class="nhsd-t-row {{ 'nhsd-!t-bg-pale-grey-80-tint' if loop.first else 'nhsd-!t-bg-bright-blue-10-tint' }}">
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters">
+        <div class="nhsd-o-hero-feature__content-box">
+          <div class="nhsd-o-hero-feature__contents">
+            <span class="{{ 'nhsd-t-heading-xxl' if loop.first else 'nhsd-t-heading-l' }} nhsd-!t-margin-bottom-3">{{ heroBlock.title|safe }}</span>
+            <p class="nhsd-t-body nhsd-!t-margin-bottom-5">{{ heroBlock.text|safe }}</p>
+            {{ nhsd_a_button(heroBlock.button) }}
+          </div>
+
+          {% if heroBlock.colourBar -%}
+            {{ nhsd_a_colour_bar() }}
+          {%- endif %}
+        </div>
+      </div>
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'is-first' if not even else '' }}">
+        {{ nhsd_a_picture(heroBlock.picture) }}
+      </div>
+    </div>
+    {% endfor -%}
+  </div>
+</div>
