@@ -405,7 +405,7 @@ Component5.args = {
       },
     }
   ],
-  buttonMenu: {
+  buttonNav: {
     buttons: [
       {
         el: 'a',

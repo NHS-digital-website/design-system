@@ -6,7 +6,7 @@ import template from  './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
-const componentName = 'Button menu';
+const componentName = 'Button nav';
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}

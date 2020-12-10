@@ -5,7 +5,7 @@
 
 {#- Import molecule macros -#}
 {%- from "../../../njk/macros/molecules.njk" import
-  nhsd_m_button_menu,
+  nhsd_m_button_nav,
   nhsd_m_card
 -%}
 
@@ -67,10 +67,10 @@
     </div>
     {% endif -%}
 
-    {% if params.buttonMenu -%}
+    {% if params.buttonNav -%}
     <div class="nhsd-t-row">
       <div class="nhsd-t-col">
-        {{ nhsd_m_button_menu(params.buttonMenu) }}
+        {{ nhsd_m_button_nav(params.buttonNav) }}
       </div>
     </div>
     {% endif -%}
