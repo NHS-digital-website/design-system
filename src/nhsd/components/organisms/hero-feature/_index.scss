@@ -1,4 +1,5 @@
 // Settings
+@use "scss-core/settings/vars" as nhsd-vars;
 @use "scss-core/settings/media-queries" as *;
 
 // Tokens
@@ -14,19 +15,26 @@
 
 // Private members
 $-root: ".nhsd-o-hero-feature";
+$-max-width: 106.666rem; // 1920px
 
 #{$-root} {
   display: block;
   position: relative;
 
-  &__content-box {
-    display: flex;
-    position: relative;
-    height: 100%;
-    padding: nhsd-spacing.get(6);
+  .nhsd-t-grid {
+    max-width: $-max-width;
   }
 
-  &__contents {
+  &__content-box {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    padding: nhsd-spacing.get(5) nhsd-spacing.get(7);
+  }
+
+  &__content {
+    max-width: 100%;
     align-self: center;
 
     @include mq($until: s) {
@@ -51,6 +59,14 @@ $-root: ".nhsd-o-hero-feature";
     }
   }
 
+  [class^="nhsd-t-heading"],
+  [class^="nhsd-t-body"] {
+    @include mq($from: s) {
+      max-width: 25rem;
+    }
+  }
+
+  // Even/Odd swap order of picture and content
   [class^="nhsd-t-col"] {
     order: 1;
 
@@ -65,6 +81,53 @@ $-root: ".nhsd-o-hero-feature";
 
       &:last-child {
         order: 0;
+      }
+    }
+  }
+
+  &__item {
+    #{$-root}__content-box {
+      background: nhsd-colours.get("pale-grey-80-tint");
+    }
+
+    &--main {
+      #{$-root}__content-box {
+        background: nhsd-colours.get("pale-grey-80-tint");
+      }
+    }
+
+    @include mq($until: s) {
+      &:not(&--main) {
+        .nhsd-a-picture {
+          border-top-left-radius: nhsd-vars.$border-radius;
+          border-top-right-radius: nhsd-vars.$border-radius;
+        }
+
+        #{$-root}__content-box {
+          border-bottom-left-radius: nhsd-vars.$border-radius;
+          border-bottom-right-radius: nhsd-vars.$border-radius;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: nhsd-spacing.get(5);
+      }
+    }
+
+    @include mq($from: l) {
+      [class^="nhsd-t-heading"],
+      [class^="nhsd-t-body"] {
+        max-width: 30.5rem;
+      }
+    }
+
+    @include mq($from: xl) {
+      &--main {
+        [class^="nhsd-t-heading"] {
+          font-size: 3rem;
+          letter-spacing: -.0622rem;
+          line-height: 2.888rem;
+        }
       }
     }
   }
