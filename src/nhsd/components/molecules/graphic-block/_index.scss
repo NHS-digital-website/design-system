@@ -78,10 +78,8 @@ $-root: ".nhsd-m-graphic-block";
   }
 
   @include mq($from: 30em, $until: s) {
-    &__picture {
-      max-width: 70%;
-    }
-
+    &__picture,
+    [class^="nhsd-t-heading"],
     [class^="nhsd-t-body"] {
       max-width: 70%;
     }
