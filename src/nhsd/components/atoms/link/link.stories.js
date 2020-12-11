@@ -23,7 +23,7 @@ export default {
 	argTypes: {
     label: { control: 'text', defaultValue: 'About NHS Digital', description: 'Clear, easy to understand text that explains where the user is taken when they click the link.', mandatory: true },
     href: { control: 'text', description: '**href** determines the URL the user is taken to when they click the element.', required: true },
-    external: { control: 'boolean', description: 'Determines whether the URL should open in a new tab. If **external** is set to true, screen readers read out "*...(opens in a new window)*" after the link title.', defaultValue: false },
+    external: { control: 'boolean', description: 'Determines whether the URL should open in a new tab. If **external** is set to true, screen readers read out "*...(opens in a new tab)*" after the link title.', defaultValue: false },
 	}
 };
 
