@@ -15,48 +15,46 @@ $-base-colour: nhsd-colours.get("blue");
 $-invert-colour: nhsd-colours.get("white");
 $-active-colour: nhsd-colours.get("black");
 $-highlight-colour: nhsd-colours.get("yellow");
-$-line-thickness: 3px;
+$-base-line-thickness: 1px;
+$-active-line-thickness: 3px;
 
 #{$-root} {
   @include nhsd-utils.box-sizing;
   @include nhsd-fonts.font-family;
 
   position: relative;
-  padding-top: $-line-thickness * .2;
-  padding-bottom: $-line-thickness * .8;
-  background-repeat: no-repeat;
-  background-position: 0 100%;
+  padding-top: 2px;
+  padding-bottom: 4px;
   text-decoration: none;
-  transition-property: background-color, color, background-size, background-position, padding-bottom;
+  transition-property: background-color, color;
   transition-duration: nhsd-transition.$transition-duration;
 
   &,
   &:visited {
+    border-bottom: $-base-line-thickness solid $-base-colour;
     color: $-base-colour;
-    background-image: linear-gradient($-base-colour, $-base-colour);
-    background-size: 100% 1px;
   }
 
   &:focus,
   &:hover {
+    padding-bottom: 2px;
+    border-bottom: $-active-line-thickness solid $-active-colour;
     outline: none;
     color: $-active-colour;
     background-color: $-highlight-colour;
-    background-image: linear-gradient($-active-colour, $-active-colour);
-    background-size: 100% $-line-thickness;
   }
 
   &:active {
+    border-bottom: $-active-line-thickness solid transparent;
     color: $-base-colour;
     background-color: transparent;
-    background-size: 0 $-line-thickness;
   }
 
   &--light {
     &,
     &:visited {
+      border-bottom: $-base-line-thickness solid $-invert-colour;
       color: $-invert-colour;
-      background-image: linear-gradient($-invert-colour, $-invert-colour);
     }
 
     &:focus,
@@ -72,20 +70,20 @@ $-line-thickness: 3px;
   &--dark {
     &,
     &:visited {
+      border-bottom: $-base-line-thickness solid $-active-colour;
       color: $-active-colour;
-      background-image: linear-gradient($-active-colour, $-active-colour);
     }
 
     &:focus,
     &:hover {
+      border-bottom: $-active-line-thickness solid $-invert-colour;
       color: $-invert-colour;
       background-color: $-active-colour;
-      background-image: linear-gradient($-invert-colour, $-invert-colour);
     }
 
     &:active {
+      border-bottom: $-active-line-thickness solid transparent;
       color: $-active-colour;
-      background-color: transparent;
     }
   }
 }

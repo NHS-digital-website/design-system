@@ -35,11 +35,15 @@ $-root: ".nhsd-t";
   color: nhsd-colours.get("dark-grey");
   font-size: 1rem;
   letter-spacing: -.01666rem;
-  line-height: 1.444rem;
+  line-height: 1.38889;
+
+  a {
+    line-height: 1.63;
+  }
 
   @include mq($until: s) {
     font-size: .888rem;
-    line-height: 1.277rem;
+    line-height: 1.4;
   }
 }
 
@@ -61,72 +65,108 @@ $-root: ".nhsd-t";
   &-heading-xxl {
     font-size: 2.666rem;
     letter-spacing: -.0555rem;
-    line-height: 2.888rem;
+    line-height: 1.0832;
+
+    a {
+      line-height: 1.35;
+    }
 
     @include mq($until: s) {
       font-size: 2rem;
       letter-spacing: -.0277rem;
-      line-height: 2.333rem;
+      line-height: 1.1665;
+
+      a {
+        line-height: 1.39;
+      }
     }
   }
 
   &-heading-xl {
     font-size: 2rem;
     letter-spacing: -.0277rem;
-    line-height: 2.333rem;
+    line-height: 1.1667;
+
+    a {
+      line-height: 1.389;
+    }
 
     @include mq($until: s) {
-      font-size: 1.666rem;
+      font-size: 1.669rem;
       letter-spacing: -.01666rem;
-      line-height: 1.888rem;
+      line-height: 1.1337;
+
+      a {
+        line-height: 1.45;
+      }
     }
   }
 
   &-heading-l {
-    font-size: 1.666rem;
+    font-size: 1.6669rem;
     letter-spacing: -.0277rem;
-    line-height: 2rem;
+    line-height: 1.20048;
+
+    a {
+      line-height: 1.45;
+    }
 
     @include mq($until: s) {
       font-size: 1.444rem;
       letter-spacing: -.01666rem;
-      line-height: 1.722rem;
+      line-height: 1.19267;
+
+      a {
+        line-height: 1.5;
+      }
     }
   }
 
   &-heading-m {
     font-size: 1.444rem;
     letter-spacing: -.0277rem;
-    line-height: 1.722rem;
+    line-height: 1.19267;
+
+    a {
+      line-height: 1.5;
+    }
 
     @include mq($until: s) {
       font-size: 1.222rem;
       letter-spacing: -.01666rem;
-      line-height: 1.5rem;
+      line-height: 1.22749;
     }
   }
 
   &-heading-s {
     font-size: 1.222rem;
     letter-spacing: -.0277rem;
-    line-height: 1.555rem;
+    line-height: 1.5454;
 
     @include mq($until: s) {
       font-size: 1rem;
       letter-spacing: -.01666rem;
-      line-height: 1.388rem;
+      line-height: 1.38888;
+
+      a {
+        line-height: 1.615;
+      }
     }
   }
 
   &-heading-xs {
     font-size: 1rem;
     letter-spacing: -.0277rem;
-    line-height: 1.444rem;
+    line-height: 1.62;
 
     @include mq($until: s) {
       font-size: .888rem;
       letter-spacing: -.01666rem;
-      line-height: 1.277rem;
+      line-height: 1.3875;
+
+      a {
+        line-height: 1.675;
+      }
     }
   }
 
@@ -139,11 +179,19 @@ $-root: ".nhsd-t";
   &-body-s {
     font-size: .888rem;
     letter-spacing: -.0166rem;
-    line-height: 1.277rem;
+    line-height: 1.4375;
+
+    a {
+      line-height: 1.635;
+    }
 
     @include mq($until: s) {
-      font-size: .777rem;
-      line-height: 1.055rem;
+      font-size: .778rem;
+      line-height: 1.389;
+
+      a {
+        line-height: 1.75;
+      }
 
       &:before {
         left: -.6rem;
@@ -192,7 +240,7 @@ $-root: ".nhsd-t";
     &--links {
       & > li {
         &:not(:last-of-type) {
-          margin: 0 0 .333rem;
+          margin: 0 0 .222rem;
         }
       }
     }
@@ -205,9 +253,9 @@ $-root: ".nhsd-t";
     position: relative;
     margin: 0 auto nhsd-spacing.get(3);
     color: nhsd-colours.get("dark-grey");
-    font-size: 1.444rem;
+    font-size: 1.445rem;
     letter-spacing: -.01666rem;
-    line-height: 1.722rem;
+    line-height: 1.19252;
 
     &:before,
     &:after {
@@ -226,12 +274,20 @@ $-root: ".nhsd-t";
       content: "”";
     }
 
+    a {
+      line-height: 1.475;
+    }
+
     @include mq($until: s) {
-      font-size: 1.222rem;
+      font-size: 1.225rem;
       line-height: 1.5rem;
 
       &:before {
         left: -.6rem;
+      }
+
+      a {
+        line-height: 1.555;
       }
     }
   }

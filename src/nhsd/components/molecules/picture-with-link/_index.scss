@@ -1,0 +1,42 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/link";
+@use "../../atoms/picture";
+
+// Private members
+$-root: ".nhsd-m-picture-with-link";
+
+#{$-root} {
+  display: block;
+  position: relative;
+  text-align: center;
+
+  .nhsd-a-link {
+    display: inline;
+
+    &:not(:focus):not(:hover) {
+      color: nhsd-colours.get("blue");
+    }
+  }
+
+  [class^="nhsd-t-heading"] {
+    max-width: 85%;
+    margin: 0 auto;
+
+    @include mq($until: s) {
+      max-width: 80%;
+    }
+
+    @include mq($from: l) {
+      max-width: 60%;
+    }
+  }
+}

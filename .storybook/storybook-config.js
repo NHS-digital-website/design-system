@@ -14,6 +14,7 @@ module.exports = {
     colours: "Colours",
     spacing: "Spacing",
     lab: "Lab",
+    latestVersion: "Latest version",
   },
   heading: {
     lab: "\n\n ## Lab",

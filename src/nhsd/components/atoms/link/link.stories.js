@@ -90,7 +90,7 @@ DarkLink.parameters = {
 export const LinkInText = () => {
   var p = document.createElement('p');
   p.classList.add('nhsd-t-body');
-  p.innerHTML = `Seamlessly re-engineer superior platforms for progressive models. Objectively fabricate tactical niches rather than 24/7 relationships. Authoritatively ${Link({ label: 'actualize premier vortals'})} after proactive content.`;
+  p.innerHTML = `Seamlessly re-engineer superior platforms for progressive models. Objectively fabricate tactical niches rather than 24/7 relationships. Authoritatively ${Link({ label: 'architectures after low-risk high-yield actualize premier vortals'})} after proactive content.`;
   return p;
 };
 LinkInText.storyName = 'Link in (con)text';
@@ -106,10 +106,19 @@ LinkInText.parameters = {
 };
 
 export const VeryLongLink = () => {
-  var p = document.createElement('p');
-  p.classList.add('nhsd-t-body');
-  p.innerHTML = `Long links are not ideal, but certainly not unusual to see on a website. We had no choice, but to come up with a long label for this demo, ${Link({ label: 'so we decided to write down the longest link label we could think of - just to demonstrate that the readablity, functionality and aesthetics of the link and its styling is not affected in a negative way'})} - like at all. PHEW!`;
-  return p;
+  const div = document.createElement('div');
+
+  const p1 = document.createElement('p');
+  p1.classList.add('nhsd-t-body');
+  p1.innerHTML = `Long links are not ideal, but certainly not unusual to see on a website. We had no choice, but to come up with a long label for this demo, ${Link({ label: 'so we decided to write down the longest link label we could think of - just to demonstrate that the readablity, functionality and aesthetics of the link and its styling is not affected in a negative way'})} - like at all. PHEW!`;
+  div.appendChild(p1);
+
+  const p2 = document.createElement('p');
+  p2.classList.add('nhsd-t-body-s');
+  p2.innerHTML = `Long links are not ideal, but certainly not unusual to see on a website. We had no choice, but to come up with a long label for this demo, ${Link({ label: 'so we decided to write down the longest link label we could think of - just to demonstrate that the readablity, functionality and aesthetics of the link and its styling is not affected in a negative way'})} - like at all. PHEW!`;
+  div.appendChild(p2);
+
+  return div;
 };
 VeryLongLink.storyName = 'A ridiculously long link';
 VeryLongLink.parameters = {

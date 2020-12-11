@@ -1,0 +1,55 @@
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_picture_with_link
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-picture-with-link-list" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Set grid classes -#}
+{% set gridClassNames = "nhsd-t-grid" %}
+{%- if params.grid and params.grid.classes -%}
+  {% set gridClassNames = gridClassNames + " " + params.grid.classes %}
+{%- endif -%}
+
+{#- Desktop columns -#}
+{%- set desktopColumns = params.desktopColumns if params.desktopColumns else 2 -%}
+{% if not (desktopColumns / 2) or desktopColumns < 1 or desktopColumns > 4 %}
+{%- set desktopColumns = 4 -%}
+{% endif %}
+{%- set centreColumns = params.centreColumns -%}
+
+<div class="{{ classNames }}">
+  <div class="{{ gridClassNames }}">
+    {% if params.title -%}
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col">
+        <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7">{{ params.title }}</h2>
+      </div>
+    </div>
+    {% endif -%}
+
+    {% if params.blocks|length -%}
+    <div class="nhsd-t-row nhsd-o-picture-with-link-list__items">
+      {%- set class = "nhsd-t-col-12" -%}
+
+      {%- if desktopColumns == 4 %}
+        {%- set class = "nhsd-t-col-xs-12 nhsd-t-col-s-6  nhsd-t-col-l-3" -%}
+      {%- elseif desktopColumns == 3 %}
+        {%- set class = "nhsd-t-col-xs-12 nhsd-t-col-s-4" -%}
+      {%- elseif desktopColumns == 2 %}
+        {%- set class = "nhsd-t-col-xs-12 nhsd-t-col-s-6" -%}
+      {% endif -%}
+
+      {% for blox in params.blocks -%}
+        <div class="{{ class }} {{ extraClass }}">
+          {{ nhsd_m_picture_with_link(blox) }}
+        </div>
+      {% endfor -%}
+    </div>
+    {% endif -%}
+  </div>
+</div>

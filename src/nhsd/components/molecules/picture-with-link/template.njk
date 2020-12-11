@@ -1,0 +1,13 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_link,
+  nhsd_a_picture
+-%}
+
+<div class="nhsd-m-picture-with-link">
+  {{ nhsd_a_picture(params.picture) }}
+  <div class="nhsd-t-heading-s">
+    {# {{ params.link.label }} #}
+    {{ nhsd_a_link(params.link) }}
+  </div>
+</div>

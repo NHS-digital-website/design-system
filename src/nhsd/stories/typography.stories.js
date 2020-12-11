@@ -213,6 +213,57 @@ Headings.parameters = {
   },
 };
 
+export const HeadingLinks = () => {
+  const div = document.createElement('div');
+  const h1 = document.createElement('h1');
+  h1.classList.add('nhsd-t-heading-xxl');
+  h1.innerHTML = `[nhsd-t-heading-xxl] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  div.appendChild(h1);
+
+  const h2 = document.createElement('h2');
+  h2.classList.add('nhsd-t-heading-xl');
+  h2.innerHTML = `[nhsd-t-heading-xl] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  div.appendChild(h2);
+
+  const h3 = document.createElement('h3');
+  h3.classList.add('nhsd-t-heading-l');
+  h3.innerHTML = `[nhsd-t-heading-l] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  div.appendChild(h3);
+
+  const h4 = document.createElement('h4');
+  h4.classList.add('nhsd-t-heading-m');
+  h4.innerHTML = `[nhsd-t-heading-m] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  div.appendChild(h4);
+
+  const h5 = document.createElement('h5');
+  h5.classList.add('nhsd-t-heading-s');
+  h5.innerHTML = `[nhsd-t-heading-s] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  div.appendChild(h5);
+
+  const h6 = document.createElement('h6');
+  h6.classList.add('nhsd-t-heading-xs');
+  h6.innerHTML = `[nhsd-t-heading-xs] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  div.appendChild(h6);
+
+  const lead = document.createElement('h4');
+  lead.classList.add('nhsd-t-heading-s');
+  lead.innerHTML = `[LEAD] At NHS Digital, we maintain the Shielded Patients List, helping Government and partner organisations to provide extra protection <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> for people most at risk from COVID-19.`;
+  div.appendChild(lead);
+
+  return div;
+};
+HeadingLinks.storyName = 'Links inside heading';
+HeadingLinks.parameters = {
+  docs: {
+    description: {
+      story: ``,
+    },
+    source: {
+      code: `${sourceCode}\n${HeadingLinks().innerHTML}`,
+    },
+  },
+};
+
 export const Body = () => {
   const div = document.createElement('div');
   const p1 = document.createElement('p');
@@ -233,8 +284,8 @@ Body.parameters = {
 
 |Shorthand|Class name|Font size (D/M|Line height (D/M|Letter spacing (D/M)|
 |---|---|---|---|---|
-|**Default**|\`.nhsd-t-body\`|18px / 16px|26px / 23px|-0.3px|
-|**S**|\`.nhsd-t-body-s\`|16px / 14px|23px / 19px|-0.3px|
+|**Default**|\`.nhsd-t-body\`|18px / 16px|25px / 22.4px|-0.3px|
+|**S**|\`.nhsd-t-body-s\`|16px / 14px|23px / 19.4px|-0.3px|
 
 **Note:** It is not yet decided how the body tokens should react to responsive breakpoints. We definitely want to consistently use the normal (default medium) version of this token for most text on the website, but in some cases we might need a small version - hence we have a 16px and 14px variant as an experiment.`,
     },
@@ -351,7 +402,7 @@ export const OrderedListLooseNested = () => {
   <ul class="nhsd-t-list nhsd-t-list--bullet">
     <li>Who are undergoing chemotherapy</li>
     <li>With lung cancer who are undergoing radical radiotherapy</li>
-    <li>With cancers of the blood or bone marrow such as leukaemia, lymphoma or myeloma, at any stage of treatment</li>
+    <li>With cancers of <a href="#" class="nhsd-a-link">the blood or bone marrow</a> such as leukaemia, lymphoma or myeloma, at any stage of treatment</li>
     <li>Having immunotherapy or other antibody treatments for cancer</li>
     <li>Having other targeted cancer treatments which can affect the immune system, such as protein kinase inhibitors or PARP inhibitors</li>
   </ul>
@@ -383,6 +434,23 @@ BlockQuote.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${BlockQuote().innerHTML}`,
+    },
+  },
+};
+
+export const BlockQuoteWithLink = () => {
+  const div = document.createElement('div');
+  const q = document.createElement('blockquote');
+  q.classList.add('nhsd-t-quote');
+  q.innerHTML = `Fusce id malesuada quam, sit amet tristique purus. <a href="#" class="nhsd-a-link">Pellentesque quam augue, tincidunt sed dolor a malesuada quam, sit amet tristique purus</a>, posuere laoreet mi. Quam augue`;
+  div.appendChild(q);
+  return div;
+};
+BlockQuoteWithLink.storyName = 'Block quote with a link';
+BlockQuoteWithLink.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${BlockQuoteWithLink().innerHTML}`,
     },
   },
 };
