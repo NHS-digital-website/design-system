@@ -5,6 +5,8 @@
 $-root: ".nhsd-a-logo";
 
 #{$-root} {
+  display: block;
+
   &--fit {
     @include nhsd-utils.box-sizing;
 
