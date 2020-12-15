@@ -96,7 +96,7 @@ ComponentVariant1.args = {
 ComponentVariant1.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ComponentVariant1()}`,
+      code: `${sourceCode}\n${ComponentVariant1(ComponentVariant1.args)}`,
     },
   },
 };
@@ -183,7 +183,7 @@ ComponentVariant2.args = {
 ComponentVariant2.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ComponentVariant2()}`,
+      code: `${sourceCode}\n${ComponentVariant2(ComponentVariant2.args)}`,
     },
   },
 };
@@ -265,7 +265,7 @@ ComponentVariant3.args = {
 ComponentVariant3.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ComponentVariant3()}`,
+      code: `${sourceCode}\n${ComponentVariant3(ComponentVariant3.args)}`,
     },
   },
 };
@@ -364,7 +364,7 @@ ComponentVariant4.args = {
 ComponentVariant4.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ComponentVariant4()}`,
+      code: `${sourceCode}\n${ComponentVariant4(ComponentVariant4.args)}`,
     },
   },
 };
