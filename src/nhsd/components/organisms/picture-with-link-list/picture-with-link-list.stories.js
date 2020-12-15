@@ -18,6 +18,7 @@ ${sbConfig.heading.basicRules}
 
 #### Notes
 - Title is optional in this organism.
+- Button nav is optional.
 - Columns are always centred regardless the use case.
 - Don't let the molecule width go over 50% of the grid.`;
 const sourceCode = `// Sass import \n@use "nhsd/components/organisms/picture-with-link-list";
@@ -99,7 +100,7 @@ LabComponent.args = {
         label: 'Managing the world’s biggest patient data set',
       },
     },
-  ],
+  ]
 };
 LabComponent.parameters = {
   docs: {
@@ -110,9 +111,9 @@ LabComponent.parameters = {
 };
 
 
-export const Component1 = Template.bind({});
-Component1.storyName = `Variant 1 (default) - 2D/2T/1M`;
-Component1.args = {
+export const ComponentVariant1 = Template.bind({});
+ComponentVariant1.storyName = `Variant 1 (default) - 2D/2T/1M`;
+ComponentVariant1.args = {
   desktopColumns: 2,
   title: 'Use case 1 - 2 columns',
   blocks: [
@@ -171,17 +172,17 @@ Component1.args = {
     },
   ],
 };
-Component1.parameters = {
+ComponentVariant1.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${Component1(Component1.args)}`,
+      code: `${sourceCode}\n${ComponentVariant1(ComponentVariant1.args)}`,
     },
   },
 };
 
-export const Component2 = Template.bind({});
-Component2.storyName = `Variant 2 - 3D/2T/1M`;
-Component2.args = {
+export const ComponentVariant2 = Template.bind({});
+ComponentVariant2.storyName = `Variant 2 - 3D/2T/1M`;
+ComponentVariant2.args = {
   desktopColumns: 3,
   title: 'Use case 2 - 3 columns',
   blocks: [
@@ -229,17 +230,17 @@ Component2.args = {
     },
   ],
 };
-Component2.parameters = {
+ComponentVariant2.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${Component2(Component2.args)}`,
+      code: `${sourceCode}\n${ComponentVariant2(ComponentVariant2.args)}`,
     },
   },
 };
 
-export const Component3 = Template.bind({});
-Component3.storyName = `Variant 3 - 4D/2T/1M`;
-Component3.args = {
+export const ComponentVariant3 = Template.bind({});
+ComponentVariant3.storyName = `Variant 3 - 4D/2T/1M`;
+ComponentVariant3.args = {
   desktopColumns: 4,
   title: 'Use case 3 - 4 columns',
   blocks: [
@@ -301,10 +302,66 @@ Component3.args = {
     },
   ],
 };
-Component3.parameters = {
+ComponentVariant3.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${Component3(Component3.args)}`,
+      code: `${sourceCode}\n${ComponentVariant3(ComponentVariant3.args)}`,
+    },
+  },
+};
+
+export const ComponentVariant4 = Template.bind({});
+ComponentVariant4.storyName = `With button nav`;
+ComponentVariant4.args = {
+  desktopColumns: 2,
+  title: 'With button nav',
+  blocks: [
+    {
+      picture: {
+        sourceSet: [{
+          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        }],
+        alt: 'Abstract lights',
+        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+      },
+      link: {
+        href: '#',
+        label: 'Simplifying patient communication with the NHS App',
+      },
+    },
+    {
+      picture: {
+        sourceSet: [{
+          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        }],
+        alt: 'Abstract lights',
+        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+      },
+      link: {
+        href: '#',
+        label: 'Simplifying patient communication with the NHS App'
+      },
+    },
+  ],
+  buttonNav: {
+    buttons: [
+      {
+        el: 'a',
+        label: 'View all news',
+        href: '#',
+      }, {
+        classes: 'nhsd-a-button--outline',
+        el: 'a',
+        label: 'View all events',
+        href: '#',
+      },
+    ],
+  },
+};
+ComponentVariant4.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ComponentVariant4(ComponentVariant4.args)}`,
     },
   },
 };

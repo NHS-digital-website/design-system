@@ -22,7 +22,7 @@ const Template = (args) => {
 
   const Title = document.createElement('h1');
   Title.classList.add('nhsd-t-heading-xl');
-  Title.innerText = `Latest version: v0.1.2`;
+  Title.innerText = `Latest version: v0.1.3`;
   div.appendChild(Title);
 
   const subTitle = document.createElement('h2');

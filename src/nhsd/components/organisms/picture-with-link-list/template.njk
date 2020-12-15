@@ -1,5 +1,6 @@
 {#- Import molecule macros -#}
 {%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_button_nav,
   nhsd_m_picture_with_link
 -%}
 
@@ -49,6 +50,14 @@
           {{ nhsd_m_picture_with_link(blox) }}
         </div>
       {% endfor -%}
+    </div>
+    {% endif -%}
+
+    {% if params.buttonNav -%}
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col">
+        {{ nhsd_m_button_nav(params.buttonNav) }}
+      </div>
     </div>
     {% endif -%}
   </div>
