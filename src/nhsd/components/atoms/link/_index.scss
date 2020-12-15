@@ -23,8 +23,8 @@ $-active-line-thickness: 3px;
   @include nhsd-fonts.font-family;
 
   position: relative;
-  padding-top: 2px;
-  padding-bottom: 4px;
+  padding-top: 4px;
+  padding-bottom: 3px;
   text-decoration: none;
   transition-property: background-color, color;
   transition-duration: nhsd-transition.$transition-duration;
@@ -37,7 +37,7 @@ $-active-line-thickness: 3px;
 
   &:focus,
   &:hover {
-    padding-bottom: 2px;
+    padding-bottom: 0;
     border-bottom: $-active-line-thickness solid $-active-colour;
     outline: none;
     color: $-active-colour;
