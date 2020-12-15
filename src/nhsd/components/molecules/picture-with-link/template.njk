@@ -4,10 +4,15 @@
   nhsd_a_picture
 -%}
 
+{#- Set classes -#}
+{% set headingClassNames = "nhsd-t-heading-s" %}
+{%- if params.headingClass -%}
+  {% set headingClassNames = params.headingClass %}
+{%- endif -%}
+
 <div class="nhsd-m-picture-with-link">
   {{ nhsd_a_picture(params.picture) }}
-  <div class="nhsd-t-heading-s">
-    {# {{ params.link.label }} #}
+  <div class="{{ headingClassNames }}">
     {{ nhsd_a_link(params.link) }}
   </div>
 </div>

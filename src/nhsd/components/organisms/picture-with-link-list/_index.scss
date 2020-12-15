@@ -27,4 +27,10 @@ $-root: ".nhsd-o-picture-with-link-list";
       }
     }
   }
+
+  .nhsd-t-heading-xs {
+    @include mq($from: l) {
+      max-width: 85%;
+    }
+  }
 }

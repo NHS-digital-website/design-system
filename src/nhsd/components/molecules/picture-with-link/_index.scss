@@ -27,6 +27,7 @@ $-root: ".nhsd-m-picture-with-link";
     }
   }
 
+  // Default use case - 2D/2T/1M with `small` heading
   [class^="nhsd-t-heading"] {
     max-width: 85%;
     margin: 0 auto;
