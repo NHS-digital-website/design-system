@@ -163,6 +163,26 @@ There are 2 types of tokens based on intended use:
 - `.nhsd-!t-margin-10` => `margin: 90px / 5rem`
 - `.nhsd-!t-padding-top-3` => `margin: 15px / 0.833333333rem`
 
+## Component checklist
+
+Every new component (in most cases) should have the following files in the correspinding ATOMIC folder. For example:
+
+**molecules/my-molecule**
+
+- `_index.scss`
+- `template.njk`
+- `my-molecule.stories.js`
+
+Every ATOMIC element should also be referenced in the corresponding Sass file - so for instance in the case of this example molecule, the molecule Sass file needs to be added to the `molecules/_index.scss` file.
+
+The new component should also be added to the 
+
+### Checklist
+
+- [] ATOMIC files (`.scss`, `.njk`, `.stories.js`)
+- [] Sass include in the corresponding ATOMIC SASS file (`ATOMICLEVEL/_index.scss`)
+- [] Add the new component to the corresponding Nunjucks Macro file (`njk/macros/ATOMICLEVEL.njk`)
+
 
 ## Actions to take
 
