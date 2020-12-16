@@ -14,23 +14,19 @@
 @use "../../atoms/picture";
 
 // Private members
-$-root: ".nhsd-o-hero-feature";
-$-max-width: 106.666rem; // 1920px
+$-root: ".nhsd-o-hero";
 
 #{$-root} {
   display: block;
   position: relative;
-
-  .nhsd-t-grid {
-    max-width: $-max-width;
-  }
+  background: nhsd-colours.get("pale-grey");
 
   &__content-box {
     display: flex;
     justify-content: center;
     position: relative;
     height: 100%;
-    padding: nhsd-spacing.get(5) nhsd-spacing.get(7);
+    min-height: 15.555rem;
   }
 
   &__content {
@@ -42,71 +38,82 @@ $-max-width: 106.666rem; // 1920px
     }
   }
 
-  .nhsd-a-colour-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: nhsd-spacing.get(7);
+  &-feature {
+    background: transparent;
 
-    @include mq($from: l) {
-      height: nhsd-spacing.get(9);
-    }
-  }
-
-  .nhsd-a-picture:not(.nhsd-a-picture--square) {
-    @include mq($from: s, $until: l) {
-      padding-bottom: 68.9922481%;
-    }
-  }
-
-  [class^="nhsd-t-heading"],
-  [class^="nhsd-t-body"] {
-    @include mq($from: s) {
-      max-width: 25rem;
-    }
-  }
-
-  // Even/Odd swap order of picture and content
-  [class^="nhsd-t-col"] {
-    order: 1;
-
-    &.is-first {
-      order: 0;
+    .nhsd-t-grid {
+      max-width: 106.666rem;
     }
 
-    @include mq($until: s) {
-      &:first-child {
-        order: 1;
-      }
+    .nhsd-a-colour-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: nhsd-spacing.get(7);
 
-      &:last-child {
-        order: 0;
+      @include mq($from: l) {
+        height: nhsd-spacing.get(9);
       }
     }
-  }
 
-  &__item {
+    .nhsd-a-picture:not(.nhsd-a-picture--square) {
+      @include mq($from: s, $until: l) {
+        padding-bottom: 68.9922481%;
+      }
+    }
+
+    [class^="nhsd-t-heading"],
+    [class^="nhsd-t-body"] {
+      @include mq($from: s) {
+        max-width: 25rem;
+      }
+    }
+
+    @include mq($from: s, $until: m) {
+      [class^="nhsd-t-body"] {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+      }
+    }
+
     #{$-root}__content-box {
-      background: nhsd-colours.get("pale-grey-80-tint");
+      padding: nhsd-spacing.get(5) nhsd-spacing.get(7);
+      background: nhsd-colours.get("bright-blue-10-tint");
     }
 
-    &--main {
+    &--accented {
       #{$-root}__content-box {
-        background: nhsd-colours.get("pale-grey-80-tint");
+        background: nhsd-colours.get("pale-grey");
+      }
+    }
+
+    &--mirrored {
+      [class^="nhsd-t-col"] {
+        &:first-child {
+          order: 1;
+        }
       }
     }
 
     @include mq($until: s) {
-      &:not(&--main) {
+      &:not(&--accented) {
         .nhsd-a-picture {
           border-top-left-radius: nhsd-vars.$border-radius;
           border-top-right-radius: nhsd-vars.$border-radius;
         }
 
-        #{$-root}__content-box {
+        #{$-root}__content-box,
+        .nhsd-a-colour-bar {
           border-bottom-left-radius: nhsd-vars.$border-radius;
           border-bottom-right-radius: nhsd-vars.$border-radius;
         }
+      }
+
+      [class^="nhsd-t-col"]:first-child {
+        order: 1;
       }
 
       &:not(:last-child) {
@@ -122,7 +129,7 @@ $-max-width: 106.666rem; // 1920px
     }
 
     @include mq($from: xl) {
-      &--main {
+      &--accented {
         [class^="nhsd-t-heading"] {
           font-size: 3rem;
           letter-spacing: -.0622rem;

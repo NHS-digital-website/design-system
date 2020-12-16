@@ -1,0 +1,68 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_button,
+  nhsd_a_colour_bar,
+  nhsd_a_picture
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-hero" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+{%- set titleClassNames = params.title.classes if params.title.classes else "nhsd-t-heading-xxl nhsd-!t-margin-bottom-2" -%}
+{%- set textClassNames = params.text.classes if params.text.classes else "nhsd-t-heading-s" -%}
+
+{#- Set backgroundClass -#}
+{%- if params.bgColourKey -%}
+  {%- set bgClassName = "nhsd-!t-bg-" + params.bgColourKey -%}
+{%- endif -%}
+
+{#- Set colourClass -#}
+{%- if params.colourKey -%}
+{%- set colourClassName = "nhsd-!t-colour-" + params.colourKey -%}
+{%- endif -%}
+
+{#- Set featured -#}
+{%- set featured = true if params.featured else false -%}
+{#- Set mirrored (only used if featured) -#}
+{%- set mirrored = true if featured and params.featured.mirrored else false -%}
+{#- Set accent (only used if featured) -#}
+{%- set accented = true if featured and params.featured.accented else false -%}
+
+{%- if featured -%}
+  {%- set classNames = "nhsd-o-hero-feature" -%}
+  {%- if mirrored -%}
+    {%- set classNames = classNames + " nhsd-o-hero-feature--mirrored" -%}
+  {%- endif -%}
+  {%- if accented -%}
+    {%- set classNames = classNames + " nhsd-o-hero-feature--accented" -%}
+  {%- endif -%}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
+    <div class="nhsd-t-row nhsd-t-row--centred">
+      <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'nhsd-t-col-xs-12' if accented else 'nhsd-t-col-xs-11' }}">
+        <div class="nhsd-o-hero__content-box">
+          <div class="nhsd-o-hero__content">
+            <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
+            <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
+            {%if params.button -%}
+            {{ nhsd_a_button(params.button) }}
+            {%- endif %}
+          </div>
+
+          {% if params.colourBar -%}
+            {{ nhsd_a_colour_bar() }}
+          {%- endif %}
+        </div>
+      </div>
+      {% if params.picture -%}
+      <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'nhsd-t-col-xs-12' if accented else 'nhsd-t-col-xs-11' }}">
+        {{ nhsd_a_picture(params.picture) }}
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</div>

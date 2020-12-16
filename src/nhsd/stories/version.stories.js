@@ -22,12 +22,12 @@ const Template = (args) => {
 
   const Title = document.createElement('h1');
   Title.classList.add('nhsd-t-heading-xl');
-  Title.innerText = `Latest version: v0.1.3`;
+  Title.innerText = `Latest version: v0.1.5`;
   div.appendChild(Title);
 
   const subTitle = document.createElement('h2');
   subTitle.classList.add('nhsd-t-heading-l');
-  subTitle.innerText = `Date: 15/12/2020`;
+  subTitle.innerText = `Date: 16/12/2020`;
   div.appendChild(subTitle);
 
   return div;
