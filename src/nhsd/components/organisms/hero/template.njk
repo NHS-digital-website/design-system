@@ -47,7 +47,7 @@
         <div class="nhsd-o-hero__content-box">
           <div class="nhsd-o-hero__content">
             <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
-            <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
+            <p class="{{ textClassNames }} nhsd-!t-margin-bottom-6">{{ params.text.label|safe }}</p>
             {%if params.button -%}
             {{ nhsd_a_button(params.button) }}
             {%- endif %}

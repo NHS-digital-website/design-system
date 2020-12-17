@@ -58,7 +58,9 @@ $-root: ".nhsd-o-hero";
 
     .nhsd-a-picture:not(.nhsd-a-picture--square) {
       @include mq($from: s, $until: l) {
-        padding-bottom: 68.9922481%;
+        .nhsd-a-picture__picture {
+          padding-bottom: 68.9922481%;
+        }
       }
     }
 
@@ -100,7 +102,7 @@ $-root: ".nhsd-o-hero";
 
     @include mq($until: s) {
       &:not(&--accented) {
-        .nhsd-a-picture {
+        .nhsd-a-picture__picture {
           border-top-left-radius: nhsd-vars.$border-radius;
           border-top-right-radius: nhsd-vars.$border-radius;
         }

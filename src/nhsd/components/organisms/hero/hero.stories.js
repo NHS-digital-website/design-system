@@ -12,6 +12,7 @@ const storyDescription = `${sbConfig.heading.lab}
 ${sbConfig.heading.basicRules}:
 
 - Use the canvas view to see the component variants without unintendedly breaking
+- External button atom <a href="/docs/design-system-components-atoms-button--link-button#link-button">rules</a> apply for external links!
 - **There are 2 types of the hero organism:**
   - Default hero (Coloured background, title, text, optional button and optional image) - used on article pages;
   - Featured hero (Coloured background of content column; title, text, optional button; picture) - used on the home page
@@ -94,6 +95,7 @@ Featured.args = {
     classes: 'nhsd-!t-margin-bottom-0',
   },
   picture: {
+    ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -131,6 +133,7 @@ FeaturedMirrored.args = {
     classes: 'nhsd-!t-margin-bottom-0',
   },
   picture: {
+    ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -168,6 +171,7 @@ FeaturedAccented.args = {
   },
   colourBar: true,
   picture: {
+    ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -206,6 +210,7 @@ FeaturedAccentedMirrored.args = {
   },
   colourBar: true,
   picture: {
+    ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -234,7 +239,7 @@ FeaturedStacked.storyName = 'Featured / stacked';
 FeaturedStacked.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${FeaturedStacked(FeaturedStacked.args)}`,
+      code: `${sourceCode}\n${FeaturedStacked().innerHTML}`,
     },
   },
 };
@@ -255,7 +260,7 @@ FeaturedMegaStacked.storyName = 'Featured / mega stacked';
 FeaturedMegaStacked.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${FeaturedMegaStacked(FeaturedMegaStacked.args)}`,
+      code: `${sourceCode}\n${FeaturedMegaStacked().innerHTML}`,
     },
   },
 };

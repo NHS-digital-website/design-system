@@ -11,6 +11,8 @@ const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}
 
+- External link atom <a href="/docs/design-system-components-atoms-link--external-link">rules</a> apply for external links!
+- Pictures in this component are for decoration only, and should be hidden from screen readers using \`aria-hidden="true"\`.
 - Link atom is intentionally wrapped in a \`<div>\` element with heading styling, as we don't need semantic headings.
 - The molecule works well with extra small and small headings - depending on column arrangements (see organism for [examples](/docs/design-system-components-organisms-picture-with-link-list--lab-component)).
 - The link can be internal or external - same rule applies as for default links (external link is announced to screen readers)`;
@@ -39,6 +41,7 @@ export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   picture: {
+    ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -62,6 +65,7 @@ export const ComponentVariant1 = Template.bind({});
 ComponentVariant1.storyName = `Internal link`;
 ComponentVariant1.args = {
   picture: {
+    ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -85,6 +89,7 @@ export const ComponentVariant2 = Template.bind({});
 ComponentVariant2.storyName = `External link`;
 ComponentVariant2.args = {
   picture: {
+    ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],

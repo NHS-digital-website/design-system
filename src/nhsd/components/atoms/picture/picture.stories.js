@@ -9,16 +9,18 @@ require('./_index.scss');
 const componentName = 'Picture';
 const storyDescription = `${sbConfig.heading.lab}
 ${sbConfig.heading.basicRules}
-  - Image aspect ratios: 16:9 or 1:1
-  - Border radius: 6px (0.333rem)
+  - Image aspect ratios: 16:9 or 1:1.
+  - Border radius: 6px (0.333rem).
   - Picture corner variations:
-    - Every corner is rounded
-    - Top corners are rounded
-    - No corners are rounded
-  - Picture element (optionally) using multiple source sets - different image for different breakpoints
-  - Image element proportionally scales inside the Picture element from the centre
-  - Must have at least 1 image source and an alt text to be valid
-  - Must have img element to be valid`;
+    - Every corner is rounded.
+    - Top corners are rounded.
+    - No corners are rounded.
+  - Picture element (optionally) using multiple source sets - different image for different breakpoints.
+  - Image element proportionally scales inside the Picture element from the centre.
+  - Must have at least 1 image source and an alt text to be valid.
+  - Must have img element to be valid.
+  - If picture has caption, picture element must be wrapped in \`<figure>\` element, and caption must be wrapped in \`<figcaption>\` element for better semantics.
+  - If picture is decorative only, and should be hidden from screen readers, **aria-hidden** must be added to either the \`<figure>\` element (if picture has caption), or the \`<picture>\` element itself.`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/picture";
 
 // HTML`;
@@ -123,6 +125,58 @@ ResponsiveComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}${ResponsiveComponent(ResponsiveComponent.args)}`,
+    },
+  },
+};
+
+export const PictureWithCaption = Template.bind({});
+PictureWithCaption.storyName = 'Picture with caption';
+PictureWithCaption.args = {
+  caption: 'Hello world, I am a caption!',
+  sourceSet: [{
+    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+  }],
+  alt: '2 scientists testing in a laboratory',
+};
+PictureWithCaption.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}${PictureWithCaption(PictureWithCaption.args)}`,
+    },
+  },
+};
+
+export const PictureAriaHidden = Template.bind({});
+PictureAriaHidden.storyName = 'Picture - ARIA hidden';
+PictureAriaHidden.args = {
+  ariaHidden: true,
+  sourceSet: [{
+    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+  }],
+  alt: '2 scientists testing in a laboratory',
+};
+PictureAriaHidden.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}${PictureAriaHidden(PictureAriaHidden.args)}`,
+    },
+  },
+};
+
+export const PictureWithCaptionAriaHidden = Template.bind({});
+PictureWithCaptionAriaHidden.storyName = 'Picture with caption - ARIA hidden';
+PictureWithCaptionAriaHidden.args = {
+  ariaHidden: true,
+  caption: 'Hello world, I am a caption!',
+  sourceSet: [{
+    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+  }],
+  alt: '2 scientists testing in a laboratory',
+};
+PictureWithCaptionAriaHidden.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}${PictureWithCaptionAriaHidden(PictureWithCaptionAriaHidden.args)}`,
     },
   },
 };

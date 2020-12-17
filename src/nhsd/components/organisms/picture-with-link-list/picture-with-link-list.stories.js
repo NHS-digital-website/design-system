@@ -17,6 +17,8 @@ ${sbConfig.heading.basicRules}
 - Use case 3: 4D/2T/1M arrangement / extra small heading style.
 
 #### Notes
+- External link atom <a href="/docs/design-system-components-atoms-link--external-link">rules</a> apply for external links!
+- Pictures in this component are for decoration only, and should be hidden from screen readers using \`aria-hidden="true"\`.
 - Title is optional in this organism.
 - Button nav is optional.
 - Columns are always centred regardless the use case.
@@ -50,6 +52,7 @@ LabComponent.args = {
   blocks: [
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -63,6 +66,7 @@ LabComponent.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -76,6 +80,7 @@ LabComponent.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -89,6 +94,7 @@ LabComponent.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -119,6 +125,7 @@ ComponentVariant1.args = {
   blocks: [
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -133,6 +140,7 @@ ComponentVariant1.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -146,6 +154,7 @@ ComponentVariant1.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -159,6 +168,7 @@ ComponentVariant1.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -188,6 +198,7 @@ ComponentVariant2.args = {
   blocks: [
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -202,6 +213,7 @@ ComponentVariant2.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -216,6 +228,7 @@ ComponentVariant2.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -246,6 +259,7 @@ ComponentVariant3.args = {
   blocks: [
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -260,6 +274,7 @@ ComponentVariant3.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -274,6 +289,7 @@ ComponentVariant3.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -288,6 +304,7 @@ ComponentVariant3.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -318,6 +335,7 @@ ComponentVariant4.args = {
   blocks: [
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -331,6 +349,7 @@ ComponentVariant4.args = {
     },
     {
       picture: {
+        ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
