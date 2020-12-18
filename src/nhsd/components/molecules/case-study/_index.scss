@@ -15,6 +15,9 @@
 
 // Private members
 $-root: ".nhsd-m-case-study";
+$-picture-width: 74.5%;
+$-card-width: 33%;
+$-skeleton-height: 41.9%;
 
 #{$-root} {
   display: flex;
@@ -46,15 +49,16 @@ $-root: ".nhsd-m-case-study";
   @include mq($from: s) {
     &__content-box {
       z-index: 1;
-      width: 33%;
+      width: $-card-width;
       margin: nhsd-spacing.get(6) 0;
     }
 
-    &__picture-placeholder {
+    &__picture-skeleton {
+      position: relative;
       z-index: 2;
       top: 0;
-      width: 74.5%;
-      padding-bottom: 41.9%;
+      width: $-picture-width;
+      padding-bottom: $-skeleton-height;
     }
 
     .nhsd-a-picture {
@@ -62,14 +66,26 @@ $-root: ".nhsd-m-case-study";
       z-index: -1;
       top: 0;
       right: 0;
-      width: 74.5%;
+      width: $-picture-width;
       margin-bottom: 0;
+    }
+
+    &--mirrored {
+      transform: translateX($-picture-width - 5.2%);
+
+      .nhsd-a-picture {
+        right: 100% - 5.2%;
+      }
+
+      #{$-root}__picture-skeleton {
+        right: 100%;
+      }
     }
   }
 
   @include mq($from: s, $until: m) {
     [class^="nhsd-t-body"] {
-      @include nhsd-utils.clamped-body-text;
+      @include nhsd-utils.clamped-text;
     }
   }
 }

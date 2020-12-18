@@ -74,7 +74,7 @@ $-root: ".nhsd-o-hero";
 
     @include mq($from: s, $until: m) {
       [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-body-text;
+        @include nhsd-utils.clamped-text;
       }
     }
 

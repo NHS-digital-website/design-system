@@ -71,7 +71,7 @@ $-responsive-data-map: (
   }
 }
 
-@mixin clamped-body-text($lines: 4) {
+@mixin clamped-text($lines: 4) {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;

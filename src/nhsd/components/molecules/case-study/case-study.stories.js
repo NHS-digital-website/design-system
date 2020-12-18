@@ -35,9 +35,9 @@ const Template = (args) => {
   return template.render({ params: {...args} });
 };
 
-export const Component1 = Template.bind({});
-Component1.storyName = 'Lab';
-Component1.args = {
+export const LabComponent = Template.bind({});
+LabComponent.storyName = 'Lab';
+LabComponent.args = {
   label: 'Case Study',
   title: 'NHS Digital Academy',
   text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
@@ -54,10 +54,49 @@ Component1.args = {
   },
 
 };
-Component1.parameters = {
+LabComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${Component1(Component1.args)}`,
+      code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+    },
+  },
+};
+
+export const DefaultComponent = Template.bind({});
+DefaultComponent.args = LabComponent.args;
+DefaultComponent.storyName = 'Default (card on left)';
+DefaultComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${DefaultComponent(LabComponent.args)}`,
+    },
+  },
+};
+
+export const MirroredComponent = Template.bind({});
+MirroredComponent.storyName = 'Mirrored (card on right)';
+MirroredComponent.args = {
+  classes: 'nhsd-m-case-study--mirrored',
+  label: 'Case Study',
+  title: 'NHS Digital Academy',
+  text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
+  button: {
+    el: 'a',
+    label: 'NHS Digital careers',
+    classes: 'nhsd-!t-margin-bottom-0',
+  },
+  picture: {
+    sourceSet: [{
+      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }],
+    alt: 'Abstract lights',
+  },
+
+};
+MirroredComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${MirroredComponent(MirroredComponent.args)}`,
     },
   },
 };
