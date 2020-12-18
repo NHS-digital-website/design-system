@@ -5,6 +5,7 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/typography" as nhsd-typography;
 
@@ -73,11 +74,7 @@ $-root: ".nhsd-o-hero";
 
     @include mq($from: s, $until: m) {
       [class^="nhsd-t-body"] {
-        display: -webkit-box;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
+        @include nhsd-utils.clamped-body-text;
       }
     }
 

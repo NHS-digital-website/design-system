@@ -1,0 +1,75 @@
+// Settings
+@use "scss-core/settings/vars" as nhsd-vars;
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/typography" as nhsd-typography;
+
+// Component imports
+@use "../../atoms/button";
+@use "../../atoms/picture";
+
+// Private members
+$-root: ".nhsd-m-case-study";
+
+#{$-root} {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+
+  &__contents {
+    height: 100%;
+    padding: nhsd-spacing.get(6);
+    border-radius: nhsd-vars.$border-radius;
+    background: nhsd-colours.get("pale-grey");
+  }
+
+  .nhsd-a-picture {
+    @include nhsd-spacing.set-responsive("margin-bottom", 3);
+  }
+
+  .nhsd-a-picture__picture {
+    border-radius: nhsd-vars.$border-radius;
+  }
+
+  @include mq($until: s) {
+    .nhsd-a-picture__picture {
+      border-radius: 0;
+    }
+  }
+
+  @include mq($from: s) {
+    &__content-box {
+      z-index: 1;
+      width: 33%;
+      margin: nhsd-spacing.get(6) 0;
+    }
+
+    &__picture-placeholder {
+      z-index: 2;
+      top: 0;
+      width: 74.5%;
+      padding-bottom: 41.9%;
+    }
+
+    .nhsd-a-picture {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: 74.5%;
+      margin-bottom: 0;
+    }
+  }
+
+  @include mq($from: s, $until: m) {
+    [class^="nhsd-t-body"] {
+      @include nhsd-utils.clamped-body-text;
+    }
+  }
+}
