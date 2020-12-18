@@ -1,7 +1,7 @@
 {#- Import atom macros -#}
 {%- from "../../../njk/macros/atoms.njk" import
   nhsd_a_link,
-  nhsd_a_picture
+  nhsd_a_figure
 -%}
 
 {#- Set classes -#}
@@ -10,8 +10,8 @@
   {% set headingClassNames = params.headingClass %}
 {%- endif -%}
 
-<div class="nhsd-m-picture-with-link">
-  {{ nhsd_a_picture(params.picture) }}
+<div class="nhsd-m-figure-with-link">
+  {{ nhsd_a_figure(params.figure) }}
   <div class="{{ headingClassNames }}">
     {{ nhsd_a_link(params.link) }}
   </div>

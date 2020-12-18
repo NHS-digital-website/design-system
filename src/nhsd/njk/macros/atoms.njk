@@ -25,6 +25,11 @@
   {% include "../../components/atoms/colour-bar/template.njk" %}
 {%- endmacro %}
 
+{# Figure #}
+{% macro nhsd_a_figure(params) -%}
+  {% include "../../components/atoms/figure/template.njk" %}
+{%- endmacro %}
+
 {# Icon #}
 {% macro nhsd_a_icon(params) -%}
   {% include "../../components/atoms/icon/template.njk" %}
@@ -38,11 +43,6 @@
 {# Logo #}
 {% macro nhsd_a_logo(params) -%}
   {% include "../../components/atoms/logo/template.njk" %}
-{%- endmacro %}
-
-{# Picture #}
-{% macro nhsd_a_picture(params) -%}
-  {% include "../../components/atoms/picture/template.njk" %}
 {%- endmacro %}
 
 {# Rule #}

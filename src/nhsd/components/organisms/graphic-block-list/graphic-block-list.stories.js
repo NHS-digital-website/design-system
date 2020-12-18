@@ -36,12 +36,12 @@ ComponentVariant1.storyName = 'Lab 4D/2T/1M';
 ComponentVariant1.args = {
   blocks: [
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '50x',
@@ -50,12 +50,12 @@ ComponentVariant1.args = {
       text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '12.2%',
@@ -64,12 +64,12 @@ ComponentVariant1.args = {
       text: 'In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services.',
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '111%',
@@ -78,12 +78,12 @@ ComponentVariant1.args = {
       text: 'We’re now supporting twice as many patients through access to digital healthcare advice and services.',
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '1 million',
@@ -106,12 +106,12 @@ ComponentVariant2.storyName = 'With icon 4D/2T/1M';
 ComponentVariant2.args = {
   blocks: [
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '50',
@@ -124,12 +124,12 @@ ComponentVariant2.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '12.2',
@@ -142,12 +142,12 @@ ComponentVariant2.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '111',
@@ -160,12 +160,12 @@ ComponentVariant2.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '1 million',
@@ -193,12 +193,12 @@ ComponentVariant3.storyName = 'With link 4D/2T/1M';
 ComponentVariant3.args = {
   blocks: [
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '50x',
@@ -210,12 +210,12 @@ ComponentVariant3.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '12.2%',
@@ -227,12 +227,12 @@ ComponentVariant3.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '111%',
@@ -244,12 +244,12 @@ ComponentVariant3.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '1 million',
@@ -275,12 +275,12 @@ ComponentVariant4.storyName = 'With link and icon 4D/2T/1M';
 ComponentVariant4.args = {
   blocks: [
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '50',
@@ -296,12 +296,12 @@ ComponentVariant4.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '12.2',
@@ -317,12 +317,12 @@ ComponentVariant4.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '111',
@@ -338,12 +338,12 @@ ComponentVariant4.args = {
       },
     },
     {
-      picture: {
+      figure: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--square'
+        classes: 'nhsd-a-figure--square'
       },
       title: {
         p1: '1 million',

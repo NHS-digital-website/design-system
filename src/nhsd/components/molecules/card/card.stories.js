@@ -49,7 +49,7 @@ LabComponent.args = {
   link: {
     href: '#',
   },
-  picture: {
+  figure: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -79,7 +79,7 @@ ComponentVariant1.args = {
   box: {
     classes: 'nhsd-a-box--border-light-grey',
   },
-  picture: {
+  figure: {
     sourceSet: [{
       'media': '(max-width: 500px)',
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
@@ -103,7 +103,7 @@ ComponentVariant1.parameters = {
     description: {
       story: `${sbConfig.heading.details}:
 - White background, light grey border, black heading and dark grey text
-- Picture atom used with multiple, responsive image sources
+- Figure atom used with multiple, responsive image sources
 - The whole card links
 - Primary button (span element) - receives focus on ard focus and hover; also presses down when the card is pressed
 - Yellow outline on focus and hover (default) - box border is hidden when in focus state`,

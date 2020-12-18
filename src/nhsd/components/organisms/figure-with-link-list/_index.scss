@@ -7,10 +7,10 @@
 
 // Component imports
 @use "../../atoms/link";
-@use "../../atoms/picture";
+@use "../../atoms/figure";
 
 // Private members
-$-root: ".nhsd-o-picture-with-link-list";
+$-root: ".nhsd-o-figure-with-link-list";
 
 #{$-root} {
   display: block;

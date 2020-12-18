@@ -1,7 +1,7 @@
 {#- Import atom macros -#}
 {%- from "../../../njk/macros/atoms.njk" import
   nhsd_a_button,
-  nhsd_a_picture
+  nhsd_a_figure
 -%}
 
 {#- Set classes -#}
@@ -21,8 +21,8 @@
       <h1 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-3">{{ params.title }}</h1>
       {%- endif %}
 
-      {% if params.picture -%}
-      {{ nhsd_a_picture(params.picture) }}
+      {% if params.figure -%}
+      {{ nhsd_a_figure(params.figure) }}
       {%- endif %}
 
       {% if params.text -%}

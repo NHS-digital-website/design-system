@@ -11,6 +11,8 @@
 // Component imports
 @use "../../atoms/button";
 @use "../../atoms/box";
+@use "../../atoms/figure";
+@use "../../atoms/tag";
 
 // Private members
 $-root: ".nhsd-m-card";
@@ -153,7 +155,7 @@ $box-padding: 1.111rem;
     }
   }
 
-  .nhsd-a-picture {
+  .nhsd-a-figure {
     & + #{$-root}__content-box {
       padding-top: $box-padding * .4;
 

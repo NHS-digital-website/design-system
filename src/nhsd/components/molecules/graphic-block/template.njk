@@ -1,7 +1,7 @@
 {#- Import atom macros -#}
 {%- from "../../../njk/macros/atoms.njk" import
   nhsd_a_icon,
-  nhsd_a_picture
+  nhsd_a_figure
 -%}
 
 {#- Set classes -#}
@@ -12,9 +12,9 @@
 {% set hasLink = params.link and params.link.href %}
 
 <div class="{{ classNames }}">
-  {% if params.picture -%}
+  {% if params.figure -%}
     <div class="nhsd-m-graphic-block__picture">
-    {{ nhsd_a_picture(params.picture) }}
+    {{ nhsd_a_figure(params.figure) }}
     </div>
   {%- endif %}
 

@@ -2,11 +2,11 @@
 import * as sbConfig from '../../../../../.storybook/storybook-config.js';
 
 // Load template file
-import template from  '../../organisms/picture-with-link-list/template.njk';
+import template from  './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
-const componentName = 'Picture with link list';
+const componentName = 'Figure with link list';
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}
@@ -18,12 +18,12 @@ ${sbConfig.heading.basicRules}
 
 #### Notes
 - External link atom <a href="/docs/design-system-components-atoms-link--external-link">rules</a> apply for external links!
-- Pictures in this component are for decoration only, and should be hidden from screen readers using \`aria-hidden="true"\`.
+- Figures in this component are for decoration only, and should be hidden from screen readers using \`aria-hidden="true"\`.
 - Title is optional in this organism.
 - Button nav is optional.
 - Columns are always centred regardless the use case.
 - Don't let the molecule width go over 50% of the grid.`;
-const sourceCode = `// Sass import \n@use "nhsd/components/organisms/picture-with-link-list";
+const sourceCode = `// Sass import \n@use "nhsd/components/organisms/figure-with-link-list";
 
 // HTML`;
 
@@ -51,13 +51,13 @@ LabComponent.args = {
   title: 'Products & services',
   blocks: [
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
@@ -65,13 +65,13 @@ LabComponent.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
@@ -79,13 +79,13 @@ LabComponent.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
@@ -93,13 +93,13 @@ LabComponent.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
@@ -124,13 +124,13 @@ ComponentVariant1.args = {
   title: 'Use case 1 - 2 columns',
   blocks: [
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       headingClass: 'nhsd-t-heading-s',
       link: {
@@ -139,13 +139,13 @@ ComponentVariant1.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
@@ -153,13 +153,13 @@ ComponentVariant1.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
@@ -167,13 +167,13 @@ ComponentVariant1.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
@@ -197,13 +197,13 @@ ComponentVariant2.args = {
   title: 'Use case 2 - 3 columns',
   blocks: [
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       headingClass: 'nhsd-t-heading-xs',
       link: {
@@ -212,13 +212,13 @@ ComponentVariant2.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       headingClass: 'nhsd-t-heading-xs',
       link: {
@@ -227,13 +227,13 @@ ComponentVariant2.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       headingClass: 'nhsd-t-heading-xs',
       link: {
@@ -258,13 +258,13 @@ ComponentVariant3.args = {
   title: 'Use case 3 - 4 columns',
   blocks: [
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       headingClass: 'nhsd-t-heading-xs',
       link: {
@@ -273,13 +273,13 @@ ComponentVariant3.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       headingClass: 'nhsd-t-heading-xs',
       link: {
@@ -288,13 +288,13 @@ ComponentVariant3.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       headingClass: 'nhsd-t-heading-xs',
       link: {
@@ -303,13 +303,13 @@ ComponentVariant3.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       headingClass: 'nhsd-t-heading-xs',
       link: {
@@ -334,13 +334,13 @@ ComponentVariant4.args = {
   title: 'With button nav',
   blocks: [
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
@@ -348,13 +348,13 @@ ComponentVariant4.args = {
       },
     },
     {
-      picture: {
+      figure: {
         ariaHidden: true,
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
-        classes: 'nhsd-a-picture--round-corners nhsd-!t-margin-bottom-2',
+        classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',

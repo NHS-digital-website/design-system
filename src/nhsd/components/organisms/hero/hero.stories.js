@@ -26,14 +26,14 @@ ${sbConfig.heading.basicRules}:
     - Body text token - use a \`<p>\`
     - Button atom (optional) - use \`<a>\` element
     - Colour bar atom - for featured and accented hero it's mandatory, for regular featured it's optional
-    - Picture atom
+    - Figure atom
   - Variants:
-    - Mirrored: Picture on the left, contents on the right
+    - Mirrored: Figure on the left, contents on the right
     - Accented: Edges stay sharp and uses 12 columns on mobile
   - Additional rules
     - Use the background clour tokens to override the hero's background colour (\`.nhsd-!t-bg-light-green\`).
-    - Accented Featured hero uses a Square picture atom (\`.nhsd-a-picture--square\`); XXL heading (\`.nhsd-t-heading-xxl\`)
-    - Regular Featured hero uses a regular picture atom (\`.nhsd-a-picture--round-corners\`); Large heading (\`.nhsd-t-heading-l\`)
+    - Accented Featured hero uses a Square figure atom (\`.nhsd-a-figure--square\`); XXL heading (\`.nhsd-t-heading-xxl\`)
+    - Regular Featured hero uses a regular figure atom (\`.nhsd-a-figure--round-corners\`); Large heading (\`.nhsd-t-heading-l\`)
     - Contents are vertically centred in all cases.
     - Featured hero uses line clamping between tablet and desktop breakpoints to avoid breaking if text is too long.
     - The height of the featured hero is determined by the image used: image ratio is 16:9 for non-accented and 1:1 for accented variant.`;
@@ -94,7 +94,7 @@ Featured.args = {
     href: '#',
     classes: 'nhsd-!t-margin-bottom-0',
   },
-  picture: {
+  figure: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
@@ -132,7 +132,7 @@ FeaturedMirrored.args = {
     href: '#',
     classes: 'nhsd-!t-margin-bottom-0',
   },
-  picture: {
+  figure: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
@@ -170,13 +170,13 @@ FeaturedAccented.args = {
     classes: 'nhsd-!t-margin-bottom-9',
   },
   colourBar: true,
-  picture: {
+  figure: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-picture--square',
+    classes: 'nhsd-a-figure--square',
   },
 };
 FeaturedAccented.parameters = {
@@ -209,13 +209,13 @@ FeaturedAccentedMirrored.args = {
     classes: 'nhsd-!t-margin-bottom-9',
   },
   colourBar: true,
-  picture: {
+  figure: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-picture--square',
+    classes: 'nhsd-a-figure--square',
   },
 };
 FeaturedAccentedMirrored.parameters = {

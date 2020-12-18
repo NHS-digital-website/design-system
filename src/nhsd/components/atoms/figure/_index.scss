@@ -5,7 +5,7 @@
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
-$-root: ".nhsd-a-picture";
+$-root: ".nhsd-a-figure";
 
 #{$-root} {
   @include nhsd-utils.box-sizing;
