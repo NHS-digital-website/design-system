@@ -54,16 +54,20 @@ $border-width: .115rem;
       box-shadow: inset 0 0 0 $border-width nhsd-colours.get("yellow");
     }
 
-    &-light-grey {
-      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("pale-grey");
+    &-grey {
+      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("mid-grey-20-tint");
     }
 
-    &-light-blue {
-      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("bright-blue-20-tint");
+    &-blue {
+      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("light-blue");
     }
 
     &-green {
       box-shadow: inset 0 0 0 $border-width nhsd-colours.get("green");
+    }
+
+    &-red {
+      box-shadow: inset 0 0 0 $border-width nhsd-colours.get("accessible-red");
     }
   }
 

@@ -1,0 +1,45 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_button,
+  nhsd_a_figure,
+  nhsd_a_icon
+-%}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-emphasis-box" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  {{ nhsd_a_box_start(params.box.classes) }}
+    {%- if params.figure -%}
+    <div class="nhsd-m-emphasis-box__figure-box">
+      {{ nhsd_a_figure(params.figure) }}
+    </div>
+    {%- endif -%}
+
+    {%- if params.hexIcon -%}
+    <div class="nhsd-m-emphasis-box__icon-box">
+      {{ nhsd_a_icon(params.hexIcon) }}
+    </div>
+    {%- endif -%}
+
+    <div class="nhsd-m-emphasis-box__content-box">
+      {%- if params.title -%}
+      <h1 class="nhsd-t-heading-s">{{ params.title|safe }}</h1>
+      {%- endif -%}
+
+      {% if params.text -%}
+      <p class="nhsd-t-body-s">{{ params.text|safe }}</p>
+      {%- endif %}
+
+      {% if params.button -%}
+      {{ nhsd_a_button(params.button) }}
+      {%- endif %}
+    </div>
+  {{ nhsd_a_box_end() }}
+</div>
+

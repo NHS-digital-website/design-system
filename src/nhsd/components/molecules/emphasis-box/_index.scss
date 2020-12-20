@@ -1,0 +1,163 @@
+// Settings
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/box";
+@use "../../atoms/button";
+@use "../../atoms/figure";
+@use "../../atoms/icon";
+@use "../../atoms/link";
+
+// Private members
+$-root: ".nhsd-m-emphasis-box";
+$-icon-size: 2.1rem;
+$-box-padding: 1.222rem;
+$-box-extra-padding: 1.666rem;
+
+#{$-root} {
+  display: block;
+  position: relative;
+  min-height: 11.111rem;
+
+  @include mq($until: s) {
+    min-height: 8.333rem;
+  }
+
+  .nhsd-a-box {
+    display: flex;
+    padding: $-box-padding * .8 $-box-padding $-box-padding;
+  }
+
+  &__figure-box {
+    display: block;
+    padding-top: .45rem;
+    flex: 0 0 5rem;
+    order: 1;
+    overflow: hidden;
+    text-align: center;
+
+    @include mq($until: s) {
+      padding-top: .3rem;
+      flex: 0 0 3rem;
+    }
+
+    & + #{$-root}__content-box,
+    & + #{$-root}__icon-box + #{$-root}__content-box {
+      padding-left: $-box-padding;
+    }
+  }
+
+  &__content-box {
+    display: flex;
+    flex-grow: 1;
+    order: 2;
+    flex-direction: column;
+  }
+
+  &__icon-box {
+    display: block;
+    flex: 0 0 2.5rem;
+    order: 3;
+    overflow: hidden;
+    text-align: center;
+
+    & + #{$-root}__content-box {
+      [class^="nhsd-t-heading"] {
+        padding-right: $-box-padding;
+      }
+    }
+  }
+
+  [class^="nhsd-t-heading"] {
+    margin-bottom: nhsd-spacing.get(2);
+    color: nhsd-colours.get("black");
+  }
+
+  [class^="nhsd-t-body"] {
+    max-width: 44.444rem;
+    margin: 0 0 .8rem;
+    color: nhsd-colours.get("dark-grey");
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .nhsd-a-icon {
+    display: block;
+    position: absolute;
+    top: $-box-padding;
+    right: $-box-padding * .9;
+    width: $-icon-size;
+    height: $-icon-size;
+  }
+
+  // Warning (red) variant
+  &--warning {
+    [class^="nhsd-t-heading"],
+    [class^="nhsd-t-body"] {
+      color: nhsd-colours.get("accessible-red");
+    }
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("accessible-red");
+      }
+    }
+  }
+
+  // Padded variant
+  &--padded {
+    @include mq($from: s) {
+      .nhsd-a-box {
+        padding: $-box-extra-padding * .8 $-box-extra-padding $-box-extra-padding;
+      }
+
+      .nhsd-a-icon {
+        right: $-box-extra-padding * .9;
+      }
+    }
+  }
+
+  // Centred variant
+  &--centred {
+    text-align: center;
+
+    .nhsd-a-box {
+      flex-direction: column;
+    }
+
+    #{$-root} {
+      &__icon-box {
+        order: 1;
+      }
+
+      .nhsd-a-icon {
+        position: relative;
+        top: 0;
+        right: auto;
+        margin: 0 auto;
+
+        @include nhsd-spacing.set-responsive("margin-bottom", 3);
+      }
+
+      &__content-box {
+        margin: 0 auto;
+      }
+    }
+
+    .nhsd-a-button {
+      margin: 0 auto;
+
+      @include nhsd-spacing.set-responsive("margin-top", 5);
+    }
+  }
+}

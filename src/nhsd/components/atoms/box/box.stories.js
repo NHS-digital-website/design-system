@@ -34,7 +34,7 @@ const Template = (args) => {
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
-  classes: 'nhsd-a-box--border-light-grey'
+  classes: 'nhsd-a-box--border-grey'
 };
 LabComponent.parameters = {
   docs: {
@@ -123,9 +123,9 @@ BoxVariant5.parameters = {
 };
 
 export const BoxVariant6 = Template.bind({});
-BoxVariant6.storyName = 'White box with light blue outline';
+BoxVariant6.storyName = 'White box with blue outline';
 BoxVariant6.args = {
-  classes: 'nhsd-a-box--border-light-blue'
+  classes: 'nhsd-a-box--border-blue'
 };
 BoxVariant6.parameters = {
   docs: {
@@ -136,9 +136,9 @@ BoxVariant6.parameters = {
 };
 
 export const BoxVariant7 = Template.bind({});
-BoxVariant7.storyName = 'White box with light grey outline';
+BoxVariant7.storyName = 'White box with grey outline';
 BoxVariant7.args = {
-  classes: 'nhsd-a-box--border-light-grey'
+  classes: 'nhsd-a-box--border-grey'
 };
 BoxVariant7.parameters = {
   docs: {
