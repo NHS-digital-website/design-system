@@ -1,0 +1,69 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/box";
+@use "../../atoms/button";
+@use "../../atoms/icon";
+
+// Private members
+$-root: ".nhsd-a-box-link";
+
+#{$-root} {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: vars.$border-radius;
+  color: inherit;
+  box-shadow: 0 0 0 .167rem transparent;
+  transition-property: box-shadow;
+  transition-duration: nhsd-transition.$transition-duration;
+  text-decoration: none;
+
+  .nhsd-a-button {
+    pointer-events: none;
+  }
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
+
+    .nhsd-a-arrow {
+      transform: translateX(.556rem);
+      background: nhsd-colours.get("yellow");
+
+      & > svg {
+        fill: nhsd-colours.get("black");
+      }
+    }
+
+    .nhsd-a-box {
+      box-shadow: inset 0 0 0 box.$border-width transparent;
+    }
+
+    .nhsd-a-button {
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
+    }
+  }
+
+  &--focus-orange {
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
+
+      .nhsd-a-arrow {
+        background: nhsd-colours.get("orange");
+      }
+
+      .nhsd-a-button {
+        box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
+      }
+    }
+  }
+}

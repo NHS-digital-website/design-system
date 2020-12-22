@@ -39,4 +39,18 @@ $-root: ".nhsd-a-text-highlight";
     color: nhsd-colours.get("pale-grey");
     background-color: nhsd-colours.get("dark-grey");
   }
+
+  &--code,
+  &--code-s {
+    @extend #{$-root}--bg-dark-grey;
+    @include nhsd-fonts.font-family(mono, true);
+    @include nhsd-fonts.font-weight;
+  }
+
+  // stylelint-disable declaration-no-important
+  &--code-s {
+    font-size: .778rem !important;
+    line-height: 1.389;
+  }
+  // stylelint-enable declaration-no-important
 }

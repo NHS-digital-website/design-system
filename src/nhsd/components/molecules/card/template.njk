@@ -31,13 +31,16 @@
 {%- if params.hexIcon -%}
   {% set classNames = classNames + " nhsd-m-card--with-icon" %}
 {%- endif -%}
-{% set hasLink = params.link and params.link.href %}
+
+{%- if params.boxLink -%}
+  {%- set boxLinkClassNames = "nhsd-a-box-link " + params.boxLink.classes -%}
+{%- endif -%}
 
 {%- set cardId = nhsd_u_uid("card-") -%}
 
 <article class="{{ classNames }}" id="{{ cardId }}">
-  {% if hasLink -%}
-  <a href="{{ params.link.href }}" class="nhsd-m-card__link" {%- if params.link.target %} target="{{ params.link.target }}" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
+  {% if params.boxLink -%}
+  <a href="{{ params.boxLink.href }}" class="{{ boxLinkClassNames }}" {%- if params.boxLink.target %} target="{{ params.boxLink.target }}" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
   {%- endif %}
     {{ nhsd_a_box_start(params.box.classes) }}
   {% if params.image -%}
@@ -74,7 +77,7 @@
         {%- endif -%}
     </div>
   {{ nhsd_a_box_end() }}
-  {%- if hasLink %}
+  {%- if params.boxLink %}
   </a>
   {% endif -%}
 </article>

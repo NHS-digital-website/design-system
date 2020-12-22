@@ -1,0 +1,68 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_button,
+  nhsd_a_digiblocks,
+  nhsd_a_icon,
+  nhsd_a_link
+-%}
+
+{#- Import utility macros -#}
+{%- from "../../../njk/macros/utilities.njk" import
+  nhsd_u_uid
+-%}
+
+{#- Define ARIA attributes -#}
+{% set ariaLabel = params.title %}
+{%- if params.button.label -%}
+  {% set ariaLabel = ariaLabel + " - " + params.button.label %}
+{%- endif -%}
+{%- if params.boxLink.target == "_blank" -%}
+  {% set ariaLabel = ariaLabel + " (external link, opens in a new tab)" %}
+{%- endif -%}
+{% set ariaAttributes %} aria-label="{{ ariaLabel }}" {% endset %}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-nav-block" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+{%- if params.boxLink -%}
+  {%- set boxLinkClassNames = "nhsd-a-box-link " + params.boxLink.classes -%}
+{%- endif -%}
+
+{%- set navBlockId = nhsd_u_uid("nav-block-") -%}
+
+<div class="{{ classNames }}" id="{{ navBlockId }}">
+  {% if params.boxLink -%}
+  <a href="{{ params.boxLink.href }}" class="{{ boxLinkClassNames }}" {%- if params.boxLink.target %} target="{{ params.boxLink.target }}" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
+  {%- endif %}
+  {{ nhsd_a_box_start(params.box.classes) }}
+    <div class="nhsd-m-nav-block__content-box">
+      {%- if params.hexIcon -%}
+      {{ nhsd_a_icon(params.hexIcon) }}
+      {%- endif -%}
+
+      {%- if params.title -%}
+      <h1 class="nhsd-t-heading-xl" id="{{ navBlockId + '-title' }}">{{ params.title|safe }}</h1>
+      {%- endif -%}
+
+      {% if params.text -%}
+      <p class="nhsd-t-body">{{ params.text|safe }}</p>
+      {%- endif %}
+
+      {% if params.button -%}
+      {{ nhsd_a_button(params.button) }}
+      {%- endif %}
+    </div>
+
+    {% if params.digiblocks -%}
+      {{ nhsd_a_digiblocks(params.digiblocks) }}
+    {%- endif %}
+  {{ nhsd_a_box_end() }}
+  {%- if params.boxLink %}
+  </a>
+  {% endif -%}
+</div>

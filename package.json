@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "npm run storybook",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./dist",
     "storybook:build": "build-storybook --no-dll",
     "storybook:build:deploy": "build-storybook --no-dll && gulp s3:sync",
     "dist:build": "gulp build:dist",
@@ -57,6 +57,7 @@
     "gulp-eol": "^0.2.0",
     "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-newer": "^1.4.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",

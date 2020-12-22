@@ -15,6 +15,7 @@ require('./tasks/scss')
 // require('./tasks/js')
 require('./tasks/watch')
 require('./tasks/static')
+require('./tasks/images')
 require('./tasks/s3')
 
 gulp.task('build:dist',
@@ -23,6 +24,7 @@ gulp.task('build:dist',
     'clean:dest',
     'scss:lint',
     'scss:compile',
+    'images:copy',
     // 'js:lint',
     // 'js:compile',
     'static:copy',

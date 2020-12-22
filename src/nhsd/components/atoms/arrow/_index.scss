@@ -1,0 +1,11 @@
+@use "scss-core/tokens/transition" as nhsd-transition;
+
+// Private members
+$-root: ".nhsd-a-arrow";
+
+#{$-root} {
+  @include nhsd-transition.trans-easing(nhsd-transition.$ease-out-expo);
+
+  transition-property: transform;
+  transition-duration: nhsd-transition.$transition-duration;
+}

@@ -46,7 +46,7 @@ const Template = (args) => {
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
-  link: {
+  boxLink: {
     href: '#',
   },
   image: {
@@ -94,7 +94,7 @@ ComponentVariant1.args = {
     label: 'More about what we do',
     el: 'span',
   },
-  link: {
+  boxLink: {
     href: '#',
   },
 };
@@ -127,7 +127,7 @@ ComponentVariant2.args = {
     label: 'More about what we do',
     el: 'span',
   },
-  link: {
+  boxLink: {
     href: '#',
   },
 };
@@ -156,10 +156,10 @@ ComponentVariant3.args = {
   title: 'Creating the COVID-19 text service for vulnerable people',
   text: 'A small group from NHSX, NHS Digital, NHS Business Services Authority and the Behavioural Insights Team has developed a text service for those most threatened by COVID-19.',
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-s nhsd-m-card__arrow',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
     id: 'arrow_right',
   },
-  link: {
+  boxLink: {
     href: '#',
   },
 };
@@ -186,7 +186,7 @@ ComponentVariant4.args = {
   },
   title: 'About NHS Digital',
   text: `We're pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.`,
-  link: {
+  boxLink: {
     href: 'https://gov.uk',
     target: '_blank',
   },
@@ -224,7 +224,7 @@ ComponentVariant5.args = {
     classes: 'nhsd-a-box--bg-blue',
   },
   title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online, Week Ending 27th September 2020',
-  link: {
+  boxLink: {
     href: 'https://gov.uk',
     target: '_blank',
   },
@@ -234,7 +234,7 @@ ComponentVariant5.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--c-white',
     id: 'arrow_right',
   },
   tag: {
@@ -267,7 +267,7 @@ ComponentVariant6.args = {
   },
   title: 'Indicators and datasets',
   text: 'This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.',
-  link: {
+  boxLink: {
     href: '#',
   },
   hexIcon: {
@@ -276,7 +276,7 @@ ComponentVariant6.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--c-white',
     id: 'arrow_right',
   },
   tag: {
@@ -308,7 +308,7 @@ ComponentVariant9.args = {
   },
   title: 'Indicators and datasets',
   text: 'This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.',
-  link: {
+  boxLink: {
     href: '#',
   },
   hexIcon: {
@@ -317,7 +317,7 @@ ComponentVariant9.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-black nhsd-m-card__arrow',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--c-black',
     id: 'arrow_right',
   },
   tag: {
@@ -344,10 +344,10 @@ ComponentVariant9.parameters = {
 export const ComponentVariant7 = Template.bind({});
 ComponentVariant7.storyName = 'Yellow linked card with button';
 ComponentVariant7.args = {
-  link: {
+  boxLink: {
     href: '#',
+    classes: 'nhsd-a-box-link--focus-orange',
   },
-  classes: 'nhsd-m-card--focus-orange',
   box: {
     classes: 'nhsd-a-box--bg-yellow',
   },
@@ -376,14 +376,14 @@ ComponentVariant7.parameters = {
 export const ComponentVariant10 = Template.bind({});
 ComponentVariant10.storyName = 'Yellow linked card with hexagonal icon and arrow';
 ComponentVariant10.args = {
-  classes: 'nhsd-m-card--focus-orange',
   box: {
     classes: 'nhsd-a-box--bg-yellow',
   },
   title: 'Indicators and datasets',
   text: 'This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.',
-  link: {
+  boxLink: {
     href: '#',
+    classes: 'nhsd-a-box-link--focus-orange',
   },
   hexIcon: {
     classes: 'nhsd-a-icon--c-black nhsd-m-card__icon',
@@ -391,7 +391,7 @@ ComponentVariant10.args = {
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-black nhsd-m-card__arrow',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--c-black',
     id: 'arrow_right',
   },
   tag: {

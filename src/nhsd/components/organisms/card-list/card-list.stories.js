@@ -41,52 +41,52 @@ Component1.args = {
       box: {
         classes: 'nhsd-a-box--bg-dark-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online',
       date: '30 Sept 2020',
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
         id: 'arrow_right',
       },
     }, {
       box: {
         classes: 'nhsd-a-box--bg-blue',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online, Week Ending 27th September 2020',
       date: '28 Sept 2020',
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
         id: 'arrow_right',
       },
     }, {
       box: {
         classes: 'nhsd-a-box--bg-dark-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       title: 'Maternity Services Monthly Statistics June 2020, experimental statistics',
       date: '24 Sept 2020',
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
         id: 'arrow_right',
       },
     }, {
       box: {
         classes: 'nhsd-a-box--bg-blue',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       title: 'Childhood Vaccination Coverage Statistics - England - 2019-20',
       date: '24 Sept 2020',
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
         id: 'arrow_right',
       },
     }
@@ -107,12 +107,12 @@ Component2.args = {
   centreColumns: true,
   cards: [
     {
-      classes: 'nhsd-m-card--focus-orange',
       box: {
         classes: 'nhsd-a-box--bg-yellow',
       },
-      link: {
+      boxLink: {
         href: '#',
+        classes: 'nhsd-a-box-link--focus-orange',
       },
       title: 'Indicators and datasets',
       text: 'This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.',
@@ -122,15 +122,16 @@ Component2.args = {
         nested: true
       },
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-m-card__arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-arrow',
         id: 'arrow_right',
       },
     }, {
       box: {
         classes: 'nhsd-a-box--bg-white nhsd-a-box--border-yellow',
       },
-      link: {
+      boxLink: {
         href: '#',
+        classes: 'nhsd-a-box-link--focus-orange',
       },
       title: 'National Indicator Library',
       text: 'The official hub for health and social care indicators in England. It includes methodology, data output and any independent assurance rating.',
@@ -140,7 +141,7 @@ Component2.args = {
         nested: true
       },
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-m-card__arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-arrow',
         id: 'arrow_right',
       },
     }
@@ -163,7 +164,7 @@ Component3.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       image: {
@@ -184,7 +185,7 @@ Component3.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       image: {
@@ -205,7 +206,7 @@ Component3.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       image: {
@@ -226,7 +227,7 @@ Component3.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       image: {
@@ -262,7 +263,7 @@ Component4.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       image: {
@@ -284,7 +285,7 @@ Component4.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       image: {
@@ -306,7 +307,7 @@ Component4.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       image: {
@@ -328,7 +329,7 @@ Component4.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       image: {
@@ -366,7 +367,7 @@ Component5.args = {
       box: {
         classes: 'nhsd-a-box--bg-blue',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       title: 'About NHS Digital',
@@ -380,7 +381,7 @@ Component5.args = {
       box: {
         classes: 'nhsd-a-box--bg-light-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       title: 'About NHS Digital',
@@ -393,7 +394,7 @@ Component5.args = {
       box: {
         classes: 'nhsd-a-box--bg-dark-grey',
       },
-      link: {
+      boxLink: {
         href: '#',
       },
       title: 'About NHS Digital',
@@ -467,13 +468,13 @@ for (let i = 0; i < 9; i ++) {
     box: {
       classes: 'nhsd-a-box--bg-dark-grey',
     },
-    link: {
+    boxLink: {
       href: '#',
     },
     title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online',
     date: '30 Sept 2020',
     arrowIcon: {
-      classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-m-card__arrow',
+      classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
       id: 'arrow_right',
     },
   });
@@ -495,17 +496,17 @@ Component8.storyName = 'Many cards - 3 columns';
 let component8Cards = [];
 for (let i = 0; i < 7; i ++) {
   component8Cards.push({
-    classes: 'nhsd-m-card--focus-orange',
     box: {
       classes: 'nhsd-a-box--bg-yellow',
     },
-    link: {
+    boxLink: {
       href: '#',
+      classes: 'nhsd-a-box-link--focus-orange',
     },
     title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online',
     date: '30 Sept 2020',
     arrowIcon: {
-      classes: 'nhsd-a-icon--size-s nhsd-m-card__arrow',
+      classes: 'nhsd-a-icon--size-s nhsd-a-arrow',
       id: 'arrow_right',
     },
   });

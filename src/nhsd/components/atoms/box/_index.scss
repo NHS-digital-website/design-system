@@ -46,6 +46,10 @@ $border-width: .115rem;
     &-yellow {
       background: nhsd-colours.get("yellow");
     }
+
+    &-light-yellow {
+      background: nhsd-colours.get("yellow-20-tint");
+    }
   }
 
   // Border colour variants

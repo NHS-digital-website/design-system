@@ -1,0 +1,98 @@
+// Settings
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/box";
+@use "../../atoms/box-link";
+@use "../../atoms/button";
+@use "../../atoms/digiblocks";
+@use "../../atoms/icon";
+@use "../../atoms/link";
+
+// Private members
+$-root: ".nhsd-m-nav-block";
+$-icon-size: 3.2rem;
+$-box-padding: 3.333rem;
+
+#{$-root} {
+  display: block;
+  position: relative;
+  min-height: 11.111rem;
+
+  @include mq($until: s) {
+    min-height: 8.333rem;
+  }
+
+  .nhsd-a-box {
+    display: flex;
+    padding: $-box-padding * .9 $-box-padding $-box-padding;
+    overflow: hidden;
+  }
+
+  &__content-box {
+    display: flex;
+    z-index: 1;
+    flex-grow: 1;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nhsd-a-icon {
+    width: $-icon-size;
+    height: $-icon-size;
+    margin: 0 auto;
+    @include nhsd-spacing.set-responsive('margin-bottom', 3);
+  }
+
+  .nhsd-a-button {
+    margin: 0 auto;
+    @include nhsd-spacing.set-responsive('margin-top', 5);
+  }
+
+  .nhsd-a-digiblocks {
+    z-index: 0;
+  }
+
+  [class^="nhsd-t-heading"],
+  [class^="nhsd-t-body"] {
+    margin: 0 auto;
+  }
+
+  [class^="nhsd-t-heading"] {
+    max-width: 50vw;
+    margin-bottom: nhsd-spacing.get(4);
+    color: nhsd-colours.get("black");
+    @include nhsd-utils.clamped-text(4);
+  }
+
+  [class^="nhsd-t-body"] {
+    max-width: 45vw;
+    color: nhsd-colours.get("dark-grey");
+    @include nhsd-utils.clamped-text(5);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &--light-text {
+    [class^="nhsd-t-heading"],
+    [class^="nhsd-t-body"] {
+      color: nhsd-colours.get("white");
+    }
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("white");
+      }
+    }
+  }
+}

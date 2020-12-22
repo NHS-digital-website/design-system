@@ -1,0 +1,256 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Private members
+$-root: ".nhsd-a-digiblocks";
+$-size: 486px;
+$-mini-size: 64px;
+$-scaled-size: 40vw;
+$-min-breakpoint: 911.25px;
+$-max-breakpoint: 1215px;
+$-scaled-min-size: $-size * .75;
+$-scaled-max-size: $-size;
+$-base-offset: calc(85% - #{$-size} * .2);
+$-base-center-offset: calc(95% - #{$-size} * .2);
+$-vertical-push: -2%;
+$-horizontal-push: -2%;
+
+#{$-root} {
+  display: block;
+  position: relative;
+  width: $-scaled-size;
+  min-width: $-scaled-min-size;
+  max-width: $-scaled-max-size;
+  height: $-scaled-size;
+  min-height: $-scaled-min-size;
+  max-height: $-scaled-max-size;
+  // border: 1px solid #00ff00;
+
+  & > svg,
+  & > img {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Size modifiers
+  &--mini {
+    width: $-mini-size;
+    min-width: $-mini-size;
+    max-width: $-mini-size;
+    height: $-mini-size;
+    min-height: $-mini-size;
+    max-height: $-mini-size;
+  }
+
+  // Position modifiers
+  &--pos-tl,
+  &--pos-tr,
+  &--pos-br,
+  &--pos-bl,
+  &--pos-cl,
+  &--pos-cr {
+    position: absolute;
+  }
+
+  &--pos-tl {
+    right: $-base-offset;
+    bottom: $-base-offset;
+    margin-right: $-horizontal-push;
+    margin-bottom: $-vertical-push;
+  }
+
+  &--pos-tr {
+    position: absolute;
+    bottom: $-base-offset;
+    left: $-base-offset;
+    margin-bottom: $-vertical-push;
+    margin-left: $-horizontal-push;
+  }
+
+  &--pos-bl {
+    position: absolute;
+    top: $-base-offset;
+    right: $-base-offset;
+    margin-top: $-vertical-push;
+    margin-right: $-horizontal-push;
+  }
+
+  &--pos-br {
+    position: absolute;
+    top: $-base-offset;
+    left: $-base-offset;
+    margin-top: $-vertical-push;
+    margin-left: $-horizontal-push;
+  }
+
+  &--pos-cl {
+    top: calc(50% - #{$-scaled-size} * .5);
+    right: $-base-center-offset;
+  }
+
+  &--pos-cr {
+    top: calc(50% - #{$-scaled-size} * .5);
+    left: $-base-center-offset;
+  }
+
+  // Colour modifiers
+  &--col-black {
+    polygon {
+      &:nth-child(1) {
+        fill: #191718;
+      }
+
+      &:nth-child(2) {
+        fill: #0c0c0c;
+      }
+
+      &:nth-child(3) {
+        fill: #000305;
+      }
+    }
+  }
+
+  &--col-yellow {
+    polygon {
+      &:nth-child(1) {
+        fill: #f5d507;
+      }
+
+      &:nth-child(2) {
+        fill: #f2cb0c;
+      }
+
+      &:nth-child(3) {
+        fill: #eec000;
+      }
+    }
+  }
+
+  &--col-blue {
+    polygon {
+      &:nth-child(1) {
+        fill: #0062cc;
+      }
+
+      &:nth-child(2) {
+        fill: #005abe;
+      }
+
+      &:nth-child(3) {
+        fill: #0050b5;
+      }
+    }
+  }
+
+  &--col-dark-blue {
+    polygon {
+      &:nth-child(1) {
+        fill: #00267a;
+      }
+
+      &:nth-child(2) {
+        fill: #001f75;
+      }
+
+      &:nth-child(3) {
+        fill: #001766;
+      }
+    }
+  }
+
+  &--col-light-blue {
+    polygon {
+      &:nth-child(1) {
+        fill: #bfd7ed;
+      }
+
+      &:nth-child(2) {
+        fill: #b2cfea;
+      }
+
+      &:nth-child(3) {
+        fill: #a6c7e6;
+      }
+    }
+  }
+
+  &--col-grey {
+    polygon {
+      &:nth-child(1) {
+        fill: #6d7b86;
+      }
+
+      &:nth-child(2) {
+        fill: #62717a;
+      }
+
+      &:nth-child(3) {
+        fill: #5c6b75;
+      }
+    }
+  }
+
+  &--col-dark-grey {
+    polygon {
+      &:nth-child(1) {
+        fill: #3c4d57;
+      }
+
+      &:nth-child(2) {
+        fill: #32434c;
+      }
+
+      &:nth-child(3) {
+        fill: #313d45;
+      }
+    }
+  }
+
+  &--col-light-grey {
+    polygon {
+      &:nth-child(1) {
+        fill: #dadfdf;
+      }
+
+      &:nth-child(2) {
+        fill: #cdd5d6;
+      }
+
+      &:nth-child(3) {
+        fill: #c5cdcf;
+      }
+    }
+  }
+
+  &--col-white {
+    polygon {
+      &:nth-child(1) {
+        fill: #fbfafa;
+      }
+
+      &:nth-child(2) {
+        fill: #f5f5f4;
+      }
+
+      &:nth-child(3) {
+        fill: #eff2f1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $-min-breakpoint) {
+  #{$-root}--pos-cl,
+  #{$-root}--pos-cr {
+    top: calc(50% - #{$-scaled-min-size} * .5);
+  }
+}
+
+@media screen and (min-width: $-max-breakpoint) {
+  #{$-root}--pos-cl,
+  #{$-root}--pos-cr {
+    top: calc(50% - #{$-scaled-max-size} * .5);
+  }
+}

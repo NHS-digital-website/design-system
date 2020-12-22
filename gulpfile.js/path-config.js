@@ -11,6 +11,7 @@ module.exports = (() => {
     src: {
       root: SOURCE_PATH,
       assets: `${SOURCE_PATH}/assets`,
+      images: `${SOURCE_PATH}/assets/images`,
       scss: `${SOURCE_PATH}/scss-foundations`,
       components: `${SOURCE_PATH}/components`,
       lab: `${SOURCE_PATH}/lab`,
@@ -20,6 +21,7 @@ module.exports = (() => {
     dist: {
       root: DIST_PATH,
       static: `${DIST_PATH}/static`,
+      images: `${DIST_PATH}/images`,
       stylesheets: `${DIST_PATH}/stylesheets`,
     },
 

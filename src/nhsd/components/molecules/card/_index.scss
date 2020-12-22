@@ -9,8 +9,10 @@
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Component imports
-@use "../../atoms/button";
+@use "../../atoms/arrow";
 @use "../../atoms/box";
+@use "../../atoms/box-link";
+@use "../../atoms/button";
 @use "../../atoms/image";
 @use "../../atoms/tag";
 
@@ -30,40 +32,6 @@ $box-padding: 1.111rem;
     min-height: 8.333rem;
   }
 
-  &__link {
-    display: inline-block;
-    width: 100%;
-    overflow: hidden;
-    border-radius: vars.$border-radius;
-    color: inherit;
-    box-shadow: 0 0 0 .167rem transparent;
-    transition-property: box-shadow;
-    transition-duration: nhsd-transition.$transition-duration;
-    text-decoration: none;
-
-    &:focus,
-    &:hover {
-      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
-
-      .nhsd-a-button {
-        box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
-      }
-
-      #{$-root}__arrow {
-        transform: translateX(.556rem);
-        background: nhsd-colours.get("yellow");
-
-        & > svg {
-          fill: #000000;
-        }
-      }
-
-      .nhsd-a-box {
-        box-shadow: inset 0 0 0 box.$border-width transparent;
-      }
-    }
-  }
-
   &__content-box {
     display: flex;
     flex-grow: 1;
@@ -79,7 +47,7 @@ $box-padding: 1.111rem;
     margin-bottom: nhsd-spacing.get(1);
   }
 
-  &__arrow,
+  .nhsd-a-arrow,
   .nhsd-a-button {
     align-self: baseline;
     margin-top: nhsd-spacing.get(4);
@@ -96,7 +64,9 @@ $box-padding: 1.111rem;
     line-height: 1rem;
   }
 
-  &__icon {
+  // TODO - Investigate why the atom styling overrides the molecule styling,
+  // so we can drop the specificity
+  &__icon.nhsd-a-icon {
     display: block;
     position: absolute;
     top: $box-padding;
@@ -111,13 +81,6 @@ $box-padding: 1.111rem;
     &:last-of-type {
       margin-bottom: 0;
     }
-  }
-
-  &__arrow {
-    @include nhsd-transition.trans-easing(nhsd-transition.$ease-out-expo);
-
-    transition-property: transform;
-    transition-duration: nhsd-transition.$transition-duration;
   }
 
   .nhsd-a-box {
@@ -176,23 +139,6 @@ $box-padding: 1.111rem;
   &:active {
     .nhsd-a-button {
       transform: translateY(button.$active-state-push-down);
-    }
-  }
-
-  &--focus-orange {
-    #{$-root}__link {
-      &:focus,
-      &:hover {
-        box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
-
-        #{$-root}__arrow {
-          background: nhsd-colours.get("orange");
-        }
-
-        .nhsd-a-button {
-          box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
-        }
-      }
     }
   }
 
