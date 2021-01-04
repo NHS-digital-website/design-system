@@ -131,27 +131,27 @@ $-box-extra-padding: 1.666rem;
   &--centred {
     text-align: center;
 
-    .nhsd-a-box {
-      flex-direction: column;
-    }
-
     #{$-root} {
       &__icon-box {
         order: 1;
       }
 
-      .nhsd-a-icon {
-        position: relative;
-        top: 0;
-        right: auto;
-        margin: 0 auto;
-
-        @include nhsd-spacing.set-responsive("margin-bottom", 3);
-      }
-
       &__content-box {
         margin: 0 auto;
       }
+    }
+
+    .nhsd-a-box {
+      flex-direction: column;
+    }
+
+    .nhsd-a-icon {
+      position: relative;
+      top: 0;
+      right: auto;
+      margin: 0 auto;
+
+      @include nhsd-spacing.set-responsive("margin-bottom", 3);
     }
 
     .nhsd-a-button {
