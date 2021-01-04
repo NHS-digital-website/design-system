@@ -110,7 +110,7 @@ SquareComponent.parameters = {
 };
 
 export const ResponsiveComponent = Template.bind({});
-ResponsiveComponent.storyName = 'Responsive picture (multiple image sources)';
+ResponsiveComponent.storyName = 'Responsive image (multiple image sources)';
 ResponsiveComponent.args = {
   classes: 'nhsd-a-figure--round-top-corners',
   sourceSet: [{
@@ -130,7 +130,7 @@ ResponsiveComponent.parameters = {
 };
 
 export const FigureWithCaption = Template.bind({});
-FigureWithCaption.storyName = 'Picture with caption';
+FigureWithCaption.storyName = 'Image caption';
 FigureWithCaption.args = {
   caption: 'Hello world, I am a caption!',
   sourceSet: [{
@@ -147,7 +147,7 @@ FigureWithCaption.parameters = {
 };
 
 export const FigureAriaHidden = Template.bind({});
-FigureAriaHidden.storyName = 'Picture - ARIA hidden';
+FigureAriaHidden.storyName = 'ARIA hidden';
 FigureAriaHidden.args = {
   ariaHidden: true,
   sourceSet: [{
@@ -164,7 +164,7 @@ FigureAriaHidden.parameters = {
 };
 
 export const FigureWithCaptionAriaHidden = Template.bind({});
-FigureWithCaptionAriaHidden.storyName = 'Figure with caption - ARIA hidden';
+FigureWithCaptionAriaHidden.storyName = 'Image caption & ARIA hidden';
 FigureWithCaptionAriaHidden.args = {
   ariaHidden: true,
   caption: 'Hello world, I am a caption!',
