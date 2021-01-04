@@ -14,22 +14,28 @@
 @use "../../atoms/figure";
 
 // Private members
-$-root: ".nhsd-m-case-study";
+$-root: ".nhsd-o-case-study";
 $-picture-width: 74.5%;
 $-card-width: 33%;
 $-skeleton-height: 41.9%;
 
 #{$-root} {
-  display: flex;
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
+  &__wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
 
   &__contents {
     height: 100%;
     padding: nhsd-spacing.get(6);
     border-radius: nhsd-vars.$border-radius;
     background: nhsd-colours.get("pale-grey");
+  }
+
+  [class^="nhsd-t-body"] {
+    @include nhsd-utils.clamped-text(5);
   }
 
   .nhsd-a-figure {
@@ -71,7 +77,9 @@ $-skeleton-height: 41.9%;
     }
 
     &--mirrored {
-      transform: translateX($-picture-width - 5.2%);
+      #{$-root}__wrapper {
+        transform: translateX($-picture-width - 5.2%);
+      }
 
       .nhsd-a-figure {
         right: 100% - 5.2%;
@@ -81,11 +89,53 @@ $-skeleton-height: 41.9%;
         right: 100%;
       }
     }
+
+    .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
+      [class^="nhsd-t-body"] {
+        @include nhsd-utils.clamped-text(3);
+      }
+    }
+
+    [class^="nhsd-t-body"] {
+      @include nhsd-utils.clamped-text(5);
+    }
   }
 
-  @include mq($from: s, $until: m) {
+  @include mq($from: m) {
     [class^="nhsd-t-body"] {
-      @include nhsd-utils.clamped-text;
+      @include nhsd-utils.clamped-text(8);
+    }
+  }
+
+  @include mq($from: l) {
+    .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
+      [class^="nhsd-t-body"] {
+        @include nhsd-utils.clamped-text(7);
+      }
+    }
+
+    [class^="nhsd-t-body"] {
+      @include nhsd-utils.clamped-text(11);
+    }
+  }
+
+  @include mq($from: s, $until: l) {
+    .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
+      #{$-root}__content-box {
+        width: 73%;
+      }
+    }
+
+    #{$-root}--mirrored {
+      .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
+        #{$-root}__wrapper {
+          transform: translateX($-picture-width - 24%);
+        }
+
+        .nhsd-a-figure {
+          right: 100% - 24%;
+        }
+      }
     }
   }
 }
