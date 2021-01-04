@@ -1,12 +1,12 @@
 {# Set classes #}
-{%- set classNames = "nhsd-a-figure" -%}
+{%- set classNames = "nhsd-a-image" -%}
 {%- if params.classes -%}
   {%- set classNames = classNames + " " + params.classes -%}
 {%- endif -%}
 
 {%- if params.sourceSet and params.alt %}
 <figure class="{{ classNames }}" {%- if params.ariaHidden %} aria-hidden="true" {%- endif %}>
-  <picture class="nhsd-a-figure__picture {{ 'nhsd-!t-margin-bottom-2' if params.caption else '' }}">
+  <picture class="nhsd-a-image__picture {{ 'nhsd-!t-margin-bottom-2' if params.caption else '' }}">
   {%- for source in params.sourceSet %}
   {%-if source.media %}
     <source media="{{ source.media }}" srcset="{{ source.url }}">

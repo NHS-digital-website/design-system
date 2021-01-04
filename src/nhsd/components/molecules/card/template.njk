@@ -4,7 +4,7 @@
   nhsd_a_box_start,
   nhsd_a_box_end,
   nhsd_a_icon,
-  nhsd_a_figure,
+  nhsd_a_image,
   nhsd_a_tag
 -%}
 
@@ -40,8 +40,8 @@
   <a href="{{ params.link.href }}" class="nhsd-m-card__link" {%- if params.link.target %} target="{{ params.link.target }}" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
   {%- endif %}
     {{ nhsd_a_box_start(params.box.classes) }}
-  {% if params.figure -%}
-    {{ nhsd_a_figure(params.figure) }}
+  {% if params.image -%}
+    {{ nhsd_a_image(params.image) }}
   {%- endif %}
     <div class="nhsd-m-card__content-box">
       {%- if params.tag %}

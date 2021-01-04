@@ -14,7 +14,7 @@ ${sbConfig.heading.basicRules}
 ### Components used
 - <a href="/docs/design-system-components-atoms-box--lab-component">Box atom</a>
 - <a href="/docs/design-system-components-atoms-button--lab-component">Button atom</a>
-- <a href="/docs/design-system-components-atoms-figure--lab-component">Figure atom</a>
+- <a href="/docs/design-system-components-atoms-image--lab-component">Image atom</a>
 - <a href="/docs/design-system-components-atoms-icon--lab-component">Icon atom</a>
 - <a href="/docs/design-system-components-atoms-link--lab-component">Link atom</a>
 
@@ -203,36 +203,36 @@ EmphasisBoxWithIconAndButton.parameters = {
   },
 };
 
-export const EmphasisBoxWithFigure = Template.bind({});
-EmphasisBoxWithFigure.storyName = `Emphasis box / with figure`;
-EmphasisBoxWithFigure.args = {
+export const EmphasisBoxWithImage = Template.bind({});
+EmphasisBoxWithImage.storyName = `Emphasis box / with image`;
+EmphasisBoxWithImage.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
   title: `Emphasis box with large icon`,
   text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
 };
-EmphasisBoxWithFigure.parameters = {
+EmphasisBoxWithImage.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${EmphasisBoxWithFigure(EmphasisBoxWithFigure.args)}`,
+      code: `${sourceCode}\n${EmphasisBoxWithImage(EmphasisBoxWithImage.args)}`,
     },
   },
 };
 
-export const EmphasisBoxWithIconAndButtonAndFigure = Template.bind({});
-EmphasisBoxWithIconAndButtonAndFigure.storyName = `Emphasis box / with icon and button and figure`;
-EmphasisBoxWithIconAndButtonAndFigure.args = {
+export const EmphasisBoxWithIconAndButtonAndImage = Template.bind({});
+EmphasisBoxWithIconAndButtonAndImage.storyName = `Emphasis box / with icon and button and image`;
+EmphasisBoxWithIconAndButtonAndImage.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box with optional icon, button and figure`,
+  title: `Emphasis box with optional icon, button and image`,
   text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
@@ -245,17 +245,17 @@ EmphasisBoxWithIconAndButtonAndFigure.args = {
     href: '#',
     classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
   },
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
 };
-EmphasisBoxWithIconAndButtonAndFigure.parameters = {
+EmphasisBoxWithIconAndButtonAndImage.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${EmphasisBoxWithIconAndButtonAndFigure(EmphasisBoxWithIconAndButtonAndFigure.args)}`,
+      code: `${sourceCode}\n${EmphasisBoxWithIconAndButtonAndImage(EmphasisBoxWithIconAndButtonAndImage.args)}`,
     },
   },
 };

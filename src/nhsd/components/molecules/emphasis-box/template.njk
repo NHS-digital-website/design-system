@@ -3,7 +3,7 @@
   nhsd_a_box_start,
   nhsd_a_box_end,
   nhsd_a_button,
-  nhsd_a_figure,
+  nhsd_a_image,
   nhsd_a_icon
 -%}
 
@@ -15,9 +15,9 @@
 
 <div class="{{ classNames }}">
   {{ nhsd_a_box_start(params.box.classes) }}
-    {%- if params.figure -%}
-    <div class="nhsd-m-emphasis-box__figure-box">
-      {{ nhsd_a_figure(params.figure) }}
+    {%- if params.image -%}
+    <div class="nhsd-m-emphasis-box__image-box">
+      {{ nhsd_a_image(params.image) }}
     </div>
     {%- endif -%}
 

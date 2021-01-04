@@ -12,7 +12,7 @@
 // Component imports
 @use "../../atoms/button";
 @use "../../atoms/colour-bar";
-@use "../../atoms/figure";
+@use "../../atoms/image";
 
 // Private members
 $-root: ".nhsd-o-hero";
@@ -57,9 +57,9 @@ $-root: ".nhsd-o-hero";
       }
     }
 
-    .nhsd-a-figure:not(.nhsd-a-figure--square) {
+    .nhsd-a-image:not(.nhsd-a-image--square) {
       @include mq($from: s, $until: l) {
-        .nhsd-a-figure__picture {
+        .nhsd-a-image__picture {
           padding-bottom: 68.9922481%;
         }
       }
@@ -99,7 +99,7 @@ $-root: ".nhsd-o-hero";
 
     @include mq($until: s) {
       &:not(&--accented) {
-        .nhsd-a-figure__picture {
+        .nhsd-a-image__picture {
           border-top-left-radius: nhsd-vars.$border-radius;
           border-top-right-radius: nhsd-vars.$border-radius;
         }

@@ -6,22 +6,22 @@ import template from  './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
-const componentName = 'Figure';
+const componentName = 'Image';
 const storyDescription = `${sbConfig.heading.lab}
 ${sbConfig.heading.basicRules}
   - Image aspect ratios: 16:9 or 1:1.
   - Border radius: 6px (0.333rem).
-  - Figure corner variations:
+  - Image corner variations:
     - Every corner is rounded.
     - Top corners are rounded.
     - No corners are rounded.
   - The \`<picture>\` element displaying the image can optionally use multiple source sets - use different image sources for different breakpoints if you want.
-  - Image element proportionally scales inside the picture element from the centre.
+  - Picture element proportionally scales inside the picture element from the centre.
   - Must have at least 1 image source and an alt text to be valid.
   - Must have img element to be valid.
   - If caption is set on a picutre, \`<figcaption>\` element displays it for good semantics.
-  - If figure is decorative only, and should be hidden from screen readers, **aria-hidden** must be added to either the \`<figure>\` element (if figure has caption), or the \`<picture>\` element itself.`;
-const sourceCode = `// Sass import \n@use "nhsd/components/atoms/figure";
+  - If the image is decorative only, and should be hidden from screen readers, **aria-hidden** must be added to either the \`<figure>\` element (if image has caption), or the \`<picture>\` element itself.`;
+const sourceCode = `// Sass import \n@use "nhsd/components/atoms/image";
 
 // HTML`;
 
@@ -61,7 +61,7 @@ LabComponent.parameters = {
 export const RoundTopCornersComponent = Template.bind({});
 RoundTopCornersComponent.storyName = 'Round top corners';
 RoundTopCornersComponent.args = {
-  classes: 'nhsd-a-figure--round-top-corners',
+  classes: 'nhsd-a-image--round-top-corners',
   sourceSet: [{
     'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
@@ -78,7 +78,7 @@ RoundTopCornersComponent.parameters = {
 export const RoundCornersComponent = Template.bind({});
 RoundCornersComponent.storyName = 'Round corners';
 RoundCornersComponent.args = {
-  classes: 'nhsd-a-figure--round-corners',
+  classes: 'nhsd-a-image--round-corners',
   sourceSet: [{
     'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
@@ -95,7 +95,7 @@ RoundCornersComponent.parameters = {
 export const SquareComponent = Template.bind({});
 SquareComponent.storyName = '1:1 image ratio';
 SquareComponent.args = {
-  classes: 'nhsd-a-figure--square',
+  classes: 'nhsd-a-image--square',
   sourceSet: [{
     'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
@@ -112,7 +112,7 @@ SquareComponent.parameters = {
 export const ResponsiveComponent = Template.bind({});
 ResponsiveComponent.storyName = 'Responsive image (multiple image sources)';
 ResponsiveComponent.args = {
-  classes: 'nhsd-a-figure--round-top-corners',
+  classes: 'nhsd-a-image--round-top-corners',
   sourceSet: [{
     'media': '(max-width: 500px)',
     'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_489x326.jpg',
@@ -129,43 +129,43 @@ ResponsiveComponent.parameters = {
   },
 };
 
-export const FigureWithCaption = Template.bind({});
-FigureWithCaption.storyName = 'Image caption';
-FigureWithCaption.args = {
+export const WithCaption = Template.bind({});
+WithCaption.storyName = 'Image caption';
+WithCaption.args = {
   caption: 'Hello world, I am a caption!',
   sourceSet: [{
     'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
-FigureWithCaption.parameters = {
+WithCaption.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}${FigureWithCaption(FigureWithCaption.args)}`,
+      code: `${sourceCode}${WithCaption(WithCaption.args)}`,
     },
   },
 };
 
-export const FigureAriaHidden = Template.bind({});
-FigureAriaHidden.storyName = 'ARIA hidden';
-FigureAriaHidden.args = {
+export const AriaHidden = Template.bind({});
+AriaHidden.storyName = 'ARIA hidden';
+AriaHidden.args = {
   ariaHidden: true,
   sourceSet: [{
     'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
-FigureAriaHidden.parameters = {
+AriaHidden.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}${FigureAriaHidden(FigureAriaHidden.args)}`,
+      code: `${sourceCode}${AriaHidden(AriaHidden.args)}`,
     },
   },
 };
 
-export const FigureWithCaptionAriaHidden = Template.bind({});
-FigureWithCaptionAriaHidden.storyName = 'Image caption & ARIA hidden';
-FigureWithCaptionAriaHidden.args = {
+export const WithCaptionAriaHidden = Template.bind({});
+WithCaptionAriaHidden.storyName = 'Image caption & ARIA hidden';
+WithCaptionAriaHidden.args = {
   ariaHidden: true,
   caption: 'Hello world, I am a caption!',
   sourceSet: [{
@@ -173,10 +173,10 @@ FigureWithCaptionAriaHidden.args = {
   }],
   alt: '2 scientists testing in a laboratory',
 };
-FigureWithCaptionAriaHidden.parameters = {
+WithCaptionAriaHidden.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}${FigureWithCaptionAriaHidden(FigureWithCaptionAriaHidden.args)}`,
+      code: `${sourceCode}${WithCaptionAriaHidden(WithCaptionAriaHidden.args)}`,
     },
   },
 };

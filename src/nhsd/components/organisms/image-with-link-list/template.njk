@@ -1,11 +1,11 @@
 {#- Import molecule macros -#}
 {%- from "../../../njk/macros/molecules.njk" import
   nhsd_m_button_nav,
-  nhsd_m_figure_with_link
+  nhsd_m_image_with_link
 -%}
 
 {#- Set classes -#}
-{% set classNames = "nhsd-o-figure-with-link-list" %}
+{% set classNames = "nhsd-o-image-with-link-list" %}
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
@@ -34,7 +34,7 @@
     {% endif -%}
 
     {% if params.blocks|length -%}
-    <div class="nhsd-t-row nhsd-o-figure-with-link-list__items nhsd-t-row--centred">
+    <div class="nhsd-t-row nhsd-o-image-with-link-list__items nhsd-t-row--centred">
       {%- set class = "nhsd-t-col-12" -%}
 
       {%- if desktopColumns == 4 %}
@@ -47,7 +47,7 @@
 
       {% for blox in params.blocks -%}
         <div class="{{ class }} {{ extraClass }}">
-          {{ nhsd_m_figure_with_link(blox) }}
+          {{ nhsd_m_image_with_link(blox) }}
         </div>
       {% endfor -%}
     </div>

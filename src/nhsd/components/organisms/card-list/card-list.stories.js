@@ -166,7 +166,7 @@ Component3.args = {
       link: {
         href: '#',
       },
-      figure: {
+      image: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -187,7 +187,7 @@ Component3.args = {
       link: {
         href: '#',
       },
-      figure: {
+      image: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -208,7 +208,7 @@ Component3.args = {
       link: {
         href: '#',
       },
-      figure: {
+      image: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -229,7 +229,7 @@ Component3.args = {
       link: {
         href: '#',
       },
-      figure: {
+      image: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -265,7 +265,7 @@ Component4.args = {
       link: {
         href: '#',
       },
-      figure: {
+      image: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -287,7 +287,7 @@ Component4.args = {
       link: {
         href: '#',
       },
-      figure: {
+      image: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -309,7 +309,7 @@ Component4.args = {
       link: {
         href: '#',
       },
-      figure: {
+      image: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
@@ -331,7 +331,7 @@ Component4.args = {
       link: {
         href: '#',
       },
-      figure: {
+      image: {
         sourceSet: [{
           'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],

@@ -8,11 +8,11 @@
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Component imports
+@use "../../atoms/image";
 @use "../../atoms/link";
-@use "../../atoms/figure";
 
 // Private members
-$-root: ".nhsd-m-figure-with-link";
+$-root: ".nhsd-m-image-with-link";
 
 #{$-root} {
   display: block;

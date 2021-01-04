@@ -49,7 +49,7 @@ LabComponent.args = {
     label: 'NHS Digital careers',
     classes: 'nhsd-!t-margin-bottom-0',
   },
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -88,7 +88,7 @@ MirroredComponent.args = {
     label: 'NHS Digital careers',
     classes: 'nhsd-!t-margin-bottom-0',
   },
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -116,7 +116,7 @@ WideComponent.args = {
     label: 'NHS Digital careers',
     classes: 'nhsd-!t-margin-bottom-0',
   },
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
@@ -145,7 +145,7 @@ WideMirroredComponent.args = {
     label: 'NHS Digital careers',
     classes: 'nhsd-!t-margin-bottom-0',
   },
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],

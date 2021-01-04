@@ -6,7 +6,7 @@ import template from  './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
-const componentName = 'Figure with link';
+const componentName = 'Image with link';
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}
@@ -14,9 +14,9 @@ ${sbConfig.heading.basicRules}
 - External link atom <a href="/docs/design-system-components-atoms-link--external-link">rules</a> apply for external links!
 - Pictures in this component are for decoration only, and should be hidden from screen readers using \`aria-hidden="true"\`.
 - Link atom is intentionally wrapped in a \`<div>\` element with heading styling, as we don't need semantic headings.
-- The molecule works well with extra small and small headings - depending on column arrangements (see organism for [examples](/docs/design-system-components-organisms-figure-with-link-list--lab-component)).
+- The molecule works well with extra small and small headings - depending on column arrangements (see organism for [examples](/docs/design-system-components-organisms-image-with-link-list--lab-component)).
 - The link can be internal or external - same rule applies as for default links (external link is announced to screen readers)`;
-const sourceCode = `// Sass import \n@use "nhsd/components/molecules/figure-with-link";
+const sourceCode = `// Sass import \n@use "nhsd/components/molecules/image-with-link";
 
 // HTML`;
 
@@ -40,13 +40,13 @@ const Template = (args) => {
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
-  figure: {
+  image: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
+    classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
   },
   link: {
     href: '#',
@@ -64,13 +64,13 @@ LabComponent.parameters = {
 export const ComponentVariant1 = Template.bind({});
 ComponentVariant1.storyName = `Internal link`;
 ComponentVariant1.args = {
-  figure: {
+  image: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
+    classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
   },
   link: {
     href: '#',
@@ -88,13 +88,13 @@ ComponentVariant1.parameters = {
 export const ComponentVariant2 = Template.bind({});
 ComponentVariant2.storyName = `External link`;
 ComponentVariant2.args = {
-  figure: {
+  image: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--round-corners nhsd-!t-margin-bottom-2',
+    classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
   },
   link: {
     href: 'https://valtech.com',

@@ -16,7 +16,7 @@ ${sbConfig.heading.basicRules}:
 - **There are 2 types of the hero organism:**
   - Default hero (Coloured background, title, text, optional button and optional image) - used on article pages;
   - Featured hero (Coloured background of content column; title, text, optional button; picture) - used on the home page
-- Default hero is \`nhsd-o-hero\`
+- Default hero is \`nhsd-o-hero\`. Please note that this version is only **Work In Progress and not suitable ready to be used in production yet!**
 - Featured hero is \`nhsd-o-hero-feature\`, but it is using the same building blocks and styling as regular hero.
 - Only featured hero handles **mirroring** and **accenting**
 - Accented hero stays 12 cols wide on mobile, non-accented featured hero goes 11 columns on mobile, and gets rounded edges
@@ -26,14 +26,14 @@ ${sbConfig.heading.basicRules}:
     - Body text token - use a \`<p>\`
     - Button atom (optional) - use \`<a>\` element
     - Colour bar atom - for featured and accented hero it's mandatory, for regular featured it's optional
-    - Figure atom
+    - Image atom
   - Variants:
-    - Mirrored: Figure on the left, contents on the right
+    - Mirrored: Image on the left, contents on the right
     - Accented: Edges stay sharp and uses 12 columns on mobile
   - Additional rules
     - Use the background clour tokens to override the hero's background colour (\`.nhsd-!t-bg-light-green\`).
-    - Accented Featured hero uses a Square figure atom (\`.nhsd-a-figure--square\`); XXL heading (\`.nhsd-t-heading-xxl\`)
-    - Regular Featured hero uses a regular figure atom (\`.nhsd-a-figure--round-corners\`); Large heading (\`.nhsd-t-heading-l\`)
+    - Accented Featured hero uses a Square image atom (\`.nhsd-a-image--square\`); XXL heading (\`.nhsd-t-heading-xxl\`)
+    - Regular Featured hero uses a regular image atom (\`.nhsd-a-image--round-corners\`); Large heading (\`.nhsd-t-heading-l\`)
     - Contents are vertically centred in all cases.
     - Featured hero uses line clamping between tablet and desktop breakpoints to avoid breaking if text is too long.
     - The height of the featured hero is determined by the image used: image ratio is 16:9 for non-accented and 1:1 for accented variant.`;
@@ -59,7 +59,7 @@ const Template = (args) => {
 };
 
 export const Default = Template.bind({});
-Default.storyName = 'Default (WIP)';
+Default.storyName = 'Default (WIP!!!)';
 Default.args = {
   title: {
     label: 'Summary care record platform',
@@ -94,7 +94,7 @@ Featured.args = {
     href: '#',
     classes: 'nhsd-!t-margin-bottom-0',
   },
-  figure: {
+  image: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
@@ -132,7 +132,7 @@ FeaturedMirrored.args = {
     href: '#',
     classes: 'nhsd-!t-margin-bottom-0',
   },
-  figure: {
+  image: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
@@ -170,13 +170,13 @@ FeaturedAccented.args = {
     classes: 'nhsd-!t-margin-bottom-9',
   },
   colourBar: true,
-  figure: {
+  image: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--square',
+    classes: 'nhsd-a-image--square',
   },
 };
 FeaturedAccented.parameters = {
@@ -209,13 +209,13 @@ FeaturedAccentedMirrored.args = {
     classes: 'nhsd-!t-margin-bottom-9',
   },
   colourBar: true,
-  figure: {
+  image: {
     ariaHidden: true,
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--square',
+    classes: 'nhsd-a-image--square',
   },
 };
 FeaturedAccentedMirrored.parameters = {

@@ -32,12 +32,12 @@ const Template = (args) => {
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--square'
+    classes: 'nhsd-a-image--square'
   },
   title: {
     p1: '50x',
@@ -56,12 +56,12 @@ LabComponent.parameters = {
 export const WithIcon = Template.bind({});
 WithIcon.storyName = `With icon`;
 WithIcon.args = {
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--square'
+    classes: 'nhsd-a-image--square'
   },
   title: {
     p1: '50',
@@ -84,12 +84,12 @@ WithIcon.parameters = {
 export const WithLink = Template.bind({});
 WithLink.storyName = `With link`;
 WithLink.args = {
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--square'
+    classes: 'nhsd-a-image--square'
   },
   title: {
     p1: '50x',
@@ -111,12 +111,12 @@ WithLink.parameters = {
 export const WithLinkAndIcon = Template.bind({});
 WithLinkAndIcon.storyName = `With link and icon`;
 WithLinkAndIcon.args = {
-  figure: {
+  image: {
     sourceSet: [{
       'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-figure--square'
+    classes: 'nhsd-a-image--square'
   },
   title: {
     p1: '50',

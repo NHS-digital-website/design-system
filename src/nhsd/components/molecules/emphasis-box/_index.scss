@@ -12,7 +12,7 @@
 // Component imports
 @use "../../atoms/box";
 @use "../../atoms/button";
-@use "../../atoms/figure";
+@use "../../atoms/image";
 @use "../../atoms/icon";
 @use "../../atoms/link";
 
@@ -36,7 +36,7 @@ $-box-extra-padding: 1.666rem;
     padding: $-box-padding * .8 $-box-padding $-box-padding;
   }
 
-  &__figure-box {
+  &__image-box {
     display: block;
     padding-top: .45rem;
     flex: 0 0 5rem;

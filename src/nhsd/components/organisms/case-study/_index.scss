@@ -11,7 +11,7 @@
 
 // Component imports
 @use "../../atoms/button";
-@use "../../atoms/figure";
+@use "../../atoms/image";
 
 // Private members
 $-root: ".nhsd-o-case-study";
@@ -38,16 +38,16 @@ $-skeleton-height: 41.9%;
     @include nhsd-utils.clamped-text(5);
   }
 
-  .nhsd-a-figure {
+  .nhsd-a-image {
     @include nhsd-spacing.set-responsive("margin-bottom", 3);
   }
 
-  .nhsd-a-figure__picture {
+  .nhsd-a-image__picture {
     border-radius: nhsd-vars.$border-radius;
   }
 
   @include mq($until: s) {
-    .nhsd-a-figure__picture {
+    .nhsd-a-image__picture {
       border-radius: 0;
     }
   }
@@ -67,7 +67,7 @@ $-skeleton-height: 41.9%;
       padding-bottom: $-skeleton-height;
     }
 
-    .nhsd-a-figure {
+    .nhsd-a-image {
       position: absolute;
       z-index: -1;
       top: 0;
@@ -81,7 +81,7 @@ $-skeleton-height: 41.9%;
         transform: translateX($-picture-width - 5.2%);
       }
 
-      .nhsd-a-figure {
+      .nhsd-a-image {
         right: 100% - 5.2%;
       }
 
@@ -132,7 +132,7 @@ $-skeleton-height: 41.9%;
           transform: translateX($-picture-width - 24%);
         }
 
-        .nhsd-a-figure {
+        .nhsd-a-image {
           right: 100% - 24%;
         }
       }
