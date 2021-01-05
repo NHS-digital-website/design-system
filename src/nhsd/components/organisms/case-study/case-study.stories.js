@@ -15,8 +15,44 @@ ${sbConfig.heading.basicRules}
 - **Variants:**
   - Regular (fit within the 12 column grid)
   - Wide (100% wide, no gutters)
+  - With or without the label
+- Picture, title and text are mandatory, otherwise the component will look broken.
 - The width and line clamping of the content box in this component is controlled by the grid token.
-- Picture, title and text are mandatory, otherwise the component will look broken.`;
+- Depending on the width variant, and if the component has a label or not - the heading and body text clamping changes to best use the space available for the content: The heading is clamped to 2 lines, the body text always tries to fill the available space. This solution works to a satisctory degree with the **regular** variant, but the **wide** variant (due to it's fluid behaviour) will always have space underneath the body text.
+
+### Line clamping rules - regular width variant
+
+Heading is always clamped to max. 2 lines.
+
+|Device type|Shorthand|Variant|Body text (max. lines)|
+|---|---|---|---|---|
+|Mobile|**XS**|With label|5|
+|Mobile|**XS**|Without label|5|
+|Tablet|**S**|With label|2|
+|Tablet|**S**|Without label|3|
+|Desktop|**M**|With label|2|
+|Desktop|**M**|Without label|3|
+|Wide|**L**|With label|7|
+|Wide|**L**|Without label|9|
+|Extra Wide|**XL**|With label|11|
+|Extra Wide|**XL**|Without label|12|
+
+### Line clamping rules - wide variant
+
+Heading is always clamped to max. 2 lines.
+
+|Device type|Shorthand|Variant|Heading (max. lines)|Body text (max. lines)|
+|---|---|---|---|---|
+|Mobile|**XS**|With label|5|
+|Mobile|**XS**|Without label|5|
+|Tablet|**S**|With label|4|
+|Tablet|**S**|Without label|5|
+|Desktop|**M**|With label|7|
+|Desktop|**M**|Without label|8|
+|Wide|**L**|With label|9|
+|Wide|**L**|Without label|10|
+|Extra Wide|**XL**|With label|13|
+|Extra Wide|**XL**|Without label|14|`;
 const sourceCode = `// Sass import \n@use "nhsd/components/organisms/case-study";
 
 // HTML`;
@@ -47,7 +83,7 @@ LabComponent.args = {
   button: {
     el: 'a',
     label: 'NHS Digital careers',
-    classes: 'nhsd-!t-margin-bottom-0',
+    classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
     sourceSet: [{
@@ -76,6 +112,31 @@ DefaultComponent.parameters = {
   },
 };
 
+export const NoLabelComponent = Template.bind({});
+NoLabelComponent.storyName = 'No label';
+NoLabelComponent.args = {
+  title: 'NHS Digital Academy (COVID-19 Response) - and a few more lines of title',
+  text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
+  button: {
+    el: 'a',
+    label: 'NHS Digital careers',
+    classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
+  },
+  image: {
+    sourceSet: [{
+      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }],
+    alt: 'Abstract lights',
+  },
+};
+NoLabelComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${NoLabelComponent(NoLabelComponent.args)}`,
+    },
+  },
+};
+
 export const MirroredComponent = Template.bind({});
 MirroredComponent.storyName = 'Mirrored (card on right)';
 MirroredComponent.args = {
@@ -86,7 +147,7 @@ MirroredComponent.args = {
   button: {
     el: 'a',
     label: 'NHS Digital careers',
-    classes: 'nhsd-!t-margin-bottom-0',
+    classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
     sourceSet: [{
@@ -94,7 +155,6 @@ MirroredComponent.args = {
     }],
     alt: 'Abstract lights',
   },
-
 };
 MirroredComponent.parameters = {
   docs: {
@@ -114,7 +174,7 @@ WideComponent.args = {
   button: {
     el: 'a',
     label: 'NHS Digital careers',
-    classes: 'nhsd-!t-margin-bottom-0',
+    classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
     sourceSet: [{
@@ -143,7 +203,7 @@ WideMirroredComponent.args = {
   button: {
     el: 'a',
     label: 'NHS Digital careers',
-    classes: 'nhsd-!t-margin-bottom-0',
+    classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
     sourceSet: [{
@@ -151,12 +211,38 @@ WideMirroredComponent.args = {
     }],
     alt: 'Abstract lights',
   },
-
 };
 WideMirroredComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${WideMirroredComponent(WideMirroredComponent.args)}`,
+    },
+  },
+};
+
+export const WideNoLabelComponent = Template.bind({});
+WideNoLabelComponent.storyName = 'Wide, no label';
+WideNoLabelComponent.args = {
+  wide: true,
+  classes: 'nhsd-o-case-study--no-label',
+  title: 'NHS Digital Academy (COVID-19 Response) - and a few more lines of title',
+  text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
+  button: {
+    el: 'a',
+    label: 'NHS Digital careers',
+    classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
+  },
+  image: {
+    sourceSet: [{
+      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }],
+    alt: 'Abstract lights',
+  },
+};
+WideNoLabelComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${WideNoLabelComponent(WideNoLabelComponent.args)}`,
     },
   },
 };

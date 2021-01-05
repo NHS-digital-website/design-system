@@ -9,6 +9,9 @@
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
+{%- if not params.label -%}
+  {% set classNames = classNames + " nhsd-o-case-study--no-label" %}
+{%- endif -%}
 
 {#- Set grid classes -#}
 {% set gridClassNames = "nhsd-t-grid" %}
@@ -38,7 +41,7 @@
               {%- endif %}
 
               {% if params.text -%}
-              <p class="nhsd-t-body nhsd-!t-margin-bottom-4">{{ params.text }}</p>
+              <p class="nhsd-t-body">{{ params.text }}</p>
               {%- endif %}
 
               {% if params.button -%}
