@@ -42,7 +42,7 @@ export const LabComponent = Template.bind({});
 LabComponent.storyName = 'Lab';
 LabComponent.args = {
   label: 'Case Study',
-  title: 'NHS Digital Academy',
+  title: 'NHS Digital Academy (COVID-19 Response) - and a few more lines of title',
   text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
   button: {
     el: 'a',
@@ -81,7 +81,7 @@ MirroredComponent.storyName = 'Mirrored (card on right)';
 MirroredComponent.args = {
   classes: 'nhsd-o-case-study--mirrored',
   label: 'Case Study',
-  title: 'NHS Digital Academy',
+  title: 'NHS Digital Academy (COVID-19 Response) - and a few more lines of title',
   text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
   button: {
     el: 'a',
@@ -109,7 +109,7 @@ WideComponent.storyName = 'Wide (Unrestricted width)';
 WideComponent.args = {
   wide: true,
   label: 'Case Study',
-  title: 'NHS Digital Academy',
+  title: 'NHS Digital Academy (COVID-19 Response) - and a few more lines of title',
   text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
   button: {
     el: 'a',
@@ -138,7 +138,7 @@ WideMirroredComponent.args = {
   wide: true,
   classes: 'nhsd-o-case-study--mirrored',
   label: 'Case Study',
-  title: 'NHS Digital Academy',
+  title: 'NHS Digital Academy (COVID-19 Response) - and a few more lines of title',
   text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
   button: {
     el: 'a',
