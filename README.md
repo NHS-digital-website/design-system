@@ -1,6 +1,13 @@
 # NHSD Frontend
 Code you need to start building accessible user interfaces for NHSDigital websites and services.
 
+Before you start working with this codebase, please make sure you follow these steps:
+- Read the README for information about everything there is to know about the project and ways of working with the code
+- Stick to the already existing
+    - Folder structure
+    - Naming conventions
+    - Sass module loading and file structuring conventions
+
 ## Project requirements
 
 The project requires EST/ERBIUM version of Node. This isn't firmly policed yet, but to make sure that everyone who works on this codebase uses the same version for consistency and less time spent on debugging "it works on my machine" type issues in the future.
@@ -109,6 +116,10 @@ To make sure the class names in this styling system don't clash existing class n
 Nested atoms (and molecules) are already established components embedded in new higher level components, such as molecules and organisms. Already established, embedded components must be names using their names - for instance the atoms used in the **Card molecule** are called with their own names: `.nhsd-a-button`, `.nhsd-a-link`.
 
 Elements, that not yet have been atomised can be named using BEM style `__` naming convention. For instance - the non-atomised elements in the **Card molecule** are called `.nhsd-m-card__icon`, `.nhsd-m-card__title`, `.nhsd-m-card__text`. This naming must be used until the element reaches a level of reusability, so that it becomes an established atom on its own right - in that case the first naming rule applies. 
+
+### Development gotchas
+
+- The Nunjucks Webpack loader seems to quietly fail when there is an error in a template file, so if the Storybook app seems broken (components missing or the page isn't loading), make sure you check your template file for errors.
 
 ## Tokens
 
