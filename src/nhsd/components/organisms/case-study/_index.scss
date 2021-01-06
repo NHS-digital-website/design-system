@@ -56,7 +56,7 @@ $-skeleton-height: 41.9%;
     }
   }
 
-  @include mq($from: s) {
+  @include mq($from: m) {
     &__content-box {
       z-index: 1;
       width: $-card-width;
@@ -195,7 +195,7 @@ $-skeleton-height: 41.9%;
     }
   }
 
-  @include mq($from: s, $until: l) {
+  @include mq($from: m, $until: l) {
     .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
       #{$-root}__content-box {
         width: 73%;
