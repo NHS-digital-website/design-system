@@ -20,6 +20,10 @@ $-card-width: 33%;
 $-skeleton-height: 41.9%;
 
 #{$-root} {
+  display: block;
+  position: relative;
+  overflow-x: hidden;
+
   &__wrapper {
     display: flex;
     position: relative;
