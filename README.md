@@ -97,6 +97,19 @@ The class name of a component must reflect what atomic level they represent - so
 
 To make sure the class names in this styling system don't clash existing class names in any website project, every class name must be prefixed with `nhsd`.
 
+#### Naming organisms
+
+Some organisms are named and structured in a way that the name and strucure implies an arrangement of instances of the same molecule. The "list" doesn't necessarily mean that we have a semantic list of these molecules, but rather represents the structure and idea of having multiple instances of the same molecule in a similar (column-like) arrangement.
+
+Hopefully this makes sense - but even if it doesn't necesserily - follow this naming and strucuring convention helps us maintaining the code and reuse styling solutions. Sticking to the same conventions also will allow us to rename and restructure the code, as we followed a consistent approach.
+
+**Some "list" organism examples:**
+
+- Card list
+- Graphic block list
+- Nav block list 
+- Image with link list
+
 #### So after the system wide prefix the component class names will look the following:
 
 - **Atoms / Button**: `.nhsd-a-button`

@@ -44,106 +44,145 @@ LabComponent.parameters = {
   },
 };
 
-export const BoxVariant1 = Template.bind({});
-BoxVariant1.storyName = 'White box';
-BoxVariant1.parameters = {
+export const WhiteBox = Template.bind({});
+WhiteBox.storyName = 'Background / White';
+WhiteBox.parameters = {
   backgrounds: {
     default: 'dim',
   },
   docs: {
     source: {
-      code: `${sourceCode}\n${BoxVariant1(BoxVariant1.args)}`,
+      code: `${sourceCode}\n${WhiteBox(WhiteBox.args)}`,
     },
   },
 };
 
-export const BoxVariant0 = Template.bind({});
-BoxVariant0.storyName = 'Light grey box';
-BoxVariant0.args = {
+export const LightGreyBox = Template.bind({});
+LightGreyBox.storyName = 'Background / Light grey';
+LightGreyBox.args = {
   classes: 'nhsd-a-box--bg-light-grey'
 };
-BoxVariant0.parameters = {
+LightGreyBox.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${BoxVariant0(BoxVariant0.args)}`,
+      code: `${sourceCode}\n${LightGreyBox(LightGreyBox.args)}`,
     },
   },
 };
 
-export const BoxVariant2 = Template.bind({});
-BoxVariant2.storyName = 'Dark grey box';
-BoxVariant2.args = {
+export const MidGreyBox = Template.bind({});
+MidGreyBox.storyName = 'Background / Mid grey';
+MidGreyBox.args = {
+  classes: 'nhsd-a-box--bg-mid-grey'
+};
+MidGreyBox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${MidGreyBox(MidGreyBox.args)}`,
+    },
+  },
+};
+
+export const DarkGreyBox = Template.bind({});
+DarkGreyBox.storyName = 'Background / Dark grey';
+DarkGreyBox.args = {
   classes: 'nhsd-a-box--bg-dark-grey'
 };
-BoxVariant2.parameters = {
+DarkGreyBox.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${BoxVariant2(BoxVariant2.args)}`,
+      code: `${sourceCode}\n${DarkGreyBox(DarkGreyBox.args)}`,
     },
   },
 };
 
-export const BoxVariant3 = Template.bind({});
-BoxVariant3.storyName = 'Yellow box';
-BoxVariant3.args = {
+export const BlackBackground = Template.bind({});
+BlackBackground.storyName = 'Background / Black';
+BlackBackground.args = {
+  classes: 'nhsd-a-box--bg-black'
+};
+BlackBackground.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${BlackBackground(BlackBackground.args)}`,
+    },
+  },
+};
+
+export const LightYellowBox = Template.bind({});
+LightYellowBox.storyName = 'Background / Light yellow';
+LightYellowBox.args = {
+  classes: 'nhsd-a-box--bg-light-yellow'
+};
+LightYellowBox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${LightYellowBox(LightYellowBox.args)}`,
+    },
+  },
+};
+
+export const YellowBox = Template.bind({});
+YellowBox.storyName = 'Background / Yellow';
+YellowBox.args = {
   classes: 'nhsd-a-box--bg-yellow'
 };
-BoxVariant3.parameters = {
+YellowBox.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${BoxVariant3(BoxVariant3.args)}`,
+      code: `${sourceCode}\n${YellowBox(YellowBox.args)}`,
     },
   },
 };
 
-export const BoxVariant4 = Template.bind({});
-BoxVariant4.storyName = 'Blue box';
-BoxVariant4.args = {
+export const BlueBox = Template.bind({});
+BlueBox.storyName = 'Background / Blue';
+BlueBox.args = {
   classes: 'nhsd-a-box--bg-blue'
 };
-BoxVariant4.parameters = {
+BlueBox.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${BoxVariant4(BoxVariant4.args)}`,
+      code: `${sourceCode}\n${BlueBox(BlueBox.args)}`,
     },
   },
 };
 
-export const BoxVariant5 = Template.bind({});
-BoxVariant5.storyName = 'White box with yellow outline';
-BoxVariant5.args = {
+export const YellowOutlineBox = Template.bind({});
+YellowOutlineBox.storyName = 'Outline / Yellow';
+YellowOutlineBox.args = {
   classes: 'nhsd-a-box--border-yellow'
 };
-BoxVariant5.parameters = {
+YellowOutlineBox.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${BoxVariant5(BoxVariant5.args)}`,
+      code: `${sourceCode}\n${YellowOutlineBox(YellowOutlineBox.args)}`,
     },
   },
 };
 
-export const BoxVariant6 = Template.bind({});
-BoxVariant6.storyName = 'White box with blue outline';
-BoxVariant6.args = {
+export const BlueOutlineBox = Template.bind({});
+BlueOutlineBox.storyName = 'Outline / Blue';
+BlueOutlineBox.args = {
   classes: 'nhsd-a-box--border-blue'
 };
-BoxVariant6.parameters = {
+BlueOutlineBox.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${BoxVariant6(BoxVariant6.args)}`,
+      code: `${sourceCode}\n${BlueOutlineBox(BlueOutlineBox.args)}`,
     },
   },
 };
 
-export const BoxVariant7 = Template.bind({});
-BoxVariant7.storyName = 'White box with grey outline';
-BoxVariant7.args = {
+export const GreyOutlineBox = Template.bind({});
+GreyOutlineBox.storyName = 'Outline / Grey';
+GreyOutlineBox.args = {
   classes: 'nhsd-a-box--border-grey'
 };
-BoxVariant7.parameters = {
+GreyOutlineBox.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${BoxVariant7(BoxVariant7.args)}`,
+      code: `${sourceCode}\n${GreyOutlineBox(GreyOutlineBox.args)}`,
     },
   },
 };

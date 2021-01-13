@@ -27,20 +27,30 @@ $border-width: .115rem;
   // Background colour variants
   &--bg {
     &-dark-grey,
-    &-blue {
+    &-mid-grey,
+    &-blue,
+    &-black {
       color: nhsd-colours.get("white");
+    }
+
+    &-black {
+      background: nhsd-colours.get("black");
     }
 
     &-dark-grey {
       background: nhsd-colours.get("dark-grey");
     }
 
-    &-blue {
-      background: nhsd-colours.get("accessible-blue");
+    &-mid-grey {
+      background: nhsd-colours.get("mid-grey");
     }
 
     &-light-grey {
       background: nhsd-colours.get("pale-grey-80-tint");
+    }
+
+    &-blue {
+      background: nhsd-colours.get("accessible-blue");
     }
 
     &-yellow {

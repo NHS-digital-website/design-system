@@ -30,7 +30,10 @@
 {%- endif -%}
 
 {%- if params.boxLink -%}
-  {%- set boxLinkClassNames = "nhsd-a-box-link " + params.boxLink.classes -%}
+  {%- set boxLinkClassNames = "nhsd-a-box-link " %}
+  {% if params.boxLink.classes -%}
+  {%- set boxLinkClassNames = boxLinkClassNames + params.boxLink.classes -%}
+  {%- endif %}
 {%- endif -%}
 
 {%- set navBlockId = nhsd_u_uid("nav-block-") -%}
