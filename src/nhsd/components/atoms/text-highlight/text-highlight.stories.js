@@ -47,7 +47,7 @@ LabComponent.parameters = {
 export const TextHighlightDemo1 = () => {
   return TextHighlight({
     content: '/hello/...',
-    classes: 'nhsd-a-text-highlight--bg-dark-grey nhsd-!t-font-family-mono nhsd-!t-font-weight-regular'
+    classes: 'nhsd-a-text-highlight--code'
   });
 };
 TextHighlightDemo1.storyName = 'Code snippet';
