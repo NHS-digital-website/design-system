@@ -47,7 +47,7 @@ Component1.args = {
       title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online',
       date: '30 Sept 2020',
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
         id: 'arrow_right',
       },
     }, {
@@ -60,7 +60,7 @@ Component1.args = {
       title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online, Week Ending 27th September 2020',
       date: '28 Sept 2020',
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
         id: 'arrow_right',
       },
     }, {
@@ -73,7 +73,7 @@ Component1.args = {
       title: 'Maternity Services Monthly Statistics June 2020, experimental statistics',
       date: '24 Sept 2020',
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
         id: 'arrow_right',
       },
     }, {
@@ -86,7 +86,7 @@ Component1.args = {
       title: 'Childhood Vaccination Coverage Statistics - England - 2019-20',
       date: '24 Sept 2020',
       arrowIcon: {
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
+        classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
         id: 'arrow_right',
       },
     }
@@ -474,7 +474,7 @@ for (let i = 0; i < 9; i ++) {
     title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online',
     date: '30 Sept 2020',
     arrowIcon: {
-      classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white nhsd-a-arrow',
+      classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
       id: 'arrow_right',
     },
   });

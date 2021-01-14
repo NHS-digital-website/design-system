@@ -121,7 +121,7 @@ Hopefully this makes sense - but even if it doesn't necesserily - follow this na
 
 - **Background variants:** `&--bg-dark-grey`
 - **Border variants:** `&--border-blue`
-- **Colour (or fill) variants:** `&--c-yellow`
+- **Colour (or fill) variants:** `&--col-yellow`
 - **Light variants:** `&--light` /  `&--dark`
 
 #### Nested atom naming vs. Component element naming
@@ -159,7 +159,7 @@ There are 2 types of tokens based on intended use:
 
 #### Colours (override tokens)
 
-- `.nhsd-!t-colour-white`
+- `.nhsd-!t-col-white`
 - `.nhsd-!t-fill-red`
 - `.nhsd-!t-bg-dark-grey`
 - `.nhsd-!t-border-yellow`

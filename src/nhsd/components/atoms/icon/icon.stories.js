@@ -16,28 +16,28 @@ const storyDescription = `${sbConfig.heading.lab}
   - Icon is always dead in the horizontal and vertical centre of the artboard
   - Fills > strokes
   - Black colour only
-  - When exporting the icon as an SVG, only use the SVG markup inside the \`<svg></svg>\` element
-  - Create macros using well identifyable IDs for every icon. In the UI toolkit there are many helper methods to generate consistent, accessible, clean and nested SVG icons with ease. Check out the icon atom's \`template.njk\` file!
+  - When exporting the icon as an SVG, only use the SVG markup inside the <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">&lt;svg&gt;&lt;/svg&gt;</span> element
+  - Create macros using well identifyable IDs for every icon. In the UI toolkit there are many helper methods to generate consistent, accessible, clean and nested SVG icons with ease. Check out the icon atom's <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">template.njk</span> file!
   - The icon has to proportionally be scaled compared to the other icons
 - Even though the icons are sitting inside a square box, non-square icons (such as a burger menu) can be used with this system - and they can even be nested inside the hexagonal border.
 
 ### Available sizes
 |Size|Class name|Square size|
 |---|---|---|
-|**XXS**|.nhsd-a-icon--size-xxs|12px|
-|**XS**|.nhsd-a-icon--size-xs|16px|
-|**S**|.nhsd-a-icon--size-s|20px|
-|**M**|.nhsd-a-icon--size-m|24px|
-|**L**|.nhsd-a-icon--size-l|48px|
-|**XL**|.nhsd-a-icon--size-xl|128px|
-|**XXL**|.nhsd-a-icon--size-xxl|256px|
+|**XXS**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xxs</span>|12px|
+|**XS**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xs</span>|16px|
+|**S**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-s</span>|20px|
+|**M**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-m</span>|24px|
+|**L**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-l</span>|48px|
+|**XL**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xl</span>|128px|
+|**XXL**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xxl</span>|256px|
 
 ### Supported colours
 |Colour name|Colour|Class name|
 |---|---|---|
-|**White**|<span class="nhsd-!t-bg-white nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-white|
-|**Black**|<span class="nhsd-!t-bg-black nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-black|
-|**Yellow**|<span class="nhsd-!t-bg-yellow nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|.nhsd-a-icon--c-yellow|`;
+|**White**|<span class="nhsd-!t-bg-white nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-white</span>|
+|**Black**|<span class="nhsd-!t-bg-black nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-black</span>|
+|**Yellow**|<span class="nhsd-!t-bg-yellow nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-yellow</span>|`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML`;
 
 // Component defaults
@@ -121,7 +121,7 @@ ComponentVariant2.parameters = {
 
 export const ComponentVariant3 = Template.bind({});
 ComponentVariant3.args = {
-  classes: 'nhsd-a-icon--size-s nhsd-a-icon--c-white',
+  classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white',
   id: 'chart',
 };
 ComponentVariant3.storyName = 'Small sized "chart" icon in white';
@@ -138,7 +138,7 @@ ComponentVariant3.parameters = {
 
 export const ComponentVariant4 = Template.bind({});
 ComponentVariant4.args = {
-  classes: 'nhsd-a-icon--size-l nhsd-a-icon--c-yellow',
+  classes: 'nhsd-a-icon--size-l nhsd-a-icon--col-yellow',
   id: 'search',
   nested: true,
 };

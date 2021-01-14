@@ -46,7 +46,7 @@ $-colours: "black", "white", "yellow";
   }
 
   @each $colour in $-colours {
-    &--c-#{$colour} {
+    &--col-#{$colour} {
       fill: nhsd-colours.get($colour);
     }
   }

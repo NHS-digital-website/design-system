@@ -229,12 +229,12 @@ ComponentVariant5.args = {
     target: '_blank',
   },
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl nhsd-a-icon--c-white nhsd-m-card__icon',
+    classes: 'nhsd-a-icon--size-xxl nhsd-a-icon--col-white nhsd-m-card__icon',
     id: 'chart',
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--c-white',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-white',
     id: 'arrow_right',
   },
   tag: {
@@ -271,12 +271,12 @@ ComponentVariant6.args = {
     href: '#',
   },
   hexIcon: {
-    classes: 'nhsd-a-icon--c-white nhsd-m-card__icon',
+    classes: 'nhsd-a-icon--col-white nhsd-m-card__icon',
     id: 'search',
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--c-white',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-white',
     id: 'arrow_right',
   },
   tag: {
@@ -312,12 +312,12 @@ ComponentVariant9.args = {
     href: '#',
   },
   hexIcon: {
-    classes: 'nhsd-a-icon--c-black nhsd-m-card__icon',
+    classes: 'nhsd-a-icon--col-black nhsd-m-card__icon',
     id: 'x',
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--c-black',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
     id: 'arrow_right',
   },
   tag: {
@@ -386,12 +386,12 @@ ComponentVariant10.args = {
     classes: 'nhsd-a-box-link--focus-orange',
   },
   hexIcon: {
-    classes: 'nhsd-a-icon--c-black nhsd-m-card__icon',
+    classes: 'nhsd-a-icon--col-black nhsd-m-card__icon',
     id: 'arrow_right',
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--c-black',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
     id: 'arrow_right',
   },
   tag: {

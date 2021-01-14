@@ -356,7 +356,7 @@ NoteBox.args = {
   title: `Notes box`,
   text: `You can use the "note" type emphasis box to distinguish some text, but which isn't as important.`,
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl nhsd-m-emphasis-box__colour-red',
+    classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
     nested: true
   },
@@ -384,7 +384,7 @@ ImportantBox.args = {
   title: `Important box`,
   text: `You can use the "important" type emphasis box to draw attention to particularly important content which you don't want users to miss.`,
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl nhsd-m-emphasis-box__colour-red',
+    classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
     nested: true
   },
@@ -413,7 +413,7 @@ WarningBox.args = {
   title: `Warning box`,
   text: `You can use the "warning" type emphasis box for critical updates. This will usually be short-term, as it is a high impact design.`,
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl nhsd-m-emphasis-box__colour-red',
+    classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
     nested: true
   },

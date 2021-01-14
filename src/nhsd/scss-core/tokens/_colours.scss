@@ -57,7 +57,7 @@ $-colours: (
 // =========================================================
 
 @each $colourKey, $colourValue in $-colours {
-  #{$-root}\!t-colour-#{$colourKey} {
+  #{$-root}\!t-col-#{$colourKey} {
     color: $colourValue !important;
   }
 
