@@ -1,0 +1,26 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/grid" as nhsd-grid;
+
+// Component imports
+@use "../../molecules/nav-block";
+
+// Private members
+$-root: ".nhsd-o-nav-block-list";
+
+#{$-root} {
+  display: block;
+  position: relative;
+
+  &__items {
+    [class^="nhsd-t-col"] {
+      padding-bottom: nhsd-grid.$gutter * 2;
+
+      @include mq($until: s) {
+        padding-bottom: nhsd-grid.$small-gutter * 4;
+      }
+    }
+  }
+}

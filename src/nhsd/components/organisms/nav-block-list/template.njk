@@ -1,0 +1,63 @@
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_button_nav,
+  nhsd_m_nav_block
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-nav-block-list" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Set grid classes -#}
+{% set gridClassNames = "nhsd-t-grid" %}
+{%- if params.grid and params.grid.classes -%}
+  {% set gridClassNames = gridClassNames + " " + params.grid.classes %}
+{%- endif -%}
+
+{#- Desktop columns -#}
+{%- set desktopColumns = params.desktopColumns if params.desktopColumns else 2 -%}
+{% if desktopColumns < 1 or desktopColumns > 4 %}
+{%- set desktopColumns = 2 -%}
+{% endif %}
+{%- set centreColumns = params.centreColumns -%}
+
+<div class="{{ classNames }}">
+  <div class="{{ gridClassNames }}">
+
+    {% if params.title -%}
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col">
+        <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7">{{ params.title }}</h2>
+      </div>
+    </div>
+    {% endif -%}
+
+    {% if params.blocks|length -%}
+    <div class="nhsd-t-row nhsd-o-nav-block-list__items nhsd-t-row--centred">
+      {%- set class = "nhsd-t-col-12" -%}
+
+      {%- if desktopColumns == 3 %}
+        {%- set class = "nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-4" -%}
+      {%- elseif desktopColumns == 2 %}
+        {%- set class = "nhsd-t-col-xs-12 nhsd-t-col-s-6" -%}
+      {% endif -%}
+
+      {% for navBlock in params.blocks -%}
+        <div class="{{ class }} {{ extraClass }}">
+          {{ nhsd_m_nav_block(navBlock) }}
+        </div>
+      {% endfor -%}
+    </div>
+    {% endif -%}
+
+    {% if params.buttonNav -%}
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col">
+        {{ nhsd_m_button_nav(params.buttonNav) }}
+      </div>
+    </div>
+    {% endif -%}
+  </div>
+</div>
