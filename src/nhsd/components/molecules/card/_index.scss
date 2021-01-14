@@ -13,6 +13,7 @@
 @use "../../atoms/box";
 @use "../../atoms/box-link";
 @use "../../atoms/button";
+@use "../../atoms/icon";
 @use "../../atoms/image";
 @use "../../atoms/tag";
 
@@ -64,8 +65,7 @@ $box-padding: 1.111rem;
     line-height: 1rem;
   }
 
-  // TODO - Investigate why the atom styling overrides the molecule styling,
-  // so we can drop the specificity
+  // TODO - Not sure why we need this specificity, investigate why the atom overrides the molecule styling
   &__icon.nhsd-a-icon {
     display: block;
     position: absolute;
