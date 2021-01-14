@@ -72,10 +72,12 @@ $-root: ".nhsd-o-hero";
       }
     }
 
-    @include mq($from: s, $until: m) {
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text;
-      }
+    [class^="nhsd-t-heading"] {
+      @include nhsd-utils.clamped-text(3);
+    }
+
+    [class^="nhsd-t-body"] {
+      @include nhsd-utils.clamped-text(7);
     }
 
     #{$-root}__content-box {
@@ -87,12 +89,28 @@ $-root: ".nhsd-o-hero";
       #{$-root}__content-box {
         background: nhsd-colours.get("pale-grey");
       }
+
+      [class^="nhsd-t-heading"] {
+        line-height: 1.1666;
+      }
     }
 
     &--mirrored {
       [class^="nhsd-t-col"] {
         &:first-child {
           order: 1;
+        }
+      }
+    }
+
+    @include mq($from: s) {
+      [class^="nhsd-t-body"] {
+        @include nhsd-utils.clamped-text(3);
+      }
+
+      &--accented {
+        [class^="nhsd-t-body"] {
+          @include nhsd-utils.clamped-text(4);
         }
       }
     }
@@ -120,10 +138,28 @@ $-root: ".nhsd-o-hero";
       }
     }
 
+    @include mq($from: m) {
+      [class^="nhsd-t-body"] {
+        @include nhsd-utils.clamped-text(4);
+      }
+
+      &--accented {
+        [class^="nhsd-t-body"] {
+          @include nhsd-utils.clamped-text(8);
+        }
+      }
+    }
+
     @include mq($from: l) {
       [class^="nhsd-t-heading"],
       [class^="nhsd-t-body"] {
         max-width: 30.5rem;
+      }
+
+      &--accented {
+        [class^="nhsd-t-body"] {
+          @include nhsd-utils.clamped-text(10);
+        }
       }
     }
 
@@ -132,7 +168,10 @@ $-root: ".nhsd-o-hero";
         [class^="nhsd-t-heading"] {
           font-size: 3rem;
           letter-spacing: -.0622rem;
-          line-height: 2.888rem;
+        }
+
+        [class^="nhsd-t-body"] {
+          @include nhsd-utils.clamped-text(12);
         }
       }
     }
