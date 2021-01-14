@@ -25,11 +25,6 @@ $-box-extra-padding: 1.666rem;
 #{$-root} {
   display: block;
   position: relative;
-  min-height: 11.111rem;
-
-  @include mq($until: s) {
-    min-height: 8.333rem;
-  }
 
   .nhsd-a-box {
     display: flex;
