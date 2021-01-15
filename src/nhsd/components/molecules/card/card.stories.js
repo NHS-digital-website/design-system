@@ -219,7 +219,7 @@ ComponentVariant4.parameters = {
 export const ComponentVariant5 = Template.bind({});
 ComponentVariant5.storyName = 'Blue, externally linked card with tag, hexagonal icon and arrow';
 ComponentVariant5.args = {
-  classes: '',
+  classes: 'nhsd-m-card--light-text',
   box: {
     classes: 'nhsd-a-box--bg-blue',
   },
@@ -229,12 +229,12 @@ ComponentVariant5.args = {
     target: '_blank',
   },
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl nhsd-a-icon--col-white nhsd-m-card__icon',
+    classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',
     id: 'chart',
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-white',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
     id: 'arrow_right',
   },
   tag: {
@@ -262,6 +262,7 @@ ComponentVariant5.parameters = {
 export const ComponentVariant6 = Template.bind({});
 ComponentVariant6.storyName = 'Dark grey linked card with hexagonal icon and arrow';
 ComponentVariant6.args = {
+  classes: 'nhsd-m-card--light-text',
   box: {
     classes: 'nhsd-a-box--bg-dark-grey',
   },
@@ -271,12 +272,12 @@ ComponentVariant6.args = {
     href: '#',
   },
   hexIcon: {
-    classes: 'nhsd-a-icon--col-white nhsd-m-card__icon',
+    classes: 'nhsd-m-card__icon',
     id: 'search',
     nested: true
   },
   arrowIcon: {
-    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-white',
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
     id: 'arrow_right',
   },
   tag: {

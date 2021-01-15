@@ -152,4 +152,8 @@ $box-padding: 1.111rem;
       padding-right: $-icon-size;
     }
   }
+
+  &--light-text {
+    @include nhsd-utils.light-text;
+  }
 }

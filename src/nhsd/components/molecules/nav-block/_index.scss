@@ -84,15 +84,6 @@ $-box-padding: 3.333rem;
   }
 
   &--light-text {
-    [class^="nhsd-t-heading"],
-    [class^="nhsd-t-body"] {
-      color: nhsd-colours.get("white");
-    }
-
-    .nhsd-a-icon {
-      & > svg {
-        fill: nhsd-colours.get("white");
-      }
-    }
+    @include nhsd-utils.light-text;
   }
 }
