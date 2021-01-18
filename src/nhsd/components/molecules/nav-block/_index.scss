@@ -54,6 +54,7 @@ $-box-padding: 3.333rem;
 
   .nhsd-a-button {
     margin: 0 auto;
+    pointer-events: none;
     @include nhsd-spacing.set-responsive('margin-top', 5);
   }
 
@@ -80,6 +81,12 @@ $-box-padding: 3.333rem;
 
     &:last-of-type {
       margin-bottom: 0;
+    }
+  }
+
+  &:active {
+    .nhsd-a-button {
+      transform: translateY(button.$active-state-push-down);
     }
   }
 

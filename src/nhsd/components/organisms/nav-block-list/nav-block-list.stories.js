@@ -207,6 +207,7 @@ ThreeInARow.args = {
       },
       boxLink: {
         href: '#',
+        classes: 'nhsd-a-box-link--focus-orange',
       },
       digiblocks: {
         classes: 'nhsd-a-digiblocks--col-yellow nhsd-a-digiblocks--pos-bl',
