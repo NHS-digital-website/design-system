@@ -73,6 +73,18 @@ $-root: ".nhsd-m-graphic-block";
     margin: 0 auto;
   }
 
+  .nhsd-t-heading-xl {
+    @include nhsd-utils.clamped-text(1);
+  }
+
+  .nhsd-t-heading-xs {
+    @include nhsd-utils.clamped-text(2);
+  }
+
+  [class^="nhsd-t-body"] {
+    @include nhsd-utils.clamped-text(3);
+  }
+
   .nhsd-a-icon {
     margin-left: nhsd-spacing.get(1);
   }
