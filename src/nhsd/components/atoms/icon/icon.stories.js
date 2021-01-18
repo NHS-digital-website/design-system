@@ -36,6 +36,7 @@ const storyDescription = `${sbConfig.heading.lab}
 |Colour name|Colour|Class name|
 |---|---|---|
 |**White**|<span class="nhsd-!t-bg-white nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-white</span>|
+|**Dark grey**|<span class="nhsd-!t-bg-dark-grey nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-dark-grey</span>|
 |**Black**|<span class="nhsd-!t-bg-black nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-black</span>|
 |**Yellow**|<span class="nhsd-!t-bg-yellow nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-yellow</span>|`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML`;
@@ -150,6 +151,21 @@ ComponentVariant4.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${ComponentVariant4(ComponentVariant4.args)} `,
+    },
+  },
+};
+
+export const DarkGreyColour = Template.bind({});
+DarkGreyColour.args = {
+  classes: 'nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey',
+  id: 'arrow_right',
+  nested: true,
+};
+DarkGreyColour.storyName = 'Large size, nested "right arrow" icon in dark grey';
+DarkGreyColour.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${DarkGreyColour(DarkGreyColour.args)} `,
     },
   },
 };

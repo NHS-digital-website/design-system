@@ -47,42 +47,59 @@ LabComponent.parameters = {
 
 const Link = Template.bind({});
 
-export const LightLink = Template.bind({});
-LightLink.args = {
+export const WhiteLink = Template.bind({});
+WhiteLink.args = {
   label: 'Click to read more',
-  classes: 'nhsd-a-link--light',
+  classes: 'nhsd-a-link--col-white',
 };
-LightLink.storyName = 'Light link';
-LightLink.parameters = {
+WhiteLink.storyName = 'White link';
+WhiteLink.parameters = {
   backgrounds: {
     default: 'dim',
   },
   docs: {
     description: {
-      story: 'The **light link** should be used on dark backgrounds. (Use the **Canvas** for preview.)',
+      story: 'The **white link** should be used on dark backgrounds. (Use the **Canvas** for preview.)',
     },
     source: {
-      code: `${sourceCode} ${LightLink(LightLink.args)} `,
+      code: `${sourceCode} ${WhiteLink(WhiteLink.args)} `,
     },
   },
 };
 
-export const DarkLink = Template.bind({});
-DarkLink.args = {
+export const DarkGreyLink = Template.bind({});
+DarkGreyLink.args = {
   label: 'Click to read more',
-  classes: 'nhsd-a-link--dark',
+  classes: 'nhsd-a-link--col-dark-grey',
 };
-DarkLink.storyName = 'Dark link';
-DarkLink.parameters = {
+DarkGreyLink.storyName = 'Dark grey link';
+DarkGreyLink.parameters = {
+  docs: {
+    description: {
+      story: `The **dark grey link** should be used on light backgrounds. (Use the **Canvas** for preview.). One good example for a component using this variant is the <a href="/docs/design-system-components-organisms-global-footer--lab-component">Global Footer organism</a>`,
+    },
+    source: {
+      code: `${sourceCode} ${DarkGreyLink(DarkGreyLink.args)} `,
+    },
+  },
+};
+
+export const BlackLink = Template.bind({});
+BlackLink.args = {
+  label: 'Click to read more',
+  classes: 'nhsd-a-link--col-black',
+};
+BlackLink.storyName = 'Black link';
+BlackLink.parameters = {
   backgrounds: {
     default: 'bright',
   },
   docs: {
     description: {
-      story: 'The **dark link** should be used on yellow backgrounds. (Use the **Canvas** for preview.)',
+      story: 'The **black link** should be used on light backgrounds. (Use the **Canvas** for preview.)',
     },
     source: {
-      code: `${sourceCode} ${DarkLink(DarkLink.args)} `,
+      code: `${sourceCode} ${BlackLink(BlackLink.args)} `,
     },
   },
 };

@@ -1,0 +1,56 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/icon";
+
+// Private members
+$-root: ".nhsd-o-global-footer";
+
+#{$-root} {
+  display: block;
+  position: relative;
+  @include nhsd-spacing.set-responsive("padding-top", 5);
+  @include nhsd-spacing.set-responsive("padding-bottom", 3);
+  color: nhsd-colours.get("dark-grey");
+  background: nhsd-colours.get("pale-grey-40-tint");
+
+  [class^="nhsd-t-heading"] {
+    color: nhsd-colours.get("dark-grey");
+  }
+
+  .nhsd-a-icon {
+    top: .4rem;
+  }
+
+  @include mq($until: s) {
+    .nhsd-t-grid {
+      .nhsd-t-grid {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .nhsd-t-col-12 {
+    [class^="nhsd-t-col"] {
+      @include mq($until: s) {
+        &:not(:last-child) {
+          @include nhsd-spacing.set-responsive("margin-bottom", 3);
+        }
+      }
+
+      @include mq($from: s, $until: l) {
+        &:nth-child(-n + 2) {
+          @include nhsd-spacing.set-responsive("margin-bottom", 3);
+        }
+      }
+    }
+  }
+}

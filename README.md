@@ -122,7 +122,6 @@ Hopefully this makes sense - but even if it doesn't necesserily - follow this na
 - **Background variants:** `&--bg-dark-grey`
 - **Border variants:** `&--border-blue`
 - **Colour (or fill) variants:** `&--col-yellow`
-- **Light variants:** `&--light` /  `&--dark`
 
 #### Nested atom naming vs. Component element naming
 
@@ -133,6 +132,10 @@ Elements, that not yet have been atomised can be named using BEM style `__` nami
 ### Development gotchas
 
 - The Nunjucks Webpack loader seems to quietly fail when there is an error in a template file, so if the Storybook app seems broken (components missing or the page isn't loading), make sure you check your template file for errors.
+
+## Keeping the UI toolkit up to date
+
+- It is the UI developer's responsibility to keep the NPM packages (including Storybook) up to date.
 
 ## Tokens
 

@@ -11,10 +11,6 @@
 
 // Private members
 $-root: ".nhsd-a-link";
-$-base-colour: nhsd-colours.get("blue");
-$-invert-colour: nhsd-colours.get("white");
-$-active-colour: nhsd-colours.get("black");
-$-highlight-colour: nhsd-colours.get("yellow");
 $-base-line-thickness: 1px;
 $-active-line-thickness: 3px;
 
@@ -31,59 +27,79 @@ $-active-line-thickness: 3px;
 
   &,
   &:visited {
-    border-bottom: $-base-line-thickness solid $-base-colour;
-    color: $-base-colour;
+    border-bottom: $-base-line-thickness solid nhsd-colours.get("blue");
+    color: nhsd-colours.get("blue");
   }
 
   &:focus,
   &:hover {
     padding-bottom: 0;
-    border-bottom: $-active-line-thickness solid $-active-colour;
+    border-bottom: $-active-line-thickness solid nhsd-colours.get("black");
     outline: none;
-    color: $-active-colour;
-    background-color: $-highlight-colour;
+    color: nhsd-colours.get("black");
+    background-color: nhsd-colours.get("yellow");
   }
 
   &:active {
     border-bottom: $-active-line-thickness solid transparent;
-    color: $-base-colour;
+    color: nhsd-colours.get("blue");
     background-color: transparent;
   }
 
-  &--light {
+  &--col-white {
     &,
     &:visited {
-      border-bottom: $-base-line-thickness solid $-invert-colour;
-      color: $-invert-colour;
+      border-bottom: $-base-line-thickness solid nhsd-colours.get("white");
+      color: nhsd-colours.get("white");
     }
 
     &:focus,
     &:hover {
-      color: $-active-colour;
+      color: nhsd-colours.get("black");
     }
 
     &:active {
-      color: $-invert-colour;
+      color: nhsd-colours.get("black");
     }
   }
 
-  &--dark {
+  &--col-black {
     &,
     &:visited {
-      border-bottom: $-base-line-thickness solid $-active-colour;
-      color: $-active-colour;
+      border-bottom: $-base-line-thickness solid nhsd-colours.get("black");
+      color: nhsd-colours.get("black");
     }
 
     &:focus,
     &:hover {
-      border-bottom: $-active-line-thickness solid $-invert-colour;
-      color: $-invert-colour;
-      background-color: $-active-colour;
+      border-bottom: $-active-line-thickness solid nhsd-colours.get("white");
+      color: nhsd-colours.get("white");
+      background-color: nhsd-colours.get("black");
     }
 
     &:active {
       border-bottom: $-active-line-thickness solid transparent;
-      color: $-active-colour;
+      color: nhsd-colours.get("black");
+    }
+  }
+
+  &--col-dark-grey {
+    &,
+    &:visited {
+      border-bottom: $-base-line-thickness solid nhsd-colours.get("dark-grey");
+      color: nhsd-colours.get("dark-grey");
+    }
+
+    &:focus,
+    &:hover {
+      border-bottom: $-active-line-thickness solid nhsd-colours.get("black");
+      color: nhsd-colours.get("black");
+      background-color: nhsd-colours.get("yellow");
+    }
+
+    &:active {
+      border-bottom: $-active-line-thickness solid transparent;
+      color: nhsd-colours.get("black");
     }
   }
 }
