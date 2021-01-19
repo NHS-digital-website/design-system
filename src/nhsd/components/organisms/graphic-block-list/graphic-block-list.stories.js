@@ -59,7 +59,7 @@ ComponentVariant1.args = {
       },
       title: {
         p1: '12.2%',
-        p2: 'Increase in triaged calls',
+        p2: 'Compellingly streamline front-end relationships via progressive manufactured products. Progressively incentivize superior value and stand-alone best practices.',
       },
       text: 'In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services.',
     },
@@ -202,7 +202,7 @@ ComponentVariant3.args = {
       },
       title: {
         p1: '50x',
-        p2: 'Increase in 111 Online access',
+        p2: 'Increase in 111 Online access Increase in 111 Online access Increase in 111 Online access Increase in 111 Online access Increase in 111 Online access Increase in 111 Online access Increase in 111 Online access Increase in 111 Online access',
       },
       text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
       link: {
@@ -219,9 +219,9 @@ ComponentVariant3.args = {
       },
       title: {
         p1: '12.2%',
-        p2: 'Increase in triaged calls',
+        p2: 'Compellingly streamline front-end relationships via progressive manufactured products. Progressively incentivize superior value and stand-alone best practices.',
       },
-      text: 'In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services.',
+      text: 'In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services. In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services. In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services.',
       link: {
         href: '#',
       },

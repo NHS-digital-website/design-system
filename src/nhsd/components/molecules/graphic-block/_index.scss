@@ -22,7 +22,7 @@ $-root: ".nhsd-m-graphic-block";
   }
 
   .nhsd-a-link {
-    display: inline-block;
+    display: block;
 
     &,
     &:visited {
@@ -39,6 +39,9 @@ $-root: ".nhsd-m-graphic-block";
 
     &:focus,
     &:hover {
+      // Stop the "jumping" on Safari in mobile view
+      margin-bottom: 11px;
+
       [class^="nhsd-t-heading"] {
         color: inherit;
       }
@@ -60,12 +63,8 @@ $-root: ".nhsd-m-graphic-block";
   }
 
   &__heading {
-    max-width: 100%;
-    margin-bottom: nhsd-spacing.get(2);
-
-    &:not(.nhsd-a-link) {
-      padding-bottom: 3px;
-    }
+    display: block;
+    margin: 0 auto nhsd-spacing.get(2);
   }
 
   [class^="nhsd-t-heading"],
@@ -91,7 +90,8 @@ $-root: ".nhsd-m-graphic-block";
 
   @include mq($from: 30em, $until: s) {
     &__picture,
-    [class^="nhsd-t-heading"],
+    .nhsd-a-link,
+    &__heading:not(.nhsd-a-link),
     [class^="nhsd-t-body"] {
       max-width: 70%;
     }
