@@ -60,7 +60,7 @@ TwoInARow.args = {
         classes: 'nhsd-a-box--bg-dark-grey',
       },
       title: 'Search data and publications',
-      text: 'We collect, process and publish data and information gathered from across the health and social care system in England.',
+      text: 'We collect, process and publish data and information gathered from across the health and social care system in England. Appropriately actualize pandemic results and functionalized process improvements. Enthusiastically administrate installed base alignments whereas B2C total linkage.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
         id: 'search',

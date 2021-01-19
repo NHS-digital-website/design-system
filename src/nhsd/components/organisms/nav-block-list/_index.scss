@@ -23,4 +23,12 @@ $-root: ".nhsd-o-nav-block-list";
       }
     }
   }
+
+  .nhsd-m-nav-block {
+    &,
+    .nhsd-a-box {
+      display: flex;
+      height: 100%;
+    }
+  }
 }
