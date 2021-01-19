@@ -18,23 +18,22 @@
     </div>
   {%- endif %}
 
-  {% if hasLink -%}
-  <a href="{{ params.link.href }}" class="nhsd-a-link nhsd-m-graphic-block__heading">
-  {% else %}
   <div class="nhsd-m-graphic-block__heading">
-  {%- endif %}
-  <span class="nhsd-t-heading-xl nhsd-!t-margin-bottom-0">
-    {{ params.title.p1|safe }}
-    {%- if params.icon -%}
-    {{ nhsd_a_icon(params.icon) }}
-    {%- endif -%}
-  </span>
-  <span class="nhsd-t-heading-xs">{{ params.title.p2|safe }}</span>
-  {% if hasLink -%}
-  </a>
-  {% else %}
+    <span class="nhsd-t-heading-xl nhsd-!t-margin-bottom-0">
+      {{ params.title.p1|safe }}
+      {%- if params.icon -%}
+      {{ nhsd_a_icon(params.icon) }}
+      {%- endif -%}
+    </span>
+    <span class="nhsd-t-heading-xs">{{ params.title.p2|safe }}</span>
   </div>
-  {%- endif %}
 
   <p class="nhsd-t-body-s">{{ params.text|safe }}</p>
+  {% if hasLink -%}
+  <div class="nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3">
+    <a class="nhsd-a-link" href="{{ params.link.href }}">
+      <span class="nhsd-a-link__label nhsd-t-body-s">{{ params.link.label }}</span>
+    </a>
+  </div>
+  {%- endif %}
 </div>

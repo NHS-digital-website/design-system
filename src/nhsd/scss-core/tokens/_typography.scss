@@ -32,7 +32,7 @@ $-root: ".nhsd-t";
   @extend %-typo-base;
 
   margin: 0 auto nhsd-spacing.get(3);
-  color: nhsd-colours.get("dark-grey");
+  // color: nhsd-colours.get("dark-grey");
   font-size: 1rem;
   letter-spacing: -.01666rem;
   line-height: 1.38889;

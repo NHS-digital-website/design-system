@@ -207,6 +207,7 @@ ComponentVariant3.args = {
       text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
       link: {
         href: '#',
+        label: 'Access the service now',
       },
     },
     {
@@ -224,6 +225,7 @@ ComponentVariant3.args = {
       text: 'In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services. In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services. In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services.',
       link: {
         href: '#',
+        label: 'Click the link for goodies',
       },
     },
     {
@@ -241,6 +243,7 @@ ComponentVariant3.args = {
       text: 'We’re now supporting twice as many patients through access to digital healthcare advice and services.',
       link: {
         href: '#',
+        label: 'Check out the NHS app',
       },
     },
     {
@@ -258,6 +261,7 @@ ComponentVariant3.args = {
       text: 'We’re helping more people than ever save time and access services quickly through a single NHS login.',
       link: {
         href: '#',
+        label: 'Log in to your NHS account here',
       },
     },
   ]
@@ -289,6 +293,7 @@ ComponentVariant4.args = {
       text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
       link: {
         href: '#',
+        label: 'Access the service now',
       },
       icon: {
         id: 'chart',
@@ -310,6 +315,7 @@ ComponentVariant4.args = {
       text: 'In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services.',
       link: {
         href: '#',
+        label: 'Click the link for goodies',
       },
       icon: {
         id: 'arrow_right',
@@ -331,6 +337,7 @@ ComponentVariant4.args = {
       text: 'We’re now supporting twice as many patients through access to digital healthcare advice and services.',
       link: {
         href: '#',
+        label: 'Check out the NHS app',
       },
       icon: {
         id: 'search',
@@ -352,6 +359,7 @@ ComponentVariant4.args = {
       text: 'We’re helping more people than ever save time and access services quickly through a single NHS login.',
       link: {
         href: '#',
+        label: 'Log in to your NHS account here',
       },
       icon: {
         id: 'x',

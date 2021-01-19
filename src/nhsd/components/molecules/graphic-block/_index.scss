@@ -21,49 +21,7 @@ $-root: ".nhsd-m-graphic-block";
     margin: 0 auto nhsd-spacing.get(3);
   }
 
-  .nhsd-a-link {
-    display: block;
-
-    &,
-    &:visited {
-      [class^="nhsd-t-heading"] {
-        color: nhsd-colours.get("blue");
-      }
-
-      .nhsd-a-icon {
-        svg {
-          fill: nhsd-colours.get("blue");
-        }
-      }
-    }
-
-    &:focus,
-    &:hover {
-      // Stop the "jumping" on Safari in mobile view
-      margin-bottom: 11px;
-
-      [class^="nhsd-t-heading"] {
-        color: inherit;
-      }
-
-      .nhsd-a-icon {
-        svg {
-          fill: nhsd-colours.get("black");
-        }
-      }
-    }
-
-    &:active {
-      .nhsd-a-icon {
-        svg {
-          fill: nhsd-colours.get("blue");
-        }
-      }
-    }
-  }
-
   &__heading {
-    display: block;
     margin: 0 auto nhsd-spacing.get(2);
   }
 
@@ -90,8 +48,7 @@ $-root: ".nhsd-m-graphic-block";
 
   @include mq($from: 30em, $until: s) {
     &__picture,
-    .nhsd-a-link,
-    &__heading:not(.nhsd-a-link),
+    &__heading,
     [class^="nhsd-t-body"] {
       max-width: 70%;
     }
