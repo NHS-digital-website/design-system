@@ -223,10 +223,6 @@ ComponentVariant3.args = {
         p2: 'Compellingly streamline front-end relationships via progressive manufactured products. Progressively incentivize superior value and stand-alone best practices.',
       },
       text: 'In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services. In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services. In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services.',
-      link: {
-        href: '#',
-        label: 'Click the link for goodies',
-      },
     },
     {
       image: {
