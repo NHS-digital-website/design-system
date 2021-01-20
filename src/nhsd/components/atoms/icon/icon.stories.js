@@ -62,7 +62,11 @@ export default {
           'chart',
           'search',
           'x',
-          'burger'
+          'burger',
+          'youtube',
+          'twitter',
+          'linkedin',
+          'facebook',
         ],
       },
       description: 'Each icon has a unique identifier. Use it to change the visual appearance of the icon.'

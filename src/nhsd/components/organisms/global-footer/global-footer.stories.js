@@ -111,8 +111,9 @@ LabComponent.args = {
       label: 'LinkedIn',
       external: true,
       icon: {
-        id: 'search',
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-dark-grey',
+        id: 'linkedin',
+        classes: 'nhsd-a-icon--size-m nhsd-a-icon--col-dark-grey',
+        nested: true,
       },
     }, {
       classes: 'nhsd-a-link--col-dark-grey',
@@ -120,8 +121,9 @@ LabComponent.args = {
       label: 'Twitter',
       external: true,
       icon: {
-        id: 'search',
-        classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-dark-grey',
+        id: 'twitter',
+        classes: 'nhsd-a-icon--size-m nhsd-a-icon--col-dark-grey',
+        nested: true,
       },
     }],
   }],
