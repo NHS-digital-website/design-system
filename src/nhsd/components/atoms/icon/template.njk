@@ -85,22 +85,28 @@
 
 {#- Master template -#}
 <span class="{{ classNames }}">
-  {% if params.nested -%}
-  <svg {{ common_svg_attr() }}>
-    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+    {% if params.nested -%}
+    <svg {{ common_svg_attr() }}>
+      <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
     {% endif -%}
 
-    {%- if params.id == "arrow_right" -%}{{ i_arrow_right(nested = params.nested) }}{%- endif -%}
-    {%- if params.id == "burger" -%}{{ i_burger(nested = params.nested) }}{%- endif -%}
-    {%- if params.id == "chart" -%}{{ i_chart(nested = params.nested) }}{%- endif -%}
-    {%- if params.id == "search" -%}{{ i_search(nested = params.nested) }}{%- endif -%}
-    {%- if params.id == "x" -%}{{ i_x(nested = params.nested) }}{%- endif -%}
-    {%- if params.id == "facebook" -%}{{ i_facebook(nested = params.nested) }}{%- endif -%}
-    {%- if params.id == "linkedin" -%}{{ i_linkedin(nested = params.nested) }}{%- endif -%}
-    {%- if params.id == "twitter" -%}{{ i_twitter(nested = params.nested) }}{%- endif -%}
-    {%- if params.id == "youtube" -%}{{ i_youtube(nested = params.nested) }}{%- endif -%}
+    {% if params.id -%}
+      {%- if params.id == "arrow_right" -%}{{ i_arrow_right(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "burger" -%}{{ i_burger(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "chart" -%}{{ i_chart(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "search" -%}{{ i_search(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "x" -%}{{ i_x(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "facebook" -%}{{ i_facebook(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "linkedin" -%}{{ i_linkedin(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "twitter" -%}{{ i_twitter(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "youtube" -%}{{ i_youtube(nested = params.nested) }}{%- endif -%}
+    {%- endif %}
 
-  {% if params.nested %}
-  </svg>
+    {% if params.nested %}
+    </svg>
+    {%- endif %}
+
+  {% if params.source -%}
+    <img src="{{ params.source }}" alt="icon" aria-hidden="true" focusable="false" />
   {%- endif %}
 </span>

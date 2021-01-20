@@ -38,7 +38,11 @@ const storyDescription = `${sbConfig.heading.lab}
 |**White**|<span class="nhsd-!t-bg-white nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-white</span>|
 |**Dark grey**|<span class="nhsd-!t-bg-dark-grey nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-dark-grey</span>|
 |**Black**|<span class="nhsd-!t-bg-black nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-black</span>|
-|**Yellow**|<span class="nhsd-!t-bg-yellow nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-yellow</span>|`;
+|**Yellow**|<span class="nhsd-!t-bg-yellow nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-yellow</span>|
+
+### Using external images
+
+The icon atom support external images (either SVG or PNG) - with or without nesting. The caveat of using external images is that we cannot colour them from CSS.`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML`;
 
 // Component defaults
@@ -170,6 +174,35 @@ DarkGreyColour.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${DarkGreyColour(DarkGreyColour.args)} `,
+    },
+  },
+};
+
+export const ExternalImage = Template.bind({});
+ExternalImage.args = {
+  classes: 'nhsd-a-icon--size-xxl',
+  source: 'https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/compass.svg?colour=005eb8',
+};
+ExternalImage.storyName = 'External image source';
+ExternalImage.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ExternalImage(ExternalImage.args)} `,
+    },
+  },
+};
+
+export const ExternalImageNested = Template.bind({});
+ExternalImageNested.args = {
+  classes: 'nhsd-a-icon--size-xl',
+  source: 'https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/clinical/genes.svg',
+  nested: true,
+};
+ExternalImageNested.storyName = 'External image source / nested';
+ExternalImageNested.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ExternalImageNested(ExternalImageNested.args)} `,
     },
   },
 };
