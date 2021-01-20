@@ -112,7 +112,7 @@ LabComponent.args = {
       external: true,
       icon: {
         id: 'linkedin',
-        classes: 'nhsd-a-icon--size-m nhsd-a-icon--col-dark-grey',
+        classes: 'nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey',
         nested: true,
       },
     }, {
@@ -122,7 +122,7 @@ LabComponent.args = {
       external: true,
       icon: {
         id: 'twitter',
-        classes: 'nhsd-a-icon--size-m nhsd-a-icon--col-dark-grey',
+        classes: 'nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey',
         nested: true,
       },
     }],
