@@ -98,6 +98,7 @@ WithLink.args = {
   text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
   link: {
     href: '#',
+    label: 'Read more about 111 Online access',
   },
 };
 WithLink.parameters = {
@@ -129,6 +130,7 @@ WithLinkAndIcon.args = {
   },
   link: {
     href: '#',
+    label: 'Read more about 111 Online access',
   },
 };
 WithLinkAndIcon.parameters = {
