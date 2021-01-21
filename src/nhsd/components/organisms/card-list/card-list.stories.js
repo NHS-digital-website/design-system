@@ -455,7 +455,7 @@ Component6.parameters = {
         grid: {
           classes: 'nhsd-t-grid--full-width',
         },
-      })}.innerHTML}`,
+      })}`,
     },
   },
 };
