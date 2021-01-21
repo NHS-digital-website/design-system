@@ -11,37 +11,35 @@
 
 // Private members
 $-root: ".nhsd-a-link";
-$-base-line-thickness: 1px;
-$-active-line-thickness: 3px;
 
 #{$-root} {
   @include nhsd-utils.box-sizing;
   @include nhsd-fonts.font-family;
 
   position: relative;
-  padding-top: 4px;
-  padding-bottom: 3px;
+  padding-top: calc(#{vars.$base-line-thickness} + #{vars.$active-line-thickness});
+  padding-bottom: vars.$active-line-thickness;
   text-decoration: none;
   transition-property: background-color, color;
   transition-duration: nhsd-transition.$transition-duration;
 
   &,
   &:visited {
-    border-bottom: $-base-line-thickness solid nhsd-colours.get("blue");
+    border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
     color: nhsd-colours.get("blue");
   }
 
   &:focus,
   &:hover {
     padding-bottom: 0;
-    border-bottom: $-active-line-thickness solid nhsd-colours.get("black");
+    border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
     outline: none;
     color: nhsd-colours.get("black");
     background-color: nhsd-colours.get("yellow");
   }
 
   &:active {
-    border-bottom: $-active-line-thickness solid transparent;
+    border-bottom: vars.$active-line-thickness solid transparent;
     color: nhsd-colours.get("blue");
     background-color: transparent;
   }
@@ -49,7 +47,7 @@ $-active-line-thickness: 3px;
   &--col-white {
     &,
     &:visited {
-      border-bottom: $-base-line-thickness solid nhsd-colours.get("white");
+      border-bottom: vars.$base-line-thickness solid nhsd-colours.get("white");
       color: nhsd-colours.get("white");
     }
 
@@ -66,19 +64,19 @@ $-active-line-thickness: 3px;
   &--col-black {
     &,
     &:visited {
-      border-bottom: $-base-line-thickness solid nhsd-colours.get("black");
+      border-bottom: vars.$base-line-thickness solid nhsd-colours.get("black");
       color: nhsd-colours.get("black");
     }
 
     &:focus,
     &:hover {
-      border-bottom: $-active-line-thickness solid nhsd-colours.get("white");
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("white");
       color: nhsd-colours.get("white");
       background-color: nhsd-colours.get("black");
     }
 
     &:active {
-      border-bottom: $-active-line-thickness solid transparent;
+      border-bottom: vars.$active-line-thickness solid transparent;
       color: nhsd-colours.get("black");
     }
   }
@@ -86,19 +84,19 @@ $-active-line-thickness: 3px;
   &--col-dark-grey {
     &,
     &:visited {
-      border-bottom: $-base-line-thickness solid nhsd-colours.get("dark-grey");
+      border-bottom: vars.$base-line-thickness solid nhsd-colours.get("dark-grey");
       color: nhsd-colours.get("dark-grey");
     }
 
     &:focus,
     &:hover {
-      border-bottom: $-active-line-thickness solid nhsd-colours.get("black");
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
       color: nhsd-colours.get("black");
       background-color: nhsd-colours.get("yellow");
     }
 
     &:active {
-      border-bottom: $-active-line-thickness solid transparent;
+      border-bottom: vars.$active-line-thickness solid transparent;
       color: nhsd-colours.get("black");
     }
   }

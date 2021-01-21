@@ -161,7 +161,7 @@ rules:
     - cursor
     - -webkit-appearance
   function-url-scheme-allowed-list: ["data", "/^http/"]
-  max-nesting-depth: 4
+  max-nesting-depth: 6
   value-keyword-case:
     - lower
     - ignoreFunctions: [""]

@@ -1,0 +1,156 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/form" as nhsd-form;
+@use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/horizontal-rule";
+@use "../../molecules/button-nav";
+@use "../../molecules/logo-link";
+
+// Private members
+$-root: ".nhsd-o-global-header";
+
+@mixin visible-fullscreen-content($parent) {
+  #{$parent} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 9rem 0 2rem;
+    overflow: scroll;
+  }
+
+  #{$parent}-background {
+    display: block;
+  }
+
+  #{$parent}-content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 36rem;
+  }
+
+  #{$parent}-close-button {
+    display: inline-flex;
+  }
+}
+
+#{$-root} {
+  display: block;
+  position: relative;
+  z-index: 10000;
+
+  &__background {
+    display: block;
+    position: absolute;
+    z-index: 15;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: nhsd-colours.get("white");
+  }
+
+  &__content-box {
+    display: flex;
+    position: relative;
+    padding: 1rem 0 calc(1rem - 4px);
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nhsd-m-button-nav {
+    display: inline-block;
+    position: relative;
+    z-index: 20;
+  }
+
+  .nhsd-a-horizontal-rule,
+  &__logo {
+    position: relative;
+    z-index: 20;
+  }
+
+  &__menu,
+  &__search {
+    text-align: center;
+
+    &-background {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: nhsd-colours.get("white");
+    }
+
+    &-content-box {
+      display: flex;
+    }
+
+    &-close-button {
+      display: none;
+      position: relative;
+      margin: 0 calc(#{nhsd-spacing.get(7)} - .3rem) nhsd-spacing.get(6) 0;
+    }
+  }
+
+  &__menu {
+    z-index: 15;
+  }
+
+  &__search {
+    display: none;
+    z-index: 5;
+  }
+
+  @include mq($from: m) {
+    #{$-root}__menu-button {
+      display: none;
+    }
+  }
+
+  &.js-search-active {
+    @include visible-fullscreen-content(#{$-root}__search);
+  }
+
+  &.js-menu-active {
+    @include visible-fullscreen-content(#{$-root}__menu);
+
+    #{$-root}__menu {
+      z-index: 10;
+    }
+  }
+}
+
+// stylelint-disable selector-no-qualifying-type
+html.nhsd-no-js {
+  #{$-root}__menu-button {
+    display: none;
+  }
+}
+// stylelint-enable selector-no-qualifying-type
+
+@include mq($until: m) {
+  html:not(.nhsd-no-js) {
+    #{$-root}:not(.js-menu-active) {
+      #{$-root}__menu {
+        display: none;
+      }
+    }
+  }
+}

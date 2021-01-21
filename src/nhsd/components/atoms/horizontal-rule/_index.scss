@@ -7,6 +7,8 @@
 $-root: ".nhsd-a-horizontal-rule";
 
 #{$-root} {
+  display: block;
+  width: 100%;
   @include nhsd-utils.box-sizing;
 
   border: 0;

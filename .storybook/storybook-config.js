@@ -11,6 +11,7 @@ module.exports = {
     utils: "Utils",
     typography: "Typography",
     gridSystem: "Grid system",
+    forms: "Forms",
     colours: "Colours",
     spacing: "Spacing",
     lab: "Lab",

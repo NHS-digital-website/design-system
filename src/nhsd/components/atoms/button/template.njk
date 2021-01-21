@@ -1,19 +1,55 @@
+{#- For some reason if the shared macro is used, the molecule
+template rendering blows up Storybook :/ -#}
+{% macro nhsd_a_icon(params) -%}
+  {% include "../icon/template.njk" %}
+{%- endmacro %}
+
+{% macro contents(params) -%}
+  {% if label and params.icon and mirrored -%}
+  {{ nhsd_a_icon(params.icon) }}
+  <span class="nhsd-a-button__label">{{ label }}</span>
+  {% else %}
+  {% if label -%}<span class="nhsd-a-button__label">{{ label }}</span>{%- endif %}
+  {% if params.icon -%}{{ nhsd_a_icon(params.icon) }}{%- endif %}
+  {%- endif %}
+{%- endmacro %}
+
 {#- Set classes -#}
 {%- set classNames = "nhsd-a-button" -%}
 {%- if params.classes -%}
-  {% set classNames = classNames + " " + params.classes %}
+  {%- set classNames = classNames + " " + params.classes -%}
 {%- endif -%}
 {%- if params.disabled -%}
-  {% set classNames = classNames + " nhsd-a-button--disabled" %}
+  {%- set classNames = classNames + " nhsd-a-button--disabled" -%}
+{%- endif -%}
+
+{#- Set type -#}
+{%- set type = params.type -%}
+{%- if not type -%}
+  {%- if params.el != "a" and params.el != "span" and params.el != "input" -%}
+    {%- set type = "button" -%}
+  {%- elseif params.el == "input" -%}
+    {%- set type = "submit" -%}
+  {%- endif -%}
 {%- endif -%}
 
 {#- Define common attributes that we can use across all element types #}
-{%- set commonAttributes %} class="{{ classNames }}" {%- if params.id %}id="{{ params.id }}"{% endif -%} {% endset %}
+{%- set commonAttributes %} class="{{ classNames }}" {%- if params.id %}id="{{ params.id }}"{% endif -%} {%- if type %} type="{{ type }}"{% endif -%} {% endset -%}
+
+{#- Define ARIA attributes that we can use across all element types #}
+{%- set ariaAttributes %} {%- if params.aria %} {% for prop, val in params.aria %}aria-{{ prop }}="{{ val }}"{% endfor %}{% endif -%}{% endset -%}
+
 
 {#- Set label -#}
-{%- set label = "Simple button" -%}
+{%- set label = "" -%}
 {%- if params.label -%}
-  {% set label = params.label %}
+  {%- set label = params.label -%}
+{%- endif -%}
+
+{#- Set mirrored -#}
+{%- set mirrored = false -%}
+{%- if params.mirrored -%}
+  {%- set mirrored = params.mirrored -%}
 {%- endif -%}
 
 {%- if params.el == 'a' %}
@@ -26,18 +62,18 @@
   {%- if params.target and params.target == '_blank' -%}
     {%- set target = params.target -%}
   {%- endif -%}
-<a {{- commonAttributes | safe }} href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external"{% endif -%}>
-  <span class="nhsd-a-button__label">{{ label }}</span>
+<a {{- commonAttributes | safe }} {{- ariaAttributes | safe }} href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external"{% endif -%}>
+  {{ contents(params) }}
   {% if target.length %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif %}
 </a>
 {%- elseif params.el == 'input' -%}
-<input {{- commonAttributes | safe }} type="submit" value="{{ label }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}/>
+<input {{- commonAttributes | safe }} {{- ariaAttributes | safe }} value="{{ label }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%} />
 {%- elseif params.el == 'span' -%}
-<span {{- commonAttributes | safe }}>
-  <span class="nhsd-a-button__label">{{ label }}</span>
+<span {{- commonAttributes | safe }} {{- ariaAttributes | safe }}>
+  {{ contents(params) }}
 </span>
 {%- else -%}
-<button {{- commonAttributes | safe }} type="button" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}>
-  <span class="nhsd-a-button__label">{{ label }}</span>
+<button {{- commonAttributes | safe }} {{- ariaAttributes | safe }} {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}>
+  {{ contents(params) }}
 </button>
 {%- endif -%}

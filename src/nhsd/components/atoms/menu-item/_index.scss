@@ -1,0 +1,77 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/fonts" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Private members
+$-root: ".nhsd-a-menu-item";
+
+#{$-root} {
+  @include nhsd-utils.box-sizing;
+  @include nhsd-fonts.font-family;
+
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  padding: nhsd-spacing.get(1) nhsd-spacing.get(2);
+  transition-property: background-color, color, box-shadow;
+  transition-duration: nhsd-transition.$transition-duration;
+
+  &:not(:first-child) {
+    margin-left: nhsd-spacing.get(3);
+  }
+
+  &,
+  &:visited {
+    color: nhsd-colours.get("dark-grey");
+    text-decoration: none;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -1 * vars.$active-line-thickness;
+      left: 0;
+      width: 100%;
+      border-bottom: vars.$active-line-thickness solid transparent;
+    }
+  }
+
+  .nhsd-a-icon {
+    display: none;
+  }
+
+  &.js-active:focus,
+  &:focus {
+    color: nhsd-colours.get("black");
+    background: nhsd-colours.get("yellow");
+
+    &:after {
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+    }
+  }
+
+  &.js-active {
+    color: nhsd-colours.get("accessible-blue");
+    background: none;
+  }
+
+  &:active,
+  &:hover {
+    color: nhsd-colours.get("accessible-blue");
+    background: none;
+
+    &:after {
+      border-bottom: vars.$active-line-thickness solid transparent;
+    }
+  }
+}

@@ -15,6 +15,7 @@ const getDestPath = () => {
 gulp.task('js:lint', () => {
   return gulp.src([
       `${PATHS.src.root}/**/*.js`,
+      `!${PATHS.src.root}/**/*.stories.js`,
       '!node_modules/**'
     ])
     .pipe(eslint())
@@ -23,12 +24,15 @@ gulp.task('js:lint', () => {
 });
 
 gulp.task('js:compile', () => {
-  return gulp.src(`${PATHS.src.root}/**/*.js`)
+  return gulp.src([
+    `${PATHS.src.root}/**/*.js`,
+    `!${PATHS.src.root}/**/*.stories.js`
+  ])
     .pipe(gulpIf(ENV.isModeDev(), sourcemaps.init({ loadMaps: true })))
     .pipe(webpackStream({
       mode: ENV.isModeProd() ? 'production' : 'development',
       output: {
-        filename: 'nhsd-frontend.js'
+        filename: 'scripts/nhsd-frontend.js'
       },
       plugins: [],
       module: {
@@ -38,7 +42,8 @@ gulp.task('js:compile', () => {
             exclude: /(node_modules)/,
             loader: 'babel-loader',
             query: {
-              presets: ['babel-preset-env']
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-class-properties']
             }
           }
         ]

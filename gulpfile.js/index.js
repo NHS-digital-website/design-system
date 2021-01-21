@@ -12,7 +12,7 @@ global.VERSION = fileReader.read(`${PATHS.src.root}/.versionrc`);
 require('./tasks/init')
 require('./tasks/clean')
 require('./tasks/scss')
-// require('./tasks/js')
+require('./tasks/js')
 require('./tasks/watch')
 require('./tasks/static')
 require('./tasks/images')
@@ -25,8 +25,8 @@ gulp.task('build:dist',
     'scss:lint',
     'scss:compile',
     'images:copy',
-    // 'js:lint',
-    // 'js:compile',
+    'js:lint',
+    'js:compile',
     'static:copy',
   ),
 );
@@ -43,7 +43,7 @@ gulp.task('build:package',
     'init:package',
     'clean:dest',
     'scss:lint',
-    // 'js:lint',
+    'js:lint',
   )
 );
 

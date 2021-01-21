@@ -1,7 +1,8 @@
+/* global document */
+
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config.js';
 
-const componentName = `Version`;
 const storyDescription = `${sbConfig.heading.lab}`;
 
 // Component defaults
@@ -10,24 +11,24 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
-  }
+  },
 };
 
 // Component template
-const Template = (args) => {
+const Template = () => {
   const div = document.createElement('div');
 
   const Title = document.createElement('h1');
   Title.classList.add('nhsd-t-heading-xl');
-  Title.innerText = `Latest version: v0.3.9.9`;
+  Title.innerText = 'Latest version: v0.4.0.3';
   div.appendChild(Title);
 
   const subTitle = document.createElement('h2');
   subTitle.classList.add('nhsd-t-heading-l');
-  subTitle.innerText = `Date: 28/1/2021`;
+  subTitle.innerText = 'Date: 3/2/2021';
   div.appendChild(subTitle);
 
   return div;
@@ -35,4 +36,3 @@ const Template = (args) => {
 
 export const Component1 = Template.bind({});
 Component1.storyName = 'Info';
-

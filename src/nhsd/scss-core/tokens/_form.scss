@@ -1,0 +1,203 @@
+// stylelint-disable scss/at-extend-no-missing-placeholder
+
+// Settings
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Private members
+$-root: ".nhsd-t";
+$-border-width: .0555rem;
+$-outline-width: .167rem;
+
+%-typo-base {
+  @include nhsd-fonts.font-family;
+  font-kerning: auto;
+}
+
+// =========================================================
+// Utility classes
+// =========================================================
+
+#{$-root}-form {
+  @include nhsd-utils.box-sizing;
+
+  display: block;
+  position: relative;
+
+  &-group {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-width: 10rem;
+    max-width: 40rem;
+    @include nhsd-spacing.set-responsive("margin-bottom", 7);
+
+    &--error {
+      #{$-root}-form-input,
+      #{$-root}-form-textarea,
+      #{$-root}-form-select {
+        &:not(:disabled):not(&--disabled) {
+          &,
+          &:focus {
+            box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("red");
+          }
+        }
+      }
+
+      #{$-root}-form-error {
+        display: block;
+      }
+    }
+  }
+
+  &-fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  &-label {
+    &,
+    &-s,
+    &-m,
+    &-l {
+      @extend %-typo-base;
+      @include nhsd-fonts.font-weight(bold);
+      @include nhsd-spacing.set-responsive("margin-bottom", 1);
+
+      display: block;
+      color: nhsd-colours.get("black");
+    }
+
+    &-s {
+      @extend .nhsd-t-heading-xs;
+    }
+
+    &,
+    &-m {
+      @extend .nhsd-t-heading-m;
+      @include nhsd-spacing.set-responsive("margin-bottom", 2);
+    }
+
+    &-l {
+      @extend .nhsd-t-heading-xl;
+      @include nhsd-spacing.set-responsive("margin-bottom", 4);
+    }
+  }
+
+  &-hint {
+    @extend .nhsd-t-body;
+    @include nhsd-spacing.set-responsive("margin-bottom", 2);
+    display: block;
+    color: nhsd-colours.get("dark-grey");
+  }
+
+  &-control {
+    display: block;
+    position: relative;
+
+    &__icon {
+      pointer-events: none;
+    }
+
+    &__icon,
+    &__button {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: calc(#{nhsd-spacing.get(4) + $-outline-width});
+      transform: translateY(-50%);
+      line-height: 0;
+
+      & > .nhsd-a-button {
+        margin: 0;
+      }
+    }
+
+    .nhsd-t-form-select-s,
+    .nhsd-t-form-input-s {
+      & + #{$-root}-form-control__icon {
+        right: calc(#{nhsd-spacing.get(3) + $-outline-width});
+      }
+    }
+  }
+
+  &-input,
+  &-textarea,
+  &-select {
+    &,
+    &-s,
+    &-m {
+      @extend %-typo-base;
+      @extend .nhsd-t-body;
+      @include nhsd-utils.box-sizing;
+      @include nhsd-fonts.font-family;
+      -webkit-appearance: none;
+
+      display: block;
+      position: relative;
+      left: -$-outline-width;
+      width: 100%;
+      margin-left: $-outline-width;
+      padding: nhsd-spacing.get(4);
+      border: $-outline-width solid transparent;
+      border-radius: vars.$border-radius;
+      color: nhsd-colours.get("dark-grey");
+      background: nhsd-colours.get("white");
+      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("black");
+      transition-property: background-color, box-shadow, border-color;
+      transition-duration: nhsd-transition.$transition-duration;
+      font-kerning: auto;
+
+      &:not(:last-child) {
+        @include nhsd-spacing.set-responsive("margin-bottom", 2);
+      }
+
+      &:not(:disabled):not(&--disabled) {
+        &:focus {
+          border: $-outline-width solid nhsd-colours.get("yellow");
+          box-shadow: inset 0 0 0 $-border-width * 2 nhsd-colours.get("black");
+        }
+      }
+    }
+
+    &-s {
+      @extend .nhsd-t-body-s;
+      padding: nhsd-spacing.get(2);
+    }
+
+    &-m {
+      padding: nhsd-spacing.get(3);
+    }
+  }
+
+  [class^="nhsd-t-form-textarea"] {
+    min-height: 11rem;
+  }
+
+  [class^="nhsd-t-form-input"],
+  [class^="nhsd-t-form-select"] {
+    max-height: 3.555rem;
+  }
+
+  &-select {
+    line-height: 1;
+  }
+
+  &-error {
+    @extend .nhsd-t-body;
+
+    display: none;
+    margin-bottom: 0;
+    color: nhsd-colours.get("red");
+  }
+}
+// stylelint-enable scss/at-extend-no-missing-placeholder

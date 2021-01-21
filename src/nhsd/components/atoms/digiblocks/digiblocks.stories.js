@@ -304,7 +304,9 @@ export const DoubleDown = () => {
 DoubleDown.storyName = `Multiple instances`;
 DoubleDown.parameters = {
   docs: {
-    storyDescription: `It is possible to add multiple digiblock atoms to a single container. The position modifier classes can help with the arrangement of the digiblock compositions.`,
+    description: {
+      story: `It is possible to add multiple digiblock atoms to a single container. The position modifier classes can help with the arrangement of the digiblock compositions.`,
+    },
     source: {
       code: `${sourceCode}\n${LabComponent({
         classes: 'nhsd-a-digiblocks--pos-br nhsd-a-digiblocks--col-dark-grey',
@@ -354,9 +356,11 @@ export const ExternalSource = () => {
 ExternalSource.storyName = `External source`;
 ExternalSource.parameters = {
   docs: {
-    storyDescription: `- This example uses 2 external SVGs for the composition source.
+    description: {
+      story: `- This example uses 2 external SVGs for the composition source.
 - It is possible to load an external SVG as an image source. When an external SVG source is used, the component cannot do colouring using CSS, so it is important that the required colour is selected in the Digiblock generator tool when the SVG is saved.
 - Positioning is scaling of the composition works the same way for inline and external SVGs.`,
+    },
     source: {
       code: `${sourceCode}\n${LabComponent({
         classes: 'nhsd-a-digiblocks--pos-tr',

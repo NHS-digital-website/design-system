@@ -4,8 +4,8 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-@use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
 
 // Private members
 $-root: ".nhsd-t";
@@ -32,7 +32,6 @@ $-root: ".nhsd-t";
   @extend %-typo-base;
 
   margin: 0 auto nhsd-spacing.get(3);
-  // color: nhsd-colours.get("dark-grey");
   font-size: 1rem;
   letter-spacing: -.01666rem;
   line-height: 1.38889;

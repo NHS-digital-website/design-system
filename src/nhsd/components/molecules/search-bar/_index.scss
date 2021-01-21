@@ -1,0 +1,25 @@
+// Settings
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/button";
+
+// Private members
+$-root: ".nhsd-m-search-bar";
+
+#{$-root} {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 36rem;
+  padding: 0 nhsd-spacing.get(7);
+  flex-direction: column;
+}

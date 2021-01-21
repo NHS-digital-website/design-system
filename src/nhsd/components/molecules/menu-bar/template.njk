@@ -1,0 +1,16 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_menu_item
+-%}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-menu-bar" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+<nav class="{{ classNames }}">
+  {% for link in params.links -%}
+    {{ nhsd_a_menu_item(link) }}
+  {%- endfor %}
+</nav>

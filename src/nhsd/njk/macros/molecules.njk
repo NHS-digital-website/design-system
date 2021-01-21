@@ -35,9 +35,19 @@
   {% include "../../components/molecules/logo-link/template.njk" %}
 {%- endmacro %}
 
+{# Menu bar #}
+{% macro nhsd_m_menu_bar(params) -%}
+  {% include "../../components/molecules/menu-bar/template.njk" %}
+{%- endmacro %}
+
 {# Nav block #}
 {% macro nhsd_m_nav_block(params) -%}
   {% include "../../components/molecules/nav-block/template.njk" %}
+{%- endmacro %}
+
+{# Search field #}
+{% macro nhsd_m_search_bar(params) -%}
+  {% include "../../components/molecules/search-bar/template.njk" %}
 {%- endmacro %}
 
 {# Quote #}

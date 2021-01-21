@@ -6,8 +6,12 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/transition" as nhsd-transition;
+
+// Component imports
+@use "../../atoms/icon";
 
 // Private members
 $-root: ".nhsd-a-button";
@@ -19,9 +23,11 @@ $active-state-push-down: .111rem;
 
   display: inline-flex;
   position: relative;
+  align-items: center;
+  justify-content: center;
   max-width: 15.55rem;
   margin-bottom: 1.78rem;
-  padding: .69rem 1.04rem;
+  padding: nhsd-spacing.get(2) nhsd-spacing.get(4);
   border: .12rem solid nhsd-colours.get("blue");
   border-radius: 1.22rem;
   outline: 0;
@@ -40,22 +46,62 @@ $active-state-push-down: .111rem;
   transition-property: background-color, box-shadow, border-color;
   transition-duration: nhsd-transition.$transition-duration;
 
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: vars.$min-button-size;
+    height: vars.$min-button-size;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 100%;
+  }
+
   &__label {
-    margin: 0 auto;
+    min-height: nhsd-spacing.get(4);
+    padding-top: 1px;
     overflow: hidden;
+    line-height: calc(#{nhsd-spacing.get(4)} - 1px);
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .nhsd-a-icon {
+    & > svg {
+      fill: nhsd-colours.get("white");
+    }
+  }
+
+  &--circle {
+    padding: nhsd-spacing.get(2);
+  }
+
+  &--circle-condensed {
+    padding: nhsd-spacing.get(1);
+  }
+
+  &__label + .nhsd-a-icon,
+  .nhsd-a-icon + &__label {
+    margin-left: nhsd-spacing.get(2);
   }
 
   &:disabled,
   &--disabled {
     border-color: nhsd-colours.get("mid-grey-20-tint");
-    color: nhsd-colours.get("mid-grey");
+    color: nhsd-colours.get("dark-grey");
     background: nhsd-colours.get("mid-grey-20-tint");
     cursor: not-allowed;
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("dark-grey");
+      }
+    }
   }
 
   &:not(:disabled):not(&--disabled) {
+    &.js-active,
     &:focus,
     &:hover {
       box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
@@ -71,8 +117,10 @@ $active-state-push-down: .111rem;
   &:not(&--invert):not(&--outline):not(&--start):not(&--cancel):not(&--disabled):not(:disabled) {
     &,
     &:visited {
-      color: nhsd-colours.get("white");
-      background: nhsd-colours.get("blue");
+      &:not(#{$-root}--transparent) {
+        color: nhsd-colours.get("white");
+        background: nhsd-colours.get("blue");
+      }
     }
 
     &:active {
@@ -81,10 +129,17 @@ $active-state-push-down: .111rem;
     }
 
     &:not(:disabled):not(#{$-root}--disabled) {
+      &.js-active,
       &:focus,
       &:hover {
         border-color: nhsd-colours.get("dark-blue");
         background: nhsd-colours.get("dark-blue");
+
+        .nhsd-a-icon {
+          & > svg {
+            fill: nhsd-colours.get("white");
+          }
+        }
       }
 
       &:active {
@@ -111,11 +166,23 @@ $active-state-push-down: .111rem;
     border-color: nhsd-colours.get("white");
     color: nhsd-colours.get("blue");
     background: nhsd-colours.get("white");
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("blue");
+      }
+    }
   }
 
   &--outline {
     color: nhsd-colours.get("blue");
     background: nhsd-colours.get("white");
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("blue");
+      }
+    }
 
     &:active {
       border-color: nhsd-colours.get("blue");
@@ -134,8 +201,21 @@ $active-state-push-down: .111rem;
     }
   }
 
-  @include mq($until: s) {
-    width: 100%;
+  &--responsive {
+    @include mq($until: s) {
+      width: 100%;
+    }
+  }
+
+  &--transparent {
+    border: 1px solid transparent;
+    background: transparent;
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("black");
+      }
+    }
   }
 }
 
@@ -143,5 +223,6 @@ input[type=submit],
 input[type=reset] {
   &#{$-root} {
     display: inline-block;
+    min-height: calc(#{nhsd-spacing.get(7)} - .69px);
   }
 }

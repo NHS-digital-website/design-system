@@ -10,6 +10,11 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-essentials",
   ],
+  babel: async (options) => ({
+    ...options,
+    presets: ['@babel/preset-env'],
+    plugins: ['@babel/plugin-proposal-class-properties'],
+  }),
   webpackFinal: async (config, { configType }) => {
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
 		// You can change the configuration based on that.

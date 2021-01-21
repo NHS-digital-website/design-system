@@ -1,0 +1,35 @@
+{#- For some reason if the shared macro is used, the molecule
+template rendering blows up Storybook :/ -#}
+{% macro nhsd_a_icon(params) -%}
+  {% include "../icon/template.njk" %}
+{%- endmacro %}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-a-menu-item" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Set label -#}
+{%- set label = "Menu item" -%}
+{%- if params.label -%}
+  {%- set label = params.label -%}
+{%- endif -%}
+
+{#- Set URL and target -#}
+{%- set href="#" -%}
+{% set target = "" %}
+
+{% if params.href -%}
+  {%- set href = params.href -%}
+{% endif -%}
+
+{% if params.external -%}
+  {%- set external = true -%}
+{% endif -%}
+
+<a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>
+  <span class="nhsd-a-menu-item__label">{{ label }}</span>
+  {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
+  {{ nhsd_a_icon({id: "arrow_right", classes: "nhsd-a-icon--size-s"}) }}
+</a>

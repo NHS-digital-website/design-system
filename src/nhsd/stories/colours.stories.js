@@ -109,6 +109,11 @@ export const ColourPalette = () => {
       code: '3f525f',
     })}
     ${ColourCard({
+      name: 'Accessible mid grey',
+      key: 'accessible-mid-grey',
+      code: '4e5a62',
+    })}
+    ${ColourCard({
       name: 'Mid grey',
       key: 'mid-grey',
       code: '768692',

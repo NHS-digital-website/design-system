@@ -27,14 +27,24 @@ $-root: ".nhsd-m-button-nav";
     }
   }
 
-  @include mq($until: s) {
+  &--condensed {
     .nhsd-a-button {
-      display: flex;
-      width: 100%;
-      margin: 0 auto;
-
       &:not(:last-child) {
-        margin: 0 auto nhsd-spacing.get(4);
+        @include nhsd-spacing.set-responsive("margin-right", 2);
+      }
+    }
+  }
+
+  @include mq($until: s) {
+    &:not(&--non-responsive) {
+      .nhsd-a-button {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+
+        &:not(:last-child) {
+          margin: 0 auto nhsd-spacing.get(4);
+        }
       }
     }
   }

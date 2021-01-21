@@ -1,0 +1,64 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_icon_link,
+  nhsd_a_horizontal_rule
+-%}
+
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_button_nav,
+  nhsd_m_logo_link,
+  nhsd_m_menu_bar,
+  nhsd_m_search_bar
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-global-header" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classNames }}" id="nhsd-global-header">
+  <div class="nhsd-t-grid">
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col">
+        <div class="nhsd-o-global-header__content-box">
+          <div class="nhsd-o-global-header__background"></div>
+          {{ nhsd_m_logo_link(params.logoLink) }}
+          <div class="nhsd-o-global-header__menu" id="nhsd-global-header__menu">
+            <div class="nhsd-o-global-header__menu-background"></div>
+            <div class="nhsd-o-global-header__menu-content-box">
+              {{ nhsd_a_icon_link({
+                id: "nhsd-global-header__menu-close-button",
+                classes: "nhsd-o-global-header__menu-close-button",
+                label: "Close menu",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+              {{ nhsd_m_menu_bar(params.menuBar) }}
+            </div>
+          </div>
+          {{ nhsd_m_button_nav(params.buttonNav) }}
+          <div class="nhsd-o-global-header__search" id="nhsd-global-header__search">
+            <div class="nhsd-o-global-header__search-background"></div>
+            <div class="nhsd-o-global-header__search-content-box">
+              {{ nhsd_a_icon_link({
+                id: "nhsd-global-header__search-close-button",
+                classes: "nhsd-o-global-header__search-close-button",
+                label: "Close search",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+              {{ nhsd_m_search_bar(params.menuBar) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ nhsd_a_horizontal_rule({ classes: 'nhsd-!t-margin-0' }) }}
+</div>

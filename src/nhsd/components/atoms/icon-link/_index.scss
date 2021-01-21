@@ -1,0 +1,73 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
+
+// Component imports
+@use "../../atoms/icon";
+
+// Private members
+$-root: ".nhsd-a-icon-link";
+$-line-thickness: vars.$active-line-thickness;
+
+#{$-root} {
+  @include nhsd-utils.box-sizing;
+  @include nhsd-fonts.font-family;
+
+  display: inline-flex;
+  align-items: center;
+  padding: .4rem .4rem .2333rem;
+  color: nhsd-colours.get("blue");
+  text-decoration: none;
+  transition-property: background-color, color;
+  transition-duration: nhsd-transition.$transition-duration;
+
+  .nhsd-a-icon {
+    & > svg {
+      fill: nhsd-colours.get("blue");
+    }
+  }
+
+  &__label + .nhsd-a-icon,
+  .nhsd-a-icon + &__label {
+    margin-left: nhsd-spacing.get(1);
+  }
+
+  &,
+  &:visited {
+    border-bottom: $-line-thickness solid transparent;
+  }
+
+  &:hover,
+  &:focus {
+    border-bottom: $-line-thickness solid nhsd-colours.get("black");
+    color: nhsd-colours.get("black");
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("black");
+      }
+    }
+
+    background: nhsd-colours.get("yellow");
+  }
+
+  &:active {
+    border-bottom: $-line-thickness solid transparent;
+    color: nhsd-colours.get("blue");
+    background: transparent;
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("blue");
+      }
+    }
+  }
+}

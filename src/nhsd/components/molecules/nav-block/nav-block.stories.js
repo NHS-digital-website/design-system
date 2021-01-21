@@ -129,14 +129,16 @@ DarkGreyTheme.args = {
 };
 DarkGreyTheme.parameters = {
   docs: {
-    storyDescription: `
+    description: {
+      story: `
 > Use the built-in tokens and atom modifier classes to theme the component.
 
 ####Theme colours:
 - **Box:** Dark grey background;
 - **Heading, body text and icon**: White;
 - **Button:** Invert variant;
-- **Digiblocks:** Dark grey variant.`,
+- **Digiblocks:** Dark grey variant.`
+    },
     source: {
       code: `${sourceCode}\n${DarkGreyTheme(DarkGreyTheme.args)}`,
     },
@@ -169,7 +171,8 @@ LightGreyTheme.args = {
 };
 LightGreyTheme.parameters = {
   docs: {
-    storyDescription: `
+    description: {
+      story: `
 > Use the built-in tokens and atom modifier classes to theme the component.
 
 ####Theme colours:
@@ -178,6 +181,7 @@ LightGreyTheme.parameters = {
 - **Body text**: Dark grey;
 - **Button:** Default variant;
 - **Digiblocks:** Light grey or blue variant.`,
+    },
     source: {
       code: `${sourceCode}\n${LightGreyTheme(LightGreyTheme.args)}`,
     },
@@ -211,7 +215,8 @@ ColourfulTheme.args = {
 };
 ColourfulTheme.parameters = {
   docs: {
-    storyDescription: `
+    description: {
+      story: `
 > Use the built-in tokens and atom modifier classes to theme the component.
 
 ####Theme colours:
@@ -220,6 +225,7 @@ ColourfulTheme.parameters = {
 - **Body text**: Dark grey;
 - **Button:** Default variant;
 - **Digiblocks:** Default (random colours) or yellow variant.`,
+    },
     source: {
       code: `${sourceCode}\n${ColourfulTheme(ColourfulTheme.args)}`,
     },
@@ -387,7 +393,9 @@ ExternalLink.args = {
 };
 ExternalLink.parameters = {
   docs: {
-    storyDescription: `When external link is used, the component uses an id on the title element to populate an informative \`aria-label\` attribute for screen reader users, and the link should use \`rel="external"\`.`,
+    description: {
+      story: `When external link is used, the component uses an id on the title element to populate an informative \`aria-label\` attribute for screen reader users, and the link should use \`rel="external"\`.`,
+    },
     source: {
       code: `${sourceCode}\n${ExternalLink(ExternalLink.args)}`,
     },

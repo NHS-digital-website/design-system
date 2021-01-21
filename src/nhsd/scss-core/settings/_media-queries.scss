@@ -15,8 +15,8 @@ $-bp-xl: 1580px;
     l:  $-bp-l,
     xl: $-bp-xl,
   ),
-  $mq-static-breakpoint: m,
-  $mq-show-breakpoints: (xs, s, m, l, xl)
+  $mq-static-breakpoint: m
+  // $mq-show-breakpoints: (xs, s, m, l, xl)
 );
 
 @forward "sass-mq/mq";

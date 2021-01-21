@@ -13,13 +13,14 @@ $-root: ".nhsd-m-logo-link";
   @include nhsd-utils.box-sizing;
 
   display: inline-block;
-  padding-bottom: .1115rem;
-  border-bottom: 2px solid transparent;
-  transition-property: border-color;
+  padding: .2rem;
+  background: nhsd-colours.get("white");
+  transition-property: background, box-shadow;
   transition-duration: nhsd-transition.$transition-duration;
 
   &:hover,
   &:focus {
-    border-color: nhsd-colours.get("yellow");
+    background: nhsd-colours.get("yellow");
+    box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
   }
 }

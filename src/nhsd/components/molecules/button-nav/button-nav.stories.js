@@ -46,7 +46,7 @@ Story1.args = {
     el: 'a',
     label: 'View more stuff - very long label - very very very very very long',
     href: '#',
-  }
+  },
 ]};
 Story1.parameters = {
   docs: {
@@ -98,6 +98,39 @@ Story3.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${Story3(Story3.args)}`,
+    },
+  },
+};
+
+export const Story4 = Template.bind({});
+Story4.storyName = 'Button bar / Condensed / Non-responsive';
+Story4.args = {
+  classes: 'nhsd-m-button-nav--condensed nhsd-m-button-nav--non-responsive',
+  buttons: [
+  {
+    el: 'a',
+    href: '#',
+    aria: {
+      label: 'Search',
+    },
+    classes: 'nhsd-a-button--circle',
+    icon: {
+      id: 'search',
+      classes: 'nhsd-a-icon--size-s',
+    },
+  }, {
+    el: 'button',
+    label: 'Menu',
+    icon: {
+      id: 'burger',
+      classes: 'nhsd-a-icon--size-s',
+    },
+  }
+]};
+Story4.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${Story4(Story4.args)}`,
     },
   },
 };

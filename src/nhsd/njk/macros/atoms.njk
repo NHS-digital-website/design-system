@@ -35,6 +35,11 @@
   {% include "../../components/atoms/icon/template.njk" %}
 {%- endmacro %}
 
+{# Icon link #}
+{% macro nhsd_a_icon_link(params) -%}
+  {% include "../../components/atoms/icon-link/template.njk" %}
+{%- endmacro %}
+
 {# Image #}
 {% macro nhsd_a_image(params) -%}
   {% include "../../components/atoms/image/template.njk" %}
@@ -50,8 +55,13 @@
   {% include "../../components/atoms/logo/template.njk" %}
 {%- endmacro %}
 
-{# Rule #}
-{% macro nhsd_a_rule(params) -%}
+{# Menu item #}
+{% macro nhsd_a_menu_item(params) -%}
+  {% include "../../components/atoms/menu-item/template.njk" %}
+{%- endmacro %}
+
+{# Horizontal rule #}
+{% macro nhsd_a_horizontal_rule(params) -%}
   {% include "../../components/atoms/horizontal-rule/template.njk" %}
 {%- endmacro %}
 

@@ -1,0 +1,49 @@
+{#- For some reason if the shared macro is used, the molecule
+template rendering blows up Storybook :/ -#}
+{% macro nhsd_a_icon(params) -%}
+  {% include "../icon/template.njk" %}
+{%- endmacro %}
+
+{# Set classes #}
+{%- set classNames = "nhsd-a-icon-link" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{# Set label #}
+{%- set label = "Simple link" -%}
+{%- if params.label -%}
+  {% set label = params.label %}
+{%- endif -%}
+
+{# Set URL and target #}
+{%- set href="#" %}
+{% set target = "" -%}
+
+{%- if params.href %}
+  {%- set href = params.href -%}
+{% endif -%}
+
+{%- if params.external %}
+  {%- set external = true -%}
+{% endif -%}
+
+{#- Define common attributes that we can use across all element types #}
+{%- set commonAttributes %} class="{{ classNames }}" {%- if params.id %}id="{{ params.id }}"{% endif -%} {% endset -%}
+
+
+<a {{- commonAttributes | safe }} href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>
+  {% if params.mirrored -%}
+  {% if params.icon -%}
+  {{ nhsd_a_icon(params.icon) }}
+  {%- endif %}
+  <span class="nhsd-a-icon-link__label">{{ label }}</span>
+  {% else %}
+  <span class="nhsd-a-icon-link__label">{{ label }}</span>
+  {% if params.icon -%}
+  {{ nhsd_a_icon(params.icon) }}
+  {%- endif %}
+  {% endif -%}
+
+  {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
+</a>

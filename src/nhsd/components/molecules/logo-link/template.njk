@@ -2,6 +2,15 @@
   nhsd_a_logo
 -%}
 
-<a href="{{ params.href }}" class="nhsd-m-logo-link" aria-label="{{ params.label }}">
+{#- Set classes -#}
+{% set classNames = "nhsd-m-logo-link" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Define common attributes that we can use across all element types #}
+{%- set commonAttributes %} class="{{ classNames }}" {%- if params.id %}id="{{ params.id }}"{% endif -%} {% endset -%}
+
+<a {{- commonAttributes | safe }} href="{{ params.href }}" aria-label="{{ params.label }}">
   {{ nhsd_a_logo(params.logo) }}
 </a>

@@ -22,6 +22,6 @@
   {%- set external = true -%}
 {% endif -%}
 
-<a  class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>{{ label }}
+<a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>{{ label }}
   {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
 </a>
