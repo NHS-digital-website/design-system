@@ -137,6 +137,12 @@ Elements, that not yet have been atomised can be named using BEM style `__` nami
 
 - It is the UI developer's responsibility to keep the NPM packages (including Storybook) up to date.
 
+## Responsive breakpoints
+
+- The **responsive breakpoint** and **media query config** can be found [here](src/nhsd/scss-core/settings/_media-queries.scss).
+- To switch off the breakpoint debug showing in the browser, comment [this line](https://github.com/NHS-digital-website/nhsd-frontend/blob/e7ce90d6ac3621550aa97f919147493c436861a1/src/nhsd/scss-core/settings/_media-queries.scss#L19) out.
+- The **grid config** can be found [here](src/nhsd/scss-core/tokens/_grid.scss).
+
 ## Tokens
 
 Tokens are everything in SASS that are not atoms (molecules, organisms...).
