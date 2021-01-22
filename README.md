@@ -143,6 +143,10 @@ Elements, that not yet have been atomised can be named using BEM style `__` nami
 - To switch off the breakpoint debug showing in the browser, comment [this line](https://github.com/NHS-digital-website/nhsd-frontend/blob/e7ce90d6ac3621550aa97f919147493c436861a1/src/nhsd/scss-core/settings/_media-queries.scss#L19) out.
 - The **grid config** can be found [here](src/nhsd/scss-core/tokens/_grid.scss).
 
+## Hosting static files
+
+The static files (fonts, icons, compiled CSS) is hosted on an AWS bucket using Cloudfront for distribution. The CORS settings allow any website to load up these files. The URL of the static server is [https://d3ao5xdv7leyhd.cloudfront.net/](https://d3ao5xdv7leyhd.cloudfront.net/), but it will soon change to a more human readable, on brand URL [ie. https://files.ui-toolkit.digital.nhs.uk](https://files.ui-toolkit.digital.nhs.uk)
+
 ## Tokens
 
 Tokens are everything in SASS that are not atoms (molecules, organisms...).
