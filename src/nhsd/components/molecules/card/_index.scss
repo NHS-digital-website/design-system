@@ -20,9 +20,7 @@
 // Private members
 $-root: ".nhsd-m-card";
 $-icon-size: 2.1rem;
-
-// Public members
-$box-padding: 1.111rem;
+$-box-padding: 1.111rem;
 
 #{$-root} {
   display: block;
@@ -37,11 +35,11 @@ $box-padding: 1.111rem;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    padding: $box-padding $box-padding 0;
+    padding: $-box-padding $-box-padding 0;
   }
 
   &__button-box {
-    padding: 0 $box-padding $box-padding;
+    padding: 0 $-box-padding $-box-padding;
   }
 
   [class^="nhsd-t-heading"] {
@@ -69,8 +67,8 @@ $box-padding: 1.111rem;
   &__icon.nhsd-a-icon {
     display: block;
     position: absolute;
-    top: $box-padding;
-    right: $box-padding;
+    top: $-box-padding;
+    right: $-box-padding;
     width: $-icon-size;
     height: $-icon-size;
   }
@@ -120,7 +118,7 @@ $box-padding: 1.111rem;
 
   .nhsd-a-image {
     & + #{$-root}__content-box {
-      padding-top: $box-padding * .4;
+      padding-top: $-box-padding * .4;
 
       & > *:nth-child(1) {
         margin-top: .278rem;
