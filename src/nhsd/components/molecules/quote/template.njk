@@ -1,0 +1,30 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_icon
+-%}
+
+<div class="nhsd-m-quote">
+  {{ nhsd_a_box_start("nhsd-a-box--bg-light-grey") }}
+    <figure>
+      <blockquote class="nhsd-t-heading-l">
+          {{ nhsd_a_icon(params.icon) }}
+          {{ params.quote }}
+      </blockquote>
+      {%- if params.person or params.role or params.organisation -%}
+        <figcaption class="nhsd-m-quote__meta">
+          {%- if params.person -%}
+            {{ params.person }}{{ ', ' if params.role or params.organisation }}
+          {%- endif -%}
+          {%- if params.role -%}
+            {{ params.role }}{{ ', ' if params.organisation }}
+          {%- endif -%}
+          {%- if params.organisation -%}
+            {{ params.organisation }}
+          {%- endif -%}
+        </figcaption>
+      {%- endif -%}
+    </figure>
+  {{ nhsd_a_box_end() }}
+</div>

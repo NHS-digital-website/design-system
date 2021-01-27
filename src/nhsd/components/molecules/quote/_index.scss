@@ -1,0 +1,37 @@
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Component imports
+@use "../../atoms/box";
+@use "../../atoms/icon";
+
+// Private members
+$-root: ".nhsd-m-quote";
+$-box-padding: 1.111rem;
+
+#{$-root} {
+  display: block;
+  position: relative;
+
+  &__meta {
+    color: nhsd-colours.get("dark-grey");
+  }
+
+  .nhsd-a-icon {
+    margin-right: nhsd-spacing.get(1);
+  }
+
+  [class^="nhsd-t-heading"] {
+    color: nhsd-colours.get("blue");
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  figure {
+    margin: 0;
+  }
+}
