@@ -1,5 +1,10 @@
 {# Component macros - Molecules #}
 
+{# Breadcrumbs #}
+{% macro nhsd_m_breadcrumbs(params) -%}
+  {% include "../../components/molecules/breadcrumbs/template.njk" %}
+{%- endmacro %}
+
 {# Button nav #}
 {% macro nhsd_m_button_nav(params) -%}
   {% include "../../components/molecules/button-nav/template.njk" %}

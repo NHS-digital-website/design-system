@@ -1,0 +1,43 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_link,
+  nhsd_a_icon
+-%}
+
+{%- set linksList = [params.firstLevel, params.secondLevel, params.thirdLevel, params.fourthLevel, params.currentLevel] -%}
+
+{% macro breadcrumb_list_item(link) -%}
+  <li class="nhsd-m-breadcrumbs__item">
+    {%-if not link.current -%}
+      {{ nhsd_a_link(link) }}
+      {{ nhsd_a_icon(params.icon)}}
+    {%-else -%}
+      <span class="nhsd-t-body" aria-current="page">{{link.label}}</span>
+    {%- endif -%}
+  </li>
+{%- endmacro %}
+
+{% macro breadcrumb_collapsed_list_item(link) -%}
+  <li class="nhsd-m-breadcrumbs__item nhsd-m-breadcrumbs__item--button">
+    {{ nhsd_a_icon(params.menuIcon)}}
+    {{ nhsd_a_icon(params.icon)}}
+  </li>
+{%- endmacro %}
+
+<nav class="nhsd-m-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="nhsd-m-breadcrumbs__list">
+    {%- set count = 0 -%}
+    {% for link in linksList %}
+      {%-if link|length -%}
+        {%-if link.compact %}
+          {%- set count = count + 1 -%}
+          {%-if count == 1 %}
+            {{ breadcrumb_collapsed_list_item(link) }}
+          {%- endif -%}
+        {%-else -%}
+          {{ breadcrumb_list_item(link) }}
+        {%- endif -%}
+      {%- endif -%}
+    {% endfor %}
+  </ol>
+</nav>
