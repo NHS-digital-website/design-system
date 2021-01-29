@@ -61,11 +61,15 @@ export default {
       control: {
         type: 'select',
         options: [
+          'arrow_left',
           'arrow_right',
+          'arrow_up',
+          'arrow_down',
           'burger',
           'chart',
           'search',
           'x',
+          'x_circled',
           'burger',
           'youtube',
           'twitter',

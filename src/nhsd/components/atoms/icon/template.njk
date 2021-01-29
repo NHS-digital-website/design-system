@@ -19,17 +19,35 @@
 {%- endmacro -%}
 
 {#- Macros -#}
+{%- macro i_arrow_left(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <path d="M7.5,15L1,8l6.5-7L9,2.5L4.8,7H15v2H4.8L9,13.5L7.5,15z"/>
+  </svg>
+{%- endmacro -%}
+
 {%- macro i_arrow_right(nested = false) -%}
   <svg {{ icon_svg_attr(nested) }}>
     <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
   </svg>
 {%- endmacro -%}
 
+{%- macro i_arrow_up(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <path d="M1,7.5L8,1l7,6.5L13.5,9L9,4.8L9,15H7L7,4.8L2.5,9L1,7.5z"/>
+  </svg>
+{%- endmacro -%}
+
+{%- macro i_arrow_down(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <path d="M15,8.5L8,15L1,8.5L2.5,7L7,11.2L7,1l2,0l0,10.2L13.5,7L15,8.5z"/>
+  </svg>
+{%- endmacro -%}
+
 {%- macro i_burger(nested = false) -%}
   <svg {{ icon_svg_attr(nested) }}>
-    <rect y="2.4" width="16" height="1.6"/>
-    <rect y="7.2" width="16" height="1.6"/>
-    <rect y="12" width="16" height="1.6"/>
+    <rect x="1" y="3.1" class="st0" width="14" height="1.6"/>
+	  <rect x="1" y="7.2" class="st0" width="14" height="1.6"/>
+	  <rect x="1" y="11.3" class="st0" width="14" height="1.6"/>
   </svg>
 {%- endmacro -%}
 
@@ -51,6 +69,13 @@
 {%- macro i_x(nested = false) -%}
   <svg {{ icon_svg_attr(nested) }}>
     <polygon points="13.9,1 8,6.9 2.1,1 1,2.1 6.9,8 1,13.9 2.1,15 8,9.1 13.9,15 15,13.9 9.1,8 15,2.1 "/>
+  </svg>
+{%- endmacro -%}
+
+{%- macro i_x_circled(nested = false) -%}
+  <svg {{ icon_svg_attr(nested) }}>
+    <path d="M8.9,8l3.1,3.1L11.1,12L8,8.9L4.9,12L4,11.1L7.1,8L4,4.9L4.9,4L8,7.1L11.1,4L12,4.9L8.9,8z"/>
+    <path d="M8,1.3c3.7,0,6.7,3,6.7,6.7s-3,6.7-6.7,6.7s-6.7-3-6.7-6.7S4.3,1.3,8,1.3 M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8 s8-3.6,8-8S12.4,0,8,0L8,0z"/>
   </svg>
 {%- endmacro -%}
 
@@ -113,33 +138,36 @@
 
 {#- Master template -#}
 <span class="{{ classNames }}">
-    {% if params.nested -%}
-    <svg {{ common_svg_attr() }}>
-      <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-    {% endif -%}
+  {% if params.nested -%}
+  <svg {{ common_svg_attr() }}>
+    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+  {% endif -%}
 
-    {% if params.id -%}
-      {%- if params.id == "arrow_right" -%}{{ i_arrow_right(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "burger" -%}{{ i_burger(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "chart" -%}{{ i_chart(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "search" -%}{{ i_search(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "x" -%}{{ i_x(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "facebook" -%}{{ i_facebook(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "linkedin" -%}{{ i_linkedin(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "twitter" -%}{{ i_twitter(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "youtube" -%}{{ i_youtube(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "quote_open" -%}{{ i_quote_open(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "chevron_left" -%}{{ i_chevron_left(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "chevron_up" -%}{{ i_chevron_up(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "chevron_right" -%}{{ i_chevron_right(nested = params.nested) }}{%- endif -%}
-      {%- if params.id == "chevron_down" -%}{{ i_chevron_down(nested = params.nested) }}{%- endif -%}
-    {%- endif %}
+  {% if params.id -%}
+    {%- if params.id == "arrow_left" -%}{{ i_arrow_left(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "arrow_right" -%}{{ i_arrow_right(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "arrow_up" -%}{{ i_arrow_up(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "arrow_down" -%}{{ i_arrow_down(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "burger" -%}{{ i_burger(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "chart" -%}{{ i_chart(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "search" -%}{{ i_search(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "x" -%}{{ i_x(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "x_circled" -%}{{ i_x_circled(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "facebook" -%}{{ i_facebook(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "linkedin" -%}{{ i_linkedin(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "twitter" -%}{{ i_twitter(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "youtube" -%}{{ i_youtube(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "quote_open" -%}{{ i_quote_open(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "chevron_left" -%}{{ i_chevron_left(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "chevron_up" -%}{{ i_chevron_up(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "chevron_right" -%}{{ i_chevron_right(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "chevron_down" -%}{{ i_chevron_down(nested = params.nested) }}{%- endif -%}
+  {%- endif %}
 
-    {% if params.nested %}
-    </svg>
-    {%- endif %}
-
+  {% if params.nested %}
+  </svg>
+  {%- endif %}
   {% if params.source -%}
     <img src="{{ params.source }}" alt="icon" aria-hidden="true" focusable="false" />
-  {%- endif %}
+  {%- endif -%}
 </span>
