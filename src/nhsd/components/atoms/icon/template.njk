@@ -86,6 +86,31 @@
 </svg>
 {%- endmacro -%}
 
+{%- macro i_chevron_left(nested = false) -%}
+<svg {{ icon_svg_attr(nested) }}>
+  	<path d="M4,8l6.5-7L12,2.5L6.8,8l5.3,5.5L10.5,15L4,8z"/>
+</svg>
+{%- endmacro -%}
+
+{%- macro i_chevron_up(nested = false) -%}
+<svg {{ icon_svg_attr(nested) }}>
+  	<path d="M8,4l7,6.5L13.5,12L8,6.8L2.5,12L1,10.5L8,4z"/>
+</svg>
+{%- endmacro -%}
+
+{%- macro i_chevron_right(nested = false) -%}
+<svg {{ icon_svg_attr(nested) }}>
+  <path d="M12,8l-6.5,7L4,13.5L9.2,8L4,2.5L5.5,1L12,8z"/>
+</svg>
+{%- endmacro -%}
+
+{%- macro i_chevron_down(nested = false) -%}
+<svg {{ icon_svg_attr(nested) }}>
+  	<path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"/>
+</svg>
+{%- endmacro -%}
+
+
 {#- Master template -#}
 <span class="{{ classNames }}">
     {% if params.nested -%}
@@ -104,6 +129,10 @@
       {%- if params.id == "twitter" -%}{{ i_twitter(nested = params.nested) }}{%- endif -%}
       {%- if params.id == "youtube" -%}{{ i_youtube(nested = params.nested) }}{%- endif -%}
       {%- if params.id == "quote_open" -%}{{ i_quote_open(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "chevron_left" -%}{{ i_chevron_left(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "chevron_up" -%}{{ i_chevron_up(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "chevron_right" -%}{{ i_chevron_right(nested = params.nested) }}{%- endif -%}
+      {%- if params.id == "chevron_down" -%}{{ i_chevron_down(nested = params.nested) }}{%- endif -%}
     {%- endif %}
 
     {% if params.nested %}

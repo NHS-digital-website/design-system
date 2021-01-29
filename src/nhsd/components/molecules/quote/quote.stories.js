@@ -53,7 +53,7 @@ LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   icon: {
     id: 'quote_open',
-    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-dark-grey'
+    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue'
   },
   quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.',
   person: 'Example person',
@@ -73,7 +73,7 @@ Story1.storyName = "Quote block / Default";
 Story1.args = {
   icon: {
     id: 'quote_open',
-    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-dark-grey'
+    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue'
   },
   quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.',
   person: 'Example person',
@@ -93,7 +93,7 @@ Story2.storyName = "Quote block / without meta info";
 Story2.args = {
   icon: {
     id: 'quote_open',
-    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-dark-grey'
+    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue'
   },
   quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.'
 };

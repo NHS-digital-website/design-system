@@ -71,6 +71,11 @@ export default {
           'twitter',
           'linkedin',
           'facebook',
+          'quote_open',
+          'chevron_left',
+          'chevron_up',
+          'chevron_right',
+          'chevron_down',
         ],
       },
       description: 'Each icon has a unique identifier. Use it to change the visual appearance of the icon.'
