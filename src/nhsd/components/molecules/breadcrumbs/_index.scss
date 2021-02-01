@@ -1,0 +1,48 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+
+// Component imports
+@use "../../atoms/box";
+@use "../../atoms/icon";
+
+// Private members
+$-root: ".nhsd-m-breadcrumbs";
+
+#{$-root} {
+  display: block;
+  position: relative;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    // stylelint-disable scss/at-extend-no-missing-placeholder
+    @extend .nhsd-t-body;
+    // stylelint-enable scss/at-extend-no-missing-placeholder
+
+    display: inline-flex;
+    margin-bottom: 0;
+    align-items: center;
+
+    &:not(:first-child):not(&--button),
+    .nhsd-a-icon {
+      margin-left: nhsd-spacing.get(2);
+    }
+
+    [class^="nhsd-t-body"] {
+      @include nhsd-fonts.font-weight(bold);
+
+      margin: 0;
+      color: nhsd-colours.get("black");
+    }
+  }
+}

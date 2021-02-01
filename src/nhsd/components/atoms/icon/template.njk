@@ -135,6 +135,12 @@
 </svg>
 {%- endmacro -%}
 
+{%- macro i_ellipsis(nested = false) -%}
+<svg {{ icon_svg_attr(nested) }}>
+  	<path d="M3.2,10.2C2,10.2,1,9.2,1,8s1-2.2,2.2-2.2s2.2,1,2.2,2.2S4.4,10.2,3.2,10.2z M8,10.2c-1.2,0-2.2-1-2.2-2.2 s1-2.2,2.2-2.2s2.2,1,2.2,2.2S9.2,10.2,8,10.2z M12.8,10.2c-1.2,0-2.2-1-2.2-2.2s1-2.2,2.2-2.2S15,6.8,15,8S14,10.2,12.8,10.2z"/>
+</svg>
+{%- endmacro -%}
+
 
 {#- Master template -#}
 <span class="{{ classNames }}">
@@ -162,6 +168,7 @@
     {%- if params.id == "chevron_up" -%}{{ i_chevron_up(nested = params.nested) }}{%- endif -%}
     {%- if params.id == "chevron_right" -%}{{ i_chevron_right(nested = params.nested) }}{%- endif -%}
     {%- if params.id == "chevron_down" -%}{{ i_chevron_down(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "ellipsis" -%}{{ i_ellipsis(nested = params.nested) }}{%- endif -%}
   {%- endif %}
 
   {% if params.nested %}
