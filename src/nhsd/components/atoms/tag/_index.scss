@@ -1,7 +1,11 @@
+// Settings
+@use "scss-core/settings/vars";
+
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/typography" as nhsd-typography;
 
 // Private members
 $-root: ".nhsd-a-tag";
@@ -18,6 +22,7 @@ $-root: ".nhsd-a-tag";
   letter-spacing: .0555rem;
   text-transform: uppercase;
 
+  // Colour variants
   &--bg-light-grey {
     color: nhsd-colours.get("dark-grey");
     background: nhsd-colours.get("pale-grey-80-tint");
@@ -38,5 +43,20 @@ $-root: ".nhsd-a-tag";
 
   &--bg-light-green {
     background: nhsd-colours.get("green-20-tint");
+  }
+
+  // Meta tag shorthand
+  &--meta,
+  &--meta-light {
+    padding: .22rem .33rem .2rem;
+    border-radius: vars.$border-radius;
+    color: nhsd-colours.get("dark-grey");
+    font-size: .778rem;
+    letter-spacing: -.0166rem;
+    line-height: 1.389;
+  }
+
+  &--meta-light {
+    @include nhsd-fonts.font-weight;
   }
 }

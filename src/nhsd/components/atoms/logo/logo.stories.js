@@ -1,8 +1,8 @@
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  './template.njk';
+import template from './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -25,7 +25,7 @@ export default {
 };
 
 const Template = (args) => {
-  return template.render({ params: {...args} });
+  return template.render({ params: { ...args } });
 };
 
 export const LabComponent = Template.bind({});

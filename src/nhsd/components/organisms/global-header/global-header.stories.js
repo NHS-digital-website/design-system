@@ -4,10 +4,10 @@ import { useEffect } from "@storybook/client-api";
 import NHSDGlobalHeader from '../../organisms/global-header/global-header.js';
 
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  '../../organisms/global-header/template.njk';
+import template from '../../organisms/global-header/template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -35,7 +35,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organisms/global-head
 
 // Component template
 const Template = (args) => {
-  return template.render({ params: {...args} });
+  return template.render({ params: { ...args } });
 };
 
 const LabComponent = Template.bind({});
@@ -76,7 +76,7 @@ LabComponent.args = {
       href: '/search',
       aria: {
         label: 'Open search',
-        controls: '#nhsd-global-header__search',
+        controls: 'nhsd-global-header__search',
         expanded: false,
       },
       classes: 'nhsd-a-button--circle',
@@ -89,7 +89,7 @@ LabComponent.args = {
       id: 'nhsd-global-header__menu-button',
       label: 'Menu',
       aria: {
-        controls: '#nhsd-global-header__menu',
+        controls: 'nhsd-global-header__menu',
         expanded: false,
       },
       classes: 'nhsd-o-global-header__menu-button',

@@ -1,8 +1,8 @@
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  './template.njk';
+import template from './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -58,16 +58,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: {...args} });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -75,18 +73,18 @@ LabComponent.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 LabComponent.parameters = {
@@ -98,13 +96,13 @@ LabComponent.parameters = {
 };
 
 export const EmphasisBox = Template.bind({});
-EmphasisBox.storyName = `Emphasis box / default`;
+EmphasisBox.storyName = 'Emphasis box / default';
 EmphasisBox.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
 };
 EmphasisBox.parameters = {
   docs: {
@@ -115,12 +113,12 @@ EmphasisBox.parameters = {
 };
 
 export const EmphasisBoxTextOnly = Template.bind({});
-EmphasisBoxTextOnly.storyName = `Emphasis box / text only`;
+EmphasisBoxTextOnly.storyName = 'Emphasis box / text only';
 EmphasisBoxTextOnly.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
 };
 EmphasisBoxTextOnly.parameters = {
   docs: {
@@ -131,17 +129,17 @@ EmphasisBoxTextOnly.parameters = {
 };
 
 export const EmphasisBoxWithIcon = Template.bind({});
-EmphasisBoxWithIcon.storyName = `Emphasis box / with icon`;
+EmphasisBoxWithIcon.storyName = 'Emphasis box / with icon';
 EmphasisBoxWithIcon.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
 };
 EmphasisBoxWithIcon.parameters = {
@@ -153,18 +151,18 @@ EmphasisBoxWithIcon.parameters = {
 };
 
 export const EmphasisBoxWithButton = Template.bind({});
-EmphasisBoxWithButton.storyName = `Emphasis box / with button`;
+EmphasisBoxWithButton.storyName = 'Emphasis box / with button';
 EmphasisBoxWithButton.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box with optional button`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box with optional button',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   button: {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 EmphasisBoxWithButton.parameters = {
@@ -176,23 +174,23 @@ EmphasisBoxWithButton.parameters = {
 };
 
 export const EmphasisBoxWithIconAndButton = Template.bind({});
-EmphasisBoxWithIconAndButton.storyName = `Emphasis box / with icon and button`;
+EmphasisBoxWithIconAndButton.storyName = 'Emphasis box / with icon and button';
 EmphasisBoxWithIconAndButton.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box with optional icon and optional button`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box with optional icon and optional button',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 EmphasisBoxWithIconAndButton.parameters = {
@@ -204,16 +202,16 @@ EmphasisBoxWithIconAndButton.parameters = {
 };
 
 export const EmphasisBoxWithImage = Template.bind({});
-EmphasisBoxWithImage.storyName = `Emphasis box / with image`;
+EmphasisBoxWithImage.storyName = 'Emphasis box / with image';
 EmphasisBoxWithImage.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box with large icon`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box with large icon',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
@@ -227,17 +225,17 @@ EmphasisBoxWithImage.parameters = {
 };
 
 export const EmphasisBoxWithIconAndButtonAndImage = Template.bind({});
-EmphasisBoxWithIconAndButtonAndImage.storyName = `Emphasis box / with icon and button and image`;
+EmphasisBoxWithIconAndButtonAndImage.storyName = 'Emphasis box / with icon and button and image';
 EmphasisBoxWithIconAndButtonAndImage.args = {
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box with optional icon, button and image`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box with optional icon, button and image',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
@@ -247,7 +245,7 @@ EmphasisBoxWithIconAndButtonAndImage.args = {
   },
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
@@ -261,18 +259,18 @@ EmphasisBoxWithIconAndButtonAndImage.parameters = {
 };
 
 export const EmphasisBoxWithIconAndButtonCentred = Template.bind({});
-EmphasisBoxWithIconAndButtonCentred.storyName = `Emphasis box / centred`;
+EmphasisBoxWithIconAndButtonCentred.storyName = 'Emphasis box / centred';
 EmphasisBoxWithIconAndButtonCentred.args = {
   classes: 'nhsd-m-emphasis-box--centred',
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box with optional icon and optional button`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box with optional icon and optional button',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
@@ -290,24 +288,24 @@ EmphasisBoxWithIconAndButtonCentred.parameters = {
 };
 
 export const EmphasisBoxWithIconAndButtonWide = Template.bind({});
-EmphasisBoxWithIconAndButtonWide.storyName = `Emphasis box / padded`;
+EmphasisBoxWithIconAndButtonWide.storyName = 'Emphasis box / padded';
 EmphasisBoxWithIconAndButtonWide.args = {
   classes: 'nhsd-m-emphasis-box--padded',
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box with optional icon and optional button, wide (with extra padding)`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box with optional icon and optional button, wide (with extra padding)',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 EmphasisBoxWithIconAndButtonWide.parameters = {
@@ -319,24 +317,24 @@ EmphasisBoxWithIconAndButtonWide.parameters = {
 };
 
 export const EmphasisBoxWithIconAndButtonWideCentred = Template.bind({});
-EmphasisBoxWithIconAndButtonWideCentred.storyName = `Emphasis box / padded and centred`;
+EmphasisBoxWithIconAndButtonWideCentred.storyName = 'Emphasis box / padded and centred';
 EmphasisBoxWithIconAndButtonWideCentred.args = {
   classes: 'nhsd-m-emphasis-box--padded nhsd-m-emphasis-box--centred',
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
-  title: `Emphasis box with optional icon and optional button, centred and wide (with extra padding)`,
-  text: `You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.`,
+  title: 'Emphasis box with optional icon and optional button, centred and wide (with extra padding)',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 EmphasisBoxWithIconAndButtonWideCentred.parameters = {
@@ -348,23 +346,23 @@ EmphasisBoxWithIconAndButtonWideCentred.parameters = {
 };
 
 export const NoteBox = Template.bind({});
-NoteBox.storyName = `Notes box`;
+NoteBox.storyName = 'Notes box';
 NoteBox.args = {
   box: {
     classes: 'nhsd-a-box--border-grey',
   },
-  title: `Notes box`,
-  text: `You can use the "note" type emphasis box to distinguish some text, but which isn't as important.`,
+  title: 'Notes box',
+  text: 'You can use the "note" type emphasis box to distinguish some text, but which isn\'t as important.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 NoteBox.parameters = {
@@ -376,23 +374,23 @@ NoteBox.parameters = {
 };
 
 export const ImportantBox = Template.bind({});
-ImportantBox.storyName = `Important box`;
+ImportantBox.storyName = 'Important box';
 ImportantBox.args = {
   box: {
     classes: 'nhsd-a-box--border-yellow',
   },
-  title: `Important box`,
-  text: `You can use the "important" type emphasis box to draw attention to particularly important content which you don't want users to miss.`,
+  title: 'Important box',
+  text: 'You can use the "important" type emphasis box to draw attention to particularly important content which you don\'t want users to miss.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 ImportantBox.parameters = {
@@ -404,24 +402,24 @@ ImportantBox.parameters = {
 };
 
 export const WarningBox = Template.bind({});
-WarningBox.storyName = `Warning box`;
+WarningBox.storyName = 'Warning box';
 WarningBox.args = {
   classes: 'nhsd-m-emphasis-box--warning',
   box: {
     classes: 'nhsd-a-box--border-red',
   },
-  title: `Warning box`,
-  text: `You can use the "warning" type emphasis box for critical updates. This will usually be short-term, as it is a high impact design.`,
+  title: 'Warning box',
+  text: 'You can use the "warning" type emphasis box for critical updates. This will usually be short-term, as it is a high impact design.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 WarningBox.parameters = {

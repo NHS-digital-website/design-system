@@ -1,0 +1,91 @@
+// Settings
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/box";
+@use "../../atoms/document-icon";
+@use "../../atoms/icon";
+@use "../../atoms/link";
+@use "../../atoms/tag";
+
+// Private members
+$-root: ".nhsd-m-download-card";
+$-box-padding: 1.222rem;
+
+#{$-root} {
+  display: block;
+  position: relative;
+  min-height: 11.111rem;
+
+  .nhsd-a-box {
+    display: flex;
+    padding: $-box-padding * .8 $-box-padding $-box-padding;
+  }
+
+  .nhsd-a-tag {
+    position: absolute;
+    top: 0;
+
+    & + *:nth-of-type(1) {
+      margin-top: .75rem;
+    }
+  }
+
+  &__meta-tags {
+    .nhsd-a-tag {
+      position: relative;
+    }
+  }
+
+  .nhsd-a-icon {
+    margin-top: nhsd-spacing.get(3);
+  }
+
+  &__image-box {
+    display: block;
+    padding-top: .45rem;
+    flex: 0 0 5rem;
+    order: 1;
+    overflow: hidden;
+    text-align: center;
+
+    @include mq($until: s) {
+      padding-top: .3rem;
+      flex: 0 0 3rem;
+    }
+
+    & + #{$-root}__content-box {
+      padding-left: $-box-padding;
+    }
+  }
+
+  &__content-box {
+    display: flex;
+    flex-grow: 1;
+    order: 2;
+    flex-direction: column;
+  }
+
+  [class^="nhsd-t-heading"] {
+    margin-bottom: nhsd-spacing.get(2);
+    color: nhsd-colours.get("black");
+  }
+
+  [class^="nhsd-t-body"] {
+    max-width: 44.444rem;
+    margin: 0 0 .8rem;
+    color: nhsd-colours.get("dark-grey");
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

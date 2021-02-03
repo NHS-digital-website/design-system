@@ -1,0 +1,43 @@
+// Tokens
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Private members
+$-root: ".nhsd-a-document-icon";
+
+#{$-root} {
+  @include nhsd-utils.box-sizing;
+
+  display: inline-block;
+  position: relative;
+
+  & > svg {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  & > img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &,
+  &--size-m {
+    width: 2.5rem;
+    height: 2.944rem;
+  }
+
+  &--size-s {
+    width: 1.886rem;
+    height: 2.222rem;
+  }
+
+  &--size-l {
+    width: 3.333rem;
+    height: 3.944rem;
+  }
+}

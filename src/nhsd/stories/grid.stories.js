@@ -1,5 +1,5 @@
 // Load storybook config
-import * as sbConfig from '../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../.storybook/storybook-config';
 
 // Load stylesheet file
 require('../scss-core/tokens/_grid.scss');

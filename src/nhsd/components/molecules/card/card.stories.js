@@ -1,8 +1,8 @@
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  './template.njk';
+import template from './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -40,7 +40,7 @@ export default {
 
 // Component template
 const Template = (args) => {
-  return template.render({ params: {...args} });
+  return template.render({ params: { ...args } });
 };
 
 export const LabComponent = Template.bind({});
@@ -179,7 +179,7 @@ ComponentVariant3.parameters = {
 };
 
 export const ComponentVariant4 = Template.bind({});
-ComponentVariant4.storyName = 'Light grey linked card with tag and button';
+ComponentVariant4.storyName = 'Light grey linked card with tag and button (external link)';
 ComponentVariant4.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-grey',
@@ -188,7 +188,7 @@ ComponentVariant4.args = {
   text: `We're pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.`,
   boxLink: {
     href: 'https://gov.uk',
-    target: '_blank',
+    external: true,
   },
   button: {
     label: 'More about what we do',
@@ -226,7 +226,7 @@ ComponentVariant5.args = {
   title: 'Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online, Week Ending 27th September 2020',
   boxLink: {
     href: 'https://gov.uk',
-    target: '_blank',
+    external: true,
   },
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',

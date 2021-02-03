@@ -1,8 +1,8 @@
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  '../../organisms/graphic-block-list/template.njk';
+import template from '../../organisms/graphic-block-list/template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -28,7 +28,7 @@ export default {
 
 // Component template
 const Template = (args) => {
-  return template.render({ params: {...args} });
+  return template.render({ params: { ...args } });
 };
 
 export const ComponentVariant1 = Template.bind({});

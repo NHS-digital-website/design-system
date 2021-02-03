@@ -1,8 +1,8 @@
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  './template.njk';
+import template from './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -27,7 +27,7 @@ export default {
 
 // Component template
 const Template = (args) => {
-  return template.render({ params: {...args} });
+  return template.render({ params: { ...args } });
 };
 
 const TextHighlight = Template.bind({});
@@ -111,6 +111,40 @@ ComponentVariant5.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${ComponentVariant5(ComponentVariant5.args)}`,
+    },
+  },
+};
+
+export const MetaTag = Template.bind({});
+MetaTag.storyName = 'Meta tag';
+MetaTag.args = {
+  classes: 'nhsd-a-tag--meta',
+  label: 'XLS',
+};
+MetaTag.parameters = {
+  backgrounds: {
+    default: 'dim',
+  },
+  docs: {
+    source: {
+      code: `${sourceCode}\n${MetaTag(MetaTag.args)}`,
+    },
+  },
+};
+
+export const MetaTagLight = Template.bind({});
+MetaTagLight.storyName = 'Meta tag / Light';
+MetaTagLight.args = {
+  classes: 'nhsd-a-tag--meta-light',
+  label: '1.5MB',
+};
+MetaTagLight.parameters = {
+  backgrounds: {
+    default: 'dim',
+  },
+  docs: {
+    source: {
+      code: `${sourceCode}\n${MetaTagLight(MetaTagLight.args)}`,
     },
   },
 };

@@ -35,11 +35,27 @@ $-root: ".nhsd-a-box-link";
     box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
 
     .nhsd-a-arrow {
-      transform: translateX(.556rem);
       background: nhsd-colours.get("yellow");
 
       & > svg {
         fill: nhsd-colours.get("black");
+      }
+
+      &--left {
+        transform: translateX(-.556rem);
+      }
+
+      &,
+      &--right {
+        transform: translateX(.556rem);
+      }
+
+      &--up {
+        transform: translateY(-.556rem);
+      }
+
+      &--down {
+        transform: translateY(.556rem);
       }
     }
 

@@ -1,8 +1,10 @@
+/* global document */
+
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  '../../organisms/card-list/template.njk';
+import template from '../../organisms/card-list/template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -20,16 +22,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: {...args} });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const Component1 = Template.bind({});
 Component1.storyName = 'Colour cards 4D/2T/1M';
@@ -89,8 +89,8 @@ Component1.args = {
         classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
         id: 'arrow_right',
       },
-    }
-  ]
+    },
+  ],
 };
 Component1.parameters = {
   docs: {
@@ -119,7 +119,7 @@ Component2.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',
         id: 'chart',
-        nested: true
+        nested: true,
       },
       arrowIcon: {
         classes: 'nhsd-a-icon--size-s nhsd-a-arrow',
@@ -138,14 +138,14 @@ Component2.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',
         id: 'chart',
-        nested: true
+        nested: true,
       },
       arrowIcon: {
         classes: 'nhsd-a-icon--size-s nhsd-a-arrow',
         id: 'arrow_right',
       },
-    }
-  ]
+    },
+  ],
 };
 Component2.parameters = {
   docs: {
@@ -169,7 +169,7 @@ Component3.args = {
       },
       image: {
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
       },
@@ -178,7 +178,7 @@ Component3.args = {
       button: {
         label: 'More about what we do',
         classes: 'nhsd-m-card__button',
-        el: 'span'
+        el: 'span',
       },
     },
     {
@@ -190,7 +190,7 @@ Component3.args = {
       },
       image: {
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
       },
@@ -199,7 +199,7 @@ Component3.args = {
       button: {
         label: 'More about what we do',
         classes: 'nhsd-m-card__button',
-        el: 'span'
+        el: 'span',
       },
     },
     {
@@ -211,7 +211,7 @@ Component3.args = {
       },
       image: {
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
       },
@@ -220,7 +220,7 @@ Component3.args = {
       button: {
         label: 'More about what we do',
         classes: 'nhsd-m-card__button',
-        el: 'span'
+        el: 'span',
       },
     },
     {
@@ -232,7 +232,7 @@ Component3.args = {
       },
       image: {
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
       },
@@ -241,10 +241,10 @@ Component3.args = {
       button: {
         label: 'More about what we do',
         classes: 'nhsd-m-card__button',
-        el: 'span'
+        el: 'span',
       },
     },
-  ]
+  ],
 };
 Component3.parameters = {
   docs: {
@@ -268,7 +268,7 @@ Component4.args = {
       },
       image: {
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
       },
@@ -278,7 +278,7 @@ Component4.args = {
       button: {
         label: 'More about what we do',
         classes: 'nhsd-m-card__button',
-        el: 'span'
+        el: 'span',
       },
     },
     {
@@ -290,7 +290,7 @@ Component4.args = {
       },
       image: {
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
       },
@@ -300,7 +300,7 @@ Component4.args = {
       button: {
         label: 'More about what we do',
         classes: 'nhsd-m-card__button',
-        el: 'span'
+        el: 'span',
       },
     },
     {
@@ -312,7 +312,7 @@ Component4.args = {
       },
       image: {
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
       },
@@ -322,7 +322,7 @@ Component4.args = {
       button: {
         label: 'More about what we do',
         classes: 'nhsd-m-card__button',
-        el: 'span'
+        el: 'span',
       },
     },
     {
@@ -334,7 +334,7 @@ Component4.args = {
       },
       image: {
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
       },
@@ -344,10 +344,10 @@ Component4.args = {
       button: {
         label: 'More about what we do',
         classes: 'nhsd-m-card__button',
-        el: 'span'
+        el: 'span',
       },
     },
-  ]
+  ],
 };
 Component4.parameters = {
   docs: {
@@ -404,7 +404,7 @@ Component5.args = {
         el: 'span',
         label: 'More about what we do',
       },
-    }
+    },
   ],
   buttonNav: {
     buttons: [
@@ -445,7 +445,7 @@ export const Component6 = () => {
 </div>
 </div>`;
   return div;
-}
+};
 Component6.storyName = 'Colour cards in nested grid';
 Component6.parameters = {
   docs: {
@@ -462,8 +462,8 @@ Component6.parameters = {
 
 export const Component7 = Template.bind({});
 Component7.storyName = 'Many cards - 4 columns';
-let component7Cards = [];
-for (let i = 0; i < 9; i ++) {
+const component7Cards = [];
+for (let i = 0; i < 9; i += 1) {
   component7Cards.push({
     box: {
       classes: 'nhsd-a-box--bg-dark-grey',
@@ -493,8 +493,8 @@ Component7.parameters = {
 
 export const Component8 = Template.bind({});
 Component8.storyName = 'Many cards - 3 columns';
-let component8Cards = [];
-for (let i = 0; i < 7; i ++) {
+const component8Cards = [];
+for (let i = 0; i < 7; i += 1) {
   component8Cards.push({
     box: {
       classes: 'nhsd-a-box--bg-yellow',

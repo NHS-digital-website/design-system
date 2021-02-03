@@ -1,8 +1,8 @@
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  './template.njk';
+import template from './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -58,8 +58,7 @@ const storyDescription = `${sbConfig.heading.lab}
 
 ### Developer notes
 - The digiblock compositions are only decorative, therefore the appropriate HTML attributes should be used to hide the image from screen readers (\`aria-hidden="false"\` and \`focusable="false"\`).
-- The stories below all use the same default, inline visual composition - except where "external" source is used (which is marked accordingly).
-`;
+- The stories below all use the same default, inline visual composition - except where "external" source is used (which is marked accordingly).`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/digiblocks";
 
 // HTML`;
@@ -79,7 +78,7 @@ export default {
 
 // Component template
 const Template = (args) => {
-  return template.render({ params: {...args} });
+  return template.render({ params: { ...args } });
 };
 
 const Rule = Template.bind({});

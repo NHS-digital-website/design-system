@@ -1,8 +1,10 @@
+/* globl document */
+
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  '../../organisms/nav-block-list/template.njk';
+import template from '../../organisms/nav-block-list/template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -38,16 +40,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: {...args} });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const TwoInARow = Template.bind({});
 TwoInARow.storyName = 'Lab 2D/2T/1M';
@@ -64,12 +64,12 @@ TwoInARow.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
         id: 'search',
-        nested: true
+        nested: true,
       },
       button: {
         label: 'Start your search',
         el: 'span',
-        classes: 'nhsd-a-button--invert'
+        classes: 'nhsd-a-button--invert',
       },
       boxLink: {
         href: '#',
@@ -86,7 +86,7 @@ TwoInARow.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
         id: 'chart',
-        nested: true
+        nested: true,
       },
       button: {
         label: 'Start your search',
@@ -98,7 +98,7 @@ TwoInARow.args = {
       digiblocks: {
         classes: 'nhsd-a-digiblocks--col-light-grey nhsd-a-digiblocks--pos-bl',
       },
-    }
+    },
   ],
 };
 TwoInARow.parameters = {
@@ -125,7 +125,7 @@ export const TwoInARowNested = () => {
 </div>
 </div>`;
   return div;
-}
+};
 TwoInARowNested.storyName = '2D/2T/1M / Nested grid';
 TwoInARowNested.parameters = {
   docs: {
@@ -155,7 +155,7 @@ ThreeInARow.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
         id: 'search',
-        nested: true
+        nested: true,
       },
       button: {
         label: 'Start your search',
@@ -177,7 +177,7 @@ ThreeInARow.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
         id: 'chart',
-        nested: true
+        nested: true,
       },
       button: {
         label: 'Start your search',
@@ -199,7 +199,7 @@ ThreeInARow.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
         id: 'search',
-        nested: true
+        nested: true,
       },
       button: {
         label: 'Start your search',
@@ -212,7 +212,7 @@ ThreeInARow.args = {
       digiblocks: {
         classes: 'nhsd-a-digiblocks--col-yellow nhsd-a-digiblocks--pos-bl',
       },
-    }
+    },
   ],
 };
 ThreeInARow.parameters = {
@@ -239,12 +239,12 @@ TitleAndButtonNav.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
         id: 'search',
-        nested: true
+        nested: true,
       },
       button: {
         label: 'Start your search',
         el: 'span',
-        classes: 'nhsd-a-button--invert'
+        classes: 'nhsd-a-button--invert',
       },
       boxLink: {
         href: '#',
@@ -261,7 +261,7 @@ TitleAndButtonNav.args = {
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
         id: 'chart',
-        nested: true
+        nested: true,
       },
       button: {
         label: 'Start your search',
@@ -273,7 +273,7 @@ TitleAndButtonNav.args = {
       digiblocks: {
         classes: 'nhsd-a-digiblocks--col-light-grey nhsd-a-digiblocks--pos-bl',
       },
-    }
+    },
   ],
   buttonNav: {
     buttons: [

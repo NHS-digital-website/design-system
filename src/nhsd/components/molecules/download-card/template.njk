@@ -1,12 +1,17 @@
 {#- Import atom macros -#}
 {%- from "../../../njk/macros/atoms.njk" import
-  nhsd_a_button,
   nhsd_a_box_start,
   nhsd_a_box_end,
+  nhsd_a_document_icon,
   nhsd_a_icon,
-  nhsd_a_image,
   nhsd_a_tag
 -%}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-download-card" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
 
 {#- Define ARIA attributes -#}
 {% set ariaLabel = params.title %}
@@ -18,15 +23,7 @@
 {%- endif -%}
 {% set ariaAttributes %} aria-label="{{ ariaLabel }}" {% endset %}
 
-{#- Set classes -#}
-{% set classNames = "nhsd-m-card" %}
-{%- if params.classes -%}
-  {% set classNames = classNames + " " + params.classes %}
-{%- endif -%}
-{%- if params.hexIcon -%}
-  {% set classNames = classNames + " nhsd-m-card--with-icon" %}
-{%- endif -%}
-
+{#- Define Box link attributes -#}
 {%- if params.boxLink -%}
   {%- set boxLinkClassNames = "nhsd-a-box-link " %}
   {% if params.boxLink.classes -%}
@@ -34,47 +31,45 @@
   {%- endif %}
 {%- endif -%}
 
-<article class="{{ classNames }}">
+<div class="{{ classNames }}">
   {% if params.boxLink -%}
   <a href="{{ params.boxLink.href }}" class="{{ boxLinkClassNames }}" {%- if params.boxLink.external %} target="_blank" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
   {%- endif %}
-    {{ nhsd_a_box_start(params.box.classes) }}
-  {% if params.image -%}
-    {{ nhsd_a_image(params.image) }}
-  {%- endif %}
-    <div class="nhsd-m-card__content-box">
+  {{ nhsd_a_box_start(params.box.classes) }}
+    {%- if params.documentIcon -%}
+    <div class="nhsd-m-download-card__image-box">
+      {{ nhsd_a_document_icon(params.documentIcon) }}
+    </div>
+    {%- endif -%}
+
+    <div class="nhsd-m-download-card__content-box">
       {%- if params.tag %}
         {{ nhsd_a_tag(params.tag) }}
       {% endif -%}
-      {% if params.date|length -%}
-        <span class="nhsd-m-card__date">{{ params.date }}</span>
-      {%- endif %}
 
       {%- if params.title -%}
       <h1 class="nhsd-t-heading-s">{{ params.title|safe }}</h1>
       {%- endif -%}
 
-      {%- if params.hexIcon -%}
-      {{ nhsd_a_icon(params.hexIcon) }}
-      {%- endif -%}
-
       {% if params.text -%}
       <p class="nhsd-t-body-s">{{ params.text|safe }}</p>
       {%- endif %}
-    </div>
 
-    <div class="nhsd-m-card__button-box">
-      {%- if params.button -%}
-        {{ nhsd_a_button(params.button) }}
-        {%- endif -%}
+      {% if params.metaTags -%}
+      <div class="nhsd-m-download-card__meta-tags">
+        {% for tag in params.metaTags %}
+          {{ nhsd_a_tag(tag) }}
+        {% endfor %}
+      </div>
+      {%- endif %}
 
-        {%- if params.arrowIcon -%}
+      {%- if params.arrowIcon -%}
         {{ nhsd_a_icon(params.arrowIcon) }}
-        {%- endif -%}
+      {%- endif -%}
     </div>
   {{ nhsd_a_box_end() }}
   {%- if params.boxLink %}
   </a>
   {% endif -%}
-</article>
+</div>
 

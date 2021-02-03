@@ -1,8 +1,8 @@
 // Load storybook config
-import * as sbConfig from '../../../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from  './template.njk';
+import template from './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -58,16 +58,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: {...args} });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -75,12 +73,12 @@ LabComponent.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-grey',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
@@ -108,17 +106,17 @@ DarkGreyTheme.args = {
   box: {
     classes: 'nhsd-a-box--bg-dark-grey',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
     el: 'span',
-    classes: 'nhsd-a-button--invert'
+    classes: 'nhsd-a-button--invert',
   },
   boxLink: {
     href: '#',
@@ -137,7 +135,7 @@ DarkGreyTheme.parameters = {
 - **Box:** Dark grey background;
 - **Heading, body text and icon**: White;
 - **Button:** Invert variant;
-- **Digiblocks:** Dark grey variant.`
+- **Digiblocks:** Dark grey variant.`,
     },
     source: {
       code: `${sourceCode}\n${DarkGreyTheme(DarkGreyTheme.args)}`,
@@ -151,12 +149,12 @@ LightGreyTheme.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-grey',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
@@ -194,12 +192,12 @@ ColourfulTheme.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-yellow',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
@@ -238,12 +236,12 @@ BottomLeft.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-yellow',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
@@ -271,12 +269,12 @@ BottomRight.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-yellow',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
@@ -304,12 +302,12 @@ TopLeft.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-yellow',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
@@ -337,12 +335,12 @@ TopRight.args = {
   box: {
     classes: 'nhsd-a-box--bg-light-yellow',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
@@ -371,21 +369,21 @@ ExternalLink.args = {
   box: {
     classes: 'nhsd-a-box--bg-dark-grey',
   },
-  title: `General practice data hub`,
-  text: `A collection of interactive dashboards, published under the open data licence, covering general practices in England.`,
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   button: {
     label: 'Visit the hub',
     el: 'span',
-    classes: 'nhsd-a-button--invert'
+    classes: 'nhsd-a-button--invert',
   },
   boxLink: {
     href: '#',
-    target: '_blank',
+    external: true,
   },
   digiblocks: {
     classes: 'nhsd-a-digiblocks--col-dark-grey nhsd-a-digiblocks--pos-bl',
@@ -394,7 +392,7 @@ ExternalLink.args = {
 ExternalLink.parameters = {
   docs: {
     description: {
-      story: `When external link is used, the component uses an id on the title element to populate an informative \`aria-label\` attribute for screen reader users, and the link should use \`rel="external"\`.`,
+      story: 'When external link is used, the component uses an id on the title element to populate an informative `aria-label` attribute for screen reader users, and the link should use `rel="external"`.',
     },
     source: {
       code: `${sourceCode}\n${ExternalLink(ExternalLink.args)}`,

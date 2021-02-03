@@ -1,7 +1,7 @@
 /* global document */
 
 // Load storybook config
-import * as sbConfig from '../../../.storybook/storybook-config.js';
+import * as sbConfig from '../../../.storybook/storybook-config';
 
 const storyDescription = `${sbConfig.heading.lab}`;
 
@@ -23,7 +23,7 @@ const Template = () => {
 
   const Title = document.createElement('h1');
   Title.classList.add('nhsd-t-heading-xl');
-  Title.innerText = 'Latest version: v0.4.0.4';
+  Title.innerText = 'Latest version: v0.4.0.5';
   div.appendChild(Title);
 
   const subTitle = document.createElement('h2');
