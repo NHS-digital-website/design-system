@@ -22,4 +22,8 @@ $-root: ".nhsd-m-search-bar";
   max-width: 36rem;
   padding: 0 nhsd-spacing.get(7);
   flex-direction: column;
+
+  .nhsd-t-form-input {
+    padding-right: calc(#{vars.$min-button-size} * 1.2);
+  }
 }
