@@ -60,6 +60,7 @@ export default {
           'document_war',
         ],
       },
+      defaultValue: 'document_doc',
       description: 'Each icon has a unique identifier. Use it to change the visual appearance of the icon.',
     },
     classes: { control: 'text', defaultValue: 'nhsd-a-document-icon--size-l', description: 'Use **BEM style** modifier classes to control the size of the icon.' },
@@ -70,9 +71,6 @@ export default {
 const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
-LabComponent.args = {
-  id: 'document_csv',
-};
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.parameters = {
   docs: {
@@ -84,6 +82,7 @@ LabComponent.parameters = {
 
 export const ExternalSource = Template.bind({});
 ExternalSource.args = {
+  id: null, // Get rid of the default icon in this story
   source: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
 };
 ExternalSource.storyName = 'External image source';

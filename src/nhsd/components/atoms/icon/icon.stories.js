@@ -43,7 +43,7 @@ const storyDescription = `${sbConfig.heading.lab}
 ### Using external images
 
 The icon atom support external images (either SVG or PNG) - with or without nesting. The caveat of using external images is that we cannot colour them from CSS.`;
-const sourceCode = `// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML`;
+const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML';
 
 // Component defaults
 export default {
@@ -51,8 +51,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
   argTypes: {
@@ -82,22 +82,20 @@ export default {
           'chevron_down',
         ],
       },
-      description: 'Each icon has a unique identifier. Use it to change the visual appearance of the icon.'
+      defaultValue: 'arrow_right',
+      description: 'Each icon has a unique identifier. Use it to change the visual appearance of the icon.',
     },
     classes: { control: 'text', defaultValue: '.nhsd-a-icon--size-xl', description: 'Use **BEM style** modifier classes to control the size of the icon.' },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.args = {
   nested: true,
   classes: 'nhsd-a-icon--size-xxl',
-  id: 'chart',
 };
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.parameters = {
@@ -190,6 +188,7 @@ DarkGreyColour.parameters = {
 export const ExternalImage = Template.bind({});
 ExternalImage.args = {
   classes: 'nhsd-a-icon--size-xxl',
+  id: null, // Get rid of the default icon in this story
   source: 'https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/compass.svg?colour=005eb8',
 };
 ExternalImage.storyName = 'External image source';
@@ -204,6 +203,7 @@ ExternalImage.parameters = {
 export const ExternalImageNested = Template.bind({});
 ExternalImageNested.args = {
   classes: 'nhsd-a-icon--size-xl',
+  id: null, // Get rid of the default icon in this story
   source: 'https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/clinical/genes.svg',
   nested: true,
 };

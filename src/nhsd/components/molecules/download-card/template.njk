@@ -36,9 +36,9 @@
   <a href="{{ params.boxLink.href }}" class="{{ boxLinkClassNames }}" {%- if params.boxLink.external %} target="_blank" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
   {%- endif %}
   {{ nhsd_a_box_start(params.box.classes) }}
-    {%- if params.documentIcon -%}
+    {%- if params.documentIconId -%}
     <div class="nhsd-m-download-card__image-box">
-      {{ nhsd_a_document_icon(params.documentIcon) }}
+      {{ nhsd_a_document_icon({ id: params.documentIconId }) }}
     </div>
     {%- endif -%}
 
