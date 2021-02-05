@@ -25,9 +25,9 @@
 
 {#- Define Box link attributes -#}
 {%- if params.boxLink -%}
-  {%- set boxLinkClassNames = "nhsd-a-box-link " %}
+  {%- set boxLinkClassNames = "nhsd-a-box-link" %}
   {% if params.boxLink.classes -%}
-  {%- set boxLinkClassNames = boxLinkClassNames + params.boxLink.classes -%}
+  {%- set boxLinkClassNames = boxLinkClassNames + " " + params.boxLink.classes -%}
   {%- endif %}
 {%- endif -%}
 
