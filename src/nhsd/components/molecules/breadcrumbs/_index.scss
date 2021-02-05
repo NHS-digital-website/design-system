@@ -29,12 +29,13 @@ $-root: ".nhsd-m-breadcrumbs";
     @extend .nhsd-t-body;
     // stylelint-enable scss/at-extend-no-missing-placeholder
 
-    display: inline-flex;
+    display: inline-block;
     margin-bottom: 0;
     align-items: center;
 
     &:not(:first-child):not(&--button),
     .nhsd-a-icon {
+      top: 2px;
       margin-left: nhsd-spacing.get(2);
     }
 
