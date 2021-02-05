@@ -53,23 +53,23 @@ LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   firstLevel: {
     label: 'NHS Digital',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   secondLevel: {
     label: 'Second level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   thirdLevel: {
     label: 'Third level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   fourthLevel: {
     label: 'Fourth level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   currentLevel: {
     label: 'Current page',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
     current: true,
   },
   icon: {
@@ -90,23 +90,23 @@ Story1.storyName = 'Breadcrumbs / full display';
 Story1.args = {
   firstLevel: {
     label: 'NHS Digital',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   secondLevel: {
     label: 'Second level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   thirdLevel: {
     label: 'Third level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   fourthLevel: {
     label: 'Fourth level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   currentLevel: {
     label: 'Current page',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
     current: true,
   },
   icon: {
@@ -127,25 +127,25 @@ Story2.storyName = 'Breadcrumbs / compressed with elipsis (WIP)';
 Story2.args = {
   firstLevel: {
     label: 'NHS Digital',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   secondLevel: {
     label: 'Second level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
     compact: true,
   },
   thirdLevel: {
     label: 'Third level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
     compact: true,
   },
   fourthLevel: {
     label: 'Fourth level',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
   },
   currentLevel: {
     label: 'Current page',
-    classes: 'nhsd-a-link nhsd-a-link--col-dark-grey',
+    classes: 'nhsd-a-link--col-dark-grey',
     current: true,
   },
   icon: {

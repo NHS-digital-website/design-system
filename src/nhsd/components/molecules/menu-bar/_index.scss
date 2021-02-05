@@ -20,7 +20,14 @@ $-root: ".nhsd-m-menu-bar";
   position: relative;
 }
 
+// Enhanced, JS version
 html:not(.nhsd-no-js) {
+  .nhsd-a-menu-item {
+    &:not(:first-child) {
+      margin-left: nhsd-spacing.get(4);
+    }
+  }
+
   @include mq($until: m) {
     #{$-root} {
       flex-direction: column;
@@ -92,6 +99,7 @@ html:not(.nhsd-no-js) {
   }
 }
 
+// Non-JS version
 // stylelint-disable selector-no-qualifying-type
 html.nhsd-no-js {
   @include mq($until: m) {
