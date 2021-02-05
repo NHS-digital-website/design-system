@@ -123,7 +123,7 @@ Story1.parameters = {
 };
 
 export const Story2 = Template.bind({});
-Story2.storyName = 'Breadcrumbs / compressed with elipsis';
+Story2.storyName = 'Breadcrumbs / compressed with elipsis (WIP)';
 Story2.args = {
   firstLevel: {
     label: 'NHS Digital',
@@ -159,6 +159,9 @@ Story2.args = {
 };
 Story2.parameters = {
   docs: {
+    description: {
+      story: 'The interactive ellipsis version is still WIP and not ready to be used.',
+    },
     source: {
       code: `${sourceCode}\n${Story2(Story2.args)}`,
     },

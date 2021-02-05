@@ -35,7 +35,7 @@ $-root: ".nhsd-m-breadcrumbs";
 
     &:not(:first-child):not(&--button),
     .nhsd-a-icon {
-      top: 2px;
+      top: .111rem;
       margin-left: nhsd-spacing.get(2);
     }
 
