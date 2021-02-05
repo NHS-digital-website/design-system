@@ -74,7 +74,7 @@ LabComponent.args = {
   },
   icon: {
     id: 'chevron_right',
-    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--col-dark-grey',
+    classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-dark-grey',
   },
 };
 LabComponent.parameters = {
@@ -111,7 +111,7 @@ Story1.args = {
   },
   icon: {
     id: 'chevron_right',
-    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--col-dark-grey',
+    classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-dark-grey',
   },
 };
 Story1.parameters = {
@@ -150,7 +150,7 @@ Story2.args = {
   },
   icon: {
     id: 'chevron_right',
-    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--col-dark-grey',
+    classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-dark-grey',
   },
   menuIcon: {
     id: 'ellipsis',

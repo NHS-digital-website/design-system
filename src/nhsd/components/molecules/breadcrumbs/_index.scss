@@ -8,8 +8,8 @@
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 
 // Component imports
-@use "../../atoms/box";
 @use "../../atoms/icon";
+@use "../../atoms/link";
 
 // Private members
 $-root: ".nhsd-m-breadcrumbs";
@@ -25,18 +25,23 @@ $-root: ".nhsd-m-breadcrumbs";
   }
 
   &__item {
-    // stylelint-disable scss/at-extend-no-missing-placeholder
-    @extend .nhsd-t-body;
-    // stylelint-enable scss/at-extend-no-missing-placeholder
-
     display: inline-block;
     margin-bottom: 0;
     align-items: center;
 
-    &:not(:first-child):not(&--button),
+    &:not(:last-child):not(&--button) {
+      margin-right: nhsd-spacing.get(1);
+    }
+
+    .nhsd-a-link {
+      // stylelint-disable scss/at-extend-no-missing-placeholder
+      @extend .nhsd-t-body-s;
+      // stylelint-enable scss/at-extend-no-missing-placeholder
+    }
+
     .nhsd-a-icon {
       top: .111rem;
-      margin-left: nhsd-spacing.get(2);
+      margin-left: nhsd-spacing.get(1);
     }
 
     [class^="nhsd-t-body"] {
@@ -44,6 +49,16 @@ $-root: ".nhsd-m-breadcrumbs";
 
       margin: 0;
       color: nhsd-colours.get("black");
+    }
+
+    @include mq($until: s) {
+      &:not(:last-child):not(&--button) {
+        margin-right: calc(.5 * #{nhsd-spacing.get(1)});
+      }
+
+      .nhsd-a-icon {
+        margin-left: calc(.5 * #{nhsd-spacing.get(1)});
+      }
     }
   }
 }
