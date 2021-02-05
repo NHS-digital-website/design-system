@@ -91,3 +91,20 @@ html:not(.nhsd-no-js) {
     }
   }
 }
+
+// stylelint-disable selector-no-qualifying-type
+html.nhsd-no-js {
+  @include mq($until: m) {
+    .nhsd-a-menu-item {
+      display: inline-flex;
+      width: 100%;
+      margin-right: 0;
+      align-items: justify;
+
+      &:not(:last-child) {
+        margin-bottom: nhsd-spacing.get(3);
+      }
+    }
+  }
+}
+// stylelint-enable selector-no-qualifying-type
