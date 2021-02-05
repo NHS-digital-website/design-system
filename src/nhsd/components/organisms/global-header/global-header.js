@@ -40,8 +40,8 @@ export default class NHSDGlobalHeader {
     // Handle resize event
     window.addEventListener('resize', () => {
       // Close the menu on desktops
-      if (window.innerWidth >= 1240 && this.hostEl.classList.contains('js-menu-active')) {
-        this.hostEl.classList.remove('js-menu-active');
+      if (window.innerWidth >= 1240 && this.menuBarActive) {
+        this.closeMenuBar();
       }
     });
   }

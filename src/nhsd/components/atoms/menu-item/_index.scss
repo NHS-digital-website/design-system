@@ -8,11 +8,16 @@
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/transition" as nhsd-transition;
-@use "scss-core/tokens/fonts" as nhsd-typography;
+@use "scss-core/tokens/typography" as nhsd-typography;
 @use "scss-core/tokens/utils" as nhsd-utils;
+
+// Public members
+$active-border-width: .167rem;
+$icon-hover-offset: nhsd-spacing.get(4);
 
 // Private members
 $-root: ".nhsd-a-menu-item";
+$-border-width: .0555rem;
 
 #{$-root} {
   @include nhsd-utils.box-sizing;
@@ -21,57 +26,117 @@ $-root: ".nhsd-a-menu-item";
   display: inline-flex;
   align-items: center;
   position: relative;
-  margin: 0;
-  padding: nhsd-spacing.get(1) nhsd-spacing.get(2);
   transition-property: background-color, color, box-shadow;
   transition-duration: nhsd-transition.$transition-duration;
+  text-decoration: none;
 
-  &:not(:first-child) {
-    margin-left: nhsd-spacing.get(3);
+  &:not(:last-child) {
+    margin-right: nhsd-spacing.get(3);
   }
 
-  &,
-  &:visited {
-    color: nhsd-colours.get("dark-grey");
-    text-decoration: none;
+  .nhsd-a-icon,
+  .nhsd-a-menu-item__label {
+    @include nhsd-transition.trans-easing(nhsd-transition.$ease-out-expo);
+    transition-property: transform;
+    transition-duration: nhsd-transition.$transition-duration;
+  }
+}
 
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: -1 * vars.$active-line-thickness;
-      left: 0;
-      width: 100%;
-      border-bottom: vars.$active-line-thickness solid transparent;
+html:not(.nhsd-no-js) {
+  #{$-root} {
+    margin: 0;
+    padding: 0 nhsd-spacing.get(2);
+
+    &,
+    &:visited {
+      color: nhsd-colours.get("dark-grey");
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -1 * vars.$active-line-thickness;
+        left: 0;
+        width: 100%;
+        border-bottom: vars.$active-line-thickness solid transparent;
+      }
     }
-  }
 
-  .nhsd-a-icon {
-    display: none;
-  }
-
-  &.js-active:focus,
-  &:focus {
-    color: nhsd-colours.get("black");
-    background: nhsd-colours.get("yellow");
-
-    &:after {
-      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+    .nhsd-a-icon {
+      display: none;
     }
-  }
 
-  &.js-active {
-    color: nhsd-colours.get("accessible-blue");
-    background: none;
-  }
+    &.js-active:focus,
+    &.js-active:hover,
+    &:hover,
+    &:focus {
+      color: nhsd-colours.get("black");
+      background: nhsd-colours.get("yellow");
 
-  &:active,
-  &:hover {
-    color: nhsd-colours.get("accessible-blue");
-    background: none;
+      &:after {
+        border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      }
+    }
 
-    &:after {
-      border-bottom: vars.$active-line-thickness solid transparent;
+    &.js-active {
+      color: nhsd-colours.get("accessible-blue");
+      background: none;
+    }
+
+    &:active {
+      color: nhsd-colours.get("accessible-blue");
+      background: none;
+
+      &:after {
+        border-bottom: vars.$active-line-thickness solid transparent;
+      }
     }
   }
 }
+
+// stylelint-disable selector-no-qualifying-type
+html.nhsd-no-js {
+  #{$-root} {
+    margin-bottom: nhsd-spacing.get(2);
+    padding: nhsd-spacing.get(1) nhsd-spacing.get(4);
+    border: $-border-width solid nhsd-colours.get("pale-grey");
+    border-radius: vars.$border-radius;
+    justify-content: space-between;
+    color: nhsd-colours.get("black");
+    background: nhsd-colours.get("white");
+
+    .nhsd-a-icon {
+      display: inline-block;
+
+      & > svg {
+        fill: nhsd-colours.get("black");
+      }
+    }
+
+    &__label {
+      margin-right: nhsd-spacing.get(3);
+    }
+
+    &:after {
+      content: none;
+    }
+
+    &.js-active,
+    &:active,
+    &:focus,
+    &:hover {
+      border: $-border-width solid nhsd-colours.get("yellow");
+      background: nhsd-colours.get("yellow-20-tint");
+      box-shadow: 0 0 0 $-border-width nhsd-colours.get("yellow");
+
+      &:after {
+        content: none;
+      }
+
+      .nhsd-a-icon {
+        transform: translateX(.25 * $icon-hover-offset);
+      }
+    }
+  }
+}
+// stylelint-enable selector-no-qualifying-type

@@ -15,9 +15,19 @@ ${sbConfig.heading.basicRules}
 - <a href="/docs/design-system-components-atoms-button--lab-component">Button atom</a>
 
 ### Tokens used
+- Colours
+- Forms (WIP)
 - Spacing
-- Colour
-- Typography`;
+- Transition
+- Typography
+- Utils
+
+### Developer notes
+
+- The **Search bar molecule** uses form tokens to populate a simple form with an input field, and a submit button.
+- This component being a simple form works without JavaScript.
+- An ARIA label is used for accessible labelling.
+- For a fully integrated example visit the  <a href="/story/design-system-components-organisms-global-header--lab">Global Header</a> organism.`;
 const sourceCode = `// Sass import \n@use "nhsd/components/molecules/search-field";
 
 // HTML`;

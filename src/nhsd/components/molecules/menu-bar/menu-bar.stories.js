@@ -9,7 +9,20 @@ require('./_index.scss');
 const componentName = 'Menu bar';
 const storyDescription = `${sbConfig.heading.lab}
 
-${sbConfig.heading.basicRules}`;
+${sbConfig.heading.basicRules}
+
+### Components used
+- <a href="/docs/design-system-components-atoms-menu-item--lab-component">Menu item atom</a>
+
+### Tokens used
+- Colours
+- Spacing
+- Transition
+- Utils
+
+### Developer notes
+
+- The **Menu bar** molecule controls the responsive behaviour of the menu item atoms.`;
 const sourceCode = `// Sass import \n@use "nhsd/components/molecules/menu-bar";
 
 // HTML`;
@@ -20,16 +33,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -51,7 +62,7 @@ LabComponent.args = {
     }, {
       label: 'About us',
     },
-  ]
+  ],
 };
 LabComponent.parameters = {
   docs: {
@@ -62,7 +73,7 @@ LabComponent.parameters = {
 };
 
 export const DefaultComponent = Template.bind({});
-DefaultComponent.storyName = 'Desktop view';
+DefaultComponent.storyName = 'Responsive menu bar';
 DefaultComponent.args = {
   links: [
     {
@@ -81,43 +92,12 @@ DefaultComponent.args = {
     }, {
       label: 'About us',
     },
-  ]
+  ],
 };
 DefaultComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${DefaultComponent(DefaultComponent.args)}`,
-    },
-  },
-};
-
-export const MobileView = Template.bind({});
-MobileView.storyName = 'Mobile view';
-MobileView.args = {
-  classes: 'js-mobile',
-  links: [
-    {
-      label: 'Coronavirus',
-    }, {
-      label: 'Data',
-    }, {
-      label: 'Services',
-      classes: 'js-active',
-    }, {
-      label: 'Cyber',
-    }, {
-      label: 'Developer',
-    }, {
-      label: 'News',
-    }, {
-      label: 'About us',
-    },
-  ]
-};
-MobileView.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${MobileView(MobileView.args)}`,
     },
   },
 };

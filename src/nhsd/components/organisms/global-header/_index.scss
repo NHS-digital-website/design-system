@@ -1,4 +1,5 @@
 // Settings
+@use "scss-core/settings/vars";
 @use "scss-core/settings/media-queries" as *;
 
 // Tokens
@@ -28,7 +29,8 @@ $-root: ".nhsd-o-global-header";
     width: 100%;
     height: 100%;
     padding: 9rem 0 2rem;
-    overflow: scroll;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 
   #{$parent}-background {
@@ -72,16 +74,18 @@ $-root: ".nhsd-o-global-header";
     align-items: center;
   }
 
-  .nhsd-m-button-nav {
+  &__button-nav {
     display: inline-block;
     position: relative;
     z-index: 20;
+    order: 3;
   }
 
   .nhsd-a-horizontal-rule,
   &__logo {
     position: relative;
     z-index: 20;
+    order: 1;
   }
 
   &__menu,
@@ -90,11 +94,12 @@ $-root: ".nhsd-o-global-header";
 
     &-background {
       display: none;
-      position: absolute;
+      position: fixed;
       top: 0;
       right: 0;
       bottom: 0;
-      left: 0;
+      width: 100%;
+      height: 200%;
       background: nhsd-colours.get("white");
     }
 
@@ -111,6 +116,7 @@ $-root: ".nhsd-o-global-header";
 
   &__menu {
     z-index: 15;
+    order: 2;
   }
 
   &__search {
@@ -139,8 +145,24 @@ $-root: ".nhsd-o-global-header";
 
 // stylelint-disable selector-no-qualifying-type
 html.nhsd-no-js {
-  #{$-root}__menu-button {
-    display: none;
+  #{$-root} {
+    &__content-box {
+      flex-wrap: wrap;
+    }
+
+    &__button-nav {
+      order: 2;
+    }
+
+    &__menu {
+      margin-top: nhsd-spacing.get(3);
+      flex: 0 1 100%;
+      order: 3;
+    }
+
+    &__menu-button {
+      display: none;
+    }
   }
 }
 // stylelint-enable selector-no-qualifying-type

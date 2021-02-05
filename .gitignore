@@ -3,7 +3,9 @@ construction-site
 work-in-progress
 storybook-static
 lab
-dist
+dist/*
+!dist/test
+!dist/README.md
 
 # Sensitive config files
 aws-config.json

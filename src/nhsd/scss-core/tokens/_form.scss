@@ -41,19 +41,27 @@ $-outline-width: .167rem;
     @include nhsd-spacing.set-responsive("margin-bottom", 7);
 
     &--error {
-      #{$-root}-form-input,
-      #{$-root}-form-textarea,
-      #{$-root}-form-select {
-        &:not(:disabled):not(&--disabled) {
-          &,
-          &:focus {
-            box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("red");
+      #{$-root} {
+        &-form-input,
+        &-form-textarea,
+        &-form-select {
+          color: nhsd-colours.get("red");
+
+          &:not(:disabled):not(&--disabled) {
+            &,
+            &:focus {
+              box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("red");
+            }
           }
         }
-      }
 
-      #{$-root}-form-error {
-        display: block;
+        &-form-control__icon {
+          fill: nhsd-colours.get("red");
+        }
+
+        &-form-error {
+          display: block;
+        }
       }
     }
   }

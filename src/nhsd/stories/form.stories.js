@@ -1,23 +1,24 @@
+/* global document */
+
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
 // Load stylesheet file
 require('../scss-core/tokens/_form.scss');
 
-const componentName = 'Forms';
 const storyDescription = `${sbConfig.heading.lab}`;
-const sourceCode = `// Sass import \n@use "nhsd/scss-core/tokens/form";\n\n//HTML`;
+const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/form";\n\n//HTML';
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.forms}`,
+  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.forms} (WIP)`,
   parameters: {
     docs: {
       description: {
         component: storyDescription,
-      }
+      },
     },
-  }
+  },
 };
 
 export const LabComponent = () => {
@@ -47,9 +48,9 @@ export const LabComponent = () => {
         <option>Greater Manchester</option>
       </select>
       <span class="nhsd-t-form-control__icon">
-        <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-dark-grey">
+        <span class="nhsd-a-icon nhsd-a-icon--size-s">
           <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-            <path d="M15,8.5L8,15L1,8.5L2.5,7L7,11.2L7,1l2,0l0,10.2L13.5,7L15,8.5z"/>
+            <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"/>
           </svg>
         </span>
       </span>
@@ -96,6 +97,13 @@ export const Error = () => {
         <option>Greater London</option>
         <option>Greater Manchester</option>
       </select>
+      <span class="nhsd-t-form-control__icon">
+        <span class="nhsd-a-icon nhsd-a-icon--size-s">
+          <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+            <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"/>
+          </svg>
+        </span>
+      </span>
     </div>
     <span class="nhsd-t-form-error">This is an error message</span>
   </div>
@@ -166,7 +174,7 @@ export const SmallControls = () => {
         <option>Greater Manchester</option>
       </select>
       <span class="nhsd-t-form-control__icon">
-        <span class="nhsd-a-icon nhsd-a-icon--size-xs nhsd-a-icon--col-dark-grey">
+        <span class="nhsd-a-icon nhsd-a-icon--size-s">
           <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
             <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"/>
           </svg>
@@ -185,7 +193,6 @@ SmallControls.parameters = {
     },
   },
 };
-
 
 export const InputControl = () => {
   const div = document.createElement('div');
@@ -250,7 +257,7 @@ export const SelectControl = () => {
         <option>Greater Manchester</option>
       </select>
       <span class="nhsd-t-form-control__icon">
-        <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-dark-grey">
+        <span class="nhsd-a-icon nhsd-a-icon--size-s">
           <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
             <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"/>
           </svg>
@@ -269,4 +276,3 @@ SelectControl.parameters = {
     },
   },
 };
-

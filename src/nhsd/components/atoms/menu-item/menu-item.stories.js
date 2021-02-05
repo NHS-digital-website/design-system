@@ -7,8 +7,26 @@ import template from './template.njk';
 require('./_index.scss');
 
 const componentName = 'Menu item';
-const storyDescription = `${sbConfig.heading.lab}`;
-const sourceCode = `// Sass import \n@use "nhsd/components/atoms/menu-item";\n\n// HTML`;
+const storyDescription = `${sbConfig.heading.lab}
+
+${sbConfig.heading.basicRules}
+
+### Components used
+- <a href="/docs/design-system-components-atoms-icon--lab-component">Icon atom</a>
+
+### Tokens used
+- Colours
+- Fonts
+- Spacing
+- Transition
+- Typography
+- Utils
+
+### Developer notes
+
+- The **Menu item** atom is used by the <a href="/docs/design-system-components-molecules-menu-bar--lab-component">Menu bar molecule</a>, which is used by the <a href="/story/design-system-components-organisms-global-header--lab">Global Header organism</a>.
+- The **Menu item** is only responsive when used in the menu bar molecule.`;
+const sourceCode = '// Sass import \n@use "nhsd/components/atoms/menu-item";\n\n// HTML';
 
 // Component defaults
 export default {
@@ -16,21 +34,21 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 	argTypes: {
-    label: { control: 'text', defaultValue: 'About NHS Digital', description: 'Clear, easy to understand text that explains where the user is taken when they click the link.', mandatory: true },
+    label: {
+      control: 'text', defaultValue: 'About NHS Digital', description: 'Clear, easy to understand text that explains where the user is taken when they click the link.', mandatory: true,
+    },
     href: { control: 'text', description: '**href** determines the URL the user is taken to when they click the element.', required: true },
     external: { control: 'boolean', description: 'Determines whether the URL should open in a new tab. If **external** is set to true, screen readers read out "*...(opens in a new tab)*" after the link title.', defaultValue: false },
-	}
+	},
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.args = {
@@ -51,7 +69,7 @@ Story1.args = {
   href: 'https://valtech.com',
   external: true,
 };
-Story1.storyName = `External link`;
+Story1.storyName = 'External link';
 Story1.parameters = {
   docs: {
     source: {
@@ -65,39 +83,11 @@ Story2.args = {
   label: 'I\'m so active, baby',
   classes: 'js-active',
 };
-Story2.storyName = `Activated menu item`;
+Story2.storyName = 'Activated menu item';
 Story2.parameters = {
   docs: {
     source: {
       code: `${sourceCode} ${Story2(Story2.args)} `,
-    },
-  },
-};
-
-export const Story3 = Template.bind({});
-Story3.args = {
-  label: 'Home',
-  classes: 'js-mobile',
-};
-Story3.storyName = `Mobile state`;
-Story3.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode} ${Story3(Story3.args)} `,
-    },
-  },
-};
-
-export const Story4 = Template.bind({});
-Story4.args = {
-  label: 'Home - active by nature',
-  classes: 'js-mobile js-active',
-};
-Story4.storyName = `Mobile state / Active`;
-Story4.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode} ${Story4(Story4.args)} `,
     },
   },
 };

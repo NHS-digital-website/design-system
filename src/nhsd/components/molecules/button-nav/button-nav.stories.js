@@ -22,22 +22,19 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const Story1 = Template.bind({});
 Story1.storyName = sbConfig.title.lab;
 Story1.args = {
-  buttons: [
-  {
+  buttons: [{
     el: 'a',
     label: 'View more stuff',
     href: '#',
@@ -46,8 +43,8 @@ Story1.args = {
     el: 'a',
     label: 'View more stuff - very long label - very very very very very long',
     href: '#',
-  },
-]};
+  }],
+};
 Story1.parameters = {
   docs: {
     source: {
@@ -59,13 +56,12 @@ Story1.parameters = {
 export const Story2 = Template.bind({});
 Story2.storyName = '1 button';
 Story2.args = {
-  buttons: [
-  {
+  buttons: [{
     el: 'a',
     label: 'View more stuff',
     href: '#',
-  }
-]};
+  }],
+};
 Story2.parameters = {
   docs: {
     source: {
@@ -75,10 +71,9 @@ Story2.parameters = {
 };
 
 export const Story3 = Template.bind({});
-Story3.storyName = `3 buttons`;
+Story3.storyName = '3 buttons';
 Story3.args = {
-  buttons: [
-  {
+  buttons: [{
     el: 'a',
     label: 'View all cards',
     href: '#',
@@ -92,8 +87,8 @@ Story3.args = {
     el: 'a',
     label: 'View more stuff',
     href: '#',
-  }
-]};
+  }],
+};
 Story3.parameters = {
   docs: {
     source: {
@@ -106,8 +101,7 @@ export const Story4 = Template.bind({});
 Story4.storyName = 'Button bar / Condensed / Non-responsive';
 Story4.args = {
   classes: 'nhsd-m-button-nav--condensed nhsd-m-button-nav--non-responsive',
-  buttons: [
-  {
+  buttons: [{
     el: 'a',
     href: '#',
     aria: {
@@ -125,8 +119,8 @@ Story4.args = {
       id: 'burger',
       classes: 'nhsd-a-icon--size-s',
     },
-  }
-]};
+  }],
+};
 Story4.parameters = {
   docs: {
     source: {
