@@ -1,0 +1,41 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
+
+// Component imports
+@use "../../atoms/box";
+@use "../../atoms/link";
+
+// Private members
+$-root: ".nhsd-a-skip-link";
+$-box-padding: 1.111rem;
+
+#{$-root} {
+  display: block;
+  position: absolute;
+  z-index: 100000;
+  left: -99999rem;
+  width: 100%;
+  padding: $-box-padding;
+  color: nhsd-colours.get("black");
+  background-color: transparent;
+  text-decoration: none;
+  transition-property: background-color;
+  transition-duration: nhsd-transition.$transition-duration;
+
+  &__label {
+    border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+  }
+
+  &:focus {
+    position: relative;
+    left: 0;
+    background-color: nhsd-colours.get("yellow");
+  }
+}

@@ -5,7 +5,13 @@
   nhsd_a_icon
 -%}
 
-<div class="nhsd-m-quote">
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-quote" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+<div class="{{ classNames }}">
   {{ nhsd_a_box_start("nhsd-a-box--bg-light-grey") }}
     <figure>
       <blockquote class="nhsd-t-heading-l">
