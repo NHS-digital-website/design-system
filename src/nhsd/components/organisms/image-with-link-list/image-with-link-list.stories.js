@@ -33,16 +33,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -54,7 +52,7 @@ LabComponent.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -68,21 +66,21 @@ LabComponent.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
-        label: 'Simplifying patient communication with the NHS App'
+        label: 'Simplifying patient communication with the NHS App',
       },
     },
     {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -96,7 +94,7 @@ LabComponent.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -106,7 +104,7 @@ LabComponent.args = {
         label: 'Managing the world’s biggest patient data set',
       },
     },
-  ]
+  ],
 };
 LabComponent.parameters = {
   docs: {
@@ -116,9 +114,8 @@ LabComponent.parameters = {
   },
 };
 
-
 export const ComponentVariant1 = Template.bind({});
-ComponentVariant1.storyName = `Variant 1 (default) - 2D/2T/1M`;
+ComponentVariant1.storyName = 'Variant 1 (default) - 2D/2T/1M';
 ComponentVariant1.args = {
   desktopColumns: 2,
   title: 'Use case 1 - 2 columns',
@@ -127,7 +124,7 @@ ComponentVariant1.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -142,21 +139,21 @@ ComponentVariant1.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
-        label: 'Simplifying patient communication with the NHS App'
+        label: 'Simplifying patient communication with the NHS App',
       },
     },
     {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -170,7 +167,7 @@ ComponentVariant1.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -191,7 +188,7 @@ ComponentVariant1.parameters = {
 };
 
 export const ComponentVariant2 = Template.bind({});
-ComponentVariant2.storyName = `Variant 2 - 3D/2T/1M`;
+ComponentVariant2.storyName = 'Variant 2 - 3D/2T/1M';
 ComponentVariant2.args = {
   desktopColumns: 3,
   title: 'Use case 2 - 3 columns',
@@ -200,7 +197,7 @@ ComponentVariant2.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -215,7 +212,7 @@ ComponentVariant2.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -223,14 +220,14 @@ ComponentVariant2.args = {
       headingClass: 'nhsd-t-heading-xs',
       link: {
         href: '#',
-        label: 'Simplifying patient communication with the NHS App'
+        label: 'Simplifying patient communication with the NHS App',
       },
     },
     {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -252,7 +249,7 @@ ComponentVariant2.parameters = {
 };
 
 export const ComponentVariant3 = Template.bind({});
-ComponentVariant3.storyName = `Variant 3 - 4D/2T/1M`;
+ComponentVariant3.storyName = 'Variant 3 - 4D/2T/1M';
 ComponentVariant3.args = {
   desktopColumns: 4,
   title: 'Use case 3 - 4 columns',
@@ -261,7 +258,7 @@ ComponentVariant3.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -276,7 +273,7 @@ ComponentVariant3.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -284,14 +281,14 @@ ComponentVariant3.args = {
       headingClass: 'nhsd-t-heading-xs',
       link: {
         href: '#',
-        label: 'Simplifying patient communication with the NHS App'
+        label: 'Simplifying patient communication with the NHS App',
       },
     },
     {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -306,7 +303,7 @@ ComponentVariant3.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -328,7 +325,7 @@ ComponentVariant3.parameters = {
 };
 
 export const ComponentVariant4 = Template.bind({});
-ComponentVariant4.storyName = `With button nav`;
+ComponentVariant4.storyName = 'With button nav';
 ComponentVariant4.args = {
   desktopColumns: 2,
   title: 'With button nav',
@@ -337,7 +334,7 @@ ComponentVariant4.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -351,14 +348,14 @@ ComponentVariant4.args = {
       image: {
         ariaHidden: true,
         sourceSet: [{
-          'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         }],
         alt: 'Abstract lights',
         classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
       },
       link: {
         href: '#',
-        label: 'Simplifying patient communication with the NHS App'
+        label: 'Simplifying patient communication with the NHS App',
       },
     },
   ],

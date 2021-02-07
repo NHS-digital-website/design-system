@@ -1,14 +1,10 @@
-/* global ENV PATHS */
+/* global PATHS */
 
-const gulp = require('gulp')
-const newer = require('gulp-newer')
+const gulp = require('gulp');
+const newer = require('gulp-newer');
 
-const getDestPath = () => {
-  return PATHS.dist.static;
-};
+const getDestPath = () => PATHS.dist.static;
 
-gulp.task('static:copy', (done) => {
-  return gulp.src(`${PATHS.src.static}/**/*`)
-    .pipe(newer(getDestPath()))
-    .pipe(gulp.dest(getDestPath()));
-});
+gulp.task('static:copy', () => gulp.src(`${PATHS.src.static}/**/*`)
+  .pipe(newer(getDestPath()))
+  .pipe(gulp.dest(getDestPath())));

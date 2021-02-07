@@ -20,21 +20,19 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
-  classes: 'nhsd-a-box--border-grey'
+  classes: 'nhsd-a-box--border-grey',
 };
 LabComponent.parameters = {
   docs: {
@@ -60,7 +58,7 @@ WhiteBox.parameters = {
 export const LightGreyBox = Template.bind({});
 LightGreyBox.storyName = 'Background / Light grey';
 LightGreyBox.args = {
-  classes: 'nhsd-a-box--bg-light-grey'
+  classes: 'nhsd-a-box--bg-light-grey',
 };
 LightGreyBox.parameters = {
   docs: {
@@ -73,7 +71,7 @@ LightGreyBox.parameters = {
 export const MidGreyBox = Template.bind({});
 MidGreyBox.storyName = 'Background / Mid grey';
 MidGreyBox.args = {
-  classes: 'nhsd-a-box--bg-mid-grey'
+  classes: 'nhsd-a-box--bg-mid-grey',
 };
 MidGreyBox.parameters = {
   docs: {
@@ -86,7 +84,7 @@ MidGreyBox.parameters = {
 export const DarkGreyBox = Template.bind({});
 DarkGreyBox.storyName = 'Background / Dark grey';
 DarkGreyBox.args = {
-  classes: 'nhsd-a-box--bg-dark-grey'
+  classes: 'nhsd-a-box--bg-dark-grey',
 };
 DarkGreyBox.parameters = {
   docs: {
@@ -99,7 +97,7 @@ DarkGreyBox.parameters = {
 export const BlackBackground = Template.bind({});
 BlackBackground.storyName = 'Background / Black';
 BlackBackground.args = {
-  classes: 'nhsd-a-box--bg-black'
+  classes: 'nhsd-a-box--bg-black',
 };
 BlackBackground.parameters = {
   docs: {
@@ -112,7 +110,7 @@ BlackBackground.parameters = {
 export const LightYellowBox = Template.bind({});
 LightYellowBox.storyName = 'Background / Light yellow';
 LightYellowBox.args = {
-  classes: 'nhsd-a-box--bg-light-yellow'
+  classes: 'nhsd-a-box--bg-light-yellow',
 };
 LightYellowBox.parameters = {
   docs: {
@@ -125,7 +123,7 @@ LightYellowBox.parameters = {
 export const YellowBox = Template.bind({});
 YellowBox.storyName = 'Background / Yellow';
 YellowBox.args = {
-  classes: 'nhsd-a-box--bg-yellow'
+  classes: 'nhsd-a-box--bg-yellow',
 };
 YellowBox.parameters = {
   docs: {
@@ -138,7 +136,7 @@ YellowBox.parameters = {
 export const BlueBox = Template.bind({});
 BlueBox.storyName = 'Background / Blue';
 BlueBox.args = {
-  classes: 'nhsd-a-box--bg-blue'
+  classes: 'nhsd-a-box--bg-blue',
 };
 BlueBox.parameters = {
   docs: {
@@ -151,7 +149,7 @@ BlueBox.parameters = {
 export const DarkBlueBox = Template.bind({});
 DarkBlueBox.storyName = 'Background / Dark blue';
 DarkBlueBox.args = {
-  classes: 'nhsd-a-box--bg-dark-blue'
+  classes: 'nhsd-a-box--bg-dark-blue',
 };
 DarkBlueBox.parameters = {
   docs: {
@@ -164,7 +162,7 @@ DarkBlueBox.parameters = {
 export const YellowOutlineBox = Template.bind({});
 YellowOutlineBox.storyName = 'Outline / Yellow';
 YellowOutlineBox.args = {
-  classes: 'nhsd-a-box--border-yellow'
+  classes: 'nhsd-a-box--border-yellow',
 };
 YellowOutlineBox.parameters = {
   docs: {
@@ -177,7 +175,7 @@ YellowOutlineBox.parameters = {
 export const BlueOutlineBox = Template.bind({});
 BlueOutlineBox.storyName = 'Outline / Blue';
 BlueOutlineBox.args = {
-  classes: 'nhsd-a-box--border-blue'
+  classes: 'nhsd-a-box--border-blue',
 };
 BlueOutlineBox.parameters = {
   docs: {
@@ -190,7 +188,7 @@ BlueOutlineBox.parameters = {
 export const GreyOutlineBox = Template.bind({});
 GreyOutlineBox.storyName = 'Outline / Grey';
 GreyOutlineBox.args = {
-  classes: 'nhsd-a-box--border-grey'
+  classes: 'nhsd-a-box--border-grey',
 };
 GreyOutlineBox.parameters = {
   docs: {

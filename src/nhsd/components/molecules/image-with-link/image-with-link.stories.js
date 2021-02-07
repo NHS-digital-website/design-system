@@ -26,16 +26,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -43,7 +41,7 @@ LabComponent.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
     classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -62,12 +60,12 @@ LabComponent.parameters = {
 };
 
 export const ComponentVariant1 = Template.bind({});
-ComponentVariant1.storyName = `Internal link`;
+ComponentVariant1.storyName = 'Internal link';
 ComponentVariant1.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
     classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
@@ -86,12 +84,12 @@ ComponentVariant1.parameters = {
 };
 
 export const ComponentVariant2 = Template.bind({});
-ComponentVariant2.storyName = `External link`;
+ComponentVariant2.storyName = 'External link';
 ComponentVariant2.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
     classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',

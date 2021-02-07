@@ -31,8 +31,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
   argTypes: {
@@ -40,25 +40,23 @@ export default {
     person: { control: 'text', description: 'The person\'s name' },
     role: { control: 'text', description: 'The person\'s role' },
     organisation: { control: 'text', description: 'The person\'s organisation' },
-  }
+  },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   icon: {
     id: 'quote_open',
-    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue'
+    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
   },
   quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.',
   person: 'Example person',
   role: 'Example role',
-  organisation: 'Example organisation'
+  organisation: 'Example organisation',
 };
 LabComponent.parameters = {
   docs: {
@@ -69,16 +67,16 @@ LabComponent.parameters = {
 };
 
 export const Story1 = Template.bind({});
-Story1.storyName = "Quote block / Default";
+Story1.storyName = 'Quote block / Default';
 Story1.args = {
   icon: {
     id: 'quote_open',
-    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue'
+    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
   },
   quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.',
   person: 'Example person',
   role: 'Example role',
-  organisation: 'Example organisation'
+  organisation: 'Example organisation',
 };
 Story1.parameters = {
   docs: {
@@ -89,13 +87,13 @@ Story1.parameters = {
 };
 
 export const Story2 = Template.bind({});
-Story2.storyName = "Quote block / without meta info";
+Story2.storyName = 'Quote block / without meta info';
 Story2.args = {
   icon: {
     id: 'quote_open',
-    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue'
+    classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
   },
-  quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.'
+  quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.',
 };
 Story2.parameters = {
   docs: {

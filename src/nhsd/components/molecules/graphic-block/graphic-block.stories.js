@@ -18,26 +18,24 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--square'
+    classes: 'nhsd-a-image--square',
   },
   title: {
     p1: '50x',
@@ -54,14 +52,14 @@ LabComponent.parameters = {
 };
 
 export const WithIcon = Template.bind({});
-WithIcon.storyName = `With icon`;
+WithIcon.storyName = 'With icon';
 WithIcon.args = {
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--square'
+    classes: 'nhsd-a-image--square',
   },
   title: {
     p1: '50',
@@ -70,7 +68,7 @@ WithIcon.args = {
   text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
   icon: {
     id: 'arrow_right',
-    classes: 'nhsd-a-icon--size-m'
+    classes: 'nhsd-a-icon--size-m',
   },
 };
 WithIcon.parameters = {
@@ -82,14 +80,14 @@ WithIcon.parameters = {
 };
 
 export const WithLink = Template.bind({});
-WithLink.storyName = `With link`;
+WithLink.storyName = 'With link';
 WithLink.args = {
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--square'
+    classes: 'nhsd-a-image--square',
   },
   title: {
     p1: '50x',
@@ -110,14 +108,14 @@ WithLink.parameters = {
 };
 
 export const WithLinkAndIcon = Template.bind({});
-WithLinkAndIcon.storyName = `With link and icon`;
+WithLinkAndIcon.storyName = 'With link and icon';
 WithLinkAndIcon.args = {
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--square'
+    classes: 'nhsd-a-image--square',
   },
   title: {
     p1: '50',

@@ -1,10 +1,11 @@
+/* global document */
+
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
 // Load stylesheet file
 require('../scss-core/tokens/_colours.scss');
 
-const componentName = `Colours`;
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.details}:
@@ -16,9 +17,8 @@ ${sbConfig.heading.details}:
 - Examples of how the inline tokens work can be found <a href="#inline-override-tokens">below</a>
 - The only internal colour token is the \`get\` method, which works like:
   \`nhsd-colours.get("KEY")\` where **KEY** is the colour key - see the colour palette below for colour keys
-- The best place to check out the internal tokens is the \`src/nhsd/scss-core/_colours.scss\` file`
-  ;
-const sourceCode = `// Sass import \n@use "nhsd/scss-core/tokens/colours";\n\n//HTML`;
+- The best place to check out the internal tokens is the \`src/nhsd/scss-core/_colours.scss\` file`;
+const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/colours";\n\n//HTML';
 
 // Component defaults
 export default {
@@ -26,14 +26,13 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
-  }
+  },
 };
 
-const ColourCard = (args) => {
-  return `<div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4 nhsd-t-col-l-3 nhsd-!t-margin-bottom-7">
+const ColourCard = (args) => `<div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4 nhsd-t-col-l-3 nhsd-!t-margin-bottom-7">
   <div class="nhsd-a-box nhsd-!t-margin-bottom-3 nhsd-!t-bg-${args.key} ${args.classes ? args.classes : ''}" style="padding-bottom: 56.25%;"></div>
   <span class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">${args.name}</span>
   <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" />
@@ -41,7 +40,6 @@ const ColourCard = (args) => {
   <br>
   <span class="nhsd-t-body-s nhsd-!t-font-weight-bold">Key: </span><span class="nhsd-t-body-s">${args.key}</span>
 </div>`;
-}
 
 export const ColourPalette = () => {
   const div = document.createElement('div');
@@ -225,8 +223,7 @@ ColourPalette.parameters = {
   },
 };
 
-export const ColourOverrides = () => {
-  return `<div class="nhsd-a-box nhsd-!t-bg-yellow-10-tint nhsd-!t-border-black">
+export const ColourOverrides = () => `<div class="nhsd-a-box nhsd-!t-bg-yellow-10-tint nhsd-!t-border-black">
   <span class="nhsd-t-heading-l nhsd-!t-col-red">Override tokens in action</span>
   <p class="nhsd-t-body nhsd-!t-border-blue">This box is using the following colour override tokens:</p>
   <ul class="nhsd-t-list nhsd-t-list--bullet">
@@ -236,8 +233,7 @@ export const ColourOverrides = () => {
     <li><span class="nhsd-a-text-highlight nhsd-a-text-highlight--bg-dark-grey nhsd-!t-font-family-mono nhsd-!t-font-weight-regular">.nhsd-!t-border-blue</span></li>
   </ul>
 </div>`;
-};
-ColourOverrides.storyName = `Inline override tokens`;
+ColourOverrides.storyName = 'Inline override tokens';
 ColourOverrides.parameters = {
   docs: {
     description: {
@@ -256,4 +252,3 @@ ColourOverrides.parameters = {
     },
   },
 };
-

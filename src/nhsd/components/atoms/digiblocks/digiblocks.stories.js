@@ -1,3 +1,5 @@
+/* global document */
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -69,19 +71,15 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
-    argTypes: {}
+    argTypes: {},
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
-
-const Rule = Template.bind({});
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -93,10 +91,9 @@ LabComponent.parameters = {
   },
 };
 
-
 // Colour stories
 export const ColourBlack = Template.bind({});
-ColourBlack.storyName = `Colours / Black`;
+ColourBlack.storyName = 'Colours / Black';
 ColourBlack.args = {
   classes: 'nhsd-a-digiblocks--col-black',
 };
@@ -109,7 +106,7 @@ ColourBlack.parameters = {
 };
 
 export const ColourYellow = Template.bind({});
-ColourYellow.storyName = `Colours / Yellow`;
+ColourYellow.storyName = 'Colours / Yellow';
 ColourYellow.args = {
   classes: 'nhsd-a-digiblocks--col-yellow',
 };
@@ -122,7 +119,7 @@ ColourYellow.parameters = {
 };
 
 export const ColourDarkBlue = Template.bind({});
-ColourDarkBlue.storyName = `Colours / Dark blue`;
+ColourDarkBlue.storyName = 'Colours / Dark blue';
 ColourDarkBlue.args = {
   classes: 'nhsd-a-digiblocks--col-dark-blue',
 };
@@ -135,7 +132,7 @@ ColourDarkBlue.parameters = {
 };
 
 export const ColourBlue = Template.bind({});
-ColourBlue.storyName = `Colours / Blue`;
+ColourBlue.storyName = 'Colours / Blue';
 ColourBlue.args = {
   classes: 'nhsd-a-digiblocks--col-blue',
 };
@@ -148,7 +145,7 @@ ColourBlue.parameters = {
 };
 
 export const ColourLightBlue = Template.bind({});
-ColourLightBlue.storyName = `Colours / Light blue`;
+ColourLightBlue.storyName = 'Colours / Light blue';
 ColourLightBlue.args = {
   classes: 'nhsd-a-digiblocks--col-light-blue',
 };
@@ -161,7 +158,7 @@ ColourLightBlue.parameters = {
 };
 
 export const ColourDarkGrey = Template.bind({});
-ColourDarkGrey.storyName = `Colours / Dark grey`;
+ColourDarkGrey.storyName = 'Colours / Dark grey';
 ColourDarkGrey.args = {
   classes: 'nhsd-a-digiblocks--col-dark-grey',
 };
@@ -174,7 +171,7 @@ ColourDarkGrey.parameters = {
 };
 
 export const ColourGrey = Template.bind({});
-ColourGrey.storyName = `Colours / Grey`;
+ColourGrey.storyName = 'Colours / Grey';
 ColourGrey.args = {
   classes: 'nhsd-a-digiblocks--col-grey',
 };
@@ -187,7 +184,7 @@ ColourGrey.parameters = {
 };
 
 export const ColourLightGrey = Template.bind({});
-ColourLightGrey.storyName = `Colours / Light grey`;
+ColourLightGrey.storyName = 'Colours / Light grey';
 ColourLightGrey.args = {
   classes: 'nhsd-a-digiblocks--col-light-grey',
 };
@@ -200,7 +197,7 @@ ColourLightGrey.parameters = {
 };
 
 export const ColourWhite = Template.bind({});
-ColourWhite.storyName = `Colours / White`;
+ColourWhite.storyName = 'Colours / White';
 ColourWhite.args = {
   classes: 'nhsd-a-digiblocks--col-white',
 };
@@ -222,7 +219,7 @@ const createContainer = (contents = '') => {
   container.style.height = '300px';
   container.innerHTML = contents;
   return container;
-}
+};
 
 export const PositionTopLeft = () => {
   const div = createContainer(LabComponent({
@@ -230,7 +227,7 @@ export const PositionTopLeft = () => {
   }));
   return div;
 };
-PositionTopLeft.storyName = `Position / TL`;
+PositionTopLeft.storyName = 'Position / TL';
 PositionTopLeft.parameters = {
   docs: {
     source: {
@@ -247,7 +244,7 @@ export const PositionTopRight = () => {
   }));
   return div;
 };
-PositionTopRight.storyName = `Position / TR`;
+PositionTopRight.storyName = 'Position / TR';
 PositionTopRight.parameters = {
   docs: {
     source: {
@@ -264,7 +261,7 @@ export const PositionBottomLeft = () => {
   }));
   return div;
 };
-PositionBottomLeft.storyName = `Position / BL`;
+PositionBottomLeft.storyName = 'Position / BL';
 PositionBottomLeft.parameters = {
   docs: {
     source: {
@@ -281,7 +278,7 @@ export const PositionBottomRight = () => {
   }));
   return div;
 };
-PositionBottomRight.storyName = `Position / BR`;
+PositionBottomRight.storyName = 'Position / BR';
 PositionBottomRight.parameters = {
   docs: {
     source: {
@@ -300,11 +297,11 @@ export const DoubleDown = () => {
   })}`);
   return div;
 };
-DoubleDown.storyName = `Multiple instances`;
+DoubleDown.storyName = 'Multiple instances';
 DoubleDown.parameters = {
   docs: {
     description: {
-      story: `It is possible to add multiple digiblock atoms to a single container. The position modifier classes can help with the arrangement of the digiblock compositions.`,
+      story: 'It is possible to add multiple digiblock atoms to a single container. The position modifier classes can help with the arrangement of the digiblock compositions.',
     },
     source: {
       code: `${sourceCode}\n${LabComponent({
@@ -326,7 +323,7 @@ export const DoubleDownCentred = () => {
   })}`);
   return div;
 };
-DoubleDownCentred.storyName = `Multiple instances - centred`;
+DoubleDownCentred.storyName = 'Multiple instances - centred';
 DoubleDownCentred.parameters = {
   docs: {
     source: {
@@ -341,7 +338,6 @@ DoubleDownCentred.parameters = {
   },
 };
 
-
 export const ExternalSource = () => {
   const div = createContainer(`${LabComponent({
     classes: 'nhsd-a-digiblocks--pos-tr',
@@ -352,7 +348,7 @@ export const ExternalSource = () => {
   })}`);
   return div;
 };
-ExternalSource.storyName = `External source`;
+ExternalSource.storyName = 'External source';
 ExternalSource.parameters = {
   docs: {
     description: {

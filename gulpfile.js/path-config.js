@@ -1,5 +1,3 @@
-const ENV = require('./build-env')
-
 module.exports = (() => {
   // Main paths
   const SOURCE_PATH = './src/nhsd';
@@ -16,6 +14,10 @@ module.exports = (() => {
       components: `${SOURCE_PATH}/components`,
       lab: `${SOURCE_PATH}/lab`,
       static: `${SOURCE_PATH}/static`,
+    },
+
+    gulp: {
+      root: './gulpfile.js',
     },
 
     dist: {

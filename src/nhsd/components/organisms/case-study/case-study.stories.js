@@ -63,16 +63,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = 'Lab';
@@ -87,7 +85,7 @@ LabComponent.args = {
   },
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
@@ -124,7 +122,7 @@ NoLabelComponent.args = {
   },
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
@@ -151,7 +149,7 @@ MirroredComponent.args = {
   },
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
@@ -178,7 +176,7 @@ WideComponent.args = {
   },
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
@@ -207,7 +205,7 @@ WideMirroredComponent.args = {
   },
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
@@ -234,7 +232,7 @@ WideNoLabelComponent.args = {
   },
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },

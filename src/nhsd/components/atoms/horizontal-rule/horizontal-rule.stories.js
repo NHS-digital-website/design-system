@@ -22,19 +22,15 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
-    argTypes: {}
+    argTypes: {},
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
-
-const Rule = Template.bind({});
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -47,7 +43,7 @@ LabComponent.parameters = {
 };
 
 export const SmallComponent = Template.bind({});
-SmallComponent.storyName = `Small`;
+SmallComponent.storyName = 'Small';
 SmallComponent.args = {
   classes: 'nhsd-a-horizontal-rule--size-s',
 };
@@ -60,7 +56,7 @@ SmallComponent.parameters = {
 };
 
 export const MediumComponent = Template.bind({});
-MediumComponent.storyName = `Medium (default)`;
+MediumComponent.storyName = 'Medium (default)';
 MediumComponent.args = {
   classes: 'nhsd-a-horizontal-rule--size-m',
 };
@@ -73,7 +69,7 @@ MediumComponent.parameters = {
 };
 
 export const LargeComponent = Template.bind({});
-LargeComponent.storyName = `Large`;
+LargeComponent.storyName = 'Large';
 LargeComponent.args = {
   classes: 'nhsd-a-horizontal-rule--size-l',
 };

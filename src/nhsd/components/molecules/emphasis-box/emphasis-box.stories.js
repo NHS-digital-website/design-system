@@ -241,7 +241,7 @@ EmphasisBoxWithIconAndButtonAndImage.args = {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
   image: {
     sourceSet: [{
@@ -276,7 +276,7 @@ EmphasisBoxWithIconAndButtonCentred.args = {
     label: 'Optional button',
     el: 'a',
     href: '#',
-    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0'
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
 };
 EmphasisBoxWithIconAndButtonCentred.parameters = {

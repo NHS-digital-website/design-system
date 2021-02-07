@@ -1,5 +1,5 @@
-import { storiesOf } from "@storybook/html";
-import { useEffect } from "@storybook/client-api";
+import { storiesOf } from '@storybook/html';
+import { useEffect } from '@storybook/client-api';
 
 import NHSDGlobalHeader from './global-header';
 

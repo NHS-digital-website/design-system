@@ -1,3 +1,5 @@
+/* global document */
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -64,16 +66,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const Default = Template.bind({});
 Default.storyName = 'Default (WIP!!!)';
@@ -114,7 +114,7 @@ Featured.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
     classes: '',
@@ -152,7 +152,7 @@ FeaturedMirrored.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
     classes: '',
@@ -190,7 +190,7 @@ FeaturedAccented.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
     classes: 'nhsd-a-image--square',
@@ -229,7 +229,7 @@ FeaturedAccentedMirrored.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
     classes: 'nhsd-a-image--square',
@@ -246,9 +246,9 @@ FeaturedAccentedMirrored.parameters = {
 export const FeaturedStacked = () => {
   const div = document.createElement('div');
 
-  div.innerHTML = Template({...FeaturedAccented.args});
-  div.innerHTML += Template({...FeaturedMirrored.args});
-  div.innerHTML += Template({...Featured.args});
+  div.innerHTML = Template({ ...FeaturedAccented.args });
+  div.innerHTML += Template({ ...FeaturedMirrored.args });
+  div.innerHTML += Template({ ...Featured.args });
 
   return div;
 };
@@ -264,12 +264,12 @@ FeaturedStacked.parameters = {
 export const FeaturedMegaStacked = () => {
   const div = document.createElement('div');
 
-  div.innerHTML = Template({...FeaturedAccented.args});
-  div.innerHTML += Template({...FeaturedMirrored.args});
-  div.innerHTML += Template({...Featured.args});
-  div.innerHTML += Template({...FeaturedAccented.args, featured: {mirrored: true}});
-  div.innerHTML += Template({...Featured.args});
-  div.innerHTML += Template({...FeaturedAccentedMirrored.args});
+  div.innerHTML = Template({ ...FeaturedAccented.args });
+  div.innerHTML += Template({ ...FeaturedMirrored.args });
+  div.innerHTML += Template({ ...Featured.args });
+  div.innerHTML += Template({ ...FeaturedAccented.args, featured: { mirrored: true } });
+  div.innerHTML += Template({ ...Featured.args });
+  div.innerHTML += Template({ ...FeaturedAccentedMirrored.args });
 
   return div;
 };

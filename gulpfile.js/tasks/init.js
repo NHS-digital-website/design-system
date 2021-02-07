@@ -1,25 +1,27 @@
-/* global ENV PATHS VERSION */
+/* global ENV VERSION */
 
-const gulp = require('gulp')
-const chalklet = require('chalklet')
+const gulp = require('gulp');
+const chalklet = require('chalklet');
 
 const logInfo = () => {
   const text = '   NHS Digital UI toolkit   ';
   const colorOptions = {
     type: 'hex',
     text: { value: '#003088' },
-    bg: { value: '#ffffff' }
+    bg: { value: '#ffffff' },
   };
 
   const fontOptions = {
     horizontalLayout: 'default',
-    verticalLayout: 'default'
+    verticalLayout: 'default',
   };
 
+  /* eslint-disable no-console */
   console.log('\n\n\n');
   console.log(chalklet.generate(text, colorOptions, fontOptions));
   console.log(`\n    version: ${VERSION} | build target: ${ENV.getBuildTarget()} | build mode: ${ENV.getBuildMode()}`);
   console.log('\n\n\n');
+  /* eslint-enable no-console */
 };
 
 gulp.task('init:dist', (done) => {

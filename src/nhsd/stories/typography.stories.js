@@ -1,14 +1,15 @@
+/* global document */
+
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
 // Load stylesheet file
 require('../scss-core/tokens/_typography.scss');
 
-const componentName = 'Typography';
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}`;
-const sourceCode = `// Sass import \n@use "nhsd/scss-core/tokens/typography";\n\n//HTML`;
+const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/typography";\n\n//HTML';
 
 // Component defaults
 export default {
@@ -16,31 +17,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
-  }
+  },
 };
 export const LabComponent = () => {
   const div = document.createElement('div');
   const titleEl = document.createElement('h1');
   titleEl.classList.add('nhsd-t-heading-xxl');
-  titleEl.innerText = `Coronavirus (COVID-19): Shielded Patients List (SPL)`;
+  titleEl.innerText = 'Coronavirus (COVID-19): Shielded Patients List (SPL)';
   div.appendChild(titleEl);
 
   const leadEl = document.createElement('p');
   leadEl.classList.add('nhsd-t-heading-s');
-  leadEl.innerText = `At NHS Digital, we maintain the Shielded Patients List, helping Government and partner organisations to provide extra protection for people most at risk from COVID-19.`;
+  leadEl.innerText = 'At NHS Digital, we maintain the Shielded Patients List, helping Government and partner organisations to provide extra protection for people most at risk from COVID-19.';
   div.appendChild(leadEl);
 
   const p1 = document.createElement('p');
   p1.classList.add('nhsd-t-body');
-  p1.innerText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Netus et malesuada fames ac turpis. Elit sed vulputate mi sit amet mauris commodo quis. Semper feugiat nibh sed pulvinar proin.`;
+  p1.innerText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Netus et malesuada fames ac turpis. Elit sed vulputate mi sit amet mauris commodo quis. Semper feugiat nibh sed pulvinar proin.';
   div.appendChild(p1);
 
   const p2 = document.createElement('p');
   p2.classList.add('nhsd-t-body');
-  p2.innerText = `Vulputate mi sit amet mauris commodo quis. Egestas diam in arcu cursus euismod quis viverra nibh. Pharetra diam sit amet nisl suscipit. Pulvinar elementum integer enim neque. Velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Augue ut lectus arcu bibendum at varius vel pharetra. Porttitor lacus luctus accumsan tortor posuere.`;
+  p2.innerText = 'Vulputate mi sit amet mauris commodo quis. Egestas diam in arcu cursus euismod quis viverra nibh. Pharetra diam sit amet nisl suscipit. Pulvinar elementum integer enim neque. Velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Augue ut lectus arcu bibendum at varius vel pharetra. Porttitor lacus luctus accumsan tortor posuere.';
   div.appendChild(p2);
 
   const hr1 = document.createElement('hr');
@@ -49,12 +50,12 @@ export const LabComponent = () => {
 
   const subTitle = document.createElement('h2');
   subTitle.classList.add('nhsd-t-heading-xl');
-  subTitle.innerText = `About the Shielded Patients List`;
+  subTitle.innerText = 'About the Shielded Patients List';
   div.appendChild(subTitle);
 
   const p3 = document.createElement('p');
   p3.classList.add('nhsd-t-body');
-  p3.innerText = `The Shielded Patients List (SPL) is made up of three service components:`;
+  p3.innerText = 'The Shielded Patients List (SPL) is made up of three service components:';
   div.appendChild(p3);
 
   const ul1 = document.createElement('ul');
@@ -66,32 +67,32 @@ export const LabComponent = () => {
 
   const subTitle2 = document.createElement('h3');
   subTitle2.classList.add('nhsd-t-heading-l');
-  subTitle2.innerText = `Known issues`;
+  subTitle2.innerText = 'Known issues';
   div.appendChild(subTitle2);
 
   const p4 = document.createElement('p');
   p4.classList.add('nhsd-t-body');
-  p4.innerText = `We know there are some instances where the algorithm has identified patients as high risk where they may not be.`;
+  p4.innerText = 'We know there are some instances where the algorithm has identified patients as high risk where they may not be.';
   div.appendChild(p4);
 
   const subTitle3 = document.createElement('h4');
   subTitle3.classList.add('nhsd-t-heading-m');
-  subTitle3.innerText = `Stable HIV`;
+  subTitle3.innerText = 'Stable HIV';
   div.appendChild(subTitle3);
 
   const p5 = document.createElement('p');
   p5.classList.add('nhsd-t-body');
-  p5.innerText = `Patients with stable HIV and no other medical conditions have not been allocated to the Shielded Patient List. Despite this, we know they’re being identified as high risk. This happens because the code "immunosuppressed" appears on their records, which triggers their entry onto the list.`;
+  p5.innerText = 'Patients with stable HIV and no other medical conditions have not been allocated to the Shielded Patient List. Despite this, we know they’re being identified as high risk. This happens because the code "immunosuppressed" appears on their records, which triggers their entry onto the list.';
   div.appendChild(p5);
 
   const subTitle4 = document.createElement('h5');
   subTitle4.classList.add('nhsd-t-heading-s');
-  subTitle4.innerText = `High risk`;
+  subTitle4.innerText = 'High risk';
   div.appendChild(subTitle4);
 
   const p6 = document.createElement('p');
   p6.classList.add(...['nhsd-t-body', 'nhsd-!t-font-weight-bold']);
-  p6.innerText = `The algorithm looks to identify people:`;
+  p6.innerText = 'The algorithm looks to identify people:';
   div.appendChild(p6);
 
   const ol1 = document.createElement('ol');
@@ -114,7 +115,7 @@ export const LabComponent = () => {
 
   const p7 = document.createElement('p');
   p7.classList.add('nhsd-t-body');
-  p7.innerText = `Some specialist organisations have developed tools to help identify patients at risk. These are for guidance only and the decision to add a patient to the high risk group should always be made on a case by case basis`;
+  p7.innerText = 'Some specialist organisations have developed tools to help identify patients at risk. These are for guidance only and the decision to add a patient to the high risk group should always be made on a case by case basis';
   div.appendChild(p7);
 
   const ul2 = document.createElement('ul');
@@ -129,12 +130,12 @@ export const LabComponent = () => {
 
   const subTitle5 = document.createElement('h6');
   subTitle5.classList.add('nhsd-t-heading-xs');
-  subTitle5.innerText = `Low risk of developing complications from coronavirus (COVID-19) infection`;
+  subTitle5.innerText = 'Low risk of developing complications from coronavirus (COVID-19) infection';
   div.appendChild(subTitle5);
 
   const p8 = document.createElement('p');
   p8.classList.add('nhsd-t-body');
-  p8.innerText = `Patients are thought to be low risk if they don’t appear in the moderate or high risk groups.`;
+  p8.innerText = 'Patients are thought to be low risk if they don’t appear in the moderate or high risk groups.';
   div.appendChild(p8);
 
   const hr2 = document.createElement('hr');
@@ -143,7 +144,7 @@ export const LabComponent = () => {
 
   const q = document.createElement('blockquote');
   q.classList.add('nhsd-t-quote');
-  q.innerText = `Fusce id malesuada quam, sit amet tristique purus. Pellentesque quam augue, tincidunt sed dolor a, posuere laoreet mi. Quam augue`;
+  q.innerText = 'Fusce id malesuada quam, sit amet tristique purus. Pellentesque quam augue, tincidunt sed dolor a, posuere laoreet mi. Quam augue';
   div.appendChild(q);
 
   return div;
@@ -161,32 +162,32 @@ export const Headings = () => {
   const div = document.createElement('div');
   const h1 = document.createElement('h1');
   h1.classList.add('nhsd-t-heading-xxl');
-  h1.innerText = `Coronavirus (COVID-19): Shielded Patients List (SPL)`;
+  h1.innerText = 'Coronavirus (COVID-19): Shielded Patients List (SPL)';
   div.appendChild(h1);
 
   const h2 = document.createElement('h2');
   h2.classList.add('nhsd-t-heading-xl');
-  h2.innerText = `Coronavirus (COVID-19): Shielded Patients List (SPL)`;
+  h2.innerText = 'Coronavirus (COVID-19): Shielded Patients List (SPL)';
   div.appendChild(h2);
 
   const h3 = document.createElement('h3');
   h3.classList.add('nhsd-t-heading-l');
-  h3.innerText = `Coronavirus (COVID-19): Shielded Patients List (SPL)`;
+  h3.innerText = 'Coronavirus (COVID-19): Shielded Patients List (SPL)';
   div.appendChild(h3);
 
   const h4 = document.createElement('h4');
   h4.classList.add('nhsd-t-heading-m');
-  h4.innerText = `Coronavirus (COVID-19): Shielded Patients List (SPL)`;
+  h4.innerText = 'Coronavirus (COVID-19): Shielded Patients List (SPL)';
   div.appendChild(h4);
 
   const h5 = document.createElement('h5');
   h5.classList.add('nhsd-t-heading-s');
-  h5.innerText = `Coronavirus (COVID-19): Shielded Patients List (SPL)`;
+  h5.innerText = 'Coronavirus (COVID-19): Shielded Patients List (SPL)';
   div.appendChild(h5);
 
   const h6 = document.createElement('h6');
   h6.classList.add('nhsd-t-heading-xs');
-  h6.innerText = `Coronavirus (COVID-19): Shielded Patients List (SPL)`;
+  h6.innerText = 'Coronavirus (COVID-19): Shielded Patients List (SPL)';
   div.appendChild(h6);
   return div;
 };
@@ -217,37 +218,37 @@ export const HeadingLinks = () => {
   const div = document.createElement('div');
   const h1 = document.createElement('h1');
   h1.classList.add('nhsd-t-heading-xxl');
-  h1.innerHTML = `[nhsd-t-heading-xxl] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  h1.innerHTML = '[nhsd-t-heading-xxl] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)';
   div.appendChild(h1);
 
   const h2 = document.createElement('h2');
   h2.classList.add('nhsd-t-heading-xl');
-  h2.innerHTML = `[nhsd-t-heading-xl] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  h2.innerHTML = '[nhsd-t-heading-xl] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)';
   div.appendChild(h2);
 
   const h3 = document.createElement('h3');
   h3.classList.add('nhsd-t-heading-l');
-  h3.innerHTML = `[nhsd-t-heading-l] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  h3.innerHTML = '[nhsd-t-heading-l] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)';
   div.appendChild(h3);
 
   const h4 = document.createElement('h4');
   h4.classList.add('nhsd-t-heading-m');
-  h4.innerHTML = `[nhsd-t-heading-m] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  h4.innerHTML = '[nhsd-t-heading-m] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)';
   div.appendChild(h4);
 
   const h5 = document.createElement('h5');
   h5.classList.add('nhsd-t-heading-s');
-  h5.innerHTML = `[nhsd-t-heading-s] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  h5.innerHTML = '[nhsd-t-heading-s] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)';
   div.appendChild(h5);
 
   const h6 = document.createElement('h6');
   h6.classList.add('nhsd-t-heading-xs');
-  h6.innerHTML = `[nhsd-t-heading-xs] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)`;
+  h6.innerHTML = '[nhsd-t-heading-xs] Coronavirus (COVID-19): <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> (SPL)';
   div.appendChild(h6);
 
   const lead = document.createElement('h4');
   lead.classList.add('nhsd-t-heading-s');
-  lead.innerHTML = `[LEAD] At NHS Digital, we maintain the Shielded Patients List, helping Government and partner organisations to provide extra protection <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> for people most at risk from COVID-19.`;
+  lead.innerHTML = '[LEAD] At NHS Digital, we maintain the Shielded Patients List, helping Government and partner organisations to provide extra protection <a href="#" class="nhsd-a-link">Efficiently Myocardinate High-payoff Growth Strategies</a> for people most at risk from COVID-19.';
   div.appendChild(lead);
 
   return div;
@@ -256,7 +257,7 @@ HeadingLinks.storyName = 'Links inside heading';
 HeadingLinks.parameters = {
   docs: {
     description: {
-      story: ``,
+      story: '',
     },
     source: {
       code: `${sourceCode}\n${HeadingLinks().innerHTML}`,
@@ -268,11 +269,11 @@ export const Body = () => {
   const div = document.createElement('div');
   const p1 = document.createElement('p');
   p1.classList.add('nhsd-t-body');
-  p1.innerText = `Proactively productivate out-of-the-box infomediaries whereas superior infrastructures. Globally orchestrate one-to-one deliverables without customer directed deliverables. Distinctively coordinate customized deliverables with tactical experiences. Competently cultivate extensible.`;
+  p1.innerText = 'Proactively productivate out-of-the-box infomediaries whereas superior infrastructures. Globally orchestrate one-to-one deliverables without customer directed deliverables. Distinctively coordinate customized deliverables with tactical experiences. Competently cultivate extensible.';
   div.appendChild(p1);
   const p2 = document.createElement('p');
   p2.classList.add('nhsd-t-body-s');
-  p2.innerText = `Intrinsicly reconceptualize professional internal or "organic" sources with high-payoff "outside the box" thinking. Globally disseminate customer directed bandwidth.`;
+  p2.innerText = 'Intrinsicly reconceptualize professional internal or "organic" sources with high-payoff "outside the box" thinking. Globally disseminate customer directed bandwidth.';
   div.appendChild(p2);
   return div;
 };
@@ -425,7 +426,7 @@ export const BlockQuote = () => {
   const div = document.createElement('div');
   const q = document.createElement('blockquote');
   q.classList.add('nhsd-t-quote');
-  q.innerText = `Fusce id malesuada quam, sit amet tristique purus. Pellentesque quam augue, tincidunt sed dolor a, posuere laoreet mi. Quam augue`;
+  q.innerText = 'Fusce id malesuada quam, sit amet tristique purus. Pellentesque quam augue, tincidunt sed dolor a, posuere laoreet mi. Quam augue';
   div.appendChild(q);
   return div;
 };
@@ -442,7 +443,7 @@ export const BlockQuoteWithLink = () => {
   const div = document.createElement('div');
   const q = document.createElement('blockquote');
   q.classList.add('nhsd-t-quote');
-  q.innerHTML = `Fusce id malesuada quam, sit amet tristique purus. <a href="#" class="nhsd-a-link">Pellentesque quam augue, tincidunt sed dolor a malesuada quam, sit amet tristique purus</a>, posuere laoreet mi. Quam augue`;
+  q.innerHTML = 'Fusce id malesuada quam, sit amet tristique purus. <a href="#" class="nhsd-a-link">Pellentesque quam augue, tincidunt sed dolor a malesuada quam, sit amet tristique purus</a>, posuere laoreet mi. Quam augue';
   div.appendChild(q);
   return div;
 };
@@ -454,4 +455,3 @@ BlockQuoteWithLink.parameters = {
     },
   },
 };
-

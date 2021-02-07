@@ -1,10 +1,10 @@
-/* globl document */
+/* global document */
 
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from '../../organisms/nav-block-list/template.njk';
+import template from './template.njk';
 // Load stylesheet file
 require('./_index.scss');
 
@@ -160,7 +160,7 @@ ThreeInARow.args = {
       button: {
         label: 'Start your search',
         el: 'span',
-        classes: 'nhsd-a-button--invert'
+        classes: 'nhsd-a-button--invert',
       },
       boxLink: {
         href: '#',

@@ -1,3 +1,5 @@
+/* global document */
+
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
@@ -5,7 +7,6 @@ import * as sbConfig from '../../../.storybook/storybook-config';
 require('../scss-core/tokens/_grid.scss');
 require('../components/atoms/text-highlight/_index.scss');
 
-const componentName = 'Grid system';
 const storyDescription = `${sbConfig.heading.lab}
 - The grid system uses **Flexbox** to create **"container > row > column"** style layouts.
 
@@ -19,7 +20,7 @@ const storyDescription = `${sbConfig.heading.lab}
 |Extra Wide|**XL**|1580px|∞|1500px|12|30px|
 
 - **Note:** The <span class="nhsd-!t-bg-green">&nbsp;&nbsp;&nbsp;&nbsp;</span> and <span class="nhsd-!t-bg-red">&nbsp;&nbsp;&nbsp;&nbsp;</span> mobile columns represent the slightly tweaked gutters on the mobile breakpoint.`;
-const sourceCode = `// Sass import \n@use "nhsd/scss-core/tokens/grid";\n\n//HTML`;
+const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/grid";\n\n//HTML';
 
 // Component defaults
 export default {
@@ -28,9 +29,9 @@ export default {
     docs: {
       description: {
         component: storyDescription,
-      }
+      },
     },
-  }
+  },
 };
 
 export const LabComponent = () => {
@@ -227,7 +228,7 @@ ResponsiveGrid2.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- Responsive columns are 100% wide by default, and only apply the specific responsive width when the appropriate breakpoint is active.`
+- Responsive columns are 100% wide by default, and only apply the specific responsive width when the appropriate breakpoint is active.`,
     },
     source: {
       code: `${sourceCode}\n${ResponsiveGrid2().innerHTML}`,
@@ -254,7 +255,7 @@ FullWidthGrid.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- The full width grid always fills **100% width** of its parent container, regardless the active breakpoint.`
+- The full width grid always fills **100% width** of its parent container, regardless the active breakpoint.`,
     },
     source: {
       code: `${sourceCode}\n${FullWidthGrid().innerHTML}`,
@@ -371,11 +372,10 @@ NoGutterGrid.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- Using the \`.nhsd-!t-no-gutters\` token classes you can remove the left and right gutters from any container - incuding the grid, and individual columns.`
+- Using the \`.nhsd-!t-no-gutters\` token classes you can remove the left and right gutters from any container - incuding the grid, and individual columns.`,
     },
     source: {
       code: `${sourceCode}\n${NoGutterGrid().innerHTML}`,
     },
   },
 };
-

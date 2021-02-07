@@ -31,22 +31,20 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   sourceSet: [{
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
@@ -63,7 +61,7 @@ RoundTopCornersComponent.storyName = 'Round top corners';
 RoundTopCornersComponent.args = {
   classes: 'nhsd-a-image--round-top-corners',
   sourceSet: [{
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
@@ -80,7 +78,7 @@ RoundCornersComponent.storyName = 'Round corners';
 RoundCornersComponent.args = {
   classes: 'nhsd-a-image--round-corners',
   sourceSet: [{
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
@@ -97,7 +95,7 @@ SquareComponent.storyName = '1:1 image ratio';
 SquareComponent.args = {
   classes: 'nhsd-a-image--square',
   sourceSet: [{
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
@@ -114,10 +112,10 @@ ResponsiveComponent.storyName = 'Responsive image (multiple image sources)';
 ResponsiveComponent.args = {
   classes: 'nhsd-a-image--round-top-corners',
   sourceSet: [{
-    'media': '(max-width: 500px)',
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_489x326.jpg',
+    media: '(max-width: 500px)',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_489x326.jpg',
   }, {
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
@@ -134,7 +132,7 @@ WithCaption.storyName = 'Image caption';
 WithCaption.args = {
   caption: 'Hello world, I am a caption!',
   sourceSet: [{
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
@@ -151,7 +149,7 @@ AriaHidden.storyName = 'ARIA hidden';
 AriaHidden.args = {
   ariaHidden: true,
   sourceSet: [{
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };
@@ -169,7 +167,7 @@ WithCaptionAriaHidden.args = {
   ariaHidden: true,
   caption: 'Hello world, I am a caption!',
   sourceSet: [{
-    'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
   }],
   alt: '2 scientists testing in a laboratory',
 };

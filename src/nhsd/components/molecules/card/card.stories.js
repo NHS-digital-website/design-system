@@ -32,16 +32,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -51,7 +49,7 @@ LabComponent.args = {
   },
   image: {
     sourceSet: [{
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
@@ -59,7 +57,7 @@ LabComponent.args = {
   text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
     label: 'More about what we do',
-    el: 'span'
+    el: 'span',
   },
 };
 LabComponent.parameters = {
@@ -81,15 +79,15 @@ ComponentVariant1.args = {
   },
   image: {
     sourceSet: [{
-      'media': '(max-width: 500px)',
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      media: '(max-width: 500px)',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }, {
-      'url': 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
     }],
     alt: '2 scientists carry out tests in a laboratory',
   },
   title: 'About NHS Digital',
-  text: `We're pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.`,
+  text: 'We\'re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
     label: 'More about what we do',
     el: 'span',
@@ -185,7 +183,7 @@ ComponentVariant4.args = {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   title: 'About NHS Digital',
-  text: `We're pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.`,
+  text: 'We\'re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   boxLink: {
     href: 'https://gov.uk',
     external: true,
@@ -231,7 +229,7 @@ ComponentVariant5.args = {
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',
     id: 'chart',
-    nested: true
+    nested: true,
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
@@ -274,7 +272,7 @@ ComponentVariant6.args = {
   hexIcon: {
     classes: 'nhsd-m-card__icon',
     id: 'search',
-    nested: true
+    nested: true,
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
@@ -315,7 +313,7 @@ ComponentVariant9.args = {
   hexIcon: {
     classes: 'nhsd-a-icon--col-black nhsd-m-card__icon',
     id: 'x',
-    nested: true
+    nested: true,
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
@@ -356,7 +354,7 @@ ComponentVariant7.args = {
   text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   button: {
     label: 'More about what we do',
-    el: 'span'
+    el: 'span',
   },
 };
 ComponentVariant7.parameters = {
@@ -389,7 +387,7 @@ ComponentVariant10.args = {
   hexIcon: {
     classes: 'nhsd-a-icon--col-black nhsd-m-card__icon',
     id: 'arrow_right',
-    nested: true
+    nested: true,
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',

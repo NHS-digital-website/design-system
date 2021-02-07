@@ -1,3 +1,5 @@
+/* global ENV */
+
 module.exports = (() => {
   const BUILD_TARGETS = {
     DIST: 'dist',
@@ -13,23 +15,19 @@ module.exports = (() => {
   const DEFAULT_BUILD_MODE = BUILD_MODES.DEV;
   let buildTarget = DEFAULT_BUILD_TARGET;
 
-  const getBuildTarget = () => {
-    return buildTarget;
-  };
+  const getBuildTarget = () => buildTarget;
 
   const setBuildTarget = (newBuildTarget) => {
-    if(Object.values(BUILD_TARGETS).indexOf(newBuildTarget) > -1) {
+    if (Object.values(BUILD_TARGETS).indexOf(newBuildTarget) > -1) {
       buildTarget = newBuildTarget;
     }
   };
 
-  const isTargetDist = () => {
-    return getBuildTarget() === ENV.BUILD_TARGETS.DIST;
-  }
+  const isTargetDist = () => getBuildTarget() === ENV.BUILD_TARGETS.DIST;
 
-  const isTargetPackage = () => {
-    return getBuildTarget() === ENV.BUILD_TARGETS.PACKAGE;
-  }
+  const isTargetPackage = () => getBuildTarget() === ENV.BUILD_TARGETS.PACKAGE;
+
+  const objectValueExists = (value, obj) => Object.values(obj).includes(value);
 
   const getBuildMode = () => {
     const params = global.process.argv;
@@ -47,17 +45,9 @@ module.exports = (() => {
     return buildMode;
   };
 
-  const objectValueExists = (value, obj) => {
-    return Object.values(obj).includes(value);
-  };
+  const isModeDev = () => getBuildMode() === BUILD_MODES.DEV;
 
-  const isModeDev = () => {
-    return getBuildMode() === BUILD_MODES.DEV;
-  };
-
-  const isModeProd = () => {
-    return getBuildMode() != BUILD_MODES.DEV;
-  };
+  const isModeProd = () => getBuildMode() !== BUILD_MODES.DEV;
 
   // Return environment constants
   return {

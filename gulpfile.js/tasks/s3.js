@@ -1,12 +1,13 @@
-/* global ENV PATHS */
+/* global */
 
-const gulp = require('gulp')
-const awspublish = require('gulp-awspublish')
+const gulp = require('gulp');
+const awspublish = require('gulp-awspublish');
+const aswConfig = require('../aws-config.json');
 
 let s3Config;
 try {
-  s3Config = require('../aws-config.json')
-} catch(error) {
+  s3Config = aswConfig;
+} catch (error) {
   return;
 }
 
@@ -16,25 +17,25 @@ gulp.task('s3:sync', () => {
   const publisher = awspublish.create({
     region: s3Config.buckets.storybook.region,
     params: {
-      Bucket: s3Config.buckets.storybook.name
+      Bucket: s3Config.buckets.storybook.name,
     },
     credentials: {
       accessKeyId: s3Config.auth.accessKeyId,
       secretAccessKey: s3Config.auth.secretAccessKey,
       signatureVersion: 'v3',
-    }}, {
-      cacheFileName: `.awspublish-${s3Config.buckets.storybook.name}`
-    }
-  );
+    },
+  }, {
+    cacheFileName: `.awspublish-${s3Config.buckets.storybook.name}`,
+  });
 
   // Define custom headers
   const headers = {
-    'Cache-Control': 'max-age=315360000, no-transform, public'
+    'Cache-Control': 'max-age=315360000, no-transform, public',
   };
 
   return (
     gulp
-      .src("./storybook-static/**/*.*")
+      .src('./storybook-static/**/*.*')
       // gzip, Set Content-Encoding headers and add .gz extension
       // .pipe(awspublish.gzip({ ext: ".gz" }))
 

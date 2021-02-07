@@ -1,3 +1,5 @@
+/* global document */
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -20,17 +22,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
-    argTypes: {}
   },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 const TextHighlight = Template.bind({});
 
@@ -44,12 +43,10 @@ LabComponent.parameters = {
   },
 };
 
-export const TextHighlightDemo1 = () => {
-  return TextHighlight({
+export const TextHighlightDemo1 = () => TextHighlight({
     content: '/hello/...',
-    classes: 'nhsd-a-text-highlight--code'
+    classes: 'nhsd-a-text-highlight--code',
   });
-};
 TextHighlightDemo1.storyName = 'Code snippet';
 TextHighlightDemo1.parameters = {
   docs: {
@@ -59,12 +56,10 @@ TextHighlightDemo1.parameters = {
   },
 };
 
-export const TextHighlightDemo2 = () => {
-  return TextHighlight({
+export const TextHighlightDemo2 = () => TextHighlight({
     content: 'must',
-    classes: 'nhsd-a-text-highlight--bg-light-green'
+    classes: 'nhsd-a-text-highlight--bg-light-green',
   });
-};
 TextHighlightDemo2.storyName = 'Light green background ("must")';
 TextHighlightDemo2.parameters = {
   docs: {
@@ -74,12 +69,10 @@ TextHighlightDemo2.parameters = {
   },
 };
 
-export const TextHighlightDemo3 = () => {
-  return TextHighlight({
+export const TextHighlightDemo3 = () => TextHighlight({
     content: 'should',
-    classes: 'nhsd-a-text-highlight--bg-light-blue'
+    classes: 'nhsd-a-text-highlight--bg-light-blue',
   });
-};
 TextHighlightDemo3.storyName = 'Light blue background ("should")';
 TextHighlightDemo3.parameters = {
   docs: {
@@ -89,12 +82,10 @@ TextHighlightDemo3.parameters = {
   },
 };
 
-export const TextHighlightDemo4 = () => {
-  return TextHighlight({
+export const TextHighlightDemo4 = () => TextHighlight({
     content: 'could',
-    classes: 'nhsd-a-text-highlight--bg-light-grey'
+    classes: 'nhsd-a-text-highlight--bg-light-grey',
   });
-};
 TextHighlightDemo4.storyName = 'Light grey background ("could")';
 TextHighlightDemo4.parameters = {
   docs: {
@@ -104,12 +95,10 @@ TextHighlightDemo4.parameters = {
   },
 };
 
-export const TextHighlightDemo5 = () => {
-  return TextHighlight({
+export const TextHighlightDemo5 = () => TextHighlight({
     content: 'will not',
-    classes: 'nhsd-a-text-highlight--bg-light-red'
+    classes: 'nhsd-a-text-highlight--bg-light-red',
   });
-};
 TextHighlightDemo5.storyName = 'Light red background ("will not")';
 TextHighlightDemo5.parameters = {
   docs: {

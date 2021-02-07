@@ -1,5 +1,6 @@
 const path = require('path')
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   "stories": [
@@ -55,6 +56,8 @@ module.exports = {
         context: 'node_modules',
         files: '../src/nhsd/**/*.scss',
         failOnError: false,
+      }),
+      new ESLintPlugin({
       }),
     );
 

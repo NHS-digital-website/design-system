@@ -18,7 +18,7 @@ ${sbConfig.heading.basicRules}
 
 - Icon link atom must have a visible label.
 - Icon atom can be any size, but works best with **xs**, **s** and **m** variants.`;
-const sourceCode = `// Sass import \n@use "nhsd/components/atoms/icon-link";\n\n// HTML`;
+const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon-link";\n\n// HTML';
 
 // Component defaults
 export default {
@@ -26,16 +26,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: storyDescription
-      }
+        component: storyDescription,
+      },
     },
-  }
+  },
 };
 
 // Component template
-const Template = (args) => {
-  return template.render({ params: { ...args } });
-};
+const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.args = {
@@ -114,7 +112,7 @@ ExternalLink.storyName = 'External link';
 ExternalLink.parameters = {
   docs: {
     description: {
-      story: `External link informs the user's screen reader to announce that the link is going to open in a new tab`,
+      story: 'External link informs the user\'s screen reader to announce that the link is going to open in a new tab',
     },
     source: {
       code: `${sourceCode} ${ExternalLink(ExternalLink.args)} `,

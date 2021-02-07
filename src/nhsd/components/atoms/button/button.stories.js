@@ -80,7 +80,7 @@ export default {
     },
     href: { control: 'text', description: 'When an `<a>` **el** is used to populate the component, **href** determines the URL the user is taken to when they click the element.' },
     target: { control: 'text', description: 'When an `<a>` is used to populate the component, **target** determines the URL passed on by the **href** param\'s target.' },
-	}
+	},
 };
 
 // Component template
@@ -186,7 +186,7 @@ LinkButton.args = {
 LinkButton.parameters = {
   docs: {
     description: {
-      story: 'An `<a>` element can be used to create the button component. A valid link button should have a **href** attribute, and when the URL links to an external link, the **target**  attribute should be set to **_blank**, and the screen reader announcement should be made using the hidden label, and \`rel="external"\` should be added to the anchor tag.',
+      story: 'An `<a>` element can be used to create the button component. A valid link button should have a **href** attribute, and when the URL links to an external link, the **target**  attribute should be set to **_blank**, and the screen reader announcement should be made using the hidden label, and `rel="external"` should be added to the anchor tag.',
     },
     source: {
       code: `${sourceCode}\n${LinkButton(LinkButton.args)}`,
