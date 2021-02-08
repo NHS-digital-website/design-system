@@ -48,11 +48,11 @@
       {% endif -%}
 
       {%- if params.title -%}
-      <h1 class="nhsd-t-heading-s">{{ params.title|safe }}</h1>
+      <h1 class="nhsd-t-heading-s {{ params.title.classes }}">{{ params.title.label }}</h1>
       {%- endif -%}
 
       {% if params.text -%}
-      <p class="nhsd-t-body-s">{{ params.text|safe }}</p>
+      <p class="nhsd-t-body-s">{{ params.text.label }}</p>
       {%- endif %}
 
       {% if params.metaTags -%}

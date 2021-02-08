@@ -41,7 +41,6 @@ $-root: ".nhsd-m-breadcrumbs";
 
     .nhsd-a-icon {
       top: .111rem;
-      margin-left: nhsd-spacing.get(1);
     }
 
     [class^="nhsd-t-body"] {
@@ -49,16 +48,6 @@ $-root: ".nhsd-m-breadcrumbs";
 
       margin: 0;
       color: nhsd-colours.get("black");
-    }
-
-    @include mq($until: s) {
-      &:not(:last-child):not(&--button) {
-        margin-right: calc(.5 * #{nhsd-spacing.get(1)});
-      }
-
-      .nhsd-a-icon {
-        margin-left: calc(.5 * #{nhsd-spacing.get(1)});
-      }
     }
   }
 }

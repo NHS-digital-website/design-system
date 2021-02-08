@@ -81,8 +81,12 @@ LabComponent.args = {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   documentIconId: 'document_web',
-  title: 'Electronic notifications from pharmacy to GP systems',
-  text: 'Find out about the use of electronic notifications, which are used to securely share information about the urgent supply of medicines and pharmacy administered flu vaccinations with GP practices.',
+  title: {
+    label: 'Electronic notifications from pharmacy to GP systems',
+  },
+  text: {
+    label: 'Find out about the use of electronic notifications, which are used to securely share information about the urgent supply of medicines and pharmacy administered flu vaccinations with GP practices.',
+  },
   tag: {
     classes: 'nhsd-a-tag--bg-dark-grey',
     label: 'ARTICLE',
@@ -111,8 +115,12 @@ WebLink.args = {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   documentIconId: 'document_web',
-  title: 'Electronic notifications from pharmacy to GP systems',
-  text: 'Find out about the use of electronic notifications, which are used to securely share information about the urgent supply of medicines and pharmacy administered flu vaccinations with GP practices.',
+  title: {
+    label: 'Electronic notifications from pharmacy to GP systems',
+  },
+  text: {
+    label: 'Find out about the use of electronic notifications, which are used to securely share information about the urgent supply of medicines and pharmacy administered flu vaccinations with GP practices.',
+  },
   tag: {
     classes: 'nhsd-a-tag--bg-dark-grey',
     label: 'ARTICLE',
@@ -141,7 +149,10 @@ Download.args = {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   documentIconId: 'document_xls',
-  title: 'NHS Workforce Statistics, August 2020 England and Organisation',
+  title: {
+    label: 'NHS Workforce Statistics, August 2020 England and Organisation',
+    classes: 'nhsd-!t-margin-bottom-2',
+  },
   arrowIcon: {
     id: 'arrow_down',
     classes: 'nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-s',
