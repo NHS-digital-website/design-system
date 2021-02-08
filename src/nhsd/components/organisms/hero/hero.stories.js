@@ -11,12 +11,24 @@ require('./_index.scss');
 const componentName = 'Hero';
 const storyDescription = `${sbConfig.heading.lab}
 
+### Components used
+- <a href="/docs/design-system-components-atoms-box--lab-component">Box atom</a>
+- <a href="/docs/design-system-components-atoms-button--lab-component">Button atom</a>
+- <a href="/docs/design-system-components-atoms-digiblocks--lab-component">Digiblocks atom</a>
+- <a href="/docs/design-system-components-molecules-button-nav--lab-component">Button Nav molecule</a>
+
+### Tokens used
+- Spacing
+- Colour
+- Typography
+- Utils
+
 ${sbConfig.heading.basicRules}:
 
 - Use the canvas view to see the component variants without unintendedly breaking
 - External button atom <a href="/docs/design-system-components-atoms-button--link-button#link-button">rules</a> apply for external links!
 - **There are 2 types of the hero organism:**
-  - ***Default hero*** (Coloured background, title, text, optional button and optional image) - used on article pages;
+  - ***Default hero*** (Coloured background, title, text, optional button and optional image) - used on article pages as a banner;
   - ***Featured hero*** (Coloured background of content column; title, text, optional button; picture) - used on the home page
 - Default hero is \`nhsd-o-hero\`. Please note that this version is only **Work In Progress and not suitable ready to be used in production yet!**
 - Featured hero is \`nhsd-o-hero-feature\`, but it is using the same building blocks and styling as regular hero.
@@ -75,20 +87,188 @@ export default {
 // Component template
 const Template = (args) => template.render({ params: { ...args } });
 
-export const Default = Template.bind({});
-Default.storyName = 'Default (WIP!!!)';
-Default.args = {
+export const LabComponent = Template.bind({});
+LabComponent.storyName = sbConfig.title.lab;
+LabComponent.args = {
+  classes: 'nhsd-!t-text-align-center',
   title: {
-    label: 'Summary care record platform',
+    classes: 'nhsd-t-heading-xxl nhsd-!t-margin-bottom-6',
+    label: 'Data and information',
   },
   text: {
-    label: 'The summary care record is a service which provides an abridged record of patient details to relevant clinicians.',
+    classes: 'nhsd-t-heading-s nhsd-!t-margin-bottom-6',
+    label: 'NHS Digital has responsibility for standardising, collecting and publishing data and information from across the health and social care system in England.',
+  },
+  button: {
+    el: 'a',
+    label: 'How we\'re supporting the response',
+    href: '#',
+    classes: 'nhsd-!t-margin-bottom-0',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-bl',
+  }, {
+    classes: 'nhsd-a-digiblocks--pos-tr',
+  }],
+};
+LabComponent.parameters = {
+  docs: {
+    description: {
+      story: `
+- Light grey background - using <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-bg-light-grey</span> override token
+- Black heading and body text
+- 1 default button
+- Bottom Left and Top Right positioned Digiblock atoms (no colour overlay applied)`,
+    },
+    source: {
+      code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+    },
   },
 };
-Default.parameters = {
+
+export const Banner = Template.bind({});
+Banner.storyName = 'Banner / Centred, 2 digiblocks / Light grey theme';
+Banner.args = {
+  classes: 'nhsd-!t-text-align-center',
+  title: {
+    classes: 'nhsd-t-heading-xxl nhsd-!t-margin-bottom-6',
+    label: 'Data and information',
+  },
+  text: {
+    classes: 'nhsd-t-heading-s nhsd-!t-margin-bottom-6',
+    label: 'NHS Digital has responsibility for standardising, collecting and publishing data and information from across the health and social care system in England.',
+  },
+  button: {
+    el: 'a',
+    label: 'How we\'re supporting the response',
+    href: '#',
+    classes: 'nhsd-!t-margin-bottom-0',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-bl',
+  }, {
+    classes: 'nhsd-a-digiblocks--pos-tr',
+  }],
+};
+Banner.parameters = {
   docs: {
+    description: {
+      story: `
+- Light grey background - using <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-bg-light-grey</span> override token
+- Black heading and body text
+- 1 default button
+- Bottom Left and Top Right positioned Digiblock atoms (no colour overlay applied)`,
+    },
     source: {
-      code: `${sourceCode}\n${Default(Default.args)}`,
+      code: `${sourceCode}\n${Banner(Banner.args)}`,
+    },
+  },
+};
+
+export const Banner2 = Template.bind({});
+Banner2.storyName = 'Banner / Left aligned, 2 buttons, 1 digiblock / Black theme';
+Banner2.args = {
+  classes: 'nhsd-!t-bg-black nhsd-o-hero--light-text',
+  title: {
+    classes: 'nhsd-t-heading-xxl nhsd-!t-margin-bottom-6',
+    label: 'Data and information',
+  },
+  text: {
+    classes: 'nhsd-t-heading-s nhsd-!t-margin-bottom-6',
+    label: 'NHS Digital has responsibility for standardising, collecting and publishing data and information from across the health and social care system in England.',
+  },
+  buttonNav: {
+    classes: 'nhsd-m-button-nav--condensed nhsd-!t-text-align-left',
+    buttons: [
+      {
+        el: 'a',
+        label: 'Button one',
+        href: '#',
+      }, {
+        el: 'a',
+        label: 'Button two',
+        href: '#',
+        classes: 'nhsd-a-button--invert',
+      },
+    ],
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-br nhsd-a-digiblocks--col-black',
+  }],
+};
+Banner2.parameters = {
+  docs: {
+    description: {
+      story: `
+- Black background - using <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-bg-black</span> override token.
+- White heading and body text using <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-o-hero--light-text</span> modifier class.
+- 2 left aligned buttons - nested within the condensed version of the Button Nav molecule (<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-m-button-nav--condensed</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-text-align-left</span>).
+- Bottom Right positioned Digiblock atom - black colour overlay applied (<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-digiblocks--col-black</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-digiblocks--pos-br</span>).`,
+    },
+    source: {
+      code: `${sourceCode}\n${Banner2(Banner2.args)}`,
+    },
+  },
+};
+
+export const Banner3 = Template.bind({});
+Banner3.storyName = 'Banner / Left aligned, no buttons, 1 digiblock / Blue theme';
+Banner3.args = {
+  classes: 'nhsd-!t-bg-bright-blue-20-tint',
+  title: {
+    classes: 'nhsd-t-heading-xxl nhsd-!t-margin-bottom-6',
+    label: 'Data and information',
+  },
+  text: {
+    classes: 'nhsd-t-heading-s nhsd-!t-margin-bottom-0',
+    label: 'NHS Digital has responsibility for standardising, collecting and publishing data and information from across the health and social care system in England.',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-blue',
+  }],
+};
+Banner3.parameters = {
+  docs: {
+    description: {
+      story: `
+- Light blue background - using <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-bg-bright-blue-20-tint</span> override token.
+- Black heading and body text - left aligned default.
+- No buttons
+- Top Right positioned Digiblock atom - blue colour overlay applied (<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-digiblocks--col-blue</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-digiblocks--pos-tr</span>).`,
+    },
+    source: {
+      code: `${sourceCode}\n${Banner3(Banner3.args)}`,
+    },
+  },
+};
+
+export const Banner4 = Template.bind({});
+Banner4.storyName = 'Banner / Left aligned, no buttons, 1 digiblock / Yellow theme';
+Banner4.args = {
+  classes: 'nhsd-!t-bg-yellow-20-tint',
+  title: {
+    classes: 'nhsd-t-heading-xxl nhsd-!t-margin-bottom-6',
+    label: 'Data and information',
+  },
+  text: {
+    classes: 'nhsd-t-heading-s nhsd-!t-margin-bottom-0',
+    label: 'NHS Digital has responsibility for standardising, collecting and publishing data and information from across the health and social care system in England.',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-br nhsd-a-digiblocks--col-yellow',
+  }],
+};
+Banner4.parameters = {
+  docs: {
+    description: {
+      story: `
+- Light yellow background - using <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-bg-yellow-20-tint</span> override token.
+- Black heading and body text - left aligned default.
+- No buttons
+- Bottom Right positioned Digiblock atom - blue colour overlay applied (<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-digiblocks--col-yellow</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-digiblocks--pos-br</span>).`,
+    },
+    source: {
+      code: `${sourceCode}\n${Banner4(Banner4.args)}`,
     },
   },
 };
@@ -103,7 +283,7 @@ Featured.args = {
   },
   text: {
     label: 'At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable.',
-    classes: 'nhsd-t-body',
+    classes: 'nhsd-t-body nhsd-!t-margin-bottom-6',
   },
   button: {
     el: 'a',
@@ -141,7 +321,7 @@ FeaturedMirrored.args = {
   },
   text: {
     label: 'At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable. Seamlessly scale impactful e-tailers after innovative supply chains. Compellingly integrate cross-media core competencies without low-risk high-yield outsourcing. Rapidiously drive robust alignments without resource-leveling meta-services. Energistically morph premium methodologies.',
-    classes: 'nhsd-t-body',
+    classes: 'nhsd-t-body nhsd-!t-margin-bottom-6',
   },
   button: {
     el: 'a',
@@ -178,7 +358,7 @@ FeaturedAccented.args = {
   },
   text: {
     label: 'We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable. We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable. We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable.',
-    classes: 'nhsd-t-body',
+    classes: 'nhsd-t-body nhsd-!t-margin-bottom-6',
   },
   button: {
     el: 'a',
@@ -217,7 +397,7 @@ FeaturedAccentedMirrored.args = {
   },
   text: {
     label: 'We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable.',
-    classes: 'nhsd-t-body',
+    classes: 'nhsd-t-body nhsd-!t-margin-bottom-6',
   },
   button: {
     el: 'a',

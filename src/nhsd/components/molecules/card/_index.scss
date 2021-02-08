@@ -25,7 +25,7 @@ $-box-padding: 1.111rem;
 #{$-root} {
   display: block;
   position: relative;
-  min-height: 11.111rem;
+  min-height: vars.$min-card-height;
 
   @include mq($until: s) {
     min-height: 8.333rem;
