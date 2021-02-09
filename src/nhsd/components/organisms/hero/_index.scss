@@ -1,5 +1,5 @@
 // Settings
-@use "scss-core/settings/vars" as nhsd-vars;
+@use "scss-core/settings/vars";
 @use "scss-core/settings/media-queries" as *;
 
 // Tokens
@@ -20,14 +20,18 @@ $-root: ".nhsd-o-hero";
 #{$-root} {
   display: block;
   position: relative;
+  min-height: vars.$min-card-height;
+  overflow: hidden;
   background: nhsd-colours.get("pale-grey");
 
   &__content-box {
     display: flex;
-    justify-content: center;
     position: relative;
+    z-index: 1;
+    justify-content: center;
     height: 100%;
     min-height: 15.555rem;
+    padding: calc(#{nhsd-spacing.get(8)} - 6px) nhsd-spacing.get(8) nhsd-spacing.get(8);
   }
 
   &__content {
@@ -39,7 +43,16 @@ $-root: ".nhsd-o-hero";
     }
   }
 
+  .nhsd-a-digiblocks {
+    z-index: 0;
+  }
+
+  &--light-text {
+    @include nhsd-utils.light-text;
+  }
+
   &-feature {
+    padding: 0;
     background: transparent;
 
     .nhsd-t-grid {
@@ -85,6 +98,7 @@ $-root: ".nhsd-o-hero";
       background: nhsd-colours.get("bright-blue-10-tint");
     }
 
+    // Large, square image variant (home page)
     &--accented {
       #{$-root}__content-box {
         background: nhsd-colours.get("pale-grey");
@@ -95,6 +109,7 @@ $-root: ".nhsd-o-hero";
       }
     }
 
+    // Mirrored variant (home page - image on the left, content on the right)
     &--mirrored {
       [class^="nhsd-t-col"] {
         &:first-child {
@@ -118,14 +133,14 @@ $-root: ".nhsd-o-hero";
     @include mq($until: s) {
       &:not(&--accented) {
         .nhsd-a-image__picture {
-          border-top-left-radius: nhsd-vars.$border-radius;
-          border-top-right-radius: nhsd-vars.$border-radius;
+          border-top-left-radius: vars.$border-radius;
+          border-top-right-radius: vars.$border-radius;
         }
 
         #{$-root}__content-box,
         .nhsd-a-colour-bar {
-          border-bottom-left-radius: nhsd-vars.$border-radius;
-          border-bottom-right-radius: nhsd-vars.$border-radius;
+          border-bottom-left-radius: vars.$border-radius;
+          border-bottom-right-radius: vars.$border-radius;
         }
       }
 

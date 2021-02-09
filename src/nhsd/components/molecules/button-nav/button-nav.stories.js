@@ -11,8 +11,15 @@ const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}
 - Places any number of buttons inline next to each other.
-- The buttons are always centered.`;
-const sourceCode = `// Sass import \n@use "nhsd/components/molecules/card";
+- The buttons are always centered.
+
+### Components used
+- <a href="/docs/design-system-components-atoms-button--lab-component">Button atom</a>
+
+### Tokens used
+- Spacing
+- Utils`;
+const sourceCode = `// Sass import \n@use "nhsd/components/molecules/button-nav";
 
 // HTML`;
 
@@ -125,6 +132,58 @@ Story4.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${Story4(Story4.args)}`,
+    },
+  },
+};
+
+export const Story5 = Template.bind({});
+Story5.storyName = '2 buttons / Left aligned, condensed';
+Story5.args = {
+  classes: 'nhsd-m-button-nav--condensed nhsd-!t-text-align-left',
+  buttons: [{
+    el: 'a',
+    label: 'Button one',
+    href: '#',
+  }, {
+    classes: 'nhsd-a-button--outline',
+    el: 'a',
+    label: 'Button two',
+    href: '#',
+  }],
+};
+Story5.parameters = {
+  docs: {
+    description: {
+      story: 'Use the <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-text-align-left</span> override token to left align the buttons on breakpoints above XS.',
+    },
+    source: {
+      code: `${sourceCode}\n${Story5(Story5.args)}`,
+    },
+  },
+};
+
+export const Story6 = Template.bind({});
+Story6.storyName = '2 buttons / Right aligned, condensed';
+Story6.args = {
+  classes: 'nhsd-m-button-nav--condensed nhsd-!t-text-align-right',
+  buttons: [{
+    el: 'a',
+    label: 'Button one',
+    href: '#',
+  }, {
+    classes: 'nhsd-a-button--outline',
+    el: 'a',
+    label: 'Button two',
+    href: '#',
+  }],
+};
+Story6.parameters = {
+  docs: {
+    description: {
+      story: 'Use the <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-text-align-right</span> override token to right align the buttons on breakpoints above XS.',
+    },
+    source: {
+      code: `${sourceCode}\n${Story6(Story6.args)}`,
     },
   },
 };

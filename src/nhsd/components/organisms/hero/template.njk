@@ -2,7 +2,13 @@
 {%- from "../../../njk/macros/atoms.njk" import
   nhsd_a_button,
   nhsd_a_colour_bar,
+  nhsd_a_digiblocks,
   nhsd_a_image
+-%}
+
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_button_nav
 -%}
 
 {#- Set classes -#}
@@ -30,6 +36,7 @@
 {#- Set accent (only used if featured) -#}
 {%- set accented = true if featured and params.featured.accented else false -%}
 
+{#- Set featured variant class names -#}
 {%- if featured -%}
   {%- set classNames = "nhsd-o-hero-feature" -%}
   {%- if mirrored -%}
@@ -40,16 +47,28 @@
   {%- endif -%}
 {%- endif -%}
 
+{#- Set column classes depending on content type -#}
+{%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-6 nhsd-!t-no-gutters" -%}
+{% if featured -%}
+  {%- set columnClassNames = "nhsd-t-col-xs-11 nhsd-t-col-s-6 nhsd-!t-no-gutters" -%}
+  {% if accented -%}
+    {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters" -%}
+  {% endif %}
+{%- endif %}
+
 <div class="{{ classNames }}">
   <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
     <div class="nhsd-t-row nhsd-t-row--centred">
-      <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'nhsd-t-col-xs-12' if accented else 'nhsd-t-col-xs-11' }}">
+      <div class="{{ columnClassNames }}">
         <div class="nhsd-o-hero__content-box">
           <div class="nhsd-o-hero__content">
             <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
-            <p class="{{ textClassNames }} nhsd-!t-margin-bottom-6">{{ params.text.label|safe }}</p>
+            <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
             {%if params.button -%}
             {{ nhsd_a_button(params.button) }}
+            {%- endif %}
+            {%if params.buttonNav -%}
+            {{ nhsd_m_button_nav(params.buttonNav) }}
             {%- endif %}
           </div>
 
@@ -65,4 +84,10 @@
       {%- endif %}
     </div>
   </div>
+
+  {% if params.digiblocks -%}
+    {% for digiblocks in params.digiblocks %}
+      {{ nhsd_a_digiblocks(digiblocks) }}
+    {% endfor %}
+  {%- endif %}
 </div>

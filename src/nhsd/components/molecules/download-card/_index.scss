@@ -23,7 +23,7 @@ $-box-padding: 1.222rem;
 #{$-root} {
   display: block;
   position: relative;
-  min-height: 11.111rem;
+  min-height: vars.$min-card-height;
 
   .nhsd-a-box {
     display: flex;
