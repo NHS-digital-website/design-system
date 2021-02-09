@@ -15,9 +15,9 @@ ${sbConfig.heading.details}:
   1. ***Internal tokens*** to be used in Sass - these can be mixins, functions and variables
   2. ***Inline tokens*** to be used in HTML - these are utility (override) classes
 - Examples of how the inline tokens work can be found <a href="#inline-override-tokens">below</a>
-- The only internal colour token is the \`get\` method, which works like:
-  \`nhsd-colours.get("KEY")\` where **KEY** is the colour key - see the colour palette below for colour keys
-- The best place to check out the internal tokens is the \`src/nhsd/scss-core/_colours.scss\` file`;
+- The only internal colour token is the <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">get</span> method, which works like:
+<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-colours.get("KEY")</span> where **KEY** is the colour key - see the colour palette below for colour keys
+- The best place to check out the internal tokens is the <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">src/nhsd/scss-core/_colours.scss</span> file`;
 const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/colours";\n\n//HTML';
 
 // Component defaults
@@ -244,7 +244,7 @@ ColourOverrides.parameters = {
   - **Border:** Sets a 1px solid border using the appropriate colour
 - **Class names:**
   - The token class names follow the naming convention of the other tokens. The name pattern is the following:
-  - \`.nhsd-!t-col-KEY\`, \`.nhsd-!t-bg-KEY\`, \`.nhsd-!t-border-KEY\`, where KEY is the colour key (see primary and secondary colours above)
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-col-KEY</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-bg-KEY</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-border-KEY</span>, where KEY is the colour key (see primary and secondary colours above)
   `,
     },
     source: {

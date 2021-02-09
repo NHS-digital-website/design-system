@@ -137,18 +137,18 @@ StaticGrid.parameters = {
 - The static grid uses the **12 columns** with **30px gutters** regardless of any active breakpoints.
 - This grid should only be used when quick and dirty, static grids are enough to get the job done.
 - **Class names:**
-  - \`.nhsd-t-col-1\`
-  - \`.nhsd-t-col-2\`
-  - \`.nhsd-t-col-3\`
-  - \`.nhsd-t-col-4\`
-  - \`.nhsd-t-col-5\`
-  - \`.nhsd-t-col-6\`
-  - \`.nhsd-t-col-7\`
-  - \`.nhsd-t-col-8\`
-  - \`.nhsd-t-col-9\`
-  - \`.nhsd-t-col-10\`
-  - \`.nhsd-t-col-11\`
-  - \`.nhsd-t-col-12\``,
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-1</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-2</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-3</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-4</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-5</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-6</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-7</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-8</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-9</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-10</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-11</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-12</span>`,
     },
     source: {
       code: `${sourceCode}\n${StaticGrid().innerHTML}`,
@@ -177,18 +177,18 @@ ResponsiveGrid.parameters = {
 - The responsive grid uses **12 columns** on desktop (including wide and extrawide) **6 columns** on tablet, and **2 columns** on mobile. The gutter is 30px across the board.
 - The order of the responsive column classes applied to a column element doesn't matter
 - **Class names:**
-  - \`.nhsd-t-col-xl-1\`, \`.nhsd-t-col-l-1\`, \`.nhsd-t-col-m-1\`, \`.nhsd-t-col-s-1\`, \`.nhsd-t-col-xs-1\`
-  - \`.nhsd-t-col-xl-2\`, \`.nhsd-t-col-l-2\`, \`.nhsd-t-col-m-2\`, \`.nhsd-t-col-s-2\`, \`.nhsd-t-col-xs-2\`
-  - \`.nhsd-t-col-xl-3\`, \`.nhsd-t-col-l-3\`, \`.nhsd-t-col-m-3\`, \`.nhsd-t-col-s-3\`, \`.nhsd-t-col-xs-3\`
-  - \`.nhsd-t-col-xl-4\`, \`.nhsd-t-col-l-4\`, \`.nhsd-t-col-m-4\`, \`.nhsd-t-col-s-8\`, \`.nhsd-t-col-xs-4\`
-  - \`.nhsd-t-col-xl-5\`, \`.nhsd-t-col-l-5\`, \`.nhsd-t-col-m-5\`, \`.nhsd-t-col-s-5\`, \`.nhsd-t-col-xs-5\`
-  - \`.nhsd-t-col-xl-6\`, \`.nhsd-t-col-l-6\`, \`.nhsd-t-col-m-6\`, \`.nhsd-t-col-s-6\`, \`.nhsd-t-col-xs-6\`
-  - \`.nhsd-t-col-xl-7\`, \`.nhsd-t-col-l-7\`, \`.nhsd-t-col-m-7\`, \`.nhsd-t-col-s-7\`, \`.nhsd-t-col-xs-7\`
-  - \`.nhsd-t-col-xl-8\`, \`.nhsd-t-col-l-8\`, \`.nhsd-t-col-m-8\`, \`.nhsd-t-col-s-8\`, \`.nhsd-t-col-xs-8\`
-  - \`.nhsd-t-col-xl-9\`, \`.nhsd-t-col-l-9\`, \`.nhsd-t-col-m-9\`, \`.nhsd-t-col-s-9\`, \`.nhsd-t-col-xs-9\`
-  - \`.nhsd-t-col-xl-10\`, \`.nhsd-t-col-l-10\`, \`.nhsd-t-col-m-10\`, \`.nhsd-t-col-s-10\`, \`.nhsd-t-col-xs-10\`
-  - \`.nhsd-t-col-xl-11\`, \`.nhsd-t-col-l-11\`, \`.nhsd-t-col-m-11\`, \`.nhsd-t-col-s-11\`, \`.nhsd-t-col-xs-11\`
-  - \`.nhsd-t-col-xl-12\`, \`.nhsd-t-col-l-12\`, \`.nhsd-t-col-m-12\`, \`.nhsd-t-col-s-12\`, \`.nhsd-t-col-xs-12\``,
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-1</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-1</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-1</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-1</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-1</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-2</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-2</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-2</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-2</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-2</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-3</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-3</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-3</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-3</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-3</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-4</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-4</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-4</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-4</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-5</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-5</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-5</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-5</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-5</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-6</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-6</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-6</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-6</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-6</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-7</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-7</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-7</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-7</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-7</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-8</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xl-9</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-l-9</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-m-9</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-s-9</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-col-xs-9</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-xl-10</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-l-10</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-m-10</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-s-10</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-xs-10</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-xl-11</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-l-11</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-m-11</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-s-11</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-xs-11</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-xl-12</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-l-12</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-m-12</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-s-12</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">nhsd-t-col-xs-12</span>`,
     },
     source: {
       code: `${sourceCode}\n${ResponsiveGrid().innerHTML}`,
@@ -287,18 +287,18 @@ StaticColumnOffset.parameters = {
     description: {
       story: `${sbConfig.heading.details}:
 - **Class names:**
-  - \`.nhsd-t-off-1\`
-  - \`.nhsd-t-off-2\`
-  - \`.nhsd-t-off-3\`
-  - \`.nhsd-t-off-4\`
-  - \`.nhsd-t-off-5\`
-  - \`.nhsd-t-off-6\`
-  - \`.nhsd-t-off-7\`
-  - \`.nhsd-t-off-8\`
-  - \`.nhsd-t-off-9\`
-  - \`.nhsd-t-off-10\`
-  - \`.nhsd-t-off-11\`
-  - \`.nhsd-t-off-12\``,
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-1</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-2</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-3</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-4</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-5</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-6</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-7</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-8</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-9</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-10</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-11</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-12</span>`,
     },
     source: {
       code: `${sourceCode}\n${StaticColumnOffset().innerHTML}`,
@@ -333,19 +333,19 @@ ResponsiveColumnOffset.parameters = {
     description: {
       story: `${sbConfig.heading.details}:
 - **Class names:**
-- \`.nhsd-t-off-xl-0\`, \`.nhsd-t-off-l-0\`, \`.nhsd-t-off-m-0\`, \`.nhsd-t-off-s-0\`, \`.nhsd-t-off-xs-0\`
-- \`.nhsd-t-off-xl-1\`, \`.nhsd-t-off-l-1\`, \`.nhsd-t-off-m-1\`, \`.nhsd-t-off-s-1\`, \`.nhsd-t-off-xs-1\`
-- \`.nhsd-t-off-xl-2\`, \`.nhsd-t-off-l-2\`, \`.nhsd-t-off-m-2\`, \`.nhsd-t-off-s-2\`, \`.nhsd-t-off-xs-2\`
-- \`.nhsd-t-off-xl-3\`, \`.nhsd-t-off-l-3\`, \`.nhsd-t-off-m-3\`, \`.nhsd-t-off-s-3\`, \`.nhsd-t-off-xs-3\`
-- \`.nhsd-t-off-xl-4\`, \`.nhsd-t-off-l-4\`, \`.nhsd-t-off-m-4\`, \`.nhsd-t-off-s-4\`, \`.nhsd-t-off-xs-4\`
-- \`.nhsd-t-off-xl-5\`, \`.nhsd-t-off-l-5\`, \`.nhsd-t-off-m-5\`, \`.nhsd-t-off-s-5\`, \`.nhsd-t-off-xs-5\`
-- \`.nhsd-t-off-xl-6\`, \`.nhsd-t-off-l-6\`, \`.nhsd-t-off-m-6\`, \`.nhsd-t-off-s-6\`, \`.nhsd-t-off-xs-6\`
-- \`.nhsd-t-off-xl-7\`, \`.nhsd-t-off-l-7\`, \`.nhsd-t-off-m-7\`, \`.nhsd-t-off-s-7\`, \`.nhsd-t-off-xs-7\`
-- \`.nhsd-t-off-xl-8\`, \`.nhsd-t-off-l-8\`, \`.nhsd-t-off-m-8\`, \`.nhsd-t-off-s-8\`, \`.nhsd-t-off-xs-8\`
-- \`.nhsd-t-off-xl-9\`, \`.nhsd-t-off-l-9\`, \`.nhsd-t-off-m-9\`, \`.nhsd-t-off-s-9\`, \`.nhsd-t-off-xs-9\`
-- \`.nhsd-t-off-xl-10\`, \`.nhsd-t-off-l-10\`, \`.nhsd-t-off-m-10\`, \`.nhsd-t-off-s-10\`, \`.nhsd-t-off-xs-10\`
-- \`.nhsd-t-off-xl-11\`, \`.nhsd-t-off-l-11\`, \`.nhsd-t-off-m-11\`, \`.nhsd-t-off-s-11\`, \`.nhsd-t-off-xs-11\`
-- \`.nhsd-t-off-xl-12\`, \`.nhsd-t-off-l-12\`, \`.nhsd-t-off-m-12\`, \`.nhsd-t-off-s-12\`, \`.nhsd-t-off-xs-12\``,
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-0</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-0</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-0</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-0</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-0</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-1</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-1</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-1</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-1</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-1</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-2</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-2</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-2</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-2</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-2</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-3</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-3</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-3</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-3</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-3</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-4</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-4</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-4</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-4</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-4</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-5</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-5</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-5</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-5</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-5</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-6</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-6</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-6</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-6</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-6</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-7</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-7</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-7</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-7</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-7</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-8</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-8</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-9</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-9</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-9</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-9</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-9</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-10</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-10</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-10</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-10</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-10</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-11</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-11</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-11</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-11</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-11</span>
+- <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xl-12</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-l-12</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-m-12</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-s-12</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-off-xs-12</span>`,
   },
     source: {
       code: `${sourceCode}\n${ResponsiveColumnOffset().innerHTML}`,
@@ -372,7 +372,7 @@ NoGutterGrid.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- Using the \`.nhsd-!t-no-gutters\` token classes you can remove the left and right gutters from any container - incuding the grid, and individual columns.`,
+- Using the <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-no-gutters</span> token classes you can remove the left and right gutters from any container - incuding the grid, and individual columns.`,
     },
     source: {
       code: `${sourceCode}\n${NoGutterGrid().innerHTML}`,

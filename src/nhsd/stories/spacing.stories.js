@@ -112,7 +112,8 @@ LabComponent.storyName = 'Lab';
 LabComponent.parameters = {
   docs: {
     description: {
-      story: 'Setting various spacing properties on a mix of `<div>`s using the responsive, inline padding and margin override tokens.',
+      story: `Setting various spacing properties on a mix of <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">\\<div\\></span>s using the responsive, inline padding and margin override tokens.
+      `,
     },
     source: {
       code: `${sourceCode}\n${LabComponent().innerHTML}`,
@@ -135,7 +136,8 @@ Margin.storyName = 'Margin';
 Margin.parameters = {
   docs: {
     description: {
-      story: 'Setting the margin on a `<div>` using the responsive, inline margin override tokens.',
+      story: `Setting the margin on a <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">\\<div\\></span> using the responsive, inline margin override tokens.
+      `,
     },
     source: {
       code: `${sourceCode}\n${Margin().innerHTML}`,
@@ -158,7 +160,8 @@ MarginTop.storyName = 'Margin / Top';
 MarginTop.parameters = {
   docs: {
     description: {
-      story: 'Setting the top margin on a `<div>` using the responsive, inline margin override tokens.',
+      story: `Setting the top margin on a <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">\\<div\\></span> using the responsive, inline margin override tokens.
+      `,
     },
     source: {
       code: `${sourceCode}\n${MarginTop().innerHTML}`,
@@ -181,7 +184,8 @@ MarginLeft.storyName = 'Margin / Left';
 MarginLeft.parameters = {
   docs: {
     description: {
-      story: 'Setting the left margin on a `<div>` using the responsive, inline margin override tokens.',
+      story: `Setting the left margin on a <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">\\<div\\></span> using the responsive, inline margin override tokens.
+      `,
     },
     source: {
       code: `${sourceCode}\n${MarginLeft().innerHTML}`,
@@ -203,7 +207,8 @@ Padding.storyName = 'Padding';
 Padding.parameters = {
   docs: {
     description: {
-      story: 'Setting the padding on a `<div>` using the responsive, inline padding override tokens.',
+      story: `Setting the padding on a <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">\\<div\\></span> using the responsive, inline padding override tokens.
+      `,
     },
     source: {
       code: `${sourceCode}\n${Padding().innerHTML}`,
@@ -225,7 +230,8 @@ PaddingTop.storyName = 'Padding / Top';
 PaddingTop.parameters = {
   docs: {
     description: {
-      story: 'Setting the top padding on a `<div>` using the responsive, inline padding override tokens.',
+      story: `Setting the top padding on a <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">\\<div\\></span> using the responsive, inline padding override tokens.
+      `,
     },
     source: {
       code: `${sourceCode}\n${PaddingTop().innerHTML}`,
@@ -247,7 +253,8 @@ PaddingLeft.storyName = 'Padding / Left';
 PaddingLeft.parameters = {
   docs: {
     description: {
-      story: 'Setting the left padding on a `<div>` using the responsive, inline padding override tokens.',
+      story: `Setting the left padding on a <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">\\<div\\></span> using the responsive, inline padding override tokens.
+      `,
     },
     source: {
       code: `${sourceCode}\n${PaddingLeft().innerHTML}`,
