@@ -61,8 +61,6 @@ export default class NHSDGlobalHeader {
       if (this.searchBarActive) {
         this.closeSearchBar();
       }
-
-      this.setDocumentScrolling();
     });
 
     this.menuCloseButtonEl = this.hostEl.querySelector('#nhsd-global-header__menu-close-button');
@@ -71,7 +69,6 @@ export default class NHSDGlobalHeader {
       event.stopPropagation();
 
       this.closeMenuBar();
-      this.setDocumentScrolling();
     });
   }
 
@@ -90,8 +87,6 @@ export default class NHSDGlobalHeader {
       if (this.menuBarActive) {
         this.closeMenuBar();
       }
-
-      this.setDocumentScrolling();
     });
 
     this.searchCloseButtonEl = this.hostEl.querySelector('#nhsd-global-header__search-close-button');
@@ -100,7 +95,6 @@ export default class NHSDGlobalHeader {
       event.stopPropagation();
 
       this.closeSearchBar();
-      this.setDocumentScrolling();
     });
   }
 
@@ -111,6 +105,7 @@ export default class NHSDGlobalHeader {
     this.menuButtonEl.setAttribute('aria-expanded', true);
 
     this.setTabIndexes();
+    this.setDocumentScrolling();
   }
 
   closeMenuBar() {
@@ -120,6 +115,7 @@ export default class NHSDGlobalHeader {
     this.menuButtonEl.setAttribute('aria-expanded', false);
 
     this.setTabIndexes();
+    this.setDocumentScrolling();
   }
 
   openSearchBar() {
@@ -129,6 +125,8 @@ export default class NHSDGlobalHeader {
     this.searchInput.focus();
     this.searchButtonEl.setAttribute('aria-expanded', true);
     this.searchBarActive = true;
+
+    this.setDocumentScrolling();
   }
 
   closeSearchBar() {
@@ -137,6 +135,8 @@ export default class NHSDGlobalHeader {
     this.searchButtonEl.blur();
     this.searchButtonEl.setAttribute('aria-expanded', false);
     this.searchBarActive = false;
+
+    this.setDocumentScrolling();
   }
 
   setDocumentScrolling() {
