@@ -19,7 +19,6 @@
 
 // Private members
 $-root: ".nhsd-m-nav-block";
-$-icon-size: 3.2rem;
 $-box-padding: 3.333rem;
 
 #{$-root} {
@@ -47,8 +46,6 @@ $-box-padding: 3.333rem;
   }
 
   .nhsd-a-icon {
-    width: $-icon-size;
-    height: $-icon-size;
     margin: 0 auto;
     @include nhsd-spacing.set-responsive('margin-bottom', 3);
   }
