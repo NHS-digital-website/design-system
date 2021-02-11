@@ -100,6 +100,192 @@ Component1.parameters = {
   },
 };
 
+export const CyberAlertComponent = Template.bind({});
+CyberAlertComponent.storyName = 'Cyber alert cards 3D/3T/1M';
+CyberAlertComponent.args = {
+  desktopColumns: 3,
+  centreColumns: true,
+  cards: [{
+    box: {
+      classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
+    },
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    boxLink: {
+      href: '#',
+      classes: 'nhsd-a-box-link--focus-orange',
+    },
+    arrowIcon: {
+      classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+      id: 'arrow_right',
+    },
+    tags: [{
+      classes: 'nhsd-a-tag--bg-dark-grey',
+      label: 'CC-3734',
+    }, {
+      classes: 'nhsd-a-tag--bg-light-red',
+      label: 'High Severity',
+    }],
+    date: 'Thursday 28 January 2021 (updated 29 January 2021)',
+    contentTag: {
+      classes: 'nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1',
+      label: 'Insecure Software',
+    },
+  }, {
+    box: {
+      classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
+    },
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    boxLink: {
+      href: '#',
+      classes: 'nhsd-a-box-link--focus-orange',
+    },
+    arrowIcon: {
+      classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+      id: 'arrow_right',
+    },
+    tags: [{
+      classes: 'nhsd-a-tag--bg-dark-grey',
+      label: 'CC-3734',
+    }, {
+      classes: 'nhsd-a-tag--bg-light-red',
+      label: 'High Severity',
+    }],
+    date: 'Thursday 28 January 2021 (updated 29 January 2021)',
+    contentTag: {
+      classes: 'nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1',
+      label: 'Insecure Software',
+    },
+  }, {
+    box: {
+      classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
+    },
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    boxLink: {
+      href: '#',
+      classes: 'nhsd-a-box-link--focus-orange',
+    },
+    arrowIcon: {
+      classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+      id: 'arrow_right',
+    },
+    tags: [{
+      classes: 'nhsd-a-tag--bg-dark-grey',
+      label: 'CC-3734',
+    }, {
+      classes: 'nhsd-a-tag--bg-light-red',
+      label: 'High Severity',
+    }],
+    date: 'Thursday 28 January 2021 (updated 29 January 2021)',
+    contentTag: {
+      classes: 'nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1',
+      label: 'Insecure Software',
+    },
+  }],
+};
+CyberAlertComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${CyberAlertComponent(CyberAlertComponent.args)}`,
+    },
+  },
+};
+
+export const CyberAlertComponent2 = Template.bind({});
+CyberAlertComponent2.storyName = 'Cyber alert cards 2D/2T/1M';
+CyberAlertComponent2.args = {
+  desktopColumns: 2,
+  centreColumns: true,
+  cards: [{
+    box: {
+      classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
+    },
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    boxLink: {
+      href: '#',
+      classes: 'nhsd-a-box-link--focus-orange',
+    },
+    arrowIcon: {
+      classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+      id: 'arrow_right',
+    },
+    tags: [{
+      classes: 'nhsd-a-tag--bg-dark-grey',
+      label: 'CC-3734',
+    }, {
+      classes: 'nhsd-a-tag--bg-light-red',
+      label: 'High Severity',
+    }],
+    date: 'Thursday 28 January 2021 (updated 29 January 2021)',
+    contentTag: {
+      classes: 'nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1',
+      label: 'Insecure Software',
+    },
+  }, {
+    box: {
+      classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
+    },
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    boxLink: {
+      href: '#',
+      classes: 'nhsd-a-box-link--focus-orange',
+    },
+    arrowIcon: {
+      classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+      id: 'arrow_right',
+    },
+    tags: [{
+      classes: 'nhsd-a-tag--bg-dark-grey',
+      label: 'CC-3734',
+    }, {
+      classes: 'nhsd-a-tag--bg-light-red',
+      label: 'High Severity',
+    }],
+    date: 'Thursday 28 January 2021 (updated 29 January 2021)',
+    contentTag: {
+      classes: 'nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1',
+      label: 'Insecure Software',
+    },
+  }, {
+    box: {
+      classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
+    },
+    title: 'About NHS Digital',
+    text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+    boxLink: {
+      href: '#',
+      classes: 'nhsd-a-box-link--focus-orange',
+    },
+    arrowIcon: {
+      classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+      id: 'arrow_right',
+    },
+    tags: [{
+      classes: 'nhsd-a-tag--bg-dark-grey',
+      label: 'CC-3734',
+    }, {
+      classes: 'nhsd-a-tag--bg-light-red',
+      label: 'High Severity',
+    }],
+    date: 'Thursday 28 January 2021 (updated 29 January 2021)',
+    contentTag: {
+      classes: 'nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1',
+      label: 'Insecure Software',
+    },
+  }],
+};
+CyberAlertComponent2.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${CyberAlertComponent2(CyberAlertComponent2.args)}`,
+    },
+  },
+};
+
 export const Component2 = Template.bind({});
 Component2.storyName = 'Icon cards 2D/2T/1M';
 Component2.args = {

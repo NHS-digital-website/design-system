@@ -63,6 +63,31 @@ $-box-padding: 1.111rem;
     line-height: 1rem;
   }
 
+  &__tag-list {
+    display: flex;
+    position: absolute;
+    top: 0;
+
+    .nhsd-a-tag {
+      &:not(:last-child) {
+        margin-right: nhsd-spacing.get(2);
+      }
+    }
+
+    & + *:nth-of-type(1) {
+      margin-top: .75rem;
+    }
+
+    & + #{$-root}__date {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .nhsd-a-tag {
+    display: inline-block;
+    align-self: flex-start;
+  }
+
   // TODO - Not sure why we need this specificity, investigate why the atom overrides the molecule styling
   &__icon.nhsd-a-icon {
     display: block;
@@ -104,15 +129,6 @@ $-box-padding: 1.111rem;
       [class^="nhsd-t-body"] {
         color: nhsd-colours.get("black");
       }
-    }
-  }
-
-  .nhsd-a-tag {
-    position: absolute;
-    top: 0;
-
-    & + *:nth-of-type(1) {
-      margin-top: .75rem;
     }
   }
 
