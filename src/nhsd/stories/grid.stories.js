@@ -19,6 +19,8 @@ const storyDescription = `${sbConfig.heading.lab}
 |Wide|**L**|1367px|1579px|1240px|12|30px|
 |Extra Wide|**XL**|1580px|∞|1500px|12|30px|
 
+The **responsive breakpoint configuration** can be found in the <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">src/nhsd/settings/scss-core/_media-queries.scss</span> file.
+
 - **Note:** The <span class="nhsd-!t-bg-green">&nbsp;&nbsp;&nbsp;&nbsp;</span> and <span class="nhsd-!t-bg-red">&nbsp;&nbsp;&nbsp;&nbsp;</span> mobile columns represent the slightly tweaked gutters on the mobile breakpoint.`;
 const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/grid";\n\n//HTML';
 

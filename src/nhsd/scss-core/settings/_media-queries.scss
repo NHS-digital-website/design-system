@@ -17,6 +17,7 @@ $-bp-xl: 1580px;
   ),
   $mq-static-breakpoint: m
   // $mq-show-breakpoints: (xs, s, m, l, xl)
+  // Uncomment the above line if want to see debug information
 );
 
 @forward "sass-mq/mq";
