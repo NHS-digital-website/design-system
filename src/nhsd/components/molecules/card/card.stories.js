@@ -192,10 +192,10 @@ ComponentVariant4.args = {
     label: 'More about what we do',
     el: 'span',
   },
-  tag: {
+  tags: [{
     classes: 'nhsd-a-tag--bg-dark-grey',
     label: 'NEWS',
-  },
+  }],
 };
 ComponentVariant4.parameters = {
   docs: {
@@ -235,10 +235,10 @@ ComponentVariant5.args = {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
     id: 'arrow_right',
   },
-  tag: {
+  tags: [{
     classes: 'nhsd-a-tag--bg-light-grey',
     label: 'Info only',
-  },
+  }],
 };
 ComponentVariant5.parameters = {
   docs: {
@@ -278,10 +278,10 @@ ComponentVariant6.args = {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
     id: 'arrow_right',
   },
-  tag: {
+  tags: [{
     classes: 'nhsd-a-tag--bg-light-grey',
     label: 'National statistics',
-  },
+  }],
 };
 ComponentVariant6.parameters = {
   docs: {
@@ -319,10 +319,10 @@ ComponentVariant9.args = {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
     id: 'arrow_right',
   },
-  tag: {
+  tags: [{
     classes: 'nhsd-a-tag--bg-dark-grey',
     label: 'National statistics',
-  },
+  }],
 };
 ComponentVariant9.parameters = {
   docs: {
@@ -393,10 +393,10 @@ ComponentVariant10.args = {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
     id: 'arrow_right',
   },
-  tag: {
+  tags: [{
     classes: 'nhsd-a-tag--bg-dark-grey',
     label: 'National statistics',
-  },
+  }],
 };
 ComponentVariant10.parameters = {
   docs: {
@@ -411,6 +411,92 @@ ComponentVariant10.parameters = {
     },
     source: {
       code: `${sourceCode}\n${ComponentVariant10(ComponentVariant10.args)}`,
+    },
+  },
+};
+
+export const CyberAlertVariant = Template.bind({});
+CyberAlertVariant.storyName = 'Cyber alert (list)';
+CyberAlertVariant.args = {
+  box: {
+    classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
+  },
+  title: 'About NHS Digital',
+  text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  boxLink: {
+    href: '#',
+    classes: 'nhsd-a-box-link--focus-orange',
+  },
+  arrowIcon: {
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+    id: 'arrow_right',
+  },
+  tags: [{
+    classes: 'nhsd-a-tag--bg-dark-grey',
+    label: 'CC-3734',
+  }, {
+    classes: 'nhsd-a-tag--bg-light-red',
+    label: 'High Severity',
+  }],
+  date: 'Thursday 28 January 2021 (updated 29 January 2021)',
+  contentTag: {
+    classes: 'nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1',
+    label: 'Insecure Software',
+  },
+};
+CyberAlertVariant.parameters = {
+  docs: {
+    description: {
+      story: `${sbConfig.heading.details}:
+- White background, Black heading and text
+- Tag list rendered on top of the card
+- Date under tag list element
+- Content tag
+- Arrow icon at the bottom
+- The whole card links
+- Orange outline on focus and hover (default)`,
+    },
+    source: {
+      code: `${sourceCode}\n${CyberAlertVariant(CyberAlertVariant.args)}`,
+    },
+  },
+};
+
+export const CyberAlertVHubariant = Template.bind({});
+CyberAlertVHubariant.storyName = 'Cyber alert (hub)';
+CyberAlertVHubariant.args = {
+  box: {
+    classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
+  },
+  title: 'About NHS Digital',
+  text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  boxLink: {
+    href: '#',
+    classes: 'nhsd-a-box-link--focus-orange',
+  },
+  arrowIcon: {
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+    id: 'arrow_right',
+  },
+  tags: [{
+    classes: 'nhsd-a-tag--bg-light-red',
+    label: 'High Severity',
+  }],
+  date: 'Thursday 28 January 2021 (updated 29 January 2021)',
+};
+CyberAlertVHubariant.parameters = {
+  docs: {
+    description: {
+      story: `${sbConfig.heading.details}:
+- White background, Black heading and text
+- Tag rendered on top of the card
+- Date under tag list element
+- Arrow icon at the bottom
+- The whole card links
+- Orange outline on focus and hover (default)`,
+    },
+    source: {
+      code: `${sourceCode}\n${CyberAlertVHubariant(CyberAlertVHubariant.args)}`,
     },
   },
 };
