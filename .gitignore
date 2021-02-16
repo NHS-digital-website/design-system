@@ -49,3 +49,6 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# WebStorm
+.idea/
