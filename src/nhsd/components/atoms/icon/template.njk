@@ -1,6 +1,6 @@
 {#- Set classes for this component -#}
 {%- set classNames = "nhsd-a-icon" -%}
-{% if params.classes -%}
+{%- if params.classes -%}
   {%- set classNames = classNames + " " + params.classes -%}
 {%- endif %}
 
@@ -173,7 +173,7 @@
 
   {% if params.nested %}
   </svg>
-  {%- endif %}
+  {%- endif -%}
   {% if params.source -%}
     <img src="{{ params.source }}" alt="icon" aria-hidden="true" focusable="false" />
   {%- endif -%}

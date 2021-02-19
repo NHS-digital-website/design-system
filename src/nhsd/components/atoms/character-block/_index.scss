@@ -1,0 +1,66 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/transition" as nhsd-transition;
+
+// Private members
+$-root: ".nhsd-a-character-block";
+
+#{$-root} {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-width: vars.$min-button-size;
+  min-height: vars.$min-button-size;
+  padding: nhsd-spacing.get(1) nhsd-spacing.get(2);
+  border-radius: vars.$border-radius;
+  color: nhsd-colours.get("accessible-blue");
+  background: nhsd-colours.get("bright-blue-20-tint");
+  fill: nhsd-colours.get("accessible-blue");
+  font-size: 1.222rem;
+  line-height: 1.222rem;
+  text-align: center;
+  text-decoration: none;
+  @include nhsd-fonts.font-weight(bold);
+
+  transition-property: background-color, box-shadow, border-color;
+  transition-duration: nhsd-transition.$transition-duration;
+
+  &:not(span):not(&--disabled):not(&--large) {
+    &:focus,
+    &:hover {
+      color: nhsd-colours.get("white");
+      background: nhsd-colours.get("dark-blue");
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
+      fill: nhsd-colours.get("white");
+    }
+  }
+
+  &--large {
+    min-width: 4rem;
+    min-height: 4rem;
+    color: nhsd-colours.get("black");
+    background: nhsd-colours.get("pale-grey");
+    fill: nhsd-colours.get("black");
+    font-size: 2.666rem;
+    line-height: 2.666rem;
+  }
+
+  &--disabled {
+    color: nhsd-colours.get("mid-grey");
+    background: nhsd-colours.get("pale-grey");
+    fill: nhsd-colours.get("mid-grey");
+  }
+
+  &--active {
+    color: nhsd-colours.get("white");
+    background: nhsd-colours.get("accessible-blue");
+    fill: nhsd-colours.get("white");
+  }
+}
