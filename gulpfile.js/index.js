@@ -16,7 +16,6 @@ require('./tasks/js');
 require('./tasks/watch');
 require('./tasks/static');
 require('./tasks/images');
-require('./tasks/s3');
 
 gulp.task('build:dist',
   gulp.series(

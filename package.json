@@ -14,10 +14,8 @@
     "node": "12.6.2"
   },
   "scripts": {
-    "start": "npm run storybook",
     "storybook": "start-storybook -p 6006 -s ./dist",
     "storybook:build": "build-storybook --no-dll",
-    "storybook:build:deploy": "build-storybook --no-dll && gulp s3:sync",
     "dist:build": "gulp build:dist",
     "dist:build:watch": "gulp build:dist:watch",
     "dist:build:prod": "gulp build:dist -buildMode=prod",
@@ -34,7 +32,6 @@
     "url": "https://github.com/NHS-digital-website/nhsd-frontend/issues"
   },
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
