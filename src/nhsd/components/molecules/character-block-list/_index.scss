@@ -1,0 +1,34 @@
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Component imports
+@use "../../atoms/character-block";
+
+// Private members
+$-root: ".nhsd-m-character-block-list";
+
+#{$-root} {
+  display: block;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+
+    &:not(:last-child) {
+      .nhsd-a-character-block {
+        @include nhsd-spacing.set-responsive("margin-right", 2);
+      }
+    }
+  }
+
+  .nhsd-a-character-block {
+    @include nhsd-spacing.set-responsive("margin-bottom", 2);
+  }
+}

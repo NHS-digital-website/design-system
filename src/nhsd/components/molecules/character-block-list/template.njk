@@ -1,0 +1,23 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_character_block
+-%}
+
+{# Set classes #}
+{%- set classNames = "nhsd-m-character-block-list" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  {%- if params.title -%}
+    <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-3">{{ params.title }}</span>
+  {%- endif -%}
+  <ul>
+  {%- for char in params.charList -%}
+      <li>
+        {{ nhsd_a_character_block(char) }}
+      </li>
+  {% endfor %}
+  </ul>
+</div>

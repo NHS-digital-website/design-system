@@ -30,7 +30,9 @@ module.exports = {
           loader: 'nunjucks-loader',
           query: {
             jinjaCompat: true,
-          },
+            trimBlocks: true,
+            lstripBlocks: true,
+          }
 				},
 			],
 		}, {

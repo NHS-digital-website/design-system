@@ -1,0 +1,40 @@
+{%- macro nhsd_a_icon(params) -%}
+  {%- include "../icon/template.njk" -%}
+{%- endmacro -%}
+
+{# Set classes #}
+{%- set classNames = "nhsd-a-character-block" -%}
+{%- if params.large -%}
+  {% set classNames = classNames + " nhsd-a-character-block--large" %}
+{%- endif -%}
+{%- if params.disabled -%}
+  {% set classNames = classNames + " nhsd-a-character-block--disabled" %}
+{%- elif params.active -%}
+  {% set classNames = classNames + " nhsd-a-character-block--active" %}
+{%- endif -%}
+
+{# Macros #}
+{%- macro contents(params) -%}
+  {%- if params.icon.id and params.iconPosition != 'right' -%}
+    {{ nhsd_a_icon(params.icon) }}
+  {%- endif -%}
+  {{ params.label }}
+  {%- if params.icon.id and params.iconPosition == 'right' -%}
+    {{ nhsd_a_icon(params.icon) }}
+  {%- endif -%}
+{%- endmacro %}
+
+{%- set ariaLabel = "" -%}
+{%- if params.ariaLabel and params.ariaLabel != "" -%}
+  {% set ariaLabel = 'aria-label="' + params.ariaLabel + '"' %}
+{%- endif -%}
+
+{%- if not params.href or params.disabled or params.large -%}
+<span class="{{ classNames }}" {{ ariaLabel | safe }}>
+  {{ contents(params) }}
+</span>
+{%- else -%}
+<a class="{{ classNames }}" href="{{ params.href }}" {{ ariaLabel | safe }}>
+  {{ contents(params) }}
+</a>
+{%- endif -%}
