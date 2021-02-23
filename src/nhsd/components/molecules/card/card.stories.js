@@ -469,7 +469,6 @@ CyberAlertVHubariant.args = {
     classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
   },
   title: 'About NHS Digital',
-  text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   boxLink: {
     href: '#',
     classes: 'nhsd-a-box-link--focus-orange',
