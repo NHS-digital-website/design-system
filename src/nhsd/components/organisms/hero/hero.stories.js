@@ -308,6 +308,28 @@ Featured.parameters = {
   },
 };
 
+export const FeaturedWithVideo = Template.bind({});
+FeaturedWithVideo.storyName = 'Featured with video';
+FeaturedWithVideo.args = {
+  featured: true,
+  title: {
+    label: 'What is NHS Digital?',
+    classes: 'nhsd-t-heading-l',
+  },
+  text: {
+    label: 'We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable.',
+    classes: 'nhsd-t-body nhsd-!t-margin-bottom-6',
+  },
+  video: 'https://www.youtube.com/embed/PRVd30lUeAw',
+};
+FeaturedWithVideo.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${FeaturedWithVideo(FeaturedWithVideo.args)}`,
+    },
+  },
+};
+
 export const FeaturedMirrored = Template.bind({});
 FeaturedMirrored.storyName = 'Featured / mirrored';
 FeaturedMirrored.args = {
