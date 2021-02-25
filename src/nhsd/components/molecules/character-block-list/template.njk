@@ -11,13 +11,17 @@
 
 <div class="{{ classNames }}">
   {%- if params.title -%}
-    <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-3">{{ params.title }}</span>
+    <span id="nhsd-character-block-list-heading" class="nhsd-t-heading-m">{{ params.title }}</span>
+    <nav aria-labelledby="nhsd-character-block-list-heading">
+  {%- else -%}
+    <nav>
   {%- endif -%}
-  <ul>
-  {%- for char in params.charList -%}
-      <li>
-        {{ nhsd_a_character_block(char) }}
-      </li>
-  {% endfor %}
-  </ul>
+    <ul>
+    {%- for char in params.charList -%}
+        <li>
+          {{ nhsd_a_character_block(char) }}
+        </li>
+    {% endfor %}
+    </ul>
+  </nav>
 </div>
