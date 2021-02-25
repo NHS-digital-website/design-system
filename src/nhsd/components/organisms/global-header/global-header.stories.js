@@ -1,8 +1,3 @@
-import { storiesOf } from '@storybook/html';
-import { useEffect } from '@storybook/client-api';
-
-import NHSDGlobalHeader from './global-header';
-
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -12,15 +7,29 @@ import template from './template.njk';
 require('./_index.scss');
 
 const componentName = 'Global header';
-const componentPath = `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`;
+const storyDescription = `${sbConfig.heading.lab}
+
+${sbConfig.heading.basicRules}`;
 const sourceCode = `// Sass import \n@use "nhsd/components/organisms/global-header";
 
 // HTML`;
 
+// Component defaults
+export default {
+  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  parameters: {
+    docs: {
+      description: {
+        component: storyDescription,
+      },
+    },
+  },
+};
+
 // Component template
 const Template = (args) => template.render({ params: { ...args } });
 
-const LabComponent = Template.bind({});
+export const LabComponent = Template.bind({});
 LabComponent.args = {
   logoLink: {
     classes: 'nhsd-o-global-header__logo',
@@ -88,12 +97,3 @@ LabComponent.parameters = {
     },
   },
 };
-
-storiesOf(componentPath, module).add(sbConfig.title.lab, () => {
-  useEffect(() => {
-    /* eslint-disable no-unused-vars */
-    const globalHeader = new NHSDGlobalHeader();
-    /* eslint-enable no-unused-vars */
-  }, []);
-  return LabComponent(LabComponent.args);
-});

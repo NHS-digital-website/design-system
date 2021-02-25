@@ -7,11 +7,9 @@ export default class NHSDGlobalHeader {
   constructor() {
     if (!instance) {
       this.hostEl = document.querySelector('#nhsd-global-header');
-      if (this.hostEl) {
-        instance = this;
-        this.init();
-      }
-      return null;
+      if (!this.hostEl) return null;
+      instance = this;
+      this.init();
     }
     return instance;
   }

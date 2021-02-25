@@ -1,4 +1,13 @@
 import "../src/nhsd/scss-core/base/_index.scss";
+import NHSDGlobalHeader from "../src/nhsd/components/organisms/global-header/global-header";
+
+// Wait for storybook to initalise
+const rootNode = document.getElementById('root');
+const observer = new MutationObserver(() => {
+  new NHSDGlobalHeader();
+  observer.disconnect();
+});
+observer.observe(rootNode, { childList: true });
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
