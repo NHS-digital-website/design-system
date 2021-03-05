@@ -1,0 +1,39 @@
+// stylelint-disable declaration-no-important
+
+// Built in modules
+@use "sass:map";
+
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+$-root: ".nhsd-t-display";
+
+$-device-breakpoints: (xs,s,m,l,xl);
+
+#{$-root} {
+  &-hide {
+    display: none;
+  }
+
+  @each $-device in $-device-breakpoints {
+    @include mq($from: $-device) {
+      &-#{$-device}-hide {
+        display: none;
+      }
+
+      &-#{$-device}-show {
+        display: block;
+      }
+    }
+  }
+
+  &-sticky {
+    position: sticky !important;
+    top: 0;
+
+    @include nhsd-spacing.apply-spacing(#{$-root}-sticky--offset, "top");
+  }
+}

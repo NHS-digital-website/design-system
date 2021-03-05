@@ -1,0 +1,95 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+$-device-breakpoints: (xs,s,m,l,xl);
+
+// Private members
+$-root: ".nhsd-t-flex";
+
+@mixin flex($mq: '') {
+  #{$-root}#{$mq} {
+    display: flex;
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--row {
+      flex-direction: row;
+
+      &#{$-root}--reverse {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &--column {
+      flex-direction: column;
+
+      &#{$-root}--reverse {
+        flex-direction: column-reverse;
+      }
+    }
+
+    &--justify-content {
+      $justify-content-options: (
+        "start": start,
+        "end": end,
+        "centre": center,
+        "between": space-between,
+        "around": space-around,
+        "evenly": space-evenly
+      );
+      @each $option, $value in $justify-content-options {
+        &-#{$option} {
+          justify-content: $value;
+        }
+      }
+    }
+
+    &--align-items {
+      $align-items-options: (
+        "start": flex-start,
+        "end": flex-end,
+        "centre": center,
+        "baseline": baseline,
+        "stretch": stretch,
+      );
+      @each $option, $value in $align-items-options {
+        &-#{$option} {
+          align-items: $value;
+        }
+      }
+    }
+
+    &--debug {
+      min-height: 100px;
+      background: nhsd-colours.get("mid-grey-20-tint");
+
+      div {
+        padding: .5rem 1rem;
+        color: nhsd-colours.get("white");
+        background: nhsd-colours.get("dark-grey");
+        box-shadow: inset 0 0 0 .5px nhsd-colours.get("black");
+      }
+    }
+
+    &-item {
+      &--grow {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+@include flex;
+
+// Responsive
+@each $-device in $-device-breakpoints {
+  @include mq($until: $-device) {
+    @include flex(-#{$-device});
+  }
+}

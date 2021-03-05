@@ -40,6 +40,10 @@ $-outline-width: .167rem;
     max-width: 40rem;
     @include nhsd-spacing.set-responsive("margin-bottom", 7);
 
+    &--full-width {
+      max-width: none;
+    }
+
     &--error {
       #{$-root} {
         &-form-input,

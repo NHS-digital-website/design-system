@@ -23,7 +23,7 @@ $-steps: (
   7: 45px,
   8: 60px,
   9: 75px,
-  10: 90px
+  10: 90px,
 );
 $-props: margin, padding;
 $-dirs: top, right, bottom, left;
@@ -34,7 +34,14 @@ $-dirs: top, right, bottom, left;
 // =========================================================
 
 @function get($index: 0) {
-  $value: map.get($-steps, $index);
+  $value: null;
+  @if ($index >= 0) {
+    $value: map.get($-steps, $index);
+  } @else {
+    $value: map.get($-steps, -$index);
+    $value: -$value;
+  }
+
   @if $value != null {
     @return if($value == 0, 0, ($value / fonts.$base-font-size) * 1rem);
   }
@@ -47,6 +54,12 @@ $-dirs: top, right, bottom, left;
   @if $index > 0 {
     @include mq($until: s) {
       #{$property}: get($index - 1);
+    }
+  }
+
+  @if $index < 0 {
+    @include mq($until: s) {
+      #{$property}: get($index + 1);
     }
   }
 }
@@ -79,6 +92,14 @@ $-dirs: top, right, bottom, left;
           }
         }
       }
+    }
+  }
+}
+
+@mixin apply-spacing($class, $property) {
+  @each $step, $spacing in $-steps {
+    &#{$class}-#{$step} {
+      #{$property}: #{$spacing};
     }
   }
 }

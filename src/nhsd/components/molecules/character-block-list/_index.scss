@@ -16,19 +16,15 @@ $-root: ".nhsd-m-character-block-list";
     margin: 0;
     padding: 0;
     list-style: none;
+    @include nhsd-spacing.set-responsive("margin-left", -2);
   }
 
   li {
     display: inline-block;
-
-    &:not(:last-child) {
-      .nhsd-a-character-block {
-        @include nhsd-spacing.set-responsive("margin-right", 2);
-      }
-    }
   }
 
   .nhsd-a-character-block {
+    @include nhsd-spacing.set-responsive("margin-left", 2);
     @include nhsd-spacing.set-responsive("margin-bottom", 2);
   }
 }
