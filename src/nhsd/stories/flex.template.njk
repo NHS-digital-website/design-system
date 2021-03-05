@@ -1,0 +1,23 @@
+{# Set classes #}
+{%- set classNames = "nhsd-t-flex" -%}
+{%- if params.debug -%}
+  {% set classNames = classNames + " nhsd-t-flex--debug" %}
+{%- endif -%}
+{%- if params.justifyContent -%}
+  {% set classNames = classNames + " " + params.justifyContent %}
+{%- endif -%}
+{%- if params.alignItems -%}
+  {% set classNames = classNames + " nhsd-t-flex-item " + params.alignItems %}
+{%- endif -%}
+{%- if params.column -%}
+  {% set classNames = classNames + " nhsd-t-flex--column" %}
+{%- endif -%}
+{%- if params.reverse -%}
+  {% set classNames = classNames + " nhsd-t-flex--reverse" %}
+{%- endif -%}
+
+<div class="{{classNames}}">
+  <div class="{{params.item1}}">Item 1</div>
+  <div class="{{params.item2}}">Item 2</div>
+  <div class="{{params.item3}}">Item 3</div>
+</div>
