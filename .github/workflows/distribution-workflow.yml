@@ -1,0 +1,474 @@
+name: Distribution Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  #
+  # Build CDN Distribution from source
+  #
+  build_dist:
+    name: "Build CDN Distribution"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+
+      #
+      # Step 1
+      # Checkout the project's sourcecode
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #
+      # Step 2
+      # Set Node.js version
+      #
+      - name: Request Node Version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.6.0'
+
+      #
+      # Step 3
+      # Cache Management (CDN Distribution)
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v3
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nhs-digital-distribution-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-nhs-digital-distribution-${{ env.YEAR }}-
+            ${{ runner.os }}-nhs-digital-distribution-
+
+
+      #
+      # Step 4
+      #
+      - name: Initialise NPM
+        run: npm i
+
+      #
+      # Step 5
+      #
+      - name: Build dist folder
+        run: npm run dist:build:prod
+
+      #
+      # Step 6
+      # Store CDN distribution workflow artifacts
+      #
+      - name: Archive dist artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: cdn-dist
+          path: |
+            dist/images/
+            dist/scripts/
+            dist/static/
+            dist/stylesheets/
+
+
+  #
+  # Build Storybook from source
+  #
+  build_storybook:
+    name: "Build Storybook Distribution"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+
+      #
+      # Step 1
+      # Checkout the project's sourcecode
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #
+      # Step 2
+      # Set Node.js version
+      #
+      - name: Request Node Version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.6.0'
+
+      #
+      # Step 3
+      # Cache Management (Storybook)
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v3
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nhs-digital-storybook-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-nhs-digital-storybook-${{ env.YEAR }}-
+            ${{ runner.os }}-nhs-digital-storybook-
+
+      #
+      # Step 4
+      #
+      - name: Initialise NPM
+        run: npm i
+
+      #
+      # Step 5
+      #
+      - name: Build Storybook
+        run: npm run storybook:build
+
+      #
+      # Step 6
+      # Store Storybook workflow artifacts
+      #
+      - name: Archive storybook artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-dist
+          path: storybook-static/
+
+
+  #
+  # Build NPM Package from source
+  #
+  build_npm_package:
+    name: "Build NPM Distribution"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+
+      #
+      # Step 1
+      # Checkout the project's sourcecode
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #
+      # Step 2
+      # Set Node.js version
+      #
+      - name: Request Node Version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.6.0'
+
+      #
+      # Step 3
+      # Cache Management (NPM package)
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v3
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nhs-digital-npm-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-nhs-digital-npm-${{ env.YEAR }}-
+            ${{ runner.os }}-nhs-digital-npm-
+
+      #
+      # Step 4
+      #
+      - name: Initialise NPM
+        run: npm i
+
+      #
+      # Step 5
+      #
+      - name: Build NPM
+        run: npm run package:build:prod
+
+      #
+      # Step 6
+      # Store NPM Package workflow artifacts
+      #
+      - name: Archive NPM package artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: npm-dist
+          path: |
+            package/
+
+
+  #
+  # Create Versioned Release
+  #
+  tag_and_release:
+    name: "Create GitHub Release"
+    needs:
+      - build_dist
+      - build_storybook
+      - build_npm_package
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+
+      #
+      # Step 1
+      #
+      - name: Download all workflow artifacts
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          path: workflow-artifacts
+
+      #
+      # Step 2
+      #
+      - name: Version bump
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: minor
+
+      #
+      # Step 3
+      # Zip up each build artifacts with it's version number injected.
+      #
+
+      #
+      # Step 3.1
+      #
+      - name: Zip CDN distribution
+        run: |
+          echo ${{ steps.tag_version.outputs.new_tag }} > version
+          zip -r ../cdn-dist.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/cdn-dist
+
+      #
+      # Step 3.2
+      #
+      - name: Zip storybook distribution
+        run: |
+          echo ${{ steps.tag_version.outputs.new_tag }} > version
+          zip -r ../storybook.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/storybook-dist
+
+      #
+      # Step 3.3
+      #
+      - name: Zip NPM package distribution
+        run: |
+          echo ${{ steps.tag_version.outputs.new_tag }} > version
+          zip -r ../npm-dist.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/npm-dist
+
+      #
+      # Step 4
+      # Store version as an artifact
+      #
+      - name: Write verion to file
+        run: echo ${{ steps.tag_version.outputs.new_tag }} > version
+      - name: Archive version artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: version
+          path: version
+
+      #
+      # Step 5
+      # Create Release
+      # - Adds versioned release and tag
+      # - Adds dist, storybook and package to the release
+      #
+      - uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          release_name: Release ${{ steps.tag_version.outputs.new_tag }}
+          draft: false
+          prerelease: false
+      - name: Upload CDN Dist Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path:  ${{steps.download.outputs.download-path}}/cdn-dist.zip
+          asset_name: cdn-dist-${{ steps.tag_version.outputs.new_tag }}.zip
+          asset_content_type: application/zip
+      - name: Upload Storybook Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path:  ${{steps.download.outputs.download-path}}/storybook.zip
+          asset_name: storybook-dist-${{ steps.tag_version.outputs.new_tag }}.zip
+          asset_content_type: application/zip
+      - name: Upload NPM Package Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path:  ${{steps.download.outputs.download-path}}/npm-dist.zip
+          asset_name: npm-dist-${{ steps.tag_version.outputs.new_tag }}.zip
+          asset_content_type: application/zip
+
+  #
+  # Put CDN distribution artifact onto the S3 origin.
+  #
+  dist_cdn:
+    name: "Distribute CDN"
+    needs:
+      - tag_and_release
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+
+      #
+      # Step 1
+      # Download CDN artifact and merge version artifact into the same folder
+      #
+      - name: Download CDN artifacts
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: cdn-dist
+          path: cdn-dist
+      - name: Download version artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: version
+          path: cdn-dist
+
+      #
+      # Step 2
+      # Set up AWS CLI
+      #
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      #
+      # Step 3
+      # Create versioned release in S3
+      #
+      - name: Create version
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: aws s3 cp . s3://design-system.digital.nhs.uk/cdn/$(cat version) --recursive
+
+      #
+      # Step 4
+      # Replace latest and invalid CloudFront's catch of latest
+      #
+      - name: Replace latest
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: aws s3 sync . s3://design-system.digital.nhs.uk/cdn/latest --delete
+      - name: Refesh CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/storybook/latest/*"
+
+
+  #
+  # Put the Storybook distribution artifact onto the S3 origin.
+  #
+  dist_storybook:
+    name: "Distribute Storybook"
+    needs:
+      - tag_and_release
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+
+      #
+      # Step 1
+      # Download CDN artifact and merge version artifact into the same folder
+      #
+      - name: Download all workflow artifacts
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: storybook-dist
+          path: storybook-dist
+      - name: Download version artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: version
+          path: storybook-dist
+
+      #
+      # Step 2
+      # Set up AWS CLI
+      #
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      #
+      # Step 3
+      # Create versioned release in S3
+      #
+      - name: Create version
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: aws s3 cp . s3://design-system.digital.nhs.uk/storybook/$(cat version) --recursive
+
+      #
+      # Step 4
+      # Replace latest and invalid CloudFront's catch of latest
+      #
+      - name: Replace latest
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: aws s3 sync . s3://design-system.digital.nhs.uk/storybook/latest --delete
+      - name: Refesh CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/storybook/latest/*"
