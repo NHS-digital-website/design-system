@@ -6,28 +6,36 @@ on:
       - main
 
 jobs:
+
+  #
+  # Build Storybook from source
+  #
   storybook:
     name: "Verify that Storybook builds correctly"
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 20
 
     steps:
 
       #
       # Step 1
-      # Set up job
+      # Checkout the project's sourcecode
       #
       - name: Checkout
         uses: actions/checkout@v2
 
+      #
+      # Step 2
+      # Set Node.js version
+      #
       - name: Request Node Version
         uses: actions/setup-node@v2
         with:
           node-version: '12.6.0'
 
       #
-      # Step 2
-      # Cache Management
+      # Step 3
+      # Cache Management (storybook)
       #
       - name: Get cache key helper values
         uses: actions/github-script@v3
@@ -39,7 +47,6 @@ jobs:
               "year" : new Date().getFullYear(),
               "rotation" : new Date().getTimezoneOffset()
             })
-
       - name: Setup cache (Node.js packages)
         uses: actions/cache@v2
         env:
@@ -52,23 +59,24 @@ jobs:
             ${{ runner.os }}-nhs-digital-storybook-${{ env.YEAR }}-
             ${{ runner.os }}-nhs-digital-storybook-
 
-
       #
-      # Step 3
+      # Step 4
       #
       - name: Initialise NPM
         run: npm i
 
-
       #
-      # Step 4
+      # Step 5
       #
       - name: Build StoryBook
         run: npm run storybook:build
 
 
+  #
+  # Build CDN Distribution from source
+  #
   distribution:
-    name: "Verify that the distribution builds correctly"
+    name: "Verify that the CDN distribution builds correctly"
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -76,19 +84,23 @@ jobs:
 
       #
       # Step 1
-      # Set up job
+      # Checkout the project's sourcecode
       #
       - name: Checkout
         uses: actions/checkout@v2
 
+      #
+      # Step 2
+      # Set Node.js version
+      #
       - name: Request Node Version
         uses: actions/setup-node@v2
         with:
           node-version: '12.6.0'
 
       #
-      # Step 2
-      # Cache Management
+      # Step 3
+      # Cache Management (CDN distribution)
       #
       - name: Get cache key helper values
         uses: actions/github-script@v3
@@ -113,18 +125,21 @@ jobs:
             ${{ runner.os }}-nhs-digital-distribution-
 
       #
-      # Step 3
+      # Step 4
       #
       - name: Initialise NPM
         run: npm i
 
       #
-      # Step 4
+      # Step 5
       #
       - name: Build Distribution
         run: npm run dist:build:prod
 
 
+  #
+  # Build NPM Package from source
+  #
   package:
     name: "Verify that the NPM package builds correctly"
     runs-on: ubuntu-latest
@@ -134,19 +149,23 @@ jobs:
 
       #
       # Step 1
-      # Set up job
+      # Checkout the project's sourcecode
       #
       - name: Checkout
         uses: actions/checkout@v2
 
+      #
+      # Step 2
+      # Set Node.js version
+      #
       - name: Request Node Version
         uses: actions/setup-node@v2
         with:
           node-version: '12.6.0'
 
       #
-      # Step 2
-      # Cache Management
+      # Step 3
+      # Cache Management (NPM Package)
       #
       - name: Get cache key helper values
         uses: actions/github-script@v3
@@ -171,14 +190,14 @@ jobs:
             ${{ runner.os }}-nhs-digital-package-
 
       #
-      # Step 3
+      # Step 4
       #
       - name: Initialise NPM
         run: npm i
 
 
       #
-      # Step 4
+      # Step 5
       #
       - name: Build NPM Package
         run: npm run package:build:prod
