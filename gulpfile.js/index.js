@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const path = require('path');
 const fileReader = require('./lib/file-reader');
 
 // Globally expose config objects
@@ -6,7 +7,7 @@ global.CONFIG = require('./path-config');
 global.ENV = require('./build-env');
 
 global.PATHS = global.CONFIG.PATHS;
-global.VERSION = fileReader.read(`${global.PATHS.src.root}/.versionrc`);
+global.VERSION = fileReader.read(path.resolve(__dirname, './.versionrc'));
 
 // Load up the Gulp tasks
 require('./tasks/init');
