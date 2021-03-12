@@ -6,17 +6,49 @@ on:
       - main
 
 jobs:
+  #
+  # Creates build version for release
+  #
+  create_version:
+    name: "Create new build version"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      #
+      # Step 1
+      # Create build version
+      #
+      - name: Version bump
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: minor
+
+      #
+      # Step 2
+      # Store version as an artifact
+      #
+      - name: Write verion to file
+        run: echo ${{ steps.tag_version.outputs.new_tag }} > version
+      - name: Archive version artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: version
+          path: version
 
   #
   # Build CDN Distribution from source
   #
   build_dist:
     name: "Build CDN Distribution"
+    needs:
+      - create_version
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-
       #
       # Step 1
       # Checkout the project's sourcecode
@@ -59,7 +91,6 @@ jobs:
             ${{ runner.os }}-nhs-digital-distribution-${{ env.YEAR }}-
             ${{ runner.os }}-nhs-digital-distribution-
 
-
       #
       # Step 4
       #
@@ -92,11 +123,11 @@ jobs:
   #
   build_storybook:
     name: "Build Storybook Distribution"
+    needs:
+      - create_version
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
-
       #
       # Step 1
       # Checkout the project's sourcecode
@@ -147,12 +178,34 @@ jobs:
 
       #
       # Step 5
+      # Download version artifact
       #
-      - name: Build Storybook
-        run: npm run storybook:build
+      - name: Download version artifact
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          path: version
 
       #
       # Step 6
+      # Read version
+      #
+      - name: Read version
+        id: version
+        run: |
+          echo "::set-output name=version::$(cat ${{steps.download.outputs.download-path}}/version/version)"
+
+      #
+      # Step 7
+      # Build storybook project
+      #
+      - name: Build Storybook
+        env:
+          STORYBOOK_VERSION: ${{ steps.version.outputs.version }}
+        run: npm run storybook:build
+
+      #
+      # Step 8
       # Store Storybook workflow artifacts
       #
       - name: Archive storybook artifact
@@ -167,6 +220,8 @@ jobs:
   #
   build_npm_package:
     name: "Build NPM Distribution"
+    needs:
+      - create_version
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -251,7 +306,6 @@ jobs:
     timeout-minutes: 20
 
     steps:
-
       #
       # Step 1
       #
@@ -264,12 +318,10 @@ jobs:
       #
       # Step 2
       #
-      - name: Version bump
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v5.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: minor
+      - name: Read version
+        id: version
+        run: |
+          echo "::set-output name=version::$(cat ${{steps.download.outputs.download-path}}/version/version)"
 
       #
       # Step 3
@@ -281,7 +333,7 @@ jobs:
       #
       - name: Zip CDN distribution
         run: |
-          echo ${{ steps.tag_version.outputs.new_tag }} > version
+          echo ${{ steps.version.outputs.version }} > version
           zip -r ../cdn-dist.zip .
         working-directory: ${{steps.download.outputs.download-path}}/cdn-dist
 
@@ -290,7 +342,7 @@ jobs:
       #
       - name: Zip storybook distribution
         run: |
-          echo ${{ steps.tag_version.outputs.new_tag }} > version
+          echo ${{ steps.version.outputs.version }} > version
           zip -r ../storybook.zip .
         working-directory: ${{steps.download.outputs.download-path}}/storybook-dist
 
@@ -299,24 +351,12 @@ jobs:
       #
       - name: Zip NPM package distribution
         run: |
-          echo ${{ steps.tag_version.outputs.new_tag }} > version
+          echo ${{ steps.version.outputs.version }} > version
           zip -r ../npm-dist.zip .
         working-directory: ${{steps.download.outputs.download-path}}/npm-dist
 
       #
       # Step 4
-      # Store version as an artifact
-      #
-      - name: Write verion to file
-        run: echo ${{ steps.tag_version.outputs.new_tag }} > version
-      - name: Archive version artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: version
-          path: version
-
-      #
-      # Step 5
       # Create Release
       # - Adds versioned release and tag
       # - Adds dist, storybook and package to the release
@@ -326,10 +366,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.tag_version.outputs.new_tag }}
-          release_name: Release ${{ steps.tag_version.outputs.new_tag }}
+          tag_name: ${{ steps.version.outputs.version }}
+          release_name: Release ${{ steps.version.outputs.version }}
           draft: false
           prerelease: false
+
       - name: Upload CDN Dist Zip
         uses: actions/upload-release-asset@v1
         env:
@@ -337,8 +378,9 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path:  ${{steps.download.outputs.download-path}}/cdn-dist.zip
-          asset_name: cdn-dist-${{ steps.tag_version.outputs.new_tag }}.zip
+          asset_name: cdn-dist-${{ steps.version.outputs.version }}.zip
           asset_content_type: application/zip
+    
       - name: Upload Storybook Zip
         uses: actions/upload-release-asset@v1
         env:
@@ -346,8 +388,9 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path:  ${{steps.download.outputs.download-path}}/storybook.zip
-          asset_name: storybook-dist-${{ steps.tag_version.outputs.new_tag }}.zip
+          asset_name: storybook-dist-${{ steps.version.outputs.version }}.zip
           asset_content_type: application/zip
+
       - name: Upload NPM Package Zip
         uses: actions/upload-release-asset@v1
         env:
@@ -355,7 +398,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path:  ${{steps.download.outputs.download-path}}/npm-dist.zip
-          asset_name: npm-dist-${{ steps.tag_version.outputs.new_tag }}.zip
+          asset_name: npm-dist-${{ steps.version.outputs.version }}.zip
           asset_content_type: application/zip
 
   #
