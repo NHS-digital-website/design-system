@@ -23,12 +23,12 @@ const Template = () => {
 
   const Title = document.createElement('h1');
   Title.classList.add('nhsd-t-heading-xl');
-  Title.innerText = 'Latest version: v0.4.0.20';
+  Title.innerText = `Latest version: ${process.env.STORYBOOK_VERSION ? process.env.STORYBOOK_VERSION : 'Dev build (No version)'}`;
   div.appendChild(Title);
 
   const subTitle = document.createElement('h2');
   subTitle.classList.add('nhsd-t-heading-l');
-  subTitle.innerText = 'Date: 11/2/2021';
+  subTitle.innerText = `Date: ${process.env.BUILD_DATE}`;
   div.appendChild(subTitle);
 
   return div;

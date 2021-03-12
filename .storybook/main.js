@@ -59,10 +59,16 @@ module.exports = {
         files: '../src/nhsd/**/*.scss',
         failOnError: false,
       }),
-      new ESLintPlugin({
-      }),
+      new ESLintPlugin({}),
     );
 
+    // Hijack Storybooks's webpack.DefinePlugin
+    const definePlugin = config.plugins.find(p => p?.definitions);
+    definePlugin.definitions['process.env'] = {
+      ...definePlugin.definitions['process.env'],
+      'BUILD_DATE': `'${new Date().toISOString().slice(0, 10)}'`,
+    }
+  
 		// Return the altered config
 		return config;
 	}
