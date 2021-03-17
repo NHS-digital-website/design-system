@@ -21,3 +21,12 @@ $-bp-xl: 1580px;
 );
 
 @forward "sass-mq/mq";
+
+// JS exports
+:export {
+  nhsd-breakpoint-xs: $-bp-xs;
+  nhsd-breakpoint-s: $-bp-s;
+  nhsd-breakpoint-m: $-bp-m;
+  nhsd-breakpoint-l: $-bp-l;
+  nhsd-breakpoint-xl: $-bp-xl;
+}

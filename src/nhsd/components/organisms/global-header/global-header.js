@@ -1,20 +1,11 @@
 /* global document window */
 
-// Singleton
-let instance = null;
+import breakpoints from '../../../scss-core/settings/_media-queries.scss';
 
 export default class NHSDGlobalHeader {
-  constructor() {
-    if (!instance) {
-      this.hostEl = document.querySelector('#nhsd-global-header');
-      if (!this.hostEl) return null;
-      instance = this;
-      this.init();
-    }
-    return instance;
-  }
-
-  init() {
+  constructor(componentEl) {
+    if (!componentEl) return null;
+    this.hostEl = componentEl;
     this.html = document.querySelector('html');
     this.body = document.body;
     this.logoEl = this.hostEl.querySelector('#nhsd-global-header__logo');
@@ -38,7 +29,7 @@ export default class NHSDGlobalHeader {
     // Handle resize event
     window.addEventListener('resize', () => {
       // Close the menu on desktops
-      if (window.innerWidth >= 1240 && this.menuBarActive) {
+      if (window.innerWidth >= breakpoints['nhsd-breakpoint-m'] && this.menuBarActive) {
         this.closeMenuBar();
       }
     });
