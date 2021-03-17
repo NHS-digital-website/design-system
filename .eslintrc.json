@@ -14,5 +14,15 @@
           "props": false
         }
       ]
+    },
+
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [
+            ["@", "./src/nhsd/script-core"]
+          ]
+        }
+      }
     }
   }

@@ -1,5 +1,5 @@
 /* global ENV PATHS */
-
+const path = require('path');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const eslint = require('gulp-eslint');
@@ -7,6 +7,7 @@ const eol = require('gulp-eol');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify-es').default;
 const webpackStream = require('webpack-stream');
+const sass = require('sass');
 
 const getDestPath = () => PATHS.dist.root;
 
@@ -42,7 +43,28 @@ gulp.task('js:compile', () => gulp.src([
             plugins: ['@babel/plugin-proposal-class-properties'],
           },
         },
+        {
+          test: /\.scss$/,
+          use: ['style-loader', 'css-loader', {
+            loader: 'sass-loader',
+            options: {
+              // Prefer `dart-sass`
+              implementation: sass,
+              sassOptions: {
+                includePaths: [
+                  'node_modules',
+                  path.resolve(__dirname, '../../src/nhsd'),
+                ],
+              },
+            },
+          }],
+        },
       ],
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, '../../src/nhsd/script-core'),
+      },
     },
   }))
   .pipe(gulpIf(ENV.isModeDev(), sourcemaps.write('.')))

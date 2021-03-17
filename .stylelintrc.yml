@@ -165,3 +165,9 @@ rules:
   value-keyword-case:
     - lower
     - ignoreFunctions: [""]
+  property-no-unknown: 
+    - true
+    - ignoreProperties: "/nhsd-/"
+  selector-pseudo-class-no-unknown:
+    - true
+    - ignorePseudoClasses: export

@@ -1,13 +1,14 @@
 import "../src/nhsd/scss-core/base/_index.scss";
-import NHSDGlobalHeader from "../src/nhsd/components/organisms/global-header/global-header";
+import init from "../src/nhsd/script-core/init";
 
 // Wait for storybook to initalise
-const rootNode = document.getElementById('root');
 const observer = new MutationObserver(() => {
-  new NHSDGlobalHeader();
-  observer.disconnect();
+  init();
 });
-observer.observe(rootNode, { childList: true });
+const rootNode = document.getElementById('root');
+observer.observe(rootNode, { childList: true, attributes: true });
+const docsRootNode = document.getElementById('docs-root');
+observer.observe(docsRootNode, { childList: true, attributes: true });
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

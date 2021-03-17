@@ -48,9 +48,8 @@ StickyNavComponent.args = {
     {
       link: {
         label: 'Top of page',
-        href: '#top-of-page',
+        href: '#top',
       },
-      contentId: 'top-of-page',
     }, {
       link: {
         label: 'Overview',

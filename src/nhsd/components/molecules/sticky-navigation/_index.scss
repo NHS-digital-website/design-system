@@ -34,10 +34,12 @@ $-root: ".nhsd-m-sticky-navigation";
 
       .nhsd-a-link {
         &,
-        &:visited {
+        &:visited,
+        &:hover {
           padding-bottom: 0;
           border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
           color: nhsd-colours.get("black");
+          background: none;
           @include nhsd-fonts.font-weight(bold);
         }
       }

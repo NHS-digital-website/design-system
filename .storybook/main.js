@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
@@ -68,7 +68,13 @@ module.exports = {
       ...definePlugin.definitions['process.env'],
       'BUILD_DATE': `'${new Date().toISOString().slice(0, 10)}'`,
     }
-  
+
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": path.resolve(__dirname, "../src/nhsd/script-core")
+    };
+
 		// Return the altered config
 		return config;
 	}
