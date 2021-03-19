@@ -1,0 +1,32 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_link
+-%}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-sticky-navigation" -%}
+
+<div class="{{ classNames }} nhsd-t-display-sticky nhsd-t-display-sticky--offset-2">
+  {%- if params.headerText -%}
+    <span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">{{ params.headerText }}</span>
+    <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs nhsd-!t-margin-bottom-2"/>
+  {%- endif %}
+  <nav aria-labelledby="sticky-nav-header">
+    <ul>
+      {% for item in params.navItems -%}
+        {%- set linkClass = "nhsd-m-sticky-navigation__item" -%}
+        {%- if item.nested -%}
+          {%- set linkClass = linkClass + " nhsd-m-sticky-navigation__item--nested" -%}
+        {%- endif -%}
+        {%- if item.active -%}
+          {%- set linkClass = linkClass + " nhsd-m-sticky-navigation__item--active" -%}
+        {%- endif -%}
+        {%- set contentDataAttr = "" -%}
+        {%- if item.contentId -%}
+          {%- set contentDataAttr = "data-nav-content=\"" + item.contentId + "\"" -%}
+        {%- endif -%}
+        <li class="{{ linkClass }}" {{contentDataAttr|safe}}>{{ nhsd_a_link(item.link) }}</li>
+      {% endfor -%}
+    </ul>
+  </nav>
+</div>

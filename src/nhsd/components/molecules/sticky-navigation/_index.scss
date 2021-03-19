@@ -1,0 +1,46 @@
+// Tokens
+@use "scss-core/settings/vars";
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-m-sticky-navigation";
+
+#{$-root} {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+    margin: nhsd-spacing.get(2) 0;
+
+    &--nested {
+      margin-left: nhsd-spacing.get(6);
+    }
+
+    &--active {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -10px;
+        border-left: 3px solid nhsd-colours.get("warm-yellow");
+      }
+
+      .nhsd-a-link {
+        &,
+        &:visited {
+          padding-bottom: 0;
+          border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+          color: nhsd-colours.get("black");
+          @include nhsd-fonts.font-weight(bold);
+        }
+      }
+    }
+  }
+}
