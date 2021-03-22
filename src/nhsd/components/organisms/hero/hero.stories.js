@@ -445,6 +445,163 @@ FeaturedAccentedMirrored.parameters = {
   },
 };
 
+export const HeaderBannerSimpleComponent = Template.bind({});
+HeaderBannerSimpleComponent.storyName = 'Simple header banner component (light blue)';
+HeaderBannerSimpleComponent.args = {
+  classes: 'nhsd-!t-bg-bright-blue-20-tint',
+  introText: 'Digital inclusion for health and social care',
+  title: {
+    label: 'What we mean by digital inclusion',
+    classes: 'nhsd-t-heading-xl',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-blue',
+  }],
+};
+HeaderBannerSimpleComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${HeaderBannerSimpleComponent(HeaderBannerSimpleComponent.args)}`,
+    },
+  },
+};
+
+export const HeaderBannerDetailedComponent = Template.bind({});
+HeaderBannerDetailedComponent.storyName = 'Detailed header banner component (light blue)';
+HeaderBannerDetailedComponent.args = {
+  classes: 'nhsd-!t-bg-bright-blue-20-tint',
+  introText: 'Publication, Part of <a class="nhsd-a-link" href="#">[MI] Potential Covid-19 symptoms reported through NHS Pathways and 111 online</a>',
+  title: {
+    label: 'Potential Coronavirus (Covid-19) symptoms reported through NHS Pathways and 111 online, Week Ending 28th February 2021',
+    classes: 'nhsd-t-heading-xl',
+  },
+  metaData: {
+    data: [
+      {
+        title: 'Publication Date:',
+        description: '1 Mar 2021',
+      }, {
+        title: 'Geographic Coverage:',
+        description: 'England',
+      }, {
+        title: 'Geographical Granularity:',
+        description: 'Clinical Commissioning Regions, Clinical Commissioning Group',
+      }, {
+        title: 'Date Range:',
+        description: '22 Feb 2021 to 28 Feb 2021',
+      },
+    ],
+    classes: 'nhsd-!t-margin-bottom-6',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-blue',
+  }],
+  button: {
+    el: 'a',
+    label: 'Download this page as a PDF',
+    href: '#',
+  },
+};
+HeaderBannerDetailedComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${HeaderBannerDetailedComponent(HeaderBannerDetailedComponent.args)}`,
+    },
+  },
+};
+
+export const HeroDescriptionComponent = Template.bind({});
+HeroDescriptionComponent.storyName = 'Description header banner component (light blue)';
+HeroDescriptionComponent.args = {
+  classes: 'nhsd-!t-bg-bright-blue-20-tint',
+  title: {
+    label: 'Abdominal Aortic Aneurysm screening',
+    classes: 'nhsd-t-heading-xl',
+  },
+  text: {
+    label: 'An Abdominal Aortic Aneurysm is a potentially life threatening condition, with the highest risk is for males over the age of 65. We use the information we hold to identify people at risk, who are invited to have a screening for the condition. This helps identify cases early, before they cause a problem.',
+    classes: 'nhsd-t-body',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-blue',
+  }],
+};
+HeroDescriptionComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${HeroDescriptionComponent(HeroDescriptionComponent.args)}`,
+    },
+  },
+};
+
+export const DarkBlueHeaderBannerSimpleComponent = Template.bind({});
+DarkBlueHeaderBannerSimpleComponent.storyName = 'Simple header banner component (blue)';
+DarkBlueHeaderBannerSimpleComponent.args = {
+  ...HeaderBannerSimpleComponent.args,
+  classes: 'nhsd-!t-bg-blue nhsd-!t-col-white',
+  title: {
+    ...HeaderBannerSimpleComponent.args.title,
+    classes: 'nhsd-t-heading-xl nhsd-!t-col-white',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-light-blue',
+  }],
+};
+DarkBlueHeaderBannerSimpleComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${DarkBlueHeaderBannerSimpleComponent(DarkBlueHeaderBannerSimpleComponent.args)}`,
+    },
+  },
+};
+
+export const DarkBlueHeaderBannerDetailedComponent = Template.bind({});
+DarkBlueHeaderBannerDetailedComponent.storyName = 'Detailed header banner component (blue)';
+DarkBlueHeaderBannerDetailedComponent.args = {
+  ...HeaderBannerDetailedComponent.args,
+  classes: 'nhsd-!t-bg-blue nhsd-!t-col-white',
+  introText: 'Publication, Part of <a class="nhsd-a-link nhsd-a-link--col-white" href="#">[MI] Potential Covid-19 symptoms reported through NHS Pathways and 111 online</a>',
+  title: {
+    ...HeaderBannerDetailedComponent.args.title,
+    classes: 'nhsd-t-heading-xl nhsd-!t-col-white',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-light-blue',
+  }],
+  button: {
+    ...HeaderBannerDetailedComponent.args.button,
+    classes: 'nhsd-a-button--invert',
+  },
+};
+DarkBlueHeaderBannerDetailedComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${DarkBlueHeaderBannerDetailedComponent(DarkBlueHeaderBannerDetailedComponent.args)}`,
+    },
+  },
+};
+
+export const DarkBlueHeroDescriptionComponent = Template.bind({});
+DarkBlueHeroDescriptionComponent.storyName = 'Description header banner component (blue)';
+DarkBlueHeroDescriptionComponent.args = {
+  ...HeroDescriptionComponent.args,
+  classes: 'nhsd-!t-bg-blue nhsd-!t-col-white',
+  title: {
+    ...HeroDescriptionComponent.args.title,
+    classes: 'nhsd-t-heading-xl nhsd-!t-col-white',
+  },
+  digiblocks: [{
+    classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-light-blue',
+  }],
+};
+DarkBlueHeroDescriptionComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${DarkBlueHeroDescriptionComponent(DarkBlueHeroDescriptionComponent.args)}`,
+    },
+  },
+};
+
 export const FeaturedStacked = () => {
   const div = document.createElement('div');
 
