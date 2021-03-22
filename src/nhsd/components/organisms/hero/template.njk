@@ -12,7 +12,8 @@
 -%}
 
 {#- Set classes -#}
-{% set classNames = "nhsd-o-hero" %}
+{% set componentClassName = "nhsd-o-hero" %}
+{% set classNames = componentClassName %}
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
@@ -62,8 +63,28 @@
       <div class="{{ columnClassNames }}">
         <div class="nhsd-o-hero__content-box">
           <div class="nhsd-o-hero__content">
+            {%- if params.introText -%}
+            <p class="nhsd-t-body-s">{{ params.introText|safe }}</p>
+            {%- endif -%}
             <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
             <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
+
+            {% if params.metaData -%}
+              {% set metaDataClassName = componentClassName + "__meta-data" %}
+              {%- if params.metaData.classes -%}
+                {% set metaDataClassName = metaDataClassName + " " + params.metaData.classes -%}
+              {%- endif -%}
+
+              <div class="{{ metaDataClassName }}">
+                {% for metaItem in params.metaData.data -%}
+                <div class="{{ componentClassName }}__meta-data-item">
+                  <div class="{{ componentClassName }}__meta-data-item-title">{{ metaItem.title }}</div>
+                  <div class="{{ componentClassName }}__meta-data-item-description">{{ metaItem.description }}</div>
+                </div>
+                {% endfor -%}
+              </div>
+            {% endif -%}
+
             {%if params.button -%}
             {{ nhsd_a_button(params.button) }}
             {%- endif %}

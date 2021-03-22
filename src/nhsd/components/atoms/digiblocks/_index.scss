@@ -4,27 +4,22 @@
 // Private members
 $-root: ".nhsd-a-digiblocks";
 $-size: 486px;
-$-mini-size: 64px;
-$-scaled-size: 40vw;
-$-min-breakpoint: 911.25px;
-$-max-breakpoint: 1215px;
-$-scaled-min-size: $-size * .75;
-$-scaled-max-size: $-size;
-$-base-offset: calc(85% - #{$-size} * .2);
+$-min-size: $-size * .74;
+$-max-size: $-size;
+$-base-offset: calc(91% - #{$-size} * .2);
+$-base-l-offset: calc(88% - #{$-size} * .2);
 $-base-center-offset: calc(95% - #{$-size} * .2);
-$-vertical-push: -2%;
-$-horizontal-push: -2%;
 
 #{$-root} {
   display: block;
   position: relative;
-  width: $-scaled-size;
-  min-width: $-scaled-min-size;
-  max-width: $-scaled-max-size;
-  height: $-scaled-size;
-  min-height: $-scaled-min-size;
-  max-height: $-scaled-max-size;
-  // border: 1px solid #00ff00;
+  width: $-min-size;
+  height: $-min-size;
+
+  @include mq($from: s) {
+    width: $-max-size;
+    height: $-max-size;
+  }
 
   & > svg,
   & > img {
@@ -32,16 +27,6 @@ $-horizontal-push: -2%;
     position: relative;
     width: 100%;
     height: 100%;
-  }
-
-  // Size modifiers
-  &--mini {
-    width: $-mini-size;
-    min-width: $-mini-size;
-    max-width: $-mini-size;
-    height: $-mini-size;
-    min-height: $-mini-size;
-    max-height: $-mini-size;
   }
 
   // Position modifiers
@@ -54,45 +39,83 @@ $-horizontal-push: -2%;
     position: absolute;
   }
 
-  &--pos-tl {
-    right: $-base-offset;
-    bottom: $-base-offset;
-    margin-right: $-horizontal-push;
-    margin-bottom: $-vertical-push;
-  }
-
+  &--pos-tl,
   &--pos-tr {
-    position: absolute;
-    bottom: $-base-offset;
-    left: $-base-offset;
-    margin-bottom: $-vertical-push;
-    margin-left: $-horizontal-push;
+    top: -$-size / 1.9;
+
+    @include mq($from: s) {
+      top: -$-size / 2.2;
+    }
   }
 
-  &--pos-bl {
-    position: absolute;
-    top: $-base-offset;
-    right: $-base-offset;
-    margin-top: $-vertical-push;
-    margin-right: $-horizontal-push;
-  }
-
+  &--pos-bl,
   &--pos-br {
-    position: absolute;
-    top: $-base-offset;
-    left: $-base-offset;
-    margin-top: $-vertical-push;
-    margin-left: $-horizontal-push;
+    bottom: -$-size / 1.9;
+
+    @include mq($from: s) {
+      bottom: -$-size / 2.2;
+    }
   }
 
   &--pos-cl {
-    top: calc(50% - #{$-scaled-size} * .5);
+    top: calc(50% - #{$-size} * .5);
     right: $-base-center-offset;
   }
 
   &--pos-cr {
-    top: calc(50% - #{$-scaled-size} * .5);
+    top: calc(50% - #{$-size} * .5);
     left: $-base-center-offset;
+  }
+
+  &--pos-tl,
+  &--pos-bl {
+    right: $-base-offset;
+
+    @include mq($from: m) {
+      right: $-base-l-offset;
+    }
+  }
+
+  &--pos-tr,
+  &--pos-br {
+    left: $-base-offset;
+
+    @include mq($from: m) {
+      left: $-base-l-offset;
+    }
+  }
+
+  // Overrides for individual digiblocks
+  // Will need to be removed when digiblock generator is introduced
+  @include mq($until: s) {
+    &--pos-tr {
+      margin-top: 35px;
+      margin-left: -35px;
+    }
+
+    &--pos-bl {
+      margin-right: -35px;
+      margin-bottom: -25px;
+    }
+
+    &--pos-br {
+      margin-bottom: 50px;
+      margin-left: -10px;
+    }
+  }
+
+  @include mq($until: t) {
+    &--pos-tl {
+      margin-right: 15px;
+    }
+
+    &--pos-tr {
+      margin-left: -25px;
+    }
+
+    &--pos-br {
+      margin-left: 0;
+    }
   }
 
   // Colour modifiers
@@ -238,19 +261,5 @@ $-horizontal-push: -2%;
         fill: #eff2f1;
       }
     }
-  }
-}
-
-@media screen and (max-width: $-min-breakpoint) {
-  #{$-root}--pos-cl,
-  #{$-root}--pos-cr {
-    top: calc(50% - #{$-scaled-min-size} * .5);
-  }
-}
-
-@media screen and (min-width: $-max-breakpoint) {
-  #{$-root}--pos-cl,
-  #{$-root}--pos-cr {
-    top: calc(50% - #{$-scaled-max-size} * .5);
   }
 }

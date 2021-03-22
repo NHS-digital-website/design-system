@@ -4,6 +4,7 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/grid" as nhsd-grid;
 @use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
@@ -46,15 +47,51 @@ $-root: ".nhsd-o-hero";
     justify-content: center;
     height: 100%;
     min-height: 15.555rem;
-    padding: calc(#{nhsd-spacing.get(8)} - 6px) nhsd-spacing.get(8) nhsd-spacing.get(8);
+    padding: calc(#{nhsd-spacing.get(8)} - 6px);
+    @include nhsd-spacing.set-responsive("padding-left", 6);
+    @include nhsd-spacing.set-responsive("padding-right", 6);
+
+    @include mq($from: t, $until: s) {
+      padding-right: nhsd-spacing.get(8);
+      padding-left: nhsd-spacing.get(8);
+    }
   }
 
   &__content {
     max-width: 100%;
     align-self: center;
+  }
 
-    @include mq($until: s) {
-      text-align: center;
+  &__meta-data {
+    display: table;
+    font-size: .888rem;
+    text-align: left;
+  }
+
+  &__meta-data-item {
+    display: table-row;
+  }
+
+  &__meta-data-item-title,
+  &__meta-data-item-description {
+    display: table-cell;
+  }
+
+  &__meta-data-item-title {
+    padding-right: nhsd-spacing.get(4);
+    @include nhsd-fonts.font-weight(bold);
+  }
+
+  @include mq($until: t) {
+    &__meta-data,
+    &__meta-data-item,
+    &__meta-data-item-title,
+    &__meta-data-item-description {
+      display: block;
+    }
+
+    &__meta-data-item {
+      padding: nhsd-spacing.get(1) 0;
     }
   }
 

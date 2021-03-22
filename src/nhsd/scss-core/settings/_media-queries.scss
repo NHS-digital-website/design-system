@@ -1,5 +1,6 @@
 // Responsive breakpoints
 $-bp-xs: 375px;
+$-bp-t: 768px;
 $-bp-s: 1024px;
 $-bp-m: 1240px;
 $-bp-l: 1366px;
@@ -10,6 +11,7 @@ $-bp-xl: 1580px;
   $mq-responsive: true,
   $mq-breakpoints: (
     xs: $-bp-xs,
+    t:  $-bp-t,
     s:  $-bp-s,
     m:  $-bp-m,
     l:  $-bp-l,
