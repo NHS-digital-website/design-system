@@ -1,0 +1,22 @@
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_search_bar,
+  nhsd_m_filter_menu_section
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-filter-menu" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classes }}">
+  <div class="nhsd-o-filter-menu__search-bar">
+      {{ nhsd_m_search_bar({ placeholder: params.placeholder }) }}
+  </div>
+  <div id="nhsd-filter-menu">
+    {% for filter in params.filters %}
+      {{ nhsd_m_filter_menu_section({ title: filter.title, options: filter.options}) }}
+    {% endfor %}
+  </div>
+</div>

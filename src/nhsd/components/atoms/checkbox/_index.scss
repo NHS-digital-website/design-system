@@ -1,0 +1,79 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+@use "scss-core/settings/vars" as vars;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-a-checkbox";
+
+#{$-root} {
+  input[type=checkbox] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: nhsd-spacing.get(4);
+    height: nhsd-spacing.get(4);
+    margin-right: 10px;
+    border: vars.$base-line-thickness solid nhsd-colours.get('dark-grey');
+    border-radius: 2px;
+    background-color: nhsd-colours.get('white');
+    vertical-align: middle;
+
+    &:before {
+      display: none;
+    }
+
+    &:hover {
+      &:before {
+        content: "";
+        display: block;
+        position: relative;
+        z-index: -1;
+        top: -75%;
+        left: -75%;
+        width: nhsd-spacing.get(7);
+        height: nhsd-spacing.get(7);
+        border-radius: 2px;
+        background-color: nhsd-colours.get('mid-grey');
+      }
+    }
+
+    &:checked {
+      box-shadow: 0 0 0 1px nhsd-colours.get('dark-grey'), 0 0 0 3px nhsd-colours.get('yellow');
+
+      ~ .checkmark:after {
+        display: block;
+        position: relative;
+        top: -19px;
+        left: 12px;
+        width: 5px;
+        height: 10px;
+        margin: 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        border: solid nhsd-colours.get('dark-grey');
+        border-width: 0 2px 2px 0;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 1px nhsd-colours.get('dark-grey'), 0 0 0 3px nhsd-colours.get('yellow');
+    }
+  }
+
+  .checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+
+    &:after {
+      content: "";
+      display: none;
+    }
+  }
+}

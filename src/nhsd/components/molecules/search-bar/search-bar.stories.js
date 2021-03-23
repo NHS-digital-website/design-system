@@ -57,3 +57,16 @@ LabComponent.parameters = {
     },
   },
 };
+
+export const CustomPlaceholder = Template.bind({});
+CustomPlaceholder.storyName = sbConfig.title.CustomPlaceholder;
+CustomPlaceholder.args = {
+  placeholder: 'Custom placeholder...',
+};
+CustomPlaceholder.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${CustomPlaceholder(CustomPlaceholder.args)}`,
+    },
+  },
+};

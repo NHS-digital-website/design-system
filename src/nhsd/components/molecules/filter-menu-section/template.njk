@@ -1,0 +1,34 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_horizontal_rule,
+  nhsd_a_icon,
+  nhsd_a_menu_item,
+  nhsd_a_checkbox
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-filter-menu-section" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  <div class="nhsd-m-filter-menu-section__accordion-heading">
+    <span id="icon">
+      {{ nhsd_a_icon({
+        id: 'chevron_down',
+        classes: 'nhsd-a-icon--size-xxs'})
+      }}
+    </span>
+    <span class="nhsd-m-filter-menu-section__heading-text">{{ params.title }}</span>
+    {# {{ nhsd_a_menu_item({ label: params.title, href: '#accordion' }) }} #}
+    {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
+    <div class="nhsd-m-filter-menu-section__accordion-panel">
+      {% for option in params.options %}
+        <div class="nhsd-m-filter-menu-section__option-row">
+          {{ nhsd_a_checkbox({ label: option }) }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
