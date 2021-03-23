@@ -1,0 +1,53 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/colours" as nhsd-colours;
+
+// Private members
+$-root: ".nhsd-m-filter-menu-section";
+
+#{$-root} {
+  &__accordion-heading {
+    margin-top: nhsd-spacing.get(3);
+
+    span {
+      &.active {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__accordion-panel {
+    display: none;
+  }
+
+  &__option-row {
+    height: nhsd-spacing.get(7);
+  }
+
+  &__heading-text {
+    margin-left: nhsd-spacing.get(1);
+    color: nhsd-colours.get('black');
+
+    &:hover {
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      background-color: nhsd-colours.get('yellow');
+      cursor: pointer;
+    }
+  }
+}
+
+html:not(.nhsd-no-js) {
+  #{$-root} {
+    &__accordion-heading {
+      .nhsd-a-menu-item:not(:first-child) {
+        margin-left: 0;
+      }
+    }
+  }
+}
