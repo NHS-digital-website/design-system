@@ -21,6 +21,7 @@ $-root: ".nhsd-m-button-nav";
 
   .nhsd-a-button {
     margin-bottom: 0;
+    vertical-align: top;
 
     &:not(:last-child) {
       @include nhsd-spacing.set-responsive("margin-right", 6);
