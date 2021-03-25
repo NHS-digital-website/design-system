@@ -12,7 +12,7 @@
 
 <div class="{{ classes }}">
   <div class="nhsd-o-filter-menu__search-bar">
-      {{ nhsd_m_search_bar({ placeholder: params.placeholder }) }}
+      {{ nhsd_m_search_bar({ placeholder: params.placeholder, classes: 'nhsd-m-search-bar__full-width  nhsd-m-search-bar__small' }) }}
   </div>
   <div id="nhsd-filter-menu">
     {% for filter in params.filters %}

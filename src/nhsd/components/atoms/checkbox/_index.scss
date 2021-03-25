@@ -16,9 +16,11 @@ $-root: ".nhsd-a-checkbox";
     width: nhsd-spacing.get(4);
     height: nhsd-spacing.get(4);
     margin-right: 10px;
-    border: vars.$base-line-thickness solid nhsd-colours.get('dark-grey');
+    margin-left: 2px;
+    border: 1px solid transparent;
     border-radius: 2px;
     background-color: nhsd-colours.get('white');
+    box-shadow: 0 0 0 2px nhsd-colours.get('dark-grey');
     vertical-align: middle;
 
     &:before {
@@ -41,13 +43,13 @@ $-root: ".nhsd-a-checkbox";
     }
 
     &:checked {
-      box-shadow: 0 0 0 1px nhsd-colours.get('dark-grey'), 0 0 0 3px nhsd-colours.get('yellow');
+      box-shadow: 0 0 0 2px nhsd-colours.get('dark-grey');
 
       ~ .checkmark:after {
         display: block;
         position: relative;
         top: -19px;
-        left: 12px;
+        left: 10px;
         width: 5px;
         height: 10px;
         margin: 0;
@@ -60,7 +62,7 @@ $-root: ".nhsd-a-checkbox";
     }
 
     &:focus {
-      box-shadow: 0 0 0 1px nhsd-colours.get('dark-grey'), 0 0 0 3px nhsd-colours.get('yellow');
+      box-shadow: 0 0 0 2px nhsd-colours.get('dark-grey'), 0 0 0 4px nhsd-colours.get('yellow');
     }
   }
 

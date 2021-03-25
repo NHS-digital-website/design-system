@@ -11,8 +11,6 @@ $-root: ".nhsd-m-filter-menu-section";
 
 #{$-root} {
   &__accordion-heading {
-    margin-top: nhsd-spacing.get(3);
-
     span {
       &.active {
         svg {
