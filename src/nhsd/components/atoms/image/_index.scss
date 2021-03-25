@@ -33,6 +33,44 @@ $-root: ".nhsd-a-image";
     }
   }
 
+  &--cover {
+    width: 100%;
+    height: 100%;
+
+    #{$-root}__picture {
+      height: 100%;
+      padding: 0;
+    }
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &--position-left {
+    img {
+      object-position: left center;
+    }
+  }
+
+  &--position-right {
+    img {
+      object-position: right center;
+    }
+  }
+
+  &--position-top {
+    img {
+      object-position: top center;
+    }
+  }
+
+  &--position-bottom {
+    img {
+      object-position: bottom center;
+    }
+  }
+
   &--square {
     #{$-root}__picture {
       padding-bottom: 100%;
