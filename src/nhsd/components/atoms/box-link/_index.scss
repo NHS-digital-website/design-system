@@ -25,6 +25,7 @@ $-root: ".nhsd-a-box-link";
   transition-property: box-shadow;
   transition-duration: nhsd-transition.$transition-duration;
   text-decoration: none;
+  vertical-align: top;
 
   .nhsd-a-button {
     pointer-events: none;

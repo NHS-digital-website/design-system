@@ -194,7 +194,7 @@ BackgroundImageComponent.parameters = {
   docs: {
     source: {
       description: {
-        story: 'The varient `.nhsd-a-image--cover` can be applied when an image needs to fill the entirity of its parent container.',
+        story: 'The variant `.nhsd-a-image--cover` can be applied when an image needs to fill the entirity of its parent container.',
       },
       code: `${sourceCode}${BackgroundImageComponent(BackgroundImageComponent.args)}`,
     },
@@ -214,7 +214,7 @@ BackgroundImageLeftAlignComponent.args = {
 BackgroundImageLeftAlignComponent.parameters = {
   docs: {
     description: {
-      story: 'The varients, `.nhsd-a-image--position-left`, `.nhsd-a-image--position-right`, `.nhsd-a-image--position-top` & `.nhsd-a-image--position-bottom` can be applied in conjunction with `.nhsd-a-image--cover` to adjust the position of the image inside the container.',
+      story: 'The variants, `.nhsd-a-image--position-left`, `.nhsd-a-image--position-right`, `.nhsd-a-image--position-top` & `.nhsd-a-image--position-bottom` can be applied in conjunction with `.nhsd-a-image--cover` to adjust the position of the image inside the container.',
     },
     source: {
       code: `${sourceCode}${BackgroundImageLeftAlignComponent(BackgroundImageLeftAlignComponent.args)}`,

@@ -261,3 +261,42 @@ PaddingLeft.parameters = {
     },
   },
 };
+
+export const ResponsiveSpacing = () => {
+  const div = document.createElement('div');
+
+  const childDiv = document.createElement('div');
+  childDiv.innerHTML = 'nhsd-!t-margin-bottom-s-6';
+  childDiv.classList.add('nhsd-!t-bg-blue');
+  childDiv.classList.add('nhsd-!t-margin-bottom-s-6');
+  childDiv.classList.add('nhsd-!t-col-white');
+  childDiv.style.minHeight = '2rem';
+  childDiv.style.border = '2px solid #231f20';
+  childDiv.style.textAlign = 'center';
+  div.append(childDiv);
+
+  const childDiv2 = document.createElement('div');
+  childDiv2.innerHTML = 'Bottom content';
+  childDiv2.classList.add('nhsd-!t-bg-blue');
+  childDiv2.classList.add('nhsd-!t-col-white');
+  childDiv2.style.minHeight = '2rem';
+  childDiv2.style.border = '2px solid #231f20';
+  childDiv2.style.textAlign = 'center';
+  div.append(childDiv2);
+
+  return div;
+};
+ResponsiveSpacing.storyName = 'Responsive spacing';
+ResponsiveSpacing.parameters = {
+  docs: {
+    description: {
+      story: `Using responsive spacing tokens such as \`nhsd-!t-margin-bottom-s-6\` it's possible to apply padding and margin rules at specific breakpoints.
+      
+In this example a margin bottom 6 token is applied to the top div at the small breakpoint.
+      `,
+    },
+    source: {
+      code: `${sourceCode}\n${ResponsiveSpacing().innerHTML}`,
+    },
+  },
+};

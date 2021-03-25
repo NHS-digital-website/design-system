@@ -462,9 +462,9 @@ CyberAlertVariant.parameters = {
   },
 };
 
-export const CyberAlertVHubariant = Template.bind({});
-CyberAlertVHubariant.storyName = 'Cyber alert (hub)';
-CyberAlertVHubariant.args = {
+export const CyberAlertHubVariant = Template.bind({});
+CyberAlertHubVariant.storyName = 'Cyber alert (hub)';
+CyberAlertHubVariant.args = {
   box: {
     classes: 'nhsd-a-box--bg-white nhsd-a-box--border-grey',
   },
@@ -483,7 +483,7 @@ CyberAlertVHubariant.args = {
   }],
   date: 'Thursday 28 January 2021 (updated 29 January 2021)',
 };
-CyberAlertVHubariant.parameters = {
+CyberAlertHubVariant.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
@@ -495,7 +495,51 @@ CyberAlertVHubariant.parameters = {
 - Orange outline on focus and hover (default)`,
     },
     source: {
-      code: `${sourceCode}\n${CyberAlertVHubariant(CyberAlertVHubariant.args)}`,
+      code: `${sourceCode}\n${CyberAlertHubVariant(CyberAlertHubVariant.args)}`,
+    },
+  },
+};
+
+export const FeedListVariant = Template.bind({});
+FeedListVariant.storyName = 'Feed list variant';
+FeedListVariant.args = {
+  box: {
+    classes: 'nhsd-a-box--bg-light-grey',
+  },
+  title: 'About NHS Digital',
+  text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  boxLink: {
+    href: '#',
+    classes: 'nhsd-a-box-link--focus-orange',
+  },
+  arrowIcon: {
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+    id: 'arrow_right',
+  },
+  date: 'Thursday 28 January 2021',
+  image: {
+    classes: 'nhsd-a-image--cover',
+    sourceSet: [{
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }],
+    alt: 'Abstract lights',
+  },
+  imagePosition: 'adjacent',
+};
+FeedListVariant.parameters = {
+  docs: {
+    description: {
+      story: `${sbConfig.heading.details}:
+- Grey background, Black heading and text
+- Date at top of card
+- Arrow icon at the bottom
+- The whole card links
+- Orange outline on focus and hover (default)
+- Image atom used with \`nhsd-a-image--cover\` modifier
+- \`nhsd-m-card--image-position-adjacent\` card modifier used to position image adjacent to content`,
+    },
+    source: {
+      code: `${sourceCode}\n${FeedListVariant(FeedListVariant.args)}`,
     },
   },
 };
