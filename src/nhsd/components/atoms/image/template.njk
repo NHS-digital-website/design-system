@@ -4,6 +4,10 @@
   {%- set classNames = classNames + " " + params.classes -%}
 {%- endif -%}
 
+{%- if params.exampleContainer -%}
+<div class="cover-image-example-container">
+{%- endif -%}
+
 {%- if params.sourceSet and params.alt %}
 <figure class="{{ classNames }}" {%- if params.ariaHidden %} aria-hidden="true" {%- endif %}>
   <picture class="nhsd-a-image__picture {{ 'nhsd-!t-margin-bottom-2' if params.caption else '' }}">
@@ -23,3 +27,7 @@
 {% else %}
 No image source found.
 {% endif -%}
+
+{%- if params.exampleContainer -%}
+</div>
+{%- endif -%}

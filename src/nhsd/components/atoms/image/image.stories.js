@@ -5,6 +5,7 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 import template from './template.njk';
 // Load stylesheet file
 require('./_index.scss');
+require('./_example.scss');
 
 const componentName = 'Image';
 const storyDescription = `${sbConfig.heading.lab}
@@ -175,6 +176,48 @@ WithCaptionAriaHidden.parameters = {
   docs: {
     source: {
       code: `${sourceCode}${WithCaptionAriaHidden(WithCaptionAriaHidden.args)}`,
+    },
+  },
+};
+
+export const BackgroundImageComponent = Template.bind({});
+BackgroundImageComponent.storyName = 'Cover image';
+BackgroundImageComponent.args = {
+  classes: 'nhsd-a-image--cover',
+  sourceSet: [{
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+  }],
+  alt: '2 scientists testing in a laboratory',
+  exampleContainer: true,
+};
+BackgroundImageComponent.parameters = {
+  docs: {
+    source: {
+      description: {
+        story: 'The varient `.nhsd-a-image--cover` can be applied when an image needs to fill the entirity of its parent container.',
+      },
+      code: `${sourceCode}${BackgroundImageComponent(BackgroundImageComponent.args)}`,
+    },
+  },
+};
+
+export const BackgroundImageLeftAlignComponent = Template.bind({});
+BackgroundImageLeftAlignComponent.storyName = 'Cover image (left positioned)';
+BackgroundImageLeftAlignComponent.args = {
+  classes: 'nhsd-a-image--cover nhsd-a-image--position-left',
+  sourceSet: [{
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+  }],
+  alt: '2 scientists testing in a laboratory',
+  exampleContainer: true,
+};
+BackgroundImageLeftAlignComponent.parameters = {
+  docs: {
+    description: {
+      story: 'The varients, `.nhsd-a-image--position-left`, `.nhsd-a-image--position-right`, `.nhsd-a-image--position-top` & `.nhsd-a-image--position-bottom` can be applied in conjunction with `.nhsd-a-image--cover` to adjust the position of the image inside the container.',
+    },
+    source: {
+      code: `${sourceCode}${BackgroundImageLeftAlignComponent(BackgroundImageLeftAlignComponent.args)}`,
     },
   },
 };
