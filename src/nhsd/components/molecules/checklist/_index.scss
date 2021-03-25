@@ -1,0 +1,38 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/colours" as nhsd-colours;
+
+// Private members
+$-root: ".nhsd-m-checklist";
+
+#{$-root} {
+  &__list-container {
+    padding-top: nhsd-spacing.get(7);
+  }
+
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: nhsd-spacing.get(2) nhsd-spacing.get(4);
+    border-radius: nhsd-spacing.get(1) 0 nhsd-spacing.get(1) 0;
+    color: nhsd-colours.get('white');
+    background-color: nhsd-colours.get('blue');
+  }
+
+  &__icon {
+    width: nhsd-spacing.get(6);
+  }
+
+  &__icon-list {
+    display: table;
+    table-layout: fixed;
+
+    span {
+      display: table-cell;
+    }
+  }
+}
