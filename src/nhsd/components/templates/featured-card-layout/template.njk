@@ -1,0 +1,15 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/molecules.njk" import nhsd_m_card -%}
+
+<div class="nhsd-t-grid">
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-s-8">
+            {{ nhsd_m_card(params.featuredCard) }}
+        </div>
+        <div class="nhsd-t-col-s-4">
+            {% for card in params.cards %}
+                {{ nhsd_m_card(card) }}
+            {% endfor %}
+        </div>
+    </div>
+</div>

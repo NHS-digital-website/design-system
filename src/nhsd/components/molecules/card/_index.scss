@@ -25,11 +25,6 @@ $-box-padding: 1.111rem;
 #{$-root} {
   display: block;
   position: relative;
-  min-height: vars.$min-card-height;
-
-  @include mq($until: s) {
-    min-height: 8.333rem;
-  }
 
   &__content-box {
     display: flex;
@@ -106,8 +101,13 @@ $-box-padding: 1.111rem;
     }
   }
 
+  .nhsd-a-box-link {
+    height: 100%;
+  }
+
   .nhsd-a-box {
     display: flex;
+    height: 100%;
     flex-direction: column;
     flex: 1;
     padding: 0;
@@ -154,6 +154,37 @@ $-box-padding: 1.111rem;
     .nhsd-a-button {
       transform: translateY(button.$active-state-push-down);
     }
+  }
+
+  &--image-position-adjacent {
+    .nhsd-a-box {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      @include mq($until: s) {
+        display: grid;
+        grid-auto-rows: 1fr;
+      }
+    }
+
+    #{$-root}__image_container {
+      width: 66%;
+      margin-left: nhsd-spacing.get(2);
+      flex-shrink: 0;
+
+      @include mq($until: l) {
+        width: 55%;
+      }
+
+      @include mq($until: s) {
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+
+  &--full-height {
+    height: 100%;
   }
 
   &--with-icon {

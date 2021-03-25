@@ -10,6 +10,8 @@
 // Tokens
 @use "scss-core/tokens/fonts";
 
+$-device-breakpoints: (xs,s,m,l,xl);
+
 // Private members
 $-root: ".nhsd-";
 $-steps: (
@@ -82,6 +84,15 @@ $-dirs: top, right, bottom, left;
       }
     }
 
+    // Responsive
+    @each $-device in $-device-breakpoints {
+      #{$-root}\!t-#{$prop}-#{$-device}-#{$i} {
+        @include mq($until: #{$-device}) {
+          #{$prop}: get($i) !important;
+        }
+      }
+    }
+
     @each $dir in $-dirs {
       #{$-root}\!t-#{$prop}-#{$dir}-#{$i} {
         #{$prop}-#{$dir}: get($i) !important;
@@ -89,6 +100,15 @@ $-dirs: top, right, bottom, left;
         @if $i > 0 {
           @include mq($until: s) {
             #{$prop}-#{$dir}: get($i - 1) !important;
+          }
+        }
+      }
+
+      // Responsive
+      @each $-device in $-device-breakpoints {
+        #{$-root}\!t-#{$prop}-#{$dir}-#{$-device}-#{$i} {
+          @include mq($until: #{$-device}) {
+            #{$prop}-#{$dir}: get($i) !important;
           }
         }
       }
