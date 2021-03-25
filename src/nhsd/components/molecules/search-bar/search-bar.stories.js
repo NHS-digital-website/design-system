@@ -70,3 +70,29 @@ CustomPlaceholder.parameters = {
     },
   },
 };
+
+export const FullWidth = Template.bind({});
+FullWidth.storyName = sbConfig.title.FullWidth;
+FullWidth.args = {
+  classes: 'nhsd-m-search-bar__full-width',
+};
+FullWidth.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${FullWidth(FullWidth.args)}`,
+    },
+  },
+};
+
+export const Small = Template.bind({});
+Small.storyName = sbConfig.title.Small;
+Small.args = {
+  classes: 'nhsd-m-search-bar__small',
+};
+Small.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${Small(Small.args)}`,
+    },
+  },
+};

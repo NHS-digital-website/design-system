@@ -26,4 +26,26 @@ $-root: ".nhsd-m-search-bar";
   .nhsd-t-form-input {
     padding-right: calc(#{vars.$min-button-size} * 1.2);
   }
+
+  &__full-width {
+    max-width: 100%;
+    padding: 0;
+
+    .nhsd-t-form {
+      .nhsd-t-form-group {
+        max-width: 100%;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__small {
+    .nhsd-t-form {
+      .nhsd-t-form-group {
+        .nhsd-t-form-input {
+          height: nhsd-spacing.get(7);
+        }
+      }
+    }
+  }
 }
