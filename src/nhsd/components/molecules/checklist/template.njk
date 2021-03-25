@@ -1,0 +1,58 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_icon,
+  nhsd_a_box_start,
+  nhsd_a_box_end
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-checklist" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Set icon class -#}
+{% set icon = params.icon %}
+{% if icon == 'bullet' %}
+  {% set listClass = 'nhsd-t-list nhsd-t-list--bullet' %}
+{% else %}
+  {% set listClass = 'nhsd-t-list' %}
+{% endif %}
+
+{#- Set icon colour and key -#}
+{% if icon == 'cross' %}
+  {% set iconKey = 'x' %}
+  {% set iconColour = 'nhsd-a-icon--col-red' %}
+{% elif icon == 'check' %}
+  {% set iconKey = 'check' %}
+  {% set iconColour = 'nhsd-a-icon--col-green' %}
+{% endif %}
+
+<div class="{{ classNames }}">
+  {{ nhsd_a_box_start('nhsd-a-box--border-grey') }}
+    <span class="nhsd-t-heading-s nhsd-!t-col-white nhsd-m-checklist__header">
+      {{ params.heading }}
+    </span>
+    <div class="nhsd-m-checklist__list-container">
+      <ul class="{{listClass}} nhsd-!t-margin-bottom-0">
+        {% for item in params.list %}
+          {% if icon == 'custom' %}
+            <li class="nhsd-m-checklist__icon-list">
+              <span class="nhsd-m-checklist__icon">{{ nhsd_a_icon({ id: params.customIcon.id, classes: 'nhsd-a-icon--size-xs ' + params.customIcon.classes }) }}</span>
+              <span>{{ item }}</span>
+            </li>
+          {% else %}
+            {% if icon == 'bullet' %}
+              <li class="nhsd-m-checklist__list">{{ item }}</li>
+            {% else %}
+              <li class="nhsd-m-checklist__icon-list">
+                <span class="nhsd-m-checklist__icon">{{ nhsd_a_icon({ id: iconKey, classes: 'nhsd-a-icon--size-xs ' + iconColour }) }}</span>
+                <span>{{ item }}</span>
+              </li>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {{ nhsd_a_box_end() }}
+</div>

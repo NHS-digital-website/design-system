@@ -22,7 +22,7 @@ $-sizes: (
 );
 
 // TODO 2 - Define what colours we want to support
-$-colours: "black", "dark-grey", "white", "yellow", "blue";
+$-colours: "black", "dark-grey", "white", "yellow", "blue", "red", "green";
 
 #{$-root} {
   @include nhsd-utils.box-sizing;

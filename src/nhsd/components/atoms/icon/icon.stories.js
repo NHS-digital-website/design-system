@@ -39,6 +39,8 @@ const storyDescription = `${sbConfig.heading.lab}
 |**Dark grey**|<span class="nhsd-!t-bg-dark-grey nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-dark-grey</span>|
 |**Black**|<span class="nhsd-!t-bg-black nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-black</span>|
 |**Yellow**|<span class="nhsd-!t-bg-yellow nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-yellow</span>|
+|**Red**|<span class="nhsd-!t-bg-red nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-red</span>|
+|**Green**|<span class="nhsd-!t-bg-green nhsd-!t-border-black">&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--col-green</span>|
 
 ### Using external images
 
@@ -80,6 +82,7 @@ export default {
           'chevron_up',
           'chevron_right',
           'chevron_down',
+          'check',
         ],
       },
       defaultValue: 'arrow_right',
