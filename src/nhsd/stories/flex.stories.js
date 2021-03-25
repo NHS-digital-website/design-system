@@ -221,7 +221,7 @@ ResponsiveComponent.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- \`nhsd-t-flex\` and its elements and modifiers supports the following responsive varients. For more information on breakpoints, please see the docs for the \`Grid System\`
+- \`nhsd-t-flex\` and its elements and modifiers supports the following responsive variants. For more information on breakpoints, please see the docs for the \`Grid System\`
 - **Class names:**
   - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex-xs</span>
   - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex-s</span>
