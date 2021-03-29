@@ -3,6 +3,7 @@ import nhsd from './nhsd';
 import NHSDGlobalHeader from '../components/organisms/global-header/global-header';
 import NHSDStickyNavigation from '../components/molecules/sticky-navigation/sticky-navigation';
 import NHSDFilterMenuSection from '../components/molecules/filter-menu-section/filter-menu-section';
+import NHSDExpander from '../components/molecules/expander/expander';
 
 window.nhsd = nhsd;
 
@@ -24,4 +25,5 @@ export default function init() {
     initComponent('.nhsd-o-global-header', NHSDGlobalHeader);
     initComponent('.nhsd-m-sticky-navigation', NHSDStickyNavigation);
     initComponent('.nhsd-m-filter-menu-section', NHSDFilterMenuSection);
+    initComponent('.nhsd-m-expander', NHSDExpander);
 }

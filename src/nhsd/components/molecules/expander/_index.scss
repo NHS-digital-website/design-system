@@ -1,0 +1,53 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/colours" as nhsd-colours;
+
+// Private members
+$-root: ".nhsd-m-expander";
+
+#{$-root} {
+  &__heading-container {
+    width: fit-content;
+    height: nhsd-spacing.get(6);
+    color: nhsd-colours.get('blue');
+    fill: nhsd-colours.get('blue');
+
+    &:hover,
+    &:focus {
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      color: nhsd-colours.get('black');
+      background-color: nhsd-colours.get('yellow');
+      fill: nhsd-colours.get('black');
+      cursor: pointer;
+
+      .nhsd-m-expander__heading {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__content-container {
+    display: none;
+    margin-top: nhsd-spacing.get(3);
+  }
+
+  &__icon {
+    vertical-align: middle;
+
+    &.active {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__heading {
+    display: inline-block;
+    height: nhsd-spacing.get(5);
+    border-bottom: 1px solid nhsd-colours.get('blue');
+  }
+}
