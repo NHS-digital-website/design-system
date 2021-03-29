@@ -1,0 +1,26 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_horizontal_rule
+-%}
+
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_expander
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-expander-list" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  {% for expander in params.expanders %}
+    <div class="nhsd-o-expander-list__expander">
+      {{ nhsd_m_expander({ heading: expander.heading, content: expander.content, type: params.type }) }}
+    </div>
+    {% if params.type === 'some people' %}
+      {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
+    {% endif %}
+  {% endfor %}
+</div>
