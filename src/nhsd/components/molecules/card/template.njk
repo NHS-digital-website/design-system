@@ -26,6 +26,12 @@
 {%- if params.hexIcon -%}
   {% set classNames = classNames + " nhsd-m-card--with-icon" %}
 {%- endif -%}
+{%- if params.imagePosition == "adjacent" -%}
+  {% set classNames = classNames + " nhsd-m-card--image-position-adjacent" %}
+{%- endif -%}
+{%- if params.fullHeight -%}
+  {% set classNames = classNames + " nhsd-m-card--full-height" %}
+{%- endif -%}
 
 {%- if params.boxLink -%}
   {%- set boxLinkClassNames = "nhsd-a-box-link " %}
@@ -40,8 +46,11 @@
   {%- endif %}
     {{ nhsd_a_box_start(params.box.classes) }}
   {% if params.image -%}
-    {{ nhsd_a_image(params.image) }}
+    <div class="nhsd-m-card__image_container">
+      {{ nhsd_a_image(params.image) }}
+    </div>
   {%- endif %}
+  <div class="nhsd-m-card__content_container">
     <div class="nhsd-m-card__content-box">
        {% if params.tags -%}
         <div class="nhsd-m-card__tag-list">
@@ -81,6 +90,8 @@
         {{ nhsd_a_icon(params.arrowIcon) }}
         {%- endif -%}
     </div>
+  </div>
+
   {{ nhsd_a_box_end() }}
   {%- if params.boxLink %}
   </a>
