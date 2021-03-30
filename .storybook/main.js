@@ -37,7 +37,7 @@ module.exports = {
 			],
 		}, {
       test: /\.scss$/,
-      use: ['style-loader', 'css-loader', {
+      use: ['style-loader', 'css-loader', 'resolve-url-loader', {
         loader: 'sass-loader',
         options: {
           // Prefer `dart-sass`

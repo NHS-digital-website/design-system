@@ -14,6 +14,7 @@ module.exports = (() => {
       components: `${SOURCE_PATH}/components`,
       lab: `${SOURCE_PATH}/lab`,
       static: `${SOURCE_PATH}/static`,
+      fonts: `${SOURCE_PATH}/assets/fonts`,
     },
 
     gulp: {
@@ -25,6 +26,7 @@ module.exports = (() => {
       static: `${DIST_PATH}/static`,
       images: `${DIST_PATH}/images`,
       stylesheets: `${DIST_PATH}/stylesheets`,
+      fonts: `${DIST_PATH}/fonts`,
     },
 
     package: {
