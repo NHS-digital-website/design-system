@@ -61,5 +61,6 @@ module.exports = (() => {
     isModeDev,
     isModeProd,
     getBuildMode,
+    CDN_URL: 'https://design-system.digital.nhs.uk/',
   };
 })();
