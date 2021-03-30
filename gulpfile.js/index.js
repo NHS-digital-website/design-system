@@ -17,6 +17,7 @@ require('./tasks/js');
 require('./tasks/watch');
 require('./tasks/static');
 require('./tasks/images');
+require('./tasks/fonts');
 
 gulp.task('build:dist',
   gulp.series(
@@ -25,6 +26,7 @@ gulp.task('build:dist',
     'scss:lint',
     'scss:compile',
     'images:copy',
+    'fonts:copy',
     'js:lint',
     'js:compile',
     'static:copy',

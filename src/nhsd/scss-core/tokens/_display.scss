@@ -27,6 +27,14 @@ $-device-breakpoints: (xs,s,m,l,xl);
       &-#{$-device}-show {
         display: block;
       }
+
+      &-#{$-device}-show-table {
+        display: table;
+      }
+
+      &-#{$-device}-show-flex {
+        display: flex;
+      }
     }
   }
 
