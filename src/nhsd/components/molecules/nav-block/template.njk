@@ -42,11 +42,11 @@
       {%- endif -%}
 
       {%- if params.title -%}
-      <h1 class="nhsd-t-heading-xl">{{ params.title|safe }}</h1>
+      <h1 class="nhsd-t-heading-xl nhsd-t-word-break">{{ params.title|safe }}</h1>
       {%- endif -%}
 
       {% if params.text -%}
-      <p class="nhsd-t-body">{{ params.text|safe }}</p>
+      <p class="nhsd-t-body nhsd-t-word-break">{{ params.text|safe }}</p>
       {%- endif %}
 
       {% if params.button -%}

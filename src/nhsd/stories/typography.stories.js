@@ -296,6 +296,32 @@ Body.parameters = {
   },
 };
 
+export const WordBreak = () => {
+  const div = document.createElement('div');
+  const p1 = document.createElement('p');
+  p1.classList.add('nhsd-t-body');
+  p1.classList.add('nhsd-t-word-break');
+  p1.innerText = 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm';
+  div.appendChild(p1);
+  const p2 = document.createElement('p');
+  p2.classList.add('nhsd-t-body-s');
+  p2.classList.add('nhsd-t-word-break');
+  p2.innerText = 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm';
+  div.appendChild(p2);
+  return div;
+};
+WordBreak.storyName = 'Word Break';
+WordBreak.parameters = {
+  docs: {
+    description: {
+      story: 'A class used to break a word which exceeds an entire line of its parent element in length.',
+    },
+    source: {
+      code: `${sourceCode}\n${WordBreak().innerHTML}`,
+    },
+  },
+};
+
 export const UnorderedList = () => {
   const div = document.createElement('div');
   const ul = document.createElement('ul');
