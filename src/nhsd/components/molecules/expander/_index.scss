@@ -13,7 +13,9 @@ $-root: ".nhsd-m-expander";
   &__heading-container {
     width: fit-content;
     height: nhsd-spacing.get(6);
+    border: none;
     color: nhsd-colours.get('blue');
+    background-color: transparent;
     fill: nhsd-colours.get('blue');
 
     &:hover,

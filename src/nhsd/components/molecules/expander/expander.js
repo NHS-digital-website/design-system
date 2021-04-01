@@ -15,8 +15,10 @@ export default class NHSDExpander {
 
       if (contentContainer.style.display === 'block') {
         contentContainer.style.display = 'none';
+        headingContainer.setAttribute('aria-expanded', 'false');
       } else {
         contentContainer.style.display = 'block';
+        headingContainer.setAttribute('aria-expanded', 'true');
       }
     });
   }
