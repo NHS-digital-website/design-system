@@ -8,6 +8,11 @@
   nhsd_a_tag
 -%}
 
+{#- Create download_card macro instead of importing. Issue looks to be when importing a molecule into a molecule -#}
+{% macro nhsd_m_download_card(params) -%}
+  {% include "../download-card/template.njk" %}
+{%- endmacro %}
+
 {#- Define ARIA attributes -#}
 {% set ariaLabel = params.title %}
 {%- if params.button.label -%}
@@ -76,9 +81,9 @@
       <p class="nhsd-t-body-s">{{ params.text|safe }}</p>
       {%- endif %}
 
-        {% if params.contentTag -%}
-        {{ nhsd_a_tag(params.contentTag) }}
-        {% endif -%}
+      {% if params.contentTag -%}
+      {{ nhsd_a_tag(params.contentTag) }}
+      {% endif -%}
     </div>
 
     <div class="nhsd-m-card__button-box">
@@ -90,8 +95,23 @@
         {{ nhsd_a_icon(params.arrowIcon) }}
         {%- endif -%}
     </div>
-  </div>
 
+    {% if params.downloadCards %}
+      {% for card in params.downloadCards %}
+        <div class="nhsd-m-card__download-card">
+          {{ nhsd_m_download_card({
+            size: 'small',
+            box: { classes: 'nhsd-a-box--bg-light-grey' },
+            documentIconId: card.documentIconId,
+            title: { classes: 'nhsd-!t-margin-bottom-2', label: card.title.label },
+            arrowIcon: { id: 'arrow_down', classes: 'nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-xs' },
+            boxLink: { href: '#' },
+            metaTags: card.metaTags
+          }) }}
+        </div>
+      {% endfor %}
+  {% endif %}
+  </div>
   {{ nhsd_a_box_end() }}
   {%- if params.boxLink %}
   </a>

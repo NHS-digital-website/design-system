@@ -1,0 +1,63 @@
+{#- Import atoms macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_image
+-%}
+
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_card
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-gallery" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Desktop columns -#}
+{%- set desktopColumns = params.desktopColumns if params.desktopColumns else 2 -%}
+{% if not (desktopColumns / 2) or desktopColumns < 1 or desktopColumns > 4 %}
+{%- set desktopColumns = 4 -%}
+{% endif %}
+
+{#- Set grid classes -#}
+{%- if desktopColumns == 4 %}
+  {%- set gridClass = "nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3" -%}
+{%- elseif desktopColumns == 3 %}
+  {%- set gridClass = "nhsd-t-col-xs-12 nhsd-t-col-s-4" -%}
+{%- elseif desktopColumns == 2 %}
+  {%- set gridClass = "nhsd-t-col-xs-12 nhsd-t-col-s-6" -%}
+{% endif -%}
+
+<div class="{{ classNames }}">
+  <div class="nhsd-t-grid">
+    <div class="nhsd-t-row nhsd-o-gallery__items">
+      {% for card in params.cards %}
+
+      {#- Set image only boolean -#}
+      {% set imageOnly = false %}
+      {% if card.title|length === 0 and card.text|length === 0 and card.downloadCards|length === 0 %}
+        {% set imageOnly = true %}
+      {% endif %}
+
+      {#- Set container class -#}
+      {% set containerClass = 'nhsd-o-gallery__card-container' %}
+      {% if  card.title|length === 0 and card.text|length ===0 %}
+        {% set containerClass = containerClass + ' download-card-only' %}
+      {% endif %}
+
+        <div class="{{ gridClass }}">
+          {% if imageOnly %}
+            <div class="nhsd-o-gallery__card-container">
+              {{ nhsd_a_image(card.image) }}
+            </div>
+          {% else %}
+            <div class="{{ containerClass }}">
+              {{ nhsd_m_card(card) }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

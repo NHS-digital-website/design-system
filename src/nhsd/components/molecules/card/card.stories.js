@@ -574,3 +574,104 @@ FeedListVariant.parameters = {
     },
   },
 };
+
+export const GalleryCard = Template.bind({});
+GalleryCard.storyName = 'Image card with embedded download card';
+GalleryCard.args = {
+  box: {
+    classes: 'nhsd-a-box--border-grey',
+  },
+  image: {
+    sourceSet: [{
+      media: '(max-width: 500px)',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }, {
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    }],
+    alt: '2 scientists carry out tests in a laboratory',
+  },
+  title: 'About NHS Digital',
+  text: 'We\'re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  downloadCards: [
+    {
+      documentIconId: 'document_pdf',
+      title: {
+        label: 'Example file - NHS Digital sustainability posters',
+      },
+      metaTags: [
+        {
+          label: 'PDF',
+          classes: 'nhsd-a-tag--meta',
+        }, {
+          label: '1.5MB',
+          classes: 'nhsd-a-tag--meta-light',
+        },
+      ],
+    },
+  ],
+};
+GalleryCard.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${GalleryCard(GalleryCard.args)}`,
+    },
+  },
+};
+
+export const GalleryCard2 = Template.bind({});
+GalleryCard2.storyName = 'Image card with multiple download cards';
+GalleryCard2.args = {
+  box: {
+    classes: 'nhsd-a-box--border-grey',
+  },
+  image: {
+    sourceSet: [{
+      media: '(max-width: 500px)',
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }, {
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+    }],
+    alt: '2 scientists carry out tests in a laboratory',
+  },
+  title: 'About NHS Digital',
+  text: 'We\'re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  downloadCards: [
+    {
+      documentIconId: 'document_pdf',
+      title: {
+        label: 'Example file - NHS Digital sustainability posters',
+      },
+      metaTags: [
+        {
+          label: 'PDF',
+          classes: 'nhsd-a-tag--meta',
+        }, {
+          label: '1.5MB',
+          classes: 'nhsd-a-tag--meta-light',
+        },
+      ],
+    },
+    {
+      documentIconId: 'document_pdf',
+      title: {
+        label: 'Example file - NHS Digital sustainability posters',
+      },
+      metaTags: [
+        {
+          label: 'PDF',
+          classes: 'nhsd-a-tag--meta',
+        }, {
+          label: '1.5MB',
+          classes: 'nhsd-a-tag--meta-light',
+        },
+      ],
+    },
+  ],
+};
+GalleryCard2.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${GalleryCard2(GalleryCard2.args)}`,
+    },
+  },
+};

@@ -57,6 +57,11 @@ $-box-padding: 1.222rem;
     overflow: hidden;
     text-align: center;
 
+    &.small {
+      flex-basis: 3rem;
+      padding-top: 0;
+    }
+
     @include mq($until: s) {
       padding-top: .3rem;
       flex: 0 0 3rem;
@@ -72,6 +77,25 @@ $-box-padding: 1.222rem;
     flex-grow: 1;
     order: 2;
     flex-direction: column;
+
+    &.small {
+      margin-top: -(nhsd-spacing.get(1));
+      padding-left: 0;
+    }
+  }
+
+  &__arrow-icon-box {
+    display: flex;
+    flex-grow: 1;
+    padding-left: nhsd-spacing.get(2);
+    order: 3;
+    flex-direction: column;
+
+    .nhsd-a-icon {
+      margin-top: 0;
+      margin-right: nhsd-spacing.get(3);
+      align-self: flex-end;
+    }
   }
 
   [class^="nhsd-t-heading"] {
