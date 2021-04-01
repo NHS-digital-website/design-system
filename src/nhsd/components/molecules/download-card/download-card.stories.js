@@ -177,3 +177,40 @@ Download.parameters = {
     },
   },
 };
+
+export const DownloadSmall = Template.bind({});
+DownloadSmall.storyName = 'File download - Small';
+DownloadSmall.args = {
+  size: 'small',
+  box: {
+    classes: 'nhsd-a-box--bg-light-grey',
+  },
+  documentIconId: 'document_xls',
+  title: {
+    label: 'NHS Workforce Statistics, August 2020 England and Organisation',
+    classes: 'nhsd-!t-margin-bottom-2',
+  },
+  arrowIcon: {
+    id: 'arrow_down',
+    classes: 'nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-xs',
+  },
+  boxLink: {
+    href: '#',
+  },
+  metaTags: [
+    {
+      label: 'XLS',
+      classes: 'nhsd-a-tag--meta',
+    }, {
+      label: '1.5MB',
+      classes: 'nhsd-a-tag--meta-light',
+    },
+  ],
+};
+DownloadSmall.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${DownloadSmall(DownloadSmall.args)}`,
+    },
+  },
+};

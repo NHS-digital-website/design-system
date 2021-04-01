@@ -13,6 +13,14 @@
   {%- set classNames = classNames + " " + params.classes -%}
 {%- endif -%}
 
+{#- Set content box classes -#}
+{%- set contentBoxClasses = "nhsd-m-download-card__content-box" -%}
+{%- set imageBoxClasses = "nhsd-m-download-card__image-box" -%}
+{% if params.size === 'small' %}
+  {% set contentBoxClasses = 'nhsd-m-download-card__content-box small' %}
+  {%- set imageBoxClasses = "nhsd-m-download-card__image-box small" -%}
+{% endif %}
+
 {#- Define ARIA attributes -#}
 {% set ariaLabel = params.title %}
 {%- if params.button.label -%}
@@ -37,17 +45,23 @@
   {%- endif %}
   {{ nhsd_a_box_start(params.box.classes) }}
     {%- if params.documentIconId -%}
-    <div class="nhsd-m-download-card__image-box">
-      {{ nhsd_a_document_icon({ id: params.documentIconId }) }}
+    <div class="{{ imageBoxClasses }}">
+      {% if params.size === 'small' %}
+        {{ nhsd_a_document_icon({ id: params.documentIconId, classes: 'nhsd-a-document-icon--size-xs' }) }}
+      {% else %}
+        {{ nhsd_a_document_icon({ id: params.documentIconId }) }}
+      {% endif %}
     </div>
     {%- endif -%}
 
-    <div class="nhsd-m-download-card__content-box">
+    <div class="{{ contentBoxClasses }}">
       {%- if params.tag %}
         {{ nhsd_a_tag(params.tag) }}
       {% endif -%}
 
-      {%- if params.title -%}
+      {%- if params.title and params.size === 'small' -%}
+      <h1 class="nhsd-t-heading-xs {{ params.title.classes }}">{{ params.title.label }}</h1>
+      {% elif params.title %}
       <h1 class="nhsd-t-heading-s {{ params.title.classes }}">{{ params.title.label }}</h1>
       {%- endif -%}
 
@@ -63,10 +77,16 @@
       </div>
       {%- endif %}
 
-      {%- if params.arrowIcon -%}
+      {%- if params.arrowIcon and params.size|length === 0 -%}
         {{ nhsd_a_icon(params.arrowIcon) }}
       {%- endif -%}
     </div>
+
+    {% if params.size === 'small' %}
+    <div class="nhsd-m-download-card__arrow-icon-box">
+      {{ nhsd_a_icon(params.arrowIcon) }}
+    </div>
+    {% endif %}
   {{ nhsd_a_box_end() }}
   {%- if params.boxLink %}
   </a>

@@ -108,6 +108,23 @@ SquareComponent.parameters = {
   },
 };
 
+export const FourByThree = Template.bind({});
+FourByThree.storyName = '4:3 image ratio';
+FourByThree.args = {
+  classes: 'nhsd-a-image--4by3',
+  sourceSet: [{
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+  }],
+  alt: '2 scientists testing in a laboratory',
+};
+FourByThree.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}${FourByThree(FourByThree.args)}`,
+    },
+  },
+};
+
 export const ResponsiveComponent = Template.bind({});
 ResponsiveComponent.storyName = 'Responsive image (multiple image sources)';
 ResponsiveComponent.args = {

@@ -77,6 +77,12 @@ $-root: ".nhsd-a-image";
     }
   }
 
+  &--4by3 {
+    #{$-root}__picture {
+      padding-bottom: (3 / 4 * 100) * 1%;
+    }
+  }
+
   &--round-corners {
     #{$-root}__picture {
       border-radius: vars.$border-radius;

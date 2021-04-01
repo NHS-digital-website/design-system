@@ -1,0 +1,69 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Component imports
+@use "../../molecules/card";
+
+// Private members
+$-root: ".nhsd-o-gallery";
+
+#{$-root} {
+  display: block;
+  position: relative;
+
+  &__card-container {
+    height: 100%;
+    margin-bottom: nhsd-spacing.get(3);
+
+    .nhsd-m-card__button-box {
+      padding: 0;
+    }
+
+    .nhsd-m-card__content-box {
+      padding-bottom: nhsd-spacing.get(1);
+    }
+
+    .nhsd-m-card {
+      &,
+      .nhsd-a-box {
+        display: flex;
+        height: 100%;
+      }
+    }
+
+    .nhsd-a-image {
+      &,
+      .nhsd-a-image__picture {
+        display: flex;
+        height: 100%;
+      }
+    }
+
+    &.download-card-only {
+      .nhsd-m-card__content-box {
+        padding: nhsd-spacing.get(2);
+      }
+
+      .nhsd-m-card__download-card {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__items {
+    @include nhsd-spacing.set-responsive("margin-bottom", 4);
+
+    [class^="nhsd-t-col"] {
+      padding-bottom: nhsd-grid.$gutter * 2;
+
+      @include mq($until: s) {
+        padding-bottom: nhsd-grid.$small-gutter * 2;
+      }
+    }
+  }
+}

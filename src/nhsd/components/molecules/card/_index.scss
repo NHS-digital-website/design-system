@@ -37,6 +37,23 @@ $-box-padding: 1.111rem;
     padding: 0 $-box-padding $-box-padding;
   }
 
+  &__download-card {
+    margin: nhsd-spacing.get(1) $-box-padding;
+
+    .nhsd-m-download-card {
+      min-height: 0;
+
+      .nhsd-a-box {
+        padding: nhsd-spacing.get(3) 0;
+        flex-direction: row;
+      }
+
+      .nhsd-a-arrow {
+        margin-top: 0;
+      }
+    }
+  }
+
   [class^="nhsd-t-heading"] {
     margin-bottom: nhsd-spacing.get(1);
   }
