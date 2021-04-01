@@ -29,10 +29,15 @@ $-root: ".nhsd-m-filter-menu-section";
   }
 
   &__heading-text {
+    height: 100%;
     margin-left: nhsd-spacing.get(1);
+    border: none;
+    border-bottom: vars.$active-line-thickness solid transparent;
     color: nhsd-colours.get('black');
+    background-color: nhsd-colours.get('white');
 
-    &:hover {
+    &:hover,
+    &:focus {
       border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
       background-color: nhsd-colours.get('yellow');
       cursor: pointer;

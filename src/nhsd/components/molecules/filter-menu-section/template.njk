@@ -6,6 +6,10 @@
   nhsd_a_checkbox
 -%}
 
+{#- Define ARIA attributes -#}
+{% set ariaLabel = params.title %}
+{% set ariaAttributes %} aria-label="{{ ariaLabel }}" aria-expanded="false" {% endset %}
+
 {#- Set classes -#}
 {% set classNames = "nhsd-m-filter-menu-section" %}
 {%- if params.classes -%}
@@ -20,8 +24,7 @@
         classes: 'nhsd-a-icon--size-xxs'})
       }}
     </span>
-    <span class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s">{{ params.title }}</span>
-    {# {{ nhsd_a_menu_item({ label: params.title, href: '#accordion' }) }} #}
+    <button class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s nhsd-!t-margin-bottom-0 nhsd-!t-padding-0" {{- ariaAttributes | safe }}>{{ params.title }}</button>
     {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
     <div class="nhsd-m-filter-menu-section__accordion-panel">
       {% for option in params.options %}

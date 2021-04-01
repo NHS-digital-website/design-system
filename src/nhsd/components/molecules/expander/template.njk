@@ -5,6 +5,10 @@
   nhsd_a_box_end
 -%}
 
+{#- Define ARIA attributes -#}
+{% set ariaLabel = params.heading %}
+{% set ariaAttributes %} aria-label="{{ ariaLabel }}" aria-expanded="false" {% endset %}
+
 {#- Set classes -#}
 {% set classNames = "nhsd-m-expander" %}
 {%- if params.classes -%}
@@ -15,12 +19,12 @@
   {% if params.type === 'most people' %}
     {{ nhsd_a_box_start('nhsd-a-box--bg-light-grey') }}
   {% endif %}
-    <div class="nhsd-m-expander__heading-container">
+    <button class="nhsd-m-expander__heading-container" {{- ariaAttributes | safe }}>
       <span class="nhsd-m-expander__icon nhsd-!t-margin-right-1">
         {{ nhsd_a_icon({ id: 'chevron_right', classes: 'nhsd-a-icon--size-xs'}) }}
       </span>
       <span class="nhsd-m-expander__heading nhsd-t-body">{{ params.heading }}</span>
-    </div>
+    </button>
     <div class="nhsd-m-expander__content-container">
       <span class="nhsd-t-body">
         {{ params.content }}
