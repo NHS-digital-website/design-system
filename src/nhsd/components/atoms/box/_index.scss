@@ -30,6 +30,7 @@ $border-width: .115rem;
     &-mid-grey,
     &-dark-blue,
     &-blue,
+    &-dark-green,
     &-black {
       color: nhsd-colours.get("white");
     }
@@ -64,6 +65,10 @@ $border-width: .115rem;
 
     &-light-yellow {
       background: nhsd-colours.get("yellow-20-tint");
+    }
+
+    &-dark-green {
+      background: nhsd-colours.get("dark-green");
     }
   }
 

@@ -622,11 +622,11 @@ export const Component6 = () => {
   <div class="nhsd-t-col-12">
     <!-- Card list organism sits in a nested grid -->
     ${Component5({
-      ...Component5.args,
-      grid: {
-        classes: 'nhsd-t-grid--full-width',
-      },
-    })}
+    ...Component5.args,
+    grid: {
+      classes: 'nhsd-t-grid--full-width',
+    },
+  })}
   </div>
 </div>
 </div>`;
@@ -705,6 +705,60 @@ Component8.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${Component8(Component8.args)}`,
+    },
+  },
+};
+
+export const Component9 = Template.bind({});
+Component9.storyName = 'Task cards - 1 columns';
+const Component9Cards = [
+  {
+    box: {
+      classes: 'nhsd-a-box--bg-dark-green',
+    },
+    boxLink: {
+      href: '#',
+    },
+    title: 'If youre a patient, book or manage your e-Refferal by visting NHS.UK',
+    text: 'For those who have been referred to a hospital or clinic through the NHS e-Refferal Service.',
+    arrowIcon: {
+      classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
+      id: 'arrow_right',
+    },
+  }, {
+    box: {
+      classes: 'nhsd-a-box--bg-dark-green',
+    },
+    boxLink: {
+      href: '#',
+    },
+    title: 'NHS staff can find out how to help patients to manage their referral online',
+    arrowIcon: {
+      classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
+      id: 'arrow_right',
+    },
+  }, {
+    box: {
+      classes: 'nhsd-a-box--bg-dark-green',
+    },
+    boxLink: {
+      href: '#',
+    },
+    title: 'Information on the live service and alerts is available',
+    arrowIcon: {
+      classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
+      id: 'arrow_right',
+    },
+  },
+];
+Component9.args = {
+  desktopColumns: 1,
+  cards: Component9Cards,
+};
+Component9.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${Component9(Component9.args)}`,
     },
   },
 };
