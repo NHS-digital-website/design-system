@@ -415,6 +415,37 @@ ComponentVariant10.parameters = {
   },
 };
 
+export const ComponentVariant11 = Template.bind({});
+ComponentVariant11.storyName = 'Dark Green linked card ';
+ComponentVariant11.args = {
+  box: {
+    classes: 'nhsd-a-box--bg-dark-green',
+  },
+  title: 'If youre a patient, book or manage your e-Refferal by visting NHS.UK',
+  text: 'For those who have been referred to a hospital or clinic through the NHS e-Refferal Service.',
+  boxLink: {
+    href: '#',
+    classes: 'nhsd-a-box-link--focus',
+  },
+  arrowIcon: {
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-white',
+    id: 'arrow_right',
+  },
+};
+ComponentVariant11.parameters = {
+  docs: {
+    description: {
+      story: `${sbConfig.heading.details}:
+- Dark geen background, white text
+- Directonal icon at the bottom (moves 10px to the right on card focus and hover)
+- Yellow outline on focus and hover (default)`,
+    },
+    source: {
+      code: `${sourceCode}\n${ComponentVariant11(ComponentVariant11.args)}`,
+    },
+  },
+};
+
 export const CyberAlertVariant = Template.bind({});
 CyberAlertVariant.storyName = 'Cyber alert (list)';
 CyberAlertVariant.args = {
