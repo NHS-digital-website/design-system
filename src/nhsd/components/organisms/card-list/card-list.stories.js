@@ -719,7 +719,7 @@ const Component9Cards = [
     boxLink: {
       href: '#',
     },
-    title: 'If youre a patient, book or manage your e-Refferal by visting NHS.UK',
+    title: "If you're a patient, book or manage your e-Refferal by visting NHS.UK",
     text: 'For those who have been referred to a hospital or clinic through the NHS e-Refferal Service.',
     arrowIcon: {
       classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
