@@ -1,0 +1,24 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_horizontal_rule
+-%}
+
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_icon_list_item
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-icon-list" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  {% for iconItem in params.iconList -%}
+    {{ nhsd_m_icon_list_item(iconItem) }}
+    {%- if not iconItem.last -%}
+      {{ nhsd_a_horizontal_rule(params.horizontalRule.classes)}}
+    {%- endif -%}
+  {% endfor -%}
+</div>

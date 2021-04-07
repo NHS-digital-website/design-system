@@ -1,0 +1,34 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_icon
+-%}
+
+{#- Define ARIA attributes -#}
+{%- if params.IconLink -%}
+{% set ariaAttributes %} aria-label="{{ params.link.label }}" {% endset %}
+{%- endif -%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-icon-list-item" %}
+
+<article class="{{ classNames }}">
+  {%- if params.IconLink-%}
+    <a href="{{ params.link.href }}" class="nhsd-m-icon-list-item__box nhsd-m-icon-list-item__with-link"  {%- if params.link.external %} target="_blank" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
+      {{ nhsd_a_icon(params.icon) }}
+      <div>
+        <p class="nhsd-t-body nhsd-m-icon-list-item__with-link-text">{{ params.link.label|safe }}</p>
+        <p class="nhsd-t-body">{{ params.text|safe }}</p>
+        {{ nhsd_a_icon(params.arrowIcon) }}
+      </div>
+    </a>
+  {%- endif %}
+  {%- if not params.IconLink-%}
+  <div class="nhsd-m-icon-list-item__box nhsd-m-icon-list-item__without-link" >
+    {{ nhsd_a_icon(params.icon) }}
+    <div>
+        <p class="nhsd-t-heading-s">{{ params.title|safe }}</p>
+        <p class="nhsd-t-body">{{ params.text|safe }}</p>
+    </div>
+  </div>
+  {%- endif %}
+</article>
