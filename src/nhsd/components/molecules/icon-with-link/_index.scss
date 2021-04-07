@@ -1,0 +1,83 @@
+// Settings
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
+
+// Component imports
+@use "../../atoms/link";
+
+// Private members
+$-root: ".nhsd-m-icon-list-item";
+
+#{$-root} {
+  display: block;
+  position: relative;
+
+  &__without-link,
+  &__with-link {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    color: nhsd-colours.get("black");
+    text-decoration: none;
+
+    &-text {
+      margin-bottom: nhsd-spacing.get(2);
+      padding-top: calc(#{vars.$base-line-thickness} + #{vars.$active-line-thickness});
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("blue");
+      color: nhsd-colours.get("blue");
+      text-decoration: none;
+      transition-property: background-color, color;
+      transition-duration: nhsd-transition.$transition-duration;
+    }
+
+    .nhsd-t-heading-s {
+      margin-bottom: nhsd-spacing.get(2);
+    }
+  }
+
+  .nhsd-a-icon {
+    margin-right: nhsd-spacing.get(5);
+  }
+
+  &:hover,
+  &:focus {
+    .nhsd-m-icon-list-item__with-link-text {
+      padding-bottom: 0;
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      outline: none;
+      color: nhsd-colours.get("black");
+      background-color: nhsd-colours.get("yellow");
+    }
+
+    .nhsd-a-arrow {
+      background: nhsd-colours.get("yellow");
+
+      & > svg {
+        fill: nhsd-colours.get("black");
+      }
+
+      &--left {
+        transform: translateX(-.556rem);
+      }
+
+      &,
+      &--right {
+        transform: translateX(.556rem);
+      }
+
+      &--up {
+        transform: translateY(-.556rem);
+      }
+
+      &--down {
+        transform: translateY(.556rem);
+      }
+    }
+  }
+}

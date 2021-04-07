@@ -83,6 +83,8 @@ export default {
           'chevron_right',
           'chevron_down',
           'check',
+          'link',
+          'i_circled',
         ],
       },
       defaultValue: 'arrow_right',

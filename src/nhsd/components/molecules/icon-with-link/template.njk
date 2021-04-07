@@ -1,0 +1,29 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_icon
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-icon-list-item" %}
+
+<div class="{{ classNames }}">
+  {%- if params.IconLink-%}
+    <a class="nhsd-m-icon-list-item__with-link"  href="{{ param.link.href }}" >
+      {{ nhsd_a_icon(params.icon) }}
+      <div>
+        <p class="nhsd-t-body nhsd-m-icon-list-item__with-link-text"  href="{{ param.link.href }}" >{{ params.link.label|safe }}</p>
+        <p class="nhsd-t-body">{{ params.text|safe }}</p>
+        {{ nhsd_a_icon(params.arrowIcon) }}
+      </div>
+    </a>
+  {%- endif %}
+  {%- if not params.IconLink-%}
+  <div class="nhsd-m-icon-list-item__without-link" >
+    {{ nhsd_a_icon(params.icon) }}
+    <div>
+        <h1 class="nhsd-t-heading-s">{{ params.title|safe }}</h1>
+        <p class="nhsd-t-body">{{ params.text|safe }}</p>
+    </div>
+  </div>
+  {%- endif %}
+</div>
