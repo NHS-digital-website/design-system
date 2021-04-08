@@ -59,7 +59,7 @@ export const ResponsiveShowHideComponent = () => `<div class="nhsd-t-grid nhsd-t
     </div>
   </div>
 </div>`;
-ResponsiveShowHideComponent.storyName = 'Responsive show / hide';
+ResponsiveShowHideComponent.storyName = 'Responsive show / hide tokens';
 ResponsiveShowHideComponent.parameters = {
   docs: {
     description: {
@@ -94,7 +94,7 @@ export const StickyComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug
     </div>
   </div>
 </div>`;
-StickyComponent.storyName = 'Responsive show / hide';
+StickyComponent.storyName = 'Sticky token';
 StickyComponent.parameters = {
   docs: {
     description: {

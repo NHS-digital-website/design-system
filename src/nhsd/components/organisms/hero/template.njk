@@ -17,6 +17,7 @@
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
+{%- set introTextClassNames = params.introText.classes if params.introText.classes else "nhsd-t-body-s" -%}
 {%- set titleClassNames = params.title.classes if params.title.classes else "nhsd-t-heading-xxl nhsd-!t-margin-bottom-2" -%}
 {%- set textClassNames = params.text.classes if params.text.classes else "nhsd-t-heading-s" -%}
 
@@ -36,6 +37,7 @@
 {%- set mirrored = true if featured and params.featured.mirrored else false -%}
 {#- Set accent (only used if featured) -#}
 {%- set accented = true if featured and params.featured.accented else false -%}
+{%- set imageBanner = true if params.imageBanner else false -%}
 
 {#- Set featured variant class names -#}
 {%- if featured -%}
@@ -47,6 +49,13 @@
     {%- set classNames = classNames + " nhsd-o-hero-feature--accented" -%}
   {%- endif -%}
 {%- endif -%}
+{% if imageBanner -%}
+  {%- set classNames = classNames + " nhsd-o-hero--image-banner" -%}
+{% endif %}
+{% if params.backgroundImage -%}
+  {%- set classNames = classNames + " nhsd-o-hero--background-image" -%}
+{% endif %}
+
 
 {#- Set column classes depending on content type -#}
 {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-6 nhsd-!t-no-gutters" -%}
@@ -56,15 +65,23 @@
     {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters" -%}
   {% endif %}
 {%- endif %}
+{% if imageBanner -%}
+  {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-6" -%}
+{% endif %}
+
 
 <div class="{{ classNames }}">
   <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
-    <div class="nhsd-t-row nhsd-t-row--centred">
+    {%- set rowClassNames = "nhsd-t-row--centred" -%}
+    {% if params.leftAlign -%}
+      {%- set rowClassNames = "" -%}
+    {% endif %}
+    <div class="nhsd-t-row {{ rowClassNames }}">
       <div class="{{ columnClassNames }}">
         <div class="nhsd-o-hero__content-box">
           <div class="nhsd-o-hero__content">
             {%- if params.introText -%}
-            <p class="nhsd-t-body-s">{{ params.introText|safe }}</p>
+            <p class="{{ introTextClassNames }}">{{ params.introText.text|safe }}</p>
             {%- endif -%}
             <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
             <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
@@ -102,6 +119,10 @@
       <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'nhsd-t-col-xs-12' if accented else 'nhsd-t-col-xs-11' }}">
         {{ nhsd_a_image(params.image) }}
       </div>
+      {% elif params.imageBanner -%}
+      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters">
+        {{ nhsd_a_image(params.imageBanner) }}
+      </div>
       {%- elif params.video %}
       <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'nhsd-t-col-xs-12' if accented else 'nhsd-t-col-xs-11' }}">
         <div class="nhsd-o-hero__iframe-wrapper">
@@ -111,6 +132,12 @@
       {% endif %}
     </div>
   </div>
+
+  {% if params.backgroundImage -%}
+  <div class="nhsd-o-hero__background-image">
+    {{ nhsd_a_image(params.backgroundImage) }}
+  </div>
+  {% endif %}
 
   {% if params.digiblocks -%}
     {% for digiblocks in params.digiblocks %}

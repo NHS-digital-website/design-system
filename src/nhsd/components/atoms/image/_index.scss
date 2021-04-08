@@ -7,6 +7,17 @@
 // Private members
 $-root: ".nhsd-a-image";
 
+$-positions: (
+  "top": top center,
+  "left": center left,
+  "bottom": bottom center,
+  "right": center right,
+  "top-left": top left,
+  "top-right": top right,
+  "bottom-left": bottom left,
+  "bottom-right": bottom right,
+);
+
 #{$-root} {
   @include nhsd-utils.box-sizing;
 
@@ -33,7 +44,8 @@ $-root: ".nhsd-a-image";
     }
   }
 
-  &--cover {
+  &--cover,
+  &--contain {
     width: 100%;
     height: 100%;
 
@@ -47,27 +59,19 @@ $-root: ".nhsd-a-image";
     }
   }
 
-  &--position-left {
-    img {
-      object-position: left center;
+  &--contain {
+    #{$-root}__picture {
+      img {
+        object-fit: contain;
+      }
     }
   }
 
-  &--position-right {
-    img {
-      object-position: right center;
-    }
-  }
-
-  &--position-top {
-    img {
-      object-position: top center;
-    }
-  }
-
-  &--position-bottom {
-    img {
-      object-position: bottom center;
+  @each $-name, $-value in $-positions {
+    &--position-#{$-name} {
+      img {
+        object-position: #{$-value};
+      }
     }
   }
 

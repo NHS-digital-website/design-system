@@ -95,12 +95,55 @@ $-root: ".nhsd-o-hero";
     }
   }
 
+  &--background-image {
+    padding-bottom: 30vw;
+
+    @include mq($from: l) {
+      padding-bottom: 300px;
+    }
+  }
+
+  &__background-image {
+    position: absolute;
+    top: calc(100% - 30vw - 135px);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
+
+    @include mq($from: l) {
+      top: calc(100% - 435px);
+    }
+  }
+
   .nhsd-a-digiblocks {
     z-index: 0;
   }
 
   &--light-text {
     @include nhsd-utils.light-text;
+  }
+
+  &--image-banner {
+    display: block;
+
+    #{$-root}__content-box {
+      min-height: 0;
+    }
+
+    .nhsd-a-image {
+      height: 100%;
+
+      &__picture {
+        height: 100%;
+      }
+    }
+
+    .nhsd-a-image--cover,
+    .nhsd-a-image--contain {
+      min-height: 300px;
+    }
   }
 
   &-feature {
