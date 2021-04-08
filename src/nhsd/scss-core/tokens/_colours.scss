@@ -35,7 +35,14 @@ $-colours: (
   "mid-grey-20-tint": #d5dade,
   "mid-red-20-tint": #f8d4d2,
   "mid-red-10-tint": #ffebeb,
-  "white": #ffffff
+  "white": #ffffff,
+);
+
+$-gradients: (
+  "grey": linear-gradient(135deg, map.get($-colours, "pale-grey-40-tint") 0%, map.get($-colours, "pale-grey") 40%),
+  "blue": linear-gradient(135deg, map.get($-colours, "bright-blue-10-tint") 0%, map.get($-colours, "bright-blue-20-tint") 40%),
+  "yellow": linear-gradient(135deg, map.get($-colours, "yellow-10-tint") 0%, map.get($-colours, "yellow-20-tint") 40%),
+  "black": linear-gradient(135deg, #383233 0%, map.get($-colours, "black") 40%),
 );
 
 // Public members
@@ -68,6 +75,12 @@ $-colours: (
 
   #{$-root}\!t-border-#{$colourKey} {
     border: 1px solid $colourValue !important;
+  }
+}
+
+@each $gradKey, $gradValue in $-gradients {
+  #{$-root}\!t-bg-grad-#{$gradKey} {
+    background: $gradValue !important;
   }
 }
 

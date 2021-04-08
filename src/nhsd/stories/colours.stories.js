@@ -32,14 +32,21 @@ export default {
   },
 };
 
-const ColourCard = (args) => `<div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4 nhsd-t-col-l-3 nhsd-!t-margin-bottom-7">
+const ColourCard = (args) => {
+  let hexCode = '';
+  if (args.code) {
+    hexCode = `<span class="nhsd-t-body-s nhsd-!t-font-weight-bold">Hex: </span><span class="nhsd-t-body-s nhsd-!t-uppercase">#${args.code}</span>`;
+  }
+
+  return `<div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4 nhsd-t-col-l-3 nhsd-!t-margin-bottom-7">
   <div class="nhsd-a-box nhsd-!t-margin-bottom-3 nhsd-!t-bg-${args.key} ${args.classes ? args.classes : ''}" style="padding-bottom: 56.25%;"></div>
   <span class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">${args.name}</span>
   <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" />
-  <span class="nhsd-t-body-s nhsd-!t-font-weight-bold">Hex: </span><span class="nhsd-t-body-s nhsd-!t-uppercase">#${args.code}</span>
+  ${hexCode}
   <br>
   <span class="nhsd-t-body-s nhsd-!t-font-weight-bold">Key: </span><span class="nhsd-t-body-s">${args.key}</span>
 </div>`;
+};
 
 export const ColourPalette = () => {
   const div = document.createElement('div');
@@ -209,6 +216,29 @@ export const ColourPalette = () => {
       name: 'Mid red 10 tint',
       key: 'mid-red-10-tint',
       code: 'ffebeb',
+    })}
+  </div>
+  <div class="nhsd-t-row">
+    <div class="nhsd-t-col">
+      <h2 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-6">Gradient colour palette</h2>
+    </div>
+  </div>
+  <div class="nhsd-t-row">
+    ${ColourCard({
+      name: 'Grey',
+      key: 'grad-grey',
+    })}
+    ${ColourCard({
+      name: 'Blue',
+      key: 'grad-blue',
+    })}
+    ${ColourCard({
+      name: 'Yellow',
+      key: 'grad-yellow',
+    })}
+    ${ColourCard({
+      name: 'Black',
+      key: 'grad-black',
     })}
   </div>
 </div>`;

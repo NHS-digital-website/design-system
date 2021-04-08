@@ -5,6 +5,11 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
+// Load banner images
+import bannerImage from '../../../assets/images/banner-image.jpg';
+import backgroundBannerImage from '../../../assets/images/background-image.jpg';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -449,7 +454,9 @@ export const HeaderBannerSimpleComponent = Template.bind({});
 HeaderBannerSimpleComponent.storyName = 'Simple header banner component (light blue)';
 HeaderBannerSimpleComponent.args = {
   classes: 'nhsd-!t-bg-bright-blue-20-tint',
-  introText: 'Digital inclusion for health and social care',
+  introText: {
+    text: 'Digital inclusion for health and social care',
+  },
   title: {
     label: 'What we mean by digital inclusion',
     classes: 'nhsd-t-heading-xl',
@@ -470,7 +477,9 @@ export const HeaderBannerDetailedComponent = Template.bind({});
 HeaderBannerDetailedComponent.storyName = 'Detailed header banner component (light blue)';
 HeaderBannerDetailedComponent.args = {
   classes: 'nhsd-!t-bg-bright-blue-20-tint',
-  introText: 'Publication, Part of <a class="nhsd-a-link" href="#">[MI] Potential Covid-19 symptoms reported through NHS Pathways and 111 online</a>',
+  introText: {
+    text: 'Publication, Part of <a class="nhsd-a-link" href="#">[MI] Potential Covid-19 symptoms reported through NHS Pathways and 111 online</a>',
+  },
   title: {
     label: 'Potential Coronavirus (Covid-19) symptoms reported through NHS Pathways and 111 online, Week Ending 28th February 2021',
     classes: 'nhsd-t-heading-xl',
@@ -560,7 +569,9 @@ DarkBlueHeaderBannerDetailedComponent.storyName = 'Detailed header banner compon
 DarkBlueHeaderBannerDetailedComponent.args = {
   ...HeaderBannerDetailedComponent.args,
   classes: 'nhsd-!t-bg-blue nhsd-!t-col-white',
-  introText: 'Publication, Part of <a class="nhsd-a-link nhsd-a-link--col-white" href="#">[MI] Potential Covid-19 symptoms reported through NHS Pathways and 111 online</a>',
+  introText: {
+    text: 'Publication, Part of <a class="nhsd-a-link nhsd-a-link--col-white" href="#">[MI] Potential Covid-19 symptoms reported through NHS Pathways and 111 online</a>',
+  },
   title: {
     ...HeaderBannerDetailedComponent.args.title,
     classes: 'nhsd-t-heading-xl nhsd-!t-col-white',
@@ -598,6 +609,110 @@ DarkBlueHeroDescriptionComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${DarkBlueHeroDescriptionComponent(DarkBlueHeroDescriptionComponent.args)}`,
+    },
+  },
+};
+
+export const ImageHeroBanner = Template.bind({});
+ImageHeroBanner.storyName = 'Image hero banner';
+ImageHeroBanner.args = {
+  classes: 'nhsd-!t-bg-grad-black nhsd-!t-col-white',
+  title: {
+    label: 'Shielded Patient List',
+    classes: 'nhsd-t-heading-xl nhsd-!t-col-white',
+  },
+  text: {
+    label: 'NHS Digital has published the Shielded Patient List (SPL), which is enabling partner organisations across government to support and protect those who need shielding at this time.',
+    classes: 'nhsd-t-body',
+  },
+  imageBanner: {
+    ariaHidden: true,
+    sourceSet: [{
+      url: bannerImage,
+    }],
+    alt: 'Abstract lights',
+  },
+  leftAlign: true,
+};
+ImageHeroBanner.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ImageHeroBanner(ImageHeroBanner.args)}`,
+    },
+  },
+};
+
+export const CoverImageHeroBanner = Template.bind({});
+CoverImageHeroBanner.storyName = 'Image hero banner (cover image)';
+CoverImageHeroBanner.args = {
+  classes: 'nhsd-!t-bg-grad-black nhsd-!t-col-white',
+  title: {
+    label: 'Shielded Patient List',
+    classes: 'nhsd-t-heading-xl nhsd-!t-col-white',
+  },
+  text: {
+    label: 'NHS Digital has published the Shielded Patient List (SPL), which is enabling partner organisations across government to support and protect those who need shielding at this time.',
+    classes: 'nhsd-t-body',
+  },
+  imageBanner: {
+    ariaHidden: true,
+    sourceSet: [{
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }],
+    alt: 'Abstract lights',
+    classes: 'nhsd-a-image--cover',
+  },
+  leftAlign: true,
+};
+CoverImageHeroBanner.parameters = {
+  docs: {
+    description: {
+      story: '- Styling the image with `nhsd-a-image--cover` or `nhsd-a-image--contain` can be useful in situations where an image\'s aspect ratio does not need to be preserved.',
+    },
+    source: {
+      code: `${sourceCode}\n${CoverImageHeroBanner(CoverImageHeroBanner.args)}`,
+    },
+  },
+};
+
+export const BackgroundImageHeroBanner = Template.bind({});
+BackgroundImageHeroBanner.storyName = 'Background image hero banner';
+BackgroundImageHeroBanner.args = {
+  classes: 'nhsd-!t-bg-pale-grey nhsd-!t-text-align-center',
+  introText: {
+    text: 'NHS Digital Careers',
+    classes: 'nhsd-t-heading-xs',
+  },
+  title: {
+    label: 'Making the technology make a difference',
+    classes: 'nhsd-t-heading-xl',
+  },
+  text: {
+    label: 'We\'re using data and digital technology to make a positive difference to people\'s lives. Join us and you could become part of the team that designs, builds and maintains the digital infrastructure that supports the NHS. You could also help to manage the vast body of data that informs decision-making across the health service.',
+    classes: 'nhsd-t-heading-s nhsd-!t-margin-bottom-6',
+  },
+  backgroundImage: {
+    ariaHidden: true,
+    sourceSet: [{
+      url: backgroundBannerImage,
+    }],
+    alt: 'Abstract lights',
+    classes: 'nhsd-a-image--cover',
+  },
+  button: {
+    el: 'a',
+    label: 'Watch the video',
+    href: '#',
+  },
+};
+BackgroundImageHeroBanner.parameters = {
+  docs: {
+    description: {
+      story: `- Hero styled with the \`nhsd-o-hero--background-image\` varient
+- Uses \`nhsd-o-hero__background-image\` and \`nhsd-a-image--cover\` to position the image behind content`,
+    },
+    source: {
+      code: `${sourceCode}\n${BackgroundImageHeroBanner(BackgroundImageHeroBanner.args)}`,
     },
   },
 };
