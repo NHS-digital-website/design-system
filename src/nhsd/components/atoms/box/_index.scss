@@ -59,6 +59,10 @@ $border-width: .115rem;
       background: nhsd-colours.get("accessible-blue");
     }
 
+    &-light-blue {
+      background: nhsd-colours.get('bright-blue-20-tint');
+    }
+
     &-yellow {
       background: nhsd-colours.get("yellow");
     }

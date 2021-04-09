@@ -1,0 +1,55 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_icon,
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_image
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-infographic" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Set box classes -#}
+{% set boxClasses = 'nhsd-a-box--bg-light-grey' %}
+{% if params.box.classes %}
+  {% set boxClasses = params.box.classes %}
+{% endif %}
+
+<div class="{{ classNames }}">
+  {{ nhsd_a_box_start(boxClasses) }}
+
+    {% if params.icon|length > 0 and params.image|length === 0 %}
+      <div class="nhsd-m-infographic__icon-box">
+        {{ nhsd_a_icon(params.icon) }}
+      </div>
+    {% endif %}
+
+    {% if params.image|length > 0 %}
+      <div class="nhsd-m-infographic__image-box">
+        {{ nhsd_a_image(params.image) }}
+      </div>
+    {% endif %}
+
+    {% if params.headline %}
+      <div class="nhsd-m-infographic__headline-box">
+        <h1 class="nhsd-t-heading-l nhsd-t-word-break">{{ params.headline }}</h1>
+      </div>
+    {% endif %}
+
+    {% if params.explanatoryLine %}
+      <div class="nhsd-m-infographic__explanatory-line-box">
+        <h1 class="nhsd-t-heading-m nhsd-t-word-break">{{ params.explanatoryLine }}</h1>
+      </div>
+    {% endif %}
+
+    {% if params.qualifyingInfo %}
+      <div class="nhsd-m-infographic__qualifying-info-box">
+        <p class="nhsd-t-body nhsd-t-word-break">{{ params.qualifyingInfo }}</p>
+      </div>
+    {% endif %}
+
+  {{ nhsd_a_box_end() }}
+</div>
