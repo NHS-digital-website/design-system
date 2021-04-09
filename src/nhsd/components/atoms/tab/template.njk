@@ -1,0 +1,27 @@
+{# Set classes #}
+{%- set classNames = "nhsd-a-tab" -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{# Set label #}
+{%- set label = "Simple tab" -%}
+{%- if params.label -%}
+  {% set label = params.label %}
+{%- endif -%}
+
+{# Set URL and target #}
+{%- set href="#" %}
+{% set target = "" -%}
+
+{%- if params.href %}
+  {%- set href = params.href -%}
+{% endif -%}
+
+{%- if params.external %}
+  {%- set external = true -%}
+{% endif -%}
+
+<a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>{{ label }}
+  {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
+</a>

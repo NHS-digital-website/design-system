@@ -19,6 +19,10 @@ $-root: ".nhsd-a-horizontal-rule";
     margin: nhsd-spacing.get(6) 0;
   }
 
+  &--size-xxs {
+    margin: 0;
+  }
+
   &--size-xs {
     margin: nhsd-spacing.get(1) 0;
   }

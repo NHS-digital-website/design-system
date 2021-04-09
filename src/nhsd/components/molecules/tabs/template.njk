@@ -1,0 +1,17 @@
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_tab,
+  nhsd_a_horizontal_rule
+-%}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-tabs" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+<nav class="{{ classNames }}">
+  {% for tab in params.tabs -%}
+    {{ nhsd_a_tab(tab) }}
+  {%- endfor %}
+  {{nhsd_a_horizontal_rule(params.horizontalLine)}}
+</nav>

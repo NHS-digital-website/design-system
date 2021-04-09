@@ -1,0 +1,93 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-a-tab";
+
+#{$-root} {
+  @include nhsd-utils.box-sizing;
+  @include nhsd-fonts.font-family;
+
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  margin: 0 nhsd-spacing.get(4) 0 0;
+  padding-top: calc(#{vars.$base-line-thickness} + #{vars.$active-line-thickness});
+  border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
+  color: nhsd-colours.get("blue");
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    margin-bottom: nhsd-spacing.get(3);
+    padding-bottom: 0;
+    border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+    outline: none;
+    color: nhsd-colours.get("black");
+    background-color: nhsd-colours.get("yellow");
+    @include nhsd-fonts.font-weight("regualr", "false");
+  }
+
+  &__active {
+    margin-bottom: 0;
+    padding-bottom: nhsd-spacing.get(3);
+    border-bottom: vars.$active-line-thickness solid nhsd-colours.get("dark-blue");
+    outline: none;
+    color: nhsd-colours.get("dark-blue");
+    @include nhsd-fonts.font-weight("bold", "false");
+
+    &--col-white {
+      border-bottom: vars.$base-line-thickness solid nhsd-colours.get("white");
+      color: nhsd-colours.get("white");
+    }
+
+    &--col-black {
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      color: nhsd-colours.get("white");
+    }
+
+    &--col-dark-grey {
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      color: nhsd-colours.get("black");
+    }
+
+    &:focus,
+    &:hover {
+      margin-bottom: 0;
+      padding-bottom: nhsd-spacing.get(3);
+      @include nhsd-fonts.font-weight("bold", "false");
+    }
+  }
+
+  &--col-white {
+    border-bottom: vars.$base-line-thickness solid nhsd-colours.get("white");
+    color: nhsd-colours.get("white");
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: nhsd-colours.get("black");
+    }
+  }
+
+  &--col-dark-grey {
+    border-bottom: vars.$base-line-thickness solid nhsd-colours.get("dark-grey");
+    color: nhsd-colours.get("dark-grey");
+
+    &:focus,
+    &:hover {
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      color: nhsd-colours.get("black");
+      background-color: nhsd-colours.get("yellow");
+    }
+  }
+}
