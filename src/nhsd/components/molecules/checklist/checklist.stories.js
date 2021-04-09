@@ -141,3 +141,21 @@ CustomIcon.parameters = {
     },
   },
 };
+
+export const NoHeading = Template.bind({});
+NoHeading.storyName = sbConfig.title.CustomIcon;
+NoHeading.args = {
+  icon: 'check',
+  list: [
+    'One',
+    'Two',
+    'Three',
+  ],
+};
+NoHeading.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${NoHeading(NoHeading.args)}`,
+    },
+  },
+};

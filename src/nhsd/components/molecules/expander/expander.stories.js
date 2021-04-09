@@ -62,6 +62,7 @@ LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   heading: '"Most people" expander',
   content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
+  type: 'most people',
 };
 LabComponent.parameters = {
   docs: {

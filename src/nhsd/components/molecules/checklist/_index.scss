@@ -11,6 +11,10 @@ $-root: ".nhsd-m-checklist";
 #{$-root} {
   &__list-container {
     padding-top: nhsd-spacing.get(7);
+
+    &.no-heading {
+      padding-top: nhsd-spacing.get(1);
+    }
   }
 
   &__header {

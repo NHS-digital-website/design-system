@@ -19,6 +19,12 @@
   {% set listClass = 'nhsd-t-list' %}
 {% endif %}
 
+{#- Set list container class -#}
+{% set listContainerClass = 'nhsd-m-checklist__list-container no-heading' %}
+{% if params.heading %}
+  {% set listContainerClass = 'nhsd-m-checklist__list-container' %}
+{% endif %}
+
 {#- Set icon colour and key -#}
 {% if icon == 'cross' %}
   {% set iconKey = 'x' %}
@@ -30,10 +36,12 @@
 
 <div class="{{ classNames }}">
   {{ nhsd_a_box_start('nhsd-a-box--border-grey') }}
-    <span class="nhsd-t-heading-s nhsd-!t-col-white nhsd-m-checklist__header">
-      {{ params.heading }}
-    </span>
-    <div class="nhsd-m-checklist__list-container">
+    {% if params.heading %}
+      <span class="nhsd-t-heading-s nhsd-!t-col-white nhsd-m-checklist__header">
+        {{ params.heading }}
+      </span>
+    {% endif %}
+    <div class="{{ listContainerClass }}">
       <ul class="{{listClass}} nhsd-!t-margin-bottom-0">
         {% for item in params.list %}
           {% if icon == 'custom' %}
