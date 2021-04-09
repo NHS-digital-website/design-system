@@ -42,6 +42,19 @@ LabComponent.parameters = {
   },
 };
 
+export const ExtraSmallComponent = Template.bind({});
+ExtraSmallComponent.storyName = 'Small';
+ExtraSmallComponent.args = {
+  classes: 'nhsd-a-horizontal-rule--size-xs',
+};
+ExtraSmallComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ExtraSmallComponent(ExtraSmallComponent.args)}`,
+    },
+  },
+};
+
 export const SmallComponent = Template.bind({});
 SmallComponent.storyName = 'Small';
 SmallComponent.args = {
