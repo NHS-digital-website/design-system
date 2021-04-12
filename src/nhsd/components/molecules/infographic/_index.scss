@@ -1,0 +1,51 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/colours" as nhsd-colours;
+
+// Private members
+$-root: ".nhsd-m-infographic";
+
+#{$-root} {
+  &__headline-box,
+  &__explanatory-line-box,
+  &__qualifying-info-box,
+  &__icon-box,
+  &__image-box {
+    text-align: center;
+  }
+
+  .nhsd-a-box {
+    @include nhsd-spacing.set-responsive('padding', 10);
+    @include nhsd-spacing.set-responsive('padding-top', 8);
+    @include nhsd-spacing.set-responsive('padding-bottom', 8);
+    overflow: hidden;
+  }
+
+  &__icon-box {
+    margin-bottom: nhsd-spacing.get(3);
+  }
+
+  &__image-box {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    max-width: nhsd-spacing.get(8);
+    margin: 0 auto;
+    margin-bottom: nhsd-spacing.get(3);
+  }
+
+  &__headline-box {
+    .nhsd-t-heading-l {
+      margin-bottom: nhsd-spacing.get(1);
+    }
+  }
+
+  &__qualifying-info-box {
+    .nhsd-t-body {
+      margin-bottom: 0;
+    }
+  }
+}
