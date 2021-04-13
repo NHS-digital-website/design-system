@@ -1,0 +1,24 @@
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_selector_toggle
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-selector-toggle-card" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+
+<label class="{{ classNames }}" aria-label="{{params.label}}">
+  {{ nhsd_a_box_start(params.box.classes) }}
+    <span class="nhsd-m-selector-toggle-card__toggle" >
+        {{ nhsd_a_selector_toggle(params.selector) }}
+    </span>
+    <div class="nhsd-m-selector-toggle-card__content" >
+      <p class="nhsd-t-heading-s">{{ params.title|safe }}</p>
+      <p class="nhsd-t-body-s nhsd-!t-margin-0">{{ params.text|safe }}</p>
+    </div>
+  {{ nhsd_a_box_end() }}
+</label>

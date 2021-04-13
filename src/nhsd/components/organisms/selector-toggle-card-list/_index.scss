@@ -1,0 +1,26 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Token
+@use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-o-selector-toggle-card-list";
+
+#{$-root} {
+  display: block;
+  position: relative;
+
+  &__items {
+    @include nhsd-spacing.set-responsive("margin-bottom", 4);
+
+    [class^="nhsd-t-col"] {
+      padding-bottom: nhsd-grid.$gutter * 2;
+
+      @include mq($until: s) {
+        padding-bottom: nhsd-grid.$small-gutter * 2;
+      }
+    }
+  }
+}

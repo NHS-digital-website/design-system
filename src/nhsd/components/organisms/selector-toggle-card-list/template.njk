@@ -1,0 +1,18 @@
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_selector_toggle_card
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-selector-toggle-card-list" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  {% for toggleCard in params.toggleCardList -%}
+    <div class="nhsd-t-col-12">
+      {{ nhsd_m_selector_toggle_card(toggleCard) }}
+    </div>
+  {% endfor -%}
+</div>
