@@ -481,3 +481,68 @@ BlockQuoteWithLink.parameters = {
     },
   },
 };
+
+export const SuperscriptComponent = () => {
+  const div = document.createElement('div');
+  div.innerHTML = `100<sup>2</sup><br />
+H<sub>2</sub>O`;
+  return div;
+};
+SuperscriptComponent.storyName = 'Superscript / Subscript';
+SuperscriptComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${SuperscriptComponent().innerHTML}`,
+    },
+  },
+};
+
+export const StrikeComponent = () => {
+  const div = document.createElement('div');
+  div.innerHTML = 'Fusce id malesuada quam, sit amet tristique purus. <del>Pellentesque quam augue, tincidunt sed dolor a, posuere laoreet mi. Quam augue</del>';
+  return div;
+};
+StrikeComponent.storyName = 'Strike';
+StrikeComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${StrikeComponent().innerHTML}`,
+    },
+  },
+};
+
+export const MathJaxComponent = () => {
+  const div = document.createElement('div');
+  div.innerHTML = `<p>The lower and upper limits of the 95% and 99.8% confidence interval for the indirectly standardised rate are calculated by finding the lower and upper limits of the standardised ratio and multiplying by the overall crude rate of the standard population. &#160;The Byar’s approximation is used as it is a sufficiently accurate approximation to the Poisson probabilities (from Breslow NE and Day NE. Statistical Methods in Cancer Research, Volume II: The Design and Analysis of Cohort Studies. Lyon: International Agency for Research on Cancer, World Health Organization, 1987: 69).</p>
+
+  <p style="text-align:justify">The 95% limits are given by:</p>
+  
+  <p style="text-align:center"><span class="math-tex">\\({ IS_{Rate(LL 95.0)} = \\frac {O}{E} \\times \\Bigg \\{ 1 - \\frac {1}{9O} - \\frac {1.96}{\\sqrt[3]{(O+1)}} \\Bigg \\}^3 \\times \\lambda \\times 100 }\\)</span></p>
+  
+  <p style="text-align:center"><span class="math-tex">\\({&#160;IS_{Rate(UL 95.0)} = \\frac {(O+1)}{E} \\times \\Bigg \\{ 1 - \\frac {1}{9(O+1)} + \\frac {1.96}{\\sqrt[3]{(O+1)}} \\Bigg \\}^3 \\times \\lambda \\times 100 }\\)</span></p>
+  
+  <p style="text-align:justify">The 99.8% limits are given by:</p>
+  
+  <p style="text-align:center"><span class="math-tex">\\({ IS_{Rate(LL 99.8)} = \\frac {O}{E} \\times \\Bigg \\{ 1 - \\frac {1}{9O} - \\frac {3.09}{\\sqrt[3]{(O+1)}} \\Bigg \\}^3 \\times \\lambda \\times 100 }\\)</span></p>
+  
+  <p style="text-align:center"><span class="math-tex">\\({&#160;IS_{Rate(UL 99.8)} = \\frac {(O+1)}{E} \\times \\Bigg \\{ 1 - \\frac {1}{9(O+1)} + \\frac {3.09}{\\sqrt[3]{(O+1)}} \\Bigg \\}^3 \\times \\lambda \\times 100 }\\)</span></p>
+  
+  <p>(expressed per 100 denominator population)</p>
+  
+  <p>where:</p>
+  
+  <p>\\(\\mathsf{O}&#160;\\)&#160;is the total observed number of events in the subject population</p>
+  
+  <p>\\(\\mathsf{E}&#160;\\)&#160;is the total expected number of events in the subject population</p>
+  
+  <p>\\(\\mathsf{\\lambda}&#160;\\)&#160;is the overall crude rate in the standard population.</p>`;
+  return div;
+};
+MathJaxComponent.storyName = 'MathJax';
+MathJaxComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${MathJaxComponent().innerHTML}`,
+    },
+  },
+};

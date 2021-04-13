@@ -1,0 +1,80 @@
+// Private members
+$-root: ".nhsd-m-table";
+
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+#{$-root} {
+  &__mobile-list {
+    @include mq($from: s) {
+      display: none;
+    }
+
+    font-size: .888rem;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul > li > ul {
+      margin-bottom: nhsd-spacing.get(6);
+      padding: nhsd-spacing.get(2) 0;
+      border: 2px solid nhsd-colours.get('mid-grey-20-tint');
+      border-radius: 10px;
+
+      &#{$-root}__mobile-list-item--highlighted {
+        border: none;
+        background: nhsd-colours.get('pale-grey-80-tint');
+      }
+    }
+
+    ul > li > ul > li {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 nhsd-spacing.get(4);
+      padding: nhsd-spacing.get(2) 0;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid nhsd-colours.get('mid-grey-20-tint');
+      }
+
+      &#{$-root}__mobile-list-item-row--no-borders {
+        padding-bottom: 0;
+        border: none;
+      }
+
+      span {
+        text-align: right;
+
+        &:first-child {
+          padding-right: nhsd-spacing.get(2);
+          color: nhsd-colours.get('black');
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &--colour-white {
+    #{$-root}__mobile-list {
+      ul > li > ul {
+        & > li {
+          span {
+            color: nhsd-colours.get('white');
+          }
+        }
+
+        &#{$-root}__mobile-list-item--highlighted {
+          background: rgba(255, 255, 255, .2);
+        }
+      }
+    }
+  }
+}
