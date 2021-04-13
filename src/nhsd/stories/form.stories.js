@@ -56,6 +56,20 @@ export const LabComponent = () => {
       </span>
     </div>
   </div>
+  <label for="switch" class="nhsd-m-selector-toggle-card nhsd-a-box-link">
+    <div class="nhsd-a-box nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey ">
+      <div>
+        <h1 class="nhsd-t-heading-s">Preference</h1>
+        <span class="nhsd-m-selector-toggle-card__toggle" >
+          <div class="nhsd-a-selector-toggle" >
+            <input id="switch" type="checkbox" />
+            <label for="switch" class="slider" aria-label="switch"/>
+          </div>
+        </span>
+        <p class="nhsd-t-body-s">These mean we can show you content</p>
+      </div>
+    </div>
+  </label>
 </form>`;
   return div;
 };

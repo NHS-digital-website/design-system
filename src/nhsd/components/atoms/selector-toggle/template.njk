@@ -1,0 +1,17 @@
+{#- Set classes for this component -#}
+{% set classNames = "nhsd-a-selector-toggle" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{%- if not params.nested -%}
+  <label class="{{ classNames }}" aria-label="{{ params.label }}"/>
+    <input type="checkbox" checked/>
+    <span class="slider"></span>
+  </label>
+{%- else -%}
+  <div class="{{ classNames }}" />
+    <input type="checkbox" checked/>
+    <span class="slider"></span>
+  </div>
+{%- endif-%}

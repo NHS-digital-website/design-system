@@ -1,0 +1,48 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+
+// Private members
+$-root: ".nhsd-m-selector-toggle-card";
+
+#{$-root} {
+  &__toggle {
+    display: block;
+    position: absolute;
+    top: 1.111rem;
+    right: 2.1rem;
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .nhsd-a-selector-toggle {
+      .slider {
+        box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
+      }
+
+      input:checked + .slider {
+        background-color: nhsd-colours.get("dark-blue");
+      }
+
+      &--start {
+        input:checked + .slider {
+          background-color: nhsd-colours.get("dark-green");
+        }
+      }
+
+      &--cancel {
+        input:checked + .slider {
+          background-color: nhsd-colours.get("accessible-red");
+        }
+      }
+    }
+  }
+}

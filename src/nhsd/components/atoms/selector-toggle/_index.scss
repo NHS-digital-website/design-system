@@ -1,0 +1,106 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+
+// Private members
+$-root: ".nhsd-a-selector-toggle";
+
+#{$-root} {
+  position: relative;
+
+  input {
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+
+  .slider {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 3.5rem;
+    height: 24px;
+    transition: nhsd-transition.$transition-duration;
+    border-radius: 1.2rem;
+    background-color: nhsd-colours.get("pale-grey");
+    box-shadow: 0 0 0 .167rem transparent;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
+    }
+  }
+
+  .slider:before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    transition-duration: nhsd-transition.$transition-duration;
+    border-radius: 100%;
+    background: nhsd-colours.get("dark-grey");
+  }
+
+  .slider:after {
+    content: 'Off';
+    position: absolute;
+    top: 1px;
+    padding-left: nhsd-spacing.get(6);
+    font-size: .888rem;
+    letter-spacing: -.0166rem;
+    line-height: 1.4375;
+    vertical-align: top;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(2.2rem);
+    background: nhsd-colours.get("white");
+  }
+
+  input:checked + .slider:after {
+    content: 'On';
+    padding-left: nhsd-spacing.get(2);
+    color: nhsd-colours.get("white");
+    font-size: .888rem;
+    letter-spacing: -.0166rem;
+    line-height: 1.4375;
+    vertical-align: top;
+  }
+
+  input:checked + .slider {
+    background-color: nhsd-colours.get("blue");
+
+    &:hover {
+      background-color: nhsd-colours.get("dark-blue");
+    }
+  }
+
+  &--start {
+    input:checked + .slider {
+      background-color: nhsd-colours.get("dark-green");
+
+      &:hover {
+        background-color: nhsd-colours.get("dark-green");
+      }
+    }
+  }
+
+  &--cancel {
+    input:checked + .slider {
+      background-color: nhsd-colours.get("red");
+
+      &:hover {
+        background-color: nhsd-colours.get("accessible-red");
+      }
+    }
+  }
+}
