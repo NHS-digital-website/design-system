@@ -1,0 +1,76 @@
+{# Set classes #}
+{%- set baseClass = "nhsd-m-table" -%}
+{%- set classNames = baseClass -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+{%- if params.colour -%}
+  {% set classNames = classNames + " " + baseClass + "--colour-" + params.colour %}
+{%- endif -%}
+
+<div class="{{ classNames }} nhsd-t-body">
+  <h2 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-6 {{ params.heading.classes }}">{{ params.heading.text }}</h2>
+
+  {% set tableResponsive = '' -%}
+  {%- if params.table.repsonsive -%}
+    {%- set tableResponsive = 'data-responsive' -%}
+  {%- endif -%}
+  {% set tableResponsiveClass = '' -%}
+  {%- if params.mobile -%}
+    {%- set tableResponsiveClass = 'class="nhsd-t-display-hide nhsd-t-display-s-show-table"' -%}
+  {%- endif -%}
+  {%- if params.disableSort -%}
+    {%- set noSort = 'data-no-sort' -%}
+  {%- endif -%}
+  <table {{ tableResponsiveClass|safe }} {{ tableResponsive }} {{ noSort }}>
+    <thead>
+      <tr>
+        {%- for heading in params.table.headings %}
+          {%- set noSort = '' -%}
+          {%- if heading.disableSort -%}
+          {%- set noSort = 'data-no-sort' -%}
+          {%- endif -%}
+          <th {{ noSort }}>{{ heading.text }}</th>
+        {%- endfor %} 
+      </tr>
+    </thead>
+    {%- for group in params.table.data %}
+      {%- set tbodyClass = '' -%}
+      {%- if group.highlight -%}
+      {%- set tbodyClass = 'class="nhsd-m-table__highlighted-items"' -%}
+      {%- endif -%}
+      <tbody {{ tbodyClass|safe }}>
+        {%- for cell in group.cells %}
+        <tr>
+          {%- for item in cell %}
+            <td>{{ item }}</td>
+          {%- endfor %}
+        </tr>
+        {%- endfor %}
+      </tbody>
+    {%- endfor %} 
+  </table>
+
+  {%- if params.mobile -%}
+    {%- set baseClass = "nhsd-m-table__mobile-list" -%}
+    <div class="{{ baseClass }}">
+      <ul>
+      {%- for list in params.mobile.lists %}
+        <li>
+          <ul class="{{ baseClass }}-item {{ list.classes }}">
+          {%- if list.title -%}
+            <li class="nhsd-m-table__mobile-list-item-row nhsd-m-table__mobile-list-item-row--no-borders"><h2 class="nhsd-t-heading-m nhsd-!t-margin-0">{{ list.title }}</h2></li>
+          {%- endif -%}
+          {%- for row in list.rows %}
+            <li class="{{ baseClass }}-item-row {{ row.classes }}">
+              <span><b>{{ row.vals[0] }}</b></span>
+              <span>{{ row.vals[1] }}</span>
+            </li>
+          {%- endfor %}
+          </ul>
+        </li>
+      {%- endfor %} 
+      </ul>
+    </div>
+  {%- endif -%}
+</div>

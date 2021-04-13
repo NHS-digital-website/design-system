@@ -1,13 +1,21 @@
 import "../src/nhsd/scss-core/base/_index.scss";
 import init from "../src/nhsd/script-core/init";
 
+const rootNode = document.getElementById('root');
+const docsRootNode = document.getElementById('docs-root');
+
 // Wait for storybook to initalise
 const observer = new MutationObserver(() => {
+  observer.disconnect();
   init();
+  MathJax.startup.defaultReady();
+  MathJax.startup.promise.then(() => {
+    observer.observe(rootNode, { childList: true, attributes: true });
+    observer.observe(docsRootNode, { childList: true, attributes: true });
+  });
 });
-const rootNode = document.getElementById('root');
+
 observer.observe(rootNode, { childList: true, attributes: true });
-const docsRootNode = document.getElementById('docs-root');
 observer.observe(docsRootNode, { childList: true, attributes: true });
 
 export const parameters = {

@@ -71,4 +71,12 @@ $relative-base-font-size: ($base-font-size / 16px) * 1rem; // Relative to the tr
   }
 }
 
+// =========================================================
+// Default styles
+// =========================================================
+b,
+strong {
+  @include font-weight(bold, false);
+}
+
 // stylelint-enable declaration-no-important
