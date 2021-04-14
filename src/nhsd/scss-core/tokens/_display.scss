@@ -15,25 +15,25 @@ $-device-breakpoints: (xs,s,m,l,xl);
 
 #{$-root} {
   &-hide {
-    display: none;
+    display: none !important;
   }
 
   @each $-device in $-device-breakpoints {
     @include mq($from: $-device) {
       &-#{$-device}-hide {
-        display: none;
+        display: none !important;
       }
 
       &-#{$-device}-show {
-        display: block;
+        display: block !important;
       }
 
       &-#{$-device}-show-table {
-        display: table;
+        display: table !important;
       }
 
       &-#{$-device}-show-flex {
-        display: flex;
+        display: flex !important;
       }
     }
   }
