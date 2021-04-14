@@ -9,13 +9,13 @@
 // Tokens
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 
-$-root: ".nhsd-t-display";
-
 $-device-breakpoints: (xs,s,m,l,xl);
 
-#{$-root} {
+.nhsd-\!t-display {
+  $-root: &;
+
   &-hide {
-    display: none;
+    display: none !important;
   }
 
   @each $-device in $-device-breakpoints {
@@ -25,15 +25,15 @@ $-device-breakpoints: (xs,s,m,l,xl);
       }
 
       &-#{$-device}-show {
-        display: block;
+        display: block !important;
       }
 
       &-#{$-device}-show-table {
-        display: table;
+        display: table !important;
       }
 
       &-#{$-device}-show-flex {
-        display: flex;
+        display: flex !important;
       }
     }
   }

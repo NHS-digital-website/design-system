@@ -24,12 +24,12 @@ export default {
   },
 };
 
-export const LabComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug nhsd-t-display-hide">
+export const LabComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-col-white nhsd-!t-bg-dark-grey">Responsive show / hide</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-3 nhsd-t-display-hide nhsd-t-display-l-show">
+    <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
       Col 1 (Hidden on mobile)
     </div>
     <div class="nhsd-t-col-12 nhsd-t-col-l-9">
@@ -46,12 +46,12 @@ LabComponent.parameters = {
   },
 };
 
-export const ResponsiveShowHideComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug nhsd-t-display-hide">
+export const ResponsiveShowHideComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-col-white nhsd-!t-bg-dark-grey">Responsive show / hide</div>
   </div>
   <div class="nhsd-t-row">
-    <div class="nhsd-t-col-3 nhsd-t-display-hide nhsd-t-display-l-show">
+    <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
       Col 1 (Hidden on mobile)
     </div>
     <div class="nhsd-t-col-12 nhsd-t-col-l-9">
@@ -63,8 +63,8 @@ ResponsiveShowHideComponent.storyName = 'Responsive show / hide tokens';
 ResponsiveShowHideComponent.parameters = {
   docs: {
     description: {
-      story: `- The display token \`nhsd-t-display-hide\` is first applied to hide the left column.
-- The display token \`nhsd-t-display-l-show\` is then applied on top of \`nhsd-t-display-hide\` to show the left column on desktop breakpoints.
+      story: `- The display token \`nhsd-!t-display-hide\` is first applied to hide the left column.
+- The display token \`nhsd-!t-display-l-show\` is then applied on top of \`nhsd-!t-display-hide\` to show the left column on desktop breakpoints.
 - Finally the responsive \`grid\` class, \`nhsd-t-col-l-9\` is used to switch between a full width column to a 9 width column at desktop breakpoints.`,
     },
     source: {
@@ -73,13 +73,13 @@ ResponsiveShowHideComponent.parameters = {
   },
 };
 
-export const StickyComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug nhsd-t-display-hide">
+export const StickyComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-col-white nhsd-!t-bg-dark-grey">Sticky content</div>
   </div>
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-3">
-      <div class="nhsd-a-box nhsd-a-box--bg-light-grey nhsd-t-display-sticky nhsd-t-display-sticky--offset-2">Sticky box</div>
+      <div class="nhsd-a-box nhsd-a-box--bg-light-grey nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">Sticky box</div>
     </div>
     <div class="nhsd-t-col-9">
       <p class="nhsd-t-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed ornare tortor. Pellentesque interdum ex est, quis pellentesque nisl vehicula vel. Fusce commodo molestie quam, quis condimentum nisi feugiat a. Vivamus laoreet efficitur mi, a egestas augue convallis eu. Nulla egestas turpis vitae lacus molestie iaculis id ut ex. Proin rutrum, orci quis sagittis sagittis, dui leo pulvinar diam, sit amet pulvinar enim ex quis risus. Pellentesque consectetur a eros nec blandit. Cras tempor viverra nisl eget semper. Nullam nisl lacus, fermentum ut arcu ut, sagittis tincidunt diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eleifend purus sed sem lacinia elementum. Aliquam at elementum mauris. Nam justo mi, posuere a scelerisque at, semper eleifend ligula.</p>
@@ -98,8 +98,8 @@ StickyComponent.storyName = 'Sticky token';
 StickyComponent.parameters = {
   docs: {
     description: {
-      story: `- The display token \`nhsd-t-display-sticky\` is applied to the \`box\` atom to stick it to the top of the window when the grid leaves the page.
-- The modifier token \`nhsd-t-display-sticky--offset\` is then applied to add top margin when sticking to page.
+      story: `- The display token \`nhsd-!t-display-sticky\` is applied to the \`box\` atom to stick it to the top of the window when the grid leaves the page.
+- The modifier token \`nhsd-!t-display-sticky--offset\` is then applied to add top margin when sticking to page.
 - **Please Note**: This will only work in canvas view on storybook.`,
     },
     source: {
