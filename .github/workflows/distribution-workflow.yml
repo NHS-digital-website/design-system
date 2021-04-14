@@ -456,7 +456,7 @@ jobs:
         working-directory: ${{steps.download.outputs.download-path}}
         run: aws s3 sync . s3://design-system.digital.nhs.uk/cdn/latest --delete
       - name: Refesh CloudFront Cache
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/storybook/latest/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/cdn/latest/*"
 
 
   #
