@@ -112,6 +112,7 @@ jobs:
         with:
           name: cdn-dist
           path: |
+            dist/fonts/
             dist/images/
             dist/scripts/
             dist/static/
