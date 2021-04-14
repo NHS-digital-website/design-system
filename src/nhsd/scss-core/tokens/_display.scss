@@ -21,7 +21,7 @@ $-device-breakpoints: (xs,s,m,l,xl);
   @each $-device in $-device-breakpoints {
     @include mq($from: $-device) {
       &-#{$-device}-hide {
-        display: none;
+        display: none !important;
       }
 
       &-#{$-device}-show {
