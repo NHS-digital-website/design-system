@@ -98,14 +98,14 @@ function makeOrderable(table) {
 
 function makeResponsive(table) {
     if (table.dataset.responsive === undefined) return;
-    table.classList.add('nhsd-t-display-hide');
-    table.classList.add('nhsd-t-display-s-show-table');
+    table.classList.add('nhsd-!t-display-hide');
+    table.classList.add('nhsd-!t-display-s-show-table');
 
     const tableHeader = table.querySelector('thead tr');
     const tableHeadings = tableHeader.querySelectorAll('td, th');
     const tableBodys = table.querySelectorAll('tbody');
 
-    let listElHtml = '<ul class="nhsd-t-display-s-hide">';
+    let listElHtml = '<ul class="nhsd-!t-display-s-hide">';
 
     Array.from(tableBodys).forEach((tableBody) => {
       const hightlighed = tableBody.classList.contains('nhsd-m-table__highlighted-items');
