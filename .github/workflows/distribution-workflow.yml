@@ -39,6 +39,83 @@ jobs:
           path: version
 
   #
+  # Build homepage distribution from source
+  #
+  build_homepage:
+    name: "Build Homepage Distribution"
+    needs:
+      - create_version
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      #
+      # Step 1
+      # Checkout the project's sourcecode
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #
+      # Step 2
+      # Set Node.js version
+      #
+      - name: Request Node Version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.6.0'
+
+      #
+      # Step 3
+      # Cache Management (CDN Distribution)
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v3
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nhs-digital-homepage-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-nhs-digital-homepage-${{ env.YEAR }}-
+            ${{ runner.os }}-nhs-digital-homepage-
+
+      #
+      # Step 4
+      #
+      - name: Initialise NPM
+        run: npm i
+        working-directory: homepage
+
+      #
+      # Step 5
+      #
+      - name: Build dist folder
+        run: npm run build
+        working-directory: homepage
+
+      #
+      # Step 6
+      # Store homepage distribution workflow artifacts
+      #
+      - name: Archive dist artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: homepage-dist
+          path: homepage/dist/
+
+  #
   # Build CDN Distribution from source
   #
   build_dist:
@@ -215,7 +292,6 @@ jobs:
           name: storybook-dist
           path: storybook-static/
 
-
   #
   # Build NPM Package from source
   #
@@ -293,13 +369,13 @@ jobs:
           path: |
             package/
 
-
   #
   # Create Versioned Release
   #
   tag_and_release:
     name: "Create GitHub Release"
     needs:
+      - build_homepage
       - build_dist
       - build_storybook
       - build_npm_package
@@ -357,6 +433,15 @@ jobs:
         working-directory: ${{steps.download.outputs.download-path}}/npm-dist
 
       #
+      # Step 3.4
+      #
+      - name: Zip Homepage distribution
+        run: |
+          echo ${{ steps.version.outputs.version }} > version
+          zip -r ../homepage-dist.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/homepage-dist
+
+      #
       # Step 4
       # Create Release
       # - Adds versioned release and tag
@@ -372,6 +457,16 @@ jobs:
           draft: false
           prerelease: false
 
+      - name: Upload Homepage Dist Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path:  ${{steps.download.outputs.download-path}}/homepage-dist.zip
+          asset_name: homepage-dist-${{ steps.version.outputs.version }}.zip
+          asset_content_type: application/zip
+
       - name: Upload CDN Dist Zip
         uses: actions/upload-release-asset@v1
         env:
@@ -381,7 +476,7 @@ jobs:
           asset_path:  ${{steps.download.outputs.download-path}}/cdn-dist.zip
           asset_name: cdn-dist-${{ steps.version.outputs.version }}.zip
           asset_content_type: application/zip
-    
+
       - name: Upload Storybook Zip
         uses: actions/upload-release-asset@v1
         env:
@@ -401,6 +496,56 @@ jobs:
           asset_path:  ${{steps.download.outputs.download-path}}/npm-dist.zip
           asset_name: npm-dist-${{ steps.version.outputs.version }}.zip
           asset_content_type: application/zip
+
+  #
+  # Put the homepage distribution artifact onto the S3 origin.
+  #
+  dist_homepage:
+    name: "Distribute Homepage"
+    needs:
+      - tag_and_release
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      #
+      # Step 1
+      # Download CDN artifact and merge version artifact into the same folder
+      #
+      - name: Download all workflow artifacts
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: homepage-dist
+          path: homepage-dist
+      - name: Download version artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: version
+          path: homepage-dist
+
+      #
+      # Step 2
+      # Set up AWS CLI
+      #
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      #
+      # Step 3
+      # Create versioned release in S3
+      #
+      # WARNING BEFORE UPDATING CONFIG
+      # The sync --delete has the power to remove everything from the bucket. Please try --dryrun before committing an
+      # update!!!
+      #
+      - name: Replace homepage and it's assets
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: aws s3 sync . s3://${{ secrets.S3_ORIGIN }}/ --exclude "cdn/*" --exclude "storybook/*" --exclude="error.html" --delete
 
   #
   # Put CDN distribution artifact onto the S3 origin.
@@ -434,7 +579,7 @@ jobs:
       # Step 2
       # Set up AWS CLI
       #
-      - name: Configure AWS credentials from Test account
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.PIPELINE_AWS_ACCESS_KEY_ID }}
@@ -447,17 +592,15 @@ jobs:
       #
       - name: Create version
         working-directory: ${{steps.download.outputs.download-path}}
-        run: aws s3 cp . s3://design-system.digital.nhs.uk/cdn/$(cat version) --recursive
+        run: aws s3 cp . s3://${{ secrets.S3_ORIGIN }}/cdn/$(cat version) --recursive
 
       #
       # Step 4
-      # Replace latest and invalid CloudFront's catch of latest
+      # Replace 'latest' folder's content
       #
       - name: Replace latest
         working-directory: ${{steps.download.outputs.download-path}}
-        run: aws s3 sync . s3://design-system.digital.nhs.uk/cdn/latest --delete
-      - name: Refesh CloudFront Cache
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/cdn/latest/*"
+        run: aws s3 sync . s3://${{ secrets.S3_ORIGIN }}/cdn/latest --delete
 
 
   #
@@ -492,7 +635,7 @@ jobs:
       # Step 2
       # Set up AWS CLI
       #
-      - name: Configure AWS credentials from Test account
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.PIPELINE_AWS_ACCESS_KEY_ID }}
@@ -505,14 +648,45 @@ jobs:
       #
       - name: Create version
         working-directory: ${{steps.download.outputs.download-path}}
-        run: aws s3 cp . s3://design-system.digital.nhs.uk/storybook/$(cat version) --recursive
+        run: aws s3 cp . s3://${{ secrets.S3_ORIGIN }}/storybook/$(cat version) --recursive
 
       #
       # Step 4
-      # Replace latest and invalid CloudFront's catch of latest
+      # Replace 'latest' folder's content
       #
       - name: Replace latest
         working-directory: ${{steps.download.outputs.download-path}}
-        run: aws s3 sync . s3://design-system.digital.nhs.uk/storybook/latest --delete
+        run: aws s3 sync . s3://${{ secrets.S3_ORIGIN }}/storybook/latest --delete
+
+
+  #
+  # Clear the CloudFront cache.
+  #
+  clear_cache:
+    name: "Clear CloudFront Cache"
+    needs:
+      - dist_homepage
+      - dist_cdn
+      - dist_storybook
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+
+      #
+      # Step 1
+      # Set up AWS CLI
+      #
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      #
+      # Step 2
+      # Replace latest and invalid CloudFront's catch of latest
+      #
       - name: Refesh CloudFront Cache
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/storybook/latest/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/storybook/latest/*" "/cdn/latest/*" "/index.html"
