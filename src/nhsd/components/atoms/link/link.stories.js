@@ -28,6 +28,7 @@ export default {
 },
     href: { control: 'text', description: '**href** determines the URL the user is taken to when they click the element.', required: true },
     external: { control: 'boolean', description: 'Determines whether the URL should open in a new tab. If **external** is set to true, screen readers read out "*...(opens in a new tab)*" after the link title.', defaultValue: false },
+    newTab: { control: 'boolean', description: 'Determines whether the URL should open in a new tab. If **external** is set to true, newTab is always true" after the link title.', defaultValue: false },
 	},
 };
 
@@ -170,6 +171,29 @@ ExternalLink.parameters = {
     },
     source: {
       code: `${sourceCode} ${externalLink}`,
+    },
+  },
+};
+
+const newTabLink = Link({
+  label: 'Crafting link underlines',
+  href: 'https://medium.design/crafting-link-underlines-on-medium-7c03a9274f9',
+  newTab: true,
+});
+export const NewTabLink = () => {
+  const p = document.createElement('p');
+  p.classList.add('nhsd-t-body');
+  p.innerHTML = externalLink;
+  return p;
+};
+NewTabLink.storyName = 'New tab link';
+NewTabLink.parameters = {
+  docs: {
+    description: {
+      story: 'New Tab links are links that open in a new tab. New tab links are announced to the screen reader as such.',
+    },
+    source: {
+      code: `${sourceCode} ${newTabLink}`,
     },
   },
 };

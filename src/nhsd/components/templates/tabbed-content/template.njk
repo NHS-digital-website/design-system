@@ -1,0 +1,18 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/molecules.njk" import nhsd_m_tabs -%}
+
+<div class="nhsd-t-grid">
+    <div class="nhsd-t-row nhsd-!t-margin-bottom-3">
+        <div class="nhsd-t-col-12">
+            {{ nhsd_m_tabs(params.tabs) }}
+        </div>
+    </div>
+    {% for content in params.content -%}
+        <div id="{{ content.contentId }}" class="nhsd-t-row nhsd-!t-margin-top-3" role="tabpanel" aria-hidden="true" aria-labelledby="tab-{{ content.contentId }}">
+            <div class="nhsd-t-col-12">
+                <p data-hide-tab-header class="nhsd-t-heading-l">{{ content.header }}</p>
+                {{ content.html|safe }}
+            </div>
+        </div>
+    {%- endfor %}
+</div>

@@ -16,12 +16,14 @@
 
 {%- if params.href %}
   {%- set href = params.href -%}
+{%- elif params.contentId -%}
+  {%- set href = "#" + params.contentId -%}
 {% endif -%}
 
 {%- if params.external %}
   {%- set external = true -%}
 {% endif -%}
 
-<a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>{{ label }}
+<a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}{%- if params.contentId %} id="tab-{{ params.contentId }}" data-tab-content="{{ params.contentId }}" aria-controls="{{ params.contentId }}"{% endif -%} aria-selected="false" role="tab">{{ label }}
   {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
 </a>

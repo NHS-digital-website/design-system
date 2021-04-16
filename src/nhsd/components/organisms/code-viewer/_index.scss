@@ -1,0 +1,78 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-o-code-viewer";
+
+#{$-root} {
+  width: 100%;
+
+  overflow: hidden;
+
+  border: 2px solid nhsd-colours.get("pale-grey");
+  border-radius: vars.$border-radius;
+
+  &__header,
+  &__footer,
+  &__example {
+    padding: nhsd-spacing.get(3);
+  }
+
+  &__footer {
+    padding-bottom: 0;
+    border-top: 2px solid nhsd-colours.get("pale-grey");
+  }
+
+  &__header {
+    text-align: right;
+  }
+
+  &__tab-content {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid nhsd-colours.get("pale-grey");
+  }
+
+  &__header,
+  &__tab-content {
+    &:nth-child(1) {
+      border-top: none;
+    }
+  }
+
+  &__code,
+  &__example {
+    height: 500px;
+  }
+
+  &__code {
+    position: relative;
+
+    &--wrap {
+      pre[class*="language-"] {
+        white-space: pre-wrap;
+      }
+    }
+
+    & > pre,
+    & > pre[class*="language-"] {
+      height: 100%;
+      margin: 0;
+      padding-top: nhsd-spacing.get(9);
+      border-radius: 0;
+      background: nhsd-colours.get("black");
+    }
+  }
+
+  &__copy-code {
+    content: 'Copy';
+    position: absolute;
+    z-index: 1;
+    top: nhsd-spacing.get(3);
+    right: nhsd-spacing.get(3);
+  }
+}
