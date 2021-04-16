@@ -18,10 +18,12 @@
   {%- set href = params.href -%}
 {% endif -%}
 
-{%- if params.external %}
-  {%- set external = true -%}
-{% endif -%}
-
-<a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>{{ label }}
-  {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
+<a class="{{ classNames }}" href="{{ href }}" {%- if  params.external or params.newTab %} target="_blank"{% endif -%}{%- if params.external %} rel="external"{% endif -%}>{{ label }}
+  <span class="nhsd-t-sr-only">
+  {%- if  params.external -%}
+    (external link, opens in a new tab)
+  {%- elif params.newTab -%}
+    (opens in a new tab)
+  {%- endif -%}
+  </span>
 </a>

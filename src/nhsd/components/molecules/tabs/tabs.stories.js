@@ -21,6 +21,7 @@ ${sbConfig.heading.basicRules}
 
 ### Developer notes
 
+- For an example implementation see, <a href="/?path=/docs/design-system-components-templates-tabbed-content-layout--tabbed-content">Tabbed Content Layout</a>
 - The **Tabs** molecule controls the responsive behaviour of the tab atoms.`;
 const sourceCode = `// Sass import \n@use "nhsd/components/molecules/tabs";
 

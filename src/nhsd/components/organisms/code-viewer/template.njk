@@ -1,0 +1,34 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_link -%}
+
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import nhsd_m_tabs -%}
+
+{% set classNames = "nhsd-o-code-viewer" %}
+
+<article class="{{ classNames }}">
+  {% if not params.noHeader -%}
+  <div class="{{ classNames }}__header">
+    {{ nhsd_a_link(params.exampleLink) }}
+  </div>
+  {%- endif %}
+  {% for code in params.code -%}
+  <div id="{{ code.contentId }}" class="{{ classNames }}__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-{{ code.contentId }}">
+    <p class="nhsd-t-heading-s nhsd-!t-margin-3" data-hide-tab-header>{{ code.header }}</p>
+    {% if code.language -%}
+      <div class="{{ classNames }}__code {% if code.wrap -%}{{ classNames }}__code--wrap{%- endif -%}">
+          <pre{%- if not code.noLineNumbers %} class="line-numbers"{%- endif -%}><code class="language-{{ code.language }}">{{ code.content }}</code></pre>
+      </div>
+    {%- else %}
+    <div class="{{ classNames }}__example">
+      {{ code.content|safe }}
+    </div>
+    {%- endif %}
+  </div>
+  {%- endfor %}
+  {% if params.tabs.tabs.length > 0 -%}
+  <div class="{{ classNames }}__footer">
+    {{ nhsd_m_tabs(params.tabs) }}
+  </div>
+  {%- endif %}
+</article>
