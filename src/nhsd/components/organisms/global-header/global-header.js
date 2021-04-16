@@ -11,6 +11,7 @@ export default class NHSDGlobalHeader {
     this.logoEl = this.hostEl.querySelector('#nhsd-global-header__logo');
     this.menuBarEl = this.hostEl.querySelector('#nhsd-global-header__menu');
     this.searchInput = this.hostEl.querySelector('#query');
+    this.menuBarActive = false;
 
     this.cachedProps = {
       html: {
@@ -36,7 +37,9 @@ export default class NHSDGlobalHeader {
   }
 
   initMenuBar() {
+    if (!this.hostEl) return;
     this.menuButtonEl = this.hostEl.querySelector('#nhsd-global-header__menu-button');
+    if (!this.menuButtonEl) return;
     this.menuButtonEl.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
@@ -63,6 +66,7 @@ export default class NHSDGlobalHeader {
 
   initSearchBar() {
     this.searchButtonEl = this.hostEl.querySelector('#nhsd-global-header__search-button');
+    if (!this.searchButtonEl) return;
     this.searchButtonEl.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
@@ -111,7 +115,7 @@ export default class NHSDGlobalHeader {
     this.hostEl.classList.add('js-search-active');
     this.searchButtonEl.classList.add('js-active');
     this.searchButtonEl.blur();
-    this.searchInput.focus();
+    if (this.searchInput) this.searchInput.focus();
     this.searchButtonEl.setAttribute('aria-expanded', true);
     this.searchBarActive = true;
 
@@ -147,6 +151,7 @@ export default class NHSDGlobalHeader {
   }
 
   setTabIndexes() {
+    if (!this.menuBarEl) return;
     const menuItems = Array.from(this.menuBarEl.querySelectorAll('.nhsd-a-menu-item'));
 
     if (this.menuBarActive) {
