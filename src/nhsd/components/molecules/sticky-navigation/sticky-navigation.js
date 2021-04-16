@@ -1,65 +1,63 @@
-/* global document window */
+/* global document window IntersectionObserver */
 import nhsd from '@/nhsd';
-import nhsdEvent from '@/helpers/nhsd-event';
 import debounce from 'debounce';
 
 const componentClass = 'nhsd-m-sticky-navigation';
+let stickyNavItems = [];
+let observer = null;
 
-let scheduledAnimationFrame = false;
-let activeElement = null;
-let trackedContent = [];
-let windowOffset = window.innerHeight * 0.1;
+const TOP_THRESHOLD = 0.1;
 
-function initItem(navItem) {
-    const contentId = navItem.dataset.navContent;
+function initItem(navEl) {
+    const contentId = navEl.dataset.navContent;
     const contentEl = document.querySelector(`#${contentId}`);
-
     if (!contentEl) return;
 
-    trackedContent.push({
-        navItem,
+    stickyNavItems.push({
+        navEl,
         contentEl,
     });
 }
 
-function updateActiveStates() {
-    let newActiveElement = null;
-    let newActiveElementPos = null;
-    trackedContent.forEach((trackedItem) => {
-        const pos = trackedItem.contentEl.getBoundingClientRect().top;
+function updateActiveStates(activeItem) {
+    stickyNavItems.forEach((item) => item.navEl.classList.remove(`${componentClass}__item--active`));
 
-        if (newActiveElementPos === null || (pos < windowOffset && pos > newActiveElementPos)) {
-            newActiveElement = trackedItem;
-            newActiveElementPos = pos;
-        }
+    activeItem.navEl.classList.add(`${componentClass}__item--active`);
+    nhsd.trigger('sticky-navigation[update]', activeItem);
+}
+
+function findActiveItem() {
+    const windowTopPos = window.innerHeight * TOP_THRESHOLD;
+
+    let activeItem = null;
+    stickyNavItems.forEach((item) => {
+        const itemTopPos = item.contentEl.getBoundingClientRect().top;
+
+        if (windowTopPos < itemTopPos) return;
+        if (activeItem && itemTopPos < activeItem.contentEl.getBoundingClientRect().top) return;
+
+        activeItem = item;
     });
 
-    if (scheduledAnimationFrame) return;
-    window.requestAnimationFrame(() => {
-        scheduledAnimationFrame = false;
+    if (activeItem) updateActiveStates(activeItem);
+}
 
-        if (!newActiveElement || newActiveElement === activeElement) return;
-
-        activeElement = newActiveElement;
-
-        trackedContent.forEach((trackedItem) => trackedItem.navItem.classList.remove(`${componentClass}__item--active`));
-
-        activeElement.navItem.classList.add(`${componentClass}__item--active`);
-        nhsd.trigger('sticky-navigation[update]', activeElement);
+function createIntersectionObserver() {
+    const findActiveItemDebounced = debounce(findActiveItem, 18);
+    return new IntersectionObserver(() => findActiveItemDebounced(), {
+        root: null,
+        rootMargin: '-10% 0% 0% 0%',
+        threshold: [1],
     });
-    scheduledAnimationFrame = true;
 }
 
 export default function NHSDStickyNavigation(componentEl) {
-    trackedContent = [];
-    activeElement = null;
+    if (observer) observer.disconnect();
+    stickyNavItems = [];
+
     const items = componentEl.querySelectorAll(`.${componentClass}__item`);
     items.forEach((item) => initItem(item));
-    updateActiveStates();
-}
 
-nhsdEvent(window).on('scroll', debounce(updateActiveStates, 18));
-nhsdEvent(window).on('resize', debounce(() => {
-    windowOffset = window.innerHeight * 0.1;
-    updateActiveStates();
-}), 25);
+    observer = createIntersectionObserver();
+    stickyNavItems.forEach((item) => observer.observe(item.contentEl));
+}
