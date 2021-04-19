@@ -1,0 +1,38 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Component imports
+@use "../../molecules/statistics-block";
+
+// Private members
+$-root: ".nhsd_o_statistics-block-list";
+
+#{$-root} {
+  &__container {
+    height: 100%;
+
+    .nhsd-m-statistics-block {
+      height: 100%;
+
+      .nhsd-a-box {
+        height: 100%;
+      }
+    }
+  }
+
+  &__item {
+    @include nhsd-spacing.set-responsive("margin-bottom", 4);
+
+    [class^="nhsd-t-col"] {
+      padding-bottom: nhsd-grid.$gutter * 2;
+
+      @include mq($until: s) {
+        padding-bottom: nhsd-grid.$small-gutter * 2;
+      }
+    }
+  }
+}

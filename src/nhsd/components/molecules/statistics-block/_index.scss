@@ -1,0 +1,48 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/colours" as nhsd-colours;
+
+// Private members
+$-root: ".nhsd-m-statistics-block";
+
+#{$-root} {
+  &__heading,
+  &__subtitle,
+  &__text {
+    text-align: center;
+  }
+
+  .nhsd-a-box {
+    @include nhsd-spacing.set-responsive('padding', 8);
+    overflow: hidden;
+  }
+
+  &__heading {
+    .nhsd-t-heading-xxl {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+
+    .nhsd-a-icon {
+      vertical-align: middle;
+    }
+  }
+
+  &__subtitle {
+    .nhsd-t-heading-xs {
+      margin-top: nhsd-spacing.get(2);
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    .nhsd-t-body {
+      margin-top: nhsd-spacing.get(2);
+      margin-bottom: 0;
+    }
+  }
+}
