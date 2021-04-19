@@ -1,0 +1,27 @@
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_link
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-error-summary" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+
+<label class="{{ classNames }}" aria-label="{{params.title}}">
+  {{ nhsd_a_box_start(params.box.classes) }}
+    <div class="nhsd-m-error-summary__content" >
+      <p class="nhsd-t-heading-m">{{ params.title|safe }}</p>
+      <div class="nhsd-m-error-summary__list">
+        {% for error in params.errors -%}
+          <div class="nhsd-m-error-summary--link nhsd-!t-margin-bottom-1">
+            {{ nhsd_a_link(error) }}
+          </div>
+        {% endfor -%}
+      </div>
+    </div>
+  {{ nhsd_a_box_end() }}
+</label>

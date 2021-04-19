@@ -100,4 +100,12 @@ $-root: ".nhsd-a-link";
       color: nhsd-colours.get("black");
     }
   }
+
+  &--col-red {
+    &,
+    &:visited {
+      border-bottom: vars.$base-line-thickness solid nhsd-colours.get("accessible-red");
+      color: nhsd-colours.get("accessible-red");
+    }
+  }
 }

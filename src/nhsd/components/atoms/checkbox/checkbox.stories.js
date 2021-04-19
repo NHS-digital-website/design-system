@@ -46,7 +46,10 @@ const Template = (args) => template.render({ params: { ...args } });
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
+  classes: '',
   label: 'Label',
+  hint: 'The text above is a label',
+  rounded: false,
 };
 LabComponent.parameters = {
   docs: {
@@ -56,13 +59,90 @@ LabComponent.parameters = {
   },
 };
 
-export const NoLabel = Template.bind({});
-NoLabel.storyName = sbConfig.title.NoLabel;
-NoLabel.args = {};
-NoLabel.parameters = {
+export const SmallCheckbox = Template.bind({});
+SmallCheckbox.storyName = 'Small Checkbox';
+SmallCheckbox.args = {
+  classes: 'nhsd-a-checkbox--small',
+  label: 'Label',
+};
+SmallCheckbox.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${NoLabel(NoLabel.args)}`,
+      code: `${sourceCode}\n${SmallCheckbox(SmallCheckbox.args)}`,
+    },
+  },
+};
+
+export const Checkbox = Template.bind({});
+Checkbox.storyName = 'Meduim Checkbox (Default)';
+Checkbox.args = {
+  classes: '',
+  label: 'Label',
+  rounded: false,
+};
+Checkbox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${Checkbox(Checkbox.args)}`,
+    },
+  },
+};
+
+export const LargeCheckbox = Template.bind({});
+LargeCheckbox.storyName = 'Large Checkbox';
+LargeCheckbox.args = {
+  classes: 'nhsd-a-checkbox--large',
+  label: 'Label',
+};
+LargeCheckbox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${LargeCheckbox(LargeCheckbox.args)}`,
+    },
+  },
+};
+
+export const SmallRoundedCheckbox = Template.bind({});
+SmallRoundedCheckbox.storyName = 'Small Rounded Checkbox';
+SmallRoundedCheckbox.args = {
+  classes: 'nhsd-a-checkbox--rounded nhsd-a-checkbox--rounded-small',
+  label: 'Label',
+  rounded: true,
+};
+SmallRoundedCheckbox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${SmallRoundedCheckbox(SmallRoundedCheckbox.args)}`,
+    },
+  },
+};
+
+export const RoundedCheckbox = Template.bind({});
+RoundedCheckbox.storyName = 'Meduim Rounded Checkbox (Default)';
+RoundedCheckbox.args = {
+  classes: 'nhsd-a-checkbox--rounded',
+  label: 'Label',
+  rounded: true,
+};
+RoundedCheckbox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${RoundedCheckbox(RoundedCheckbox.args)}`,
+    },
+  },
+};
+
+export const LargeRoundedCheckbox = Template.bind({});
+LargeRoundedCheckbox.storyName = 'Large Rounded Checkbox';
+LargeRoundedCheckbox.args = {
+  classes: 'nhsd-a-checkbox--rounded nhsd-a-checkbox--rounded-large',
+  label: 'Label',
+  rounded: true,
+};
+LargeRoundedCheckbox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${LargeRoundedCheckbox(LargeRoundedCheckbox.args)}`,
     },
   },
 };

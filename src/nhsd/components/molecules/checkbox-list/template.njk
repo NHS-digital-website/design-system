@@ -1,0 +1,60 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_checkbox
+-%}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-checkbox-list" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+<span class="{{ classNames }}">
+    <fieldset class="nhsd-m-checkbox-list--fieldset" aria-describedby="nhsd-m-checkbox-list__hint nhsd-m-checkbox-list__form-error">
+      {%- if params.errorText -%}
+        <div class="nhsd-m-checkbox-list__error">
+      {%- endif -%}
+          <p class="nhsd-t-heading-xl nhsd-!t-margin-bottom-1 nhsd-m-checkbox-list__Heading">{{ params.title }}</p>
+          <p class="nhsd-t-body nhsd-!t-margin-top-0 nhsd-m-checkbox-list__hint">{{ params.hint }}</p>
+          {%- if params.errorText -%}
+            <p class="nhsd-t-heading-xs nhsd-m-checkbox-list__form-error">{{ params.errorText }}</p>
+          {%- endif -%}
+          {% for checkbox in params.checkboxList %}
+            <div class="nhsd-!t-margin-bottom-3">
+               {% switch params.classes %}
+                  {% case 'nhsd-a-checkbox--small' %}
+                    <div class="nhsd-!t-margin-bottom-1">
+                      {{ nhsd_a_checkbox({ label: checkbox.label, hint: checkbox.hint, classes: params.classes }) }}
+                    </div>
+                  {% case 'nhsd-a-checkbox' %}
+                    <div class="nhsd-!t-margin-bottom-3">
+                      {{ nhsd_a_checkbox({ label: checkbox.label, hint: checkbox.hint, classes: params.classes }) }}
+                    </div>
+                  {% case 'nhsd-a-checkbox--large' %}
+                    <div class="nhsd-!t-margin-bottom-3">
+                      {{ nhsd_a_checkbox({ label: checkbox.label, hint: checkbox.hint, classes: params.classes }) }}
+                    </div>
+                  {% case 'nhsd-a-checkbox--rounded nhsd-a-checkbox--rounded-small' %}
+                    <div class="nhsd-!t-margin-bottom-1">
+                      {{ nhsd_a_checkbox({ label: checkbox.label, hint: checkbox.hint, classes: params.classes, rounded: true }) }}
+                    </div>
+                  {% case 'nhsd-a-checkbox--rounded' %}
+                    <div class="nhsd-!t-margin-bottom-3">
+                      {{ nhsd_a_checkbox({ label: checkbox.label, hint: checkbox.hint, classes: params.classes, rounded: true }) }}
+                    </div>
+                  {% case 'nhsd-a-checkbox--rounded nhsd-a-checkbox--rounded-large' %}
+                    <div class="nhsd-!t-margin-bottom-3">
+                      {{ nhsd_a_checkbox({ label: checkbox.label, hint: checkbox.hint, classes: params.classes, rounded: true }) }}
+                    </div>
+                  {% default %}
+                    <div class="nhsd-!t-margin-bottom-3">
+                      {{ nhsd_a_checkbox({ label: checkbox.label, hint: checkbox.hint, classes: 'nhsd-a-checkbox' }) }}
+                    </div>
+                {% endswitch %}
+            </div>
+          {% endfor -%}
+      {%- if params.errorText -%}
+        </div>
+      {%- endif -%}
+    </fieldset>
+</span>

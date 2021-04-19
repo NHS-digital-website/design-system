@@ -223,3 +223,16 @@ GreyOutlineBox.parameters = {
     },
   },
 };
+
+export const RedOutlineBox = Template.bind({});
+RedOutlineBox.storyName = 'Outline / Red';
+RedOutlineBox.args = {
+  classes: 'nhsd-a-box--border-red',
+};
+RedOutlineBox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${RedOutlineBox(RedOutlineBox.args)}`,
+    },
+  },
+};

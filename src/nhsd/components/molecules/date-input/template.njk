@@ -1,0 +1,62 @@
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-date-input" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+<span class="{{ classNames }}">
+  {%- if params.errorText -%}
+    <fieldset class="nhsd-m-date-input--fieldset" role="group" aria-describedby="nhsd-m-date-input__hint nhsd-m-date-input__form-error">
+      <div class="nhsd-m-date-input__error">
+        <p class="nhsd-t-heading-xl nhsd-!t-margin-bottom-1 nhsd-m-date-input__Heading">{{ params.title }}</p>
+        <p class="nhsd-t-body nhsd-!t-margin-top-0 nhsd-m-date-input__hint">{{ params.hint }}</p>
+        <p class="nhsd-t-heading-xs nhsd-m-date-input__form-error">{{ params.errorText }}</p>
+        <div class="nhsd-m-date-input__date-input">
+          <div class="nhsd-m-date-input--day nhsd-t-form-group--error" >
+              <label class="nhsd-m-date-input--day-label" for="day">
+                Day
+              </label>
+            <input class="nhsd-t-form-input-s" type="text" pattern="[0-9]*" inputmode="numeric">
+          </div>
+          <div class="nhsd-m-date-input--day nhsd-t-form-group--error">
+            <label class="nhsd-m-date-input--month-label" for="month">
+              Month
+            </label>
+            <input class="nhsd-t-form-input-s" type="text" pattern="[0-9]*" inputmode="numeric">
+          </div>
+          <div class="nhsd-m-date-input--year nhsd-t-form-group--error">
+            <label class="nhsd-m-date-input--year-label" for="year">
+              Year
+            </label>
+            <input class="nhsd-t-form-input-s" type="text" pattern="[0-9]*" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  {%- elif not params.errorText -%}
+    <fieldset class="nhsd-m-date-input--fieldset" role="group" aria-describedby="nhsd-m-date-input__hint">
+      <p class="nhsd-t-heading-xl nhsd-!t-margin-bottom-1 nhsd-m-date-input__Heading">{{ params.title }}</p>
+      <p class="nhsd-t-body nhsd-!t-margin-top-0 nhsd-m-date-input__hint">{{ params.hint }}</p>
+      <div class="nhsd-m-date-input__date-input">
+        <div class="nhsd-m-date-input--day" >
+            <label class="nhsd-m-date-input--day-label" for="day">
+              Day
+            </label>
+          <input class="nhsd-t-form-input-s" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+        <div class="nhsd-m-date-input--day">
+          <label class="nhsd-m-date-input--month-label" for="month">
+            Month
+          </label>
+          <input class="nhsd-t-form-input-s" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+        <div class="nhsd-m-date-input--year">
+          <label class="nhsd-m-date-input--year-label" for="year">
+            Year
+          </label>
+          <input class="nhsd-t-form-input-s" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+      </div>
+    </fieldset>
+  {%- endif -%}
+</span>

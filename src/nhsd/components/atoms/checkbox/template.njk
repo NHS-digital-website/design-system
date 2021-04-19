@@ -1,7 +1,25 @@
-<span class="nhsd-a-checkbox">
-  <label class="nhsd-t-body-s">
-    <input type="checkbox" />
-    {{ params.label }}
-    <span class="checkmark"></span>
+{#- Set classes -#}
+{%- set classNames = "nhsd-a-checkbox" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+{#- Set aria -#}
+{%- if params.label -%}
+  {% set ariaLabel = params.label %}
+{%- else -%}
+  {% set ariaLabel = "has no label" %}
+{% endif %}
+
+<span class="{{ classNames }}">
+  <label>
+    <input type="checkbox" aria-label="{{ ariaLabel }}"/>
+     <span class="nhsd-a-checkbox__label nhsd-t-body-s">{{ params.label }}</span>
+    {%- if not params.rounded -%}
+      <span class="checkmark"></span>
+    {%- else -%}
+      <span class="checkmark-rounded"></span>
+    {% endif %}
+    <p class="nhsd-a-checkbox__hint">{{ params.hint }}</p>
   </label>
 </span>
