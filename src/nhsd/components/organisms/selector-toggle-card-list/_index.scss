@@ -3,6 +3,7 @@
 
 // Token
 @use "scss-core/tokens/grid" as nhsd-grid;
+@use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 
 // Private members
@@ -22,5 +23,18 @@ $-root: ".nhsd-o-selector-toggle-card-list";
         padding-bottom: nhsd-grid.$small-gutter * 2;
       }
     }
+  }
+
+  &--fieldset {
+    border: none;
+  }
+
+  &__error {
+    padding-left: nhsd-spacing.get(3);
+    border-left: 3px solid nhsd-colours.get("accessible-red");
+  }
+
+  .nhsd-t-heading-xs {
+    color: nhsd-colours.get("accessible-red");
   }
 }

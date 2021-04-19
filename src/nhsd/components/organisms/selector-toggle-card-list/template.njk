@@ -10,9 +10,24 @@
 {%- endif -%}
 
 <div class="{{ classNames }}">
-  {% for toggleCard in params.toggleCardList -%}
-    <div class="nhsd-t-col-12">
-      {{ nhsd_m_selector_toggle_card(toggleCard) }}
-    </div>
-  {% endfor -%}
+  <fieldset class="nhsd-o-selector-toggle-card-list--fieldset" aria-describedby="nhsd-o-selector-toggle-card-list__hint nhsd-o-selector-toggle-card-list__form-error">
+    {%- if params.error -%}
+      <div class="nhsd-o-selector-toggle-card-list__error">
+    {%- endif -%}
+      <div class="nhsd-o-selector-toggle-card-list__header nhsd-t-col-12">
+        <p class="nhsd-t-heading-xl nhsd-!t-margin-bottom-1 nhsd-o-selector-toggle-card-list__Heading">{{ params.title }}</p>
+        <p class="nhsd-t-body nhsd-!t-margin-top-0 nhsd-o-selector-toggle-card-list__hint">{{ params.hint }}</p>
+      </div>
+      {% for toggleCard in params.toggleCardList -%}
+          {%- if toggleCard.errorText -%}
+            <p class="nhsd-t-heading-xs nhsd-o-selector-toggle-card-list__form-error nhsd-!t-margin-left-3">{{ toggleCard.errorText }}</p>
+          {%- endif -%}
+        <div class="nhsd-t-col-12">
+          {{ nhsd_m_selector_toggle_card(toggleCard) }}
+        </div>
+      {% endfor -%}
+    {%- if params.error -%}
+      </div>
+    {%- endif -%}
+  </fieldset>
 </div>

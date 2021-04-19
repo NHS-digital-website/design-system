@@ -47,7 +47,7 @@ const toggleCardList = [
   {
     classes: 'nhsd-a-box-link',
     box: {
-      classes: 'nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey ',
+      classes: 'nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey',
     },
     selector: {
       nested: true,
@@ -73,13 +73,75 @@ const toggleCardList = [
 ];
 LabComponent.args = {
   classes: 'nhsd-o-selector-toggle-card-list__items',
+  title: 'Please toggle the relevant items',
+  hint: 'This is a friendly hint',
   toggleCardList,
+  error: false,
 };
 
 LabComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+    },
+  },
+};
+
+export const ErrorComponent = Template.bind({});
+ErrorComponent.storyName = 'Error Component';
+const toggleCardErrorList = [
+  {
+    classes: 'nhsd-a-box-link',
+    box: {
+      classes: 'nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey ',
+    },
+    selector: {
+      nested: true,
+    },
+    title: 'Preference',
+    text: 'These mean we can show you content',
+    label: 'this is a preference toggle',
+  },
+  {
+    classes: 'nhsd-a-box-link',
+    box: {
+      classes: 'nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-red',
+    },
+    selector: {
+      nested: true,
+      classes: 'nhsd-a-selector-toggle--start nhsd-a-selector-toggle__error',
+    },
+    title: 'Analytics',
+    text: 'This means we can see what people do on our site',
+    label: 'this is a  analytics toggle',
+    errorText: 'Something went wrong, please try agian',
+  },
+  {
+    classes: 'nhsd-a-box-link',
+    box: {
+      classes: 'nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey ',
+    },
+    selector: {
+      nested: true,
+      classes: 'nhsd-a-selector-toggle--cancel',
+    },
+    title: 'Other cookies',
+    text: "Cookies that don't fit in other categories",
+    label: 'this is a other cookies toggle',
+  },
+];
+ErrorComponent.args = {
+  classes: 'nhsd-o-selector-toggle-card-list__items',
+  title: 'Please toggle the relevant items',
+  hint: 'This is a friendly hint',
+  toggleCardList: toggleCardErrorList,
+  error: true,
+};
+
+ErrorComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ErrorComponent(ErrorComponent.args)}`,
     },
   },
 };
