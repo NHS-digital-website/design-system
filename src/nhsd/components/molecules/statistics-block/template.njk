@@ -1,0 +1,73 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_icon,
+  nhsd_a_box_start,
+  nhsd_a_box_end
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-statistics-block" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{#- Set box classes -#}
+{% set boxClasses = 'nhsd-a-box--bg-light-grey' %}
+{% if params.box.classes %}
+  {% set boxClasses = params.box.classes %}
+{% endif %}
+
+{#- Set heading text -#}
+{% set heading = params.heading.label %}
+{% if params.heading.xOutOfX %}
+  {% set heading = params.heading.label + ' out of ' + params.heading.label2 %}
+{% else %}
+  {% if params.prefix.label and params.suffix.label %}
+    {% set heading = params.prefix.label + params.heading.label + params.suffix.label %}
+  {% elif params.prefix.label and params.suffix.label|length === 0 %}
+    {% set heading = params.prefix.label + params.heading.label %}
+  {% elif params.suffix.label and params.prefix.label|length === 0 %}
+    {% set heading = params.heading.label + params.suffix.label %}
+  {% endif %}
+{% endif %}
+
+
+<div class="{{ classNames }}">
+  {{ nhsd_a_box_start(boxClasses) }}
+    
+    {% if params.heading %}
+      <div class="nhsd-m-statistics-block__heading">
+        {% if params.heading.xOutOfX %}
+          <p class="nhsd-t-heading-xxl">{{ heading }}</p>
+        {% else %}
+          {% if params.prefix.icon|length > 0 and params.suffix.icon|length > 0 %}
+            {{ nhsd_a_icon(params.prefix.icon) }}
+            <p class="nhsd-t-heading-xxl">{{ heading }}</p>
+            {{ nhsd_a_icon(params.suffix.icon) }}
+          {% elif params.prefix.icon|length > 0 %}
+            {{ nhsd_a_icon(params.prefix.icon) }}
+            <p class="nhsd-t-heading-xxl">{{ heading }}</p>
+          {% elif params.suffix.icon|length > 0 %}
+            <p class="nhsd-t-heading-xxl">{{ heading }}</p>
+            {{ nhsd_a_icon(params.suffix.icon) }}
+          {% else %}
+            <p class="nhsd-t-heading-xxl">{{ heading }}</p>
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if params.subtitle %}
+      <div class="nhsd-m-statistics-block__subtitle">
+        <p class="nhsd-t-heading-xs nhsd-t-word-break">{{ params.subtitle }}</p>
+      </div>
+    {% endif %}
+
+    {% if params.text %}
+    <div class="nhsd-m-statistics-block__text">
+        <p class="nhsd-t-body nhsd-t-word-break">{{ params.text }}</p>
+      </div>
+    {% endif %}
+
+  {{ nhsd_a_box_end() }}
+</div>
