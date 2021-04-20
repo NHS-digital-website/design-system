@@ -1,0 +1,26 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_tag,
+  nhsd_a_link
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-phase-banner" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  {{ nhsd_a_box_start('nhsd-!t-bg-bright-blue-10-tint') }}
+    <div class="nhsd-m-phase-banner__row">
+      <div class="nhsd-m-phase-banner__left-col">
+        {{ nhsd_a_tag(params.tag) }}
+      </div>
+      <div class="nhsd-m-phase-banner__right-col">
+        This is a new service. Your {{ nhsd_a_link({ label: 'feedback' }) }} will help us improve it.
+      </div>
+    </div>
+  {{ nhsd_a_box_end() }}
+</div>

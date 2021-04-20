@@ -6,6 +6,7 @@
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
 
 // Private members
 $-root: ".nhsd-a-tag";
@@ -58,5 +59,17 @@ $-root: ".nhsd-a-tag";
 
   &--meta-light {
     @include nhsd-fonts.font-weight;
+  }
+
+  // Phase banner tag
+  &--phase {
+    @include nhsd-fonts.font-weight(regular, true);
+    min-width: 75px;
+    padding: nhsd-spacing.get(1) nhsd-spacing.get(3);
+    border-radius: 3px;
+    color: nhsd-colours.get('white');
+    background: nhsd-colours.get('blue');
+    font-size: .778rem;
+    letter-spacing: -.0166rem;
   }
 }

@@ -1,0 +1,23 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-m-phase-banner";
+
+#{$-root} {
+  &__row {
+    display: table-row;
+  }
+
+  &__left-col,
+  &__right-col {
+    display: table-cell;
+  }
+
+  &__left-col {
+    padding-right: nhsd-spacing.get(4);
+  }
+}

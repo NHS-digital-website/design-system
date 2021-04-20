@@ -144,3 +144,17 @@ MetaTagLight.parameters = {
     },
   },
 };
+
+export const PhaseTag = Template.bind({});
+PhaseTag.storyName = 'Phase tag';
+PhaseTag.args = {
+  classes: 'nhsd-a-tag--phase',
+  label: 'ALPHA',
+};
+PhaseTag.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${PhaseTag(PhaseTag.args)}`,
+    },
+  },
+};
