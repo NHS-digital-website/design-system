@@ -1,0 +1,67 @@
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/transition" as nhsd-transition;
+
+// Private members
+$-root: ".nhsd-m-notification-banner";
+
+#{$-root} {
+  transition: nhsd-transition.$transition-duration;
+
+  &__row {
+    display: flex;
+  }
+
+  &__left-col,
+  &__middle-col {
+    display: block;
+  }
+
+  &__left-col {
+    padding-right: nhsd-spacing.get(4);
+    align-items: center;
+  }
+
+  &__right-col {
+    display: none;
+    margin-left: auto;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+
+      .nhsd-a-icon {
+        margin-top: 6px;
+
+        background: nhsd-colours.get("yellow");
+
+        & > svg {
+          fill: nhsd-colours.get("black");
+        }
+      }
+    }
+
+    .nhsd-a-icon {
+      margin-top: 6px;
+    }
+  }
+
+  &--information,
+  &--error {
+    color: nhsd-colours.get("white");
+  }
+
+  &--fade-out {
+    opacity: 0;
+  }
+
+  &--hidden {
+    display: none;
+  }
+
+  .nhsd-a-box {
+    padding-bottom: nhsd-spacing.get(2);
+    border-radius: 0;
+  }
+}

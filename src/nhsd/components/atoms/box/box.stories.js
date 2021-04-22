@@ -185,6 +185,19 @@ DarkGreenBox.parameters = {
   },
 };
 
+export const RedBox = Template.bind({});
+RedBox.storyName = 'Background / Dark red';
+RedBox.args = {
+  classes: 'nhsd-a-box--bg-red',
+};
+RedBox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${RedBox(RedBox.args)}`,
+    },
+  },
+};
+
 export const YellowOutlineBox = Template.bind({});
 YellowOutlineBox.storyName = 'Outline / Yellow';
 YellowOutlineBox.args = {

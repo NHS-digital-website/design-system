@@ -159,6 +159,18 @@
 </svg>
 {%- endmacro -%}
 
+{%- macro i_exclamation_circled(nested = false) -%}
+<svg {{ icon_svg_attr(nested) }}>
+    <path d="M8,16c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S12.4,16,8,16z M8,2.3C4.9,2.3,2.3,4.9,2.3,8s2.6,5.7,5.7,5.7 s5.7-2.6,5.7-5.7S11.1,2.3,8,2.3z M8,12.9c-0.8,0-1.4-0.7-1.4-1.4C6.6,10.7,7.2,10,8,10c0.8,0,1.4,0.7,1.4,1.4 C9.4,12.2,8.8,12.9,8,12.9z M9.1,3.4l-0.3,6H7.1l-0.3-6H9.1z" />
+</svg>
+{%- endmacro -%}
+
+{%- macro i_exclamation_triangle(nested = false) -%}
+<svg {{ icon_svg_attr(nested) }}>
+    <path d="M16,13l-1.5,2h-13L0,13L6.8,1h2.5L16,13z M13.6,12.8L8,3h0H7.9l-5.5,9.8L2.5,13h11L13.6,12.8z M8,12.8 c-0.7,0-1.3-0.6-1.3-1.3s0.6-1.3,1.3-1.3c0.7,0,1.2,0.6,1.2,1.3S8.7,12.8,8,12.8z M9,5.5L8.8,9.7H7.2L7,5.5H9z" />
+</svg>
+{%- endmacro -%}
+
 {#- Master template -#}
 <span class="{{ classNames }}">
   {% if params.nested -%}
@@ -189,6 +201,8 @@
     {%- if params.id == "check" -%}{{ i_check(nested = params.nested) }}{%- endif -%}
     {%- if params.id == "link" -%}{{ i_link(nested = params.nested) }}{%- endif -%}
     {%- if params.id == "i_circled" -%}{{ i_i_circled(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "exclamation_circled" -%}{{ i_exclamation_circled(nested = params.nested) }}{%- endif -%}
+    {%- if params.id == "exclamation_triangle" -%}{{ i_exclamation_triangle(nested = params.nested) }}{%- endif -%}
   {%- endif %}
 
   {% if params.nested %}
