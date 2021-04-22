@@ -31,6 +31,7 @@ $border-width: .115rem;
     &-dark-blue,
     &-blue,
     &-dark-green,
+    &-red,
     &-black {
       color: nhsd-colours.get("white");
     }
@@ -73,6 +74,10 @@ $border-width: .115rem;
 
     &-dark-green {
       background: nhsd-colours.get("dark-green");
+    }
+
+    &-red {
+      background: nhsd-colours.get("accessible-red");
     }
   }
 

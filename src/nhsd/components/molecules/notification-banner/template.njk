@@ -1,0 +1,31 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_link,
+  nhsd_a_icon
+-%}
+
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-notification-banner" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{ classNames }}">
+  {{ nhsd_a_box_start(params.box.classes) }}
+    <div class="nhsd-m-notification-banner__row">
+      <div class="nhsd-m-notification-banner__left-col">
+        {{ nhsd_a_icon(params.icon) }}
+      </div>
+      <div class="nhsd-m-notification-banner__middle-col">
+        This is a new service. Your {{ nhsd_a_link( params.link ) }} will help us improve it.
+      </div>
+      <div class="nhsd-m-notification-banner__right-col">
+        {{ nhsd_a_icon({ id: 'x', classes: params.closeIcon.classes }) }}
+      </div>
+    </div>
+  {{ nhsd_a_box_end() }}
+</div>
+

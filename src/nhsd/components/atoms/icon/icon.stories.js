@@ -85,6 +85,8 @@ export default {
           'check',
           'link',
           'i_circled',
+          'exclamation_circled',
+          'exclamation_triangle',
         ],
       },
       defaultValue: 'arrow_right',

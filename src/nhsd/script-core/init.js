@@ -7,6 +7,7 @@ import NHSDFilterMenuSection from '../components/molecules/filter-menu-section/f
 import NHSDExpander from '../components/molecules/expander/expander';
 import NHSDTable from '../components/molecules/table/table';
 import NHSDTabs from '../components/molecules/tabs/tabs';
+import NHSDNotificationBanner from '../components/molecules/notification-banner/notification-banner';
 
 window.nhsd = nhsd;
 
@@ -32,4 +33,5 @@ export default function init() {
     initComponent('.nhsd-m-expander', NHSDExpander);
     initComponent('.nhsd-m-table', NHSDTable);
     initComponent('.nhsd-m-tabs', NHSDTabs);
+    initComponent('.nhsd-m-notification-banner', NHSDNotificationBanner);
 }
