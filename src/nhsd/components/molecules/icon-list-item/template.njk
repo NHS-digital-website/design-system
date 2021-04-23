@@ -16,8 +16,8 @@
     <a href="{{ params.link.href }}" class="nhsd-m-icon-list-item__box nhsd-m-icon-list-item__with-link"  {%- if params.link.external %} target="_blank" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
       {{ nhsd_a_icon(params.icon) }}
       <div>
-        <p class="nhsd-t-body nhsd-m-icon-list-item__with-link-text">{{ params.link.label|safe }}</p>
-        <p class="nhsd-t-body">{{ params.text|safe }}</p>
+        <span class="nhsd-t-body nhsd-m-icon-list-item__with-link-text nhsd-t-word-break">{{ params.link.label|safe }}</span>
+        <p class="nhsd-t-body nhsd-t-word-break">{{ params.text|safe }}</p>
         {{ nhsd_a_icon(params.arrowIcon) }}
       </div>
     </a>
