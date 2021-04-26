@@ -1,3 +1,7 @@
+// Prism styling for syntax highlighting
+@use 'prismjs/themes/prism-okaidia.css';
+@use 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+
 // Settings
 @use "scss-core/settings/vars";
 

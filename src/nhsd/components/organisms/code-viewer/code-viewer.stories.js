@@ -11,8 +11,6 @@ import { PrimaryButton } from '../../atoms/button/button.stories';
 
 // Load stylesheet file
 require('./_index.scss');
-require('prismjs/themes/prism-okaidia.css');
-require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 
 const componentName = 'Code viewer';
 const storyDescription = `${sbConfig.heading.lab}
