@@ -1,7 +1,3 @@
-// Prism styling for syntax highlighting
-@use 'prismjs/themes/prism-okaidia.css';
-@use 'prismjs/plugins/line-numbers/prism-line-numbers.css';
-
 // Settings
 @use "scss-core/settings/vars";
 
@@ -55,20 +51,37 @@ $-root: ".nhsd-o-code-viewer";
 
   &__code {
     position: relative;
+    padding-top: nhsd-spacing.get(9);
+    color: nhsd-colours.get('white');
+    background: nhsd-colours.get('black');
 
-    &--wrap {
-      pre[class*="language-"] {
-        white-space: pre-wrap;
-      }
+    & * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(nhsd-colours.get('black'), .2) rgba(nhsd-colours.get('white'), .2);
     }
 
-    & > pre,
-    & > pre[class*="language-"] {
+    & *::-webkit-scrollbar,
+    & *::-webkit-scrollbar-corner {
+      width: 10px;
+      height: 10px;
+      background: rgba(nhsd-colours.get('black'), .2);
+    }
+
+    & *::-webkit-scrollbar-track {
+      background: rgba(nhsd-colours.get('black'), .2);
+    }
+
+    & *::-webkit-scrollbar-thumb {
+      background-color: rgba(nhsd-colours.get('white'), .2);
+    }
+
+    pre {
+      width: 100%;
       height: 100%;
       margin: 0;
-      padding-top: nhsd-spacing.get(9);
-      border-radius: 0;
-      background: nhsd-colours.get("black");
+      padding: nhsd-spacing.get(3);
+      padding-top: 0;
+      overflow: auto;
     }
   }
 
