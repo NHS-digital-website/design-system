@@ -17,12 +17,9 @@ const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}
 
-The code viewer component uses Prism.js for syntax highlighting. For more info about language support please refer to the official documentation,
-https://prismjs.com/#supported-languages
+The code viewer component doesn't include support for syntax highlighting, instead this is left as an implementation detail.
+This allows for maximum flexibility as the implementer can select a syntax highlighting solution which best fits with their requirements.`;
 
-*Note: Although Nunjucks is not supported its syntax is based on Twig so Twig can be used when Nunjucks syntax highlighting is required*
-
-`;
 const sourceCode = `// Sass import \n@use "nhsd/components/organisms/code-viewer";
 
 // HTML`;
@@ -97,52 +94,6 @@ CodeViewerComponent.parameters = {
   },
 };
 
-export const NoLineNumbers = Template.bind({});
-NoLineNumbers.storyName = 'No line numbers';
-NoLineNumbers.args = {
-  ...CodeViewerComponent.args,
-  code: [
-    ...CodeViewerComponent.args.code,
-  ],
-};
-NoLineNumbers.args.code[1] = {
-  ...NoLineNumbers.args.code[1],
-  noLineNumbers: true,
-};
-NoLineNumbers.parameters = {
-  docs: {
-    description: {
-      story: 'Removing the class "line-numbers" disables line numbers in Prism.js',
-    },
-    source: {
-      code: `${sourceCode}\n${pretty(NoLineNumbers(NoLineNumbers.args), { ocd: true })}`,
-    },
-  },
-};
-
-export const WrapCode = Template.bind({});
-WrapCode.storyName = 'Wrap code';
-WrapCode.args = {
-  ...CodeViewerComponent.args,
-  code: [
-    ...CodeViewerComponent.args.code,
-  ],
-};
-WrapCode.args.code[1] = {
-  ...WrapCode.args.code[1],
-  wrap: true,
-};
-WrapCode.parameters = {
-  docs: {
-    description: {
-      story: 'Applying the `nhsd-o-code-viewer__code--wrap` modifier enables text wrapping',
-    },
-    source: {
-      code: `${sourceCode}\n${pretty(WrapCode(WrapCode.args), { ocd: true })}`,
-    },
-  },
-};
-
 export const NoTabs = Template.bind({});
 NoTabs.storyName = 'No tabs or header';
 NoTabs.args = {
@@ -160,6 +111,23 @@ NoTabs.parameters = {
     },
     source: {
       code: `${sourceCode}\n${pretty(NoTabs(NoTabs.args), { ocd: true })}`,
+    },
+  },
+};
+
+export const SyntaxHighlightingExample = Template.bind({});
+SyntaxHighlightingExample.storyName = 'Syntax Highlighting';
+SyntaxHighlightingExample.args = {
+  ...CodeViewerComponent.args,
+  highlightSyntax: true,
+};
+SyntaxHighlightingExample.parameters = {
+  docs: {
+    description: {
+      story: 'An example of using PrismJS for syntax highlighting',
+    },
+    source: {
+      code: `${sourceCode}\n${pretty(SyntaxHighlightingExample(SyntaxHighlightingExample.args), { ocd: true })}`,
     },
   },
 };

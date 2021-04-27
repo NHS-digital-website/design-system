@@ -6,6 +6,28 @@
 
 {% set classNames = "nhsd-o-code-viewer" %}
 
+{% if params.highlightSyntax -%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<style>
+pre[class*="language-"] {
+  background: none;
+  margin: 0;
+  height: 100%;
+  overflow: overlay;
+}
+
+.line-numbers .line-numbers-rows {
+  left: -2.8em;
+  width: 2em;
+}
+
+.line-numbers-rows>span:before {
+  text-align: left;
+}
+</style>
+{%- endif %}
+
 <article class="{{ classNames }}">
   {% if not params.noHeader -%}
   <div class="{{ classNames }}__header">
@@ -16,8 +38,8 @@
   <div id="{{ code.contentId }}" class="{{ classNames }}__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-{{ code.contentId }}">
     <p class="nhsd-t-heading-s nhsd-!t-margin-3" data-hide-tab-header>{{ code.header }}</p>
     {% if code.language -%}
-      <div class="{{ classNames }}__code {% if code.wrap -%}{{ classNames }}__code--wrap{%- endif -%}">
-          <pre{%- if not code.noLineNumbers %} class="line-numbers"{%- endif -%}><code class="language-{{ code.language }}">{{ code.content }}</code></pre>
+      <div class="{{ classNames }}__code{% if code.wrap -%} {{ classNames }}__code--wrap{%- endif -%}">
+        <pre class="line-numbers"><code class="language-{{ code.language }}">{{ code.content }}</code></pre>
       </div>
     {%- else %}
     <div class="{{ classNames }}__example">
@@ -32,3 +54,19 @@
   </div>
   {%- endif %}
 </article>
+
+{% if params.highlightSyntax -%}
+<script>
+window.Prism = window.Prism || {};
+window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-markup.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-twig.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script>
+Array.from(document.querySelectorAll('.nhsd-o-code-viewer__code code')).forEach(function(block) {
+  Prism.highlightElement(block);
+});
+</script>
+{%- endif %}
