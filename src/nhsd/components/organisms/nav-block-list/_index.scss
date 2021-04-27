@@ -29,6 +29,14 @@ $-root: ".nhsd-o-nav-block-list";
     .nhsd-a-box {
       display: flex;
       height: 100%;
+
+      .nhsd-m-nav-block__content-box {
+        width: 100%;
+      }
+
+      .nhsd-a-button {
+        width: 100%;
+      }
     }
   }
 }
