@@ -802,3 +802,111 @@ FourByThreeImage.parameters = {
     },
   },
 };
+
+export const AnyAspectRatio = Template.bind({});
+AnyAspectRatio.storyName = sbConfig.title.AnyAspectRatio;
+AnyAspectRatio.args = {
+  desktopColumns: 3,
+  cards: [
+    {
+      box: {
+        classes: 'nhsd-a-box--border-grey',
+      },
+      image: {
+        sourceSet: [{
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/logos/nhs-digital-logo_nhs-blue_right.svg',
+        }],
+        alt: 'NHSD logo',
+        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--contain',
+      },
+      title: 'About NHS Digital',
+      text: 'Items can include a description if needed, like this.',
+      downloadCards: [
+          {
+          documentIconId: 'document_pdf',
+          title: {
+            label: 'Example file - NHS Digital sustainability posters',
+          },
+          metaTags: [
+            {
+              label: 'PDF',
+              classes: 'nhsd-a-tag--meta',
+            }, {
+              label: '1.5MB',
+              classes: 'nhsd-a-tag--meta-light',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      box: {
+        classes: 'nhsd-a-box--border-grey',
+      },
+      image: {
+        sourceSet: [{
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/logos/nhs-digital-logo_nhs-blue_right.svg',
+        }],
+        alt: 'NHSD logo',
+        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--contain',
+      },
+      title: 'About NHS Digital',
+      text: 'Items can include a description if needed, like this.',
+      downloadCards: [
+        {
+          documentIconId: 'document_pdf',
+          title: {
+            label: 'Example file - NHS Digital sustainability posters',
+          },
+          metaTags: [
+            {
+              label: 'PDF',
+              classes: 'nhsd-a-tag--meta',
+            }, {
+              label: '1.5MB',
+              classes: 'nhsd-a-tag--meta-light',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      box: {
+        classes: 'nhsd-a-box--border-grey',
+      },
+      image: {
+        sourceSet: [{
+          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/logos/nhs-digital-logo_nhs-blue_right.svg',
+        }],
+        alt: 'NHSD logo',
+        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--contain',
+      },
+      title: 'About NHS Digital',
+      text: 'Items can include a description if needed, like this.',
+      downloadCards: [
+        {
+          documentIconId: 'document_pdf',
+          title: {
+            label: 'Example file - NHS Digital sustainability posters',
+          },
+          metaTags: [
+            {
+              label: 'PDF',
+              classes: 'nhsd-a-tag--meta',
+            }, {
+              label: '1.5MB',
+              classes: 'nhsd-a-tag--meta-light',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+AnyAspectRatio.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${AnyAspectRatio(AnyAspectRatio.args)}`,
+    },
+  },
+};

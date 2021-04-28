@@ -92,7 +92,7 @@ RoundCornersComponent.parameters = {
 };
 
 export const SquareComponent = Template.bind({});
-SquareComponent.storyName = '1:1 image ratio';
+SquareComponent.storyName = '1:1 aspect ratio';
 SquareComponent.args = {
   classes: 'nhsd-a-image--square',
   sourceSet: [{
@@ -109,7 +109,7 @@ SquareComponent.parameters = {
 };
 
 export const FourByThree = Template.bind({});
-FourByThree.storyName = '4:3 image ratio';
+FourByThree.storyName = '4:3 aspect ratio';
 FourByThree.args = {
   classes: 'nhsd-a-image--4by3',
   sourceSet: [{
