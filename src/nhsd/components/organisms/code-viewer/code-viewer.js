@@ -26,7 +26,7 @@ function copyElementText(element) {
 }
 
 function copyCode(codeElement) {
-    const code = codeElement.querySelector('code');
+    const code = codeElement.querySelector('.nhsd-o-code-viewer__code-content');
     copyElementText(code);
 
     const buttonLabel = codeElement.querySelector('.nhsd-a-button__label');
