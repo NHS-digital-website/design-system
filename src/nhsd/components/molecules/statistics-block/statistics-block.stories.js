@@ -57,7 +57,9 @@ LabComponent.args = {
     label: '1,000,000',
     xOutOfX: false,
   },
-  subtitle: 'NHS login accounts',
+  subtitle: {
+    label: 'NHS login accounts',
+  },
   text: 'We\'re helping more people than ever save time and access services quickly through a single NHS login.',
 };
 LabComponent.parameters = {
@@ -78,7 +80,9 @@ NoText.args = {
     label: '1,000,000',
     xOutOfX: false,
   },
-  subtitle: 'NHS login accounts',
+  subtitle: {
+    label: 'NHS login accounts',
+  },
 };
 NoText.parameters = {
   docs: {
@@ -88,9 +92,9 @@ NoText.parameters = {
   },
 };
 
-export const BlueBackground = Template.bind({});
-BlueBackground.storyName = sbConfig.title.BlueBackground;
-BlueBackground.args = {
+export const MutedBlueBackground = Template.bind({});
+MutedBlueBackground.storyName = sbConfig.title.MutedBlueBackground;
+MutedBlueBackground.args = {
   box: {
     classes: 'nhsd-!t-bg-grad-blue',
   },
@@ -98,13 +102,63 @@ BlueBackground.args = {
     label: '1,000,000',
     xOutOfX: false,
   },
-  subtitle: 'NHS login accounts',
+  subtitle: {
+    label: 'NHS login accounts',
+  },
   text: 'We\'re helping more people than ever save time and access services quickly through a single NHS login.',
 };
-BlueBackground.parameters = {
+MutedBlueBackground.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${BlueBackground(BlueBackground.args)}`,
+      code: `${sourceCode}\n${MutedBlueBackground(MutedBlueBackground.args)}`,
+    },
+  },
+};
+
+export const MutedYellowBackground = Template.bind({});
+MutedYellowBackground.storyName = sbConfig.title.MutedYellowBackground;
+MutedYellowBackground.args = {
+  box: {
+    classes: 'nhsd-!t-bg-grad-yellow',
+  },
+  heading: {
+    label: '1,000,000',
+    xOutOfX: false,
+  },
+  subtitle: {
+    label: 'NHS login accounts',
+  },
+  text: 'We\'re helping more people than ever save time and access services quickly through a single NHS login.',
+};
+MutedYellowBackground.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${MutedYellowBackground(MutedYellowBackground.args)}`,
+    },
+  },
+};
+
+export const DarkBlueBackground = Template.bind({});
+DarkBlueBackground.storyName = sbConfig.title.DarkBlueBackground;
+DarkBlueBackground.args = {
+  box: {
+    classes: 'nhsd-!t-bg-dark-blue nhsd-!t-col-white',
+  },
+  heading: {
+    label: '1,000,000',
+    xOutOfX: false,
+    classes: 'nhsd-!t-col-white',
+  },
+  subtitle: {
+    label: 'NHS login accounts',
+    classes: 'nhsd-!t-col-white',
+  },
+  text: 'We\'re helping more people than ever save time and access services quickly through a single NHS login.',
+};
+DarkBlueBackground.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${DarkBlueBackground(DarkBlueBackground.args)}`,
     },
   },
 };
@@ -113,19 +167,46 @@ export const YellowBackground = Template.bind({});
 YellowBackground.storyName = sbConfig.title.YellowBackground;
 YellowBackground.args = {
   box: {
-    classes: 'nhsd-!t-bg-grad-yellow',
+    classes: 'nhsd-!t-bg-yellow',
   },
   heading: {
     label: '1,000,000',
     xOutOfX: false,
   },
-  subtitle: 'NHS login accounts',
+  subtitle: {
+    label: 'NHS login accounts',
+  },
   text: 'We\'re helping more people than ever save time and access services quickly through a single NHS login.',
 };
 YellowBackground.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${YellowBackground(YellowBackground.args)}`,
+    },
+  },
+};
+
+export const BlackBackground = Template.bind({});
+BlackBackground.storyName = sbConfig.title.BlackBackground;
+BlackBackground.args = {
+  box: {
+    classes: 'nhsd-!t-bg-black nhsd-!t-col-white',
+  },
+  heading: {
+    label: '1,000,000',
+    xOutOfX: false,
+    classes: 'nhsd-!t-col-white',
+  },
+  subtitle: {
+    label: 'NHS login accounts',
+    classes: 'nhsd-!t-col-white',
+  },
+  text: 'We\'re helping more people than ever save time and access services quickly through a single NHS login.',
+};
+BlackBackground.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${BlackBackground(BlackBackground.args)}`,
     },
   },
 };
@@ -140,7 +221,9 @@ TextSuffix.args = {
     label: '111',
     xOutOfX: false,
   },
-  subtitle: 'Sure in NHS app use',
+  subtitle: {
+    label: 'NHS login accounts',
+  },
   text: 'We\'re now supporting twice as many patients through access to digital healthcare advice and services',
   suffix: {
     label: '%',
@@ -164,7 +247,9 @@ TextPrefix.args = {
     label: '52,000,000',
     xOutOfX: false,
   },
-  subtitle: 'Pound sign prefix',
+  subtitle: {
+    label: 'Pound sign prefix',
+  },
   prefix: {
     label: '£',
   },
@@ -187,7 +272,9 @@ TextPrefixAndSuffix.args = {
     label: '52',
     xOutOfX: false,
   },
-  subtitle: 'Pound sign prefix / million suffix',
+  subtitle: {
+    label: 'Pound sign prefix / million suffix',
+  },
   prefix: {
     label: '£',
   },
@@ -213,7 +300,9 @@ IconPrefix.args = {
     label: '52',
     xOutOfX: false,
   },
-  subtitle: 'Upward trend / x suffix',
+  subtitle: {
+    label: 'Upward trend / x suffix',
+  },
   prefix: {
     icon: {
       id: 'arrow_up',
@@ -243,7 +332,9 @@ IconSuffix.args = {
     label: '52',
     xOutOfX: false,
   },
-  subtitle: 'Pound sign prefix / downward trend',
+  subtitle: {
+    label: 'Pound sign prefix / downward trend',
+  },
   suffix: {
     icon: {
       id: 'arrow_up',
@@ -273,7 +364,9 @@ IconPrefixAndSuffix.args = {
     label: '52',
     xOutOfX: false,
   },
-  subtitle: 'Downward trend prefix / downward trend suffix',
+  subtitle: {
+    label: 'Downward trend prefix / downward trend suffix',
+  },
   prefix: {
     icon: {
       id: 'arrow_down',
@@ -307,7 +400,9 @@ IconPrefixAndSuffixWithLabel.args = {
     label: '52',
     xOutOfX: false,
   },
-  subtitle: 'Upward trend prefix with pound sign label / upward trend suffix with million label',
+  subtitle: {
+    label: 'Upward trend prefix with pound sign label / upward trend suffix with million label',
+  },
   prefix: {
     label: '£',
     icon: {
@@ -344,7 +439,9 @@ XOutOfX.args = {
     xOutOfX: true,
     label2: '5',
   },
-  subtitle: 'X out of X template',
+  subtitle: {
+    label: 'X out of X template',
+  },
 };
 XOutOfX.parameters = {
   docs: {
