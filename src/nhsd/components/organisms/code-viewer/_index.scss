@@ -57,13 +57,13 @@ $-root: ".nhsd-o-code-viewer";
 
     & * {
       scrollbar-width: thin;
-      scrollbar-color: rgba(nhsd-colours.get('black'), .2) rgba(nhsd-colours.get('white'), .2);
+      scrollbar-color: nhsd-colours.get('dark-grey') nhsd-colours.get('black');
     }
 
     & *::-webkit-scrollbar,
     & *::-webkit-scrollbar-corner {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       background: rgba(nhsd-colours.get('black'), .2);
     }
 
@@ -74,6 +74,11 @@ $-root: ".nhsd-o-code-viewer";
     & *::-webkit-scrollbar-thumb {
       background-color: rgba(nhsd-colours.get('white'), .2);
     }
+  }
+
+  &__code-content {
+    width: 100%;
+    height: 100%;
 
     pre {
       width: 100%;

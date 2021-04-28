@@ -13,6 +13,7 @@
 pre[class*="language-"] {
   background: none;
   margin: 0;
+  padding-top: 0;
   height: 100%;
   overflow: overlay;
 }
@@ -39,7 +40,9 @@ pre[class*="language-"] {
     <p class="nhsd-t-heading-s nhsd-!t-margin-3" data-hide-tab-header>{{ code.header }}</p>
     {% if code.language -%}
       <div class="{{ classNames }}__code{% if code.wrap -%} {{ classNames }}__code--wrap{%- endif -%}">
-        <pre class="line-numbers"><code class="language-{{ code.language }}">{{ code.content }}</code></pre>
+        <div class="{{ classNames }}__code-content">
+          <pre class="line-numbers"><code class="language-{{ code.language }}">{{ code.content }}</code></pre>
+        </div>
       </div>
     {%- else %}
     <div class="{{ classNames }}__example">
