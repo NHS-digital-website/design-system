@@ -1,0 +1,72 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+@use "scss-core/settings/vars";
+
+// Token
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
+
+// Private members
+$-root: ".nhsd-o-chapter-navigation";
+
+#{$-root} {
+  .nhsd-a-box {
+    display: flex;
+    border-radius: 0;
+    justify-content: space-between;
+  }
+
+  &__next-chapter,
+  &__previous-chapter {
+    width: 33%;
+  }
+
+  &__current-chapter {
+    display: block;
+    width: 34%;
+    text-align: center;
+  }
+
+  @include mq($until: s) {
+    .nhsd-a-box {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+    }
+
+    &__previous-chapter {
+      width: 100%;
+      margin-bottom: nhsd-spacing.get(2);
+    }
+
+    &__next-chapter {
+      width: 100%;
+
+      .nhsd-m-chapter__content {
+        justify-content: flex-start;
+      }
+
+      .nhsd-m-chapter__link {
+        margin-right: auto;
+        margin-left: 0;
+      }
+    }
+
+    &__current-chapter {
+      width: 100%;
+      margin-bottom: nhsd-spacing.get(2);
+      text-align: left;
+    }
+  }
+
+  @include mq($from: l) {
+    &:not(&--footer) {
+      position: sticky;
+      top: 0;
+
+      @include nhsd-spacing.apply-spacing(#{$-root}-sticky--offset, "top");
+    }
+  }
+}

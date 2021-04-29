@@ -1,0 +1,33 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_icon,
+  nhsd_a_link
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-chapter" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{%- if params.direction === 'left' -%}
+<a  class="{{ classNames }}" href="{{ params.href }}" aria-label="{{ params.chapterName }}">
+  <div class="nhsd-m-chapter__content">
+      <span class="nhsd-m-chapter__icon">
+        {{ nhsd_a_icon({id:'arrow_left', classes:params.icon.classes}) }}
+      </span>
+      <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">{{params.chapterName}}</p>
+  </div>
+  <p class="nhsd-m-chapter__link nhsd-t-body-s">{{ params.chapterDescription}}</p>
+</a>
+{%- else -%}
+<a class="{{ classNames }} nhsd-m-chapter--right" href="{{ params.href }}" aria-label="{{ params.chapterName }}">
+  <div class="nhsd-m-chapter__content">
+    <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">{{params.chapterName}}</p>
+    <span class="nhsd-m-chapter__icon">
+      {{ nhsd_a_icon({ id:"arrow_right", classes:params.icon.classes }) }}
+    </span>
+  </div>
+  <p class="nhsd-m-chapter__link nhsd-t-body-s">{{ params.chapterDescription}}</p>
+</a>
+{%- endif -%}
