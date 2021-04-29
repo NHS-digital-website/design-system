@@ -69,6 +69,15 @@ $-box-extra-padding: 1.666rem;
         padding-right: $-box-padding;
       }
     }
+
+    .nhsd-a-icon {
+      display: block;
+      position: absolute;
+      top: $-box-padding;
+      right: $-box-padding * .9;
+      width: $-icon-size;
+      height: $-icon-size;
+    }
   }
 
   [class^="nhsd-t-heading"] {
@@ -84,15 +93,6 @@ $-box-extra-padding: 1.666rem;
     &:last-of-type {
       margin-bottom: 0;
     }
-  }
-
-  .nhsd-a-icon {
-    display: block;
-    position: absolute;
-    top: $-box-padding;
-    right: $-box-padding * .9;
-    width: $-icon-size;
-    height: $-icon-size;
   }
 
   // Warning (red) variant
