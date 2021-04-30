@@ -7,6 +7,7 @@ let stickyNavItems = [];
 let observer = null;
 
 const TOP_THRESHOLD = 0.1;
+const MID_THRESHOLD = 0.75;
 
 function initItem(navEl) {
     const contentId = navEl.dataset.navContent;
@@ -23,6 +24,7 @@ function updateActiveStates(activeItem) {
     stickyNavItems.forEach((item) => item.navEl.classList.remove(`${componentClass}__item--active`));
 
     activeItem.navEl.classList.add(`${componentClass}__item--active`);
+
     nhsd.trigger('sticky-navigation[update]', activeItem);
 }
 
@@ -40,6 +42,14 @@ function findActiveItem() {
     });
 
     if (activeItem) updateActiveStates(activeItem);
+
+    const windowMidPos = window.innerHeight * MID_THRESHOLD;
+
+    const lastItem = stickyNavItems[stickyNavItems.length - 1];
+
+    if (lastItem.getBoundingClientRect().top > windowMidPos && lastItem !== activeItem) {
+      lastItem.navEl.classList.add(`${componentClass}__item--active`);
+    }
 }
 
 function createIntersectionObserver() {
