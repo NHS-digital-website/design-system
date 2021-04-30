@@ -79,14 +79,13 @@ $-root: ".nhsd-o-code-viewer";
   &__code-content {
     width: 100%;
     height: 100%;
+    overflow: overlay;
+    overflow: auto;
 
     pre {
-      width: 100%;
-      height: 100%;
       margin: 0;
       padding: nhsd-spacing.get(3);
       padding-top: 0;
-      overflow: auto;
     }
   }
 
