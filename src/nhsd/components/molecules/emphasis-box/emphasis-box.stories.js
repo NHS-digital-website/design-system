@@ -70,6 +70,7 @@ const Template = (args) => template.render({ params: { ...args } });
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
+  classes: '',
   box: {
     classes: 'nhsd-a-box--border-blue',
   },
@@ -426,6 +427,35 @@ WarningBox.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${WarningBox(WarningBox.args)}`,
+    },
+  },
+};
+
+export const WideEmphasisBox = Template.bind({});
+WideEmphasisBox.storyName = 'Wide Emphasis box';
+WideEmphasisBox.args = {
+  classes: 'nhsd-m-emphasis-box--wide',
+  box: {
+    classes: 'nhsd-a-box--border-blue',
+  },
+  title: 'Emphasis box with optional icon and optional button',
+  text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
+  hexIcon: {
+    classes: 'nhsd-a-icon--size-xxl',
+    id: 'chart',
+    nested: true,
+  },
+  button: {
+    label: 'Optional button',
+    el: 'a',
+    href: '#',
+    classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
+  },
+};
+WideEmphasisBox.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${WideEmphasisBox(WideEmphasisBox.args)}`,
     },
   },
 };
