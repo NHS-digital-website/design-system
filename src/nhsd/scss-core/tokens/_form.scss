@@ -49,18 +49,18 @@ $-outline-width: .167rem;
         &-form-input,
         &-form-textarea,
         &-form-select {
-          color: nhsd-colours.get("red");
+          color: nhsd-colours.get("accessible-red");
 
           &:not(:disabled):not(&--disabled) {
             &,
             &:focus {
-              box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("red");
+              box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("accessible-red");
             }
           }
         }
 
         &-form-control__icon {
-          fill: nhsd-colours.get("red");
+          fill: nhsd-colours.get("accessible-red");
         }
 
         &-form-error {
@@ -68,12 +68,17 @@ $-outline-width: .167rem;
         }
       }
     }
+
+    &__error {
+      padding-left: nhsd-spacing.get(3);
+      border-left: 3px solid nhsd-colours.get("accessible-red");
+    }
   }
 
   &-fieldset {
     margin: 0;
     padding: 0;
-    border: 0;
+    border: none;
   }
 
   &-label {
@@ -105,7 +110,7 @@ $-outline-width: .167rem;
     }
   }
 
-  &-hint {
+  &__hint {
     @extend .nhsd-t-body;
     @include nhsd-spacing.set-responsive("margin-bottom", 2);
     display: block;
@@ -205,11 +210,11 @@ $-outline-width: .167rem;
   }
 
   &-error {
-    @extend .nhsd-t-body;
+    @extend .nhsd-t-heading-xs;
 
     display: none;
     margin-bottom: 0;
-    color: nhsd-colours.get("red");
+    color: nhsd-colours.get("accessible-red");
   }
 }
 // stylelint-enable scss/at-extend-no-missing-placeholder

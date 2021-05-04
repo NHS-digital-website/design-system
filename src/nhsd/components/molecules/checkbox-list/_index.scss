@@ -4,22 +4,3 @@
 
 // Private members
 $-root: ".nhsd-m-checkbox-list";
-
-#{$-root} {
-  &__hint {
-    color: nhsd-colours.get("mid-grey");
-  }
-
-  .nhsd-t-heading-xs {
-    color: nhsd-colours.get("accessible-red");
-  }
-
-  &__error {
-    padding-left: nhsd-spacing.get(3);
-    border-left: 3px solid nhsd-colours.get("accessible-red");
-  }
-
-  &--fieldset {
-    border: none;
-  }
-}
