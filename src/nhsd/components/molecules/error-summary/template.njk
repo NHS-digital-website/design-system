@@ -17,7 +17,7 @@
       <p class="nhsd-t-heading-m">{{ params.title|safe }}</p>
       <div class="nhsd-m-error-summary__list">
         {% for error in params.errors -%}
-          <div class="nhsd-m-error-summary--link nhsd-!t-margin-bottom-1">
+          <div class="nhsd-m-error-summary__link nhsd-!t-margin-bottom-1">
             {{ nhsd_a_link(error) }}
           </div>
         {% endfor -%}

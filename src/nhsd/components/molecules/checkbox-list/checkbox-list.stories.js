@@ -1,3 +1,6 @@
+// prettify html
+import pretty from 'pretty';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -83,7 +86,7 @@ LabComponent.args = {
 LabComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+      code: `${sourceCode}\n${pretty(LabComponent(LabComponent.args), { ocd: true })}`,
     },
   },
 };
@@ -104,6 +107,7 @@ const errorCheckboxList = [
   },
 ];
 ErrorComponent.args = {
+  classes: 'nhsd-t-form-group nhsd-t-form-group--error',
   title: 'What years did something happen?',
   hint: 'This is a friendly hint',
   errorText: 'You must select a checkbox',
@@ -112,7 +116,7 @@ ErrorComponent.args = {
 ErrorComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ErrorComponent(ErrorComponent.args)}`,
+      code: `${sourceCode}\n${pretty(ErrorComponent(ErrorComponent.args), { ocd: true })}`,
     },
   },
 };

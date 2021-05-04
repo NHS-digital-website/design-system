@@ -1,3 +1,6 @@
+// prettify html
+import pretty from 'pretty';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -72,7 +75,7 @@ const toggleCardList = [
   },
 ];
 LabComponent.args = {
-  classes: 'nhsd-o-selector-toggle-card-list__items',
+  classes: '',
   title: 'Please toggle the relevant items',
   hint: 'This is a friendly hint',
   toggleCardList,
@@ -82,7 +85,7 @@ LabComponent.args = {
 LabComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+      code: `${sourceCode}\n${pretty(LabComponent(LabComponent.args), { ocd: true })}`,
     },
   },
 };
@@ -109,7 +112,7 @@ const toggleCardErrorList = [
     },
     selector: {
       nested: true,
-      classes: 'nhsd-a-selector-toggle--start nhsd-a-selector-toggle__error',
+      classes: 'nhsd-a-selector-toggle--start nhsd-a-selector-toggle--error',
     },
     title: 'Analytics',
     text: 'This means we can see what people do on our site',
@@ -131,7 +134,7 @@ const toggleCardErrorList = [
   },
 ];
 ErrorComponent.args = {
-  classes: 'nhsd-o-selector-toggle-card-list__items',
+  classes: 'nhsd-t-form-group--error',
   title: 'Please toggle the relevant items',
   hint: 'This is a friendly hint',
   toggleCardList: toggleCardErrorList,
@@ -141,7 +144,7 @@ ErrorComponent.args = {
 ErrorComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ErrorComponent(ErrorComponent.args)}`,
+      code: `${sourceCode}\n${pretty(ErrorComponent(ErrorComponent.args), { ocd: true })}`,
     },
   },
 };

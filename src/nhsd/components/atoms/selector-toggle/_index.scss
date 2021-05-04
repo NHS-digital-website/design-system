@@ -104,7 +104,7 @@ $-root: ".nhsd-a-selector-toggle";
     }
   }
 
-  &__error {
+  &--error {
     .slider {
       box-shadow: 0 0 0 .167rem nhsd-colours.get("accessible-red");
     }

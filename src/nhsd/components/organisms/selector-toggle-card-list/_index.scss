@@ -13,28 +13,13 @@ $-root: ".nhsd-o-selector-toggle-card-list";
   display: block;
   position: relative;
 
-  &__items {
-    @include nhsd-spacing.set-responsive("margin-bottom", 4);
+  @include nhsd-spacing.set-responsive("margin-bottom", 4);
 
-    [class^="nhsd-t-col"] {
-      padding-bottom: nhsd-grid.$gutter * 2;
+  [class^="nhsd-t-col"] {
+    padding-bottom: nhsd-grid.$gutter * 2;
 
-      @include mq($until: s) {
-        padding-bottom: nhsd-grid.$small-gutter * 2;
-      }
+    @include mq($until: s) {
+      padding-bottom: nhsd-grid.$small-gutter * 2;
     }
-  }
-
-  &--fieldset {
-    border: none;
-  }
-
-  &__error {
-    padding-left: nhsd-spacing.get(3);
-    border-left: 3px solid nhsd-colours.get("accessible-red");
-  }
-
-  .nhsd-t-heading-xs {
-    color: nhsd-colours.get("accessible-red");
   }
 }

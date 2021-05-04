@@ -5,13 +5,13 @@
 {%- endif -%}
 
 {%- if not params.nested -%}
-  <label class="{{ classNames }}" aria-label="{{ params.label }}"/>
-    <input type="checkbox" checked/>
+  <label class="{{ classNames }}" aria-label="{{ params.label }}">
+    <input type="checkbox" checked />
     <span class="slider"></span>
   </label>
 {%- else -%}
-  <div class="{{ classNames }}" />
-    <input type="checkbox" checked/>
+  <div class="{{ classNames }}" >
+    <input type="checkbox" checked />
     <span class="slider"></span>
   </div>
 {%- endif-%}

@@ -6,30 +6,11 @@
 $-root: ".nhsd-m-date-input";
 
 #{$-root} {
-  .nhsd-m-date-input--fieldset {
-    border: transparent;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-  }
-
-  &__hint {
-    color: nhsd-colours.get("mid-grey");
-  }
-
-  .nhsd-t-heading-xs {
-    color: nhsd-colours.get("accessible-red");
-  }
-
-  &__error {
-    padding-left: nhsd-spacing.get(3);
-    border-left: 3px solid nhsd-colours.get("accessible-red");
-  }
-
   &__date-input {
     display: flex;
   }
 
-  .nhsd-m-date-input--day {
+  .nhsd-m-date-input-day {
     margin-right: nhsd-spacing.get(2);
 
     input {
@@ -38,7 +19,7 @@ $-root: ".nhsd-m-date-input";
     }
   }
 
-  .nhsd-m-date-input--month {
+  .nhsd-m-date-input-month {
     margin-right: nhsd-spacing.get(2);
 
     input {
@@ -46,15 +27,9 @@ $-root: ".nhsd-m-date-input";
     }
   }
 
-  .nhsd-m-date-input--year {
+  .nhsd-m-date-input-year {
     input {
       width: 76px;
-    }
-  }
-
-  .nhsd-t-form-group--error {
-    input {
-      border-color: nhsd-colours.get("accessible-red");
     }
   }
 }

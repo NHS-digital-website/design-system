@@ -1,3 +1,6 @@
+// prettify html
+import pretty from 'pretty';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -51,7 +54,7 @@ LabComponent.args = {
 LabComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+      code: `${sourceCode}\n${pretty(LabComponent(LabComponent.args), { ocd: true })}`,
     },
   },
 };
@@ -65,7 +68,7 @@ StartToggle.args = {
 StartToggle.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${StartToggle(StartToggle.args)}`,
+      code: `${sourceCode}\n${pretty(StartToggle(StartToggle.args), { ocd: true })}`,
     },
   },
 };
@@ -79,7 +82,7 @@ CancelToggle.args = {
 CancelToggle.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${CancelToggle(CancelToggle.args)}`,
+      code: `${sourceCode}\n${pretty(CancelToggle(CancelToggle.args), { ocd: true })}`,
     },
   },
 };

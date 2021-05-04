@@ -1,3 +1,6 @@
+// prettify html
+import pretty from 'pretty';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -32,6 +35,7 @@ const Template = (args) => template.render({ params: { ...args } });
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
+  classes: '',
   title: 'What years did something happen?',
   hint: 'This is a friendly hint',
   errorText: '',
@@ -39,7 +43,7 @@ LabComponent.args = {
 LabComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+      code: `${sourceCode}\n${pretty(LabComponent(LabComponent.args), { ocd: true })}`,
     },
   },
 };
@@ -47,6 +51,7 @@ LabComponent.parameters = {
 export const ErrorComponent = Template.bind({});
 ErrorComponent.storyName = 'Error State';
 ErrorComponent.args = {
+  classes: 'nhsd-t-form-group--error',
   title: 'What years did something happen?',
   hint: 'This is a friendly hint',
   errorText: 'This is an error',
@@ -54,7 +59,7 @@ ErrorComponent.args = {
 ErrorComponent.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ErrorComponent(ErrorComponent.args)}`,
+      code: `${sourceCode}\n${pretty(ErrorComponent(ErrorComponent.args), { ocd: true })}`,
     },
   },
 };
