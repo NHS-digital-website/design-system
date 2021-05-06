@@ -187,6 +187,50 @@ BlueTableComponent.parameters = {
   },
 };
 
+export const RightAlignTableComponent = Template.bind({});
+RightAlignTableComponent.storyName = 'Right align table';
+RightAlignTableComponent.args = {
+  ...GroupedTableComponent.args,
+  classes: 'nhsd-m-table--right-align',
+};
+RightAlignTableComponent.parameters = {
+  docs: {
+    description: {
+      story: '- Tables can be right aligned with `nhsd-m-table--right-align`',
+    },
+    source: {
+      code: `${sourceCode}\n${RightAlignTableComponent(RightAlignTableComponent.args)}`,
+    },
+  },
+};
+
+export const RightAlignColComponent = Template.bind({});
+RightAlignColComponent.storyName = 'Right align column';
+RightAlignColComponent.args = {
+  ...GroupedTableComponent.args,
+  table: {
+    ...GroupedTableComponent.args.table,
+    headings: [
+      ...GroupedTableComponent.args.table.headings.slice(0, 2),
+      {
+        text: '2019-20 (£000)',
+        rightAlign: true,
+      },
+      ...GroupedTableComponent.args.table.headings.slice(3),
+    ],
+  },
+};
+RightAlignColComponent.parameters = {
+  docs: {
+    description: {
+      story: '- Individual table columns can be right aligned with `nhsd-m-table__col--right-align`',
+    },
+    source: {
+      code: `${sourceCode}\n${RightAlignColComponent(RightAlignColComponent.args)}`,
+    },
+  },
+};
+
 export const MobileListComponent = Template.bind({});
 MobileListComponent.storyName = 'Custom mobile table';
 MobileListComponent.args = {

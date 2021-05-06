@@ -30,7 +30,11 @@
           {%- if heading.disableSort -%}
           {%- set noSort = 'data-no-sort' -%}
           {%- endif -%}
-          <th {{ noSort }}>{{ heading.text }}</th>
+          {%- set colClass = '' -%}
+          {%- if heading.rightAlign -%}
+          {%- set colClass = ' class="nhsd-m-table__col--right-align"' -%}
+          {%- endif -%}
+          <th {{ noSort }}{{ colClass|safe }}>{{ heading.text }}</th>
         {%- endfor %} 
       </tr>
     </thead>
@@ -43,7 +47,11 @@
         {%- for cell in group.cells %}
         <tr>
           {%- for item in cell %}
-            <td>{{ item }}</td>
+            {%- set colClass = '' -%}
+            {%- if params.table.headings[loop.index0].rightAlign -%}
+            {%- set colClass = 'class="nhsd-m-table__col--right-align"' -%}
+            {%- endif -%}
+            <td {{ colClass|safe }}>{{ item }}</td>
           {%- endfor %}
         </tr>
         {%- endfor %}
