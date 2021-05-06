@@ -82,11 +82,13 @@ function makeOrderable(table) {
     Array.from(tableHeaders).forEach((header, index) => {
         if (header.dataset.noSort !== undefined) return;
 
-        header.classList.add('nhsd-m-table__orderable-col');
+        header.classList.add('nhsd-m-table__col--orderable');
 
         const sortIcon = `<span class="nhsd-a-icon nhsd-a-icon--size-xs">${getChevronIcon('asc')}</span>`;
 
-        if (index) {
+        const rightAligned = table.classList.contains('nhsd-m-table--right-align') || header.classList.contains('nhsd-m-table__col--right-align');
+
+        if (rightAligned && index > 0) {
             header.innerHTML = `<button><span>${sortIcon}${header.innerHTML}</span></button>`;
         } else {
             header.innerHTML = `<button><span>${header.innerHTML}${sortIcon}</span></button>`;
