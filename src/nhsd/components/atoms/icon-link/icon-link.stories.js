@@ -119,3 +119,26 @@ ExternalLink.parameters = {
     },
   },
 };
+
+export const DarkGrey = Template.bind({});
+DarkGrey.args = {
+  classes: 'nhsd-a-icon-link--dark-grey',
+  label: 'Visit NHS.UK',
+  href: '#',
+  external: true,
+  icon: {
+    id: 'arrow_right',
+    classes: 'nhsd-a-icon--size-s',
+  },
+};
+DarkGrey.storyName = 'Dark Grey';
+DarkGrey.parameters = {
+  docs: {
+    description: {
+      story: 'External link informs the user\'s screen reader to announce that the link is going to open in a new tab',
+    },
+    source: {
+      code: `${sourceCode} ${DarkGrey(DarkGrey.args)} `,
+    },
+  },
+};

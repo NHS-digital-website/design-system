@@ -35,6 +35,16 @@ $-line-thickness: vars.$active-line-thickness;
     }
   }
 
+  &--dark-grey {
+    color: nhsd-colours.get("dark-grey");
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("dark-grey");
+      }
+    }
+  }
+
   &__label + .nhsd-a-icon,
   .nhsd-a-icon + &__label {
     margin-left: nhsd-spacing.get(1);
