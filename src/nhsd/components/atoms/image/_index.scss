@@ -99,4 +99,24 @@ $-positions: (
       border-radius: vars.$border-radius vars.$border-radius 0 0;
     }
   }
+
+  &--no-scale {
+    width: auto;
+    height: auto;
+
+    #{$-root}__picture {
+      width: auto;
+      height: auto;
+      padding: 0;
+
+      img {
+        position: relative;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
 }
