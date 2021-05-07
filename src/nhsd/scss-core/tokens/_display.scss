@@ -44,4 +44,10 @@ $-device-breakpoints: (xs,s,m,l,xl);
 
     @include nhsd-spacing.apply-spacing(#{$-root}-sticky--offset, "top");
   }
+
+  &-chapters {
+    .nhsd-m-sticky-navigation {
+      top: 131px;
+    }
+  }
 }

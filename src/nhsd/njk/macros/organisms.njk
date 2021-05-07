@@ -11,21 +11,26 @@
 {%- endmacro %}
 
 {# Global footer #}
-{% macro nhsd_o_global-footer(params) -%}
+{% macro nhsd_o_global_footer(params) -%}
   {% include "../../components/organisms/global-footer/template.njk" %}
 {%- endmacro %}
 
 {# Graphic block list #}
 {% macro nhsd_o_graphic_block_list(params) -%}
-  {% include "../../components/organisms/graphic_block_list/template.njk" %}
+  {% include "../../components/organisms/graphic-block-list/template.njk" %}
 {%- endmacro %}
 
 {# Hero feature #}
-{% macro nhsd_o_hero_feature(params) -%}
-  {% include "../../components/organisms/hero_feature/template.njk" %}
-{%- endmacro %}
+{# {% macro nhsd_o_hero_feature(params) -%}
+  {% include "../../components/organisms/hero-feature/template.njk" %}
+{%- endmacro %} #}
 
 {# Image with link list #}
 {% macro nhsd_o_image_with_link_list(params) -%}
   {% include "../../components/organisms/image-with-link-list/template.njk" %}
+{%- endmacro %}
+
+{# chapter navigation #}
+{% macro nhsd_o_chapter_navigation(params) -%}
+  {% include "../../components/organisms/chapter-navigation/template.njk" %}
 {%- endmacro %}
