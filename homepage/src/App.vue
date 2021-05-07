@@ -1,6 +1,13 @@
 <template>
-  <div id="app" >
+  <div id="app">
     <global-header />
+    <div class="nhsd-t-grid">
+      <div class="nhsd-t-row nhsd-!t-margin-3">
+        <div class="nhsd-t-col-12">
+          <phase-banner />
+        </div>
+      </div>
+    </div>
     <home-banner-hero />
     <div class="nhsd-t-grid">
       <div class="nhsd-t-row nhsd-!t-margin-top-8">
@@ -52,6 +59,7 @@
 
 <script>
 import GlobalHeader from './components/GlobalHeader'
+import PhaseBanner from '@/components/PhaseBanner'
 import HomeBannerHero from '@/components/HomeBannerHero'
 import ContentDeliveryNetworkCard from './components/ContentDeliveryNetworkCard'
 import StorybookCard from './components/StorybookCard'
@@ -62,6 +70,7 @@ export default {
   name: 'App',
   components: {
     GlobalHeader,
+    PhaseBanner,
     HomeBannerHero,
     ContentDeliveryNetworkCard,
     StorybookCard,
