@@ -238,3 +238,23 @@ BackgroundImageLeftAlignComponent.parameters = {
     },
   },
 };
+
+export const disableScaling = Template.bind({});
+disableScaling.storyName = 'Disable scaling';
+disableScaling.args = {
+  classes: 'nhsd-a-image--no-scale',
+  sourceSet: [{
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+  }],
+  alt: '2 scientists testing in a laboratory',
+};
+disableScaling.parameters = {
+  docs: {
+    description: {
+      story: 'By default the image atom will scale to fit the container it\'s placed in. To disable this behaviour the variant `.nhsd-a-image--no-scale` can be applied.',
+    },
+    source: {
+      code: `${sourceCode}${disableScaling(disableScaling.args)}`,
+    },
+  },
+};
