@@ -13,6 +13,28 @@ $-root: ".nhsd-m-table";
 #{$-root} {
   overflow-x: auto;
 
+  @mixin right-align {
+    &:not(:first-child) {
+      text-align: right;
+
+      .nhsd-a-icon {
+        margin-right: 10px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &--right-align {
+    td,
+    th {
+      @include right-align;
+    }
+  }
+
+  #{$-root}__col--right-align {
+    @include right-align;
+  }
+
   table,
   tbody {
     width: 100%;
@@ -45,7 +67,7 @@ $-root: ".nhsd-m-table";
     th {
       border: none;
 
-      &#{$-root}__orderable-col {
+      &#{$-root}__col--orderable {
         padding: 0;
 
         button {
@@ -83,10 +105,9 @@ $-root: ".nhsd-m-table";
 
     &:not(:first-child) {
       .nhsd-a-icon {
-        margin-right: 10px;
-        margin-left: 0;
+        margin-right: 0;
+        margin-left: 10px;
       }
-      text-align: right;
     }
 
     &[data-sort="asc"],

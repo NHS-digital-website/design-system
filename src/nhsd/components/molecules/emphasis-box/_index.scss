@@ -155,4 +155,22 @@ $-box-extra-padding: 1.666rem;
       @include nhsd-spacing.set-responsive("margin-top", 5);
     }
   }
+
+  // wide-version
+  &--wide {
+
+    @include mq($from: s) {
+      .nhsd-a-box {
+        padding: $-box-extra-padding * .8 $-box-extra-padding $-box-extra-padding;
+      }
+
+      .nhsd-a-icon {
+        right: $-box-extra-padding * .9;
+      }
+    }
+
+    [class^="nhsd-t-body"] {
+      max-width: 100%;
+    }
+  }
 }
