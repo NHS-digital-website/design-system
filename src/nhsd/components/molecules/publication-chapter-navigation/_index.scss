@@ -1,0 +1,57 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+
+// Private members
+$-root: ".nhsd-m-publication-chapter-navigation";
+
+#{$-root} {
+  &--active {
+    .nhsd-a-link {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 7px;
+        bottom: -4px;
+        left: -38px;
+        border-left: 3px solid nhsd-colours.get("warm-yellow");
+      }
+
+      &,
+      &:visited,
+      &:hover {
+        padding-bottom: 0;
+        border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+        color: nhsd-colours.get("black");
+        background: none;
+        @include nhsd-fonts.font-weight(bold);
+      }
+    }
+  }
+
+  &--split {
+    @include mq($from: t) {
+      ol {
+        column-count: 2;
+        column-gap: nhsd-spacing.get(7);
+        width: 100%;
+      }
+
+      :not(#{$-root}--active) > .nhsd-a-link {
+        margin-bottom: vars.$active-line-thickness;
+        padding-bottom: 0;
+
+        &:focus,
+        &:hover {
+          margin-bottom: 1px;
+        }
+      }
+    }
+  }
+}

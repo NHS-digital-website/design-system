@@ -1,0 +1,19 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_link
+-%}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-m-publication-chapter-navigation" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+
+<div class="{{ classNames }}">
+  <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
+    {% for link in params.chapterLinks -%}
+      <li class="{{link.class}}" >{{ nhsd_a_link( link ) }}</li>
+    {% endfor -%}
+  </ol>
+</div>
