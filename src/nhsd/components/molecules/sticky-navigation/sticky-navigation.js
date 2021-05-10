@@ -1,11 +1,12 @@
-/* global document window IntersectionObserver */
+/* global document window performance */
 import nhsd from '@/nhsd';
 import debounce from 'debounce';
 
 const componentClass = 'nhsd-m-sticky-navigation';
+let activeItem = null;
 let stickyNavItems = [];
-let observer = null;
 
+let windowTopPos = 0;
 const TOP_THRESHOLD = 0.1;
 
 function initItem(navEl) {
@@ -19,45 +20,40 @@ function initItem(navEl) {
     });
 }
 
-function updateActiveStates(activeItem) {
+function updateActiveStates() {
     stickyNavItems.forEach((item) => item.navEl.classList.remove(`${componentClass}__item--active`));
 
-    activeItem.navEl.classList.add(`${componentClass}__item--active`);
+    if (activeItem) activeItem.navEl.classList.add(`${componentClass}__item--active`);
     nhsd.trigger('sticky-navigation[update]', activeItem);
 }
 
 function findActiveItem() {
-    const windowTopPos = window.innerHeight * TOP_THRESHOLD;
-
-    let activeItem = null;
+    let newActiveItem = null;
+    let newItemTopPos = null;
     stickyNavItems.forEach((item) => {
         const itemTopPos = item.contentEl.getBoundingClientRect().top;
-
         if (windowTopPos < itemTopPos) return;
-        if (activeItem && itemTopPos < activeItem.contentEl.getBoundingClientRect().top) return;
+        if (newActiveItem && itemTopPos < newItemTopPos) return;
 
-        activeItem = item;
+        newActiveItem = item;
+        newItemTopPos = newActiveItem.contentEl.getBoundingClientRect().top;
     });
 
-    if (activeItem) updateActiveStates(activeItem);
-}
-
-function createIntersectionObserver() {
-    const findActiveItemDebounced = debounce(findActiveItem, 18);
-    return new IntersectionObserver(() => findActiveItemDebounced(), {
-        root: null,
-        rootMargin: '-10% 0% 0% 0%',
-        threshold: [1],
-    });
+    if (activeItem !== newActiveItem) {
+        activeItem = newActiveItem;
+        updateActiveStates();
+    }
 }
 
 export default function NHSDStickyNavigation(componentEl) {
-    if (observer) observer.disconnect();
     stickyNavItems = [];
 
     const items = componentEl.querySelectorAll(`.${componentClass}__item`);
     items.forEach((item) => initItem(item));
 
-    observer = createIntersectionObserver();
-    stickyNavItems.forEach((item) => observer.observe(item.contentEl));
+    windowTopPos = window.innerHeight * TOP_THRESHOLD;
+    window.onresize = () => {
+        windowTopPos = window.innerHeight * TOP_THRESHOLD;
+    };
+    window.onscroll = debounce(findActiveItem, 16);
 }

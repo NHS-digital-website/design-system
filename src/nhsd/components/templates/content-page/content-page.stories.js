@@ -107,6 +107,22 @@ ContentPageComponent.args = {
     
     <p class="nhsd-t-body">To reflect the fact that some risk factors have a bigger impact on risk than others, some values contribute more to the result than others (weighting). The weighting of some values can be affected by the presence or absence of other factors. For example, the risk associated with Type 2 diabetes increases with age.</p>
 
+    <p class="nhsd-t-body">QCovid® works by taking information about risk factors and converting each of these into values. These values are then combined in an equation that estimates risk and generates figures for absolute risk and relative risk.</p>
+    
+    <p class="nhsd-t-body">Absolute risk is the overall risk, based on what happened to other people with the same characteristics and risk factors who caught coronavirus and went to hospital or died as a result.</p>
+    
+    <p class="nhsd-t-body">Relative risk is the level of risk compared to a person who is the same age and sex registered at birth, but without any other risk factors.</p>
+    
+    <p class="nhsd-t-body">To reflect the fact that some risk factors have a bigger impact on risk than others, some values contribute more to the result than others (weighting). The weighting of some values can be affected by the presence or absence of other factors. For example, the risk associated with Type 2 diabetes increases with age.</p>
+
+    <p class="nhsd-t-body">QCovid® works by taking information about risk factors and converting each of these into values. These values are then combined in an equation that estimates risk and generates figures for absolute risk and relative risk.</p>
+    
+    <p class="nhsd-t-body">Absolute risk is the overall risk, based on what happened to other people with the same characteristics and risk factors who caught coronavirus and went to hospital or died as a result.</p>
+    
+    <p class="nhsd-t-body">Relative risk is the level of risk compared to a person who is the same age and sex registered at birth, but without any other risk factors.</p>
+    
+    <p class="nhsd-t-body">To reflect the fact that some risk factors have a bigger impact on risk than others, some values contribute more to the result than others (weighting). The weighting of some values can be affected by the presence or absence of other factors. For example, the risk associated with Type 2 diabetes increases with age.</p>
+
     <h2 class="nhsd-t-heading-l" id="factors-not-incorporate">Factors not incorporated into QCovid®</h2>
     
     <p class="nhsd-t-body">As with any model like this, QCovid® can only estimate risk and cannot take all factors into account. There are several things that are important to consider that are not included in QCovid®, such as:</p>
