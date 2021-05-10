@@ -105,6 +105,7 @@ $-positions: (
     height: auto;
 
     #{$-root}__picture {
+      display: inline-block;
       width: auto;
       height: auto;
       padding: 0;
@@ -116,6 +117,7 @@ $-positions: (
         height: auto;
         max-height: 100%;
         object-fit: contain;
+        vertical-align: top;
       }
     }
   }
