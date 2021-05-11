@@ -31,7 +31,7 @@ $-root: ".nhsd-a-link";
 
   &:focus,
   &:hover {
-    padding-bottom: 0;
+    padding-bottom: 1px;
     border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
     outline: none;
     color: nhsd-colours.get("black");

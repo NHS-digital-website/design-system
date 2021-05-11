@@ -36,7 +36,7 @@ $-root: ".nhsd-m-sticky-navigation";
         &,
         &:visited,
         &:hover {
-          padding-bottom: 0;
+          padding-bottom: 1px;
           border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
           color: nhsd-colours.get("black");
           background: none;
