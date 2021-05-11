@@ -1,4 +1,4 @@
-/* global document window performance */
+/* global document window */
 import nhsd from '@/nhsd';
 import debounce from 'debounce';
 
@@ -11,7 +11,7 @@ const TOP_THRESHOLD = 0.1;
 
 function initItem(navEl) {
     const contentId = navEl.dataset.navContent;
-    const contentEl = document.querySelector(`#${contentId}`);
+    const contentEl = document.querySelector(`[id='${contentId}']`);
     if (!contentEl) return;
 
     stickyNavItems.push({
