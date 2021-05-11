@@ -19,9 +19,13 @@ function initComponent(selector, componentClass) {
     Array.from(componentEls).forEach((componentEl) => {
         if (componentList.includes(componentEl)) return;
 
-        /* eslint-disable no-new, new-cap */
-        new componentClass(componentEl);
-        /* eslint-enable no-new, new-cap */
+        /* eslint-disable no-new, new-cap, no-console */
+        try {
+            new componentClass(componentEl);
+        } catch (e) {
+            console.error(`Failed to initialise ${componentClass.name}`);
+        }
+        /* eslint-enable no-new, new-cap, no-console */
     });
 }
 
