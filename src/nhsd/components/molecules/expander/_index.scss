@@ -10,9 +10,12 @@
 $-root: ".nhsd-m-expander";
 
 #{$-root} {
+  ::marker {
+    display: none;
+  }
+
   &__heading-container {
     width: fit-content;
-    height: nhsd-spacing.get(6);
     border: none;
     color: nhsd-colours.get('blue');
     background-color: transparent;
@@ -33,23 +36,32 @@ $-root: ".nhsd-m-expander";
   }
 
   &__content-container {
-    display: none;
     margin-top: nhsd-spacing.get(3);
   }
 
   &__icon {
     vertical-align: middle;
+  }
 
-    &.active {
+  &__heading {
+    display: inline;
+    position: relative;
+    border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
+  }
+
+  details > summary {
+    list-style: none;
+
+    ::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  details[open] summary {
+    #{$-root}__icon {
       svg {
         transform: rotate(90deg);
       }
     }
-  }
-
-  &__heading {
-    display: inline-block;
-    height: nhsd-spacing.get(5);
-    border-bottom: 1px solid nhsd-colours.get('blue');
   }
 }
