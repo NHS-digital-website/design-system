@@ -19,17 +19,21 @@
   {% if params.type === 'most people' %}
     {{ nhsd_a_box_start('nhsd-a-box--bg-light-grey') }}
   {% endif %}
-    <button class="nhsd-m-expander__heading-container" {{- ariaAttributes | safe }}>
+  <details>
+    <summary class="nhsd-m-expander__heading-container" {{- ariaAttributes | safe }}>
+      <div>
       <span class="nhsd-m-expander__icon nhsd-!t-margin-right-1">
         {{ nhsd_a_icon({ id: 'chevron_right', classes: 'nhsd-a-icon--size-xs'}) }}
       </span>
-      <span class="nhsd-m-expander__heading nhsd-t-body">{{ params.heading }}</span>
-    </button>
+      <p class="nhsd-m-expander__heading nhsd-t-body">{{ params.heading }}</p>
+      </div>
+    </summary>
     <div class="nhsd-m-expander__content-container">
       <span class="nhsd-t-body">
         {{ params.content }}
       </span>
     </div>
+  </details>
   {% if params.type === 'most people' %}
     {{ nhsd_a_box_end() }}
   {% endif %}
