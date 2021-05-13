@@ -9,11 +9,13 @@
   {%- set classNames = classNames + " " + params.classes -%}
 {%- endif -%}
 
-<nav class="{{ classNames }}" role="tablist">
-  {% for tab in params.tabs -%}
-    {{ nhsd_a_tab(tab) }}
-  {%- endfor %}
-  {%- if params.horizontalLine -%}
-    {{nhsd_a_horizontal_rule(params.horizontalLine)}}
-  {%- endif -%}
+<nav class="{{ classNames }}">
+  <div role="tablist">
+    {% for tab in params.tabs -%}
+      {{ nhsd_a_tab(tab) }}
+    {%- endfor %}
+    {%- if params.horizontalLine -%}
+      {{nhsd_a_horizontal_rule(params.horizontalLine)}}
+    {%- endif -%}
+  </div>
 </nav>
