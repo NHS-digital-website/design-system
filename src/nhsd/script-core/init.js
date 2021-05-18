@@ -7,6 +7,7 @@ import NHSDFilterMenuSection from '../components/molecules/filter-menu-section/f
 import NHSDTable from '../components/molecules/table/table';
 import NHSDTabs from '../components/molecules/tabs/tabs';
 import NHSDNotificationBanner from '../components/molecules/notification-banner/notification-banner';
+import NHSDBreadcrumbs from '../components/molecules/breadcrumbs/breadcrumbs';
 
 window.nhsd = nhsd;
 
@@ -22,7 +23,7 @@ function initComponent(selector, componentClass) {
         try {
             new componentClass(componentEl);
         } catch (e) {
-            console.error(`Failed to initialise ${componentClass.name}`);
+            console.error(`Failed to initialise ${componentClass.name}`, e);
         }
         /* eslint-enable no-new, new-cap, no-console */
     });
@@ -36,4 +37,5 @@ export default function init() {
     initComponent('.nhsd-m-table', NHSDTable);
     initComponent('.nhsd-m-tabs', NHSDTabs);
     initComponent('.nhsd-m-notification-banner', NHSDNotificationBanner);
+    initComponent('.nhsd-m-breadcrumbs', NHSDBreadcrumbs);
 }

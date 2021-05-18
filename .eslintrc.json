@@ -13,7 +13,8 @@
         "error", {
           "props": false
         }
-      ]
+      ],
+      "no-plusplus": 0
     },
 
     "settings": {

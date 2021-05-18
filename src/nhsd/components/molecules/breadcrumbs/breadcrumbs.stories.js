@@ -67,6 +67,14 @@ LabComponent.args = {
     label: 'Fourth level',
     classes: 'nhsd-a-link--col-dark-grey',
   },
+  fifthLevel: {
+    label: 'Fourth level',
+    classes: 'nhsd-a-link--col-dark-grey',
+  },
+  sixthLevel: {
+    label: 'Fourth level',
+    classes: 'nhsd-a-link--col-dark-grey',
+  },
   currentLevel: {
     label: 'Current page',
     classes: 'nhsd-a-link--col-dark-grey',
@@ -75,6 +83,10 @@ LabComponent.args = {
   icon: {
     id: 'chevron_right',
     classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-dark-grey',
+  },
+  menuIcon: {
+    id: 'ellipsis',
+    classes: 'nhsd-a-icon--size-xs nhsd-a-icon--col-blue',
   },
 };
 LabComponent.parameters = {
