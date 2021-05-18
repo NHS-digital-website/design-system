@@ -16,6 +16,7 @@ $-root: ".nhsd-m-expander";
 
   &__heading-container {
     width: fit-content;
+    margin-bottom: 3px;
     border: none;
     color: nhsd-colours.get('blue');
     background-color: transparent;
@@ -23,6 +24,7 @@ $-root: ".nhsd-m-expander";
 
     &:hover,
     &:focus {
+      margin-bottom: 0;
       border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
       color: nhsd-colours.get('black');
       background-color: nhsd-colours.get('yellow');
@@ -51,10 +53,10 @@ $-root: ".nhsd-m-expander";
 
   details > summary {
     list-style: none;
+  }
 
-    ::-webkit-details-marker {
-      display: none;
-    }
+  details > summary::-webkit-details-marker {
+    display: none;
   }
 
   details[open] summary {
