@@ -50,4 +50,25 @@ $-root: ".nhsd-m-breadcrumbs";
       color: nhsd-colours.get("black");
     }
   }
+
+  .nhsd-m-breadcrumbs__ellipses {
+    margin-right: nhsd-spacing.get(2);
+    padding: 0 nhsd-spacing.get(1);
+    border-radius: 3px;
+    background-color: nhsd-colours.get("pale-grey-80-tint");
+
+    span {
+      margin-left: 3px;
+    }
+
+    &:hover,
+    &:active {
+      background-color: nhsd-colours.get("dark-blue");
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
+
+      svg {
+        fill: nhsd-colours.get("white");
+      }
+    }
+  }
 }
