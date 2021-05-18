@@ -78,7 +78,7 @@ function addListeners(thisHeading, index, table) {
 function makeOrderable(table) {
     if (table.dataset.noSort !== undefined) return;
 
-    const tableHeaders = table.querySelectorAll('thead td,th');
+    const tableHeaders = table.querySelectorAll('thead tr:first-child td, thead tr:first-child th');
     Array.from(tableHeaders).forEach((header, index) => {
         if (header.dataset.noSort !== undefined) return;
 
@@ -89,9 +89,9 @@ function makeOrderable(table) {
         const rightAligned = table.classList.contains('nhsd-m-table--right-align') || header.classList.contains('nhsd-m-table__col--right-align');
 
         if (rightAligned && index > 0) {
-            header.innerHTML = `<button><span>${sortIcon}${header.innerHTML}</span></button>`;
+            header.innerHTML = `<button><span>${sortIcon}</span><span>${header.innerHTML}</span></button>`;
         } else {
-            header.innerHTML = `<button><span>${header.innerHTML}${sortIcon}</span></button>`;
+            header.innerHTML = `<button><span>${header.innerHTML}</span><span>${sortIcon}</span></button>`;
         }
 
         addListeners(header, index, table);

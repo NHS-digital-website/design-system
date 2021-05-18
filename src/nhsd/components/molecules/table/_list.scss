@@ -3,6 +3,7 @@ $-root: ".nhsd-m-table";
 
 // Settings
 @use "scss-core/settings/media-queries" as *;
+@use "scss-core/settings/vars";
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
@@ -27,7 +28,7 @@ $-root: ".nhsd-m-table";
       margin-bottom: nhsd-spacing.get(6);
       padding: nhsd-spacing.get(2) 0;
       border: 2px solid nhsd-colours.get('mid-grey-20-tint');
-      border-radius: 10px;
+      border-radius: vars.$border-radius;
 
       &#{$-root}__mobile-list-item--highlighted {
         border: none;

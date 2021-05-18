@@ -334,3 +334,19 @@ NoSortTable.parameters = {
     },
   },
 };
+
+export const NoHeadingWrap = Template.bind({});
+NoHeadingWrap.storyName = 'Disable heading wrapping';
+NoHeadingWrap.args = {
+  ...GroupedTableComponent.args,
+};
+NoHeadingWrap.parameters = {
+  docs: {
+    description: {
+      story: '- Example of a table with heading wrapping disabled using `.nhsd-m-table--no-heading-wrap`.',
+    },
+    source: {
+      code: `${sourceCode}\n${NoHeadingWrap(NoHeadingWrap.args)}`,
+    },
+  },
+};
