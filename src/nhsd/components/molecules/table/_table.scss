@@ -35,6 +35,12 @@ $-root: ".nhsd-m-table";
     @include right-align;
   }
 
+  &--no-heading-wrap {
+    thead {
+      white-space: nowrap;
+    }
+  }
+
   table,
   tbody {
     width: 100%;
@@ -54,6 +60,7 @@ $-root: ".nhsd-m-table";
       td,
       th {
         border-top: 1px solid nhsd-colours.get('mid-grey-20-tint');
+        vertical-align: top;
       }
     }
   }
@@ -61,18 +68,19 @@ $-root: ".nhsd-m-table";
   thead {
     color: nhsd-colours.get('black');
     @include nhsd-fonts.font-weight(bold);
-    white-space: nowrap;
 
-    td,
-    th {
+    tr:first-child td,
+    tr:first-child th {
       border: none;
 
       &#{$-root}__col--orderable {
         padding: 0;
 
         button {
+          display: flex;
           width: 100%;
           height: 100%;
+          margin-bottom: vars.$active-line-thickness;
           padding: nhsd-spacing.get(2);
           border: none;
           color: inherit;
@@ -80,9 +88,11 @@ $-root: ".nhsd-m-table";
           font: inherit;
           text-align: inherit;
           cursor: pointer;
+          align-items: center;
 
           &:hover {
-            & > span {
+            .nhsd-a-icon {
+              margin-bottom: 0;
               border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
               color: nhsd-colours.get('black');
               background-color: nhsd-colours.get("yellow");
@@ -118,8 +128,9 @@ $-root: ".nhsd-m-table";
     }
 
     .nhsd-a-icon {
-      margin-bottom: 2px;
+      box-sizing: content-box;
       margin-left: 10px;
+      border-bottom: vars.$active-line-thickness solid transparent;
       fill: nhsd-colours.get('mid-grey');
       vertical-align: text-bottom;
     }
