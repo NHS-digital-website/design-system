@@ -296,6 +296,28 @@ Body.parameters = {
   },
 };
 
+export const CenterAlign = () => {
+  const div = document.createElement('div');
+  const h1 = document.createElement('h1');
+  h1.classList.add('nhsd-t-heading-xxl');
+  h1.classList.add('nhsd-t-text-align-center');
+  h1.innerHTML = 'Center aligned text';
+  div.appendChild(h1);
+
+  return div;
+};
+CenterAlign.storyName = 'Center align';
+CenterAlign.parameters = {
+  docs: {
+    description: {
+      story: 'Center aligned text with `.nhsd-t-text-align-center` token',
+    },
+    source: {
+      code: `${sourceCode}\n${CenterAlign().innerHTML}`,
+    },
+  },
+};
+
 export const WordBreak = () => {
   const div = document.createElement('div');
   const p1 = document.createElement('p');
