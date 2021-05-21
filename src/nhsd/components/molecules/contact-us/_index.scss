@@ -1,0 +1,9 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/colours" as nhsd-colours;
+
+// Private members
+$-root: ".nhsd-m-contact-us";

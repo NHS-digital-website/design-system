@@ -133,6 +133,19 @@ YellowBox.parameters = {
   },
 };
 
+export const LightBlue10Box = Template.bind({});
+LightBlue10Box.storyName = 'Background / Light Blue Tint 10';
+LightBlue10Box.args = {
+  classes: 'nhsd-a-box--bg-light-blue-10',
+};
+LightBlue10Box.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${LightBlue10Box(LightBlue10Box.args)}`,
+    },
+  },
+};
+
 export const LightBlueBox = Template.bind({});
 LightBlueBox.storyName = 'Background / Light Blue';
 LightBlueBox.args = {
