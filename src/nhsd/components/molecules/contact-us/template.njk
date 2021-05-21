@@ -1,0 +1,22 @@
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_link
+-%}
+
+{% set classNames = "nhsd-m-contact-us" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+
+<div class="{{ classNames }}" aria-label="{{params.title}}">
+  {{ nhsd_a_box_start(params.box.classes) }}
+    <div class="nhsd-m-contact-us__content" >
+    <p class="nhsd-t-heading-m">{{ params.heading|safe }}</p>
+    <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-1">{{ params.subHeading|safe }}</p>
+    <p class="nhsd-t-body nhsd-!t-margin-bottom-1">Email: {{ nhsd_a_link(params.email) }}</p>
+    <p class="nhsd-t-body nhsd-!t-margin-bottom-0">Phone: {{ nhsd_a_link(params.phone) }}</p>
+    </div>
+  {{ nhsd_a_box_end() }}
+</div>
