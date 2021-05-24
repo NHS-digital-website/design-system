@@ -502,6 +502,7 @@ HeaderBannerDetailedComponent.args = {
     ],
     classes: 'nhsd-!t-margin-bottom-6',
   },
+  leftAlign: true,
   digiblocks: [{
     classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-blue',
   }],

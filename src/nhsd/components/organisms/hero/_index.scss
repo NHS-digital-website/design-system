@@ -55,6 +55,14 @@ $-root: ".nhsd-o-hero";
       padding-right: nhsd-spacing.get(8);
       padding-left: nhsd-spacing.get(8);
     }
+
+    &--left-align {
+      justify-content: left;
+    }
+
+    &--right-align {
+      justify-content: right;
+    }
   }
 
   &__content {
