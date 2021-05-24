@@ -25,8 +25,11 @@
             {% for linkBlock in params.blocks -%}
             {%- set titleId = nhsd_u_uid("footer-heading-") -%}
             <nav class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3" {%- if linkBlock.title -%} aria-labelledby="{{ titleId }}"{%- endif -%}>
-              {% if linkBlock.title -%}
-              <div class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-1" id="{{ titleId }}">{{ linkBlock.title }}</div>
+              {% if params.blocks | last === linkBlock -%}
+                <div class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-0" id="{{ titleId }}">{{ linkBlock.title }}</div>
+                
+              {%- elif linkBlock.title %}
+                <div class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-1" id="{{ titleId }}">{{ linkBlock.title }}</div>
               {%- endif %}
 
               {% if linkBlock.links -%}
