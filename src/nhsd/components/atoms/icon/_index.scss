@@ -50,8 +50,8 @@ $-colours: "black", "dark-grey", "mid-grey", "white", "yellow", "blue", "red", "
   }
 
   & > svg + img {
-    width: 50%;
-    height: 50%;
+    width: 80%;
+    height: 80%;
   }
 
   @each $name, $size in $-sizes {
