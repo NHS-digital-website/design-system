@@ -45,7 +45,7 @@
   {%- endif %}
 {%- endif -%}
 
-<article class="{{ classNames }}">
+<div class="{{ classNames }}">
   {% if params.boxLink -%}
   <a href="{{ params.boxLink.href }}" class="{{ boxLinkClassNames }}" {%- if params.boxLink.external %} target="_blank" rel="external" {% endif -%} {{- ariaAttributes | safe }}>
   {%- endif %}
@@ -116,5 +116,5 @@
   {%- if params.boxLink %}
   </a>
   {% endif -%}
-</article>
+</div>
 
