@@ -381,3 +381,70 @@ NoGutterGrid.parameters = {
     },
   },
 };
+
+export const NestedGrid = () => {
+  const div = document.createElement('div');
+  div.innerHTML = `<div class="nhsd-t-grid nhsd-t-grid--debug nhsd-t-grid--container nhsd-!t-margin-bottom-6">
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-col-white nhsd-!t-bg-dark-grey">Parent grid</div>
+    </div>
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col-4">Parent grid column</div>
+      <div class="nhsd-t-col-4">Parent grid column</div>
+      <div class="nhsd-t-col-4">Parent grid column</div>
+    </div>
+    <div class="nhsd-t-row">
+      <div class="nhsd-t-col-12">
+        <div class="nhsd-t-grid">
+          <div class="nhsd-t-row">
+            <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-col-white nhsd-!t-bg-dark-grey">Nested grid without \`.nhsd-t-grid--nested\`</div>
+          </div>
+          <div class="nhsd-t-row">
+            <div class="nhsd-t-col-4">Child grid column</div>
+            <div class="nhsd-t-col-4">Child grid column</div>
+            <div class="nhsd-t-col-4">Child grid column</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="nhsd-t-grid nhsd-t-grid--debug nhsd-t-grid--container">
+  <div class="nhsd-t-row">
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-col-white nhsd-!t-bg-dark-grey">Parent grid</div>
+  </div>
+  <div class="nhsd-t-row">
+    <div class="nhsd-t-col-4">Parent grid column</div>
+    <div class="nhsd-t-col-4">Parent grid column</div>
+    <div class="nhsd-t-col-4">Parent grid column</div>
+  </div>
+  <div class="nhsd-t-row">
+    <div class="nhsd-t-col-12">
+      <div class="nhsd-t-grid nhsd-t-grid--nested">
+        <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-col-white nhsd-!t-bg-dark-grey">Nested grid with \`.nhsd-t-grid--nested\`</div>
+        </div>
+        <div class="nhsd-t-row">
+          <div class="nhsd-t-col-4">Child grid column</div>
+          <div class="nhsd-t-col-4">Child grid column</div>
+          <div class="nhsd-t-col-4">Child grid column</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`;
+  return div;
+};
+NestedGrid.storyName = 'Nested grids';
+NestedGrid.parameters = {
+  docs: {
+    description: {
+      story: `${sbConfig.heading.details}:
+- The \`.nhsd-t-grid--nested\` variant can be applied to a nested grid to prevent double guttering as shown below.`,
+    },
+    source: {
+      code: `${sourceCode}\n${NestedGrid().innerHTML}`,
+    },
+  },
+};

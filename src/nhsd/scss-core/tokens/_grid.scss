@@ -100,6 +100,20 @@ $small-gutter: .833rem * .667;
       }
     }
 
+    &--nested {
+      padding: 0;
+
+      .nhsd-t-row {
+        margin-right: -$gutter;
+        margin-left: -$gutter;
+
+        @include mq($until: s) {
+          margin-right: -$small-gutter;
+          margin-left: -$small-gutter;
+        }
+      }
+    }
+
     &:not(&--full-width) {
       @include mq($from: xs) {
         max-width: $-s-content-width;
@@ -129,7 +143,7 @@ $small-gutter: .833rem * .667;
         padding-bottom: 1rem;
         background: nhsd-colours.get("mid-grey-20-tint");
         box-shadow: inset 0 0 0 .5px nhsd-colours.get("mid-grey");
-        font-size: 65%;
+        font-size: .65rem;
       }
 
       // stylelint-disable declaration-no-important
