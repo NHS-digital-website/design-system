@@ -12,17 +12,25 @@
 $-root: ".nhsd-m-publication-chapter-navigation";
 
 #{$-root} {
-  &--active {
-    .nhsd-a-link {
-      &:before {
-        content: '';
-        position: absolute;
-        top: 7px;
-        bottom: -4px;
-        left: -38px;
-        border-left: 3px solid nhsd-colours.get("warm-yellow");
-      }
+  li {
+    position: relative;
+  }
 
+  .nhsd-a-link {
+    position: static;
+  }
+
+  &--active {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(-1rem - 10px);
+      border-left: 3px solid nhsd-colours.get("warm-yellow");
+    }
+
+    .nhsd-a-link {
       &,
       &:visited,
       &:hover {
