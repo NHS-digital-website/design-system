@@ -55,7 +55,6 @@ $-positions: (
     }
 
     img {
-      position: relative;
       object-fit: cover;
     }
   }
@@ -64,6 +63,14 @@ $-positions: (
     #{$-root}__picture {
       img {
         object-fit: contain;
+      }
+    }
+  }
+
+  &--maintain-ratio {
+    #{$-root}__picture {
+      img {
+        position: relative;
       }
     }
   }
