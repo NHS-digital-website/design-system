@@ -188,6 +188,7 @@ $-box-padding: 1.111rem;
 
       @include mq($until: s) {
         display: grid;
+        grid-auto-rows: 1fr;
       }
     }
 
