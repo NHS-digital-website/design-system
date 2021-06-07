@@ -33,18 +33,15 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
-    "@storybook/addon-a11y": "^6.1.17",
-    "@storybook/addon-essentials": "^6.1.17",
-    "@storybook/client-api": "^6.1.17",
-    "@storybook/html": "^6.1.17",
+    "@babel/core": "^7.15.4",
+    "@babel/eslint-parser": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-stage-3": "^7.8.3",
+    "@storybook/addon-a11y": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/client-api": "^6.3.8",
+    "@storybook/html": "^6.3.8",
     "acorn": "^8.0.4",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
     "chalklet": "^1.0.0",
     "css-loader": "^5.0.0",
     "debounce": "^1.2.1",
@@ -85,7 +82,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-webpack-plugin": "^2.1.1",
     "through2": "^4.0.2",
-    "webpack-stream": "^6.1.0"
+    "webpack-stream": "^7.0.0"
   },
   "browserslist": [
     "last 2 Chrome major versions",
@@ -95,5 +92,8 @@
     "last 2 Android major versions",
     "last 2 ChromeAndroid major versions",
     "last 2 iOS major versions"
-  ]
+  ],
+  "dependencies": {
+    "core-js": "^3.17.2"
+  }
 }

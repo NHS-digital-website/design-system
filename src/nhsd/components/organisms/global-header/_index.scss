@@ -1,5 +1,6 @@
 // Settings
 @use "scss-core/settings/vars";
+@use "scss-core/settings/_z-index";
 @use "scss-core/settings/media-queries" as *;
 
 // Tokens
@@ -53,7 +54,7 @@ $-root: ".nhsd-o-global-header";
 #{$-root} {
   display: block;
   position: relative;
-  z-index: 10000;
+  @include z-index.get('global-header');
 
   &__background {
     display: block;

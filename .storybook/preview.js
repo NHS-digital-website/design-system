@@ -1,8 +1,11 @@
 import "../src/nhsd/scss-core/base/_index.scss";
 import init from "../src/nhsd/script-core/init";
+import nhsd from '@/nhsd';
 
 const rootNode = document.getElementById('root');
 const docsRootNode = document.getElementById('docs-root');
+
+window.nhsd = Object.assign(nhsd, init);
 
 // Wait for storybook to initalise
 const observer = new MutationObserver(() => {

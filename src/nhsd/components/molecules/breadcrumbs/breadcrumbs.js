@@ -22,7 +22,7 @@ export default class NHSDBreadcrumbs {
       this.breadcrumbsText = Array.from(this.breadcrumbs)[1].innerText;
       this.href = this.breadcrumbs[1].children[0].href;
       this.resizeBreadCrumbs();
-      nhsd.event(window).on('resize.breadcrumbs', () => {
+      nhsd(window).on('resize.breadcrumbs', () => {
         this.resizeBreadCrumbs();
         this.addClickEvent();
       });
@@ -78,7 +78,7 @@ export default class NHSDBreadcrumbs {
   addClickEvent() {
     const breadcrumbsIcon = this.hostEl.querySelector('.nhsd-m-breadcrumbs__item--button');
     if (breadcrumbsIcon) {
-      nhsd.event(breadcrumbsIcon).on('click.nhsd-tabs', () => this.reset());
+      nhsd(breadcrumbsIcon).on('click.nhsd-tabs', () => this.reset());
     }
   }
 }

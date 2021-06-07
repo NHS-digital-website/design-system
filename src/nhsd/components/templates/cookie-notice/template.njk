@@ -1,0 +1,25 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/molecules.njk" import nhsd_m_sticky_nav -%}
+{%- from "../../../njk/macros/organisms.njk" import nhsd_o_hero -%}
+
+{# modal #}
+{% macro nhsd_m_modal(params) -%}
+  {% include "../../../components/molecules/modal/template.njk" %}
+{%- endmacro %}
+
+
+{{ nhsd_o_hero(params.hero) }}
+
+<div class="nhsd-t-grid nhsd-!t-margin-top-8">
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
+            {{ nhsd_m_sticky_nav(params.stickyNav) }}
+        </div>
+        <div class="nhsd-t-col-12 nhsd-t-col-l-9">
+            {{ params.content|safe }}
+        </div>
+    </div>
+</div>
+
+{{ nhsd_m_modal(params.modal1) }}
+{{ nhsd_m_modal(params.modal2) }}

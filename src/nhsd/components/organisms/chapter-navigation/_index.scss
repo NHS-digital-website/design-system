@@ -4,6 +4,7 @@
 // Settings
 @use "scss-core/settings/media-queries" as *;
 @use "scss-core/settings/vars";
+@use "scss-core/settings/_z-index";
 
 // Token
 @use "scss-core/tokens/colours" as nhsd-colours;
@@ -100,7 +101,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
 
     &:not(&--footer) {
       position: sticky;
-      z-index: 1;
+      @include z-index.get('chapter-nav');
       top: 0;
     }
   }

@@ -46,7 +46,7 @@ function createCopyButton(codeElement) {
     const copyButton = copyElement.querySelector('button');
     if (!copyButton) return;
 
-    nhsd.event(copyButton).on('click', () => copyCode(codeElement));
+    nhsd(copyButton).on('click', () => copyCode(codeElement));
 }
 
 export default function NHSDCodeViewer(componentEl) {

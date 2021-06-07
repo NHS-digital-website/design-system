@@ -1,0 +1,14 @@
+// Built in modules
+@use "sass:map";
+
+// z-index
+$-zindex: (
+  "skiplink": 102,
+  "modal": 1000,
+  "global-header": 101,
+  "chapter-nav": 10,
+);
+
+@mixin get($component) {
+  z-index: map.get($-zindex, "modal");
+}

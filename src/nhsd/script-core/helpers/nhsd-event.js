@@ -1,4 +1,4 @@
-/* global CustomEvent */
+/* global document CustomEvent */
 
 const NHSD_EVENT = {
     UUID: 0,
@@ -44,32 +44,45 @@ const NHSD_EVENT = {
     },
 };
 
-export default function nhsdEvent(element) {
+export default function nhsdEvent(elementsOrSelector) {
+    let elements = [elementsOrSelector];
+    if (Array.isArray(elementsOrSelector)) {
+        elements = elementsOrSelector;
+    } else if (typeof elementsOrSelector === 'string') {
+        elements = document.querySelectorAll(elementsOrSelector);
+    }
+
     return {
         on: (eventType, fn) => {
             let eventTypes = eventType;
             if (typeof eventTypes === 'string') eventTypes = [eventTypes];
             eventTypes.forEach((event) => {
-                const eventObj = NHSD_EVENT.add(element, event, fn);
-                element.addEventListener(eventObj.eventType, eventObj.handler, true);
+                elements.forEach((element) => {
+                    const eventObj = NHSD_EVENT.add(element, event, fn);
+                    element.addEventListener(eventObj.eventType, eventObj.handler, true);
+                });
             });
         },
         trigger: (eventType, params = {}) => {
             let eventTypes = eventType;
             if (typeof eventTypes === 'string') eventTypes = [eventTypes];
             eventTypes.forEach((event) => {
-                const eventName = event.split('.')[0];
-                element.dispatchEvent(new CustomEvent(eventName, { detail: params }));
+                elements.forEach((element) => {
+                    const eventName = event.split('.')[0];
+                    element.dispatchEvent(new CustomEvent(eventName, { detail: params }));
+                });
             });
         },
         unbind: (eventType, fn = null) => {
             let eventTypes = eventType;
             if (typeof eventTypes === 'string') eventTypes = [eventTypes];
             eventTypes.forEach((event) => {
-                const matchedEvents = NHSD_EVENT.find(element, event, fn);
-                matchedEvents.forEach((matchedEvent) => {
-                    element.removeEventListener(matchedEvent.eventType, matchedEvent.handler, true);
-                    NHSD_EVENT.removeByUUID(event.UUID);
+                elements.forEach((element) => {
+                    const matchedEvents = NHSD_EVENT.find(element, event, fn);
+                    matchedEvents.forEach((matchedEvent) => {
+                        element.removeEventListener(matchedEvent.eventType, matchedEvent.handler, true);
+                        NHSD_EVENT.removeByUUID(event.UUID);
+                    });
                 });
             });
         },

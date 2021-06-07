@@ -8,6 +8,7 @@ import NHSDTable from '../components/molecules/table/table';
 import NHSDTabs from '../components/molecules/tabs/tabs';
 import NHSDNotificationBanner from '../components/molecules/notification-banner/notification-banner';
 import NHSDBreadcrumbs from '../components/molecules/breadcrumbs/breadcrumbs';
+import NHSDModal from '../components/molecules/modal/modal';
 
 /* Ensure we don't double initalise any componets */
 const componentList = [];
@@ -16,6 +17,7 @@ function initComponent(selector, componentClass) {
     const componentEls = document.querySelectorAll(selector);
     Array.from(componentEls).forEach((componentEl) => {
         if (componentList.includes(componentEl)) return;
+        componentList.push(componentEl);
 
         /* eslint-disable no-new, new-cap, no-console */
         try {
@@ -28,13 +30,14 @@ function initComponent(selector, componentClass) {
 }
 
 export default function init() {
-    initComponent('.nhsd-o-global-header', NHSDGlobalHeader);
     initComponent('.nhsd-o-code-viewer', NHSDCodeViewer);
-    initComponent('.nhsd-m-sticky-navigation', NHSDStickyNavigation);
+    initComponent('.nhsd-o-global-header', NHSDGlobalHeader);
+    initComponent('.nhsd-m-breadcrumbs', NHSDBreadcrumbs);
     initComponent('.nhsd-m-filter-menu-section', NHSDFilterMenuSection);
+    initComponent('.nhsd-m-modal', NHSDModal);
+    initComponent('.nhsd-m-notification-banner', NHSDNotificationBanner);
+    initComponent('.nhsd-m-statistics-block', NHSDStatistics);
+    initComponent('.nhsd-m-sticky-navigation', NHSDStickyNavigation);
     initComponent('.nhsd-m-table', NHSDTable);
     initComponent('.nhsd-m-tabs', NHSDTabs);
-    initComponent('.nhsd-m-notification-banner', NHSDNotificationBanner);
-    initComponent('.nhsd-m-breadcrumbs', NHSDBreadcrumbs);
-    initComponent('.nhsd-m-statistics-block', NHSDStatistics);
 }

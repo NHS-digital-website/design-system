@@ -7,7 +7,4 @@ window.addEventListener('load', () => {
   document.querySelector('html').classList.remove('nhsd-no-js');
 });
 
-window.nhsd = {
-  ...nhsd,
-  init,
-};
+window.nhsd = Object.assign(nhsd, init);

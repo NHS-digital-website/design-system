@@ -56,7 +56,7 @@ function addListeners(thisHeading, index, table) {
     const thisButton = thisHeading.querySelector('button');
     if (!thisButton) return;
 
-    nhsd.event(thisButton).on('click', () => {
+    nhsd(thisButton).on('click', () => {
         const headings = table.querySelectorAll('thead td,th');
         Array.from(headings).forEach((heading) => {
             const icon = heading.querySelector('.nhsd-a-icon');
