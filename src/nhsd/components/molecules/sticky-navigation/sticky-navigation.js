@@ -38,12 +38,12 @@ function clickEvent(navItem) {
     const link = navItem.navEl.querySelector('a');
     if (!link) return;
 
-    nhsd.event(link).on('click.sticky-nav', () => {
+    nhsd(link).on('click.sticky-nav', () => {
         // Temporarily disable scroll event
-        nhsd.event(window).unbind('scroll.sticky-nav');
+        nhsd(window).unbind('scroll.sticky-nav');
         activeItem = navItem;
         updateActiveStates();
-        setTimeout(() => nhsd.event(window).on('scroll.sticky-nav', debounce(findActiveItem, 16)), 60);
+        setTimeout(() => nhsd(window).on('scroll.sticky-nav', debounce(findActiveItem, 16)), 60);
     });
 }
 
@@ -69,10 +69,10 @@ export default function NHSDStickyNavigation(componentEl) {
     items.forEach((item) => initItem(item));
 
     windowTopPos = window.innerHeight * TOP_THRESHOLD;
-    nhsd.event(window).on('resize.sticky-nav', () => {
+    nhsd(window).on('resize.sticky-nav', () => {
         windowTopPos = window.innerHeight * TOP_THRESHOLD;
         debounce(findActiveItem, 16);
     });
-    nhsd.event(window).on('scroll.sticky-nav', debounce(findActiveItem, 16));
+    nhsd(window).on('scroll.sticky-nav', debounce(findActiveItem, 16));
     findActiveItem();
 }

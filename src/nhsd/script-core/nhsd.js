@@ -2,7 +2,6 @@
 
 import nhsdEvent from './helpers/nhsd-event';
 
-export default {
-    ...nhsdEvent(document),
-    event: nhsdEvent,
-};
+const nhsd = Object.assign(nhsdEvent, nhsdEvent(document));
+
+export default nhsd;

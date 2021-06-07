@@ -1,7 +1,7 @@
 {
     "extends": "airbnb-base",
 
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
 
     "rules":{
       "eol-last": [2, "always"],
@@ -14,7 +14,8 @@
           "props": false
         }
       ],
-      "no-plusplus": 0
+      "no-plusplus": 0,
+      "max-len": 0
     },
 
     "settings": {

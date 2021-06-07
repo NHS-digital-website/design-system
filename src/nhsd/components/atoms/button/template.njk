@@ -35,6 +35,14 @@ template rendering blows up Storybook :/ -#}
 
 {#- Define common attributes that we can use across all element types #}
 {%- set commonAttributes %} class="{{ classNames }}" {%- if params.id %}id="{{ params.id }}"{% endif -%} {%- if type %} type="{{ type }}"{% endif -%} {% endset -%}
+{%- if params.attributes -%}
+  {%- for attr in params.attributes %}
+    {%- set commonAttributes = commonAttributes + " " + attr.key -%}
+    {%- if attr.value -%}
+      {%- set commonAttributes = commonAttributes  + "=\"" + attr.value + "\"" -%}
+    {%- endif -%}
+  {%- endfor %}
+{%- endif -%}
 
 {#- Define ARIA attributes that we can use across all element types #}
 {%- set ariaAttributes %} {%- if params.aria %} {% for prop, val in params.aria %}aria-{{ prop }}="{{ val }}"{% endfor %}{% endif -%}{% endset -%}

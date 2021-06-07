@@ -7,6 +7,9 @@ module.exports = {
     "../src/nhsd/**/*.stories.mdx",
     "../src/nhsd/**/*.stories.@(js|jsx|ts|tsx)"
   ],
+  features: {
+    postcss: false
+  },
   "addons": [
     "@storybook/addon-a11y",
     "@storybook/addon-essentials",

@@ -1,0 +1,40 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_button,
+  nhsd_a_box_start,
+  nhsd_a_box_end
+-%}
+
+{%- from "../../../njk/macros/organisms.njk" import nhsd_o_expander_list -%}
+
+{#- Set classes -#}
+{% set componentName = "nhsd-m-modal" %}
+{% set classNames = componentName %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+{% set mandatoryAttr = '' %}
+{%- if params.mandatory -%}
+  {% set mandatoryAttr = 'data-modal-mandatory' %}
+{%- endif -%}
+
+<div class="{{classNames}}" id="{{ params.id }}" {{ mandatoryAttr }}>
+    <div role="dialog" class="{{componentName}}__container" aria-labelledby="{{ params.id }}_dialog_label" aria-modal="true">
+        {{ nhsd_a_box_start(params.box.classes) }}
+            <h1 id="{{ params.id }}_dialog_label" class="nhsd-t-heading-xs">{{ params.title|safe }}</h1>
+            <p class="nhsd-t-body-s">{{ params.topContent|safe }}</p>
+            <p class="nhsd-t-body-s">{{ params.bottomContent|safe }}</p>
+            {%- if params.expanderList -%}
+                <div>
+                    {{ nhsd_o_expander_list(params.expanderList) }}
+                </div>
+            {%- endif -%} 
+
+            <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed">
+                {{nhsd_a_button(params.secondaryButton)}}
+                {{nhsd_a_button(params.primaryButton)}}
+            </nav>
+        {{ nhsd_a_box_end() }}
+    </div>
+</div>

@@ -1,6 +1,7 @@
 // Settings
 @use "scss-core/settings/font-face";
 @use "scss-core/settings/vars";
+@use "scss-core/settings/_z-index";
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
@@ -19,7 +20,7 @@ $-box-padding: 1.111rem;
 #{$-root} {
   display: block;
   position: absolute;
-  z-index: 100000;
+  @include z-index.get('skip-link');
   left: -99999rem;
   width: 100%;
   padding: $-box-padding;

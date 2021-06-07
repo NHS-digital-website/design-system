@@ -17,7 +17,7 @@ export default function NHSDTabs(componentEl) {
         selectedTab.tab.classList.add('nhsd-a-tab__active');
         selectedTab.tab.setAttribute('aria-selected', true);
 
-        nhsd.event(componentEl).trigger('tabs[show]', selectedTab);
+        nhsd(componentEl).trigger('tabs[show]', selectedTab);
         return false;
     }
 
@@ -40,8 +40,8 @@ export default function NHSDTabs(componentEl) {
         };
         tabEls.push(tabEl);
 
-        nhsd.event(tab).unbind('.nhsd-tabs');
-        nhsd.event(tab).on('click.nhsd-tabs', () => showContent(tabEl));
+        nhsd(tab).unbind('.nhsd-tabs');
+        nhsd(tab).on('click.nhsd-tabs', () => showContent(tabEl));
     });
 
     if (tabEls.length === 0) return;
