@@ -51,7 +51,7 @@ $-root: ".nhsd-m-table";
         border: none;
       }
 
-      span {
+      > span {
         text-align: right;
 
         &:first-child {
