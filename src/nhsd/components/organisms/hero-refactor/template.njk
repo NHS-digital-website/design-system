@@ -1,0 +1,152 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_button,
+  nhsd_a_colour_bar,
+  nhsd_a_digiblocks,
+  nhsd_a_image
+-%}
+
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_button_nav
+-%}
+
+{#- Set classes -#}
+{% set componentClassName = "nhsd-o-hero" %}
+{% set classNames = componentClassName %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+{%- set introTextClassNames = params.introText.classes if params.introText.classes else "nhsd-t-body-s" -%}
+{%- set titleClassNames = params.title.classes if params.title.classes else "nhsd-t-heading-xxl nhsd-!t-margin-bottom-2" -%}
+{%- set textClassNames = params.text.classes if params.text.classes else "nhsd-t-heading-s" -%}
+
+{#- Set backgroundClass -#}
+{%- if params.bgColourKey -%}
+  {%- set bgClassName = "nhsd-!t-bg-" + params.bgColourKey -%}
+{%- endif -%}
+
+{#- Set colourClass -#}
+{%- if params.colourKey -%}
+{%- set colourClassName = "nhsd-!t-col-" + params.colourKey -%}
+{%- endif -%}
+
+{#- Set featured -#}
+{%- set featured = true if params.featured else false -%}
+{#- Set mirrored (only used if featured) -#}
+{%- set mirrored = true if featured and params.featured.mirrored else false -%}
+{#- Set accent (only used if featured) -#}
+{%- set accented = true if featured and params.featured.accented else false -%}
+{%- set imageBanner = true if params.imageBanner else false -%}
+
+{#- Set featured variant class names -#}
+{%- if featured -%}
+  {%- set classNames = "nhsd-o-hero-feature" -%}
+  {%- if mirrored -%}
+    {%- set classNames = classNames + " nhsd-o-hero-feature--mirrored" -%}
+  {%- endif -%}
+  {%- if accented -%}
+    {%- set classNames = classNames + " nhsd-o-hero-feature--accented" -%}
+  {%- endif -%}
+{%- endif -%}
+{% if imageBanner -%}
+  {%- set classNames = classNames + " nhsd-o-hero--image-banner" -%}
+{% endif %}
+{% if params.backgroundImage -%}
+  {%- set classNames = classNames + " nhsd-o-hero--background-image" -%}
+{% endif %}
+
+
+{#- Set column classes depending on content type -#}
+{%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-6 nhsd-!t-no-gutters" -%}
+{% if imageBanner -%}
+  {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-6" -%}
+{% elseif featured %}
+  {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters" -%}
+  {% if accented -%}
+    {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters" -%}
+  {% endif %}
+{% elseif params.metaData %}
+  {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-no-gutters" -%}
+{%- endif %}
+
+
+
+<div class="{{ classNames }}">
+  {%- set gridClass = "" -%}
+  {% if not params.metaData -%}
+    {%- set gridClass = " nhsd-t-grid--full-width" -%}
+  {%- endif -%}
+
+  {%- set contentClass = "" -%}
+  {% if params.metaData -%}
+    {%- set contentClass = " nhsd-o-hero__content-container--left-align" -%}
+  {%- endif -%}
+  <div class="nhsd-o-hero__content-container {{ contentClass }}">
+      {% if imageBanner or featured -%}
+        <div class="nhsd-t-grid">
+          <div class="nhsd-t-row {{ gridClass }}">
+            <div class="{{ columnClassNames }}">
+      {%- endif -%}
+
+      {%- if params.introText -%}
+      <p class="{{ introTextClassNames }}">{{ params.introText.text|safe }}</p>
+      {%- endif -%}
+      <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
+      <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
+
+      {% if params.metaData -%}
+        {% set metaDataClassName = componentClassName + "__meta-data" %}
+        {%- if params.metaData.classes -%}
+          {% set metaDataClassName = metaDataClassName + " " + params.metaData.classes -%}
+        {%- endif -%}
+
+        <div class="{{ metaDataClassName }}">
+          {% for metaItem in params.metaData.data -%}
+          <div class="{{ componentClassName }}__meta-data-item">
+            <div class="{{ componentClassName }}__meta-data-item-title">{{ metaItem.title }}</div>
+            <div class="{{ componentClassName }}__meta-data-item-description">{{ metaItem.description }}</div>
+          </div>
+          {% endfor -%}
+        </div>
+      {% endif -%}
+
+      {%if params.button -%}
+      {{ nhsd_a_button(params.button) }}
+      {%- endif %}
+      {%if params.buttonNav -%}
+      {{ nhsd_m_button_nav(params.buttonNav) }}
+      {%- endif %}
+
+    {% if params.colourBar -%}
+      {{ nhsd_a_colour_bar() }}
+    {%- endif %}
+
+    {% if imageBanner or featured -%}
+          </div>
+          {% if params.image -%}
+            <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'nhsd-t-col-xs-12' if accented else 'nhsd-t-col-xs-11' }}">
+              {{ nhsd_a_image(params.image) }}
+            </div>
+          {% elif params.imageBanner -%}
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters">
+              {{ nhsd_a_image(params.imageBanner) }}
+            </div>
+          {%- endif %}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {% if params.backgroundImage -%}
+  <div class="nhsd-o-hero__background-image">
+    {{ nhsd_a_image(params.backgroundImage) }}
+  </div>
+  {% endif %}
+
+  {% if params.digiblocks -%}
+    {% for digiblocks in params.digiblocks %}
+      {{ nhsd_a_digiblocks(digiblocks) }}
+    {% endfor %}
+  {%- endif %}
+</div>

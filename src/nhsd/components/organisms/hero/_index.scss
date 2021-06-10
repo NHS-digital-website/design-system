@@ -1,3 +1,6 @@
+// Built in modules
+@use "sass:map";
+
 // Settings
 @use "scss-core/settings/vars";
 @use "scss-core/settings/media-queries" as *;
@@ -18,12 +21,33 @@
 // Private members
 $-root: ".nhsd-o-hero";
 
+$-breakpoints: "xs", "s", "m", "l", "xl";
+
 #{$-root} {
-  display: block;
+  display: flex;
   position: relative;
-  min-height: vars.$min-card-height;
+  min-height: vars.$min-banner-height;
   overflow: hidden;
   background: nhsd-colours.get("pale-grey");
+  align-items: center;
+  justify-content: center;
+
+  &__content-container {
+    max-width: 100%;
+    padding: nhsd-spacing.get(8) vars.$gutter * 2;
+
+    @include mq($until: s) {
+      padding: nhsd-spacing.get(8) vars.$small-gutter * 2;
+    }
+
+    @include mq($from: t) {
+      max-width: map.get(vars.$content-width, "xs");
+    }
+
+    @include mq($from: xl) {
+      max-width: map.get(vars.$content-width, "s");
+    }
+  }
 
   &__iframe-wrapper {
     position: relative;
