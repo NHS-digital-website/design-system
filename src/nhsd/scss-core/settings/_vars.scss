@@ -7,6 +7,8 @@ $content-width: (
   "xl": 83.333rem // 1500px
 );
 
+$max-component-width: 106.666rem;
+
 // Gutters
 $gutter: .833rem;
 $small-gutter: .833rem * .667;
@@ -17,3 +19,4 @@ $base-line-thickness: 1px;
 $active-line-thickness: 3px;
 $min-button-size: 2.5rem;
 $min-card-height: 11.111rem;
+$min-banner-height: 10rem;
