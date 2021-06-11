@@ -1,3 +1,6 @@
+// Built in modules
+@use "sass:map";
+
 // Settings
 @use "scss-core/settings/media-queries" as *;
 @use "scss-core/settings/vars";
@@ -11,15 +14,33 @@
 // Private members
 $-root: ".nhsd-o-chapter-navigation";
 
+$-breakpoints: "xs", "s", "m", "l", "xl";
+
 #{$-root} {
   .nhsd-a-box {
     display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: vars.$gutter vars.$gutter * 2;
     border-radius: 0;
     justify-content: space-between;
+    background: none;
+
+    @include mq($until: s) {
+      padding: vars.$small-gutter vars.$small-gutter * 2;
+    }
+
+    @each $-breakpoint in $-breakpoints {
+      @include mq($from: $-breakpoint) {
+        max-width: map.get(vars.$content-width, $-breakpoint);
+      }
+    }
   }
 
   &__next-chapter,
   &__previous-chapter {
+    display: flex;
+    align-items: center;
     width: 33%;
   }
 
@@ -64,6 +85,7 @@ $-root: ".nhsd-o-chapter-navigation";
   @include mq($from: l) {
     &:not(&--footer) {
       position: sticky;
+      z-index: 1;
       top: 0;
 
       @include nhsd-spacing.apply-spacing(#{$-root}-sticky--offset, "top");

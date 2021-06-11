@@ -1,3 +1,16 @@
+// Maximum content widths
+$content-width: (
+  "xs": 38.222rem, // 688px
+  "s": 52.444rem, // 944px
+  "m": 52.444rem, // 944px
+  "l": 71.111rem, // 1280px
+  "xl": 83.333rem // 1500px
+);
+
+// Gutters
+$gutter: .833rem;
+$small-gutter: .833rem * .667;
+
 // Misc shared properties
 $border-radius: .333rem;
 $base-line-thickness: 1px;
