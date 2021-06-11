@@ -33,6 +33,7 @@ const Template = (args) => template.render({ params: { ...args } });
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
+  classes: 'nhsd-!t-bg-pale-grey-80-tint',
   previousChapter: {
     href: '#',
     chapterName: 'Previous Chapter',
@@ -62,7 +63,7 @@ LabComponent.args = {
     direction: 'right',
   },
   box: {
-    classes: 'nhsd-a-box--bg-light-grey',
+    classes: '',
   },
   horizontalLine: {
     classes: 'nhsd-a-horizontal-rule--size-xxs',

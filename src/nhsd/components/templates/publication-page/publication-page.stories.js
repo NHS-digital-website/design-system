@@ -143,7 +143,7 @@ ContentPageComponent.args = {
 
     <p class="nhsd-t-body">This will help to ensure it is still accurate and relevant and establish what changes may need to be made to the COVID-19 Clinical Risk Assessment Tool.</p>`,
   chapterNavigation: {
-    classes: 'nhsd-!t-margin-bottom-3',
+    classes: 'nhsd-!t-margin-bottom-3 nhsd-!t-bg-pale-grey-80-tint',
     previousChapter: {
       href: '#',
       chapterName: 'Previous Chapter',
@@ -173,7 +173,7 @@ ContentPageComponent.args = {
       direction: 'right',
     },
     box: {
-      classes: 'nhsd-a-box--bg-light-grey',
+      classes: '',
     },
     horizontalLine: {
       classes: 'nhsd-a-horizontal-rule--size-xxs',
