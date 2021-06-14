@@ -21,7 +21,7 @@ $active-state-push-down: .111rem;
   @include nhsd-utils.box-sizing;
   @include nhsd-fonts.font-family;
 
-  display: inline-flex;
+  display: inline;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -64,10 +64,13 @@ $active-state-push-down: .111rem;
     overflow: hidden;
     line-height: calc(#{nhsd-spacing.get(4)} - 1px);
     text-overflow: ellipsis;
+    vertical-align: text-bottom;
     white-space: nowrap;
   }
 
   .nhsd-a-icon {
+    vertical-align: text-bottom;
+
     & > svg {
       fill: nhsd-colours.get("white");
     }
