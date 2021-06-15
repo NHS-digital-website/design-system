@@ -21,14 +21,14 @@ $active-state-push-down: .111rem;
   @include nhsd-utils.box-sizing;
   @include nhsd-fonts.font-family;
 
-  display: inline;
+  display: inline-flex;
   position: relative;
   align-items: center;
   justify-content: center;
   max-width: 15.55rem;
   margin-bottom: 1.78rem;
   padding: nhsd-spacing.get(2) nhsd-spacing.get(4);
-  border: .12rem solid nhsd-colours.get("blue");
+  border: 2px solid nhsd-colours.get("blue");
   border-radius: 1.22rem;
   outline: 0;
   box-shadow: 0 0 0 .167rem transparent;
