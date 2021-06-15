@@ -61,5 +61,11 @@ $-root: ".nhsd-m-publication-chapter-navigation";
         }
       }
     }
+
+    @include mq($from: l) {
+      ol {
+        column-count: 3;
+      }
+    }
   }
 }
