@@ -48,23 +48,35 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     display: block;
     width: 34%;
     text-align: center;
+
+    &:first-child {
+      margin-left: 33%;
+    }
+
+    &:last-child {
+      margin-right: 33%;
+    }
   }
 
   @include mq($until: s) {
     .nhsd-a-box {
-      display: flex;
+      display: block;
       justify-content: flex-start;
       flex-direction: column;
     }
 
-    &__previous-chapter {
+    &__current-chapter,
+    &__previous-chapter,
+    &__next-chapter {
       width: 100%;
-      margin-bottom: nhsd-spacing.get(2);
+      padding: nhsd-spacing.get(2) 0;
+    }
+
+    &__current-chapter {
+      text-align: left;
     }
 
     &__next-chapter {
-      width: 100%;
-
       .nhsd-m-chapter__content {
         justify-content: flex-start;
       }
@@ -74,17 +86,10 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
         margin-left: 0;
       }
     }
-
-    &__current-chapter {
-      width: 100%;
-      margin-bottom: nhsd-spacing.get(2);
-      text-align: left;
-    }
   }
 
   @include mq($from: l) {
     &:not(&--footer) {
-      position: sticky;
       z-index: 1;
       top: 0;
 

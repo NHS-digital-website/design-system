@@ -12,14 +12,12 @@
 $-root: ".nhsd-m-chapter";
 
 #{$-root} {
-  display: flex;
+  display: inline-block;
   width: 100%;
-  flex-direction: column;
   text-decoration: none;
 
   .nhsd-t-body-s {
-    display: inline-block;
-    position: relative;
+    display: inline;
     margin-bottom: 0;
     margin-left: 0;
   }
@@ -60,6 +58,9 @@ $-root: ".nhsd-m-chapter";
   }
 
   &--right {
+    @include mq($from: s) {
+      text-align: right;
+    }
 
     #{$-root}__content {
       justify-content: flex-end;
