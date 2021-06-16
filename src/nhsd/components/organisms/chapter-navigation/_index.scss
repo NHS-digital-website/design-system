@@ -49,12 +49,14 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     width: 34%;
     text-align: center;
 
-    &:first-child {
-      margin-left: 33%;
-    }
+    @include mq($from: s) {
+      &:first-child {
+        margin-left: 33%;
+      }
 
-    &:last-child {
-      margin-right: 33%;
+      &:last-child {
+        margin-right: 33%;
+      }
     }
   }
 
@@ -90,10 +92,9 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
 
   @include mq($from: l) {
     &:not(&--footer) {
+      position: sticky;
       z-index: 1;
       top: 0;
-
-      @include nhsd-spacing.apply-spacing(#{$-root}-sticky--offset, "top");
     }
   }
 }
