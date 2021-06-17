@@ -20,6 +20,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   .nhsd-a-box {
     display: flex;
     max-width: 100%;
+    min-height: 130px;
     margin: 0 auto;
     padding: vars.$gutter vars.$gutter * 2;
     border-radius: 0;
@@ -90,7 +91,13 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     }
   }
 
-  @include mq($from: l) {
+  @include mq($from: s) {
+    &__current-chapter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     &:not(&--footer) {
       position: sticky;
       z-index: 1;
