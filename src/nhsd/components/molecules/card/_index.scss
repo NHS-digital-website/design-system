@@ -185,6 +185,7 @@ $-box-padding: 1.111rem;
     .nhsd-a-box {
       flex-direction: row-reverse;
       justify-content: space-between;
+      grid-template-columns: 1fr;
 
       @include mq($until: s) {
         display: grid;
