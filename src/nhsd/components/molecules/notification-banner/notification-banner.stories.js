@@ -140,3 +140,30 @@ IrremovableComponent.parameters = {
     },
   },
 };
+
+export const InContentBanner = Template.bind({});
+InContentBanner.storyName = 'In Content Notification Banner';
+InContentBanner.args = {
+  inContent: true,
+  icon: {
+    id: 'exclamation_circled',
+    classes: 'nhsd-a-icon--size-xl ',
+  },
+  link: {
+    label: 'with a link',
+  },
+  classes: 'nhsd-m-notification-banner--warning nhsd-m-notification-banner--irremovable',
+  closeIcon: {
+    classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white',
+  },
+  box: {
+    classes: 'nhsd-a-box--bg-light-yellow',
+  },
+};
+InContentBanner.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode} ${pretty(IrremovableComponent(InContentBanner.args), { ocd: true })} `,
+    },
+  },
+};

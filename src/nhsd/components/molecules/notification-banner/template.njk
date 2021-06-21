@@ -15,17 +15,26 @@
 
 <div class="{{ classNames }}">
   {{ nhsd_a_box_start(params.box.classes) }}
-    <div class="nhsd-m-notification-banner__row">
-      <div class="nhsd-m-notification-banner__left-col">
-        {{ nhsd_a_icon(params.icon) }}
+    {%- if params.inContent -%}
+      <div class="nhsd-t-grid">
+        <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12">
+          {%- endif -%}
+            <div class="nhsd-m-notification-banner__row">
+              <div class="nhsd-m-notification-banner__left-col">
+                {{ nhsd_a_icon(params.icon) }}
+              </div>
+              <div class="nhsd-m-notification-banner__middle-col">
+                This is a new service. Your {{ nhsd_a_link( params.link ) }} will help us improve it.
+              </div>
+              <div class="nhsd-m-notification-banner__right-col">
+                {{ nhsd_a_icon({ id: 'x', classes: params.closeIcon.classes }) }}
+              </div>
+            </div>
+            {%- if params.inContent -%}
+          </div>
+        </div>
       </div>
-      <div class="nhsd-m-notification-banner__middle-col">
-        This is a new service. Your {{ nhsd_a_link( params.link ) }} will help us improve it.
-      </div>
-      <div class="nhsd-m-notification-banner__right-col">
-        {{ nhsd_a_icon({ id: 'x', classes: params.closeIcon.classes }) }}
-      </div>
-    </div>
+    {%- endif -%}
   {{ nhsd_a_box_end() }}
 </div>
-
