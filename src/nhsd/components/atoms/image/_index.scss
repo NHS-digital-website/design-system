@@ -69,8 +69,12 @@ $-positions: (
 
   &--maintain-ratio {
     #{$-root}__picture {
+      height: auto;
+      padding: 0;
+
       img {
         position: relative;
+        vertical-align: top;
       }
     }
   }
