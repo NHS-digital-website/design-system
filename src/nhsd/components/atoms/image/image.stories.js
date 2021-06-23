@@ -125,6 +125,23 @@ FourByThree.parameters = {
   },
 };
 
+export const MaintainRatio = Template.bind({});
+MaintainRatio.storyName = 'Maintain aspect ratio';
+MaintainRatio.args = {
+  classes: 'nhsd-a-image--maintain-ratio',
+  sourceSet: [{
+    url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+  }],
+  alt: '2 scientists testing in a laboratory',
+};
+MaintainRatio.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}${MaintainRatio(MaintainRatio.args)}`,
+    },
+  },
+};
+
 export const ResponsiveComponent = Template.bind({});
 ResponsiveComponent.storyName = 'Responsive image (multiple image sources)';
 ResponsiveComponent.args = {
