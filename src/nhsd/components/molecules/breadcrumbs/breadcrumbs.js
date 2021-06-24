@@ -8,6 +8,8 @@ export default class NHSDBreadcrumbs {
 
   breadcrumbsLength = 0
 
+  href = '';
+
   constructor(componentEl) {
     if (!componentEl) return null;
     this.hostEl = componentEl;
@@ -18,6 +20,7 @@ export default class NHSDBreadcrumbs {
     this.breadcrumbs = this.hostEl.querySelectorAll('.nhsd-m-breadcrumbs__item');
     if (this.breadcrumbs.length > 3) {
       this.breadcrumbsText = Array.from(this.breadcrumbs)[1].innerText;
+      this.href = this.breadcrumbs[1].children[0].href;
       this.resizeBreadCrumbs();
       nhsd.event(window).on('resize.breadcrumbs', () => {
         this.resizeBreadCrumbs();
@@ -62,16 +65,14 @@ export default class NHSDBreadcrumbs {
 
   reset() {
     this.breadcrumbs.forEach((item) => { item.style.display = 'inline-block'; });
-    this.breadcrumbs[1].innerHTML = `<li class="nhsd-m-breadcrumbs__item">
-    <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="#">${this.breadcrumbsText}
+    this.breadcrumbs[1].innerHTML = `<a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${this.href}">${this.breadcrumbsText}
       <span class="nhsd-t-sr-only"></span>
     </a>
     <span class="nhsd-a-icon nhsd-a-icon--size-xxs nhsd-a-icon--col-dark-grey">
       <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
         <path d="M12,8l-6.5,7L4,13.5L9.2,8L4,2.5L5.5,1L12,8z"></path>
       </svg>
-    </span>
-  </li>`;
+    </span>`;
   }
 
   addClickEvent() {
