@@ -35,6 +35,44 @@ const Template = (args) => template.render({ params: { ...args } });
 export const ContentPageComponent = Template.bind({});
 ContentPageComponent.storyName = sbConfig.title.lab;
 ContentPageComponent.args = {
+  hero: {
+    classes: 'nhsd-!t-bg-bright-blue-20-tint',
+    introText: {
+      text: 'Publication, Part of <a class="nhsd-a-link" href="#">[MI] Potential Covid-19 symptoms reported through NHS Pathways and 111 online</a>',
+    },
+    title: {
+      label: 'Potential Coronavirus (Covid-19) symptoms reported through NHS Pathways and 111 online, Week Ending 28th February 2021',
+      classes: 'nhsd-t-heading-xl',
+    },
+    metaData: {
+      data: [
+        {
+          title: 'Publication Date:',
+          description: '1 Mar 2021',
+        }, {
+          title: 'Geographic Coverage:',
+          description: 'England',
+        }, {
+          title: 'Geographical Granularity:',
+          description: 'Clinical Commissioning Regions, Clinical Commissioning Group',
+        }, {
+          title: 'Date Range:',
+          description: '22 Feb 2021 to 28 Feb 2021',
+        },
+      ],
+      classes: 'nhsd-!t-margin-bottom-6',
+    },
+    leftAlign: true,
+    digiblocks: [{
+      classes: 'nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-blue',
+    }],
+    button: {
+      el: 'a',
+      label: 'Download this page as a PDF',
+      href: '#',
+      classes: 'nhsd-!t-margin-bottom-0',
+    },
+  },
   stickyNav: {
     classes: '',
     headerText: 'Page of contents',
@@ -143,7 +181,7 @@ ContentPageComponent.args = {
 
     <p class="nhsd-t-body">This will help to ensure it is still accurate and relevant and establish what changes may need to be made to the COVID-19 Clinical Risk Assessment Tool.</p>`,
   chapterNavigation: {
-    classes: 'nhsd-!t-margin-bottom-3 nhsd-!t-bg-pale-grey-80-tint',
+    classes: 'nhsd-!t-margin-bottom-8 nhsd-!t-bg-pale-grey-80-tint',
     previousChapter: {
       href: '#',
       chapterName: 'Previous Chapter',

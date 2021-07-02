@@ -2,6 +2,9 @@
 {%- from "../../../njk/macros/molecules.njk" import nhsd_m_sticky_nav -%}
 {%- from "../../../njk/macros/molecules.njk" import nhsd_m_publication_chapter_navigation -%}
 {%- from "../../../njk/macros/organisms.njk" import nhsd_o_chapter_navigation -%}
+{%- from "../../../njk/macros/organisms.njk" import nhsd_o_hero -%}
+
+{{ nhsd_o_hero(params.hero) }}
 
 {{nhsd_o_chapter_navigation(params.chapterNavigation)}}
 <div class="nhsd-t-grid nhsd-!t-display-chapters">

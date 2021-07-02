@@ -13,14 +13,14 @@ Tabs can be linked to content using the \`data-tab-content\` attribute and speci
 
 // Component defaults
 export default {
-    title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.templates} / ${componentName}`,
-    parameters: {
-      docs: {
-        description: {
-          component: storyDescription,
-        },
+  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.templates} / ${componentName}`,
+  parameters: {
+    docs: {
+      description: {
+        component: storyDescription,
       },
     },
+  },
 };
 
 // Component template
@@ -29,6 +29,32 @@ const Template = (args) => template.render({ params: { ...args } });
 export const TabbedContent = Template.bind({});
 TabbedContent.storyName = sbConfig.title.lab;
 TabbedContent.args = {
+  hero: {
+    accented: true,
+    title: {
+      label: 'Data and technology that improves lives',
+      classes: 'nhsd-t-heading-xxl',
+    },
+    text: {
+      label: 'We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable. We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable. We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable.',
+      classes: 'nhsd-t-body nhsd-!t-margin-bottom-6',
+    },
+    button: {
+      el: 'a',
+      label: 'About NHS Digital',
+      href: '#',
+      classes: 'nhsd-!t-margin-bottom-0',
+    },
+    colourBar: true,
+    image: {
+      ariaHidden: true,
+      sourceSet: [{
+        url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      }],
+      alt: 'Abstract lights',
+      classes: 'nhsd-a-image',
+    },
+  },
   tabs: {
     tabs: [
       {

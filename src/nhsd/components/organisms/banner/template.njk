@@ -1,0 +1,77 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_button,
+  nhsd_a_image
+-%}
+
+{#- Import molecule macros -#}
+{%- from "../../../njk/macros/molecules.njk" import
+  nhsd_m_button_nav
+-%}
+
+{#- Set classes -#}
+{% set componentClassName = "nhsd-o-banner" %}
+{% set classNames = componentClassName %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+{%- set introTextClassNames = params.introText.classes if params.introText.classes else "nhsd-t-body-s" -%}
+{%- set titleClassNames = params.title.classes if params.title.classes else "nhsd-t-heading-xxl nhsd-!t-margin-bottom-2" -%}
+{%- set textClassNames = params.text.classes if params.text.classes else "nhsd-t-heading-s" -%}
+
+{#- Set backgroundClass -#}
+{%- if params.bgColourKey -%}
+  {%- set bgClassName = "nhsd-!t-bg-" + params.bgColourKey -%}
+{%- endif -%}
+
+{#- Set colourClass -#}
+{%- if params.colourKey -%}
+{%- set colourClassName = "nhsd-!t-col-" + params.colourKey -%}
+{%- endif -%}
+
+{#- Set mirrored (only used if featured) -#}
+{%- set mirrored = true if params.mirrored else false -%}
+{%- set imageBanner = true if params.imageBanner else false -%}
+
+{#- Set featured variant class names -#}
+{%- if mirrored -%}
+  {%- set classNames = classNames + " " + componentClassName + "--mirrored" -%}
+{%- endif -%}
+{% if params.leftAlign -%}
+  {%- set classNames = classNames + " " + componentClassName + "--left-align" -%}
+{% endif %}
+
+<div class="{{ classNames }}">
+  <div class="{{ componentClassName }}__content-container nhsd-!t-bg-bright-blue-10-tint">
+    <div>
+      {%- if params.introText -%}
+      <p class="{{ introTextClassNames }}">{{ params.introText.text|safe }}</p>
+      {%- endif -%}
+      <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
+      {%- if params.text -%}
+      <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
+      {%- endif -%}
+
+      {%if params.button -%}
+        {{ nhsd_a_button(params.button) }}
+      {%- endif %}
+      {%if params.buttonNav -%}
+        {{ nhsd_m_button_nav(params.buttonNav) }}
+      {%- endif %}
+    </div>
+  </div>
+
+  {% if imageBanner or params.image or params.video -%}
+    <div class="{{ componentClassName }}__image-container">
+      {% if params.image -%}
+        {{ nhsd_a_image(params.image) }}
+      {% elif params.imageBanner -%}
+        {{ nhsd_a_image(params.imageBanner) }}
+      {%- elif params.video %}
+        <div class="{{ componentClassName }}__iframe-wrapper">
+          <iframe class="{{ componentClassName }}__iframe" type="text/html" src="{{params.video}}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      {%- endif %}
+    </div>
+  {%- endif -%}
+</div>

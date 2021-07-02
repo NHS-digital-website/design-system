@@ -4,6 +4,9 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
+// Load banner images
+import bannerImage from '../../../assets/images/banner-image.jpg';
+
 const componentName = 'Content Page';
 const storyDescription = `${sbConfig.heading.lab}
 
@@ -33,6 +36,26 @@ const Template = (args) => template.render({ params: { ...args } });
 export const ContentPageComponent = Template.bind({});
 ContentPageComponent.storyName = sbConfig.title.lab;
 ContentPageComponent.args = {
+  hero: {
+    classes: 'nhsd-!t-bg-grad-black nhsd-!t-col-white',
+    title: {
+      label: 'Shielded Patient List',
+      classes: 'nhsd-t-heading-xl nhsd-!t-col-white',
+    },
+    text: {
+      label: 'NHS Digital has published the Shielded Patient List (SPL), which is enabling partner organisations across government to support and protect those who need shielding at this time.',
+      classes: 'nhsd-t-body',
+    },
+    image: {
+      ariaHidden: true,
+      sourceSet: [{
+        url: bannerImage,
+      }],
+      classes: 'nhsd-a-image--maintain-ratio nhsd-a-image--position-right',
+      alt: 'Abstract lights',
+    },
+    leftAlign: true,
+  },
   stickyNav: {
     classes: 'nhsd-!t-display-sticky--offset-4',
     headerText: 'Page of contents',
