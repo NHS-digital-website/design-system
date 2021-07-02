@@ -41,6 +41,22 @@ $-positions: (
       width: 100%;
       height: 100%;
       object-fit: cover;
+      vertical-align: top;
+    }
+  }
+
+  &--maintain-ratio {
+    height: 100%;
+
+    #{$-root}__picture {
+      height: 100%;
+      padding: 0;
+
+      img {
+        position: relative;
+        vertical-align: top;
+        object-fit: contain;
+      }
     }
   }
 
@@ -63,18 +79,6 @@ $-positions: (
     #{$-root}__picture {
       img {
         object-fit: contain;
-      }
-    }
-  }
-
-  &--maintain-ratio {
-    #{$-root}__picture {
-      height: auto;
-      padding: 0;
-
-      img {
-        position: relative;
-        vertical-align: top;
       }
     }
   }

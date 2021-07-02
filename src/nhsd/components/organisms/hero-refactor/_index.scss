@@ -8,7 +8,6 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
-@use "scss-core/tokens/grid" as nhsd-grid;
 @use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/typography" as nhsd-typography;
@@ -27,20 +26,68 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   display: flex;
   position: relative;
   max-width: vars.$max-component-width;
-  min-height: vars.$min-banner-height;
+  min-height: vars.$min-banner-mobile-height;
   margin: 0 auto;
   overflow: hidden;
-  background: nhsd-colours.get("pale-grey");
-  align-items: center;
   justify-content: center;
+  background: nhsd-colours.get("pale-grey");
+
+  @include mq($from: s) {
+    min-height: vars.$min-banner-height;
+  }
+
+  [class^="nhsd-t-heading"] {
+    @include nhsd-utils.clamped-text(3);
+  }
+
+  [class^="nhsd-t-body"] {
+    @include nhsd-utils.clamped-text(5);
+  }
+
+  &--left-align {
+    justify-content: flex-start;
+
+    #{$-root}__content-container {
+      width: 70%;
+      max-width: 70%;
+
+      @each $-breakpoint in $-breakpoints {
+        @include mq($from: $-breakpoint) {
+          padding-right: calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
+          padding-left: calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
+        }
+      }
+
+      @include mq($from: s) {
+        padding-right: 0;
+      }
+
+      @include mq($until: xs) {
+        width: 90%;
+        max-width: 90%;
+      }
+
+      @include mq($until: t) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .nhsd-a-digiblocks--pos-tl,
+    .nhsd-a-digiblocks--pos-bl {
+      display: none;
+    }
+  }
 
   &__content-container {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
     max-width: 100%;
-    padding: nhsd-spacing.get(8) vars.$gutter * 2;
-
-    @include mq($until: s) {
-      padding: nhsd-spacing.get(8) vars.$small-gutter * 2;
-    }
+    grid-row: 1;
 
     @include mq($from: t) {
       max-width: map.get(vars.$content-width, "xs");
@@ -48,6 +95,14 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
 
     @include mq($from: xl) {
       max-width: map.get(vars.$content-width, "s");
+    }
+  }
+
+  &__inner-content-container {
+    padding: nhsd-spacing.get(8) vars.$gutter * 2;
+
+    @include mq($until: s) {
+      padding: nhsd-spacing.get(8) vars.$small-gutter * 2;
     }
   }
 
@@ -64,36 +119,6 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     left: 0;
     width: 100%;
     height: 100%;
-  }
-
-  &__content-box {
-    display: flex;
-    position: relative;
-    z-index: 1;
-    justify-content: center;
-    height: 100%;
-    min-height: 15.555rem;
-    padding: calc(#{nhsd-spacing.get(8)} - 6px);
-    @include nhsd-spacing.set-responsive("padding-left", 6);
-    @include nhsd-spacing.set-responsive("padding-right", 6);
-
-    @include mq($from: t, $until: s) {
-      padding-right: nhsd-spacing.get(8);
-      padding-left: nhsd-spacing.get(8);
-    }
-
-    &--left-align {
-      justify-content: left;
-    }
-
-    &--right-align {
-      justify-content: right;
-    }
-  }
-
-  &__content {
-    max-width: 100%;
-    align-self: center;
   }
 
   &__meta-data {
@@ -129,28 +154,6 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     }
   }
 
-  &--background-image {
-    padding-bottom: 30vw;
-
-    @include mq($from: l) {
-      padding-bottom: 300px;
-    }
-  }
-
-  &__background-image {
-    position: absolute;
-    top: calc(100% - 30vw - 135px);
-    right: 0;
-    bottom: 0;
-    left: 0;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
-
-    @include mq($from: l) {
-      top: calc(100% - 435px);
-    }
-  }
-
   .nhsd-a-digiblocks {
     z-index: 0;
   }
@@ -159,57 +162,56 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     @include nhsd-utils.light-text;
   }
 
-  &--image-banner {
-    display: block;
+  &--image-hero-accented-mirrored,
+  &--image-hero-accented {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 50% 50%;
+    max-width: vars.$max-component-width;
+    margin: 0 auto;
+    padding: 0;
 
-    #{$-root}__content-box {
-      min-height: 0;
+    @include mq($until: s) {
+      grid-template-columns: 100%;
+    }
+
+    #{$-root}__image-container {
+      grid-row: 1;
+    }
+
+    @include mq($from: s) {
+      #{$-root}__image-container {
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+    }
+
+    #{$-root}__content-container {
+      max-width: 100%;
+      align-items: flex-start;
+
+      @include mq($from: l) {
+        padding: nhsd-spacing.get(8) nhsd-spacing.get(10);
+      }
+
+      @include mq($until: s) {
+        padding: nhsd-spacing.get(6);
+        grid-row: 2;
+      }
+
+      @include mq($until: xs) {
+        padding: nhsd-spacing.get(6) vars.$small-gutter * 2;
+      }
     }
 
     .nhsd-a-image {
-      height: 100%;
-
+      &,
       &__picture {
         height: 100%;
       }
     }
 
-    .nhsd-a-image--cover,
-    .nhsd-a-image--contain {
-      min-height: 300px;
-    }
-  }
-
-  &--feature {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    max-width: vars.$max-component-width;
-    margin: 0 auto;
-    padding: 0;
-    background: transparent;
-
-    @include mq($until: s) {
-      flex-direction: column-reverse;
-    }
-
-    #{$-root}__content-container {
-      @include mq($from: l) {
-        padding: nhsd-spacing.get(8) nhsd-spacing.get(10);
-      }
-
-      .nhsd-t-body {
-        max-width: none;
-      }
-    }
-
-    .nhsd-t-grid {
-      max-width: 106.666rem;
-    }
-
     .nhsd-a-colour-bar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
       height: nhsd-spacing.get(7);
 
       @include mq($from: l) {
@@ -224,117 +226,62 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
         }
       }
     }
+  }
 
-    [class^="nhsd-t-heading"],
-    [class^="nhsd-t-body"] {
-      @include mq($from: s) {
-        max-width: 25rem;
+  &--image-hero-accented-mirrored {
+    @include mq($from: s) {
+      #{$-root}__image-container {
+        grid-column: 1;
+      }
+      #{$-root}__content-container {
+        grid-column: 2;
       }
     }
+  }
 
-    [class^="nhsd-t-heading"] {
-      @include nhsd-utils.clamped-text(3);
-    }
-
-    [class^="nhsd-t-body"] {
-      @include nhsd-utils.clamped-text(7);
-    }
-
-    #{$-root}__content-box {
-      padding: nhsd-spacing.get(5) nhsd-spacing.get(7);
-      background: nhsd-colours.get("bright-blue-10-tint");
-    }
-
-    // Large, square image variant (home page)
-    &--accented {
-      #{$-root}__content-box {
-        background: nhsd-colours.get("pale-grey");
-      }
-
-      [class^="nhsd-t-heading"] {
-        line-height: 1.1666;
-      }
-    }
-
-    // Mirrored variant (home page - image on the left, content on the right)
-    &--mirrored {
-      [class^="nhsd-t-col"] {
-        &:first-child {
-          order: 1;
-        }
-      }
+  &--image-banner {
+    #{$-root}__content-container,
+    #{$-root}__image-container {
+      width: 50%;
+      max-width: 50%;
     }
 
     @include mq($from: s) {
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(3);
-      }
-
-      &--accented {
-        [class^="nhsd-t-body"] {
-          @include nhsd-utils.clamped-text(4);
-        }
+      #{$-root}__image-container {
+        max-height: vars.$max-banner-height;
       }
     }
 
     @include mq($until: s) {
-      &:not(&--accented) {
-        .nhsd-a-image__picture {
-          border-top-left-radius: vars.$border-radius;
-          border-top-right-radius: vars.$border-radius;
-        }
+      flex-direction: column-reverse;
+      align-items: center;
 
-        #{$-root}__content-box,
-        .nhsd-a-colour-bar {
-          border-bottom-left-radius: vars.$border-radius;
-          border-bottom-right-radius: vars.$border-radius;
-        }
-      }
-
-      [class^="nhsd-t-col"]:first-child {
-        order: 1;
-      }
-
-      &:not(:last-child) {
-        margin-bottom: nhsd-spacing.get(5);
+      #{$-root}__content-container,
+      #{$-root}__image-container {
+        width: 100%;
+        max-width: 100%;
       }
     }
+  }
 
-    @include mq($from: m) {
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(4);
-      }
-
-      &--accented {
-        [class^="nhsd-t-body"] {
-          @include nhsd-utils.clamped-text(8);
-        }
-      }
-    }
+  &--background-image {
+    padding-bottom: 30vw;
 
     @include mq($from: l) {
-      [class^="nhsd-t-heading"],
-      [class^="nhsd-t-body"] {
-        max-width: 30.5rem;
-      }
-
-      &--accented {
-        [class^="nhsd-t-body"] {
-          @include nhsd-utils.clamped-text(10);
-        }
-      }
+      padding-bottom: 300px;
     }
 
-    @include mq($from: xl) {
-      &--accented {
-        [class^="nhsd-t-heading"] {
-          font-size: 3rem;
-          letter-spacing: -.0622rem;
-        }
+    #{$-root}__image-container {
+      position: absolute;
+      top: calc(100% - 30vw - 135px);
+      right: 0;
+      bottom: 0;
+      left: 0;
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
 
-        [class^="nhsd-t-body"] {
-          @include nhsd-utils.clamped-text(12);
-        }
+      @include mq($from: l) {
+        top: calc(100% - 435px);
       }
     }
   }

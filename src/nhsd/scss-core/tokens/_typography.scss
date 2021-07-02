@@ -21,6 +21,8 @@ $-root: ".nhsd-t";
   display: block;
   margin: 0 0 nhsd-spacing.get(4);
   color: nhsd-colours.get("black");
+  letter-spacing: -.0622rem;
+  line-height: 1.1666;
 
   @include nhsd-fonts.font-weight(bold);
   @include mq($until: s) {
@@ -33,8 +35,6 @@ $-root: ".nhsd-t";
 
   margin: 0 auto nhsd-spacing.get(3);
   font-size: 1rem;
-  letter-spacing: -.01666rem;
-  line-height: 1.38889;
 
   a {
     line-height: 1.63;
@@ -63,7 +63,7 @@ $-root: ".nhsd-t";
 
   &-heading-xxl {
     font-size: 2.666rem;
-    letter-spacing: -.0555rem;
+    letter-spacing: -.125rem;
     line-height: 1.0832;
 
     a {
@@ -83,7 +83,7 @@ $-root: ".nhsd-t";
 
   &-heading-xl {
     font-size: 2rem;
-    letter-spacing: -.0277rem;
+    letter-spacing: -.063rem;
     line-height: 1.1667;
 
     a {
@@ -103,7 +103,7 @@ $-root: ".nhsd-t";
 
   &-heading-l {
     font-size: 1.6669rem;
-    letter-spacing: -.0277rem;
+    letter-spacing: -.063rem;
     line-height: 1.20048;
 
     a {

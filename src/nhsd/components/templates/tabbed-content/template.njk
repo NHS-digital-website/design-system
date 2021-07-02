@@ -1,7 +1,10 @@
 {#- Import atom macros -#}
 {%- from "../../../njk/macros/molecules.njk" import nhsd_m_tabs -%}
+{%- from "../../../njk/macros/organisms.njk" import nhsd_o_hero -%}
 
-<div class="nhsd-t-grid">
+{{nhsd_o_hero(params.hero)}}
+
+<div class="nhsd-t-grid nhsd-!t-margin-top-8">
     <div class="nhsd-t-row nhsd-!t-margin-bottom-3">
         <div class="nhsd-t-col-12">
             {{ nhsd_m_tabs(params.tabs) }}
