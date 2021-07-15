@@ -1,3 +1,8 @@
+{#- Import atoms macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_button
+-%}
+
 {#- Import molecule macros -#}
 {%- from "../../../njk/macros/molecules.njk" import
   nhsd_m_search_bar,
@@ -18,5 +23,8 @@
     {% for filter in params.filters %}
       {{ nhsd_m_filter_menu_section({ title: filter.title, options: filter.options}) }}
     {% endfor %}
+  </div>
+  <div class="nhsd-o-filter-menu__filter-button">
+    {{ nhsd_a_button(params.button) }}
   </div>
 </div>

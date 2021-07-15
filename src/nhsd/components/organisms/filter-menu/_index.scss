@@ -6,3 +6,16 @@
 
 // Private members
 $-root: ".nhsd-o-filter-menu";
+
+#{$-root} {
+  &__filter-button {
+    display: none;
+    @include nhsd-spacing.set-responsive("margin-top", 6);
+  }
+}
+
+.nhsd-no-js {
+  #{$-root}__filter-button {
+    display: block;
+  }
+}

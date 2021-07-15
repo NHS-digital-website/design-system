@@ -63,6 +63,9 @@ LabComponent.args = {
       ],
     },
   ],
+  button: {
+    label: 'Filter results',
+  },
 };
 LabComponent.parameters = {
   docs: {
