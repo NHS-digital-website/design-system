@@ -17,6 +17,12 @@
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
+{%- if params.mobileMenu -%}
+  {% set classNames = classNames + " nhsd-o-global-header--mobile-menu" %}
+{%- endif -%}
+{%- if params.productHeader -%}
+  {% set classNames = classNames + " nhsd-o-global-header--product-header" %}
+{%- endif -%}
 
 <header class="{{ classNames }}" id="nhsd-global-header">
   <div class="nhsd-t-grid">
@@ -24,10 +30,15 @@
       <div class="nhsd-t-col">
         <div class="nhsd-o-global-header__content-box">
           <div class="nhsd-o-global-header__background"></div>
-          {{ nhsd_m_logo_link(params.logoLink) }}
+          <div class="nhsd-o-global-header__logo-container">
+            {{ nhsd_m_logo_link(params.logoLink) }}
+            {%- if params.productName -%}
+              <div class="nhsd-o-global-header__product-name">{{ params.productName }}</div>
+            {%- endif -%}
+          </div>
           <div class="nhsd-o-global-header__menu" id="nhsd-global-header__menu">
             <div class="nhsd-o-global-header__menu-background"></div>
-            <div class="nhsd-o-global-header__menu-content-box">
+            <div class="nhsd-o-global-header__menu-content-box {{ menuClass }}">
               {{ nhsd_a_icon_link({
                 id: "nhsd-global-header__menu-close-button",
                 classes: "nhsd-o-global-header__menu-close-button",
@@ -41,25 +52,27 @@
             </div>
           </div>
           {{ nhsd_m_button_nav(params.buttonNav) }}
-          <div class="nhsd-o-global-header__search" id="nhsd-global-header__search">
-            <div class="nhsd-o-global-header__search-background"></div>
-            <div class="nhsd-o-global-header__search-content-box">
-              {{ nhsd_a_icon_link({
-                id: "nhsd-global-header__search-close-button",
-                classes: "nhsd-o-global-header__search-close-button",
-                label: "Close search",
-                icon: {
-                  id: "x_circled",
-                  classes: "nhsd-a-icon--size-m"
-                }
-              }) }}
-              <form role="search" method="get" action="/search" class="nhsd-t-form" novalidate autocomplete="off" aria-label="Search">
-                <div class="nhsd-t-form-group">
-                  {{ nhsd_m_search_bar(params.menuBar) }}
-                </div>
-              </form>
+          {%- if params.search -%}
+            <div class="nhsd-o-global-header__search" id="nhsd-global-header__search">
+              <div class="nhsd-o-global-header__search-background"></div>
+              <div class="nhsd-o-global-header__search-content-box">
+                {{ nhsd_a_icon_link({
+                  id: "nhsd-global-header__search-close-button",
+                  classes: "nhsd-o-global-header__search-close-button",
+                  label: "Close search",
+                  icon: {
+                    id: "x_circled",
+                    classes: "nhsd-a-icon--size-m"
+                  }
+                }) }}
+                <form role="search" method="get" action="/search" class="nhsd-t-form" novalidate autocomplete="off" aria-label="Search">
+                  <div class="nhsd-t-form-group">
+                    {{ nhsd_m_search_bar(params.menuBar) }}
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
+          {%- endif -%}
         </div>
       </div>
     </div>
