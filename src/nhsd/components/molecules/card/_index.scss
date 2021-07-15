@@ -36,6 +36,7 @@ $-box-padding: 1.111rem;
   &__content_container {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     justify-content: space-between;
     height: 100%;
   }
