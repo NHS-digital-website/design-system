@@ -89,11 +89,73 @@ LabComponent.args = {
       },
     }],
   },
+  search: true,
 };
 LabComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+    },
+  },
+};
+
+export const ProductHeader = Template.bind({});
+ProductHeader.storyName = 'Product header';
+ProductHeader.args = {
+  ...LabComponent.args,
+  productName: 'Product or Service',
+  productHeader: true,
+};
+ProductHeader.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ProductHeader(ProductHeader.args)}`,
+    },
+  },
+};
+
+export const ProductHeaderNoSearch = Template.bind({});
+ProductHeaderNoSearch.storyName = 'Product header (No Search)';
+ProductHeaderNoSearch.args = {
+  ...LabComponent.args,
+  productName: 'Product or Service',
+  productHeader: true,
+  buttonNav: {
+    classes: 'nhsd-m-button-nav--condensed nhsd-m-button-nav--non-responsive nhsd-o-global-header__button-nav',
+    buttons: [{
+      el: 'button',
+      id: 'nhsd-global-header__menu-button',
+      label: 'Menu',
+      aria: {
+        controls: 'nhsd-global-header__menu',
+        expanded: false,
+      },
+      classes: 'nhsd-o-global-header__menu-button',
+      icon: {
+        id: 'burger',
+        classes: 'nhsd-a-icon--size-s',
+      },
+    }],
+  },
+};
+ProductHeaderNoSearch.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ProductHeaderNoSearch(ProductHeaderNoSearch.args)}`,
+    },
+  },
+};
+
+export const MobileMenu = Template.bind({});
+MobileMenu.storyName = 'Disable desktop menu';
+MobileMenu.args = {
+  ...LabComponent.args,
+  mobileMenu: true,
+};
+MobileMenu.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${MobileMenu(MobileMenu.args)}`,
     },
   },
 };
