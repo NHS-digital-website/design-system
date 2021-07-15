@@ -10,22 +10,12 @@
 $-root: ".nhsd-m-filter-menu-section";
 
 #{$-root} {
-  &__accordion-heading {
-    span {
-      &.active {
-        svg {
-          transform: rotate(180deg);
-        }
-      }
-    }
-  }
-
   &__accordion-panel {
     display: none;
   }
 
   &__option-row {
-    height: nhsd-spacing.get(7);
+    @include nhsd-spacing.set-responsive('margin-bottom', 3);
   }
 
   &__heading-text {
@@ -41,6 +31,20 @@ $-root: ".nhsd-m-filter-menu-section";
       border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
       background-color: nhsd-colours.get('yellow');
       cursor: pointer;
+    }
+  }
+
+  &--active {
+    #{$-root}__accordion-panel {
+      display: block;
+    }
+
+    #{$-root}__accordion-heading {
+      span {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
     }
   }
 }
