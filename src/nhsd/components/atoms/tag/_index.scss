@@ -23,6 +23,12 @@ $-root: ".nhsd-a-tag";
   letter-spacing: .0555rem;
   text-transform: uppercase;
 
+  .nhsd-a-icon {
+    margin-bottom: 3px;
+    margin-left: nhsd-spacing.get(3);
+    vertical-align: middle;
+  }
+
   // Colour variants
   &--bg-light-grey {
     color: nhsd-colours.get("dark-grey");
@@ -71,5 +77,29 @@ $-root: ".nhsd-a-tag";
     background: nhsd-colours.get('blue');
     font-size: .778rem;
     letter-spacing: -.0166rem;
+  }
+
+  &--closable {
+    border: 1px solid nhsd-colours.get('mid-grey-20-tint');
+    border-radius: 3px;
+    font-size: .778rem;
+    line-height: .778rem;
+    align-items: center;
+    text-decoration: none;
+    @include nhsd-fonts.font-weight(regular);
+
+    &:hover,
+    &:focus {
+      border: 1px solid nhsd-colours.get('black');
+      box-shadow: 0 0 .0556rem .0556rem nhsd-colours.get("yellow");
+
+      .nhsd-a-icon {
+        background: nhsd-colours.get("yellow");
+
+        svg {
+          fill: nhsd-colours.get("black");
+        }
+      }
+    }
   }
 }

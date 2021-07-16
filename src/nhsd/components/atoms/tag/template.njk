@@ -1,3 +1,7 @@
+{% macro nhsd_a_icon(params) -%}
+  {% include "../icon/template.njk" %}
+{%- endmacro %}
+
 {# Set classes #}
 {%- set classNames = "nhsd-a-tag" -%}
 {%- if params.classes -%}
@@ -8,4 +12,14 @@
 {%- if params.label -%}
   {% set label = params.label %}
 {%- endif -%}
-<span class="{{ classNames }}">{{ label }}</span>
+{%- if params.href -%}
+<a href="{{ params.href }}" class="{{ classNames }}">
+{%- else -%}
+<span class="{{ classNames }}">
+{%- endif -%}
+{{ label }}{%- if params.icon -%}{{ nhsd_a_icon(params.icon) }}{%- endif -%}
+{%- if params.href -%}
+</a>
+{%- else -%}
+</span>
+{%- endif -%}

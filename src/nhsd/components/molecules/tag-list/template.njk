@@ -1,0 +1,13 @@
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_tag -%}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-tag-list" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+<ul class="{{classNames}}">
+  {% for tag in params.tags -%}
+    <li>{{ nhsd_a_tag(tag) }}</li>
+  {%- endfor %}
+</ul>
