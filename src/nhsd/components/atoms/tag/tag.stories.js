@@ -158,3 +158,22 @@ PhaseTag.parameters = {
     },
   },
 };
+
+export const ClosableTag = Template.bind({});
+ClosableTag.storyName = 'Closable tag';
+ClosableTag.args = {
+  href: '#',
+  classes: 'nhsd-a-tag--closable',
+  label: '2020',
+  icon: {
+    id: 'x',
+    classes: 'nhsd-a-icon--size-xxs  nhsd-a-icon--col-blue',
+  },
+};
+ClosableTag.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ClosableTag(ClosableTag.args)}`,
+    },
+  },
+};

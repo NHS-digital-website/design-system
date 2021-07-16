@@ -1,0 +1,24 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-m-tag-list";
+
+#{$-root} {
+  list-style: none;
+
+  li {
+    display: inline-block;
+
+    .nhsd-a-tag {
+      margin-left: nhsd-spacing.get(2);
+    }
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
