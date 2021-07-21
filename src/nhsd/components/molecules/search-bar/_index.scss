@@ -16,7 +16,6 @@
 $-root: ".nhsd-m-search-bar";
 
 #{$-root} {
-  display: flex;
   position: relative;
   width: 100%;
   max-width: 36rem;
@@ -30,22 +29,11 @@ $-root: ".nhsd-m-search-bar";
   &__full-width {
     max-width: 100%;
     padding: 0;
-
-    .nhsd-t-form {
-      .nhsd-t-form-group {
-        max-width: 100%;
-        margin-bottom: 0;
-      }
-    }
   }
 
   &__small {
-    .nhsd-t-form {
-      .nhsd-t-form-group {
-        .nhsd-t-form-input {
-          height: nhsd-spacing.get(7);
-        }
-      }
+    .nhsd-t-form-input {
+      height: nhsd-spacing.get(7);
     }
   }
 }
