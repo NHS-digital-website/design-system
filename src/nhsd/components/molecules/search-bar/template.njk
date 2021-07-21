@@ -16,33 +16,29 @@
 {%- endif -%}
 
 <div class="{{ classNames }}">
-  <form role="search" method="get" action="/search" class="nhsd-t-form" novalidate autocomplete="off" aria-label="Search">
-    <div class="nhsd-t-form-group">
-      <div class="nhsd-t-form-control">
-        <input
-          class="nhsd-t-form-input"
-          type="text"
-          id="query"
-          name="query"
-          autocomplete="off"
-          placeholder="{{ placeholder }}"
-          aria-label="Keywords"
-        />
-        <span class="nhsd-t-form-control__button">
-          {{ nhsd_a_button({
-            classes: "nhsd-a-button--circle-condensed nhsd-a-button--transparent",
-            el: "button",
-            type: "submit",
-            aria: {
-              label: "Perform search"
-            },
-            icon: {
-              id: "search",
-              classes: "nhsd-a-icon--size-s"
-            }
-          }) }}
-        </span>
-      </div>
-    </div>
-  </form>
+  <div class="nhsd-t-form-control">
+    <input
+      class="nhsd-t-form-input"
+      type="text"
+      id="query"
+      name="query"
+      autocomplete="off"
+      placeholder="{{ placeholder }}"
+      aria-label="Keywords"
+    />
+    <span class="nhsd-t-form-control__button">
+      {{ nhsd_a_button({
+        classes: "nhsd-a-button--circle-condensed nhsd-a-button--transparent",
+        el: "button",
+        type: "submit",
+        aria: {
+          label: "Perform search"
+        },
+        icon: {
+          id: "search",
+          classes: "nhsd-a-icon--size-s"
+        }
+      }) }}
+    </span>
+  </div>
 </div>
