@@ -8,17 +8,14 @@
 $-root: ".nhsd-m-tag-list";
 
 #{$-root} {
+  margin: 0;
+  margin-left: -#{nhsd-spacing.get(2)};
+  padding: 0;
   list-style: none;
 
   li {
     display: inline-block;
-
-    .nhsd-a-tag {
-      margin-left: nhsd-spacing.get(2);
-    }
-
-    &:first-child {
-      margin: 0;
-    }
+    margin-bottom: nhsd-spacing.get(2);
+    margin-left: nhsd-spacing.get(2);
   }
 }
