@@ -1,5 +1,4 @@
-/* global document window */
-import nhsd from './nhsd';
+/* global document */
 import NHSDGlobalHeader from '../components/organisms/global-header/global-header';
 import NHSDCodeViewer from '../components/organisms/code-viewer/code-viewer';
 import NHSDStickyNavigation from '../components/molecules/sticky-navigation/sticky-navigation';
@@ -8,8 +7,6 @@ import NHSDTable from '../components/molecules/table/table';
 import NHSDTabs from '../components/molecules/tabs/tabs';
 import NHSDNotificationBanner from '../components/molecules/notification-banner/notification-banner';
 import NHSDBreadcrumbs from '../components/molecules/breadcrumbs/breadcrumbs';
-
-window.nhsd = nhsd;
 
 /* Ensure we don't double initalise any componets */
 const componentList = [];
