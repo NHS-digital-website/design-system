@@ -23,7 +23,11 @@ $-root: ".nhsd-m-search-bar";
   flex-direction: column;
 
   .nhsd-t-form-input {
-    padding-right: calc(#{vars.$min-button-size} * 1.2);
+    &,
+    &:not(:last-child) {
+      margin-bottom: 0;
+      padding-right: calc(#{vars.$min-button-size} * 1.2);
+    }
   }
 
   &__full-width {

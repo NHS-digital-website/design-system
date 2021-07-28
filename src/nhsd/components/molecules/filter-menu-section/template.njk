@@ -18,14 +18,18 @@
 
 <div class="{{ classNames }}">
   <div class="nhsd-m-filter-menu-section__accordion-heading">
-    <span id="icon">
-      {{ nhsd_a_icon({
-        id: 'chevron_down',
-        classes: 'nhsd-a-icon--size-xxs'})
-      }}
-    </span>
-    <button class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s nhsd-!t-margin-bottom-0 nhsd-!t-padding-0" {{- ariaAttributes | safe }}>{{ params.title }}</button>
-    {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
+    <button class="nhsd-m-filter-menu-section__menu-button" {{- ariaAttributes | safe }}>
+      <span class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s">
+        <span id="icon">
+          {{ nhsd_a_icon({
+            id: 'chevron_down',
+            classes: 'nhsd-a-icon--size-xxs'})
+          }}
+        </span>
+        {{ params.title }}
+      </span>
+    </button>
+    {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-xxs' }) }}
     <div class="nhsd-m-filter-menu-section__accordion-panel">
       {% for option in params.options %}
         <div class="nhsd-m-filter-menu-section__option-row">
