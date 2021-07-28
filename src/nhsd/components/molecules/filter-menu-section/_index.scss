@@ -15,22 +15,30 @@ $-root: ".nhsd-m-filter-menu-section";
   }
 
   &__option-row {
-    @include nhsd-spacing.set-responsive('margin-bottom', 3);
+    @include nhsd-spacing.set-responsive('margin-top', 3);
   }
 
   &__heading-text {
-    height: 100%;
-    margin-left: nhsd-spacing.get(1);
-    border: none;
     border-bottom: vars.$active-line-thickness solid transparent;
+  }
+
+  &__menu-button {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: nhsd-spacing.get(4) 0;
+    border: none;
     color: nhsd-colours.get('black');
     background-color: nhsd-colours.get('white');
+    text-align: left;
+    cursor: pointer;
 
     &:hover,
     &:focus {
-      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
-      background-color: nhsd-colours.get('yellow');
-      cursor: pointer;
+      #{$-root}__heading-text {
+        border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+        background-color: nhsd-colours.get('yellow');
+      }
     }
   }
 
