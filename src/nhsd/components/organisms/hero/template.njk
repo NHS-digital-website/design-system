@@ -21,133 +21,74 @@
 {%- set titleClassNames = params.title.classes if params.title.classes else "nhsd-t-heading-xxl nhsd-!t-margin-bottom-2" -%}
 {%- set textClassNames = params.text.classes if params.text.classes else "nhsd-t-heading-s" -%}
 
-{#- Set backgroundClass -#}
-{%- if params.bgColourKey -%}
-  {%- set bgClassName = "nhsd-!t-bg-" + params.bgColourKey -%}
-{%- endif -%}
-
-{#- Set colourClass -#}
-{%- if params.colourKey -%}
-{%- set colourClassName = "nhsd-!t-col-" + params.colourKey -%}
-{%- endif -%}
-
-{#- Set featured -#}
-{%- set featured = true if params.featured else false -%}
-{#- Set mirrored (only used if featured) -#}
-{%- set mirrored = true if featured and params.featured.mirrored else false -%}
-{#- Set accent (only used if featured) -#}
-{%- set accented = true if featured and params.featured.accented else false -%}
-{%- set imageBanner = true if params.imageBanner else false -%}
-
-{#- Set featured variant class names -#}
-{%- if featured -%}
-  {%- set classNames = "nhsd-o-hero-feature" -%}
-  {%- if mirrored -%}
-    {%- set classNames = classNames + " nhsd-o-hero-feature--mirrored" -%}
-  {%- endif -%}
-  {%- if accented -%}
-    {%- set classNames = classNames + " nhsd-o-hero-feature--accented" -%}
-  {%- endif -%}
-{%- endif -%}
-{% if imageBanner -%}
-  {%- set classNames = classNames + " nhsd-o-hero--image-banner" -%}
-{% endif %}
-{% if params.backgroundImage -%}
-  {%- set classNames = classNames + " nhsd-o-hero--background-image" -%}
-{% endif %}
-
-
-{#- Set column classes depending on content type -#}
-{%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-6 nhsd-!t-no-gutters" -%}
-{% if imageBanner -%}
-  {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-6" -%}
-{% elseif featured %}
-  {%- set columnClassNames = "nhsd-t-col-xs-11 nhsd-t-col-s-6 nhsd-!t-no-gutters" -%}
-  {% if accented -%}
-    {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters" -%}
+{% if params.image and params.accented -%}
+  {% if params.mirrored -%}
+    {%- set classNames = classNames + " " + componentClassName + "--image-hero-accented-mirrored" -%}
+  {% else %}
+    {%- set classNames = classNames + " " + componentClassName + "--image-hero-accented" -%}
   {% endif %}
-{% elseif params.metaData %}
-  {%- set columnClassNames = "nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-no-gutters" -%}
-{%- endif %}
-
-
+{% elif params.backgroundImage -%}
+  {%- set classNames = classNames + " " + componentClassName + "--background-image" -%}
+{% elif params.image -%}
+    {%- set classNames = classNames + " " + componentClassName + "--image-banner" -%}
+{% endif %}
+{% if params.leftAlign -%}
+  {%- set classNames = classNames + " " + componentClassName + "--left-align" -%}
+{% endif %}
 
 <div class="{{ classNames }}">
-  {%- set gridClass = "" -%}
-  {% if not params.metaData -%}
-    {%- set gridClass = " nhsd-t-grid--full-width" -%}
-  {%- endif -%}
-  <div class="nhsd-t-grid nhsd-!t-no-gutters {{ gridClass }}">
-    {%- set rowClassNames = "nhsd-t-row--centred" -%}
-    {% if params.leftAlign -%}
-      {%- set rowClassNames = "" -%}
-    {% endif %}
-    <div class="nhsd-t-row {{ rowClassNames }}">
-      <div class="{{ columnClassNames }}">
-        {%- set contentClass = "" -%}
-        {% if params.metaData -%}
-          {%- set contentClass = " nhsd-o-hero__content-box--left-align" -%}
+  <div class="{{ componentClassName }}__content-container">
+    <div class="{{ componentClassName }}__inner-content-container">
+      {%- if params.introText -%}
+      <p class="{{ introTextClassNames }}">{{ params.introText.text|safe }}</p>
+      {%- endif -%}
+      <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
+      {%- if params.text -%}
+      <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
+      {%- endif -%}
+
+      {% if params.metaData -%}
+        {% set metaDataClassName = componentClassName + "__meta-data" %}
+        {%- if params.metaData.classes -%}
+          {% set metaDataClassName = metaDataClassName + " " + params.metaData.classes -%}
         {%- endif -%}
-        <div class="nhsd-o-hero__content-box {{ contentClass }}">
-          <div class="nhsd-o-hero__content">
-            {%- if params.introText -%}
-            <p class="{{ introTextClassNames }}">{{ params.introText.text|safe }}</p>
-            {%- endif -%}
-            <span class="{{ titleClassNames }}">{{ params.title.label|safe }}</span>
-            <p class="{{ textClassNames }}">{{ params.text.label|safe }}</p>
 
-            {% if params.metaData -%}
-              {% set metaDataClassName = componentClassName + "__meta-data" %}
-              {%- if params.metaData.classes -%}
-                {% set metaDataClassName = metaDataClassName + " " + params.metaData.classes -%}
-              {%- endif -%}
-
-              <div class="{{ metaDataClassName }}">
-                {% for metaItem in params.metaData.data -%}
-                <div class="{{ componentClassName }}__meta-data-item">
-                  <div class="{{ componentClassName }}__meta-data-item-title">{{ metaItem.title }}</div>
-                  <div class="{{ componentClassName }}__meta-data-item-description">{{ metaItem.description }}</div>
-                </div>
-                {% endfor -%}
-              </div>
-            {% endif -%}
-
-            {%if params.button -%}
-            {{ nhsd_a_button(params.button) }}
-            {%- endif %}
-            {%if params.buttonNav -%}
-            {{ nhsd_m_button_nav(params.buttonNav) }}
-            {%- endif %}
+        <div class="{{ metaDataClassName }}">
+          {% for metaItem in params.metaData.data -%}
+          <div class="{{ componentClassName }}__meta-data-item">
+            <div class="{{ componentClassName }}__meta-data-item-title">{{ metaItem.title }}</div>
+            <div class="{{ componentClassName }}__meta-data-item-description">{{ metaItem.description }}</div>
           </div>
+          {% endfor -%}
+        </div>
+      {% endif -%}
 
-          {% if params.colourBar -%}
-            {{ nhsd_a_colour_bar() }}
-          {%- endif %}
-        </div>
-      </div>
-      {% if params.image -%}
-      <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'nhsd-t-col-xs-12' if accented else 'nhsd-t-col-xs-11' }}">
-        {{ nhsd_a_image(params.image) }}
-      </div>
-      {% elif params.imageBanner -%}
-      <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters">
-        {{ nhsd_a_image(params.imageBanner) }}
-      </div>
-      {%- elif params.video %}
-      <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters {{ 'nhsd-t-col-xs-12' if accented else 'nhsd-t-col-xs-11' }}">
-        <div class="nhsd-o-hero__iframe-wrapper">
-          <iframe class="nhsd-o-hero__iframe" type="text/html" src="{{params.video}}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-      {% endif %}
+      {%if params.button -%}
+      {{ nhsd_a_button(params.button) }}
+      {%- endif %}
+      {%if params.buttonNav -%}
+      {{ nhsd_m_button_nav(params.buttonNav) }}
+      {%- endif %}
     </div>
   </div>
 
-  {% if params.backgroundImage -%}
-  <div class="nhsd-o-hero__background-image">
-    {{ nhsd_a_image(params.backgroundImage) }}
-  </div>
-  {% endif %}
+  {% if imageBanner or params.image or params.video -%}
+    <div class="{{ componentClassName }}__image-container">
+      {% if params.image -%}
+        {{ nhsd_a_image(params.image) }}
+      {% elif params.imageBanner -%}
+        {{ nhsd_a_image(params.imageBanner) }}
+      {%- elif params.video %}
+        <div class="{{ componentClassName }}__iframe-wrapper">
+          <iframe class="{{ componentClassName }}__iframe" type="text/html" src="{{params.video}}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      {%- endif %}
+    </div>
+  {%- endif -%}
+
+  {% if params.colourBar -%}
+    {{ nhsd_a_colour_bar() }}
+  {%- endif %}
 
   {% if params.digiblocks -%}
     {% for digiblocks in params.digiblocks %}
