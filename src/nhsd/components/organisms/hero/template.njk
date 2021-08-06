@@ -23,14 +23,14 @@
 
 {% if params.image and params.accented -%}
   {% if params.mirrored -%}
-    {%- set classNames = classNames + " " + componentClassName + "--image-hero-accented-mirrored" -%}
+    {%- set classNames = classNames + " " + componentClassName + "--image-accented-mirrored" -%}
   {% else %}
-    {%- set classNames = classNames + " " + componentClassName + "--image-hero-accented" -%}
+    {%- set classNames = classNames + " " + componentClassName + "--image-accented" -%}
   {% endif %}
 {% elif params.backgroundImage -%}
   {%- set classNames = classNames + " " + componentClassName + "--background-image" -%}
 {% elif params.image -%}
-    {%- set classNames = classNames + " " + componentClassName + "--image-banner" -%}
+    {%- set classNames = classNames + " " + componentClassName + "--image" -%}
 {% endif %}
 {% if params.leftAlign -%}
   {%- set classNames = classNames + " " + componentClassName + "--left-align" -%}
@@ -53,22 +53,24 @@
           {% set metaDataClassName = metaDataClassName + " " + params.metaData.classes -%}
         {%- endif -%}
 
-        <div class="{{ metaDataClassName }}">
+        <dl class="{{ metaDataClassName }}">
           {% for metaItem in params.metaData.data -%}
           <div class="{{ componentClassName }}__meta-data-item">
-            <div class="{{ componentClassName }}__meta-data-item-title">{{ metaItem.title }}</div>
-            <div class="{{ componentClassName }}__meta-data-item-description">{{ metaItem.description }}</div>
+            <dt class="{{ componentClassName }}__meta-data-item-title">{{ metaItem.title }}</dt>
+            <dd class="{{ componentClassName }}__meta-data-item-description">{{ metaItem.description }}</dd>
           </div>
           {% endfor -%}
-        </div>
+        </dl>
       {% endif -%}
 
-      {%if params.button -%}
-      {{ nhsd_a_button(params.button) }}
-      {%- endif %}
-      {%if params.buttonNav -%}
-      {{ nhsd_m_button_nav(params.buttonNav) }}
-      {%- endif %}
+      <div>
+        {%if params.button -%}
+        {{ nhsd_a_button(params.button) }}
+        {%- endif %}
+        {%if params.buttonNav -%}
+        {{ nhsd_m_button_nav(params.buttonNav) }}
+        {%- endif %}
+      </div>
     </div>
   </div>
 

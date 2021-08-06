@@ -1,17 +1,11 @@
 <template>
-  <div class="nhsd-o-hero">
-    <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
-      <div class="nhsd-t-row nhsd-t-row--centred">
-        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-6 nhsd-!t-no-gutters">
-          <div class="nhsd-o-hero__content-box">
-            <div class="nhsd-o-hero__content">
-              <span class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6" data-uipath="document.title">NHS Digital's Design System</span>
-              <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="document.summary">
-                <p>Welcome to the NHS Digital's Design System.</p>
-              </span>
-            </div>
-          </div>
-        </div>
+  <div class="nhsd-o-hero nhsd-!t-text-align-center">
+    <div class="nhsd-o-hero__content-container">
+      <div class="nhsd-o-hero__inner-content-container">
+        <span class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6" data-uipath="document.title">NHS Digital's Design System</span>
+        <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-0" data-uipath="document.summary">
+          Welcome to the NHS Digital's Design System.
+        </p>
       </div>
     </div>
     <div class="nhsd-a-digiblocks nhsd-a-digiblocks--pos-bl ">

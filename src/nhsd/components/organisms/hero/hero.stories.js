@@ -1,3 +1,5 @@
+import pretty from 'pretty';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -54,7 +56,7 @@ export default {
 };
 
 // Component template
-const Template = (args) => template.render({ params: { ...args } });
+const Template = (args) => pretty(template.render({ params: { ...args } }), { ocd: true });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -377,8 +379,43 @@ DarkBlueHeaderBannerDetailedComponent.parameters = {
   },
 };
 
+export const ImageHeroBanner = Template.bind({});
+ImageHeroBanner.storyName = 'Image Hero';
+ImageHeroBanner.args = {
+  classes: 'nhsd-!t-bg-grad-black nhsd-!t-col-white',
+  title: {
+    label: 'Data and technology that improves lives',
+    classes: 'nhsd-t-heading-xxl',
+  },
+  text: {
+    label: 'We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable.',
+    classes: 'nhsd-t-body nhsd-!t-margin-bottom-6',
+  },
+  button: {
+    el: 'a',
+    label: 'About NHS Digital',
+    href: '#',
+    classes: 'nhsd-!t-margin-bottom-0',
+  },
+  image: {
+    ariaHidden: true,
+    sourceSet: [{
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }],
+    classes: 'nhsd-a-image--maintain-ratio nhsd-a-image--position-right',
+    alt: 'Abstract lights',
+  },
+};
+ImageHeroBanner.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ImageHeroBanner(ImageHeroBanner.args)}`,
+    },
+  },
+};
+
 export const ImageHero = Template.bind({});
-ImageHero.storyName = 'Image Hero (Accented)';
+ImageHero.storyName = 'Accented Image Hero';
 ImageHero.args = {
   accented: true,
   title: {
@@ -399,10 +436,9 @@ ImageHero.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: bannerImage,
     }],
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image',
   },
 };
 ImageHero.parameters = {
@@ -413,9 +449,9 @@ ImageHero.parameters = {
   },
 };
 
-export const ImageHeroAccentedMirrored = Template.bind({});
-ImageHeroAccentedMirrored.storyName = 'Image Hero (Accented & mirrored)';
-ImageHeroAccentedMirrored.args = {
+export const AccentedImageMirrored = Template.bind({});
+AccentedImageMirrored.storyName = 'Accented Image Hero (mirrored)';
+AccentedImageMirrored.args = {
   accented: true,
   mirrored: true,
   title: {
@@ -442,40 +478,10 @@ ImageHeroAccentedMirrored.args = {
     classes: 'nhsd-a-image',
   },
 };
-ImageHeroAccentedMirrored.parameters = {
+AccentedImageMirrored.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ImageHeroAccentedMirrored(ImageHeroAccentedMirrored.args)}`,
-    },
-  },
-};
-
-export const ImageHeroBanner = Template.bind({});
-ImageHeroBanner.storyName = 'Image Hero banner';
-ImageHeroBanner.args = {
-  classes: 'nhsd-!t-bg-grad-black nhsd-!t-col-white',
-  title: {
-    label: 'Shielded Patient List',
-    classes: 'nhsd-t-heading-xl nhsd-!t-col-white',
-  },
-  text: {
-    label: 'NHS Digital has published the Shielded Patient List (SPL), which is enabling partner organisations across government to support and protect those who need shielding at this time.',
-    classes: 'nhsd-t-body',
-  },
-  image: {
-    ariaHidden: true,
-    sourceSet: [{
-      url: bannerImage,
-    }],
-    classes: 'nhsd-a-image--maintain-ratio nhsd-a-image--position-right',
-    alt: 'Abstract lights',
-  },
-  leftAlign: true,
-};
-ImageHeroBanner.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${ImageHeroBanner(ImageHeroBanner.args)}`,
+      code: `${sourceCode}\n${AccentedImageMirrored(AccentedImageMirrored.args)}`,
     },
   },
 };

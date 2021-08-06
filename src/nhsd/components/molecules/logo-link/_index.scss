@@ -13,6 +13,7 @@ $-root: ".nhsd-m-logo-link";
   @include nhsd-utils.box-sizing;
 
   display: inline-block;
+  margin-left: -.2rem;
   padding: .2rem;
   border-bottom: vars.$active-line-thickness solid transparent;
   background: nhsd-colours.get("white");
