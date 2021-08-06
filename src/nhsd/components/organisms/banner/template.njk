@@ -43,7 +43,7 @@
 
 <div class="{{ classNames }}">
   <div class="{{ componentClassName }}__content-container nhsd-!t-bg-bright-blue-10-tint">
-    <div>
+    <div class="{{ componentClassName }}__inner-content-container">
       {%- if params.introText -%}
       <p class="{{ introTextClassNames }}">{{ params.introText.text|safe }}</p>
       {%- endif -%}

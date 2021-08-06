@@ -46,6 +46,20 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     width: 50%;
   }
 
+  &__content-container {
+    display: flex;
+    padding: nhsd-spacing.get(10);
+    align-items: center;
+  }
+
+  &__inner-content-container {
+    width: 100%;
+
+    .nhsd-a-button {
+      max-width: 100%;
+    }
+  }
+
   @include mq($until: s) {
     width: 100% / 12 * 11;
     flex-direction: column-reverse;
@@ -53,6 +67,10 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     &__content-container,
     &__image-container {
       width: 100%;
+    }
+
+    &__content-container {
+      padding: nhsd-spacing.get(8) nhsd-spacing.get(6);
     }
 
     .nhsd-a-image {
@@ -64,12 +82,6 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
         position: relative;
       }
     }
-  }
-
-  &__content-container {
-    display: flex;
-    padding: nhsd-spacing.get(10);
-    align-items: center;
   }
 
   &__iframe-wrapper {
