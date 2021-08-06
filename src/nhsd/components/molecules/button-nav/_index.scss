@@ -39,13 +39,30 @@ $-root: ".nhsd-m-button-nav";
   @include mq($until: s) {
     &:not(&--non-responsive) {
       .nhsd-a-button {
-        display: flex;
+        display: inline-flex;
         width: 100%;
-        margin: 0 auto;
+        margin: 0 nhsd-spacing.get(2);
+        margin-bottom: nhsd-spacing.get(2);
 
-        &:not(:last-child) {
-          margin: 0 auto nhsd-spacing.get(4);
+        &:last-child {
+          margin-right: 0;
         }
+      }
+    }
+
+    &.nhsd-\!t-text-align-left {
+      &:not(&--non-responsive) {
+        .nhsd-a-button {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  @include mq($until: xs) {
+    &:not(&--non-responsive) {
+      .nhsd-a-button {
+        margin-right: 0;
+        margin-left: 0;
       }
     }
   }

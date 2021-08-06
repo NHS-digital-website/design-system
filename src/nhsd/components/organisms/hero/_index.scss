@@ -48,18 +48,14 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     justify-content: flex-start;
 
     #{$-root}__content-container {
-      width: 70%;
-      max-width: 70%;
+      width: 80%;
+      max-width: 80%;
 
       @each $-breakpoint in $-breakpoints {
         @include mq($from: $-breakpoint) {
           padding-right: calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
           padding-left: calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
         }
-      }
-
-      @include mq($from: s) {
-        padding-right: 0;
       }
 
       @include mq($until: xs) {
@@ -122,7 +118,8 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   }
 
   &__meta-data {
-    display: table;
+    display: inline-table;
+    margin: 0;
     font-size: .888rem;
     text-align: left;
   }
@@ -134,6 +131,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   &__meta-data-item-title,
   &__meta-data-item-description {
     display: table-cell;
+    margin: 0;
   }
 
   &__meta-data-item-title {
@@ -162,8 +160,8 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     @include nhsd-utils.light-text;
   }
 
-  &--image-hero-accented-mirrored,
-  &--image-hero-accented {
+  &--image-accented-mirrored,
+  &--image-accented {
     display: grid;
     grid-template-rows: 1fr auto;
     grid-template-columns: 50% 50%;
@@ -186,21 +184,38 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
       }
     }
 
-    #{$-root}__content-container {
-      max-width: 100%;
-      align-items: flex-start;
-
-      @include mq($from: l) {
-        padding: nhsd-spacing.get(8) nhsd-spacing.get(10);
-      }
-
+    #{$-root}__inner-content-container {
       @include mq($until: s) {
-        padding: nhsd-spacing.get(6);
-        grid-row: 2;
+        padding: nhsd-spacing.get(8) vars.$small-gutter * 2;
       }
 
       @include mq($until: xs) {
         padding: nhsd-spacing.get(6) vars.$small-gutter * 2;
+      }
+    }
+
+    #{$-root}__content-container {
+      max-width: 100%;
+      align-items: flex-start;
+      padding: 0;
+
+      @each $-breakpoint in $-breakpoints {
+        @include mq($from: $-breakpoint) {
+          padding-right: calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
+          padding-left: calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
+        }
+      }
+
+      @include mq($from: s) {
+        padding: nhsd-spacing.get(4) nhsd-spacing.get(6);
+      }
+
+      @include mq($from: m) {
+        padding: nhsd-spacing.get(8) nhsd-spacing.get(10);
+      }
+
+      @include mq($until: s) {
+        grid-row: 2;
       }
     }
 
@@ -228,7 +243,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     }
   }
 
-  &--image-hero-accented-mirrored {
+  &--image-accented-mirrored {
     @include mq($from: s) {
       #{$-root}__image-container {
         grid-column: 1;
@@ -239,7 +254,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     }
   }
 
-  &--image-banner {
+  &--image {
     #{$-root}__content-container,
     #{$-root}__image-container {
       width: 50%;
@@ -247,8 +262,23 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     }
 
     @include mq($from: s) {
+      #{$-root}__content-container {
+        padding-right: 0;
+      }
+
+      #{$-root}__inner-content-container {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
       #{$-root}__image-container {
         max-height: vars.$max-banner-height;
+      }
+    }
+
+    @include mq($until: xs) {
+      #{$-root}__inner-content-container {
+        padding: nhsd-spacing.get(6) vars.$gutter * 2;
       }
     }
 
@@ -265,15 +295,15 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   }
 
   &--background-image {
-    padding-bottom: 30vw;
+    padding-bottom: 35vw;
 
     @include mq($from: l) {
-      padding-bottom: 300px;
+      padding-bottom: 390px;
     }
 
     #{$-root}__image-container {
       position: absolute;
-      top: calc(100% - 30vw - 135px);
+      top: calc(100% - 35vw - 90px);
       right: 0;
       bottom: 0;
       left: 0;
@@ -281,7 +311,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
 
       @include mq($from: l) {
-        top: calc(100% - 435px);
+        top: calc(100% - 495px);
       }
     }
   }
