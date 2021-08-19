@@ -37,22 +37,17 @@
 
     {% if params.heading %}
       <div class="nhsd-m-statistics-block__heading">
-        {% if params.heading.xOutOfX %}
-          <p class="nhsd-t-heading-xxl {{ params.heading.classes }}">{{ heading }}</p>
-        {% else %}
-          {% if params.prefix.icon|length > 0 and params.suffix.icon|length > 0 %}
-            {{ nhsd_a_icon(params.prefix.icon) }}
-            <p class="nhsd-t-heading-xxl {{ params.heading.classes }}">{{ heading }}</p>
-            {{ nhsd_a_icon(params.suffix.icon) }}
-          {% elif params.prefix.icon|length > 0 %}
-            {{ nhsd_a_icon(params.prefix.icon) }}
-            <p class="nhsd-t-heading-xxl {{ params.heading.classes }}">{{ heading }}</p>
-          {% elif params.suffix.icon|length > 0 %}
-            <p class="nhsd-t-heading-xxl {{ params.heading.classes }}">{{ heading }}</p>
-            {{ nhsd_a_icon(params.suffix.icon) }}
-          {% else %}
-            <p class="nhsd-t-heading-xxl {{ params.heading.classes }}">{{ heading }}</p>
+        {% if params.prefix.icon|length > 0 %}
+          {{ nhsd_a_icon(params.prefix.icon) }}
+        {% endif %}
+        {% if params.heading %}
+          {% if params.animate %}
+            {% set animateAttr = "data-animate-statistic" %}
           {% endif %}
+          <p class="nhsd-t-heading-xxl {{ params.heading.classes }}" {{animateAttr}}>{{ heading }}</p>
+        {% endif %}
+        {% if params.suffix.icon|length > 0 %}
+          {{ nhsd_a_icon(params.suffix.icon) }}
         {% endif %}
       </div>
     {% endif %}

@@ -1,3 +1,5 @@
+import pretty from 'pretty';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -45,7 +47,7 @@ export default {
 };
 
 // Component template
-const Template = (args) => template.render({ params: { ...args } });
+const Template = (args) => pretty(template.render({ params: { ...args } }), { ocd: true });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -429,7 +431,7 @@ IconPrefixAndSuffixWithLabel.parameters = {
 };
 
 export const XOutOfX = Template.bind({});
-XOutOfX.storyName = sbConfig.title.XOutOfX;
+XOutOfX.storyName = 'X Out Of X';
 XOutOfX.args = {
   box: {
     classes: 'nhsd-!t-bg-grad-yellow',
@@ -447,6 +449,25 @@ XOutOfX.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${XOutOfX(XOutOfX.args)}`,
+    },
+  },
+};
+
+export const AnimateStat = Template.bind({});
+AnimateStat.storyName = 'Animate Statistic';
+AnimateStat.args = {
+  ...LabComponent.args,
+  animate: true,
+};
+AnimateStat.parameters = {
+  docs: {
+    description: {
+      story: `Numerical values in statistic blocks can be animated by value the value in an element with \`data-animate-statistic\`.
+      Duration of the animation can be adjusted by providing a value for the \`data-animate-statistic\` attribute in milliseconds.
+      Eg, \`data-animate-statistic="5000"\` for a 5 second animation.`,
+    },
+    source: {
+      code: `${sourceCode}\n${AnimateStat(AnimateStat.args)}`,
     },
   },
 };

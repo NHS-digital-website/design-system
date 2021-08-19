@@ -3,6 +3,7 @@ import NHSDGlobalHeader from '../components/organisms/global-header/global-heade
 import NHSDCodeViewer from '../components/organisms/code-viewer/code-viewer';
 import NHSDStickyNavigation from '../components/molecules/sticky-navigation/sticky-navigation';
 import NHSDFilterMenuSection from '../components/molecules/filter-menu-section/filter-menu-section';
+import NHSDStatistics from '../components/molecules/statistics-block/statistics';
 import NHSDTable from '../components/molecules/table/table';
 import NHSDTabs from '../components/molecules/tabs/tabs';
 import NHSDNotificationBanner from '../components/molecules/notification-banner/notification-banner';
@@ -35,4 +36,5 @@ export default function init() {
     initComponent('.nhsd-m-tabs', NHSDTabs);
     initComponent('.nhsd-m-notification-banner', NHSDNotificationBanner);
     initComponent('.nhsd-m-breadcrumbs', NHSDBreadcrumbs);
+    initComponent('.nhsd-m-statistics-block', NHSDStatistics);
 }
