@@ -4,6 +4,7 @@
 @use "sass:map";
 
 // Settings
+@use "scss-core/settings/vars";
 @use "scss-core/settings/media-queries" as *;
 
 // Tokens
@@ -102,6 +103,14 @@ $-responsive-data-map: (
       fill: nhsd-colours.get("white");
     }
   }
+}
+
+@function grid-width($colWidth: 12, $breakpoint: xl, $withGutters: true) {
+  $gutter-width: 0;
+  @if $withGutters == true {
+    $gutter-width: (vars.$gutter * 2);
+  }
+  @return #{((map.get(vars.$content-width, $breakpoint) - $gutter-width) / 12 * $colWidth) - $gutter-width};
 }
 
 // =========================================================
