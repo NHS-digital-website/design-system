@@ -4,11 +4,13 @@
 @use "sass:map";
 
 // Settings
+@use "scss-core/settings/vars";
 @use "scss-core/settings/media-queries" as *;
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts";
+@use "scss-core/tokens/spacing" as nhsd-spacing;
 
 // Private members
 $-root: ".nhsd-";
@@ -102,6 +104,10 @@ $-responsive-data-map: (
       fill: nhsd-colours.get("white");
     }
   }
+}
+
+@function grid-width($colWidth: 12, $breakpoint: xl, $withGutters: true) {
+  @return #{((map.get(vars.$content-width, $breakpoint) - (vars.$gutter * 2)) / 12 * $colWidth) - (vars.$gutter * 2)};
 }
 
 // =========================================================
