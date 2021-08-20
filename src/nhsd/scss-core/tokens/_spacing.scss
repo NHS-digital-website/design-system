@@ -9,6 +9,7 @@
 
 // Tokens
 @use "scss-core/tokens/fonts";
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 $-device-breakpoints: (xs,s,m,l,xl);
 
@@ -44,10 +45,7 @@ $-dirs: top, right, bottom, left;
     $value: -$value;
   }
 
-  @if $value != null {
-    @return if($value == 0, 0, ($value / fonts.$base-font-size) * 1rem);
-  }
-  @return null;
+  @return nhsd-utils.px-to-rem($value);
 }
 
 @mixin set-responsive($property: margin, $index: 0) {
@@ -112,14 +110,6 @@ $-dirs: top, right, bottom, left;
           }
         }
       }
-    }
-  }
-}
-
-@mixin apply-spacing($class, $property) {
-  @each $step, $spacing in $-steps {
-    &#{$class}-#{$step} {
-      #{$property}: #{$spacing};
     }
   }
 }

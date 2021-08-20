@@ -3,11 +3,20 @@
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
 $-root: ".nhsd-m-sticky-navigation";
 
 #{$-root} {
+  display: flex;
+  flex-direction: column;
+
+  nav {
+    overflow: auto;
+    @include nhsd-utils.scrollbar;
+  }
+
   ul {
     margin: 0;
     padding: 0;
