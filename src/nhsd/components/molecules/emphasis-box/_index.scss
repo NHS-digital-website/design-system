@@ -25,6 +25,7 @@ $-box-extra-padding: 1.666rem;
 #{$-root} {
   display: block;
   position: relative;
+  max-width: nhsd-utils.grid-width(8);
 
   .nhsd-a-box {
     display: flex;

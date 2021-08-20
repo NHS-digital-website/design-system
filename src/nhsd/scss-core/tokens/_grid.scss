@@ -16,35 +16,30 @@ $-root: ".nhsd-t";
 $-grid-data-map: (
   xs: (
     prefix: xs,
-    columns: 12,
     breakpoints: (
       until: s
     )
   ),
   s: (
     prefix: s,
-    columns: 12,
     breakpoints: (
       from: s
     )
   ),
   m: (
     prefix: m,
-    columns: 12,
     breakpoints: (
       from: m
     )
   ),
   l: (
     prefix: l,
-    columns: 12,
     breakpoints: (
       from: l
     )
   ),
   xl: (
     prefix: xl,
-    columns: 12,
     breakpoints: (
       from: xl
     )
@@ -164,33 +159,32 @@ $small-gutter: vars.$small-gutter;
   // Columns and offsets for all breakpoints
   @each $-device, $-props in $-grid-data-map {
     $-prefix: map.get($-props, "prefix");
-    $-columns: map.get($-props, "columns");
     $-breakpoints: map.get($-props, "breakpoints");
 
     $-bp-from: map.get($-breakpoints, "from");
     $-bp-until: map.get($-breakpoints, "until");
 
-    @for $-step from 0 through $-columns {
+    @for $-step from 0 through vars.$grid-columns {
       // Static
       @if $-device == "m" {
         &-col-#{$-step} {
           @extend %-column-base;
-          width: $-step / $-columns * 100%;
+          width: $-step / vars.$grid-columns * 100%;
         }
 
         &-off-#{$-step} {
-          margin-left: $-step / $-columns * 100%;
+          margin-left: $-step / vars.$grid-columns * 100%;
         }
       }
 
       // Responsive
       @include mq($from: $-bp-from, $until: $-bp-until) {
         &-col-#{$-prefix}-#{$-step} {
-          width: $-step / $-columns * 100%;
+          width: $-step / vars.$grid-columns * 100%;
         }
 
         &-off-#{$-prefix}-#{$-step} {
-          margin-left: $-step / $-columns * 100%;
+          margin-left: $-step / vars.$grid-columns * 100%;
         }
       }
 
