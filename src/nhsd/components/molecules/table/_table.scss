@@ -13,28 +13,6 @@ $-root: ".nhsd-m-table";
 #{$-root} {
   overflow-x: auto;
 
-  @mixin right-align {
-    &:not(:first-child) {
-      text-align: right;
-
-      .nhsd-a-icon {
-        margin-right: 10px;
-        margin-left: 0;
-      }
-    }
-  }
-
-  &--right-align {
-    td,
-    th {
-      @include right-align;
-    }
-  }
-
-  #{$-root}__col--right-align {
-    @include right-align;
-  }
-
   &--no-heading-wrap {
     thead {
       white-space: nowrap;
@@ -193,5 +171,47 @@ $-root: ".nhsd-m-table";
     #{$-root}__highlighted-items {
       background: rgba(255, 255, 255, .2);
     }
+  }
+
+  @mixin right-align {
+    th,
+    td {
+      text-align: right;
+    }
+  }
+
+  &--right-align {
+    thead {
+      tr:first-child td,
+      tr:first-child th {
+        &#{$-root}__col--orderable {
+          button {
+            justify-content: flex-end;
+
+            .nhsd-a-icon {
+              margin-right: 10px;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    @include right-align;
+  }
+
+  &__col--right-align {
+    &#{$-root}__col--orderable {
+      button {
+        justify-content: flex-end;
+
+        .nhsd-a-icon {
+          margin-right: 10px;
+          margin-left: 0;
+        }
+      }
+    }
+
+    @include right-align;
   }
 }

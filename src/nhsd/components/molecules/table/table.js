@@ -86,9 +86,9 @@ function makeOrderable(table) {
 
         const sortIcon = `<span class="nhsd-a-icon nhsd-a-icon--size-xs">${getChevronIcon('asc')}</span>`;
 
-        const rightAligned = table.classList.contains('nhsd-m-table--right-align') || header.classList.contains('nhsd-m-table__col--right-align');
+        const rightAligned = table.parentElement.classList.contains('nhsd-m-table--right-align') || header.classList.contains('nhsd-m-table__col--right-align');
 
-        if (rightAligned && index > 0) {
+        if (rightAligned) {
             header.innerHTML = `<button><span>${sortIcon}</span><span>${header.innerHTML}</span></button>`;
         } else {
             header.innerHTML = `<button><span>${header.innerHTML}</span><span>${sortIcon}</span></button>`;
