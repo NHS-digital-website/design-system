@@ -157,7 +157,39 @@ ContentPageComponent.args = {
     <p class="nhsd-t-body">The QCovid® model has been embedded by the University of Oxford into the QCovid® Calculation Engine. This has been registered with the Medical and Healthcare products Regulatory Agency (MHRA) and categorised as a Class 1 medical device.</p>
     
     <p class="nhsd-t-body">QCovid® and its supporting code is available online with an academic use license, which means it can be tested by other academics.</p>
-    
+
+    <div class="nhsd-t-grid nhsd-t-grid--nested nhsd-!t-margin-bottom-4">
+      <div class="nhsd-t-row nhsd-!t-bg-pale-grey-40-tint">
+        <div class="nhsd-t-col-12">
+          <dl class="nhsd-a-summary-list nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-2">
+            <div class="nhsd-a-summary-list__item">
+              <dt>Summary heading</dt>
+              <dd>
+                <span class="nhsd-a-summary-list__text">This is the summary description.</span>
+              </dd>
+            </div>
+            <div class="nhsd-a-summary-list__item">
+              <dt>Summary heading</dt>
+              <dd>
+                <span class="nhsd-a-summary-list__text">
+                  <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-!t-margin-bottom-0">
+                    <li class="nhsd-!t-margin-bottom-1"><a href="#" class="nhsd-a-link">Link list item</a></li>
+                    <li class="nhsd-!t-margin-bottom-1"><a href="#" class="nhsd-a-link">Link list item</a></li>
+                    <li class="nhsd-!t-margin-bottom-1"><a href="#" class="nhsd-a-link">Link list item</a></li>
+                  </ul>
+                </span>
+              </dd>
+            </div><div class="nhsd-a-summary-list__item">
+              <dt>Summary heading</dt>
+              <dd>
+                <span class="nhsd-a-summary-list__text">This is the summary description.</span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
     <h2 class="nhsd-t-heading-l" id="updates-to-qcovid">Updates to QCovid®</h2>
     
     <p class="nhsd-t-body">QCovid® is a ‘living’ risk prediction model. This means that, although it is not updated automatically in real-time, it can be updated periodically by the University of Oxford using the latest data and as we learn more about coronavirus.</p>

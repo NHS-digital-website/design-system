@@ -1,0 +1,23 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_link -%}
+
+{# Set classes #}
+{%- set baseClass = "nhsd-a-summary-list" -%}
+{%- set classNames = baseClass -%}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<dl class="{{ classNames }}">
+  {% for description in params.descriptions -%}
+  <div class="{{ classNames }}__item">
+    <dt>{{ description.header }}</dt>
+    <dd>
+      <span class="{{ classNames }}__text">{{ description.details.content|safe }}</span>
+      {%- if description.details and description.details.link -%}
+        <span class="{{ classNames }}__link">{{ nhsd_a_link(description.details.link) }}</span>
+      {%- endif -%}
+    </dd>
+  </div>
+  {%- endfor -%}
+</dl>
