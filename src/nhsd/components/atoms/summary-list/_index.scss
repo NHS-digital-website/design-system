@@ -1,0 +1,99 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+@use "scss-core/settings/vars";
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+$-root: ".nhsd-a-summary-list";
+
+#{$-root} {
+  margin: 0;
+
+  &__item {
+    margin-top: nhsd-spacing.get(6);
+    border: 1px solid nhsd-colours.get("pale-grey");
+    border-radius: vars.$border-radius;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  dt,
+  dd {
+    padding: nhsd-spacing.get(4);
+  }
+
+  dt {
+    padding-bottom: 0;
+    @include nhsd-fonts.font-weight(bold);
+    color: nhsd-colours.get("black");
+  }
+
+  dd {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    flex-grow: 1;
+
+    #{$-root}__text,
+    #{$-root}__link {
+      padding: nhsd-spacing.get(4);
+    }
+
+    #{$-root}__text {
+      padding-top: 0;
+      flex-grow: 1;
+    }
+    #{$-root}__link {
+      padding-bottom: nhsd-spacing.get(5);
+      flex-shrink: 0;
+      border-top: 1px solid nhsd-colours.get("pale-grey");
+    }
+  }
+
+  @include mq($from: s) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    &__item {
+      display: contents;
+
+      &:first-child {
+        dt,
+        dd {
+          border: none;
+        }
+      }
+    }
+
+    dt,
+    dd {
+      padding: nhsd-spacing.get(2) 0;
+      border: none;
+      border-top: 1px solid nhsd-colours.get("pale-grey");
+    }
+
+    dd {
+      padding: nhsd-spacing.get(2) nhsd-spacing.get(8);
+      padding-right: 0;
+      border-top: 1px solid nhsd-colours.get("pale-grey");
+      flex-direction: row;
+
+      #{$-root}__text,
+      #{$-root}__link {
+        margin-bottom: nhsd-spacing.get(1);
+        padding: 0;
+      }
+
+      #{$-root}__link {
+        margin-left: nhsd-spacing.get(2);
+        border: none;
+      }
+    }
+  }
+}
