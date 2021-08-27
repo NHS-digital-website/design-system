@@ -1,0 +1,15 @@
+{#- Import atom macros -#}
+{% macro nhsd_a_image(params) -%}
+  {% include "../image/template.njk" %}
+{%- endmacro %}
+
+{# Set classes #}
+{%- set baseClass = "nhsd-a-avatar" -%}
+{% set classNames = baseClass %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{classNames}}">
+    {{nhsd_a_image(params.image)}}
+</div>

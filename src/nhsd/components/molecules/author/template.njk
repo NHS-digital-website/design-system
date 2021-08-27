@@ -1,0 +1,22 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_avatar -%}
+
+{# Set classes #}
+{%- set baseClass = "nhsd-m-author" -%}
+{% set classNames = baseClass %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{classNames}}">
+    {{ nhsd_a_avatar(params.avatar) }}
+    <div class="{{baseClass}}__author-details">
+        {{ params.header|safe }}
+        {%- if params.role -%}
+          {{params.role|safe}}
+        {%- endif -%}
+    </div>
+    {%- if params.bio -%}
+      <div class="{{baseClass}}__author-bio">{{params.bio}}</div>
+    {%- endif -%}
+</div>
