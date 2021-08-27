@@ -1,0 +1,28 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+
+// Private members
+$-root: ".nhsd-m-author";
+
+#{$-root} {
+  display: grid;
+  gap: nhsd-spacing.get(4);
+  grid-template-columns: auto 1fr;
+  align-items: center;
+
+  &__author-bio {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  @include mq($from: t) {
+    gap: nhsd-spacing.get(2) nhsd-spacing.get(4);
+
+    &__author-bio {
+      grid-column-start: 2;
+    }
+  }
+}

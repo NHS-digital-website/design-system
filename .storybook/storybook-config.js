@@ -17,10 +17,12 @@ module.exports = {
     spacing: "Spacing",
     width: "Width",
     lab: "Lab",
+    defaultStory: "Default",
     latestVersion: "Latest version",
   },
   heading: {
     lab: "\n\n ## Lab",
+    default: "\n\n ## Default",
     basicRules: "### Basic rules",
     details: "#### Details",
   },
