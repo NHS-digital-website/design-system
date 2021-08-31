@@ -382,7 +382,7 @@ DarkBlueHeaderBannerDetailedComponent.parameters = {
 export const ImageHeroBanner = Template.bind({});
 ImageHeroBanner.storyName = 'Image Hero';
 ImageHeroBanner.args = {
-  classes: 'nhsd-!t-bg-grad-black nhsd-!t-col-white',
+  classes: 'nhsd-!t-bg-grad-black nhsd-o-hero--light-text nhsd-o-hero--left-align',
   title: {
     label: 'Data and technology that improves lives',
     classes: 'nhsd-t-heading-xxl',
@@ -400,7 +400,7 @@ ImageHeroBanner.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: bannerImage,
     }],
     classes: 'nhsd-a-image--maintain-ratio nhsd-a-image--position-right',
     alt: 'Abstract lights',
@@ -436,7 +436,7 @@ ImageHero.args = {
   image: {
     ariaHidden: true,
     sourceSet: [{
-      url: bannerImage,
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     }],
     alt: 'Abstract lights',
   },
