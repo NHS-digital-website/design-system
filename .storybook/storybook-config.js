@@ -15,6 +15,7 @@ module.exports = {
     forms: "Forms",
     colours: "Colours",
     spacing: "Spacing",
+    width: "Width",
     lab: "Lab",
     latestVersion: "Latest version",
   },
