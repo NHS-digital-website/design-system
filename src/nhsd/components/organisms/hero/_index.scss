@@ -29,6 +29,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   min-height: vars.$min-banner-mobile-height;
   margin: 0 auto;
   overflow: hidden;
+  align-items: center;
   justify-content: center;
   background: nhsd-colours.get("pale-grey");
 
@@ -175,6 +176,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
 
     #{$-root}__image-container {
       grid-row: 1;
+      height: 100%;
     }
 
     @include mq($from: s) {
@@ -201,8 +203,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
 
       @each $-breakpoint in $-breakpoints {
         @include mq($from: $-breakpoint) {
-          padding-right: calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
-          padding-left: calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
+          padding: 0 calc((100% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
         }
       }
 
@@ -255,24 +256,26 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   }
 
   &--image {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
     #{$-root}__content-container,
     #{$-root}__image-container {
-      width: 50%;
-      max-width: 50%;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    #{$-root}__content-container {
+      @each $-breakpoint in $-breakpoints {
+        @include mq($from: $-breakpoint) {
+          padding: 0 calc((200% - #{map.get(vars.$content-width, $-breakpoint)}) / 2);
+        }
+      }
     }
 
     @include mq($from: s) {
       #{$-root}__content-container {
         padding-right: 0;
-      }
-
-      #{$-root}__inner-content-container {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-
-      #{$-root}__image-container {
-        max-height: vars.$max-banner-height;
       }
     }
 
@@ -283,13 +286,22 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     }
 
     @include mq($until: s) {
-      flex-direction: column-reverse;
+      grid-template-columns: 100%;
       align-items: center;
 
       #{$-root}__content-container,
       #{$-root}__image-container {
         width: 100%;
         max-width: 100%;
+      }
+
+      #{$-root}__image-container {
+        grid-row: 1;
+      }
+
+      #{$-root}__content-container {
+        padding: 0 calc((100% - #{map.get(vars.$content-width, xs)}) / 2);
+        grid-row: 2;
       }
     }
   }
@@ -307,8 +319,8 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
       right: 0;
       bottom: 0;
       left: 0;
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 55%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 60%);
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 60%);
 
       @include mq($from: l) {
         top: calc(100% - 495px);
