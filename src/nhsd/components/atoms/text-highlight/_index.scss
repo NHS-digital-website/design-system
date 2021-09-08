@@ -47,6 +47,12 @@ $-root: ".nhsd-a-text-highlight";
     @include nhsd-fonts.font-weight;
   }
 
+  &--code-light {
+    @extend #{$-root}--code;
+    color: nhsd-colours.get("dark-grey");
+    background-color: nhsd-colours.get("pale-grey");
+  }
+
   // stylelint-disable declaration-no-important
   &--code-s {
     font-size: .778rem !important;
