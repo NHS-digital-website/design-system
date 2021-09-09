@@ -98,6 +98,14 @@ $-responsive-data-map: (
     color: nhsd-colours.get("white");
   }
 
+  [class^="nhsd-a-link"] {
+    &:not(:hover):not(:focus),
+    &:active {
+      border-bottom: vars.$base-line-thickness solid nhsd-colours.get("white");
+      color: nhsd-colours.get("white");
+    }
+  }
+
   .nhsd-a-icon {
     & > svg {
       fill: nhsd-colours.get("white");
