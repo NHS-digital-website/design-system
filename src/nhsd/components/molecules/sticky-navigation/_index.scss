@@ -13,12 +13,14 @@ $-root: ".nhsd-m-sticky-navigation";
   flex-direction: column;
 
   nav {
+    margin-left: -10px;
     overflow: auto;
     @include nhsd-utils.scrollbar;
   }
 
   ul {
     margin: 0;
+    margin-left: 10px;
     padding: 0;
     list-style: none;
   }
