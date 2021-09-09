@@ -1,0 +1,10 @@
+// Settings
+@use "scss-core/settings/vars";
+
+// Private members
+$-root: ".nhsd-m-dropdown";
+
+#{$-root} {
+  overflow: hidden;
+  border-radius: vars.$border-radius;
+}
