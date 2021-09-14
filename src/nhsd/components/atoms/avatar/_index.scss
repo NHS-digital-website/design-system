@@ -1,11 +1,30 @@
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+
 // Private members
 $-root: ".nhsd-a-avatar";
 
 #{$-root} {
   width: 60px;
   height: 60px;
-  overflow: hidden;
-  border-radius: 50%;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &:focus,
+    &:hover {
+      .nhsd-a-image {
+        box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
+      }
+    }
+  }
+
+  .nhsd-a-image {
+    overflow: hidden;
+    border-radius: 50%;
+  }
 
   &--small {
     width: 30px;

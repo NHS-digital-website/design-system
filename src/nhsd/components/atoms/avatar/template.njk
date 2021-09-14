@@ -11,5 +11,11 @@
 {%- endif -%}
 
 <div class="{{classNames}}">
-    {{nhsd_a_image(params.image)}}
+    {%- if params.href -%}
+    <a href="{{params.href}}">
+    {%- endif -%}
+      {{nhsd_a_image(params.image)}}</a>
+    {%- if params.href -%}
+    </a>
+    {%- endif -%}
 </div>

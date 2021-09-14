@@ -8,9 +8,14 @@
 <div class="cover-image-example-container">
 {%- endif -%}
 
+{%- set title = "" %}
+{%- if params.title -%}
+  {%- set title = 'title="' + params.title + '"' %}
+{%- endif -%}
+
 {%- if params.sourceSet and params.alt %}
 <figure class="{{ classNames }}" {%- if params.ariaHidden %} aria-hidden="true" {%- endif %}>
-  <picture class="nhsd-a-image__picture {{ 'nhsd-!t-margin-bottom-2' if params.caption else '' }}">
+  <picture class="nhsd-a-image__picture {{ 'nhsd-!t-margin-bottom-2' if params.caption else '' }}" {{ title|safe }}>
   {%- for source in params.sourceSet %}
   {%-if source.media %}
     <source media="{{ source.media }}" srcset="{{ source.url }}">
