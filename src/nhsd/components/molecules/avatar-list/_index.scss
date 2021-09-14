@@ -1,0 +1,21 @@
+// Private members
+$-root: ".nhsd-m-avatar-list";
+
+#{$-root} {
+  .nhsd-a-avatar {
+    margin-left: -20px;
+    float: left;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    &--small {
+      margin-left: -10px;
+    }
+
+    &--large {
+      margin-left: -30px;
+    }
+  }
+}

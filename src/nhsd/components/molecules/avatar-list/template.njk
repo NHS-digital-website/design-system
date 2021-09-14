@@ -1,0 +1,15 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_avatar -%}
+
+{# Set classes #}
+{%- set baseClass = "nhsd-m-avatar-list" -%}
+{% set classNames = baseClass %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{classNames}}">
+  {% for avatar in params.avatars %}
+    {{ nhsd_a_avatar(avatar) }}
+  {% endfor %}
+</div>
