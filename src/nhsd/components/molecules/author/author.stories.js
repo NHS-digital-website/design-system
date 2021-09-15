@@ -45,7 +45,7 @@ LabComponent.args = {
     },
   },
   header: '<a href="#" class="nhsd-a-link">Jason Hodge</a>',
-  role: '<p class="nhds-t-body nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0 nhsd-!t-col-black">Role or job description, NHS Digital</span>',
+  role: '<p class="nhsd-t-body nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0 nhsd-!t-col-black">Role or job description, NHS Digital</p>',
 };
 LabComponent.parameters = {
   docs: {
@@ -70,7 +70,7 @@ WithSummary.args = {
     classes: 'nhsd-a-avatar--large',
   },
   header: '<span class="nhsd-t-heading-s nhsd-!t-margin-0">Jason Hodge</span>',
-  role: '<p class="nhds-t-body nhsd-!t-margin-top-0 nhsd-!t-margin-bottom-0 nhsd-!t-col-black">Role or job description, NHS Digital</span>',
+  role: '<p class="nhsd-t-body nhsd-!t-margin-top-0 nhsd-!t-margin-bottom-0 nhsd-!t-col-black">Role or job description, NHS Digital</p>',
   bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed ornare tortor. Pellentesque interdum ex est, quis pellentesque nisl vehicula vel. Fusce commodo molestie quam, quis condimentum nisi feugiat a. Vivamus laoreet efficitur mi, a egestas augue convallis eu. Nulla egestas turpis vitae lacus molestie iaculis id ut ex. Proin rutrum, orci quis sagittis sagittis, dui leo pulvinar diam, sit amet pulvinar enim ex quis risus. Pellentesque consectetur a eros nec blandit. Cras tempor viverra nisl eget semper. Nullam nisl lacus, fermentum ut arcu ut, sagittis tincidunt diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eleifend purus sed sem lacinia elementum. Aliquam at elementum mauris. Nam justo mi, posuere a scelerisque at, semper eleifend ligula.',
 };
 WithSummary.parameters = {
