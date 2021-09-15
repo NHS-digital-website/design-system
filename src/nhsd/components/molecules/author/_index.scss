@@ -11,18 +11,28 @@ $-root: ".nhsd-m-author";
   display: grid;
   gap: nhsd-spacing.get(4);
   grid-template-columns: auto 1fr;
-  align-items: center;
 
-  &__author-bio {
+  &__bio {
     grid-column-start: 1;
     grid-column-end: 3;
+  }
+
+  &__details {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   @include mq($from: t) {
     gap: nhsd-spacing.get(2) nhsd-spacing.get(4);
 
-    &__author-bio {
+    &__bio {
       grid-column-start: 2;
     }
+  }
+
+  @include mq($until: s) {
+    gap: nhsd-spacing.get(2);
   }
 }

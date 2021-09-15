@@ -1,6 +1,9 @@
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
+// Author image
+import authorImage from '../../../assets/images/author-image.jpg';
+
 // Load template file
 import template from './template.njk';
 // Load stylesheet file
@@ -672,6 +675,51 @@ GalleryCard2.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${GalleryCard2(GalleryCard2.args)}`,
+    },
+  },
+};
+
+export const AuthorCard = Template.bind({});
+AuthorCard.storyName = 'Author';
+AuthorCard.args = {
+  box: {
+    classes: 'nhsd-a-box--bg-light-grey',
+  },
+  boxLink: {
+    href: '#',
+  },
+  classes: 'nhsd-m-card--author',
+  image: {
+    sourceSet: [{
+      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    }],
+    alt: 'Abstract lights',
+  },
+  title: 'About NHS Digital',
+  text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
+  arrowIcon: {
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+    id: 'arrow_right',
+  },
+  author: {
+    avatar: {
+      image: {
+        ariaHidden: true,
+        sourceSet: [{
+          url: authorImage,
+        }],
+        alt: 'Jason Hodge',
+        classes: 'nhsd-a-image--cover',
+      },
+    },
+    header: '<a href="#" class="nhsd-a-link nhsd-t-body-s">Jason Hodge</a>',
+    role: '<p class="nhsd-t-body-s nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0 nhsd-!t-col-black">Role or job description, NHS Digital</span>',
+  },
+};
+AuthorCard.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${AuthorCard(AuthorCard.args)}`,
     },
   },
 };

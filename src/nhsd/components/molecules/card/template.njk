@@ -13,6 +13,10 @@
   {% include "../download-card/template.njk" %}
 {%- endmacro %}
 
+{% macro nhsd_m_author(params) -%}
+  {% include "../author/template.njk" %}
+{%- endmacro %}
+
 {#- Define ARIA attributes -#}
 {% set ariaLabel = params.title %}
 {%- if params.button.label -%}
@@ -115,6 +119,11 @@
   {{ nhsd_a_box_end() }}
   {%- if params.boxLink %}
   </a>
+  {% endif -%}
+  {% if params.author %}
+  <div class="nhsd-m-card__author">
+    {{ nhsd_m_author(params.author) }}
+  </div>
   {% endif -%}
 </div>
 

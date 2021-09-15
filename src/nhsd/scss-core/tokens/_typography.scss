@@ -172,28 +172,34 @@ $-root: ".nhsd-t";
   // Body text
   &-body,
   &-body-s {
-    @extend %body-base;
+    &,
+    p {
+      @extend %body-base;
+    }
   }
 
   &-body-s {
-    font-size: .888rem;
-    letter-spacing: -.0166rem;
-    line-height: 1.4375;
-
-    a {
-      line-height: 1.635;
-    }
-
-    @include mq($until: s) {
-      font-size: .778rem;
-      line-height: 1.389;
+    &,
+    p {
+      font-size: .888rem;
+      letter-spacing: -.0166rem;
+      line-height: 1.4375;
 
       a {
-        line-height: 1.75;
+        line-height: 1.635;
       }
 
-      &:before {
-        left: -.6rem;
+      @include mq($until: s) {
+        font-size: .778rem;
+        line-height: 1.389;
+
+        a {
+          line-height: 1.75;
+        }
+
+        &:before {
+          left: -.6rem;
+        }
       }
     }
   }

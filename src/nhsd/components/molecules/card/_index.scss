@@ -228,4 +228,26 @@ $-box-padding: 1.111rem;
   &--light-text {
     @include nhsd-utils.light-text;
   }
+
+  &--author {
+    padding-bottom: 50px;
+
+    #{$-root}__content_container {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__author {
+    display: flex;
+    position: absolute;
+    right: $-box-padding;
+    left: $-box-padding;
+    height: 100px;
+    margin-top: -50px;
+    padding: 0 nhsd-spacing.get(3);
+    border: 1px solid nhsd-colours.get("pale-grey");
+    border-radius: vars.$border-radius;
+    background: nhsd-colours.get("white");
+    align-items: center;
+  }
 }
