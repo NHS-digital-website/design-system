@@ -30,7 +30,7 @@ $-root: ".nhsd-t";
   }
 }
 
-%-body-base {
+%body-base {
   @extend %-typo-base;
 
   margin: 0 auto nhsd-spacing.get(3);
@@ -172,7 +172,7 @@ $-root: ".nhsd-t";
   // Body text
   &-body,
   &-body-s {
-    @extend %-body-base;
+    @extend %body-base;
   }
 
   &-body-s {
@@ -200,7 +200,7 @@ $-root: ".nhsd-t";
 
   // Lists
   &-list {
-    @extend %-body-base;
+    @extend %body-base;
 
     padding-left: 0;
     list-style-type: none;

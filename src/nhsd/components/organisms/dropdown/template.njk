@@ -1,0 +1,71 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_link, nhsd_a_button -%}
+
+{# Set classes #}
+{%- set baseClass = "nhsd-o-dropdown" -%}
+{%- set classNames = baseClass -%}
+{%- if params.classes -%}
+  {%- set classNames = baseClass + " " + params.classes -%}
+{%- endif -%}
+
+<div class="{{ classNames }}" id="{{ params.id }}">
+  <div class="{{ baseClass }}__input">
+    {%- if params.demoType == "buttonMenu" -%}
+      {{ nhsd_a_button(params.button) }}
+    {%- elseif params.demoType == "searchBar" -%}
+      <div class="nhsd-m-search-bar nhsd-m-search-bar__full-width">
+        <div class="nhsd-t-form-control">
+          <input
+            class="nhsd-t-form-input"
+            type="text"
+            id="autocomplete-text-query"
+            name="query"
+            autocomplete="off"
+            placeholder="What are you looking for today?"
+            aria-label="Keywords"
+            role="combobox"
+            aria-expanded="false"
+            aria-autocomplete="list"
+            aria-owns="{{ params.id }}-dropdown-list"
+          />
+          <span class="nhsd-t-form-control__button">
+            <button class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent" type="submit" aria-label="Perform search">
+              <span class="nhsd-a-icon nhsd-a-icon--size-s">
+                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                  <path d="M7,10.9c-2.1,0-3.9-1.7-3.9-3.9c0-2.1,1.7-3.9,3.9-3.9c2.1,0,3.9,1.7,3.9,3.9C10.9,9.2,9.2,10.9,7,10.9zM13.4,14.8l1.4-1.4l-3-3c0.7-1,1.1-2.1,1.1-3.4c0-3.2-2.6-5.8-5.8-5.8C3.8,1.2,1.2,3.8,1.2,7c0,3.2,2.6,5.8,5.8,5.8c1.3,0,2.4-0.4,3.4-1.1L13.4,14.8z"/>
+                </svg>
+              </span>
+            </button>
+          </span>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="{{ baseClass }}__dropdown">
+    <ul role="listbox" id="{{ params.id }}-dropdown-list">
+      {%- for item in params.dropdownItems %}
+        <li role="none"><a href="#" role="option">{{ item.text }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{%- if params.demoType == "searchBar" -%}
+<script>
+var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua & Deps","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Rep","Chad","Chile","China","Colombia","Comoros","Congo","Congo {Democratic Rep}","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland {Republic}","Israel","Italy","Ivory Coast","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Korea North","Korea South","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","{Burma}","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russian Federation","Rwanda","St Kitts & Nevis","St Lucia","Saint Vincent & the Grenadines","Samoa","San Marino","Sao Tome & Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"]
+nhsd('#autocomplete-text-query').on(['keyup', 'click'], e => {
+  var searchText = document.querySelector('#autocomplete-text-query').value;
+  var filteredCountries = countries.filter(i => i.toLowerCase().indexOf(searchText.toLowerCase()) >= 0);
+
+  if (searchText.length > 0 && filteredCountries.length > 0) {
+    nhsd('#{{ params.id }}').trigger('dropdown-set-items', filteredCountries.map(i => ({
+      text: i,
+    })));
+
+    nhsd('#{{ params.id }}').trigger('dropdown-open');
+  } else {
+    nhsd('#{{ params.id }}').trigger('dropdown-close');
+  }
+});
+</script>
+{%- endif -%}
