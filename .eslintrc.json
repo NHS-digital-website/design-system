@@ -15,7 +15,8 @@
         }
       ],
       "no-plusplus": 0,
-      "max-len": 0
+      "max-len": 0,
+      "no-dupe-class-members": 0
     },
 
     "settings": {

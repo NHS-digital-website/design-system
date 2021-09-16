@@ -38,7 +38,7 @@ const NHSD_EVENT = {
             this.UUID = UUID;
             // Wrap the event handler so return false will result in e.preventDefault()
             this.handler = function handler(e, ...args) {
-                if (fn.bind(this)(e, args) === false) e.preventDefault();
+                if (fn.bind(this)(e, e.detail, args) === false) e.preventDefault();
             };
         }
     },

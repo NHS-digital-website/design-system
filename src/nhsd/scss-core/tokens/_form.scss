@@ -166,11 +166,13 @@ $-outline-width: .167rem;
       width: 100%;
       margin-left: $-outline-width;
       padding: nhsd-spacing.get(4);
-      border: $-outline-width solid transparent;
+      border: $-border-width solid nhsd-colours.get("black");
       border-radius: vars.$border-radius;
       color: nhsd-colours.get("dark-grey");
       background: nhsd-colours.get("white");
-      box-shadow: inset 0 0 0 $-border-width nhsd-colours.get("black");
+      box-shadow:
+        0 0 0 $-outline-width transparent,
+        inset 0 0 0 1px transparent;
       transition-property: background-color, box-shadow, border-color;
       transition-duration: nhsd-transition.$transition-duration;
       font-kerning: auto;
@@ -181,8 +183,9 @@ $-outline-width: .167rem;
 
       &:not(:disabled):not(&--disabled) {
         &:focus {
-          border: $-outline-width solid nhsd-colours.get("yellow");
-          box-shadow: inset 0 0 0 $-border-width * 2 nhsd-colours.get("black");
+          box-shadow:
+            0 0 0 $-outline-width nhsd-colours.get("yellow"),
+            inset 0 0 0 1px nhsd-colours.get("black");
         }
       }
     }

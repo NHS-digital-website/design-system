@@ -9,6 +9,7 @@ import NHSDTabs from '../components/molecules/tabs/tabs';
 import NHSDNotificationBanner from '../components/molecules/notification-banner/notification-banner';
 import NHSDBreadcrumbs from '../components/molecules/breadcrumbs/breadcrumbs';
 import NHSDModal from '../components/molecules/modal/modal';
+import NHSDDropDown from '../components/organisms/dropdown/dropdown';
 
 /* Ensure we don't double initalise any componets */
 const componentList = [];
@@ -31,6 +32,7 @@ function initComponent(selector, componentClass) {
 
 export default function init() {
     initComponent('.nhsd-o-code-viewer', NHSDCodeViewer);
+    initComponent('.nhsd-o-dropdown', NHSDDropDown);
     initComponent('.nhsd-o-global-header', NHSDGlobalHeader);
     initComponent('.nhsd-m-breadcrumbs', NHSDBreadcrumbs);
     initComponent('.nhsd-m-filter-menu-section', NHSDFilterMenuSection);

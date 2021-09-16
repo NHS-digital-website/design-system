@@ -33,7 +33,7 @@ $-root: ".nhsd-m-modal";
   &__container {
     max-width: 592px;
     max-height: 80%;
-    margin: auto;
+    margin: nhsd-spacing.get(3);
     overflow: auto;
     border: none;
     border-radius: vars.$border-radius;
