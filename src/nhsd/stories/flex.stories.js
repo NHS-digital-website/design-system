@@ -97,12 +97,12 @@ JustifyContentComponent.parameters = {
       story: `${sbConfig.heading.details}:
 - Flexbox's \`justify-content\` property can be used to align flexbox items along the main axis.
 - **Class names:**
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--justify-content-start</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--justify-content-end</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--justify-content-centre</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--justify-content-between</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--justify-content-around</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--justify-content-evenly</span>`,
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--justify-content-start</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--justify-content-end</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--justify-content-centre</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--justify-content-between</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--justify-content-around</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--justify-content-evenly</span>`,
     },
     source: {
       code: `${sourceCode}\n${JustifyContentComponent().innerHTML}`,
@@ -126,11 +126,11 @@ AlignComponent.parameters = {
       story: `${sbConfig.heading.details}:
 - Flexbox's \`align-items\` property can be used to align flexbox items along the cross axis.
 - **Class names:**
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--align-items-start</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--align-items-end</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--align-items-centre</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--align-items-baseline</span>
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flexbox--align-items-strech</span>`,
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--align-items-start</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--align-items-end</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--align-items-centre</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--align-items-baseline</span>
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-t-flex--align-items-strech</span>`,
     },
     source: {
       code: `${sourceCode}\n${AlignComponent().innerHTML}`,
@@ -152,7 +152,7 @@ ColumnComponent.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- The \`nhsd-t-flexbox--column\` modifier can be used to align flexbox items from top to bottom.`,
+- The \`nhsd-t-flex--column\` modifier can be used to align flexbox items from top to bottom.`,
     },
     source: {
       code: `${sourceCode}\n${AlignComponent().innerHTML}`,
@@ -174,7 +174,7 @@ ReverseComponent.parameters = {
   docs: {
     description: {
       story: `${sbConfig.heading.details}:
-- The \`nhsd-t-flexbox--reverse\` modifier can be used to reverse the alignment of flexbox items.`,
+- The \`nhsd-t-flex--reverse\` modifier can be used to reverse the alignment of flexbox items.`,
     },
     source: {
       code: `${sourceCode}\n${ReverseComponent().innerHTML}`,
