@@ -71,6 +71,23 @@ export default {
       },
     },
   },
+  argTypes: {
+    demoType: {
+      table: {
+        disable: true,
+      },
+    },
+    id: {
+      table: {
+        disable: true,
+      },
+    },
+    classes: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 };
 
 // Component template
@@ -79,8 +96,8 @@ const Template = (args) => template.render({ params: { ...args } });
 export const DefaultComponent = Template.bind({});
 DefaultComponent.storyName = sbConfig.title.defaultStory;
 DefaultComponent.args = {
-  id: 'autocomplete1',
-  demoType: 'searchBar',
+  id: 'autocomplete-default',
+  demoType: 'auto-complete',
   classes: 'nhsd-o-dropdown--full-width',
 };
 DefaultComponent.parameters = {
@@ -94,11 +111,32 @@ DefaultComponent.parameters = {
   },
 };
 
+export const AutoComplete = Template.bind({});
+AutoComplete.storyName = 'Auto complete';
+AutoComplete.args = {
+  id: 'autocomplete1',
+  demoType: 'auto-complete',
+  classes: 'nhsd-o-dropdown--full-width',
+};
+AutoComplete.parameters = {
+  backgrounds: {
+    default: 'dim',
+  },
+  docs: {
+    description: {
+      story: 'An example auto complete dropdown including example JavaScript implementation code.',
+    },
+    source: {
+      code: `${sourceCode}\n${AutoComplete(AutoComplete.args)}`,
+    },
+  },
+};
+
 export const ButtonMenu = Template.bind({});
 ButtonMenu.storyName = 'Button menu';
 ButtonMenu.args = {
   id: 'button-menu1',
-  demoType: 'buttonMenu',
+  demoType: 'button-menu',
   button: {
     classes: 'nhsd-a-button',
     label: 'Dropdown Menu',
@@ -126,6 +164,9 @@ ButtonMenu.args = {
 };
 ButtonMenu.parameters = {
   docs: {
+    description: {
+      story: 'An example static button menu dropdown.',
+    },
     source: {
       code: `${sourceCode}\n${ButtonMenu(ButtonMenu.args)}`,
     },
@@ -141,6 +182,9 @@ RightAligned.args = {
 };
 RightAligned.parameters = {
   docs: {
+    description: {
+      story: 'A right aligned variant of the button menu.',
+    },
     source: {
       code: `${sourceCode}\n${RightAligned(RightAligned.args)}`,
     },
