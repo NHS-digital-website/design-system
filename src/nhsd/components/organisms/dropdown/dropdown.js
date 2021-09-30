@@ -32,7 +32,7 @@ export default class NHSDDropDown {
 
   #bindSelectionEvent() {
     if (!this.dropdownContainer) return;
-    const menuItems = Array.from(this.dropdownContainer.querySelectorAll('a'));
+    const menuItems = Array.from(this.dropdownContainer.querySelectorAll('a, button'));
     nhsd(menuItems).on('click.dropdown', (e) => nhsd(this.componentEl).trigger('dropdown-selection', e.target));
     nhsd(this.componentEl).on('dropdown-selection.dropdown', (e, selected) => {
       const searchInput = this.componentEl.querySelector('.nhsd-o-dropdown__input .nhsd-m-search-bar input');
@@ -89,24 +89,33 @@ export default class NHSDDropDown {
     if (!dropdownList) return;
 
     items.forEach((item) => {
-      const itemLink = document.createElement('a');
-      itemLink.setAttribute('role', 'option');
-
-      itemLink.setAttribute('href', '#');
+      let itemEl;
       if (item.href) {
-        itemLink.setAttribute('href', item.href);
+        itemEl = document.createElement('a');
+        itemEl.setAttribute('href', item.href);
+      } else {
+        itemEl = document.createElement('button');
       }
 
+      itemEl.setAttribute('role', 'option');
+
       if (item.onClick) {
-        nhsd(itemLink).on('click.dropdown', item.onClick);
+        nhsd(itemEl).on('click.dropdown', item.onClick);
       }
 
       if (item.text) {
-        itemLink.innerHTML = item.text;
+        itemEl.innerHTML = item.text;
+      }
+
+      if (item.data) {
+        const dataKeys = Object.keys(item.data);
+        dataKeys.forEach((dataKey) => {
+          itemEl.dataset[dataKey] = item.data[dataKey];
+        });
       }
 
       const itemsListItem = document.createElement('li');
-      itemsListItem.appendChild(itemLink);
+      itemsListItem.appendChild(itemEl);
       dropdownList.appendChild(itemsListItem);
     });
 

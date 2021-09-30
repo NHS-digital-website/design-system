@@ -187,8 +187,8 @@ $-responsive-data-map: (
   }
 }
 
-@mixin apply-shadow {
-  box-shadow: .1111rem .3334rem .6667rem rgba(0, 0, 0, .1);
+@mixin apply-shadow($size: 1) {
+  box-shadow: #{.1111rem * $size} #{.3334rem * $size} #{.6667rem * $size} rgba(0, 0, 0, (.1 * $size));
 }
 
 // stylelint-enable declaration-no-important

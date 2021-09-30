@@ -53,7 +53,7 @@ export default function nhsdEvent(elementsOrSelector) {
     }
 
     return {
-        on: (eventType, fn) => {
+        on(eventType, fn) {
             let eventTypes = eventType;
             if (typeof eventTypes === 'string') eventTypes = [eventTypes];
             eventTypes.forEach((event) => {
@@ -63,7 +63,14 @@ export default function nhsdEvent(elementsOrSelector) {
                 });
             });
         },
-        trigger: (eventType, params = {}) => {
+        once(eventType, fn) {
+            const onceEvent = () => {
+                fn();
+                this.unbind(eventType, onceEvent);
+            };
+            this.on(eventType, onceEvent);
+        },
+        trigger(eventType, params = {}) {
             let eventTypes = eventType;
             if (typeof eventTypes === 'string') eventTypes = [eventTypes];
             eventTypes.forEach((event) => {
@@ -73,7 +80,7 @@ export default function nhsdEvent(elementsOrSelector) {
                 });
             });
         },
-        unbind: (eventType, fn = null) => {
+        unbind(eventType, fn = null) {
             let eventTypes = eventType;
             if (typeof eventTypes === 'string') eventTypes = [eventTypes];
             eventTypes.forEach((event) => {
