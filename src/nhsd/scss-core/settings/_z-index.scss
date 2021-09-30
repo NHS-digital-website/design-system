@@ -7,6 +7,7 @@ $-zindex: (
   "modal": 1000,
   "global-header": 101,
   "chapter-nav": 10,
+  "dropdown": 200,
 );
 
 @mixin get($component) {

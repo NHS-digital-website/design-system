@@ -1,6 +1,7 @@
 /* global document */
 
 import nhsd from '@/nhsd';
+import scrollbar from '@/helpers/scrollbar';
 
 function attemptFocus(element) {
     try {
@@ -9,6 +10,20 @@ function attemptFocus(element) {
         return false;
     }
     return element === document.activeElement;
+}
+
+function lockScrollBar() {
+    // Check if modal is open
+    const bodyEl = document.querySelector('body');
+    if (document.querySelector('.nhsd-m-modal--open')) {
+        if (bodyEl.classList.contains('nhsd-t-modal-open')) return;
+        const scrollWidth = scrollbar.getWidth();
+        bodyEl.style.paddingRight = `${scrollWidth}px`;
+        bodyEl.classList.add('nhsd-t-modal-open');
+    } else {
+        bodyEl.classList.remove('nhsd-t-modal-open');
+        bodyEl.style.paddingRight = '';
+    }
 }
 
 export default class {
@@ -45,10 +60,14 @@ export default class {
     bindEvents() {
         nhsd(this.componentEl).on('modal-open.modal', () => {
             this.componentEl.classList.add('nhsd-m-modal--open');
+            lockScrollBar();
             this.focusModal();
         });
 
-        nhsd(this.componentEl).on('modal-close.modal', () => this.componentEl.classList.remove('nhsd-m-modal--open'));
+        nhsd(this.componentEl).on('modal-close.modal', () => {
+            this.componentEl.classList.remove('nhsd-m-modal--open');
+            lockScrollBar();
+        });
 
         const openButtons = Array.from(document.querySelectorAll(`[data-modal-open="${this.componentId}"]`));
         nhsd(openButtons).on('click', () => nhsd(this.componentEl).trigger('modal-open'));

@@ -2,9 +2,15 @@
 import init from '@/init';
 import nhsd from '@/nhsd';
 
-init();
-window.addEventListener('load', () => {
+function load() {
+  init();
   document.querySelector('html').classList.remove('nhsd-no-js');
-});
+}
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  load();
+} else {
+  document.addEventListener('DOMContentLoaded', load, false);
+}
 
 window.nhsd = Object.assign(nhsd, init);

@@ -5,12 +5,14 @@
 // Tokens
 @use "scss-core/tokens/grid" as nhsd-grid;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/colours" as nhsd-colours;
 
 // Private members
 $-root: ".nhsd-m-modal";
 
 #{$-root} {
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
   visibility: hidden;
@@ -20,22 +22,43 @@ $-root: ".nhsd-m-modal";
   left: 0;
   width: 100%;
   height: 100%;
-  transition: opacity 150ms, visibility 150ms;
+  padding: nhsd-spacing.get(3);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: opacity 100ms, visibility 100ms, background-color 100ms;
   opacity: 0;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, .4);
+
+  &__container {
+    transform: translateY(nhsd-spacing.get(-3)) scale(.995);
+    transition: transform 300ms ease-out;
+    border: none;
+    border-radius: vars.$border-radius;
+
+    .nhsd-a-box {
+      @include nhsd-utils.apply-shadow(2);
+    }
+  }
 
   &--open {
     visibility: visible;
+    transition: opacity 200ms, visibility 200ms, background-color 500ms;
     opacity: 1;
+    background-color: rgba(0, 0, 0, .4);
+
+    #{$-root}__container {
+      transform: none;
+    }
   }
 
-  &__container {
-    max-width: 592px;
-    max-height: 80%;
-    margin: nhsd-spacing.get(3);
-    overflow: auto;
-    border: none;
-    border-radius: vars.$border-radius;
+  &--overflow {
+    #{$-root}__container {
+      max-width: 100%;
+      max-height: 100%;
+      overflow: auto;
+    }
   }
+}
+
+.nhsd-t-modal-open {
+  overflow: hidden;
 }

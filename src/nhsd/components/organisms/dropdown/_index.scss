@@ -1,5 +1,6 @@
 // Settings
 @use "scss-core/settings/vars";
+@use "scss-core/settings/_z-index";
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
@@ -25,6 +26,7 @@ $-root: ".nhsd-o-dropdown";
   &__dropdown {
     visibility: hidden;
     position: absolute;
+    @include z-index.get('dropdown');
     top: 100%;
     width: 100%;
     max-height: 300px;
@@ -55,7 +57,8 @@ $-root: ".nhsd-o-dropdown";
           border: none;
         }
 
-        a {
+        a,
+        button {
           @extend %body-base;
 
           display: block;

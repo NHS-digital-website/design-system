@@ -120,3 +120,25 @@ Mandatory modals can be created by adding the attribute, \`data-modal-mandatory\
     },
   },
 };
+
+export const OverflowModal = Template.bind({});
+OverflowModal.storyName = 'Overflow';
+OverflowModal.args = {
+  ...LabComponent.args,
+  id: 'overflow',
+  classes: 'nhsd-m-modal--overflow',
+  mandatory: true,
+};
+OverflowModal.parameters = {
+  backgrounds: {
+    default: 'dim',
+  },
+  docs: {
+    description: {
+      story: 'Overflow modals prevent the modal from expanding outside the bounds of the window by using scrollbars where content doesn\'t fit.',
+    },
+    source: {
+      code: `${sourceCode}\n${OverflowModal(OverflowModal.args)}`,
+    },
+  },
+};

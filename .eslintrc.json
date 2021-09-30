@@ -16,7 +16,8 @@
       ],
       "no-plusplus": 0,
       "max-len": 0,
-      "no-dupe-class-members": 0
+      "no-dupe-class-members": 0,
+      "func-names": 0
     },
 
     "settings": {
