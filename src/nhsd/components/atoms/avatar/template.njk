@@ -10,12 +10,18 @@
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
 
-<div class="{{classNames}}">
-    {%- if params.href -%}
-    <a href="{{params.href}}">
-    {%- endif -%}
-      {{nhsd_a_image(params.image)}}
-    {%- if params.href -%}
-    </a>
-    {%- endif -%}
+{%- if params.href -%}
+<a href="{{params.href}}" class="{{classNames}}" title="{{params.fullName}}" aria-label="{{params.fullName}}">
+{%- else -%}
+<div class="{{classNames}}" title="{{params.fullName}}" aria-label="{{params.fullName}}">
+{%- endif -%}
+{%- if params.image -%}
+  {{nhsd_a_image(params.image)}}
+{%- else -%}
+  {{params.initials}}
+{%- endif -%}
+{%- if params.href -%}
+</a>
+{%- else -%}
 </div>
+{%- endif -%}

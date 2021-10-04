@@ -235,19 +235,31 @@ $-box-padding: 1.111rem;
     #{$-root}__content_container {
       padding-bottom: 50px;
     }
-  }
 
-  &__author {
-    display: flex;
-    position: absolute;
-    right: $-box-padding;
-    left: $-box-padding;
-    height: 100px;
-    margin-top: -50px;
-    padding: 0 nhsd-spacing.get(3);
-    border: 1px solid nhsd-colours.get("pale-grey");
-    border-radius: vars.$border-radius;
-    background: nhsd-colours.get("white");
-    align-items: center;
+    #{$-root}__author {
+      display: flex;
+      position: absolute;
+      right: $-box-padding;
+      left: $-box-padding;
+      height: 100px;
+      margin-top: -50px;
+      padding: 0 nhsd-spacing.get(3);
+      border: 1px solid nhsd-colours.get("pale-grey");
+      border-radius: vars.$border-radius;
+      background: nhsd-colours.get("white");
+      align-items: center;
+    }
+
+    &#{$-root}--image-position-adjacent {
+      #{$-root}__author {
+        @include mq($from: s) {
+          right: calc(55% + #{$-box-padding});
+        }
+
+        @include mq($from: l) {
+          right: calc(66% + #{$-box-padding});
+        }
+      }
+    }
   }
 }

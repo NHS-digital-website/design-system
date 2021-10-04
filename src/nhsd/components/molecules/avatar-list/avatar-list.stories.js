@@ -69,6 +69,11 @@ LabComponent.args = {
       classes: 'nhsd-a-image--cover',
     },
     href: '#',
+  }, {
+    classes: 'nhsd-a-avatar--initials',
+    initials: 'PS',
+    fullName: 'Dr Peter Short',
+    href: '#',
   }],
 };
 LabComponent.parameters = {
