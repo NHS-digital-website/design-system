@@ -42,6 +42,7 @@ LabComponent.args = {
     alt: 'Jason Hodge',
     classes: 'nhsd-a-image--cover',
   },
+  fullName: 'Jason Hodge',
 };
 LabComponent.parameters = {
   docs: {
@@ -62,6 +63,7 @@ SmallStory.args = {
     alt: 'Jason Hodge',
     classes: 'nhsd-a-image--cover',
   },
+  fullName: 'Jason Hodge',
   classes: 'nhsd-a-avatar--small',
 };
 SmallStory.parameters = {
@@ -83,12 +85,28 @@ LargeStory.args = {
     alt: 'Jason Hodge',
     classes: 'nhsd-a-image--cover',
   },
+  fullName: 'Jason Hodge',
   classes: 'nhsd-a-avatar--large',
 };
 LargeStory.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${LargeStory(LargeStory.args)}`,
+    },
+  },
+};
+
+export const InitialsAvatar = Template.bind({});
+InitialsAvatar.storyName = 'Initials';
+InitialsAvatar.args = {
+  initials: 'JH',
+  fullName: 'Jason Hodge',
+  classes: 'nhsd-a-avatar--initials',
+};
+InitialsAvatar.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${InitialsAvatar(InitialsAvatar.args)}`,
     },
   },
 };

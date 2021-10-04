@@ -5,21 +5,15 @@
 $-root: ".nhsd-a-avatar";
 
 #{$-root} {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   width: 60px;
   height: 60px;
-
-  a {
-    display: block;
-    width: 100%;
-    height: 100%;
-
-    &:focus,
-    &:hover {
-      .nhsd-a-image {
-        box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
-      }
-    }
-  }
+  color: nhsd-colours.get("dark-grey");
+  font-size: 1.334rem;
+  text-decoration: none;
 
   .nhsd-a-image {
     overflow: hidden;
@@ -29,10 +23,35 @@ $-root: ".nhsd-a-avatar";
   &--small {
     width: 30px;
     height: 30px;
+    font-size: .667rem;
   }
 
   &--large {
     width: 90px;
     height: 90px;
+    font-size: 1.667rem;
+  }
+
+  &--initials {
+    border-radius: 50%;
+    background: nhsd-colours.get("pale-grey-40-tint");
+    box-shadow: inset 0 0 0 1px nhsd-colours.get("mid-grey");
+  }
+}
+
+// Styling when used as a link
+a#{$-root} {
+  &:hover,
+  &:focus {
+    .nhsd-a-image {
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
+    }
+  }
+
+  &--initials {
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 .167rem nhsd-colours.get("orange");
+    }
   }
 }
