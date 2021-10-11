@@ -1,6 +1,7 @@
 // Settings
 @use "scss-core/settings/vars";
 @use "scss-core/settings/_z-index";
+@use "scss-core/settings/media-queries" as *;
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
@@ -14,7 +15,10 @@ $-root: ".nhsd-o-dropdown";
 #{$-root} {
   display: inline-block;
   position: relative;
-  min-width: 500px;
+
+  @include mq($from: s) {
+    min-width: 500px;
+  }
 
   &__input {
     .nhsd-m-search-bar,
@@ -30,7 +34,7 @@ $-root: ".nhsd-o-dropdown";
     top: 100%;
     width: 100%;
     max-height: 300px;
-    margin-top: 8px;
+    @include nhsd-spacing.set-responsive('margin-top', 2);
     padding: nhsd-spacing.get(2) 0;
     overflow: auto;
     transition: opacity 150ms, visibility 150ms;
