@@ -13,4 +13,4 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
   document.addEventListener('DOMContentLoaded', load, false);
 }
 
-window.nhsd = Object.assign(nhsd, init);
+window.nhsd = Object.assign(nhsd, { init });
