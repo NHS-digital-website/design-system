@@ -34,10 +34,12 @@ const Template = (args) => template.render({ params: { ...args } });
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.defaultStory;
 LabComponent.args = {
-  classes: '',
-  label: 'Label',
-  hint: 'The text above is a label',
-  rounded: false,
+  inputs: [{
+    classes: '',
+    label: 'Label',
+    hint: 'The text above is a label',
+    rounded: false,
+  }],
 };
 LabComponent.parameters = {
   docs: {
@@ -50,8 +52,10 @@ LabComponent.parameters = {
 export const SmallCheckbox = Template.bind({});
 SmallCheckbox.storyName = 'Small Checkbox';
 SmallCheckbox.args = {
-  classes: 'nhsd-a-checkbox--small',
-  label: 'Label',
+  inputs: [{
+    classes: 'nhsd-a-checkbox--small',
+    label: 'Label',
+  }],
 };
 SmallCheckbox.parameters = {
   docs: {
@@ -64,8 +68,10 @@ SmallCheckbox.parameters = {
 export const LargeCheckbox = Template.bind({});
 LargeCheckbox.storyName = 'Large Checkbox';
 LargeCheckbox.args = {
-  classes: 'nhsd-a-checkbox--large',
-  label: 'Label',
+  inputs: [{
+    classes: 'nhsd-a-checkbox--large',
+    label: 'Label',
+  }],
 };
 LargeCheckbox.parameters = {
   docs: {
@@ -93,6 +99,7 @@ DisabledChecbox.parameters = {
 const ListTemplate = (args) => listTemplate.render({ params: { ...args } });
 
 export const ExampleCheckboxList = ListTemplate.bind({});
+
 ExampleCheckboxList.storyName = 'Checkbox Example';
 ExampleCheckboxList.args = {
   inputs: [{
