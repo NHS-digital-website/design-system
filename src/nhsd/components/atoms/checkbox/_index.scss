@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Settings
 @use "scss-core/settings/media-queries" as *;
 @use "scss-core/settings/vars" as vars;
@@ -5,254 +7,234 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/typography" as nhsd-typography;
+
+$-checkbox-border-size: 2px;
+$-outline-size: 10px;
+
+// Default Checkboxes
+$-checkbox-size: 25px;
+$-check-size: 15px;
+
+// Small Checkboxes
+$-checkbox-size-s: 20px;
+$-check-size-s: 12px;
+
+// Large Checkboxes
+$-checkbox-size-l: 35px;
+$-check-size-l: 23px;
 
 // Private members
 $-root: ".nhsd-a-checkbox";
 
 #{$-root} {
   label {
+    box-sizing: content-box;
+    display: block;
     position: relative;
+    min-height: $-checkbox-size;
+    padding: nhsd-spacing.get(1) 0;
+    padding-left: #{$-checkbox-size + $-outline-size + $-checkbox-border-size};
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
   }
 
-  input[type="checkbox"] {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    width: nhsd-spacing.get(4);
-    height: nhsd-spacing.get(4);
-    margin-right: 10px;
-    margin-left: 2px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    background-color: nhsd-colours.get("white");
-    box-shadow: 0 0 0 2px nhsd-colours.get("dark-grey");
-    vertical-align: middle;
+  input {
+    position: absolute;
+    top: nhsd-spacing.get(1);
+    left: 0;
+    width: $-checkbox-size;
+    height: $-checkbox-size;
+    margin: 0;
+    opacity: 0;
+  }
 
-    &:before {
-      display: none;
-    }
+  &__label {
+    display: block;
+    margin-top: 2px;
+    @extend %body-base-s;
 
-    &:hover {
-      &:before {
-        content: "";
-        display: block;
-        position: relative;
-        z-index: -1;
-        top: -75%;
-        left: -75%;
-        width: nhsd-spacing.get(7);
-        height: nhsd-spacing.get(7);
-        border-radius: 2px;
-        background-color: nhsd-colours.get("mid-grey");
-      }
-    }
-
-    &:checked {
-      box-shadow: 0 0 0 2px nhsd-colours.get("dark-grey");
-
-      ~ .checkmark:after {
-        display: block;
-        position: absolute;
-        top: 6px;
-        left: 10px;
-        width: 5px;
-        height: 10px;
-        margin: 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        border: solid nhsd-colours.get("dark-grey");
-        border-width: 0 2px 2px 0;
-      }
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 2px nhsd-colours.get("dark-grey"), 0 0 0 4px nhsd-colours.get("yellow");
+    // A hack to fill the label element for cursor updates
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 
   .checkmark {
     position: absolute;
-    top: 0;
+    top: nhsd-spacing.get(1);
     left: 0;
-    width: 25px;
-    height: 25px;
+    width: $-checkbox-size;
+    height: $-checkbox-size;
+    border: $-checkbox-border-size solid nhsd-colours.get("dark-grey");
+    border-radius: 5px;
+    background: nhsd-colours.get("white");
+  }
 
-    &:after {
+  label:hover {
+    .checkmark:before {
       content: "";
-      display: none;
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: -$-outline-size - $-checkbox-border-size;
+      left: -$-outline-size - $-checkbox-border-size;
+      width: #{$-checkbox-size + ($-outline-size * 2)};
+      height: #{$-checkbox-size + ($-outline-size * 2)};
+      border-radius: 2px;
+      background-color: nhsd-colours.get("mid-grey-20-tint");
     }
   }
 
-  &__hint {
-    margin: 0 0 0 35px;
-    color: nhsd-colours.get("mid-grey");
+  input:focus {
+    ~ .checkmark {
+      box-shadow: 0 0 0 2px nhsd-colours.get("yellow");
+    }
   }
 
-  &__label {
-    vertical-align: middle;
+  input:checked {
+    ~ .checkmark:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 1px;
+      left: 7px;
+      width: math.floor($-check-size / 2);
+      height: $-check-size;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      border: solid #3f525f;
+      border-width: 0 2px 2px 0;
+    }
+  }
+
+  input[type="radio"] {
+    ~ .checkmark {
+      border-radius: 50%;
+    }
+
+    ~ .checkmark:before {
+      border-radius: 50%;
+    }
+
+    &:checked {
+      ~ .checkmark:after {
+        top: 3px;
+        left: 3px;
+        width: $-check-size;
+        height: $-check-size;
+        border: none;
+        border-radius: 50%;
+        background: nhsd-colours.get("dark-grey");
+      }
+    }
+  }
+
+  input:disabled {
+    cursor: not-allowed;
+
+    ~ * {
+      color: nhsd-colours.get("mid-grey-20-tint");
+      cursor: not-allowed;
+    }
+
+    ~ .checkmark {
+      border-color: nhsd-colours.get("mid-grey-20-tint");
+
+      &:after,
+      &:before {
+        content: none;
+      }
+    }
   }
 
   &--small {
-    input[type="checkbox"] {
-      width: nhsd-spacing.get(3);
-      height: nhsd-spacing.get(3);
-      margin-right: 14px;
+    #{$-root}__label {
+      margin-top: 0;
+    }
+
+    label {
+      min-height: $-checkbox-size-s;
+      padding-left: #{$-checkbox-size-s + $-outline-size + $-checkbox-border-size};
 
       &:hover {
-        cursor: pointer;
-
-        &:before {
-          top: -115%;
-          left: -115%;
-          border-radius: 3px;
+        .checkmark:before {
+          width: #{$-checkbox-size-s + ($-outline-size * 2)};
+          height: #{$-checkbox-size-s + ($-outline-size * 2)};
         }
       }
+    }
 
-      &:checked {
-        ~ .checkmark:after {
-          top: 6px;
-          left: 7px;
-        }
+    input,
+    .checkmark {
+      width: $-checkbox-size-s;
+      height: $-checkbox-size-s;
+    }
+
+    input:checked {
+      ~ .checkmark:after {
+        left: 5px;
+        width: math.floor($-check-size-s / 2);
+        height: $-check-size-s;
+      }
+    }
+
+    input[type="radio"]:checked {
+      ~ .checkmark:after {
+        top: 2px;
+        left: 2px;
+        width: $-check-size-s;
+        height: $-check-size-s;
       }
     }
   }
 
   &--large {
-    input[type="checkbox"] {
-      width: nhsd-spacing.get(6);
-      height: nhsd-spacing.get(6);
+    #{$-root}__label {
+      margin-top: 7px;
+    }
+
+    label {
+      min-height: $-checkbox-size-l;
+      padding-left: #{$-checkbox-size-l + $-outline-size + $-checkbox-border-size};
 
       &:hover {
-        cursor: pointer;
-
-        &:before {
-          top: -27%;
-          left: -27%;
-          width: 2.4rem;
-          height: 2.4rem;
-          border-radius: 6px;
-        }
-      }
-
-      &:checked {
-        ~ .checkmark:after {
-          top: .1px;
-          left: 13px;
-          width: 10px;
-          height: 20px;
-          border: solid nhsd-colours.get("dark-grey");
-          border-width: 0 3px 3px 0;
+        .checkmark:before {
+          width: #{$-checkbox-size-l + ($-outline-size * 2)};
+          height: #{$-checkbox-size-l + ($-outline-size * 2)};
         }
       }
     }
 
-    .nhsd-a-checkbox__hint {
-      margin: 0 0 0 45px;
-      color: nhsd-colours.get("mid-grey");
+    input,
+    .checkmark {
+      width: $-checkbox-size-l;
+      height: $-checkbox-size-l;
     }
-  }
 
-  &--rounded {
-    input[type="checkbox"] {
-      width: nhsd-spacing.get(4);
-      height: nhsd-spacing.get(4);
-      border-radius: 10px;
-
-      &:hover {
-        cursor: pointer;
-
-        &:before {
-          top: -70%;
-          left: -70%;
-          width: 2.4rem;
-          height: 2.4rem;
-          border-radius: 24px;
-        }
-      }
-
-      &:checked {
-        box-shadow: 0 0 0 2px nhsd-colours.get("dark-grey");
-
-        ~ .checkmark-rounded:after {
-          display: block;
-          position: absolute;
-          top: 6px;
-          left: 6px;
-          width: 12px;
-          height: 12px;
-          border-radius: 30px;
-          background-color: nhsd-colours.get("dark-grey");
-        }
+    input:checked {
+      ~ .checkmark:after {
+        top: 2px;
+        left: 10px;
+        width: math.floor($-check-size-l / 2);
+        height: $-check-size-l;
+        border-width: 0 3px 3px 0;
       }
     }
 
-    .checkmark-rounded {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 25px;
-      height: 25px;
-
-      &:after {
-        content: "";
-        display: none;
-      }
-    }
-
-    .nhsd-a-checkbox__label {
-      vertical-align: middle;
-    }
-  }
-
-  &--rounded-small {
-    input[type="checkbox"] {
-      width: nhsd-spacing.get(3);
-      height: nhsd-spacing.get(3);
-
-      &:hover {
-        &:before {
-          top: -115%;
-          left: -115%;
-          width: 2.4rem;
-          height: 2.4rem;
-          border-radius: 24px;
-        }
-      }
-
-      &:checked {
-        ~ .checkmark-rounded:after {
-          top: 8px;
-          left: 5px;
-          width: 9px;
-          height: 9px;
-        }
-      }
-    }
-  }
-
-  &--rounded-large {
-    input[type="checkbox"] {
-      width: nhsd-spacing.get(6);
-      height: nhsd-spacing.get(6);
-      border-radius: 20px;
-
-      &:hover {
-        &:before {
-          top: -27%;
-          left: -27%;
-          width: 2.4rem;
-          height: 2.4rem;
-          border-radius: 24px;
-        }
-      }
-
-      &:checked {
-        ~ .checkmark-rounded:after {
-          top: 2px;
-          left: 7px;
-          width: 20px;
-          height: 20px;
-        }
+    input[type="radio"]:checked {
+      ~ .checkmark:after {
+        top: 4px;
+        left: 4px;
+        width: $-check-size-l;
+        height: $-check-size-l;
       }
     }
   }

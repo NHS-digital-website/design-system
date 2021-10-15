@@ -5,6 +5,7 @@
 // Tokens
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
 
 // Private members
 $-root: ".nhsd-m-filter-menu-section";
@@ -12,10 +13,17 @@ $-root: ".nhsd-m-filter-menu-section";
 #{$-root} {
   &__accordion-panel {
     display: none;
+    margin-top: nhsd-spacing.get(2);
   }
 
   &__option-row {
-    @include nhsd-spacing.set-responsive('margin-top', 3);
+    @include nhsd-spacing.set-responsive('margin-top', 2);
+    line-height: 1;
+  }
+
+  &__option-group {
+    @include nhsd-spacing.set-responsive('padding-left', 3);
+    border-left: 3px solid nhsd-colours.get("pale-grey");
   }
 
   &__heading-text {

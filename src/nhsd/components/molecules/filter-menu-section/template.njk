@@ -16,6 +16,25 @@
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
 
+{% macro menu_options(options) -%}
+  {% for option in options %}
+    {% if option.children %}
+      <div class="nhsd-m-filter-menu-section__option-row">
+        {{ nhsd_a_checkbox(option) }}
+      </div>
+      {% if option.children %}
+        <div class="nhsd-m-filter-menu-section__option-group">
+          {{ menu_options(option.children) }}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="nhsd-m-filter-menu-section__option-row">
+        {{ nhsd_a_checkbox({ label: option }) }}
+      </div>
+    {% endif %}
+  {% endfor %}
+{%- endmacro %}
+
 <div class="{{ classNames }}">
   <div class="nhsd-m-filter-menu-section__accordion-heading">
     <button class="nhsd-m-filter-menu-section__menu-button" {{- ariaAttributes | safe }}>
@@ -31,11 +50,7 @@
     </button>
     {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-xxs' }) }}
     <div class="nhsd-m-filter-menu-section__accordion-panel">
-      {% for option in params.options %}
-        <div class="nhsd-m-filter-menu-section__option-row">
-          {{ nhsd_a_checkbox({ label: option }) }}
-        </div>
-      {% endfor %}
+      {{ menu_options(params.options) }}
     </div>
   </div>
 </div>

@@ -1,3 +1,5 @@
+import pretty from 'pretty';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -20,7 +22,8 @@ ${sbConfig.heading.basicRules}
 - The **Filter menu organism** takes the search bar and filter menu section molecules to build a set of configurable menus used for filtering
 - Javascript is required for the proper functioning of this component
 - The titles and filter options are configurable
-- The list of filters and their options can be of any length`;
+- The list of filters and their options can be of any length
+- Includes small skip link atom to skip to content`;
 
 const sourceCode = `// Sass import \n@use "nhsd/components/organisms/filter-menu";
 
@@ -39,7 +42,7 @@ export default {
 };
 
 // Component template
-const Template = (args) => template.render({ params: { ...args } });
+const Template = (args) => pretty(template.render({ params: { ...args } }), { ocd: true });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -65,6 +68,12 @@ LabComponent.args = {
   ],
   button: {
     label: 'Filter results',
+  },
+  skipLink: {
+    label: 'Skip to content',
+    href: '#content-id',
+    fullWidth: true,
+    classes: 'nhsd-a-skip-link--small nhsd-!t-margin-bottom-3',
   },
 };
 LabComponent.parameters = {

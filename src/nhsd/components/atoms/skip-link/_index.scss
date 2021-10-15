@@ -8,6 +8,7 @@
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
 
 // Component imports
 @use "../../atoms/box";
@@ -38,5 +39,13 @@ $-box-padding: 1.111rem;
     position: relative;
     left: 0;
     background-color: nhsd-colours.get("yellow");
+  }
+
+  &--small {
+    @extend %body-base-s;
+
+    #{$-root}__label {
+      border-width: 2px;
+    }
   }
 }
