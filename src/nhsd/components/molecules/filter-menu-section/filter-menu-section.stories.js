@@ -1,3 +1,5 @@
+import pretty from 'pretty';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -25,7 +27,8 @@ ${sbConfig.heading.basicRules}
 - The **Filter menu section molecule** takes atoms to populate an accordion style menu with various configurable filter options
 - Javascript is required for the proper functioning of this component
 - The heading and filter options are configurable
-- The list of filter options can be of any length`;
+- The list of filter options can be of any length
+- Filters can be nested by wrapping inside a \`nhsd-m-filter-menu-section__option-group\``;
 
 const sourceCode = `// Sass import \n@use "nhsd/components/molecules/filter-menu-section";
 
@@ -44,7 +47,7 @@ export default {
 };
 
 // Component template
-const Template = (args) => template.render({ params: { ...args } });
+const Template = (args) => pretty(template.render({ params: { ...args } }), { ocd: true });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
@@ -52,6 +55,23 @@ LabComponent.args = {
   title: 'Heading',
   options: [
     'Filter 1',
+    {
+      label: 'Header (level 1)',
+      heading: true,
+      children: [
+        'child1',
+        'child2',
+        {
+          label: 'Header (level 2)',
+          heading: true,
+          disabled: true,
+          children: [
+            'child1',
+            'child2',
+          ],
+        },
+      ],
+    },
     'Filter 2',
     'Filter 3',
   ],

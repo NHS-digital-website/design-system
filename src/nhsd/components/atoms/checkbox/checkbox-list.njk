@@ -1,0 +1,10 @@
+{# Selector toggle #}
+{% macro nhsd_a_checkbox(params) -%}
+  {% include "./template.njk" %}
+{%- endmacro %}
+
+<form>
+  {%- for input in params.inputs -%}
+    {{ nhsd_a_checkbox(input) }}
+  {%- endfor -%}
+</form>

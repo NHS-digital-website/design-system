@@ -1,16 +1,20 @@
+/* global window */
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
-import template from './template.njk';
-import listTemplate from './checkbox-list.njk';
+import template from '../checkbox/template.njk';
+import listTemplate from '../checkbox/checkbox-list.njk';
 // Load stylesheet file
-require('./_index.scss');
+require('../checkbox/_index.scss');
 
-const componentName = 'Checkbox';
+const componentName = 'Radio';
 const storyDescription = `${sbConfig.heading.lab}
 
-${sbConfig.heading.basicRules}`;
+${sbConfig.heading.basicRules}
+
+The radio atom reuses styling from the <a href="${window.location.origin}/?path=/docs/design-system-components-atoms-checkbox--lab-component">checkbox</a> atom and updates the component appearance dynamically depending on the input type.`;
 
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/checkbox";
 
@@ -37,7 +41,7 @@ LabComponent.args = {
   classes: '',
   label: 'Label',
   hint: 'The text above is a label',
-  rounded: false,
+  radio: true,
 };
 LabComponent.parameters = {
   docs: {
@@ -47,44 +51,47 @@ LabComponent.parameters = {
   },
 };
 
-export const SmallCheckbox = Template.bind({});
-SmallCheckbox.storyName = 'Small Checkbox';
-SmallCheckbox.args = {
+export const SmallRadio = Template.bind({});
+SmallRadio.storyName = 'Small Radio';
+SmallRadio.args = {
   classes: 'nhsd-a-checkbox--small',
   label: 'Label',
+  radio: true,
 };
-SmallCheckbox.parameters = {
+SmallRadio.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${SmallCheckbox(SmallCheckbox.args)}`,
+      code: `${sourceCode}\n${SmallRadio(SmallRadio.args)}`,
     },
   },
 };
 
-export const LargeCheckbox = Template.bind({});
-LargeCheckbox.storyName = 'Large Checkbox';
-LargeCheckbox.args = {
+export const LargeRadio = Template.bind({});
+LargeRadio.storyName = 'Large Radio';
+LargeRadio.args = {
   classes: 'nhsd-a-checkbox--large',
   label: 'Label',
+  radio: true,
 };
-LargeCheckbox.parameters = {
+LargeRadio.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${LargeCheckbox(LargeCheckbox.args)}`,
+      code: `${sourceCode}\n${LargeRadio(LargeRadio.args)}`,
     },
   },
 };
 
-export const DisabledChecbox = Template.bind({});
-DisabledChecbox.storyName = 'Disabled Checkbox';
-DisabledChecbox.args = {
+export const DisabledRadio = Template.bind({});
+DisabledRadio.storyName = 'Disabled Radio';
+DisabledRadio.args = {
   label: 'Label',
   disabled: true,
+  radio: true,
 };
-DisabledChecbox.parameters = {
+DisabledRadio.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${DisabledChecbox(DisabledChecbox.args)}`,
+      code: `${sourceCode}\n${DisabledRadio(DisabledRadio.args)}`,
     },
   },
 };
@@ -92,27 +99,31 @@ DisabledChecbox.parameters = {
 // Component template
 const ListTemplate = (args) => listTemplate.render({ params: { ...args } });
 
-export const ExampleCheckboxList = ListTemplate.bind({});
-ExampleCheckboxList.storyName = 'Checkbox Example';
-ExampleCheckboxList.args = {
+export const ExampleRadioList = ListTemplate.bind({});
+ExampleRadioList.storyName = 'Radio Example';
+ExampleRadioList.args = {
   inputs: [{
     label: 'Option 1',
+    radio: true,
   },
   {
     label: 'Option 2',
+    radio: true,
   },
   {
     label: 'Option 3',
     disabled: true,
+    radio: true,
   },
   {
     label: 'Option 4',
+    radio: true,
   }],
 };
-ExampleCheckboxList.parameters = {
+ExampleRadioList.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${ExampleCheckboxList(ExampleCheckboxList.args)}`,
+      code: `${sourceCode}\n${ExampleRadioList(ExampleRadioList.args)}`,
     },
   },
 };

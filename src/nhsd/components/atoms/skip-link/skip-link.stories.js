@@ -36,13 +36,30 @@ export default {
       },
     },
   },
+  argTypes: {
+    label: {
+      table: {
+        disable: true,
+      },
+    },
+    href: {
+      table: {
+        disable: true,
+      },
+    },
+    classes: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 };
 
 // Component template
 const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
-LabComponent.storyName = sbConfig.title.lab;
+LabComponent.storyName = sbConfig.title.defaultStory;
 LabComponent.args = {
   label: 'Skip to main content',
   href: '#main-content',
@@ -51,6 +68,21 @@ LabComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+    },
+  },
+};
+
+export const SmallComponent = Template.bind({});
+SmallComponent.storyName = 'Small Link';
+SmallComponent.args = {
+  label: 'Skip to main content',
+  href: '#main-content',
+  classes: 'nhsd-a-skip-link--small',
+};
+SmallComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${SmallComponent(SmallComponent.args)}`,
     },
   },
 };

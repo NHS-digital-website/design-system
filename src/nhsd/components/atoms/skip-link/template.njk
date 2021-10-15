@@ -13,19 +13,21 @@
 {%- set ariaAttributes %} {%- if params.aria %} {% for prop, val in params.aria %}aria-{{ prop }}="{{ val }}"{% endfor %}{% endif -%}{% endset -%}
 
 <a href="{{ params.href }}" class="{{ classNames }}" {{- ariaAttributes | safe }}>
-  {% if params.label -%}
+  {% if not params.fullWidth -%}
   <div class="nhsd-t-grid nhsd-t-grid--full-width">
     <div class="nhsd-t-row">
       <div class="nhsd-t-col nhsd-t!t-no-gutters">
         <div class="nhsd-t-grid">
           <div class="nhsd-t-row">
             <div class="nhsd-t-col">
-              <span class="nhsd-a-skip-link__label">{{ params.label }}</span>
+  {% endif %}
+  {% if params.label -%}<span class="nhsd-a-skip-link__label">{{ params.label }}</span>{%- endif %}
+  {% if not params.fullWidth -%}
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  {%- endif %}
+  {% endif %}
 </a>

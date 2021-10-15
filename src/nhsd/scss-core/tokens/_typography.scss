@@ -46,6 +46,29 @@ $-root: ".nhsd-t";
   }
 }
 
+%body-base-s {
+  font-size: .888rem;
+  letter-spacing: -.0166rem;
+  line-height: 1.4375;
+
+  a {
+    line-height: 1.635;
+  }
+
+  @include mq($until: s) {
+    font-size: .778rem;
+    line-height: 1.389;
+
+    a {
+      line-height: 1.75;
+    }
+
+    &:before {
+      left: -.6rem;
+    }
+  }
+}
+
 // =========================================================
 // Utility classes
 // =========================================================
@@ -170,8 +193,7 @@ $-root: ".nhsd-t";
   }
 
   // Body text
-  &-body,
-  &-body-s {
+  &-body {
     &,
     p {
       @extend %body-base;
@@ -181,26 +203,8 @@ $-root: ".nhsd-t";
   &-body-s {
     &,
     p {
-      font-size: .888rem;
-      letter-spacing: -.0166rem;
-      line-height: 1.4375;
-
-      a {
-        line-height: 1.635;
-      }
-
-      @include mq($until: s) {
-        font-size: .778rem;
-        line-height: 1.389;
-
-        a {
-          line-height: 1.75;
-        }
-
-        &:before {
-          left: -.6rem;
-        }
-      }
+      @extend %body-base;
+      @extend %body-base-s;
     }
   }
 
