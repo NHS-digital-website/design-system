@@ -177,6 +177,24 @@ ButtonMenu.parameters = {
   },
 };
 
+export const SearchFilterMenu = Template.bind({});
+SearchFilterMenu.storyName = 'Search Filter Menu';
+SearchFilterMenu.args = {
+  id: 'searchFilter1',
+  demoType: 'filter-search',
+  classes: 'nhsd-o-dropdown--full-width',
+};
+SearchFilterMenu.parameters = {
+  docs: {
+    description: {
+      story: 'An example static button menu dropdown.',
+    },
+    source: {
+      code: `${sourceCode}\n${SearchFilterMenu(SearchFilterMenu.args)}`,
+    },
+  },
+};
+
 export const RightAligned = Template.bind({});
 RightAligned.storyName = 'Right aligned';
 RightAligned.args = {
