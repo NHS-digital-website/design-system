@@ -8,7 +8,14 @@
   {%- set classNames = baseClass + " " + params.classes -%}
 {%- endif -%}
 
-<div class="{{ classNames }}" id="{{ params.id }}">
+{%- if params.attributes -%}
+  {%- set attributes =  "" -%}
+  {%- for attr, val in params.attributes %}
+    {%- set attributes = attributes + " " + attr + "=" + val -%}
+  {%- endfor -%}
+{%- endif -%}
+
+<div class="{{ classNames }}" id="{{ params.id }}" {{ attributes }}>
   <div class="{{ baseClass }}__input">
     {%- if params.demoType == "button-menu" -%}
       {{ nhsd_a_button(params.button) }}
@@ -45,7 +52,7 @@
           <input
             class="nhsd-t-form-input"
             type="text"
-            id="searchFilter1"
+            id="search-filter-input"
             name="query"
             autocomplete="off"
             placeholder="Filter Search"
@@ -71,7 +78,20 @@
   <div class="{{ baseClass }}__dropdown">
     <ul role="listbox" id="{{ params.id }}-dropdown-list">
       {%- for item in params.dropdownItems %}
+<<<<<<< HEAD
         <li role="none"><a href="#" role="option">{{ item.text }}</a></li>
+=======
+        {%- if params.checkbox %}
+          <li>
+            {{ nhsd_a_checkbox({
+              label: item.text,
+              classes: 'nhsd-a-checkbox--small'
+            }) }}
+          </li>
+        {%- else %}
+          <li role="none"><a href="#" role="option">{{ item.text }}</a></li>
+        {%- endif %}
+>>>>>>> 194361f ([DW-000] Filter search)
       {%- endfor -%}
     </ul>
   </div>
@@ -87,6 +107,27 @@ nhsd('#autocomplete-text-query').on(['keyup', 'click'], e => {
   if (searchText.length > 0 && filteredCountries.length > 0) {
     nhsd('#{{ params.id }}').trigger('dropdown-set-items', filteredCountries.map(i => ({
       text: i,
+    })));
+
+    nhsd('#{{ params.id }}').trigger('dropdown-open');
+  } else {
+    nhsd('#{{ params.id }}').trigger('dropdown-close');
+  }
+});
+</script>
+{%- endif -%}
+
+{%- if params.demoType == "filter-search" -%}
+<script>
+var filters = ["Data publications", "Data sets", "Published work chapters", "News", "Information requests", "Cyber alerts", "2021", "2020", "2019", "2018", "2017", "2016"];
+nhsd('#search-filter-input').on(['keyup', 'click'], e => {
+  var searchText = document.querySelector('#search-filter-input').value;
+  var filteredFilters = filters.filter(i => i.toLowerCase().indexOf(searchText.toLowerCase()) >= 0);
+
+  if (searchText.length > 0 && filteredFilters.length > 0) {
+    nhsd('#{{ params.id }}').trigger('dropdown-set-items', filteredFilters.map(i => ({
+      text: i,
+      checkbox: true,
     })));
 
     nhsd('#{{ params.id }}').trigger('dropdown-open');

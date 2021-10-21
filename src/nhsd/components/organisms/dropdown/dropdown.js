@@ -32,12 +32,16 @@ export default class NHSDDropDown {
 
   #bindSelectionEvent() {
     if (!this.dropdownContainer) return;
-    const menuItems = Array.from(this.dropdownContainer.querySelectorAll('a, button'));
+    const menuItems = Array.from(this.dropdownContainer.querySelectorAll('a, button, input'));
     nhsd(menuItems).on('click.dropdown', (e) => nhsd(this.componentEl).trigger('dropdown-selection', e.target));
     nhsd(this.componentEl).on('dropdown-selection.dropdown', (e, selected) => {
+      if (selected.nodeName === 'INPUT') return;
       const searchInput = this.componentEl.querySelector('.nhsd-o-dropdown__input .nhsd-m-search-bar input');
       if (!searchInput) return;
       searchInput.value = selected.innerText;
+      if (this.componentEl.getAttribute('data-dropdown-auto-close') !== 'false') {
+        nhsd(this.componentEl).trigger('dropdown-close');
+      }
     });
   }
 
@@ -71,7 +75,7 @@ export default class NHSDDropDown {
 
     if (this.componentEl.getAttribute('data-dropdown-auto-close') !== 'false') {
       nhsd(document).on('click.dropdown', (e) => {
-        if (this.dropdownInput.contains(e.target)) return;
+        if (this.componentEl.contains(e.target)) return;
         nhsd(this.componentEl).trigger('dropdown-close');
       });
     }
@@ -93,7 +97,10 @@ export default class NHSDDropDown {
       if (item.href) {
         itemEl = document.createElement('a');
         itemEl.setAttribute('href', item.href);
-      } else {
+      } else if (item.checkbox) {
+        
+      }
+      else {
         itemEl = document.createElement('button');
       }
 

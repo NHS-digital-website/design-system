@@ -45,6 +45,10 @@ $-root: ".nhsd-o-dropdown";
     @include nhsd-utils.apply-shadow;
     @include nhsd-utils.scrollbar;
 
+    .nhsd-a-checkbox {
+      padding: nhsd-spacing.get(2) nhsd-spacing.get(3);
+    }
+
     ul,
     li {
       margin: 0;
