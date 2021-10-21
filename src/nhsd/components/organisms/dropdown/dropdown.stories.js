@@ -183,6 +183,10 @@ SearchFilterMenu.args = {
   id: 'searchFilter1',
   demoType: 'filter-search',
   classes: 'nhsd-o-dropdown--full-width',
+<<<<<<< HEAD
+=======
+  checkbox: true,
+>>>>>>> 194361f ([DW-000] Filter search)
 };
 SearchFilterMenu.parameters = {
   docs: {
