@@ -41,16 +41,16 @@
       <span class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s">
         <span id="icon">
           {{ nhsd_a_icon({
-            id: 'chevron_down',
+            svgSource: params.nhsdIcon('chevron_down'),
             classes: 'nhsd-a-icon--size-xxs'})
           }}
         </span>
         {{ params.title }}
       </span>
     </button>
-    {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-xxs' }) }}
     <div class="nhsd-m-filter-menu-section__accordion-panel">
       {{ menu_options(params.options) }}
     </div>
   </div>
+  {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-xxs' }) }}
 </div>

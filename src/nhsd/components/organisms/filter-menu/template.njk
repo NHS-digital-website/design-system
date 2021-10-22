@@ -27,7 +27,7 @@
   </div>
   <div id="nhsd-filter-menu">
     {% for filter in params.filters %}
-      {{ nhsd_m_filter_menu_section({ title: filter.title, options: filter.options}) }}
+      {{ nhsd_m_filter_menu_section({ title: filter.title, options: filter.options, nhsdIcon: params.nhsdIcon }) }}
     {% endfor %}
   </div>
   <div class="nhsd-o-filter-menu__filter-button">

@@ -101,10 +101,10 @@ $-root: ".nhsd-o-dropdown";
 
   &--full-width {
     width: 100%;
+    min-width: 100%;
 
     #{$-root}__input {
-      .nhsd-m-search-bar,
-      .nhsd-a-button {
+      .nhsd-m-search-bar {
         width: 100%;
       }
     }
