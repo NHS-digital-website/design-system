@@ -31,11 +31,13 @@ This can be achieved via the JS API, \`nhsd('#button-menu1').trigger('dropdown-s
 
 Menu items should be passed as an array of items:
 
-| Parameter            | Type          | Description    |
-| :---                 | :---          | :---           |
-| text                 | String        | Menu item text |
-| href (optional)      | String        | Menu item link |
-| onClick (optional)   | function      | On click event |
+| Parameter            | Type          | Description                 |
+| :---                 | :---          | :---                        |
+| text                 | String        | Menu item text              |
+| href (optional)      | String        | Menu item link              |
+| onClick (optional)   | function      | On click event              |
+| checkbox (optional)  | boolean       | Adds checkbox option        |
+| checked (optional)   | boolean       | Sets default checkbox state |
 
 ### JS API events
 
@@ -103,6 +105,14 @@ DefaultComponent.args = {
   id: 'autocomplete-default',
   demoType: 'auto-complete',
   classes: 'nhsd-o-dropdown--full-width',
+  searchIcon: {
+    svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
+  clearIcon: {
+    svgSource: nhsdIcon('x'),
+    classes: 'nhsd-a-icon--size-s',
+  },
 };
 DefaultComponent.parameters = {
   backgrounds: {
@@ -121,6 +131,14 @@ AutoComplete.args = {
   id: 'autocomplete1',
   demoType: 'auto-complete',
   classes: 'nhsd-o-dropdown--full-width',
+  searchIcon: {
+    svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
+  clearIcon: {
+    svgSource: nhsdIcon('x'),
+    classes: 'nhsd-a-icon--size-s',
+  },
 };
 AutoComplete.parameters = {
   backgrounds: {
@@ -178,20 +196,29 @@ ButtonMenu.parameters = {
 };
 
 export const SearchFilterMenu = Template.bind({});
-SearchFilterMenu.storyName = 'Search Filter Menu';
+SearchFilterMenu.storyName = 'Multi-select Dropdown';
 SearchFilterMenu.args = {
   id: 'searchFilter1',
   demoType: 'filter-search',
   classes: 'nhsd-o-dropdown--full-width',
-<<<<<<< HEAD
-=======
   checkbox: true,
->>>>>>> 194361f ([DW-000] Filter search)
+  searchIcon: {
+    svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
+  clearIcon: {
+    svgSource: nhsdIcon('x'),
+    classes: 'nhsd-a-icon--size-s',
+  },
 };
 SearchFilterMenu.parameters = {
+  backgrounds: {
+    default: 'dim',
+  },
   docs: {
     description: {
-      story: 'An example static button menu dropdown.',
+      story: `The multi-select dropdown uses checkboxes to support dropdowns where multiple items can be selected.
+        By default multi-select dropdowns do not automatically close on selection.`,
     },
     source: {
       code: `${sourceCode}\n${SearchFilterMenu(SearchFilterMenu.args)}`,

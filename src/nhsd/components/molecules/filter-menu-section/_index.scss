@@ -13,12 +13,16 @@ $-root: ".nhsd-m-filter-menu-section";
 #{$-root} {
   &__accordion-panel {
     display: none;
-    margin-top: nhsd-spacing.get(2);
+    margin-bottom: nhsd-spacing.get(4);
   }
 
   &__option-row {
     @include nhsd-spacing.set-responsive('margin-top', 2);
     line-height: 1;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &__option-group {
@@ -61,6 +65,10 @@ $-root: ".nhsd-m-filter-menu-section";
           transform: rotate(180deg);
         }
       }
+    }
+
+    #{$-root}__menu-button {
+      padding-bottom: nhsd-spacing.get(2);
     }
   }
 }

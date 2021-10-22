@@ -1,6 +1,60 @@
 /* global document */
 import nhsd from '@/nhsd';
 
+function createCheckboxItem(item) {
+  const itemEl = document.createElement('div');
+  itemEl.classList.add('nhsd-a-checkbox');
+  itemEl.classList.add('nhsd-a-checkbox--small');
+  itemEl.innerHTML = `<label>
+    <input name="${item.name}" type="checkbox" ${item.checked ? 'checked' : ''}>
+    <div class="nhsd-a-checkbox__label">${item.text}</div>
+    <div class="checkmark"></div>
+  </label>`;
+
+  const input = itemEl.querySelector('input');
+
+  if (item.onClick) {
+    nhsd(input).on('click.dropdown', item.onClick);
+  }
+
+  if (item.data) {
+    const dataKeys = Object.keys(item.data);
+    dataKeys.forEach((dataKey) => {
+      input.dataset[dataKey] = item.data[dataKey];
+    });
+  }
+
+  return itemEl;
+}
+
+function createButtonItem(item) {
+  let itemEl;
+  if (item.href) {
+    itemEl = document.createElement('a');
+  } else {
+    itemEl = document.createElement('button');
+  }
+
+  itemEl.setAttribute('role', 'option');
+
+  if (item.text) {
+    itemEl.innerHTML = item.text;
+  }
+
+  if (item.onClick) {
+    nhsd(itemEl).on('click.dropdown', item.onClick);
+  }
+
+  if (item.data) {
+    const dataKeys = Object.keys(item.data);
+    dataKeys.forEach((dataKey) => {
+      itemEl.dataset[dataKey] = item.data[dataKey];
+    });
+  }
+
+  return itemEl;
+}
+
 export default class NHSDDropDown {
   constructor(componentEl) {
     if (!componentEl) return null;
@@ -94,31 +148,10 @@ export default class NHSDDropDown {
 
     items.forEach((item) => {
       let itemEl;
-      if (item.href) {
-        itemEl = document.createElement('a');
-        itemEl.setAttribute('href', item.href);
-      } else if (item.checkbox) {
-        
-      }
-      else {
-        itemEl = document.createElement('button');
-      }
-
-      itemEl.setAttribute('role', 'option');
-
-      if (item.onClick) {
-        nhsd(itemEl).on('click.dropdown', item.onClick);
-      }
-
-      if (item.text) {
-        itemEl.innerHTML = item.text;
-      }
-
-      if (item.data) {
-        const dataKeys = Object.keys(item.data);
-        dataKeys.forEach((dataKey) => {
-          itemEl.dataset[dataKey] = item.data[dataKey];
-        });
+      if (item.checkbox) {
+        itemEl = createCheckboxItem(item);
+      } else {
+        itemEl = createButtonItem(item);
       }
 
       const itemsListItem = document.createElement('li');

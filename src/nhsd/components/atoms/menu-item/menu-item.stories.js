@@ -1,3 +1,6 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -48,7 +51,7 @@ export default {
 };
 
 // Component template
-const Template = (args) => template.render({ params: { ...args } });
+const Template = (args) => template.render({ params: { ...args }, nhsdIcon });
 
 export const LabComponent = Template.bind({});
 LabComponent.args = {

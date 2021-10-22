@@ -62,13 +62,14 @@ export default function nhsdEvent(elementsOrSelector) {
                     element.addEventListener(eventObj.eventType, eventObj.handler, true);
                 });
             });
+            return this;
         },
         once(eventType, fn) {
             const onceEvent = () => {
                 fn();
                 this.unbind(eventType, onceEvent);
             };
-            this.on(eventType, onceEvent);
+            return this.on(eventType, onceEvent);
         },
         trigger(eventType, params = {}) {
             let eventTypes = eventType;
@@ -79,6 +80,7 @@ export default function nhsdEvent(elementsOrSelector) {
                     element.dispatchEvent(new CustomEvent(eventName, { detail: params }));
                 });
             });
+            return this;
         },
         unbind(eventType, fn = null) {
             let eventTypes = eventType;
@@ -92,6 +94,7 @@ export default function nhsdEvent(elementsOrSelector) {
                     });
                 });
             });
+            return this;
         },
     };
 }

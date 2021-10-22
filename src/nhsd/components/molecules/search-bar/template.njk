@@ -15,18 +15,59 @@
   {% set placeholder = params.placeholder %}
 {%- endif -%}
 
+{#- Set input attributes -#}
+{% set inputAttributes = "" %}
+{%- if params.inputAttributes -%}
+  {%- for key, val in params.inputAttributes -%}
+    {% set inputAttributes = inputAttributes + key + "=" + val + " " %}
+  {%- endfor -%}
+{%- endif -%}
+
+{#- Set input id -#}
+{% set inputId = "query" %}
+{%- if params.inputId -%}
+  {% set inputId = params.inputId %}
+{%- endif -%}
+
+{#- Set input name -#}
+{% set inputName = "query" %}
+{%- if params.inputName -%}
+  {% set inputName = params.inputName %}
+{%- endif -%}
+
+{#- Set aria label -#}
+{% set ariaLabel = "Keywords" %}
+{%- if params.ariaLabel -%}
+  {% set ariaLabel = params.ariaLabel %}
+{%- endif -%}
+
 <div class="{{ classNames }}">
   <div class="nhsd-t-form-control">
     <input
       class="nhsd-t-form-input"
       type="text"
-      id="query"
-      name="query"
+      id="{{ inputId }}"
+      name="{{ inputName }}"
       autocomplete="off"
       placeholder="{{ placeholder }}"
-      aria-label="Keywords"
+      aria-label="{{ ariaLabel }}"
+      {{ inputAttributes }}
     />
     <span class="nhsd-t-form-control__button">
+      {% if params.clearIcon %}
+        {{ nhsd_a_button({
+          classes: "nhsd-a-button--circle-condensed nhsd-a-button--transparent nhsd-!t-display-hide",
+          el: "button",
+          type: "submit",
+          aria: {
+            label: "Clear"
+          },
+          attributes: {
+            key: 'data-clear-button'
+          },
+          icon: params.clearIcon
+        }) }}
+      {% endif %}
       {{ nhsd_a_button({
         classes: "nhsd-a-button--circle-condensed nhsd-a-button--transparent",
         el: "button",

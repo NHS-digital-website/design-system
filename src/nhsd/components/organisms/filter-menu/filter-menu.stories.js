@@ -1,5 +1,8 @@
 import pretty from 'pretty';
 
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -42,7 +45,7 @@ export default {
 };
 
 // Component template
-const Template = (args) => pretty(template.render({ params: { ...args } }), { ocd: true });
+const Template = (args) => pretty(template.render({ params: { ...args, nhsdIcon } }), { ocd: true });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;

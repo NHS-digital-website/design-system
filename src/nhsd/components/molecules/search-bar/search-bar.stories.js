@@ -58,6 +58,10 @@ LabComponent.args = {
     svgSource: nhsdIcon('search'),
     classes: 'nhsd-a-icon--size-s',
   },
+  clearIcon: {
+    svgSource: nhsdIcon('x'),
+    classes: 'nhsd-a-icon--size-s',
+  },
 };
 LabComponent.parameters = {
   docs: {
@@ -73,6 +77,10 @@ CustomPlaceholder.args = {
   placeholder: 'Custom placeholder...',
   searchIcon: {
     svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
+  clearIcon: {
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -92,6 +100,10 @@ FullWidth.args = {
     svgSource: nhsdIcon('search'),
     classes: 'nhsd-a-icon--size-s',
   },
+  clearIcon: {
+    svgSource: nhsdIcon('x'),
+    classes: 'nhsd-a-icon--size-s',
+  },
 };
 FullWidth.parameters = {
   docs: {
@@ -107,6 +119,10 @@ Small.args = {
   classes: 'nhsd-m-search-bar__small',
   searchIcon: {
     svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
+  clearIcon: {
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s',
   },
 };

@@ -12,7 +12,7 @@
   {% set ariaLabel = "has no label" %}
 {% endif %}
 
-<span class="{{ classNames }}">
+<div class="{{ classNames }}">
   <label>
     {%- if params.radio -%}
       <input name="radio" type="radio" {%- if params.disabled %} disabled{%- endif -%}/>
@@ -27,5 +27,4 @@
     </div>
     <div class="checkmark"></div>
   </label>
-</span>
-
+</div>
