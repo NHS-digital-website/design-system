@@ -13,12 +13,16 @@ $-root: ".nhsd-m-filter-menu-section";
 #{$-root} {
   &__accordion-panel {
     display: none;
-    margin-top: nhsd-spacing.get(2);
+    margin-bottom: nhsd-spacing.get(4);
   }
 
   &__option-row {
     @include nhsd-spacing.set-responsive('margin-top', 2);
     line-height: 1;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &__option-group {
@@ -62,6 +66,10 @@ $-root: ".nhsd-m-filter-menu-section";
         }
       }
     }
+
+    #{$-root}__menu-button {
+      padding-bottom: nhsd-spacing.get(2);
+    }
   }
 }
 
@@ -71,6 +79,14 @@ html:not(.nhsd-no-js) {
       .nhsd-a-menu-item:not(:first-child) {
         margin-left: 0;
       }
+    }
+  }
+}
+
+.nhsd-no-js {
+  #{$-root} {
+    #{$-root}__accordion-panel {
+      display: block;
     }
   }
 }

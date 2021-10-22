@@ -1,3 +1,5 @@
+import nhsd from '@/nhsd';
+
 export default class NHSDFilterMenu {
   constructor(componentEl) {
     if (!componentEl) return null;
@@ -6,12 +8,22 @@ export default class NHSDFilterMenu {
   }
 
   init() {
-    for (let i = 0; i < this.hostEl.children.length; i += 1) {
-      this.hostEl.children[i].querySelector('.nhsd-m-filter-menu-section__menu-button').addEventListener('click', (event) => {
-        this.hostEl.classList.toggle('nhsd-m-filter-menu-section--active');
-        const isActive = this.hostEl.classList.contains('nhsd-m-filter-menu-section--active');
-        event.target.setAttribute('aria-expanded', isActive);
-      });
-    }
+    const menuButton = this.hostEl.querySelector('.nhsd-m-filter-menu-section__menu-button');
+
+    menuButton.addEventListener('click', () => {
+      this.hostEl.classList.toggle('nhsd-m-filter-menu-section--active');
+      const isActive = this.hostEl.classList.contains('nhsd-m-filter-menu-section--active');
+      menuButton.setAttribute('aria-expanded', isActive);
+    });
+
+    nhsd(this.hostEl).on('filter-menu-open', () => {
+      this.hostEl.classList.add('nhsd-m-filter-menu-section--active');
+      menuButton.setAttribute('aria-expanded', true);
+    });
+
+    nhsd(this.hostEl).on('filter-menu-close', () => {
+      this.hostEl.classList.remove('nhsd-m-filter-menu-section--active');
+      menuButton.setAttribute('aria-expanded', false);
+    });
   }
 }

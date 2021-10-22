@@ -96,6 +96,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   }
 
   &__inner-content-container {
+    width: 100%;
     padding: nhsd-spacing.get(8) vars.$gutter * 2;
 
     @include mq($until: s) {

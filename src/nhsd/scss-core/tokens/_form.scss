@@ -131,7 +131,7 @@ $-outline-width: .167rem;
       display: block;
       position: absolute;
       top: 50%;
-      right: calc(#{nhsd-spacing.get(4) + $-outline-width});
+      right: nhsd-spacing.get(3);
       transform: translateY(-50%);
       line-height: 0;
 
@@ -168,7 +168,7 @@ $-outline-width: .167rem;
       padding: nhsd-spacing.get(4);
       border: $-border-width solid nhsd-colours.get("black");
       border-radius: vars.$border-radius;
-      color: nhsd-colours.get("dark-grey");
+      color: nhsd-colours.get("black");
       background: nhsd-colours.get("white");
       box-shadow:
         0 0 0 $-outline-width transparent,

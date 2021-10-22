@@ -34,7 +34,7 @@ template rendering blows up Storybook :/ -#}
 {%- endif -%}
 
 {#- Define common attributes that we can use across all element types #}
-{%- set commonAttributes %} class="{{ classNames }}" {%- if params.id %}id="{{ params.id }}"{% endif -%} {%- if type %} type="{{ type }}"{% endif -%} {% endset -%}
+{%- set commonAttributes %} class="{{ classNames }}" {% if type %} type="{{ type }}"{% endif -%} {% endset -%}
 {%- if params.attributes -%}
   {%- for attr in params.attributes %}
     {%- set commonAttributes = commonAttributes + " " + attr.key -%}
@@ -60,6 +60,12 @@ template rendering blows up Storybook :/ -#}
   {%- set mirrored = params.mirrored -%}
 {%- endif -%}
 
+{#- Set id -#}
+{%- set id = "" -%}
+{%- if params.id -%}
+  {%- set id = 'id="' + params.id + '"' -%}
+{%- endif -%}
+
 {%- if params.el == 'a' %}
   {#- Set URL and target -#}
   {%- set href="#" -%}
@@ -70,18 +76,18 @@ template rendering blows up Storybook :/ -#}
   {%- if params.target and params.target == '_blank' -%}
     {%- set target = params.target -%}
   {%- endif -%}
-<a {{- commonAttributes | safe }} {{- ariaAttributes | safe }} href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external"{% endif -%}>
+<a {{- id | safe }} {{- commonAttributes | safe }} {{- ariaAttributes | safe }} href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external"{% endif -%}>
   {{ contents(params) }}
   {% if target.length %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif %}
 </a>
 {%- elseif params.el == 'input' -%}
-<input {{- commonAttributes | safe }} {{- ariaAttributes | safe }} value="{{ label }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%} />
+<input {{- id | safe }} {{- commonAttributes | safe }} {{- ariaAttributes | safe }} value="{{ label }}" {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%} />
 {%- elseif params.el == 'span' -%}
-<span {{- commonAttributes | safe }} {{- ariaAttributes | safe }}>
+<span {{- id | safe }} {{- commonAttributes | safe }} {{- ariaAttributes | safe }}>
   {{ contents(params) }}
 </span>
 {%- else -%}
-<button {{- commonAttributes | safe }} {{- ariaAttributes | safe }} {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}>
+<button {{ id | safe }} {{- commonAttributes | safe }} {{- ariaAttributes | safe }} {%- if params.disabled %} disabled="disabled" aria-disabled="true"{% endif -%}>
   {{ contents(params) }}
 </button>
 {%- endif -%}
