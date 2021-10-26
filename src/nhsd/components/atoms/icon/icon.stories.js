@@ -1,3 +1,5 @@
+import inlineIcon, { icons } from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -44,7 +46,18 @@ const storyDescription = `${sbConfig.heading.lab}
 
 ### Using external images
 
-The icon atom support external images (either SVG or PNG) - with or without nesting. The caveat of using external images is that we cannot colour them from CSS.`;
+The icon atom support external images (either SVG or PNG) - with or without nesting. The caveat of using external images is that we cannot colour them from CSS.
+
+### Linking from CDN
+
+All icons are avalible as downloadable SVGs in the design system toolkit:
+
+#### Base icons
+https://design-system.digital.nhs.uk/cdn/[TOOLKIT_VERSION]/icons/[ICON_ID].svg
+
+#### Hex icons
+https://design-system.digital.nhs.uk/cdn/[TOOLKIT_VERSION]/icons/hex/[ICON_ID].svg
+`;
 const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML';
 
 // Component defaults
@@ -62,32 +75,7 @@ export default {
     id: {
       control: {
         type: 'select',
-        options: [
-          'arrow_left',
-          'arrow_right',
-          'arrow_up',
-          'arrow_down',
-          'burger',
-          'chart',
-          'search',
-          'x',
-          'x_circled',
-          'burger',
-          'youtube',
-          'twitter',
-          'linkedin',
-          'facebook',
-          'quote_open',
-          'chevron_left',
-          'chevron_up',
-          'chevron_right',
-          'chevron_down',
-          'check',
-          'link',
-          'i_circled',
-          'exclamation_circled',
-          'exclamation_triangle',
-        ],
+        options: Object.keys(icons),
       },
       defaultValue: 'arrow_right',
       description: 'Each icon has a unique identifier. Use it to change the visual appearance of the icon.',
@@ -97,7 +85,12 @@ export default {
 };
 
 // Component template
-const Template = (args) => template.render({ params: { ...args } });
+const Template = (args) => {
+  if (args.id) {
+    args.svgSource = inlineIcon(args.id, args.nested);
+  }
+  return template.render({ params: { ...args } });
+};
 
 export const LabComponent = Template.bind({});
 LabComponent.args = {
@@ -196,7 +189,7 @@ export const ExternalImage = Template.bind({});
 ExternalImage.args = {
   classes: 'nhsd-a-icon--size-xxl',
   id: null, // Get rid of the default icon in this story
-  source: 'https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/compass.svg?colour=005eb8',
+  link: 'https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/compass.svg?colour=005eb8',
 };
 ExternalImage.storyName = 'External image source';
 ExternalImage.parameters = {
@@ -211,7 +204,7 @@ export const ExternalImageNested = Template.bind({});
 ExternalImageNested.args = {
   classes: 'nhsd-a-icon--size-xl',
   id: null, // Get rid of the default icon in this story
-  source: 'https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/clinical/genes.svg',
+  link: 'https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/clinical/genes.svg',
   nested: true,
 };
 ExternalImageNested.storyName = 'External image source / nested';

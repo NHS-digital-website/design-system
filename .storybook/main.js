@@ -3,6 +3,9 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
+  core: {
+    builder: "webpack5",
+  },
   "stories": [
     "../src/nhsd/**/*.stories.mdx",
     "../src/nhsd/**/*.stories.@(js|jsx|ts|tsx)"
@@ -31,7 +34,7 @@ module.exports = {
 			use: [
 				{
           loader: 'nunjucks-loader',
-          query: {
+          options: {
             jinjaCompat: true,
             trimBlocks: true,
             lstripBlocks: true,
@@ -53,6 +56,9 @@ module.exports = {
           },
         },
       }],
+    }, {
+      test: /\.svg$/,
+      type: 'asset/source'
     });
 
     config.plugins.push(
