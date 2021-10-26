@@ -15,6 +15,7 @@ module.exports = (() => {
       lab: `${SOURCE_PATH}/lab`,
       static: `${SOURCE_PATH}/static`,
       fonts: `${SOURCE_PATH}/assets/fonts`,
+      icons: `${SOURCE_PATH}/assets/icons`,
     },
 
     gulp: {
@@ -27,6 +28,8 @@ module.exports = (() => {
       images: `${DIST_PATH}/images`,
       stylesheets: `${DIST_PATH}/stylesheets`,
       fonts: `${DIST_PATH}/fonts`,
+      icons: `${DIST_PATH}/icons`,
+      hexIcons: `${DIST_PATH}/icons/hex`,
     },
 
     package: {

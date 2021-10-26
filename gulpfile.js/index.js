@@ -18,6 +18,7 @@ require('./tasks/watch');
 require('./tasks/static');
 require('./tasks/images');
 require('./tasks/fonts');
+require('./tasks/icons');
 
 gulp.task('build:dist',
   gulp.series(
@@ -27,6 +28,8 @@ gulp.task('build:dist',
     'scss:compile',
     'images:copy',
     'fonts:copy',
+    'icons:copy',
+    'icons:nested',
     'js:lint',
     'js:compile',
     'static:copy',

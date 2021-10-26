@@ -38,7 +38,7 @@ gulp.task('js:compile', () => gulp.src([
           test: /\.(js)$/,
           exclude: /(node_modules)/,
           loader: 'babel-loader',
-          query: {
+          options: {
             presets: ['@babel/preset-env'],
             plugins: ['@babel/plugin-proposal-class-properties'],
           },
@@ -58,6 +58,10 @@ gulp.task('js:compile', () => gulp.src([
               },
             },
           }],
+        },
+        {
+          test: /\.svg$/,
+          type: 'asset/source',
         },
       ],
     },
