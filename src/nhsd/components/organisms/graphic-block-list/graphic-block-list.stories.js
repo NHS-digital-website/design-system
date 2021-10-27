@@ -1,3 +1,6 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -117,7 +120,7 @@ ComponentVariant2.args = {
       },
       text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
       icon: {
-        id: 'chart',
+        svgSource: nhsdIcon('chart'),
         classes: 'nhsd-a-icon--size-m',
       },
     },
@@ -135,7 +138,7 @@ ComponentVariant2.args = {
       },
       text: 'In March our NHS Pathways software helped triage 1,624,258 111 and 999 calls to the right services.',
       icon: {
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
         classes: 'nhsd-a-icon--size-m',
       },
     },
@@ -153,7 +156,7 @@ ComponentVariant2.args = {
       },
       text: 'We’re now supporting twice as many patients through access to digital healthcare advice and services.',
       icon: {
-        id: 'search',
+        svgSource: nhsdIcon('search'),
         classes: 'nhsd-a-icon--size-m',
       },
     },
@@ -171,9 +174,8 @@ ComponentVariant2.args = {
       },
       text: 'We’re helping more people than ever save time and access services quickly through a single NHS login.',
       icon: {
-        id: 'x',
+        svgSource: nhsdIcon('x', true),
         classes: 'nhsd-a-icon--size-m',
-        nested: true,
       },
     },
   ],
@@ -290,7 +292,7 @@ ComponentVariant4.args = {
         label: 'Access the service now',
       },
       icon: {
-        id: 'chart',
+        svgSource: nhsdIcon('chart'),
         classes: 'nhsd-a-icon--size-m',
       },
     },
@@ -312,7 +314,7 @@ ComponentVariant4.args = {
         label: 'Click the link for goodies',
       },
       icon: {
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
         classes: 'nhsd-a-icon--size-m',
       },
     },
@@ -334,7 +336,7 @@ ComponentVariant4.args = {
         label: 'Check out the NHS app',
       },
       icon: {
-        id: 'search',
+        svgSource: nhsdIcon('search'),
         classes: 'nhsd-a-icon--size-m',
       },
     },
@@ -356,9 +358,8 @@ ComponentVariant4.args = {
         label: 'Log in to your NHS account here',
       },
       icon: {
-        id: 'x',
+        svgSource: nhsdIcon('x', true),
         classes: 'nhsd-a-icon--size-m',
-        nested: true,
       },
     },
   ],

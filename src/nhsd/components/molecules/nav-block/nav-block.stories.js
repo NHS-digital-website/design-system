@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -77,8 +81,7 @@ LabComponent.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',
@@ -110,8 +113,7 @@ DarkGreyTheme.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',
@@ -153,8 +155,7 @@ LightGreyTheme.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',
@@ -196,8 +197,7 @@ ColourfulTheme.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',
@@ -240,8 +240,7 @@ BottomLeft.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',
@@ -273,8 +272,7 @@ BottomRight.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',
@@ -306,8 +304,7 @@ TopLeft.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',
@@ -339,8 +336,7 @@ TopRight.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',
@@ -373,8 +369,7 @@ ExternalLink.args = {
   text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Visit the hub',

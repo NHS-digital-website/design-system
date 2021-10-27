@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -67,7 +71,7 @@ WithIcon.args = {
   },
   text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-m',
   },
 };
@@ -123,7 +127,7 @@ WithLinkAndIcon.args = {
   },
   text: 'Our 111 Online platform significantly eased the burden on phone services throughout the Covid-19 outbreak.',
   icon: {
-    id: 'chart',
+    svgSource: nhsdIcon('chart'),
     classes: 'nhsd-a-icon--size-m',
   },
   link: {

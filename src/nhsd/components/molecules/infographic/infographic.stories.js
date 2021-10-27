@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -52,8 +56,7 @@ LabComponent.args = {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   icon: {
-    nested: false,
-    id: 'chart',
+    svgSource: nhsdIcon('chart'),
     classes: 'nhsd-a-icon--size-xxl',
   },
   headline: '29,625 new complaints between July and September 2019',
@@ -75,8 +78,7 @@ LightBlue.args = {
     classes: 'nhsd-a-box--bg-light-blue',
   },
   icon: {
-    nested: false,
-    id: 'arrow_down',
+    svgSource: nhsdIcon('arrow_down'),
     classes: 'nhsd-a-icon--size-xxl',
   },
   headline: '603,766 babies delivered',
@@ -98,8 +100,7 @@ LightYellow.args = {
     classes: 'nhsd-a-box--bg-light-yellow',
   },
   icon: {
-    nested: false,
-    id: 'chart',
+    svgSource: nhsdIcon('chart'),
     classes: 'nhsd-a-icon--size-xxl',
   },
   headline: '29,625 new complaints between July and September 2019',
@@ -121,8 +122,7 @@ NoQualifyingText.args = {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   icon: {
-    nested: false,
-    id: 'arrow_up',
+    svgSource: nhsdIcon('arrow_up'),
     classes: 'nhsd-a-icon--size-xxl',
   },
   headline: '63,288 more patients registered with a GP',

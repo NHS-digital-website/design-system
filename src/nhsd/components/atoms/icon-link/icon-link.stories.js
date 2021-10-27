@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -40,7 +44,7 @@ LabComponent.args = {
   label: 'Close menu',
   href: '#',
   icon: {
-    id: 'x_circled',
+    svgSource: nhsdIcon('x_circled'),
     classes: 'nhsd-a-icon--size-m',
   },
 };
@@ -58,7 +62,7 @@ DefaultComponent.args = {
   label: 'Close menu',
   href: '#',
   icon: {
-    id: 'x_circled',
+    svgSource: nhsdIcon('x_circled'),
     classes: 'nhsd-a-icon--size-m',
   },
 };
@@ -81,7 +85,7 @@ MirroredComponent.args = {
   label: 'Back',
   href: '#',
   icon: {
-    id: 'arrow_left',
+    svgSource: nhsdIcon('arrow_left'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -104,7 +108,7 @@ ExternalLink.args = {
   href: '#',
   external: true,
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -127,7 +131,7 @@ DarkGrey.args = {
   href: '#',
   external: true,
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-s',
   },
 };

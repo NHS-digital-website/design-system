@@ -1,3 +1,7 @@
+
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -186,8 +190,8 @@ ContentPageComponent.args = {
       href: '#',
       chapterName: 'Previous Chapter',
       chapterDescription: 'Digital inclusion for health and social',
-      icon: {
-        id: 'arrow_left',
+      leftIcon: {
+        svgSource: nhsdIcon('arrow_left'),
         classes: 'nhsd-a-icon--size-xs',
       },
       direction: 'left',
@@ -205,7 +209,8 @@ ContentPageComponent.args = {
       },
       chapterName: 'Next Chapter',
       chapterDescription: 'What it means in health and social care',
-      icon: {
+      rightIcon: {
+        svgSource: nhsdIcon('arrow_right'),
         classes: 'nhsd-a-icon--size-xs',
       },
       direction: 'right',

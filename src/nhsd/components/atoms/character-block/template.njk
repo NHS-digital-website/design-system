@@ -15,11 +15,11 @@
 
 {# Macros #}
 {%- macro contents(params) -%}
-  {%- if params.icon.id and params.iconPosition != 'right' -%}
+  {%- if params.icon.svgSource and params.iconPosition != 'right' -%}
     {{ nhsd_a_icon(params.icon) }}
   {%- endif -%}
   {{ params.label }}
-  {%- if params.icon.id and params.iconPosition == 'right' -%}
+  {%- if params.icon.svgSource and params.iconPosition == 'right' -%}
     {{ nhsd_a_icon(params.icon) }}
   {%- endif -%}
 {%- endmacro %}

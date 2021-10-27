@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -81,7 +85,7 @@ LabComponent.args = {
     current: true,
   },
   icon: {
-    id: 'chevron_right',
+    svgSource: nhsdIcon('chevron_right'),
     classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-dark-grey',
   },
   menuIcon: {
@@ -122,7 +126,7 @@ Story1.args = {
     current: true,
   },
   icon: {
-    id: 'chevron_right',
+    svgSource: nhsdIcon('chevron_right'),
     classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-dark-grey',
   },
 };
@@ -161,7 +165,7 @@ Story2.args = {
     current: true,
   },
   icon: {
-    id: 'chevron_right',
+    svgSource: nhsdIcon('chevron_right'),
     classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-dark-grey',
   },
   menuIcon: {

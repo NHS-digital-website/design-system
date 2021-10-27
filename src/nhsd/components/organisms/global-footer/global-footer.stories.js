@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -109,9 +113,8 @@ LabComponent.args = {
       label: 'LinkedIn',
       external: true,
       icon: {
-        id: 'linkedin',
+        svgSource: nhsdIcon('linkedin', true),
         classes: 'nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey',
-        nested: true,
       },
     }, {
       classes: 'nhsd-a-link--col-dark-grey',
@@ -119,9 +122,8 @@ LabComponent.args = {
       label: 'Twitter',
       external: true,
       icon: {
-        id: 'twitter',
+        svgSource: nhsdIcon('twitter', true),
         classes: 'nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey',
-        nested: true,
       },
     }],
   }],

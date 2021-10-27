@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -27,7 +31,7 @@ export default {
 };
 
 // Component template
-const Template = (args) => template.render({ params: { ...args } });
+const Template = (args) => template.render({ params: { ...args }, nhsdIcon });
 
 export const LabComponent = Template.bind({});
 LabComponent.args = {
@@ -71,7 +75,7 @@ LabComponent.args = {
       },
       classes: 'nhsd-a-button--circle',
       icon: {
-        id: 'search',
+        svgSource: nhsdIcon('search'),
         classes: 'nhsd-a-icon--size-s',
       },
     }, {
@@ -84,7 +88,7 @@ LabComponent.args = {
       },
       classes: 'nhsd-o-global-header__menu-button',
       icon: {
-        id: 'burger',
+        svgSource: nhsdIcon('burger'),
         classes: 'nhsd-a-icon--size-s',
       },
     }],
@@ -132,7 +136,7 @@ ProductHeaderNoSearch.args = {
       },
       classes: 'nhsd-o-global-header__menu-button',
       icon: {
-        id: 'burger',
+        svgSource: nhsdIcon('burger'),
         classes: 'nhsd-a-icon--size-s',
       },
     }],

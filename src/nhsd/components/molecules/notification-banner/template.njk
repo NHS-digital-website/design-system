@@ -28,7 +28,7 @@
                 This is a new service. Your {{ nhsd_a_link( params.link ) }} will help us improve it.
               </div>
               <div class="nhsd-m-notification-banner__right-col">
-                {{ nhsd_a_icon({ id: 'x', classes: params.closeIcon.classes }) }}
+                {{ nhsd_a_icon({ id: params.closeIcon.svgSource, classes: params.closeIcon.classes }) }}
               </div>
             </div>
             {%- if params.inContent -%}

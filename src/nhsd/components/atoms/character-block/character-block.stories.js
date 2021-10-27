@@ -1,8 +1,13 @@
+
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -124,7 +129,7 @@ IconComponent.args = {
   label: '',
   href: '/',
   icon: {
-    id: 'arrow_left',
+    svgSource: nhsdIcon('arrow_left'),
     classes: 'nhsd-a-icon--size-s',
   },
   iconPosition: 'left',

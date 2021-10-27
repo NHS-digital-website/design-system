@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -78,8 +82,7 @@ LabComponent.args = {
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -139,8 +142,7 @@ EmphasisBoxWithIcon.args = {
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
 };
 EmphasisBoxWithIcon.parameters = {
@@ -184,8 +186,7 @@ EmphasisBoxWithIconAndButton.args = {
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -235,8 +236,7 @@ EmphasisBoxWithIconAndButtonAndImage.args = {
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -270,8 +270,7 @@ EmphasisBoxWithIconAndButtonCentred.args = {
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -299,8 +298,7 @@ EmphasisBoxWithIconAndButtonWide.args = {
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -328,8 +326,7 @@ EmphasisBoxWithIconAndButtonWideCentred.args = {
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -356,8 +353,7 @@ NoteBox.args = {
   text: 'You can use the "note" type emphasis box to distinguish some text, but which isn\'t as important.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -384,8 +380,7 @@ ImportantBox.args = {
   text: 'You can use the "important" type emphasis box to draw attention to particularly important content which you don\'t want users to miss.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -413,8 +408,7 @@ WarningBox.args = {
   text: 'You can use the "warning" type emphasis box for critical updates. This will usually be short-term, as it is a high impact design.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',
@@ -442,8 +436,7 @@ WideEmphasisBox.args = {
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl',
-    id: 'chart',
-    nested: true,
+    svgSource: nhsdIcon('chart', true),
   },
   button: {
     label: 'Optional button',

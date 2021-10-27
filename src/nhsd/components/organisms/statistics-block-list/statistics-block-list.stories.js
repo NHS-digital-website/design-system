@@ -1,3 +1,7 @@
+
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -182,8 +186,7 @@ SuffixPrefixOptions.args = {
       },
       prefix: {
         icon: {
-          id: 'arrow_up',
-          nested: false,
+          svgSource: nhsdIcon('arrow_up'),
           classes: 'nhsd-a-icon--size-m',
         },
       },
@@ -202,8 +205,7 @@ SuffixPrefixOptions.args = {
       },
       prefix: {
         icon: {
-          id: 'arrow_down',
-          nested: false,
+          svgSource: nhsdIcon('arrow_down'),
           classes: 'nhsd-a-icon--size-m',
         },
       },

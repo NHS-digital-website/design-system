@@ -1,5 +1,8 @@
 import pretty from 'pretty';
 
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -307,9 +310,8 @@ IconPrefix.args = {
   },
   prefix: {
     icon: {
-      id: 'arrow_up',
+      svgSource: nhsdIcon('arrow_up'),
       classes: 'nhsd-a-icon--size-m',
-      nested: false,
     },
   },
   suffix: {
@@ -339,9 +341,8 @@ IconSuffix.args = {
   },
   suffix: {
     icon: {
-      id: 'arrow_up',
+      svgSource: nhsdIcon('arrow_up'),
       classes: 'nhsd-a-icon--size-m',
-      nested: false,
     },
   },
   prefix: {
@@ -371,16 +372,14 @@ IconPrefixAndSuffix.args = {
   },
   prefix: {
     icon: {
-      id: 'arrow_down',
+      svgSource: nhsdIcon('arrow_down'),
       classes: 'nhsd-a-icon--size-m',
-      nested: false,
     },
   },
   suffix: {
     icon: {
-      id: 'arrow_down',
+      svgSource: nhsdIcon('arrow_down'),
       classes: 'nhsd-a-icon--size-m',
-      nested: false,
     },
   },
 };
@@ -408,17 +407,15 @@ IconPrefixAndSuffixWithLabel.args = {
   prefix: {
     label: '£',
     icon: {
-      id: 'arrow_up',
+      svgSource: nhsdIcon('arrow_up'),
       classes: 'nhsd-a-icon--size-m',
-      nested: false,
     },
   },
   suffix: {
     label: 'm',
     icon: {
-      id: 'arrow_up',
+      svgSource: nhsdIcon('arrow_up'),
       classes: 'nhsd-a-icon--size-m',
-      nested: false,
     },
   },
 };

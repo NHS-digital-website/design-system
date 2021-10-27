@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -84,7 +88,7 @@ wideNumberListComponent.args = {
     {
       label: '',
       icon: {
-        id: 'arrow_left',
+        svgSource: nhsdIcon('arrow_left'),
         classes: 'nhsd-a-icon--size-s',
       },
       href: '/',
@@ -94,7 +98,7 @@ wideNumberListComponent.args = {
     {
       label: '',
       icon: {
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
         classes: 'nhsd-a-icon--size-s',
       },
       href: '/',

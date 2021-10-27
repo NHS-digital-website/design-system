@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -50,7 +54,7 @@ export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   icon: {
-    id: 'quote_open',
+    svgSource: nhsdIcon('quote_open'),
     classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
   },
   quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.',
@@ -70,7 +74,7 @@ export const Story1 = Template.bind({});
 Story1.storyName = 'Quote block / Default';
 Story1.args = {
   icon: {
-    id: 'quote_open',
+    svgSource: nhsdIcon('quote_open'),
     classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
   },
   quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.',
@@ -90,7 +94,7 @@ export const Story2 = Template.bind({});
 Story2.storyName = 'Quote block / without meta info';
 Story2.args = {
   icon: {
-    id: 'quote_open',
+    svgSource: nhsdIcon('quote_open'),
     classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
   },
   quote: 'This is an example quote. You can also include internal (pages on the NHS Digital website) or external links within a quote.',

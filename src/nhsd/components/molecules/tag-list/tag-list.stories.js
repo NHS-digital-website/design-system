@@ -1,7 +1,11 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -36,8 +40,8 @@ LabComponent.args = {
       classes: 'nhsd-a-tag--closable',
       label: '2018',
       icon: {
-        id: 'x',
-        classes: 'nhsd-a-icon--size-xxs  nhsd-a-icon--col-blue',
+        svgSource: nhsdIcon('x'),
+        classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-blue',
       },
     },
     {
@@ -45,8 +49,8 @@ LabComponent.args = {
       classes: 'nhsd-a-tag--closable',
       label: '2019',
       icon: {
-        id: 'x',
-        classes: 'nhsd-a-icon--size-xxs  nhsd-a-icon--col-blue',
+        svgSource: nhsdIcon('x'),
+        classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-blue',
       },
     },
     {
@@ -54,8 +58,8 @@ LabComponent.args = {
       classes: 'nhsd-a-tag--closable',
       label: '2020',
       icon: {
-        id: 'x',
-        classes: 'nhsd-a-icon--size-xxs  nhsd-a-icon--col-blue',
+        svgSource: nhsdIcon('x'),
+        classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-blue',
       },
     },
     {
@@ -63,8 +67,8 @@ LabComponent.args = {
       classes: 'nhsd-a-tag--closable',
       label: '2021',
       icon: {
-        id: 'x',
-        classes: 'nhsd-a-icon--size-xxs  nhsd-a-icon--col-blue',
+        svgSource: nhsdIcon('x'),
+        classes: 'nhsd-a-icon--size-xxs nhsd-a-icon--col-blue',
       },
     },
   ],

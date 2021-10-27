@@ -1,3 +1,6 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // prettify html
 import pretty from 'pretty';
 
@@ -38,7 +41,7 @@ export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   icon: {
-    id: 'i_circled',
+    svgSource: nhsdIcon('i_circled'),
     classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-white',
   },
   link: {
@@ -47,6 +50,7 @@ LabComponent.args = {
   },
   classes: 'nhsd-m-notification-banner--information',
   closeIcon: {
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white',
   },
   box: {
@@ -65,7 +69,7 @@ export const WarningComponent = Template.bind({});
 WarningComponent.storyName = 'Warning Notification Banner';
 WarningComponent.args = {
   icon: {
-    id: 'exclamation_circled',
+    svgSource: nhsdIcon('exclamation_circled'),
     classes: 'nhsd-a-icon--size-xl ',
   },
   link: {
@@ -73,6 +77,7 @@ WarningComponent.args = {
   },
   classes: 'nhsd-m-notification-banner--warning',
   closeIcon: {
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s',
   },
   box: {
@@ -91,7 +96,7 @@ export const ErrorComponent = Template.bind({});
 ErrorComponent.storyName = 'Error Notification Banner';
 ErrorComponent.args = {
   icon: {
-    id: 'exclamation_triangle',
+    svgSource: nhsdIcon('exclamation_triangle'),
     classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-white',
   },
   link: {
@@ -100,6 +105,7 @@ ErrorComponent.args = {
   },
   classes: 'nhsd-m-notification-banner--error',
   closeIcon: {
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white',
   },
   box: {
@@ -118,7 +124,7 @@ export const IrremovableComponent = Template.bind({});
 IrremovableComponent.storyName = 'Irremovable Notification Banner';
 IrremovableComponent.args = {
   icon: {
-    id: 'i_circled',
+    svgSource: nhsdIcon('i_circled'),
     classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-white',
   },
   link: {
@@ -127,6 +133,7 @@ IrremovableComponent.args = {
   },
   classes: 'nhsd-m-notification-banner--information nhsd-m-notification-banner--irremovable',
   closeIcon: {
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white',
   },
   box: {
@@ -146,7 +153,7 @@ InContentBanner.storyName = 'In Content Notification Banner';
 InContentBanner.args = {
   inContent: true,
   icon: {
-    id: 'exclamation_circled',
+    svgSource: nhsdIcon('exclamation_circled'),
     classes: 'nhsd-a-icon--size-xl ',
   },
   link: {
@@ -154,6 +161,7 @@ InContentBanner.args = {
   },
   classes: 'nhsd-m-notification-banner--warning nhsd-m-notification-banner--irremovable',
   closeIcon: {
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white',
   },
   box: {

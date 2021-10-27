@@ -14,7 +14,7 @@
 <a  class="{{ classNames }}" href="{{ params.href }}" aria-label="{{ params.chapterName }}">
   <div class="nhsd-m-chapter__content">
       <span class="nhsd-m-chapter__icon">
-        {{ nhsd_a_icon({id:'arrow_left', classes:params.icon.classes}) }}
+        {{ nhsd_a_icon(params.leftIcon) }}
       </span>
       <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">{{params.chapterName}}</p>
   </div>
@@ -25,7 +25,7 @@
   <div class="nhsd-m-chapter__content">
     <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">{{params.chapterName}}</p>
     <span class="nhsd-m-chapter__icon">
-      {{ nhsd_a_icon({ id:"arrow_right", classes:params.icon.classes }) }}
+      {{ nhsd_a_icon(params.rightIcon) }}
     </span>
   </div>
   <p class="nhsd-m-chapter__link nhsd-t-body-s">{{ params.chapterDescription}}</p>
