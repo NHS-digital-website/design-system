@@ -1,10 +1,14 @@
- /* eslint-disable no-useless-escape */
+/* eslint-disable no-useless-escape */
+
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
 
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -141,7 +145,7 @@ ButtonMenu.args = {
     classes: 'nhsd-a-button',
     label: 'Dropdown Menu',
     icon: {
-      id: 'chevron_down',
+      svgSource: nhsdIcon('chevron_down'),
       classes: 'nhsd-a-icon--size-s',
     },
     attributes: [{

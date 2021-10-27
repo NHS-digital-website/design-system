@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -40,20 +44,6 @@ export default {
       },
     },
   },
-  argTypes: {
-    icon: {
-      control: {
-        type: 'select',
-        options: [
-          'bullet',
-          'check',
-          'cross',
-          'custom',
-        ],
-      },
-      defaultValue: 'bullet',
-    },
-  },
 };
 
 // Component template
@@ -68,10 +58,7 @@ LabComponent.args = {
     'Three',
   ],
   heading: 'Bullet List',
-  customIcon: {
-    id: 'arrow_up',
-    classes: '',
-  },
+  iconType: 'bullet',
 };
 LabComponent.parameters = {
   docs: {
@@ -84,7 +71,10 @@ LabComponent.parameters = {
 export const TickList = Template.bind({});
 TickList.storyName = sbConfig.title.TickList;
 TickList.args = {
-  icon: 'check',
+  iconType: 'check',
+  icon: {
+    svgSource: nhsdIcon('check'),
+  },
   list: [
     'One',
     'Two',
@@ -103,7 +93,10 @@ TickList.parameters = {
 export const CrossList = Template.bind({});
 CrossList.storyName = sbConfig.title.CrossList;
 CrossList.args = {
-  icon: 'cross',
+  iconType: 'cross',
+  icon: {
+    svgSource: nhsdIcon('x'),
+  },
   list: [
     'One',
     'Two',
@@ -122,7 +115,10 @@ CrossList.parameters = {
 export const CustomIcon = Template.bind({});
 CustomIcon.storyName = sbConfig.title.CustomIcon;
 CustomIcon.args = {
-  icon: 'custom',
+  iconType: 'custom',
+  icon: {
+    svgSource: nhsdIcon('custom'),
+  },
   list: [
     'One',
     'Two',
@@ -130,7 +126,7 @@ CustomIcon.args = {
   ],
   heading: 'Custom Icon',
   customIcon: {
-    id: 'arrow_up',
+    svgSource: nhsdIcon('arrow_up'),
     classes: '',
   },
 };
@@ -145,7 +141,10 @@ CustomIcon.parameters = {
 export const NoHeading = Template.bind({});
 NoHeading.storyName = sbConfig.title.CustomIcon;
 NoHeading.args = {
-  icon: 'check',
+  iconType: 'check',
+  icon: {
+    svgSource: nhsdIcon('check'),
+  },
   list: [
     'One',
     'Two',

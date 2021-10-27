@@ -1,3 +1,6 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -157,8 +160,8 @@ ComponentVariant3.args = {
   title: 'Creating the COVID-19 text service for vulnerable people',
   text: 'A small group from NHSX, NHS Digital, NHS Business Services Authority and the Behavioural Insights Team has developed a text service for those most threatened by COVID-19.',
   arrowIcon: {
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
-    id: 'arrow_right',
   },
   boxLink: {
     href: '#',
@@ -231,12 +234,12 @@ ComponentVariant5.args = {
   },
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',
-    id: 'chart',
+    svgSource: nhsdIcon('chart'),
     nested: true,
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
   tags: [{
     classes: 'nhsd-a-tag--bg-light-grey',
@@ -274,12 +277,12 @@ ComponentVariant6.args = {
   },
   hexIcon: {
     classes: 'nhsd-m-card__icon',
-    id: 'search',
+    svgSource: nhsdIcon('search'),
     nested: true,
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
   tags: [{
     classes: 'nhsd-a-tag--bg-light-grey',
@@ -315,12 +318,12 @@ ComponentVariant9.args = {
   },
   hexIcon: {
     classes: 'nhsd-a-icon--col-black nhsd-m-card__icon',
-    id: 'x',
+    svgSource: nhsdIcon('x'),
     nested: true,
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
   tags: [{
     classes: 'nhsd-a-tag--bg-dark-grey',
@@ -389,12 +392,12 @@ ComponentVariant10.args = {
   },
   hexIcon: {
     classes: 'nhsd-a-icon--col-black nhsd-m-card__icon',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     nested: true,
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
   tags: [{
     classes: 'nhsd-a-tag--bg-dark-grey',
@@ -432,7 +435,7 @@ ComponentVariant11.args = {
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-white',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
 };
 ComponentVariant11.parameters = {
@@ -463,7 +466,7 @@ CyberAlertVariant.args = {
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
   tags: [{
     classes: 'nhsd-a-tag--bg-dark-grey',
@@ -509,7 +512,7 @@ CyberAlertHubVariant.args = {
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
   tags: [{
     classes: 'nhsd-a-tag--bg-light-red',
@@ -548,7 +551,7 @@ FeedListVariant.args = {
   },
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
   date: 'Thursday 28 January 2021',
   image: {
@@ -610,6 +613,10 @@ GalleryCard.args = {
           classes: 'nhsd-a-tag--meta-light',
         },
       ],
+      arrowIcon: {
+        classes: 'nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-xs',
+        svgSource: nhsdIcon('arrow_down'),
+      },
     },
   ],
 };
@@ -653,6 +660,10 @@ GalleryCard2.args = {
           classes: 'nhsd-a-tag--meta-light',
         },
       ],
+      arrowIcon: {
+        classes: 'nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-xs',
+        svgSource: nhsdIcon('arrow_down'),
+      },
     },
     {
       documentIconId: 'document_pdf',
@@ -668,6 +679,10 @@ GalleryCard2.args = {
           classes: 'nhsd-a-tag--meta-light',
         },
       ],
+      arrowIcon: {
+        classes: 'nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-xs',
+        svgSource: nhsdIcon('arrow_down'),
+      },
     },
   ],
 };
@@ -699,7 +714,7 @@ AuthorCard.args = {
   text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
   arrowIcon: {
     classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
   },
   author: {
     avatar: {

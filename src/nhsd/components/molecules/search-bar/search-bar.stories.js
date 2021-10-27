@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -49,7 +53,12 @@ const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
-LabComponent.args = {};
+LabComponent.args = {
+  searchIcon: {
+    svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
+};
 LabComponent.parameters = {
   docs: {
     source: {
@@ -62,6 +71,10 @@ export const CustomPlaceholder = Template.bind({});
 CustomPlaceholder.storyName = sbConfig.title.CustomPlaceholder;
 CustomPlaceholder.args = {
   placeholder: 'Custom placeholder...',
+  searchIcon: {
+    svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
 };
 CustomPlaceholder.parameters = {
   docs: {
@@ -75,6 +88,10 @@ export const FullWidth = Template.bind({});
 FullWidth.storyName = sbConfig.title.FullWidth;
 FullWidth.args = {
   classes: 'nhsd-m-search-bar__full-width',
+  searchIcon: {
+    svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
 };
 FullWidth.parameters = {
   docs: {
@@ -88,6 +105,10 @@ export const Small = Template.bind({});
 Small.storyName = sbConfig.title.Small;
 Small.args = {
   classes: 'nhsd-m-search-bar__small',
+  searchIcon: {
+    svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
 };
 Small.parameters = {
   docs: {

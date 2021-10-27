@@ -1,3 +1,7 @@
+
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -47,7 +51,7 @@ FeatureCardLayout.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     date: 'Thursday 28 January 2021',
     image: {
@@ -72,7 +76,7 @@ FeatureCardLayout.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     date: 'Thursday 28 January 2021',
   }, {
@@ -87,7 +91,7 @@ FeatureCardLayout.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     date: 'Thursday 28 January 2021',
   }, {
@@ -102,7 +106,7 @@ FeatureCardLayout.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     date: 'Thursday 28 January 2021',
   }],

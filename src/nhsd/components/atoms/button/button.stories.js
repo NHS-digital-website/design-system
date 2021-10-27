@@ -1,10 +1,14 @@
 /* global document */
 
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -269,7 +273,7 @@ ButtonWithIcon.args = {
     label: 'Search',
   },
   icon: {
-    id: 'search',
+    svgSource: nhsdIcon('search'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -287,7 +291,7 @@ ButtonWithIconAndLabel.args = {
   label: 'Menu',
   el: 'button',
   icon: {
-    id: 'burger',
+    svgSource: nhsdIcon('burger'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -306,7 +310,7 @@ ButtonMirrored.args = {
   el: 'button',
   mirrored: true,
   icon: {
-    id: 'chart',
+    svgSource: nhsdIcon('chart'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -343,7 +347,7 @@ SecondaryButtonWithIconAndLabel.args = {
   label: 'Secondary button',
   el: 'button',
   icon: {
-    id: 'search',
+    svgSource: nhsdIcon('search'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -364,7 +368,7 @@ SecondaryButtonWithIcon.args = {
     label: 'Search',
   },
   icon: {
-    id: 'search',
+    svgSource: nhsdIcon('search'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -383,7 +387,7 @@ TertiaryButtonWithIconAndLabel.args = {
   label: 'Tertiary button',
   el: 'button',
   icon: {
-    id: 'chart',
+    svgSource: nhsdIcon('chart'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -407,7 +411,7 @@ TertiaryButtonWithIcon.args = {
     label: 'Search',
   },
   icon: {
-    id: 'search',
+    svgSource: nhsdIcon('search'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -428,7 +432,7 @@ DisabledButtonWithIconAndLabel.args = {
   label: 'You can\'t click me',
   el: 'button',
   icon: {
-    id: 'chart',
+    svgSource: nhsdIcon('chart'),
     classes: 'nhsd-a-icon--size-s',
   },
   disabled: true,
@@ -450,7 +454,7 @@ DisabledButtonWithIcon.args = {
     label: 'Search',
   },
   icon: {
-    id: 'search',
+    svgSource: nhsdIcon('search'),
     classes: 'nhsd-a-icon--size-s',
   },
   disabled: true,
@@ -469,7 +473,7 @@ StartButtonWithIconAndLabel.args = {
   classes: 'nhsd-a-button--start',
   label: 'Start',
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -489,7 +493,7 @@ StartButtonWithIcon.args = {
     label: 'Start',
   },
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -507,7 +511,7 @@ CancelButtonWithIconAndLabel.args = {
   classes: 'nhsd-a-button--cancel',
   label: 'Cancel',
   icon: {
-    id: 'x',
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -527,7 +531,7 @@ CancelButtonWithIcon.args = {
     label: 'Cancel',
   },
   icon: {
-    id: 'x',
+    svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -559,7 +563,7 @@ ResponsiveButtonWithIconAndLabel.args = {
   classes: 'nhsd-a-button--responsive',
   label: 'Responsive button',
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -579,7 +583,7 @@ ResponsiveButtonWithIcon.args = {
     label: 'This is a meaningful but hidden label',
   },
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -600,7 +604,7 @@ ResponsiveButtonWithIconAndLabelAndExternalLink.args = {
   link: '#',
   target: '_blank',
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -640,7 +644,7 @@ ResponsiveButtonWithIconAndExternalLink.args = {
   link: '#',
   target: '_blank',
   icon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-s',
   },
 };
@@ -662,7 +666,7 @@ TransparentButton.args = {
     label: 'Perform search',
   },
   icon: {
-    id: 'search',
+    svgSource: nhsdIcon('search'),
     classes: 'nhsd-a-icon--size-s',
   },
 };

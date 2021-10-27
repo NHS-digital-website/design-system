@@ -1,6 +1,9 @@
 // prettify html
 import pretty from 'pretty';
 
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -48,7 +51,12 @@ LabComponent.args = {
   href: '#',
   chapterName: 'Previous Chapter',
   chapterDescription: 'Digital inclusion for health and social care',
-  icon: {
+  leftIcon: {
+    svgSource: nhsdIcon('arrow_left'),
+    classes: 'nhsd-a-icon--size-xs',
+  },
+  rightIcon: {
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-icon--size-xs',
   },
 };

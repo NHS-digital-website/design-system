@@ -1,10 +1,14 @@
 /* global document */
 
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -48,7 +52,7 @@ Component1.args = {
       date: '30 Sept 2020',
       arrowIcon: {
         classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
       },
     }, {
       box: {
@@ -61,7 +65,7 @@ Component1.args = {
       date: '28 Sept 2020',
       arrowIcon: {
         classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
       },
     }, {
       box: {
@@ -74,7 +78,7 @@ Component1.args = {
       date: '24 Sept 2020',
       arrowIcon: {
         classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
       },
     }, {
       box: {
@@ -87,7 +91,7 @@ Component1.args = {
       date: '24 Sept 2020',
       arrowIcon: {
         classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
       },
     },
   ],
@@ -117,7 +121,7 @@ CyberAlertComponent.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     tags: [{
       classes: 'nhsd-a-tag--bg-dark-grey',
@@ -143,7 +147,7 @@ CyberAlertComponent.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     tags: [{
       classes: 'nhsd-a-tag--bg-dark-grey',
@@ -169,7 +173,7 @@ CyberAlertComponent.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     tags: [{
       classes: 'nhsd-a-tag--bg-dark-grey',
@@ -210,7 +214,7 @@ CyberAlertComponent2.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     tags: [{
       classes: 'nhsd-a-tag--bg-dark-grey',
@@ -236,7 +240,7 @@ CyberAlertComponent2.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     tags: [{
       classes: 'nhsd-a-tag--bg-dark-grey',
@@ -262,7 +266,7 @@ CyberAlertComponent2.args = {
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     tags: [{
       classes: 'nhsd-a-tag--bg-dark-grey',
@@ -304,12 +308,11 @@ Component2.args = {
       text: 'This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',
-        id: 'chart',
-        nested: true,
+        svgSource: nhsdIcon('chart', true),
       },
       arrowIcon: {
         classes: 'nhsd-a-icon--size-s nhsd-a-arrow',
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
       },
     }, {
       box: {
@@ -323,12 +326,11 @@ Component2.args = {
       text: 'The official hub for health and social care indicators in England. It includes methodology, data output and any independent assurance rating.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',
-        id: 'chart',
-        nested: true,
+        svgSource: nhsdIcon('chart', true),
       },
       arrowIcon: {
         classes: 'nhsd-a-icon--size-s nhsd-a-arrow',
-        id: 'arrow_right',
+        svgSource: nhsdIcon('arrow_right'),
       },
     },
   ],
@@ -661,7 +663,7 @@ for (let i = 0; i < 9; i += 1) {
     date: '30 Sept 2020',
     arrowIcon: {
       classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
   });
 }
@@ -693,7 +695,7 @@ for (let i = 0; i < 7; i += 1) {
     date: '30 Sept 2020',
     arrowIcon: {
       classes: 'nhsd-a-icon--size-s nhsd-a-arrow',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
   });
 }
@@ -723,7 +725,7 @@ const Component9Cards = [
     text: 'For those who have been referred to a hospital or clinic through the NHS e-Refferal Service.',
     arrowIcon: {
       classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
   }, {
     box: {
@@ -735,7 +737,7 @@ const Component9Cards = [
     title: 'NHS staff can find out how to help patients to manage their referral online',
     arrowIcon: {
       classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
   }, {
     box: {
@@ -747,7 +749,7 @@ const Component9Cards = [
     title: 'Information on the live service and alerts is available',
     arrowIcon: {
       classes: 'nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
   },
 ];

@@ -1,8 +1,12 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
+
 // Load stylesheet file
 require('./_index.scss');
 
@@ -92,7 +96,7 @@ LabComponent.args = {
     label: 'ARTICLE',
   },
   arrowIcon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-arrow nhsd-a-arrow--right nhsd-a-icon--size-s',
   },
   boxLink: {
@@ -126,7 +130,7 @@ WebLink.args = {
     label: 'ARTICLE',
   },
   arrowIcon: {
-    id: 'arrow_right',
+    svgSource: nhsdIcon('arrow_right'),
     classes: 'nhsd-a-arrow nhsd-a-arrow--right nhsd-a-icon--size-s',
   },
   boxLink: {
@@ -154,7 +158,7 @@ Download.args = {
     classes: 'nhsd-!t-margin-bottom-2',
   },
   arrowIcon: {
-    id: 'arrow_down',
+    svgSource: nhsdIcon('arrow_down'),
     classes: 'nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-s',
   },
   boxLink: {
@@ -191,7 +195,7 @@ DownloadSmall.args = {
     classes: 'nhsd-!t-margin-bottom-2',
   },
   arrowIcon: {
-    id: 'arrow_down',
+    svgSource: nhsdIcon('arrow_down'),
     classes: 'nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-xs',
   },
   boxLink: {

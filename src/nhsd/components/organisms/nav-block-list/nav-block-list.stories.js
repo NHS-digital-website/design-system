@@ -1,5 +1,8 @@
 /* global document */
 
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -63,8 +66,7 @@ TwoInARow.args = {
       text: 'We collect, process and publish data and information gathered from across the health and social care system in England. Appropriately actualize pandemic results and functionalized process improvements. Enthusiastically administrate installed base alignments whereas B2C total linkage.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
-        id: 'search',
-        nested: true,
+        svgSource: nhsdIcon('search', true),
       },
       button: {
         label: 'Start your search',
@@ -85,8 +87,7 @@ TwoInARow.args = {
       text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
-        id: 'chart',
-        nested: true,
+        svgSource: nhsdIcon('chart', true),
       },
       button: {
         label: 'Start your search',
@@ -154,8 +155,7 @@ ThreeInARow.args = {
       text: 'We collect, process and publish data and information gathered from across the health and social care system in England.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
-        id: 'search',
-        nested: true,
+        svgSource: nhsdIcon('search', true),
       },
       button: {
         label: 'Start your search',
@@ -176,8 +176,7 @@ ThreeInARow.args = {
       text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
-        id: 'chart',
-        nested: true,
+        svgSource: nhsdIcon('chart', true),
       },
       button: {
         label: 'Start your search',
@@ -198,8 +197,7 @@ ThreeInARow.args = {
       text: 'We collect, process and publish data and information gathered from across the health and social care system in England.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
-        id: 'search',
-        nested: true,
+        svgSource: nhsdIcon('search', true),
       },
       button: {
         label: 'Start your search',
@@ -238,8 +236,7 @@ TitleAndButtonNav.args = {
       text: 'We collect, process and publish data and information gathered from across the health and social care system in England.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
-        id: 'search',
-        nested: true,
+        svgSource: nhsdIcon('search', true),
       },
       button: {
         label: 'Start your search',
@@ -260,8 +257,7 @@ TitleAndButtonNav.args = {
       text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
       hexIcon: {
         classes: 'nhsd-a-icon--size-xxl',
-        id: 'chart',
-        nested: true,
+        svgSource: nhsdIcon('chart', true),
       },
       button: {
         label: 'Start your search',

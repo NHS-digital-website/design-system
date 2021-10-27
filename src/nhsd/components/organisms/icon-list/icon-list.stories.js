@@ -1,3 +1,6 @@
+// Load icons
+import nhsdIcon from '@/helpers/icons/inline-icon';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -41,12 +44,12 @@ const iconList = [
     title: 'Icon list item without link',
     text: 'The text above is a link',
     icon: {
-      id: 'link',
+      svgSource: nhsdIcon('link'),
       classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
   },
   {
@@ -54,12 +57,12 @@ const iconList = [
     title: 'Icon list item without link',
     text: 'The text above isnt a link',
     icon: {
-      id: 'i_circled',
+      svgSource: nhsdIcon('i_circled'),
       classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     last: false,
   },
@@ -68,12 +71,12 @@ const iconList = [
     title: 'Icon list item without link',
     text: 'The text above isnt a link',
     icon: {
-      id: 'i_circled',
+      svgSource: nhsdIcon('i_circled'),
       classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     last: false,
   },
@@ -86,12 +89,12 @@ const iconList = [
     title: 'Icon list item without link',
     text: 'The text above is a link',
     icon: {
-      id: 'link',
+      svgSource: nhsdIcon('link'),
       classes: 'nhsd-a-icon--size-xl nhsd-a-icon--col-blue',
     },
     arrowIcon: {
       classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
-      id: 'arrow_right',
+      svgSource: nhsdIcon('arrow_right'),
     },
     last: true,
   },

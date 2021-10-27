@@ -190,6 +190,7 @@ jobs:
           name: cdn-dist
           path: |
             dist/fonts/
+            dist/icons/
             dist/images/
             dist/scripts/
             dist/static/
