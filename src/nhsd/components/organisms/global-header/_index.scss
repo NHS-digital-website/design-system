@@ -60,6 +60,29 @@ $-root: ".nhsd-o-global-header";
   position: relative;
   @include z-index.get('global-header');
 
+  &__search-content-box {
+    position: relative;
+    padding: 20px;
+  }
+
+  &__header-section {
+    position: relative;
+    width: 100%;
+    text-align: left;
+  }
+
+  label {
+    &#{$-root}__search-label {
+      display: inline;
+      line-height: 42px;
+    }
+  }
+
+  .nhsd-m-search-bar {
+    margin-top: 6px;
+    padding: 0;
+  }
+
   &__background {
     display: block;
     position: absolute;
@@ -130,7 +153,9 @@ $-root: ".nhsd-o-global-header";
     &-close-button {
       display: none;
       position: relative;
-      margin: 0 calc(#{nhsd-spacing.get(7)} - .3rem) nhsd-spacing.get(6) 0;
+      margin: 0;
+      margin-right: -5px;
+      float: right;
     }
   }
 
