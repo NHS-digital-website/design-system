@@ -56,15 +56,18 @@
             <div class="nhsd-o-global-header__search" id="nhsd-global-header__search">
               <div class="nhsd-o-global-header__search-background"></div>
               <div class="nhsd-o-global-header__search-content-box">
-                {{ nhsd_a_icon_link({
-                  id: "nhsd-global-header__search-close-button",
-                  classes: "nhsd-o-global-header__search-close-button",
-                  label: "Close search",
-                  icon: {
-                    svgSource: nhsdIcon("x_circled"),
-                    classes: "nhsd-a-icon--size-m"
-                  }
-                }) }}
+                <div class="nhsd-o-global-header__header-section">
+                  <label for="query" class="nhsd-o-global-header__search-label nhsd-t-heading-m">Search</label>
+                  {{ nhsd_a_icon_link({
+                    id: "nhsd-global-header__search-close-button",
+                    classes: "nhsd-o-global-header__search-close-button",
+                    label: "Close search",
+                    icon: {
+                      svgSource: nhsdIcon("x_circled"),
+                      classes: "nhsd-a-icon--size-m"
+                    }
+                  }) }}
+                </div>
                 <form role="search" method="get" action="/search" class="nhsd-t-form" novalidate autocomplete="off" aria-label="Search">
                   <div class="nhsd-t-form-group">
                     {{ nhsd_m_search_bar(params.menuBar) }}
