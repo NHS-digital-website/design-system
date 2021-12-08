@@ -107,3 +107,28 @@ StickyComponent.parameters = {
     },
   },
 };
+
+export const NoJSComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug">
+  <div class="nhsd-t-row">
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-a-box--bg-light-grey">Visible to all clients</div>
+  </div>
+  <div class="nhsd-t-row">
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-a-box--bg-light-grey nhsd-!t-display-no-js-hide">Only visible to clients with JS support</div>
+  </div>
+  <div class="nhsd-t-row">
+    <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-a-box--bg-light-grey nhsd-!t-display-no-js-hide">Only visible to clients without JS support</div>
+  </div>
+</div>`;
+NoJSComponent.storyName = 'No JS tokens';
+NoJSComponent.parameters = {
+  docs: {
+    description: {
+      story: `- The display token, \`nhsd-!t-display-no-js-hide\` will hide content where JavaScript is not supported by the client.
+- The display token, \`nhsd-!t-display-no-js-show\` will show content where JavaScript is not supported by the client.
+- Note: this token depends on token, \`nhsd-no-js\` being added to your &lt;html&gt; tag.`,
+    },
+    source: {
+      code: `${sourceCode}\n${NoJSComponent()}`,
+    },
+  },
+};
