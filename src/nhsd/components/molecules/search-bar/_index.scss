@@ -26,7 +26,7 @@ $-root: ".nhsd-m-search-bar";
     &,
     &:not(:last-child) {
       margin-bottom: 0;
-      padding-right: calc(#{vars.$min-button-size} * 1.2);
+      padding-right: calc(#{vars.$min-button-size} * 2.2);
     }
   }
 
@@ -35,9 +35,25 @@ $-root: ".nhsd-m-search-bar";
     padding: 0;
   }
 
+  .nhsd-t-form-control__button {
+    .nhsd-a-button {
+      margin-left: nhsd-spacing.get(1);
+    }
+  }
+
   &__small {
     .nhsd-t-form-input {
       height: nhsd-spacing.get(7);
+      padding: 0 nhsd-spacing.get(3);
+      padding-right: calc(#{vars.$min-button-size} * 2.1);
+    }
+
+    .nhsd-t-form-control__button {
+      right: nhsd-spacing.get(2);
+
+      .nhsd-a-button {
+        margin: 0;
+      }
     }
   }
 }

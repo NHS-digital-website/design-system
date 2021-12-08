@@ -10,6 +10,7 @@ import NHSDNotificationBanner from '../components/molecules/notification-banner/
 import NHSDBreadcrumbs from '../components/molecules/breadcrumbs/breadcrumbs';
 import NHSDModal from '../components/molecules/modal/modal';
 import NHSDDropDown from '../components/organisms/dropdown/dropdown';
+import NHSDSearchBar from '../components/molecules/search-bar/search-bar';
 
 /* Ensure we don't double initalise any componets */
 const componentList = [];
@@ -42,4 +43,5 @@ export default function init() {
     initComponent('.nhsd-m-sticky-navigation', NHSDStickyNavigation);
     initComponent('.nhsd-m-table', NHSDTable);
     initComponent('.nhsd-m-tabs', NHSDTabs);
+    initComponent('.nhsd-m-search-bar', NHSDSearchBar);
 }
