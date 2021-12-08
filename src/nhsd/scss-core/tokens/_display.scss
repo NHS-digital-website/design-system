@@ -52,3 +52,15 @@ $-device-breakpoints: (xs,s,m,l,xl);
     }
   }
 }
+
+html:not(.nhsd-no-js) {
+  .nhsd-\!t-display-no-js-show {
+    display: none !important;
+  }
+}
+
+.nhsd-no-js {
+  .nhsd-\!t-display-no-js-hide {
+    display: none !important;
+  }
+}
