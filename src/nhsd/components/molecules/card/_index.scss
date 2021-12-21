@@ -262,4 +262,33 @@ $-box-padding: 1.111rem;
       }
     }
   }
+
+  &--profile {
+    padding-top: 48px;
+
+    #{$-root}__content_container {
+      position: relative;
+      padding-top: 45px;
+    }
+    #{$-root}__content-box {
+      padding: $-box-padding;
+    }
+    #{$-root}__button-box {
+      position: absolute;
+      top: 0;
+      right: $-box-padding;
+      padding: 0;
+    }
+    #{$-root}__avatar {
+      position: absolute;
+      top: 3px;
+      left: $-box-padding;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
 }

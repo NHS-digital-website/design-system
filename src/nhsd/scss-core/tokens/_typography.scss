@@ -163,32 +163,22 @@ $-root: ".nhsd-t";
   &-heading-s {
     font-size: 1.222rem;
     letter-spacing: -.0277rem;
-    line-height: 1.5454;
+    line-height: 1.3125;
 
     @include mq($until: s) {
       font-size: 1rem;
       letter-spacing: -.01666rem;
-      line-height: 1.38888;
-
-      a {
-        line-height: 1.615;
-      }
     }
   }
 
   &-heading-xs {
     font-size: 1rem;
     letter-spacing: -.0277rem;
-    line-height: 1.62;
+    line-height: 1.3125;
 
     @include mq($until: s) {
       font-size: .888rem;
       letter-spacing: -.01666rem;
-      line-height: 1.3875;
-
-      a {
-        line-height: 1.675;
-      }
     }
   }
 

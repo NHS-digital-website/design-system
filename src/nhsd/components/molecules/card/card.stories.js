@@ -738,3 +738,46 @@ AuthorCard.parameters = {
     },
   },
 };
+
+export const ProfileCard = Template.bind({});
+ProfileCard.storyName = 'Profile';
+ProfileCard.args = {
+  box: {
+    classes: 'nhsd-a-box--border-grey',
+  },
+  avatar: {
+    classes: 'nhsd-a-avatar--large',
+    image: {
+      ariaHidden: true,
+      sourceSet: [{
+        url: authorImage,
+      }],
+      alt: 'Jason Hodge',
+      classes: 'nhsd-a-image--cover',
+    },
+  },
+  classes: 'nhsd-m-card--profile',
+  boxLink: {
+    href: '#',
+    classes: 'nhsd-a-box-link--focus-orange',
+  },
+  title: 'Jason Hodge',
+  subtitle: 'Professional title',
+  content: `<ul class="nhsd-t-body-s">
+  <li>Human Resources</li>
+  <li>Remote</li>
+  <li>07987 1234567</li>
+  <li>firstname.lastname@nhs.net</li>
+  </ul>`,
+  arrowIcon: {
+    classes: 'nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black',
+    svgSource: nhsdIcon('arrow_right'),
+  },
+};
+ProfileCard.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ProfileCard(ProfileCard.args)}`,
+    },
+  },
+};
