@@ -10,11 +10,13 @@
 
 <div class="{{classNames}}">
     {{ nhsd_a_avatar(params.avatar) }}
-    <div class="{{baseClass}}__details">
-        {{ params.header|safe }}
-        {%- if params.role -%}
-          {{params.role|safe}}
-        {%- endif -%}
+    <div class="{{baseClass}}__details-wrap">
+        <div class="{{baseClass}}__details">
+          {{ params.header|safe }}
+          {%- if params.role -%}
+            {{params.role|safe}}
+          {%- endif -%}
+        </div>
     </div>
     {%- if params.bio -%}
       <div class="{{baseClass}}__bio">{{params.bio}}</div>

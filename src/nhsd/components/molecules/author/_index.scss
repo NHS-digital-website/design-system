@@ -17,6 +17,12 @@ $-root: ".nhsd-m-author";
     grid-column-end: 3;
   }
 
+  &__details-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__details {
     display: -webkit-box;
     -webkit-line-clamp: 3;
