@@ -5,7 +5,8 @@
   nhsd_a_box_end,
   nhsd_a_icon,
   nhsd_a_image,
-  nhsd_a_tag
+  nhsd_a_tag,
+  nhsd_a_avatar
 -%}
 
 {#- Create download_card macro instead of importing. Issue looks to be when importing a molecule into a molecule -#}
@@ -74,7 +75,11 @@
       {%- endif %}
 
       {%- if params.title -%}
-      <h1 class="nhsd-t-heading-s">{{ params.title|safe }}</h1>
+      <span class="nhsd-t-heading-s {%- if params.subtitle %} nhsd-!t-margin-0 {%- endif %}">{{ params.title|safe }}</span>
+      {%- endif -%}
+
+      {%- if params.subtitle -%}
+      <span class="nhsd-!t-col-black nhsd-!t-margin-bottom-2">{{ params.subtitle|safe }}</span>
       {%- endif -%}
 
       {%- if params.hexIcon -%}
@@ -83,6 +88,10 @@
 
       {% if params.text -%}
       <p class="nhsd-t-body-s">{{ params.text|safe }}</p>
+      {%- endif %}
+
+      {% if params.content -%}
+      {{ params.content|safe }}
       {%- endif %}
 
       {% if params.contentTag -%}
@@ -123,6 +132,11 @@
   {% if params.author %}
   <div class="nhsd-m-card__author">
     {{ nhsd_m_author(params.author) }}
+  </div>
+  {% endif -%}
+  {% if params.avatar %}
+  <div class="nhsd-m-card__avatar">
+    {{ nhsd_a_avatar(params.avatar) }}
   </div>
   {% endif -%}
 </div>
