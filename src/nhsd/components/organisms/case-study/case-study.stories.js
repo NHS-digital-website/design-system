@@ -82,10 +82,10 @@ LabComponent.args = {
     classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    ratio: 'nhsd-t-ratio-16x9',
     alt: 'Abstract lights',
+    classes: 'nhsd-t-round',
   },
 
 };
@@ -108,31 +108,6 @@ DefaultComponent.parameters = {
   },
 };
 
-export const NoLabelComponent = Template.bind({});
-NoLabelComponent.storyName = 'No label';
-NoLabelComponent.args = {
-  title: 'NHS Digital Academy (COVID-19 Response) - and a few more lines of title',
-  text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
-  button: {
-    el: 'a',
-    label: 'NHS Digital careers',
-    classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
-  },
-  image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
-    alt: 'Abstract lights',
-  },
-};
-NoLabelComponent.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${NoLabelComponent(NoLabelComponent.args)}`,
-    },
-  },
-};
-
 export const MirroredComponent = Template.bind({});
 MirroredComponent.storyName = 'Mirrored (card on right)';
 MirroredComponent.args = {
@@ -146,10 +121,10 @@ MirroredComponent.args = {
     classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    ratio: 'nhsd-t-ratio-16x9',
     alt: 'Abstract lights',
+    classes: 'nhsd-t-round',
   },
 };
 MirroredComponent.parameters = {
@@ -173,10 +148,10 @@ WideComponent.args = {
     classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    ratio: 'nhsd-t-ratio-16x9',
     alt: 'Abstract lights',
+    classes: 'nhsd-t-round',
   },
 
 };
@@ -202,43 +177,16 @@ WideMirroredComponent.args = {
     classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    ratio: 'nhsd-t-ratio-16x9',
     alt: 'Abstract lights',
+    classes: 'nhsd-t-round',
   },
 };
 WideMirroredComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${WideMirroredComponent(WideMirroredComponent.args)}`,
-    },
-  },
-};
-
-export const WideNoLabelComponent = Template.bind({});
-WideNoLabelComponent.storyName = 'Wide, no label';
-WideNoLabelComponent.args = {
-  wide: true,
-  classes: 'nhsd-o-case-study--no-label',
-  title: 'NHS Digital Academy (COVID-19 Response) - and a few more lines of title',
-  text: 'NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning. NHS Digital graduate scheme recruit Alicia Bailey is working in our Digital Delivery Centre on the systems that allow members of the public to set preferences about the use of their data for research and planning.',
-  button: {
-    el: 'a',
-    label: 'NHS Digital careers',
-    classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
-  },
-  image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
-    alt: 'Abstract lights',
-  },
-};
-WideNoLabelComponent.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${WideNoLabelComponent(WideNoLabelComponent.args)}`,
     },
   },
 };

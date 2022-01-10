@@ -14,6 +14,8 @@ module.exports = {
     flex: "Flex",
     forms: "Forms",
     colours: "Colours",
+    ratio: "Ratio",
+    round: "Round",
     spacing: "Spacing",
     width: "Width",
     lab: "Lab",

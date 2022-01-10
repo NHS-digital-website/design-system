@@ -48,10 +48,8 @@ ContentPageComponent.args = {
     },
     image: {
       ariaHidden: true,
-      sourceSet: [{
-        url: bannerImage,
-      }],
-      classes: 'nhsd-a-image--maintain-ratio nhsd-a-image--position-right',
+      src: bannerImage,
+      classes: 'nhsd-a-image--position-right',
       alt: 'Abstract lights',
     },
     leftAlign: true,

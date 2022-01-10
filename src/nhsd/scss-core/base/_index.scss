@@ -18,6 +18,14 @@ html {
   line-height: 1.6;
 }
 
+iframe {
+  border: none;
+}
+
+figure {
+  margin: 0;
+}
+
 * {
   @include nhsd-utils.box-sizing;
 

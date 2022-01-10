@@ -34,9 +34,7 @@ LabComponent.storyName = sbConfig.title.defaultStory;
 LabComponent.args = {
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: authorImage,
-    }],
+    src: authorImage,
     alt: 'Jason Hodge',
     classes: 'nhsd-a-image--cover',
   },
@@ -55,9 +53,7 @@ SmallStory.storyName = 'Small';
 SmallStory.args = {
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: authorImage,
-    }],
+    src: authorImage,
     alt: 'Jason Hodge',
     classes: 'nhsd-a-image--cover',
   },
@@ -77,9 +73,7 @@ LargeStory.storyName = 'Large';
 LargeStory.args = {
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: authorImage,
-    }],
+    src: authorImage,
     alt: 'Jason Hodge',
     classes: 'nhsd-a-image--cover',
   },

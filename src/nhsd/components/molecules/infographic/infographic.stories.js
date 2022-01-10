@@ -140,9 +140,7 @@ WithImage.args = {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
   },
   headline: '29,625 new complaints between July and September 2019',

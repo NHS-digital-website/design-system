@@ -68,8 +68,8 @@
       {% elif params.imageBanner -%}
         {{ nhsd_a_image(params.imageBanner) }}
       {%- elif params.video %}
-        <div class="{{ componentClassName }}__iframe-wrapper">
-          <iframe class="{{ componentClassName }}__iframe" type="text/html" src="{{params.video}}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <div class="nhsd-t-ratio-4x3">
+          <iframe type="text/html" src="{{params.video}}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
         </div>
       {%- endif %}
     </div>
