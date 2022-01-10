@@ -8,9 +8,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
-// Load stylesheet file
-require('./_index.scss');
-
 const componentName = 'Character Block';
 const storyDescription = `${sbConfig.heading.lab}
 

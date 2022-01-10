@@ -3,8 +3,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
-// Load stylesheet file
-require('./_index.scss');
 
 const componentName = 'Skip link';
 const storyDescription = `Skip link allows keyboard and screen reader users to skip the main navigation, and go from the very top of the document to the main contents.

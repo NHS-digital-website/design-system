@@ -3,9 +3,6 @@
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
-// Load stylesheet file
-require('../scss-core/tokens/_form.scss');
-
 const storyDescription = `${sbConfig.heading.lab}`;
 const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/form";\n\n//HTML';
 

@@ -4,8 +4,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 import listTemplate from './checkbox-list.njk';
-// Load stylesheet file
-require('./_index.scss');
 
 const componentName = 'Checkbox';
 const storyDescription = `${sbConfig.heading.lab}

@@ -8,8 +8,6 @@ import authorImage3 from '../../../assets/images/author-image3.jpg';
 
 // Load template file
 import template from './template.njk';
-// Load stylesheet file
-require('./_index.scss');
 
 const componentName = 'Avatar List';
 const storyDescription = `${sbConfig.heading.default}`;

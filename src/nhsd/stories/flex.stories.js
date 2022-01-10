@@ -6,9 +6,6 @@ import * as sbConfig from '../../../.storybook/storybook-config';
 // Load template file
 import template from './flex.template.njk';
 
-// Load stylesheet file
-require('../scss-core/tokens/_flex.scss');
-
 const storyDescription = `${sbConfig.heading.lab}
 - The **Flex** token uses **Flexbox** to provide a flexible method for arranging components
 - **Flex** can be used in conjunction with the **Grid System** to support more advanced layout requirements`;

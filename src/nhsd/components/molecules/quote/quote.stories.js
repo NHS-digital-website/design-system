@@ -7,9 +7,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
-// Load stylesheet file
-require('./_index.scss');
-
 const componentName = 'Quote';
 const storyDescription = `Quotes allow text to stand out from other content on a web page.
 

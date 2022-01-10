@@ -7,9 +7,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
-// Load stylesheet file
-require('./_index.scss');
-
 const componentName = 'Global header';
 const storyDescription = `${sbConfig.heading.lab}
 

@@ -1,9 +1,6 @@
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
-// Load stylesheet file
-require('../scss-core/tokens/_display.scss');
-
 const componentName = 'Display';
 const storyDescription = `${sbConfig.heading.lab}
 

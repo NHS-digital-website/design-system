@@ -7,9 +7,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
-// Load stylesheet file
-require('./_index.scss');
-
 const componentName = 'Breadcrumbs';
 const storyDescription = `Use breadcrumbs to help users understand where they are in the website.
 

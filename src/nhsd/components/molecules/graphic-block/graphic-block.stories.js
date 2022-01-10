@@ -7,9 +7,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
-// Load stylesheet file
-require('./_index.scss');
-
 const componentName = 'Graphic block';
 const storyDescription = `${sbConfig.heading.lab}`;
 const sourceCode = `// Sass import \n@use "nhsd/components/molecules/graphic-block";

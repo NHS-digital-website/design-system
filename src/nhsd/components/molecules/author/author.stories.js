@@ -6,8 +6,6 @@ import authorImage from '../../../assets/images/author-image.jpg';
 
 // Load template file
 import template from './template.njk';
-// Load stylesheet file
-require('./_index.scss');
 
 const componentName = 'Author';
 const storyDescription = `${sbConfig.heading.default}`;
