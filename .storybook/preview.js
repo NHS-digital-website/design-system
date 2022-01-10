@@ -1,4 +1,4 @@
-import "../src/nhsd/scss-core/base/_index.scss";
+import "../src/nhsd/nhsd-frontend.scss";
 import init from "../src/nhsd/script-core/init";
 import nhsd from '@/nhsd';
 

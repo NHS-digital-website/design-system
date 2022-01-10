@@ -10,9 +10,6 @@ import template from './template.njk';
 import bannerImage from '../../../assets/images/banner-image.jpg';
 import backgroundBannerImage from '../../../assets/images/background-image.jpg';
 
-// Load stylesheet file
-require('./_index.scss');
-
 const componentName = 'Hero';
 const storyDescription = `${sbConfig.heading.lab}
 

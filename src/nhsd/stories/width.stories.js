@@ -3,9 +3,6 @@
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
-// Load stylesheet file
-require('../scss-core/tokens/_width.scss');
-
 const storyDescription = `${sbConfig.heading.lab}
 
 Width is a core token, which allows the width of any element to be set.

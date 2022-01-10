@@ -3,9 +3,6 @@
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
-// Load stylesheet file
-require('../scss-core/tokens/_spacing.scss');
-
 const storyDescription = `${sbConfig.heading.lab}
 
 Spacing is a core token, which allows the design and development team to use a centrally defined, consistent spacing system in order to apply **margins** and **padding** to other tokens and component.

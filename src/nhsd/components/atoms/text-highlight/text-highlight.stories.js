@@ -6,11 +6,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
-// Load stylesheet file
-require('./_index.scss');
-// Utils to apply nhsd-u classes in the correct order
-require('../../../scss-core/tokens/_utils.scss');
-
 const componentName = 'Text highlight';
 const storyDescription = `${sbConfig.heading.lab}`;
 const sourceCode = `// Sass import \n@use "nhsd/components/atoms/text-highlight";

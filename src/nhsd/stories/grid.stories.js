@@ -3,10 +3,6 @@
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
-// Load stylesheet file
-require('../scss-core/tokens/_grid.scss');
-require('../components/atoms/text-highlight/_index.scss');
-
 const storyDescription = `${sbConfig.heading.lab}
 - The grid system uses **Flexbox** to create **"container > row > column"** style layouts.
 

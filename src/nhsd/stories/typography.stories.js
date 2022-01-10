@@ -3,9 +3,6 @@
 // Load storybook config
 import * as sbConfig from '../../../.storybook/storybook-config';
 
-// Load stylesheet file
-require('../scss-core/tokens/_typography.scss');
-
 const storyDescription = `${sbConfig.heading.lab}
 
 ${sbConfig.heading.basicRules}`;

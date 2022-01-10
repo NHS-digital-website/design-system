@@ -6,8 +6,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from '../checkbox/template.njk';
 import listTemplate from '../checkbox/checkbox-list.njk';
-// Load stylesheet file
-require('../checkbox/_index.scss');
 
 const componentName = 'Radio';
 const storyDescription = `${sbConfig.heading.lab}

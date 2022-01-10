@@ -5,8 +5,6 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
-// Load stylesheet file
-require('./_index.scss');
 
 const componentName = 'Link';
 const storyDescription = `It is important to note that the link atom works off the typographic settings it inherits from their parent elements. This is to make sure that the link text matches the surrounding text content's styling, and for this reason links don'\t set any font and text related styles themselves. ${sbConfig.heading.lab}`;
