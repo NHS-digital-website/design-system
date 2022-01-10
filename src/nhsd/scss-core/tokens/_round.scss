@@ -1,0 +1,16 @@
+// Settings
+@use "scss-core/settings/vars";
+
+.nhsd-t-round {
+  border-radius: vars.$border-radius;
+
+  &-top {
+    border-top-left-radius: vars.$border-radius;
+    border-top-right-radius: vars.$border-radius;
+  }
+
+  &-bottom {
+    border-bottom-left-radius: vars.$border-radius;
+    border-bottom-right-radius: vars.$border-radius;
+  }
+}

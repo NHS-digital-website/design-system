@@ -32,11 +32,9 @@ export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--square',
+    ratio: 'nhsd-t-ratio-1x1',
   },
   title: {
     p1: '50x',
@@ -56,11 +54,9 @@ export const WithIcon = Template.bind({});
 WithIcon.storyName = 'With icon';
 WithIcon.args = {
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--square',
+    ratio: 'nhsd-t-ratio-1x1',
   },
   title: {
     p1: '50',
@@ -84,11 +80,9 @@ export const WithLink = Template.bind({});
 WithLink.storyName = 'With link';
 WithLink.args = {
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--square',
+    ratio: 'nhsd-t-ratio-1x1',
   },
   title: {
     p1: '50x',
@@ -112,11 +106,9 @@ export const WithLinkAndIcon = Template.bind({});
 WithLinkAndIcon.storyName = 'With link and icon';
 WithLinkAndIcon.args = {
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--square',
+    ratio: 'nhsd-t-ratio-1x1',
   },
   title: {
     p1: '50',

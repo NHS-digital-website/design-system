@@ -18,7 +18,8 @@ $-root: ".nhsd-a-link";
 
   position: relative;
   padding-top: calc(#{vars.$base-line-thickness} + #{vars.$active-line-thickness});
-  padding-bottom: vars.$active-line-thickness;
+  padding-bottom: 1px;
+  border: vars.$active-line-thickness hidden;
   text-decoration: none;
   transition-property: background-color, color;
   transition-duration: nhsd-transition.$transition-duration;
@@ -31,7 +32,6 @@ $-root: ".nhsd-a-link";
 
   &:focus,
   &:hover {
-    padding-bottom: 1px;
     border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
     outline: none;
     color: nhsd-colours.get("black");

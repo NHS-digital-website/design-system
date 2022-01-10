@@ -63,9 +63,7 @@ LabComponent.args = {
   },
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
     classes: 'nhsd-a-image--cover',
   },
@@ -104,9 +102,7 @@ FeaturedMirrored.args = {
   },
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
     classes: 'nhsd-a-image--cover',
   },

@@ -52,9 +52,7 @@ LabComponent.args = {
     href: '#',
   },
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
   },
   title: 'About NHS Digital',
@@ -554,9 +552,7 @@ FeedListVariant.args = {
   date: 'Thursday 28 January 2021',
   image: {
     classes: 'nhsd-a-image--cover',
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
   },
   imagePosition: 'adjacent',
@@ -703,9 +699,7 @@ AuthorCard.args = {
   },
   classes: 'nhsd-m-card--author',
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
   },
   title: 'About NHS Digital',
@@ -718,9 +712,7 @@ AuthorCard.args = {
     avatar: {
       image: {
         ariaHidden: true,
-        sourceSet: [{
-          url: authorImage,
-        }],
+        src: authorImage,
         alt: 'Jason Hodge',
         classes: 'nhsd-a-image--cover',
       },
@@ -747,9 +739,7 @@ ProfileCard.args = {
     classes: 'nhsd-a-avatar--large',
     image: {
       ariaHidden: true,
-      sourceSet: [{
-        url: authorImage,
-      }],
+      src: authorImage,
       alt: 'Jason Hodge',
       classes: 'nhsd-a-image--cover',
     },

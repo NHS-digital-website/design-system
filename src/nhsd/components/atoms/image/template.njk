@@ -13,9 +13,14 @@
   {%- set title = 'title="' + params.title + '"' %}
 {%- endif -%}
 
+{%- if params.caption %}
+<figure {%- if params.ariaHidden %} aria-hidden="true" {%- endif %}>
+{% endif -%}
+
+{%- if params.ratio %}<div class="{{ params.ratio }}">{%- endif -%}
+
 {%- if params.sourceSet and params.alt %}
-<figure class="{{ classNames }}" {%- if params.ariaHidden %} aria-hidden="true" {%- endif %}>
-  <picture class="nhsd-a-image__picture {{ 'nhsd-!t-margin-bottom-2' if params.caption else '' }}" {{ title|safe }}>
+  <picture class="{{ classNames }} {{ 'nhsd-!t-margin-bottom-2' if params.caption else '' }}" {{ title|safe }}>
   {%- for source in params.sourceSet %}
   {%-if source.media %}
     <source media="{{ source.media }}" srcset="{{ source.url }}">
@@ -25,12 +30,17 @@
   {% endif -%}
   {% endfor -%}
   </picture>
-  {%- if params.caption %}
-  <figcaption class="nhsd-t-body-s nhsd-!t-margin-0">{{ params.caption }}</figcaption>
+{% else -%}
+  {%- if params.src and params.alt %}
+    <img class="{{ classNames }}" src="{{ params.src }}" alt="{{ params.alt }}">
   {% endif -%}
+{% endif -%}
+
+{%- if params.ratio %}</div>{%- endif -%}
+
+{%- if params.caption %}
+<figcaption class="nhsd-t-body-s nhsd-!t-margin-0">{{ params.caption }}</figcaption>
 </figure>
-{% else %}
-No image source found.
 {% endif -%}
 
 {%- if params.exampleContainer -%}

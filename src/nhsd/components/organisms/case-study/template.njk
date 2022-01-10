@@ -37,7 +37,9 @@
               {%- endif %}
 
               {% if params.image -%}
-              {{ nhsd_a_image(params.image) }}
+              <div class="nhsd-o-case-study__image-container">
+                {{ nhsd_a_image(params.image) }}
+              </div>
               {%- endif %}
 
               {% if params.text -%}

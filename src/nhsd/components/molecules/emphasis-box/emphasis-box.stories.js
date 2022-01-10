@@ -209,9 +209,7 @@ EmphasisBoxWithImage.args = {
   title: 'Emphasis box with large icon',
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
   },
 };
@@ -242,9 +240,7 @@ EmphasisBoxWithIconAndButtonAndImage.args = {
     classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
   image: {
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
   },
 };

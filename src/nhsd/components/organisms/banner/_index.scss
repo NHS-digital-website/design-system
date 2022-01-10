@@ -83,20 +83,4 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
       }
     }
   }
-
-  &__iframe-wrapper {
-    position: relative;
-    z-index: 1;
-    min-height: 100%;
-    padding-bottom: 56.25%;
-  }
-
-  &__iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
 }

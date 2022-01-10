@@ -35,9 +35,7 @@ LabComponent.args = {
   avatar: {
     image: {
       ariaHidden: true,
-      sourceSet: [{
-        url: authorImage,
-      }],
+      src: authorImage,
       alt: 'Jason Hodge',
       classes: 'nhsd-a-image--cover',
     },
@@ -59,9 +57,7 @@ WithSummary.args = {
   avatar: {
     image: {
       ariaHidden: true,
-      sourceSet: [{
-        url: authorImage,
-      }],
+      src: authorImage,
       alt: 'Jason Hodge',
       classes: 'nhsd-a-image--cover',
     },

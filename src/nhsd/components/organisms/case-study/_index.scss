@@ -38,12 +38,17 @@ $-skeleton-height: 41.9%;
     background: nhsd-colours.get("pale-grey");
   }
 
-  .nhsd-a-image {
+  figure.nhsd-a-image,
+  &__image-container {
     @include nhsd-spacing.set-responsive("margin-bottom", 3);
   }
 
-  .nhsd-a-image__picture {
+  // For backwards compatiblity, to be removed
+  picture.nhsd-a-image__picture {
     border-radius: nhsd-vars.$border-radius;
+    @include mq($until: s) {
+      border-radius: 0;
+    }
   }
 
   [class^="nhsd-t-heading"] {
@@ -52,12 +57,6 @@ $-skeleton-height: 41.9%;
 
   [class^="nhsd-t-body"] {
     @include nhsd-utils.clamped-text(5);
-  }
-
-  @include mq($until: s) {
-    .nhsd-a-image__picture {
-      border-radius: 0;
-    }
   }
 
   @include mq($from: m) {
@@ -75,7 +74,8 @@ $-skeleton-height: 41.9%;
       padding-bottom: $-skeleton-height;
     }
 
-    .nhsd-a-image {
+    figure.nhsd-a-image,
+    &__image-container {
       position: absolute;
       z-index: -1;
       top: 0;
@@ -89,7 +89,8 @@ $-skeleton-height: 41.9%;
         transform: translateX($-picture-width - 5.2%);
       }
 
-      .nhsd-a-image {
+      figure.nhsd-a-image,
+      #{$-root}__image-container {
         right: 100% - 5.2%;
       }
 
@@ -212,7 +213,7 @@ $-skeleton-height: 41.9%;
           transform: translateX($-picture-width - 24%);
         }
 
-        .nhsd-a-image {
+        figure.nhsd-a-image, #{$-root}__image-container {
           right: 100% - 24%;
         }
       }

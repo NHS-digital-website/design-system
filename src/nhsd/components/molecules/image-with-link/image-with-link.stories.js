@@ -38,11 +38,9 @@ LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
+    classes: 'nhsd-t-round nhsd-!t-margin-bottom-2',
   },
   link: {
     href: '#',
@@ -62,11 +60,9 @@ ComponentVariant1.storyName = 'Internal link';
 ComponentVariant1.args = {
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
+    classes: 'nhsd-t-round nhsd-!t-margin-bottom-2',
   },
   link: {
     href: '#',
@@ -86,11 +82,9 @@ ComponentVariant2.storyName = 'External link';
 ComponentVariant2.args = {
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image--round-corners nhsd-!t-margin-bottom-2',
+    classes: 'nhsd-t-round nhsd-!t-margin-bottom-2',
   },
   link: {
     href: 'https://valtech.com',

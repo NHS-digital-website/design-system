@@ -1,0 +1,34 @@
+// Built in modules
+@use "sass:map";
+
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%)
+);
+
+@each $key, $ratio in $aspect-ratios {
+  .nhsd-t-ratio-#{$key} {
+    position: relative;
+    width: 100%;
+
+    &:before {
+      content: "";
+      display: block;
+      padding-top: $ratio;
+    }
+
+    > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    > img {
+      object-fit: cover;
+    }
+  }
+}

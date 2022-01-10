@@ -11,5 +11,5 @@ $-zindex: (
 );
 
 @mixin get($component) {
-  z-index: map.get($-zindex, "modal");
+  z-index: map.get($-zindex, $component);
 }

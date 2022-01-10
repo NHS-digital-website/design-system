@@ -1,5 +1,3 @@
-/* global document */
-
 // Load icons
 import nhsdIcon from '@/helpers/icons/inline-icon';
 
@@ -340,107 +338,8 @@ Component2.parameters = {
   },
 };
 
-export const Component3 = Template.bind({});
-Component3.storyName = 'Picture cards 4D/2T/1M';
-Component3.args = {
-  desktopColumns: 4,
-  cards: [
-    {
-      box: {
-        classes: 'nhsd-a-box--bg-light-grey',
-      },
-      boxLink: {
-        href: '#',
-      },
-      image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
-        alt: 'Abstract lights',
-      },
-      title: 'About NHS Digital',
-      text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
-      button: {
-        label: 'More about what we do',
-        classes: 'nhsd-m-card__button',
-        el: 'span',
-      },
-    },
-    {
-      box: {
-        classes: 'nhsd-a-box--bg-light-grey',
-      },
-      boxLink: {
-        href: '#',
-      },
-      image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
-        alt: 'Abstract lights',
-      },
-      title: 'About NHS Digital',
-      text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
-      button: {
-        label: 'More about what we do',
-        classes: 'nhsd-m-card__button',
-        el: 'span',
-      },
-    },
-    {
-      box: {
-        classes: 'nhsd-a-box--bg-light-grey',
-      },
-      boxLink: {
-        href: '#',
-      },
-      image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
-        alt: 'Abstract lights',
-      },
-      title: 'About NHS Digital',
-      text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
-      button: {
-        label: 'More about what we do',
-        classes: 'nhsd-m-card__button',
-        el: 'span',
-      },
-    },
-    {
-      box: {
-        classes: 'nhsd-a-box--bg-light-grey',
-      },
-      boxLink: {
-        href: '#',
-      },
-      image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
-        alt: 'Abstract lights',
-      },
-      title: 'About NHS Digital',
-      text: 'We’re pioneering new ways of gathering and using data, developing new technologies to support those on the front line of care, and collaborating across the NHS to deliver better services.',
-      button: {
-        label: 'More about what we do',
-        classes: 'nhsd-m-card__button',
-        el: 'span',
-      },
-    },
-  ],
-};
-Component3.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${Component3(Component3.args)}`,
-    },
-  },
-};
-
 export const Component4 = Template.bind({});
-Component4.storyName = 'Picture cards with dates 4D/2T/1M';
+Component4.storyName = 'Picture cards 4D/2T/1M';
 Component4.args = {
   desktopColumns: 4,
   cards: [
@@ -452,9 +351,7 @@ Component4.args = {
         href: '#',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
       },
       date: '30 Sept 2020',
@@ -474,9 +371,7 @@ Component4.args = {
         href: '#',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
       },
       date: '30 Sept 2020',
@@ -496,9 +391,7 @@ Component4.args = {
         href: '#',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
       },
       date: '30 Sept 2020',
@@ -518,9 +411,7 @@ Component4.args = {
         href: '#',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
       },
       date: '30 Sept 2020',
@@ -610,37 +501,6 @@ Component5.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${Component5(Component5.args)}`,
-    },
-  },
-};
-
-export const Component6 = () => {
-  const div = document.createElement('div');
-  div.innerHTML = `<div class="nhsd-t-grid nhsd-!t-no-gutters">
-<div class="nhsd-t-row">
-  <div class="nhsd-t-col-12">
-    <!-- Card list organism sits in a nested grid -->
-    ${Component5({
-    ...Component5.args,
-    grid: {
-      classes: 'nhsd-t-grid--full-width',
-    },
-  })}
-  </div>
-</div>
-</div>`;
-  return div;
-};
-Component6.storyName = 'Colour cards in nested grid';
-Component6.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode}\n${Component5({
-        ...Component5.args,
-        grid: {
-          classes: 'nhsd-t-grid--full-width',
-        },
-      })}`,
     },
   },
 };

@@ -37,9 +37,7 @@ LabComponent.args = {
   avatars: [{
     image: {
       ariaHidden: true,
-      sourceSet: [{
-        url: authorImage,
-      }],
+      src: authorImage,
       title: 'Jason Hodge',
       alt: 'Jason Hodge',
       classes: 'nhsd-a-image--cover',
@@ -48,9 +46,7 @@ LabComponent.args = {
   }, {
     image: {
       ariaHidden: true,
-      sourceSet: [{
-        url: authorImage2,
-      }],
+      src: authorImage2,
       title: 'Simon Bolton',
       alt: 'Simon Bolton',
       classes: 'nhsd-a-image--cover',
@@ -59,9 +55,7 @@ LabComponent.args = {
   }, {
     image: {
       ariaHidden: true,
-      sourceSet: [{
-        url: authorImage3,
-      }],
+      src: authorImage3,
       title: 'Dr Peter Short',
       alt: 'Dr Peter Short',
       classes: 'nhsd-a-image--cover',

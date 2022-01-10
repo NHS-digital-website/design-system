@@ -53,11 +53,9 @@ LabComponent.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -84,11 +82,9 @@ LabComponent.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -115,11 +111,9 @@ LabComponent.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -161,11 +155,9 @@ ImageOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-corners',
+        classes: 'nhsd-t-round',
       },
     },
     {
@@ -173,11 +165,9 @@ ImageOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-corners',
+        classes: 'nhsd-t-round',
       },
     },
     {
@@ -185,11 +175,9 @@ ImageOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-corners',
+        classes: 'nhsd-t-round',
       },
     },
   ],
@@ -212,11 +200,9 @@ TitleOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       title: 'About NHS Digital',
     },
@@ -225,11 +211,9 @@ TitleOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       title: 'About NHS Digital',
     },
@@ -238,11 +222,9 @@ TitleOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       title: 'About NHS Digital',
     },
@@ -266,11 +248,9 @@ DescriptionOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       text: 'Items can include a description if needed, like this.',
     },
@@ -279,11 +259,9 @@ DescriptionOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       text: 'Items can include a description if needed, like this.',
     },
@@ -292,11 +270,9 @@ DescriptionOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       text: 'Items can include a description if needed, like this.',
     },
@@ -320,11 +296,9 @@ DownloadCardOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       downloadCards: [
         {
@@ -349,11 +323,9 @@ DownloadCardOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       downloadCards: [
         {
@@ -378,11 +350,9 @@ DownloadCardOnly.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       downloadCards: [
         {
@@ -422,11 +392,9 @@ MultipleDownloadCards.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       downloadCards: [
         {
@@ -451,11 +419,9 @@ MultipleDownloadCards.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       downloadCards: [
         {
@@ -525,11 +491,9 @@ MixedVariants.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-corners',
+        classes: 'nhsd-t-round-top',
       },
     },
     {
@@ -537,11 +501,9 @@ MixedVariants.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -551,11 +513,9 @@ MixedVariants.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       downloadCards: [
         {
@@ -595,11 +555,10 @@ SquareImage.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--square',
+        classes: 'nhsd-t-round-top',
+        ratio: 'nhsd-t-ratio-1x1',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -626,11 +585,10 @@ SquareImage.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--square',
+        classes: 'nhsd-t-round-top',
+        ratio: 'nhsd-t-ratio-1x1',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -657,11 +615,10 @@ SquareImage.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--square',
+        classes: 'nhsd-t-round-top',
+        ratio: 'nhsd-t-ratio-1x1',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -703,11 +660,10 @@ FourByThreeImage.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--4by3',
+        classes: 'nhsd-t-round-top',
+        ratio: 'nhsd-t-ratio-4x3',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -734,11 +690,10 @@ FourByThreeImage.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--4by3',
+        classes: 'nhsd-t-round-top',
+        ratio: 'nhsd-t-ratio-4x3',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -765,11 +720,10 @@ FourByThreeImage.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'Abstract lights',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--4by3',
+        classes: 'nhsd-t-round-top',
+        ratio: 'nhsd-t-ratio-4x3',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -811,11 +765,9 @@ AnyAspectRatio.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        img: {
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        },
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
         alt: 'NHSD logo',
-        classes: 'nhsd-a-image--round-top-corners',
+        classes: 'nhsd-t-round-top',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -842,11 +794,9 @@ AnyAspectRatio.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/logos/nhs-digital-logo_nhs-blue_right.svg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/logos/nhs-digital-logo_nhs-blue_right.svg',
         alt: 'NHSD logo',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--maintain-ratio nhsd-a-image--contain',
+        classes: 'nhsd-t-round-top nhsd-a-image--contain',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
@@ -873,11 +823,9 @@ AnyAspectRatio.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
-          url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/logos/nhs-digital-logo_nhs-blue_right.svg',
-        }],
+        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/logos/nhs-digital-logo_nhs-blue_right.svg',
         alt: 'NHSD logo',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--maintain-ratio nhsd-a-image--contain',
+        classes: 'nhsd-t-round-top nhsd-a-image--contain',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',

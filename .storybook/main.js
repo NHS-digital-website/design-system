@@ -6,9 +6,8 @@ module.exports = {
   core: {
     builder: "webpack5",
   },
-  "stories": [
-    "../src/nhsd/**/*.stories.mdx",
-    "../src/nhsd/**/*.stories.@(js|jsx|ts|tsx)"
+  stories: [
+    "../src/nhsd/**/*.stories.js"
   ],
   features: {
     postcss: false
@@ -17,6 +16,7 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-essentials",
   ],
+  staticDirs: [path.resolve(__dirname, '../dist')],
   babel: async (options) => ({
     ...options,
     presets: ['@babel/preset-env'],
@@ -50,7 +50,6 @@ module.exports = {
           implementation: require('sass'),
           sassOptions: {
             includePaths: [
-              'node_modules',
               path.resolve(__dirname, '../src/nhsd'),
             ],
           },
@@ -63,12 +62,14 @@ module.exports = {
 
     config.plugins.push(
       new StyleLintPlugin({
-        configFile: '.stylelintrc.yml',
-        context: 'node_modules',
-        files: '../src/nhsd/**/*.scss',
-        failOnError: false,
+        configFile: path.resolve(__dirname, '../.stylelintrc.yml'),
+        context: path.resolve(__dirname, '..'),
+        files: 'src/nhsd/**/*.scss',
       }),
-      new ESLintPlugin({}),
+      new ESLintPlugin({
+        context: path.resolve(__dirname, '..'),
+        files: 'src/nhsd/**/*.js',
+      }),
     );
 
     // Hijack Storybooks's webpack.DefinePlugin

@@ -396,10 +396,8 @@ ImageHeroBanner.args = {
   },
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: bannerImage,
-    }],
-    classes: 'nhsd-a-image--maintain-ratio nhsd-a-image--position-right',
+    src: bannerImage,
+    classes: 'nhsd-a-image--position-right',
     alt: 'Abstract lights',
   },
 };
@@ -432,9 +430,7 @@ ImageHero.args = {
   colourBar: true,
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
   },
 };
@@ -468,11 +464,8 @@ AccentedImageMirrored.args = {
   colourBar: true,
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-    }],
+    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
     alt: 'Abstract lights',
-    classes: 'nhsd-a-image',
   },
 };
 AccentedImageMirrored.parameters = {
@@ -502,9 +495,7 @@ BackgroundImageHeroBanner.args = {
   },
   image: {
     ariaHidden: true,
-    sourceSet: [{
-      url: backgroundBannerImage,
-    }],
+    src: backgroundBannerImage,
     alt: 'Abstract lights',
     classes: 'nhsd-a-image--cover',
   },

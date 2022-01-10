@@ -56,9 +56,7 @@ FeatureCardLayout.args = {
     date: 'Thursday 28 January 2021',
     image: {
       classes: 'nhsd-a-image--cover',
-      sourceSet: [{
-        url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-      }],
+      src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
       alt: 'Abstract lights',
     },
     imagePosition: 'adjacent',
