@@ -811,11 +811,11 @@ AnyAspectRatio.args = {
         classes: 'nhsd-a-box--border-grey',
       },
       image: {
-        sourceSet: [{
+        img: {
           url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
-        }],
+        },
         alt: 'NHSD logo',
-        classes: 'nhsd-a-image--round-top-corners nhsd-a-image--maintain-ratio nhsd-a-image--contain',
+        classes: 'nhsd-a-image--round-top-corners',
       },
       title: 'About NHS Digital',
       text: 'Items can include a description if needed, like this.',
