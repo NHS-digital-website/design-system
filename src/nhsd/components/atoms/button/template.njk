@@ -76,7 +76,7 @@ template rendering blows up Storybook :/ -#}
   {%- if params.target and params.target == '_blank' -%}
     {%- set target = params.target -%}
   {%- endif -%}
-<a {{- id | safe }} {{- commonAttributes | safe }} {{- ariaAttributes | safe }} href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external"{% endif -%}>
+<a {{ id | safe }} {{- commonAttributes | safe }} {{- ariaAttributes | safe }} href="{{ href }}" {%- if target.length %} target="{{ target }}" rel="external"{% endif -%}>
   {{ contents(params) }}
   {% if target.length %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif %}
 </a>

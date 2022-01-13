@@ -6,7 +6,9 @@
 
 {#- Master template -#}
 <span class="{{ classNames }}">
-  {% if params.svgSource -%}
+  {% if params.id -%}
+    {{ svgIcon(params.id, params.nested) | safe }}
+  {% elseif params.svgSource -%}
     {{ params.svgSource | safe }}
   {% elseif params.link -%}
     {% if params.nested -%}

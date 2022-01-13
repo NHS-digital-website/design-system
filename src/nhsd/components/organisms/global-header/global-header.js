@@ -67,6 +67,7 @@ export default class NHSDGlobalHeader {
   initSearchBar() {
     this.searchButtonEl = this.hostEl.querySelector('#nhsd-global-header__search-button');
     if (!this.searchButtonEl) return;
+
     this.searchButtonEl.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
