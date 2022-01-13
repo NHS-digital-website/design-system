@@ -28,5 +28,9 @@
           ]
         }
       }
+    },
+
+    "globals": {
+      "SVG_ICONS": true
     }
   }

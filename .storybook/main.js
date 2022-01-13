@@ -1,6 +1,7 @@
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const loadIcons = require('./load-icons');
 
 module.exports = {
   core: {
@@ -38,6 +39,7 @@ module.exports = {
             jinjaCompat: true,
             trimBlocks: true,
             lstripBlocks: true,
+            config: path.resolve(__dirname, 'nunjucks-config.js'),
           }
 				},
 			],
@@ -74,11 +76,15 @@ module.exports = {
 
     // Hijack Storybooks's webpack.DefinePlugin
     const definePlugin = config.plugins.find(p => p.definitions);
+
+    definePlugin.definitions = {
+      ...definePlugin.definitions,
+      'SVG_ICONS': JSON.stringify(loadIcons()),
+    };
     definePlugin.definitions['process.env'] = {
       ...definePlugin.definitions['process.env'],
       'BUILD_DATE': `'${new Date().toISOString().slice(0, 10)}'`,
-    }
-
+    };
 
     config.resolve.alias = {
       ...config.resolve.alias,

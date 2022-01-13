@@ -31,5 +31,5 @@ template rendering blows up Storybook :/ -#}
 <a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>
   <span class="nhsd-a-menu-item__label">{{ label }}</span>
   {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
-  {{ nhsd_a_icon({svgSource: nhsdIcon("arrow_right"), classes: "nhsd-a-icon--size-s"}) }}
+  {{ nhsd_a_icon({id: "arrow_right", classes: "nhsd-a-icon--size-s"}) }}
 </a>
