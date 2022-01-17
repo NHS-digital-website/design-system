@@ -78,17 +78,3 @@ Story1.parameters = {
     },
   },
 };
-
-export const Story2 = Template.bind({});
-Story2.args = {
-  label: 'I\'m so active, baby',
-  classes: 'js-active',
-};
-Story2.storyName = 'Activated menu item';
-Story2.parameters = {
-  docs: {
-    source: {
-      code: `${sourceCode} ${Story2(Story2.args)} `,
-    },
-  },
-};

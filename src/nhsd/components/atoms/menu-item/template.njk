@@ -24,12 +24,9 @@ template rendering blows up Storybook :/ -#}
   {%- set href = params.href -%}
 {% endif -%}
 
-{% if params.external -%}
-  {%- set external = true -%}
-{% endif -%}
-
-<a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>
+<a class="{{ classNames }}" href="{{ href }}" {%- if params.external %} target="_blank" rel="external"{% endif -%}>
   <span class="nhsd-a-menu-item__label">{{ label }}</span>
-  {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
+  {%- if params.megaMenu %}{{ nhsd_a_icon({id: "chevron_down", classes: "nhsd-a-icon--size-s"}) }}{% endif -%}
+  {%- if params.external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
   {{ nhsd_a_icon({id: "arrow_right", classes: "nhsd-a-icon--size-s"}) }}
 </a>
