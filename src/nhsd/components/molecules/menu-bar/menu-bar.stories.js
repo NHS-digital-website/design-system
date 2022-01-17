@@ -50,7 +50,6 @@ LabComponent.args = {
       label: 'Data',
     }, {
       label: 'Services',
-      classes: 'js-active',
     }, {
       label: 'Cyber',
     }, {
@@ -80,7 +79,6 @@ DefaultComponent.args = {
       label: 'Data',
     }, {
       label: 'Services',
-      classes: 'js-active',
     }, {
       label: 'Cyber',
     }, {

@@ -42,7 +42,77 @@ LabComponent.args = {
     links: [
       {
         label: 'Coronavirus',
-        classes: 'js-active',
+      }, {
+        label: 'Data',
+        megaMenu: true,
+      }, {
+        label: 'Services',
+      }, {
+        label: 'Cyber',
+      }, {
+        label: 'Developer',
+      }, {
+        label: 'News',
+      }, {
+        label: 'About us',
+      },
+    ],
+  },
+  buttonNav: {
+    classes: 'nhsd-m-button-nav--condensed nhsd-m-button-nav--non-responsive nhsd-o-global-header__button-nav',
+    buttons: [
+    {
+      el: 'a',
+      id: 'nhsd-global-header__search-button',
+      href: '/search',
+      aria: {
+        label: 'Open search',
+        controls: 'nhsd-global-header__search',
+        expanded: false,
+      },
+      classes: 'nhsd-a-button--circle',
+      icon: {
+        svgSource: nhsdIcon('search'),
+        classes: 'nhsd-a-icon--size-s',
+      },
+    }, {
+      el: 'button',
+      id: 'nhsd-global-header__menu-button',
+      label: 'Menu',
+      aria: {
+        controls: 'nhsd-global-header__menu',
+        expanded: false,
+      },
+      classes: 'nhsd-o-global-header__menu-button',
+      icon: {
+        svgSource: nhsdIcon('burger'),
+        classes: 'nhsd-a-icon--size-s',
+      },
+    }],
+  },
+  search: true,
+};
+LabComponent.parameters = {
+  layout: 'fullscreen',
+  docs: {
+    source: {
+      code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+    },
+  },
+};
+
+export const MegaMenuComponent = Template.bind({});
+MegaMenuComponent.args = {
+  logoLink: {
+    classes: 'nhsd-o-global-header__logo',
+    label: 'NHS Digital home',
+    href: '/',
+    id: 'nhsd-global-header__logo',
+  },
+  menuBar: {
+    links: [
+      {
+        label: 'Coronavirus',
       }, {
         label: 'Data',
       }, {
@@ -92,10 +162,11 @@ LabComponent.args = {
   },
   search: true,
 };
-LabComponent.parameters = {
+MegaMenuComponent.parameters = {
+  layout: 'fullscreen',
   docs: {
     source: {
-      code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+      code: `${sourceCode}\n${MegaMenuComponent(MegaMenuComponent.args)}`,
     },
   },
 };
@@ -140,6 +211,7 @@ ProductHeaderNoSearch.args = {
   },
 };
 ProductHeaderNoSearch.parameters = {
+  layout: 'fullscreen',
   docs: {
     source: {
       code: `${sourceCode}\n${ProductHeaderNoSearch(ProductHeaderNoSearch.args)}`,
@@ -154,6 +226,7 @@ MobileMenu.args = {
   mobileMenu: true,
 };
 MobileMenu.parameters = {
+  layout: 'fullscreen',
   docs: {
     source: {
       code: `${sourceCode}\n${MobileMenu(MobileMenu.args)}`,

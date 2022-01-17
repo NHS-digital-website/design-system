@@ -94,7 +94,6 @@ export default class NHSDGlobalHeader {
 
   openMenuBar() {
     this.hostEl.classList.add('js-menu-active');
-    this.menuButtonEl.classList.add('js-active');
     this.menuBarActive = true;
     this.menuButtonEl.setAttribute('aria-expanded', true);
 
@@ -104,7 +103,6 @@ export default class NHSDGlobalHeader {
 
   closeMenuBar() {
     this.hostEl.classList.remove('js-menu-active');
-    this.menuButtonEl.classList.remove('js-active');
     this.menuBarActive = false;
     this.menuButtonEl.setAttribute('aria-expanded', false);
 
