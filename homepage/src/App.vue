@@ -3,7 +3,7 @@
     <global-header />
     <div class="nhsd-t-grid">
        
-      <div class="nhsd-t-row nhsd-!t-margin-3">
+      <div class="nhsd-t-row nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3">
         <div class="nhsd-t-col-12">
           <phase-banner />
         </div>
@@ -11,7 +11,11 @@
     </div>
     <home-banner-hero />
     <div class="nhsd-t-grid">
-      <emphasis-box class="nhsd-!t-margin-top-4"/>
+      <div class="nhsd-t-row">
+        <div class="nhsd-t-col">
+          <emphasis-box class="nhsd-!t-margin-top-4"/>
+        </div>
+      </div>
       <div class="nhsd-t-row nhsd-!t-margin-top-8">
         <div class="nhsd-t-col-3">
           <div class="nhsd-m-sticky-navigation nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2"><span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Page of contents</span>
