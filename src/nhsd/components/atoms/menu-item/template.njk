@@ -24,9 +24,14 @@ template rendering blows up Storybook :/ -#}
   {%- set href = params.href -%}
 {% endif -%}
 
-<a class="{{ classNames }}" href="{{ href }}" {%- if params.external %} target="_blank" rel="external"{% endif -%}>
+{% if params.megaMenu %}
+  {%- set megaMenuAttrs = 'data-mega-menu=' + params.megaMenu -%}
+  {%- set megaMenuAttrs = megaMenuAttrs + ' aria-controls=' + params.megaMenu -%}
+  {%- set megaMenuAttrs = megaMenuAttrs + ' aria-expanded=false' -%}
+{% endif -%}
+
+<a class="{{ classNames }}" href="{{ href }}"  {%- if params.external %} target="_blank" rel="external"{% endif -%} {{ megaMenuAttrs }}>
   <span class="nhsd-a-menu-item__label">{{ label }}</span>
-  {%- if params.megaMenu %}{{ nhsd_a_icon({id: "chevron_down", classes: "nhsd-a-icon--size-s"}) }}{% endif -%}
   {%- if params.external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
   {{ nhsd_a_icon({id: "arrow_right", classes: "nhsd-a-icon--size-s"}) }}
 </a>

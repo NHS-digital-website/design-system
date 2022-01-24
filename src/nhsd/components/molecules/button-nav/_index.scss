@@ -15,25 +15,18 @@
 $-root: ".nhsd-m-button-nav";
 
 #{$-root} {
-  display: block;
+  display: flex;
   position: relative;
   text-align: center;
+  @include nhsd-spacing.set-responsive("gap", 6);
 
   .nhsd-a-button {
     margin-bottom: 0;
     vertical-align: top;
-
-    &:not(:last-child) {
-      @include nhsd-spacing.set-responsive("margin-right", 6);
-    }
   }
 
   &--condensed {
-    .nhsd-a-button {
-      &:not(:last-child) {
-        @include nhsd-spacing.set-responsive("margin-right", 2);
-      }
-    }
+    @include nhsd-spacing.set-responsive("gap", 2);
   }
 
   @include mq($until: s) {

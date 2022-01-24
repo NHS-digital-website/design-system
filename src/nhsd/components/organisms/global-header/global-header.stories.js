@@ -44,7 +44,6 @@ LabComponent.args = {
         label: 'Coronavirus',
       }, {
         label: 'Data',
-        megaMenu: true,
       }, {
         label: 'Services',
       }, {
@@ -115,6 +114,7 @@ MegaMenuComponent.args = {
         label: 'Coronavirus',
       }, {
         label: 'Data',
+        megaMenu: 'data',
       }, {
         label: 'Services',
       }, {
@@ -128,6 +128,50 @@ MegaMenuComponent.args = {
       },
     ],
   },
+  megaMenus: [{
+    id: 'data',
+    image: {
+      src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
+      alt: '2 scientists testing in a laboratory',
+      classes: 'nhsd-a-image--cover nhsd-t-round-top-left',
+    },
+    links: [
+      {
+        label: 'Go to Data',
+        classes: 'nhsd-t-heading-s nhsd-!t-margin-0',
+      },
+      {
+        label: 'Publications',
+      },
+      {
+        label: 'Dashboards',
+      },
+      {
+        label: 'Another link',
+      },
+      {
+        label: 'Another link',
+      },
+      {
+        label: 'Another link',
+      },
+      {
+        label: 'Another link',
+      },
+      {
+        label: 'Another link',
+      },
+      {
+        label: 'Another link',
+      },
+      {
+        label: 'Another link',
+      },
+      {
+        label: 'Another link',
+      },
+    ],
+  }],
   buttonNav: {
     classes: 'nhsd-m-button-nav--condensed nhsd-m-button-nav--non-responsive nhsd-o-global-header__button-nav',
     buttons: [

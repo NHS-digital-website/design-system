@@ -2,15 +2,7 @@
 
 import nhsd from '@/nhsd';
 import scrollbar from '@/helpers/scrollbar';
-
-function attemptFocus(element) {
-    try {
-        element.focus();
-    } catch {
-        return false;
-    }
-    return element === document.activeElement;
-}
+import FocusTrapper from '@/helpers/FocusTrapper';
 
 function lockScrollBar() {
     // Check if modal is open
@@ -46,14 +38,14 @@ export default class {
             this.componentId = this.componentEl.id;
         }
 
-        this.setUpTabbing();
+        this.focusTrapper = new FocusTrapper(this.modalContainer);
         this.bindEvents();
         this.focusModal();
     }
 
     focusModal() {
         if (this.componentEl.classList.contains('nhsd-m-modal--open')) {
-            this.focusChild(this.modalContainer);
+            this.focusTrapper.focus(this.modalContainer);
         }
     }
 
@@ -87,41 +79,5 @@ export default class {
                 if (!this.modalContainer.contains(e.target)) nhsd(this.componentEl).trigger('modal-close');
             });
         }
-    }
-
-    trapFocus(event) {
-        if (this.disableTrapping) return;
-
-        if (this.modalContainer.contains(event.target)) {
-            this.lastFocus = event.target;
-        } else {
-            this.disableTrapping = true;
-            this.focusChild(this.modalContainer);
-            if (this.lastFocus === document.activeElement) {
-                this.focusChild(this.modalContainer, true);
-            }
-            this.lastFocus = document.activeElement;
-            this.disableTrapping = false;
-        }
-    }
-
-    setUpTabbing() {
-        const preNode = document.createElement('div');
-        preNode.tabIndex = 0;
-        this.modalContainer.parentNode.insertBefore(preNode, this.modalContainer);
-        const postNode = document.createElement('div');
-        postNode.tabIndex = 0;
-        this.modalContainer.parentNode.insertBefore(postNode, this.modalContainer.nextSibling);
-        document.addEventListener('focus', this.trapFocus.bind(this), true);
-    }
-
-    focusChild(parentEl, desc = false) {
-        const startingIndex = desc ? parentEl.children.length - 1 : 0;
-        const modifer = desc ? -1 : 1;
-        for (let i = startingIndex; i < parentEl.children.length && i >= 0; i += modifer) {
-          const childEl = parentEl.children[i];
-          if (attemptFocus(childEl) || this.focusChild(childEl, desc)) return true;
-        }
-        return false;
     }
 }

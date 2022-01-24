@@ -4,7 +4,8 @@ import nhsd from '@/nhsd';
 
 function load() {
   init();
-  document.querySelector('html').classList.remove('nhsd-no-js');
+
+  document.documentElement.classList.remove('nhsd-no-js');
 }
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {

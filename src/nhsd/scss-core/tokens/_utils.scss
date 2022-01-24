@@ -136,6 +136,18 @@ $-responsive-data-map: (
   border: 0;
 }
 
+.nhsd-t-scroll-lock {
+  height: 100%;
+  overflow: hidden;
+
+  &-mobile {
+    @include mq($until: m) {
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+}
+
 // =========================================================
 // Utility override classes
 // =========================================================

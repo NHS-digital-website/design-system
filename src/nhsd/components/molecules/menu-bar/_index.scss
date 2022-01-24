@@ -9,7 +9,7 @@
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Component imports
-@use "../../atoms/menu-item";
+@use "../../atoms/menu-item" as menu-item;
 
 // Private members
 $-root: ".nhsd-m-menu-bar";
@@ -17,70 +17,17 @@ $-root: ".nhsd-m-menu-bar";
 @mixin mobile-menu {
   #{$-root} {
     flex-direction: column;
-    flex-wrap: nowrap;
     width: 100%;
     max-width: 36rem;
 
     .nhsd-a-menu-item {
       display: flex;
-      position: relative;
-      width: 100%;
-      padding: nhsd-spacing.get(3) 0;
-      border-radius: vars.$border-radius;
       justify-content: space-between;
-
-      &:not(:first-child) {
-        margin-top: -1 * menu-item.$active-border-width;
-        margin-left: 0;
-
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 0;
-          width: 100%;
-          border-bottom: vars.$base-line-thickness solid nhsd-colours.get("mid-grey-20-tint");
-        }
-      }
-
-      &:after {
-        content: none;
-      }
+      @include menu-item.mobile-menu-item;
 
       .nhsd-a-icon {
-        display: block;
-
         & > svg {
           fill: nhsd-colours.get("dark-grey");
-        }
-      }
-
-      &:hover,
-      &:focus {
-        color: nhsd-colours.get("black");
-        background: nhsd-colours.get("yellow-20-tint");
-        box-shadow: inset 0 0 0 menu-item.$active-border-width nhsd-colours.get("yellow");
-
-        .nhsd-a-menu-item__label {
-          transform: translateX(menu-item.$icon-hover-offset);
-          background: none;
-
-          &:after {
-            content: none;
-          }
-        }
-
-        &:before,
-        & + .nhsd-a-menu-item:before {
-          border-bottom: vars.$base-line-thickness solid transparent;
-        }
-
-        .nhsd-a-icon {
-          transform: translateX(-1 * menu-item.$icon-hover-offset);
-
-          & > svg {
-            fill: nhsd-colours.get("black");
-          }
         }
       }
     }
@@ -89,7 +36,7 @@ $-root: ".nhsd-m-menu-bar";
 
 #{$-root} {
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   position: relative;
 }
 
@@ -107,6 +54,11 @@ html:not(.nhsd-no-js) {
 // Non-JS version
 // stylelint-disable selector-no-qualifying-type
 html.nhsd-no-js {
+  #{$-root} {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
   @include mq($until: m) {
     .nhsd-a-menu-item {
       display: inline-flex;
