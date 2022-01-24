@@ -8,6 +8,7 @@
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/typography" as nhsd-typography;
 @use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
 
 // Private members
 $-root: ".nhsd-o-dropdown";
@@ -37,7 +38,7 @@ $-root: ".nhsd-o-dropdown";
     @include nhsd-spacing.set-responsive('margin-top', 2);
     padding: nhsd-spacing.get(2) 0;
     overflow: auto;
-    transition: opacity 150ms, visibility 150ms;
+    transition: opacity nhsd-transition.$transition-duration, visibility nhsd-transition.$transition-duration;
     border: 1px solid nhsd-colours.get("pale-grey");
     border-radius: vars.$border-radius;
     opacity: 0;

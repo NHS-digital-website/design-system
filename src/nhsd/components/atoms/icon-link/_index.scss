@@ -23,7 +23,7 @@ $-line-thickness: vars.$active-line-thickness;
 
   display: inline-flex;
   align-items: center;
-  padding: .4rem .4rem .2333rem;
+  padding: nhsd-spacing.get(1);
   color: nhsd-colours.get("blue");
   text-decoration: none;
   transition-property: background-color, color;

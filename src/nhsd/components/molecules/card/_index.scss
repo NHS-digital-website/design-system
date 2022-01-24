@@ -9,13 +9,7 @@
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Component imports
-@use "../../atoms/arrow";
-@use "../../atoms/box";
-@use "../../atoms/box-link";
 @use "../../atoms/button";
-@use "../../atoms/icon";
-@use "../../atoms/image";
-@use "../../atoms/tag";
 
 // Private members
 $-root: ".nhsd-m-card";

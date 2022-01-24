@@ -89,32 +89,16 @@ $active-state-push-down: .111rem;
     margin-left: nhsd-spacing.get(2);
   }
 
-  &:disabled,
-  &--disabled {
-    border-color: nhsd-colours.get("mid-grey-20-tint");
-    color: nhsd-colours.get("dark-grey");
-    background: nhsd-colours.get("mid-grey-20-tint");
-    cursor: not-allowed;
-
-    .nhsd-a-icon {
-      & > svg {
-        fill: nhsd-colours.get("dark-grey");
-      }
-    }
+  &--active,
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
   }
 
-  &:not(:disabled):not(&--disabled) {
-    &.js-active,
-    &:focus,
-    &:hover {
-      box-shadow: 0 0 0 .167rem nhsd-colours.get("yellow");
-    }
-
-    &:active {
-      transition-property: none;
-      transform: translateY($active-state-push-down);
-      box-shadow: 0 0 0 .167rem transparent;
-    }
+  &:active {
+    transition-property: none;
+    transform: translateY($active-state-push-down);
+    box-shadow: 0 0 0 .167rem transparent;
   }
 
   &:not(&--invert):not(&--outline):not(&--start):not(&--cancel):not(&--disabled):not(:disabled) {
@@ -132,7 +116,6 @@ $active-state-push-down: .111rem;
     }
 
     &:not(:disabled):not(#{$-root}--disabled) {
-      &.js-active,
       &:focus,
       &:hover {
         border-color: nhsd-colours.get("dark-blue");
@@ -149,6 +132,26 @@ $active-state-push-down: .111rem;
         border-color: nhsd-colours.get("blue");
         background: nhsd-colours.get("blue");
         transition-property: none;
+      }
+    }
+  }
+
+  &:disabled,
+  &--disabled {
+    &,
+    &:focus,
+    &:hover,
+    &:active {
+      border-color: nhsd-colours.get("mid-grey-20-tint");
+      color: nhsd-colours.get("dark-grey");
+      background: nhsd-colours.get("mid-grey-20-tint");
+      box-shadow: none;
+      cursor: not-allowed;
+
+      .nhsd-a-icon {
+        & > svg {
+          fill: nhsd-colours.get("dark-grey");
+        }
       }
     }
   }

@@ -6,8 +6,11 @@ $-zindex: (
   "skiplink": 102,
   "modal": 1000,
   "global-header": 101,
+  "global-header-hr": 100,
   "chapter-nav": 10,
   "dropdown": 200,
+  "mega-menu": 10,
+  "mega-menu-mobile": 10,
 );
 
 @mixin get($component) {

@@ -9,16 +9,13 @@
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
-@use "scss-core/tokens/form" as nhsd-form;
-@use "scss-core/tokens/grid" as nhsd-grid;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/typography" as nhsd-typography;
 @use "scss-core/tokens/utils" as nhsd-utils;
+@use "scss-core/tokens/transition" as nhsd-transition;
 
 // Component imports
-@use "../../atoms/horizontal-rule";
-@use "../../molecules/button-nav";
-@use "../../molecules/logo-link";
+@use "../../atoms/menu-item" as menu-item;
 
 // Private members
 $-root: ".nhsd-o-global-header";
@@ -33,9 +30,8 @@ $-root: ".nhsd-o-global-header";
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 9rem (vars.$small-gutter * 2) 2rem;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    padding: 152px (vars.$small-gutter * 2) 2rem;
+    overflow-y: auto;
   }
 
   #{$parent}-background {
@@ -45,6 +41,7 @@ $-root: ".nhsd-o-global-header";
   #{$parent}-content-box {
     display: flex;
     flex-direction: column;
+    justify-content: start;
     align-items: flex-end;
     width: 100%;
     max-width: 36rem;
@@ -58,6 +55,8 @@ $-root: ".nhsd-o-global-header";
 #{$-root} {
   display: block;
   position: relative;
+  height: 102px;
+  background: nhsd-colours.get("white");
   @include z-index.get('global-header');
 
   &__search-content-box {
@@ -75,12 +74,226 @@ $-root: ".nhsd-o-global-header";
     text-align: left;
   }
 
+  .nhsd-a-horizontal-rule {
+    position: relative;
+    @include z-index.get('global-header');
+  }
+
+  &--mega-menu-active {
+    &:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: nhsd-colours.get("white");
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: nhsd-colours.get("white");
+      @include z-index.get('mega-menu');
+    }
+
+    .nhsd-a-menu-item {
+      &__label {
+        .nhsd-a-icon svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    #{$-root}__mega-menu {
+      display: block;
+
+      @include mq($from: m) {
+        @include nhsd-utils.apply-shadow(3);
+      }
+
+      .nhsd-m-menu-bar {
+        display: flex;
+      }
+    }
+
+    @include mq($from: m) {
+      .nhsd-a-horizontal-rule {
+        z-index: 0;
+        border-color: nhsd-colours.get("mid-grey");
+      }
+    }
+  }
+
+  @include mq($from: m) {
+    &:before {
+      background: rgba(0, 0, 0, .45);
+    }
+  }
+
   &__mega-menu {
+    display: none;
     position: absolute;
     top: 102px;
-    width: 100%;
+    right: nhsd-spacing.get(-7);
+    left: nhsd-spacing.get(-7);
     background: nhsd-colours.get("blue");
-    height: 300px;
+    @include z-index.get('mega-menu');
+
+    .nhsd-m-menu-bar {
+      display: flex;
+      min-height: 300px;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      margin-right: nhsd-spacing.get(4);
+
+      @include mq($from: m) {
+        flex-wrap: wrap;
+        max-height: 350px;
+
+        .nhsd-a-menu-item {
+          @include menu-item.mobile-menu-item;
+          display: flex;
+          justify-content: space-between;
+          width: calc(50% - #{nhsd-spacing.get(4)});
+          height: 56px;
+          margin-right: nhsd-spacing.get(4);
+          padding: 0;
+
+          &:before {
+            border-top: none;
+            border-color: nhsd-colours.get("bright-blue");
+          }
+
+          .nhsd-a-menu-item__label {
+            border: none;
+            color: nhsd-colours.get("white");
+          }
+
+          .nhsd-a-icon > svg {
+            fill: nhsd-colours.get("white");
+          }
+
+          &:hover,
+          &:focus {
+            background: none;
+            box-shadow: none;
+
+            &:before {
+              border-top: none;
+              border-color: nhsd-colours.get("bright-blue");
+            }
+
+            .nhsd-a-menu-item__label {
+              background: none;
+            }
+
+            .nhsd-a-icon > svg {
+              fill: nhsd-colours.get("white");
+            }
+          }
+        }
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: rgba(0, 0, 0, .2);
+    }
+
+    @include mq($until: m) {
+      position: relative;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: 50px 0 0;
+      background: nhsd-colours.get("white");
+      @include z-index.get('mega-menu-mobile');
+
+      &:after {
+        content: none;
+      }
+    }
+  }
+
+  &__mega-menu-content {
+    display: none;
+
+    @include mq($from: m) {
+      padding-right: 50%;
+      padding-bottom: nhsd-spacing.get(8);
+      padding-left: nhsd-spacing.get(8);
+    }
+
+    &--active {
+      display: block;
+      position: relative;
+    }
+  }
+
+  &__mega-menu-image {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+
+    @include mq($until: m) {
+      display: none;
+    }
+  }
+
+  &__mega-menu-buttons {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    @include mq($from: m) {
+      padding: nhsd-spacing.get(4) nhsd-spacing.get(8);
+      padding-bottom: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  &__mega-menu-close-button,
+  &__mega-menu-back-button {
+    margin-bottom: nhsd-spacing.get(4);
+
+    @include mq($from: m) {
+      &,
+      &:active {
+        color: nhsd-colours.get("white");
+
+        .nhsd-a-icon > svg {
+          fill: nhsd-colours.get("white");
+        }
+      }
+    }
+  }
+
+  &__mega-menu-close-button {
+    margin-right: nhsd-spacing.get(-1);
+  }
+
+  &__mega-menu-back-button {
+    margin-left: nhsd-spacing.get(-1);
+
+    @include mq($from: m) {
+      display: none;
+    }
   }
 
   label {
@@ -90,8 +303,11 @@ $-root: ".nhsd-o-global-header";
     }
   }
 
-  .nhsd-t-grid {
+  .nhsd-t-grid,
+  .nhsd-t-row,
+  .nhsd-t-col {
     position: relative;
+    height: 100%;
   }
 
   .nhsd-m-search-bar {
@@ -113,14 +329,14 @@ $-root: ".nhsd-o-global-header";
   &__content-box {
     display: flex;
     position: relative;
-    height: 102px;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
     @include z-index.get('global-header');
   }
 
   &__button-nav {
-    display: inline-block;
+    display: inline-flex;
     position: relative;
     z-index: 20;
     order: 3;
@@ -130,16 +346,14 @@ $-root: ".nhsd-o-global-header";
     margin-left: -.2rem;
   }
 
-  .nhsd-a-horizontal-rule,
-  &__logo-container {
-    position: relative;
-    z-index: 20;
-    order: 1;
-  }
-
   &__logo-container {
     display: flex;
+    position: relative;
+    justify-content: center;
     align-items: center;
+    margin: nhsd-spacing.get(2) 0;
+    order: 1;
+    @include z-index.get('global-header');
 
     @include mq($until: m) {
       flex-direction: column;
@@ -157,6 +371,7 @@ $-root: ".nhsd-o-global-header";
       top: 0;
       right: 0;
       bottom: 0;
+      left: 0;
       width: 100%;
       height: 200%;
       background: nhsd-colours.get("white");
@@ -171,7 +386,8 @@ $-root: ".nhsd-o-global-header";
       display: none;
       position: relative;
       margin: 0;
-      margin-right: -5px;
+      margin-right: nhsd-spacing.get(-1);
+      margin-bottom: nhsd-spacing.get(4);
       float: right;
     }
   }
@@ -244,23 +460,20 @@ $-root: ".nhsd-o-global-header";
     #{$-root}__menu-content-box {
       justify-content: flex-end;
     }
-
-    .nhsd-t-grid {
-      @include mq($from: m) {
-        max-width: map.get(vars.$content-width, 'l');
-      }
-    }
   }
 }
 
 // stylelint-disable selector-no-qualifying-type
 .nhsd-no-js {
   #{$-root} {
+    height: auto;
+
     &__content-box {
       flex-wrap: wrap;
     }
 
     &__menu-content-box {
+      height: auto;
       justify-content: start;
     }
 

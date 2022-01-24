@@ -28,8 +28,18 @@ template rendering blows up Storybook :/ -#}
   {%- set external = true -%}
 {% endif -%}
 
+{% set attributes = "" %}
+{%- if params.attributes -%}
+  {%- for attr in params.attributes -%}
+    {% set attributes = attributes + attr.key %}
+    {%- if attr.val -%}
+      {% set attributes = attributes + "=" + attr.val %}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
 {#- Define common attributes that we can use across all element types #}
-{%- set commonAttributes %} class="{{ classNames }}" {%- if params.id %}id="{{ params.id }}"{% endif -%} {% endset -%}
+{%- set commonAttributes %} {{ attributes }} class="{{ classNames }}" {%- if params.id %}id="{{ params.id }}"{% endif -%} {% endset -%}
 
 
 <a {{ commonAttributes | safe }} href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%}>

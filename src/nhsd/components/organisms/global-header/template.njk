@@ -1,7 +1,8 @@
 {#- Import atom macros -#}
 {%- from "../../../njk/macros/atoms.njk" import
   nhsd_a_icon_link,
-  nhsd_a_horizontal_rule
+  nhsd_a_horizontal_rule,
+  nhsd_a_image
 -%}
 
 {#- Import molecule macros -#}
@@ -76,8 +77,44 @@
               </div>
             </div>
           {%- endif -%}
-          <div class="nhsd-o-global-header__mega-menu">test</div>
         </div>
+        {% if params.megaMenus %}
+            <div class="nhsd-o-global-header__mega-menu">
+              <div class="nhsd-o-global-header__mega-menu-buttons">
+                {{ nhsd_a_icon_link({
+                  mirrored: true,
+                  attributes: [{
+                    key: 'data-menu-open'
+                  }],
+                  classes: "nhsd-o-global-header__mega-menu-back-button",
+                  label: "Back",
+                  icon: {
+                    id: "arrow_left",
+                    classes: "nhsd-a-icon--size-m"
+                  }
+                }) }}
+                {{ nhsd_a_icon_link({
+                  attributes: [{
+                    key: 'data-mega-menu-close'
+                  }],
+                  classes: "nhsd-o-global-header__mega-menu-close-button",
+                  label: "Close menu",
+                  icon: {
+                    id: "x_circled",
+                    classes: "nhsd-a-icon--size-m"
+                  }
+                }) }}
+              </div>
+              {% for menu in params.megaMenus -%}
+                <div class="nhsd-o-global-header__mega-menu-content" id="{{ menu.id }}">
+                  {{ nhsd_m_menu_bar(menu) }}
+                  <div class="nhsd-o-global-header__mega-menu-image">
+                    {{ nhsd_a_image(menu.image) }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
       </div>
     </div>
   </div>
