@@ -1,4 +1,5 @@
 // Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Private members
@@ -6,6 +7,7 @@ $-root: ".nhsd-a-logo";
 
 #{$-root} {
   display: block;
+  fill: nhsd-colours.get('blue');
 
   &--fit {
     @include nhsd-utils.box-sizing;
@@ -14,5 +16,9 @@ $-root: ".nhsd-a-logo";
     height: auto;
     max-height: 100%;
     margin: 0;
+  }
+
+  &--black {
+    fill: nhsd-colours.get('black');
   }
 }
