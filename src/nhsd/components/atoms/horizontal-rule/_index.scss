@@ -34,4 +34,8 @@ $-root: ".nhsd-a-horizontal-rule";
   &--size-l {
     margin: nhsd-spacing.get(8) 0;
   }
+
+  &--black-band {
+    border: 1rem solid nhsd-colours.get("black");
+  }
 }

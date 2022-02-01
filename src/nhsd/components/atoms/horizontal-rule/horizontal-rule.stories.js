@@ -91,3 +91,16 @@ LargeComponent.parameters = {
     },
   },
 };
+
+export const BlackBandComponent = Template.bind({});
+BlackBandComponent.storyName = 'Black band';
+BlackBandComponent.args = {
+  classes: 'nhsd-a-horizontal-rule--black-band',
+};
+BlackBandComponent.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${BlackBandComponent(BlackBandComponent.args)}`,
+    },
+  },
+};

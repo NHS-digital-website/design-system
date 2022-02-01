@@ -55,7 +55,6 @@ $-root: ".nhsd-o-global-header";
 #{$-root} {
   display: block;
   position: relative;
-  height: 102px;
   background: nhsd-colours.get("white");
   @include z-index.get('global-header');
 
@@ -97,6 +96,7 @@ $-root: ".nhsd-o-global-header";
       left: 0;
       width: 100%;
       height: 100%;
+      margin-top: -1px;
       background: nhsd-colours.get("white");
       @include z-index.get('mega-menu');
     }
@@ -138,7 +138,7 @@ $-root: ".nhsd-o-global-header";
   &__mega-menu {
     display: none;
     position: absolute;
-    top: 102px;
+    top: auto;
     right: nhsd-spacing.get(-7);
     left: nhsd-spacing.get(-7);
     background: nhsd-colours.get("blue");
@@ -211,14 +211,12 @@ $-root: ".nhsd-o-global-header";
     }
 
     @include mq($until: m) {
-      position: relative;
+      position: fixed;
       top: 0;
       right: 0;
       left: 0;
-      width: 100%;
-      max-width: 36rem;
-      margin: 0 auto;
-      padding: 50px 0 0;
+      margin: 0 nhsd-spacing.get(4);
+      padding: 152px 0 0;
       background: nhsd-colours.get("white");
       @include z-index.get('mega-menu-mobile');
 
@@ -230,8 +228,11 @@ $-root: ".nhsd-o-global-header";
 
   &__mega-menu-content {
     display: none;
+    max-width: 36rem;
+    margin: 0 auto;
 
     @include mq($from: m) {
+      max-width: 100%;
       padding-right: 50%;
       padding-bottom: nhsd-spacing.get(8);
       padding-left: nhsd-spacing.get(8);
@@ -260,8 +261,11 @@ $-root: ".nhsd-o-global-header";
     display: flex;
     position: relative;
     justify-content: space-between;
+    max-width: 36rem;
+    margin: 0 auto;
 
     @include mq($from: m) {
+      max-width: 100%;
       padding: nhsd-spacing.get(4) nhsd-spacing.get(8);
       padding-bottom: 0;
       justify-content: flex-end;
@@ -307,7 +311,7 @@ $-root: ".nhsd-o-global-header";
   .nhsd-t-row,
   .nhsd-t-col {
     position: relative;
-    height: 100%;
+    min-height: 102px;
   }
 
   .nhsd-m-search-bar {
