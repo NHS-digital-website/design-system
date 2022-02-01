@@ -137,6 +137,15 @@ export default class NHSDDropDown {
     nhsd(this.componentEl).on('dropdown-set-items.dropdown', (e) => {
       if (e.detail) this.#setItems(e.detail);
     });
+
+    nhsd(this.componentEl).on('dropdown-set-content.dropdown', (e) => {
+      if (e.detail) this.#setContent(e.detail);
+    });
+  }
+
+  #setContent(content) {
+    if (!this.dropdownContainer) return;
+    this.dropdownContainer.innerHTML(content);
   }
 
   #setItems(items) {
