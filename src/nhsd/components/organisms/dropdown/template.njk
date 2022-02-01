@@ -35,7 +35,7 @@
         searchIcon: params.searchIcon,
         clearIcon: params.clearIcon
       }) }}
-    {%- elseif params.demoType == "filter-search" -%}
+    {%- elseif params.demoType == "filter-search" or  params.demoType == "custom-dropdown" -%}
       {{ nhsd_m_search_bar({
         inputId: 'search-filter-input',
         classes: 'nhsd-m-search-bar__full-width nhsd-m-search-bar__small',

@@ -223,6 +223,36 @@ SearchFilterMenu.parameters = {
   },
 };
 
+export const CustomDropdown = Template.bind({});
+CustomDropdown.storyName = 'Custom Dropdown';
+CustomDropdown.args = {
+  id: 'customDropdown',
+  demoType: 'custom-dropdown',
+  classes: 'nhsd-o-dropdown--full-width',
+  checkbox: true,
+  searchIcon: {
+    svgSource: nhsdIcon('search'),
+    classes: 'nhsd-a-icon--size-s',
+  },
+  clearIcon: {
+    svgSource: nhsdIcon('x'),
+    classes: 'nhsd-a-icon--size-s',
+  },
+};
+CustomDropdown.parameters = {
+  backgrounds: {
+    default: 'dim',
+  },
+  docs: {
+    description: {
+      story: 'Where additional flexiblity is needed custom dropdown content can be inserted into the dropdown menu using, \`dropdown-set-items()\'',
+    },
+    source: {
+      code: `${sourceCode}\n${CustomDropdown(CustomDropdown.args)}`,
+    },
+  },
+};
+
 export const RightAligned = Template.bind({});
 RightAligned.storyName = 'Right aligned';
 RightAligned.args = {
