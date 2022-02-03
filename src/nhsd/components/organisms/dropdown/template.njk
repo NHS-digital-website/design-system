@@ -1,5 +1,5 @@
 {#- Import atom macros -#}
-{%- from "../../../njk/macros/atoms.njk" import nhsd_a_link, nhsd_a_button -%}
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_link, nhsd_a_button, nhsd_a_icon -%}
 
 {#- Import molecules macros -#}
 {%- from "../../../njk/macros/molecules.njk" import nhsd_m_search_bar -%}
@@ -14,11 +14,11 @@
 {%- if params.attributes -%}
   {%- set attributes =  "" -%}
   {%- for attr, val in params.attributes %}
-    {%- set attributes = attributes + " " + attr + "=" + val -%}
+    {%- set attributes = attributes + " " + attr + "=\"" + val + "\"" -%}
   {%- endfor -%}
 {%- endif -%}
 
-<div class="{{ classNames }}" id="{{ params.id }}" {{ attributes }}>
+<div class="{{ classNames }}" id="{{ params.id }}" {{ attributes | safe }}>
   <div class="{{ baseClass }}__input">
     {%- if params.demoType == "button-menu" -%}
       {{ nhsd_a_button(params.button) }}
@@ -37,7 +37,7 @@
       }) }}
     {%- elseif params.demoType == "filter-search" or  params.demoType == "custom-dropdown" -%}
       {{ nhsd_m_search_bar({
-        inputId: 'search-filter-input',
+        inputId: params.id + '-input',
         classes: 'nhsd-m-search-bar__full-width nhsd-m-search-bar__small',
         inputAttributes: {
           'role': 'combobox',
@@ -88,13 +88,11 @@ nhsd('#autocomplete-text-query').on(['input', 'click'], e => {
   }
 });
 </script>
-{%- endif -%}
-
-{%- if params.demoType == "filter-search" -%}
+{%- elseif params.demoType == "filter-search" -%}
 <script>
 var filters = ["Data publications", "Data sets", "Published work chapters", "News", "Information requests", "Cyber alerts", "2021", "2020", "2019", "2018", "2017", "2016", "Data and information", "Health and Social Care", "National Health Service", "Primary care", "Dental practice", "Dental treatment"];
-nhsd('#search-filter-input').on(['input', 'click'], e => {
-  var searchText = document.querySelector('#search-filter-input').value;
+nhsd('#{{ params.id }}-input').on(['input', 'click'], e => {
+  var searchText = document.querySelector('#{{ params.id }}-input').value;
   var filteredFilters = filters.filter(i => i.toLowerCase().indexOf(searchText.toLowerCase()) >= 0);
 
   if (searchText.length > 0 && filteredFilters.length > 0) {
@@ -119,4 +117,90 @@ nhsd('#{{ params.id }}').on('dropdown-selection', (e, selected) => {
   checked[selected.name] = selected.checked;
 });
 </script>
-{%- endif -%}
+{%- elseif params.demoType == "custom-dropdown" -%}
+<script>
+const people = [{
+  name: "Firstname Lastname",
+  role: "Job title",
+}, {
+  name: "Person 1",
+  role: "Role",
+}, {
+  name: "Person 2",
+  role: "Person role",
+}, {
+  name: "Example Person",
+  role: "Job title",
+}];
+const documents = [{
+  name: "General Document",
+  year: 2020,
+}, {
+  name: "Publication 1",
+  year: 2021,
+}, {
+  name: "Publication 2",
+  year: 2019,
+}, {
+  name: "News",
+  year: 2020,
+}];
+nhsd('#{{ params.id }}').on(['input', 'click'], e => {
+  let searchText = document.querySelector('#{{ params.id }}-input').value;
+
+  let filteredPeople = people.filter(i => i.name.toLowerCase().indexOf(searchText.toLowerCase()) >= 0);
+  let filteredDocuments = documents.filter(i => i.name.toLowerCase().indexOf(searchText.toLowerCase()) >= 0);
+
+  if (searchText.length > 0 && (filteredPeople.length > 0 || filteredDocuments.length > 0)) {
+    let dropdownContent = '';
+    if (filteredPeople.length > 0) {
+      dropdownContent += `<div class="nhsd-t-heading-xs nhsd-!t-padding-2 nhsd-!t-padding-left-4 nhsd-!t-margin-2 nhsd-!t-margin-top-0 nhsd-!t-bg-pale-grey nhsd-t-round">People</div>
+        <ul>
+          ${filteredPeople.map(person => `<li>
+              <button class="nhsd-!t-flex" data-dropdown-search-value="${person.name}">
+                <div class="nhsd-!t-margin-right-xs-1 nhsd-!t-margin-right-s-1 nhsd-!t-margin-right-1">{{ nhsd_a_icon({ id: 'user_icon', classes: 'nhsd-a-icon--size-xs nhsd-!t-margin-right-2'}) }}</div>
+                <div>
+                  <div class="nhsd-t-heading-xs nhsd-!t-margin-0">${person.name}</div>
+                  <div>${person.role}</div>
+                </div>
+              </button>
+              </li>`
+            ).reduce((v, acc) => acc + v, '')}
+        </ul>
+      </div>`;
+    }
+
+    if (filteredDocuments.length > 0 && filteredPeople.length > 0) {
+      dropdownContent += '<hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-top-0" />';
+    }
+
+    if (filteredDocuments.length > 0) {
+      dropdownContent += `<div class="nhsd-t-heading-xs nhsd-!t-padding-2 nhsd-!t-padding-left-4 nhsd-!t-margin-2 nhsd-!t-margin-top-0 nhsd-!t-bg-pale-grey nhsd-t-round">Documents</div>
+        <ul>
+          ${filteredDocuments.map(document => `<li>
+              <button class="nhsd-!t-flex" data-dropdown-search-value="${document.name}">
+                <div class="nhsd-!t-margin-right-xs-1 nhsd-!t-margin-right-s-1 nhsd-!t-margin-right-1">{{ nhsd_a_icon({ id: 'document', classes: 'nhsd-a-icon--size-xs nhsd-!t-margin-right-2'}) }}</div>
+                <div>
+                  <div class="nhsd-t-heading-xs nhsd-!t-margin-0">${document.name}</div>
+                  <div>${document.year}</div>
+                </div>
+              </button>
+              </li>`
+            ).reduce((v, acc) => acc + v, '')}
+        </ul>
+      </div>`;
+    }
+
+    nhsd('#{{ params.id }}').trigger('dropdown-set-content', dropdownContent);
+    nhsd('#{{ params.id }}').trigger('dropdown-open');
+  } else {
+    nhsd('#{{ params.id }}').trigger('dropdown-close');
+  }
+});
+nhsd('#{{ params.id }}').on('dropdown-selection', (e, selected) => {
+  document.querySelector('#{{ params.id }}-input').value = selected.dataset.dropdownSearchValue;
+  nhsd('#{{ params.id }}').trigger('dropdown-close');
+  return false;
+});
+</script>
+{%- endif -%} 

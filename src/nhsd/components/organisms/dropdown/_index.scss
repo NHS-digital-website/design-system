@@ -35,6 +35,8 @@ $-root: ".nhsd-o-dropdown";
     top: 100%;
     width: 100%;
     max-height: 300px;
+    max-height: var(--dropdown-height, 300px);
+
     @include nhsd-spacing.set-responsive('margin-top', 2);
     padding: nhsd-spacing.get(2) 0;
     overflow: auto;
@@ -85,8 +87,15 @@ $-root: ".nhsd-o-dropdown";
 
           &:hover,
           &:focus {
-            color: nhsd-colours.get("white");
-            background: nhsd-colours.get("blue");
+            &,
+            [class^="nhsd-t-heading"] {
+              color: nhsd-colours.get("white");
+              background: nhsd-colours.get("blue");
+            }
+
+            svg {
+              fill: nhsd-colours.get("white");
+            }
           }
         }
       }

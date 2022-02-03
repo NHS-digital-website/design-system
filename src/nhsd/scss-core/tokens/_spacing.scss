@@ -74,12 +74,6 @@ $-dirs: top, right, bottom, left;
     $i: $i + 1;
     #{$-root}\!t-#{$prop}-#{$i} {
       #{$prop}: get($i) !important;
-
-      @if $i > 0 {
-        @include mq($until: s) {
-          #{$prop}: get($i - 1) !important;
-        }
-      }
     }
 
     // Responsive
@@ -90,7 +84,11 @@ $-dirs: top, right, bottom, left;
         }
       }
     }
+  }
 
+  $i: -1;
+  @each $step in $-steps {
+    $i: $i + 1;
     @each $dir in $-dirs {
       #{$-root}\!t-#{$prop}-#{$dir}-#{$i} {
         #{$prop}-#{$dir}: get($i) !important;
