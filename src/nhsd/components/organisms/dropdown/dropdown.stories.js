@@ -49,6 +49,7 @@ Or triggered: \`nhsd('#button-menu1').trigger('dropdown-open')\`
 | dropdown-close       | none        | Closes dropdown             |
 | dropdown-toggle      | none        | Toggles open/close state    |
 | dropdown-set-items   | object      | Sets dropdown items         |
+| dropdown-set-content | String      | Sets dropdown content       |
 
 ### Data attributes
 
@@ -58,6 +59,16 @@ Or triggered: \`nhsd('#button-menu1').trigger('dropdown-open')\`
 | data-dropdown-close       | dropdown id        | Closes dropdown. An ID can be provided as value if applied outside dropdown component                 |
 | data-dropdown-toggle      | dropdown id        | Toggles open/close state. An ID can be provided as value if applied outside dropdown component        |
 | data-dropdown-auto-close  | "true", "false"    | Applied to base class to enable / disable auto close on click. If not provided will default to true   |
+
+### Styling variables
+
+Styling variables are CSS variables which can be defined via the \`style\` attribute on the root component node.
+Eg, \`<div class="nhsd-o-dropdown" style="--dropdown-height: 400px">\`
+
+| Attribute                 | Args               | Description                                                                                           |
+| :---                      | :---               | :---                                                                                                  |
+| --dropdown-height         | height units       | Sets dropdown max height       |
+
 `;
 
 const sourceCode = `// Sass import \n@use "nhsd/components/organism/dropdown";
@@ -237,6 +248,9 @@ CustomDropdown.args = {
   clearIcon: {
     svgSource: nhsdIcon('x'),
     classes: 'nhsd-a-icon--size-s',
+  },
+  attributes: {
+    style: '--dropdown-height: 350px',
   },
 };
 CustomDropdown.parameters = {

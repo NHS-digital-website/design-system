@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important
+
 // Settings
 @use "scss-core/settings/media-queries" as *;
 
@@ -9,11 +11,19 @@ $-device-breakpoints: (xs,s,m,l,xl);
 
 // Private members
 $-root: ".nhsd-t-flex";
+$-root-override: ".nhsd-\\!t-flex";
 
 @mixin flex($mq: '') {
   #{$-root}#{$mq} {
     display: flex;
+  }
 
+  #{$-root-override}#{$mq} {
+    display: flex !important;
+  }
+
+  #{$-root}#{$mq},
+  #{$-root-override}#{$mq} {
     &--reverse {
       flex-direction: row-reverse;
     }
