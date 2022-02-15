@@ -14,11 +14,14 @@ export default class NHSDGlobalHeader {
     this.searchInput = this.hostEl.querySelector('#query');
     this.megaMenu = this.hostEl.querySelector('.nhsd-o-global-header__mega-menu');
     this.menuBarActive = false;
-    this.focusTrapper = new FocusTrapper(this.megaMenu);
 
     this.initMenuBar();
     this.initSearchBar();
-    this.#initMegaMenu();
+
+    if (this.megaMenu) {
+      this.focusTrapper = new FocusTrapper(this.megaMenu);
+      this.#initMegaMenu();
+    }
   }
 
   #openMegaMenu(menuId) {
@@ -39,12 +42,19 @@ export default class NHSDGlobalHeader {
   }
 
   #closeMegaMenu() {
+    if (!this.megaMenu) return;
+
     this.hostEl.classList.remove('nhsd-o-global-header--mega-menu-active');
     const megaMenuButtons = document.querySelectorAll('.nhsd-a-menu-item');
-    megaMenuButtons.forEach((megaMenuButton) => megaMenuButton.classList.remove('nhsd-a-menu-item--active'));
+    if (megaMenuButtons) {
+      megaMenuButtons.forEach((megaMenuButton) => megaMenuButton.classList.remove('nhsd-a-menu-item--active'));
+    }
+
     scrollLock(false, 'mobile');
 
     const megaMenuContentEls = this.megaMenu.querySelectorAll('.nhsd-o-global-header__mega-menu-content--active');
+    if (!megaMenuContentEls) return;
+
     megaMenuContentEls.forEach((megaMenuContentEl) => megaMenuContentEl.classList.remove('nhsd-o-global-header__mega-menu-content--active'));
 
     if (megaMenuContentEls.length > 0 && megaMenuContentEls[0].id) {
