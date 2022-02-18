@@ -68,8 +68,8 @@ $-root: ".nhsd-o-dropdown";
           border: none;
         }
 
-        a,
-        button {
+        a:not(.nhsd-a-link),
+        button:not(.nhsd-a-button) {
           @extend %body-base;
 
           display: block;

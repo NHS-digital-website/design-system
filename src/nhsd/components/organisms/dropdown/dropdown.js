@@ -89,7 +89,6 @@ export default class NHSDDropDown {
     const menuItems = Array.from(this.dropdownContainer.querySelectorAll('a, button, input'));
     nhsd(menuItems).unbind('click.dropdown').on('click.dropdown', (e) => nhsd(this.componentEl).trigger('dropdown-selection', e.currentTarget));
     nhsd(this.componentEl).unbind('dropdown-selection.dropdown').on('dropdown-selection.dropdown', (e, selected) => {
-      console.log('testing2');
       if (selected.nodeName === 'INPUT') return;
       const searchInput = this.componentEl.querySelector('.nhsd-o-dropdown__input .nhsd-m-search-bar input');
       if (!searchInput) return;
