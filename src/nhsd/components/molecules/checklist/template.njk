@@ -1,9 +1,5 @@
 {#- Import atom macros -#}
-{%- from "../../../njk/macros/atoms.njk" import
-  nhsd_a_icon,
-  nhsd_a_box_start,
-  nhsd_a_box_end
--%}
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_icon -%}
 
 {#- Set classes -#}
 {% set classNames = "nhsd-m-checklist" %}
@@ -19,7 +15,7 @@
 {% endif %}
 
 {#- Set list container class -#}
-{% set listContainerClass = 'nhsd-m-checklist__list-container no-heading' %}
+{% set listContainerClass = 'nhsd-m-checklist__list-container nhsd-m-checklist__list-container--no-heading' %}
 {% if params.heading %}
   {% set listContainerClass = 'nhsd-m-checklist__list-container' %}
 {% endif %}
@@ -32,32 +28,30 @@
 {% endif %}
 
 <div class="{{ classNames }}">
-  {{ nhsd_a_box_start('nhsd-a-box--border-grey') }}
-    {% if params.heading %}
-      <span class="nhsd-t-heading-s nhsd-!t-col-white nhsd-m-checklist__header">
-        {{ params.heading }}
-      </span>
-    {% endif %}
-    <div class="{{ listContainerClass }}">
-      <ul class="{{listClass}} nhsd-!t-margin-bottom-0">
-        {% for item in params.list %}
-          {% if params.iconType == 'custom' %}
+  {% if params.heading %}
+    <span class="nhsd-t-heading-s nhsd-!t-col-white nhsd-m-checklist__header">
+      {{ params.heading }}
+    </span>
+  {% endif %}
+  <div class="{{ listContainerClass }}">
+    <ul class="{{listClass}} nhsd-!t-margin-bottom-0">
+      {% for item in params.list %}
+        {% if params.iconType == 'custom' %}
+          <li class="nhsd-m-checklist__icon-list">
+            <span class="nhsd-m-checklist__icon">{{ nhsd_a_icon({ svgSource: params.customIcon.svgSource, classes: 'nhsd-a-icon--size-xs ' + params.customIcon.classes }) }}</span>
+            <span>{{ item }}</span>
+          </li>
+        {% else %}
+          {% if params.iconType == 'bullet' %}
+            <li class="nhsd-m-checklist__list">{{ item }}</li>
+          {% else %}
             <li class="nhsd-m-checklist__icon-list">
-              <span class="nhsd-m-checklist__icon">{{ nhsd_a_icon({ svgSource: params.customIcon.svgSource, classes: 'nhsd-a-icon--size-xs ' + params.customIcon.classes }) }}</span>
+              <span class="nhsd-m-checklist__icon">{{ nhsd_a_icon({ svgSource: params.icon.svgSource, classes: 'nhsd-a-icon--size-xs ' + iconColour }) }}</span>
               <span>{{ item }}</span>
             </li>
-          {% else %}
-            {% if params.iconType == 'bullet' %}
-              <li class="nhsd-m-checklist__list">{{ item }}</li>
-            {% else %}
-              <li class="nhsd-m-checklist__icon-list">
-                <span class="nhsd-m-checklist__icon">{{ nhsd_a_icon({ svgSource: params.icon.svgSource, classes: 'nhsd-a-icon--size-xs ' + iconColour }) }}</span>
-                <span>{{ item }}</span>
-              </li>
-            {% endif %}
           {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  {{ nhsd_a_box_end() }}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 // Settings
-@use "scss-core/settings/media-queries" as *;
+@use "scss-core/settings/vars";
 
 // Tokens
 @use "scss-core/tokens/spacing" as nhsd-spacing;
@@ -9,18 +9,22 @@
 $-root: ".nhsd-m-checklist";
 
 #{$-root} {
-  &__list-container {
-    padding-top: nhsd-spacing.get(7);
+  border-radius: vars.$border-radius;
+  color: nhsd-colours.get("black");
+  background: nhsd-colours.get("white");
+  box-shadow: inset 0 0 0 2px nhsd-colours.get("mid-grey-20-tint");
 
-    &.no-heading {
-      padding-top: nhsd-spacing.get(1);
+  &__list-container {
+    padding: nhsd-spacing.get(2) nhsd-spacing.get(4);
+
+    &--no-heading {
+      padding: nhsd-spacing.get(4);
     }
   }
 
   &__header {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: inline-block;
+    margin: 0;
     padding: nhsd-spacing.get(2) nhsd-spacing.get(4);
     border-radius: nhsd-spacing.get(1) 0 nhsd-spacing.get(1) 0;
     color: nhsd-colours.get('white');
