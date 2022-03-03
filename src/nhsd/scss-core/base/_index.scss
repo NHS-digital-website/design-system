@@ -2,6 +2,7 @@
 @use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
 
 body,
 html {
@@ -20,10 +21,26 @@ html {
 
 iframe {
   border: none;
+  background: nhsd-colours.get("white");
 }
 
 figure {
+  display: flex;
+  flex-direction: column;
   margin: 0;
+
+  * {
+    flex: 1;
+  }
+
+  figcaption {
+    border-top: 1px solid nhsd-colours.get("white");
+    color: nhsd-colours.get("black");
+    background: nhsd-colours.get("pale-grey");
+    @include nhsd-spacing.set-responsive("padding", 2);
+    flex: 0;
+    font-size: .9rem;
+  }
 }
 
 * {
