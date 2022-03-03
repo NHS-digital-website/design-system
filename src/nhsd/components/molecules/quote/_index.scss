@@ -16,7 +16,11 @@ $-box-padding: 1.111rem;
   position: relative;
 
   &__meta {
+    padding: 0;
+    border: none;
     color: nhsd-colours.get("dark-grey");
+    background: none;
+    font-size: 1rem;
   }
 
   .nhsd-a-icon {
