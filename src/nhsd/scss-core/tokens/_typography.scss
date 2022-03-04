@@ -36,6 +36,10 @@ $-root: ".nhsd-t";
   margin: 0 auto nhsd-spacing.get(3);
   font-size: 1rem;
 
+  &:last-child {
+    margin: 0 auto;
+  }
+
   a {
     line-height: 1.63;
   }
