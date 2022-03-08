@@ -258,7 +258,8 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     }
   }
 
-  &--image {
+  &--image,
+  &--image-mirrored {
     display: grid;
     grid-template-columns: 50% 50%;
 
@@ -305,6 +306,22 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
       #{$-root}__content-container {
         padding: 0 calc((100% - #{map.get(vars.$content-width, xs)}) / 2);
         grid-row: 2;
+      }
+    }
+  }
+
+  &--image-mirrored {
+    #{$-root}__image-container {
+      grid-column: 1;
+    }
+
+    #{$-root}__content-container {
+      grid-column: 2;
+    }
+
+    @include mq($until: s) {
+      #{$-root}__content-container {
+        grid-column: 1;
       }
     }
   }
