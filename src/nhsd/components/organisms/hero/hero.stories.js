@@ -409,6 +409,39 @@ ImageHeroBanner.parameters = {
   },
 };
 
+export const ImageHeroBannerMirrored = Template.bind({});
+ImageHeroBannerMirrored.storyName = 'Image Hero (Mirrored)';
+ImageHeroBannerMirrored.args = {
+  classes: 'nhsd-o-hero--image-mirrored nhsd-!t-bg-grad-black nhsd-o-hero--light-text nhsd-o-hero--left-align',
+  title: {
+    label: 'Data and technology that improves lives',
+    classes: 'nhsd-t-heading-xxl',
+  },
+  text: {
+    label: 'We deliver world-class technology and data intelligence for the NHS, supporting healthcare professionals  and empowering patients. At NHS Digital we’re helping the NHS frontline face the challenges of the coronavirus (COVID-19) outbreak with systems, services and data. From prioritising patients to protecting the most vulnerable.',
+    classes: 'nhsd-t-body nhsd-!t-margin-bottom-6',
+  },
+  button: {
+    el: 'a',
+    label: 'About NHS Digital',
+    href: '#',
+    classes: 'nhsd-!t-margin-bottom-0',
+  },
+  image: {
+    ariaHidden: true,
+    src: bannerImage,
+    classes: 'nhsd-a-image--position-right',
+    alt: 'Abstract lights',
+  },
+};
+ImageHeroBannerMirrored.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${ImageHeroBannerMirrored(ImageHeroBannerMirrored.args)}`,
+    },
+  },
+};
+
 export const ImageHero = Template.bind({});
 ImageHero.storyName = 'Accented Image Hero';
 ImageHero.args = {
