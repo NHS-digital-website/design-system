@@ -233,7 +233,7 @@ $-root: ".nhsd-t";
 
     &--bullet,
     &--number {
-      margin-left: 1rem;
+      padding-inline-start: 20px;
 
       li {
         padding-left: .5rem;

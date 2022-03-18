@@ -10,7 +10,7 @@
 @use "scss-core/tokens/typography" as nhsd-typography;
 
 $-checkbox-border-size: 2px;
-$-outline-size: 10px;
+$-outline-size: 8px;
 
 // Default Checkboxes
 $-checkbox-size: 25px;
@@ -72,28 +72,36 @@ $-root: ".nhsd-a-checkbox";
     left: 0;
     width: $-checkbox-size;
     height: $-checkbox-size;
-    border: $-checkbox-border-size solid nhsd-colours.get("dark-grey");
-    border-radius: 5px;
-    background: nhsd-colours.get("white");
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: $-checkbox-border-size solid nhsd-colours.get("dark-grey");
+      border-radius: 5px;
+      background: nhsd-colours.get("white");
+    }
   }
 
   label:hover {
-    .checkmark:before {
-      content: "";
-      display: block;
-      position: absolute;
-      z-index: -1;
-      top: -$-outline-size - $-checkbox-border-size;
-      left: -$-outline-size - $-checkbox-border-size;
-      width: #{$-checkbox-size + ($-outline-size * 2)};
-      height: #{$-checkbox-size + ($-outline-size * 2)};
-      border-radius: 2px;
-      background-color: nhsd-colours.get("mid-grey-20-tint");
+    .checkmark {
+      outline: $-outline-size solid nhsd-colours.get("mid-grey-20-tint");
+      background: nhsd-colours.get("mid-grey-20-tint");
+    }
+
+    input:disabled {
+      ~ .checkmark {
+        outline: none;
+        background: none;
+      }
     }
   }
 
   input:focus {
-    ~ .checkmark {
+    ~ .checkmark:before {
       box-shadow: 0 0 0 2px nhsd-colours.get("yellow");
     }
   }
@@ -103,8 +111,8 @@ $-root: ".nhsd-a-checkbox";
       content: '';
       display: block;
       position: absolute;
-      top: 1px;
-      left: 7px;
+      top: 3px;
+      left: 9px;
       width: math.floor($-check-size / 2);
       height: $-check-size;
       -webkit-transform: rotate(45deg);
@@ -126,8 +134,8 @@ $-root: ".nhsd-a-checkbox";
 
     &:checked {
       ~ .checkmark:after {
-        top: 3px;
-        left: 3px;
+        top: 5px;
+        left: 5px;
         width: $-check-size;
         height: $-check-size;
         border: none;
@@ -146,10 +154,11 @@ $-root: ".nhsd-a-checkbox";
     }
 
     ~ .checkmark {
-      border-color: nhsd-colours.get("mid-grey-20-tint");
-
-      &:after,
       &:before {
+        border-color: nhsd-colours.get("mid-grey-20-tint");
+      }
+
+      &:after {
         content: none;
       }
     }
@@ -163,13 +172,6 @@ $-root: ".nhsd-a-checkbox";
     label {
       min-height: $-checkbox-size-s;
       padding-left: #{$-checkbox-size-s + $-outline-size + $-checkbox-border-size};
-
-      &:hover {
-        .checkmark:before {
-          width: #{$-checkbox-size-s + ($-outline-size * 2)};
-          height: #{$-checkbox-size-s + ($-outline-size * 2)};
-        }
-      }
     }
 
     input,
@@ -180,7 +182,7 @@ $-root: ".nhsd-a-checkbox";
 
     input:checked {
       ~ .checkmark:after {
-        left: 5px;
+        left: 7px;
         width: math.floor($-check-size-s / 2);
         height: $-check-size-s;
       }
@@ -188,8 +190,8 @@ $-root: ".nhsd-a-checkbox";
 
     input[type="radio"]:checked {
       ~ .checkmark:after {
-        top: 2px;
-        left: 2px;
+        top: 4px;
+        left: 4px;
         width: $-check-size-s;
         height: $-check-size-s;
       }
@@ -204,13 +206,6 @@ $-root: ".nhsd-a-checkbox";
     label {
       min-height: $-checkbox-size-l;
       padding-left: #{$-checkbox-size-l + $-outline-size + $-checkbox-border-size};
-
-      &:hover {
-        .checkmark:before {
-          width: #{$-checkbox-size-l + ($-outline-size * 2)};
-          height: #{$-checkbox-size-l + ($-outline-size * 2)};
-        }
-      }
     }
 
     input,
@@ -221,8 +216,8 @@ $-root: ".nhsd-a-checkbox";
 
     input:checked {
       ~ .checkmark:after {
-        top: 2px;
-        left: 10px;
+        top: 3px;
+        left: 12px;
         width: math.floor($-check-size-l / 2);
         height: $-check-size-l;
         border-width: 0 3px 3px 0;
@@ -231,8 +226,8 @@ $-root: ".nhsd-a-checkbox";
 
     input[type="radio"]:checked {
       ~ .checkmark:after {
-        top: 4px;
-        left: 4px;
+        top: 6px;
+        left: 6px;
         width: $-check-size-l;
         height: $-check-size-l;
       }
