@@ -99,15 +99,17 @@
       {% endif -%}
     </div>
 
+    {%- if params.button or params.arrowIcon -%}
     <div class="nhsd-m-card__button-box">
       {%- if params.button -%}
         {{ nhsd_a_button(params.button) }}
-        {%- endif -%}
+      {%- endif -%}
 
-        {%- if params.arrowIcon -%}
+      {%- if params.arrowIcon -%}
         {{ nhsd_a_icon(params.arrowIcon) }}
-        {%- endif -%}
+      {%- endif -%}
     </div>
+    {%- endif -%}
 
     {% if params.downloadCards %}
       {% for card in params.downloadCards %}

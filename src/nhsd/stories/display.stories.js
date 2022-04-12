@@ -70,6 +70,24 @@ ResponsiveShowHideComponent.parameters = {
   },
 };
 
+export const ShowHideJSComponent = () => `<div><button class="nhsd-a-button" data-toggle="ShowHideContent" aria-controls="ShowHideContent" aria-expanded="true">Toggle Content</button>
+<button class="nhsd-a-button" data-show="ShowHideContent" aria-controls="ShowHideContent" aria-expanded="true">Show Content</button>
+<button class="nhsd-a-button" data-hide="ShowHideContent" aria-controls="ShowHideContent" aria-expanded="true">Hide Content</button></div>
+<div class="nhsd-!t-margin-top-2" id="ShowHideContent"><img class="nhsd-a-image" src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg" alt="2 scientists testing in a laboratory"></div>`;
+ShowHideJSComponent.storyName = 'Toggle Show / hide content';
+ShowHideJSComponent.parameters = {
+  docs: {
+    description: {
+      story: `- The show / hide display tokens can be applied automatically via the \`data-hide\`, \`data-show\` and \`data-toggle\` attributes.
+- To use these attributes simply create a button and reference the target content's element ID in the value of the data attribute.
+- When used with \`aria-controls\` the value of \`aria-expanded\` will be updated automattically.`,
+    },
+    source: {
+      code: `${sourceCode}\n${ShowHideJSComponent()}`,
+    },
+  },
+};
+
 export const StickyComponent = () => `<div class="nhsd-t-grid nhsd-t-grid--debug">
   <div class="nhsd-t-row">
     <div class="nhsd-t-col-12 nhsd-!t-font-weight-bold nhsd-!t-col-white nhsd-!t-bg-dark-grey">Sticky content</div>

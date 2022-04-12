@@ -1,4 +1,6 @@
 /* global document */
+
+// Components
 import NHSDGlobalHeader from '../components/organisms/global-header/global-header';
 import NHSDCodeViewer from '../components/organisms/code-viewer/code-viewer';
 import NHSDStickyNavigation from '../components/molecules/sticky-navigation/sticky-navigation';
@@ -11,6 +13,9 @@ import NHSDBreadcrumbs from '../components/molecules/breadcrumbs/breadcrumbs';
 import NHSDModal from '../components/molecules/modal/modal';
 import NHSDDropDown from '../components/organisms/dropdown/dropdown';
 import NHSDSearchBar from '../components/molecules/search-bar/search-bar';
+
+// Helpers
+import showHide from './helpers/show-hide';
 
 /* Ensure we don't double initalise any componets */
 const componentList = [];
@@ -32,6 +37,7 @@ function initComponent(selector, componentClass) {
 }
 
 export default function init() {
+    // Components
     initComponent('.nhsd-o-code-viewer', NHSDCodeViewer);
     initComponent('.nhsd-o-dropdown', NHSDDropDown);
     initComponent('.nhsd-o-global-header', NHSDGlobalHeader);
@@ -44,4 +50,7 @@ export default function init() {
     initComponent('.nhsd-m-table', NHSDTable);
     initComponent('.nhsd-m-tabs', NHSDTabs);
     initComponent('.nhsd-m-search-bar', NHSDSearchBar);
+
+    // Helpers
+    showHide();
 }

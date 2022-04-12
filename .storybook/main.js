@@ -67,10 +67,12 @@ module.exports = {
         configFile: path.resolve(__dirname, '../.stylelintrc.yml'),
         context: path.resolve(__dirname, '..'),
         files: 'src/nhsd/**/*.scss',
+        fix: true,
       }),
       new ESLintPlugin({
         context: path.resolve(__dirname, '..'),
         files: 'src/nhsd/**/*.js',
+        fix: true,
       }),
     );
 
