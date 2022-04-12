@@ -1,0 +1,68 @@
+{#- Set classes -#}
+{% set componentClassName = "nhsd-o-steps" %}
+{% set classNames = componentClassName %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<a class="nhsd-a-icon-link" href="#" data-toggle="steps steps-show-btn steps-hide-btn" aria-controls="steps" aria-expanded="true">
+  <span id="steps-show-btn" class="nhsd-!t-display-hide">
+    <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+      <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16" width="42%" height="42%" x="29%" y="29%"><path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"></path></svg>
+    </span>
+    <span id="steps-toggle" class="nhsd-a-icon-link__label">Show all steps</span>
+  </span>
+  <span id="steps-hide-btn">
+    <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+      <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16" width="42%" height="42%" x="29%" y="29%"><path d="M8,4l7,6.5L13.5,12L8,6.8L2.5,12L1,10.5L8,4z"></path></svg>
+    </span>
+    <span id="steps-toggle" class="nhsd-a-icon-link__label">Hide all steps</span>
+  </span>
+</a>
+
+<ol id="steps" class="{{ classNames }} nhsd-!t-margin-top-4">
+  {%- for step in params.steps -%}
+    <li class="{{ componentClassName }}__step">
+      <div class="nhsd-m-card">
+        <a href="#" class="nhsd-a-box-link nhsd-a-box-link--focus-orange" aria-labelledby="step-{{ loop.index }}-title">
+          <div class="nhsd-a-box nhsd-a-box--border-grey">
+            <div class="nhsd-m-card__content_container">
+              <div class="nhsd-m-card__content-box">
+                <span id="step-{{ loop.index }}-title" class="nhsd-t-heading-s">{{ step.title }}</span>
+                <p class="nhsd-t-body-s">{{ step.desc }}</p>
+              </div>
+              <div class="nhsd-m-card__button-box">
+                <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-xs">
+                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16"><path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {%- if step.substeps %}
+        <div class="nhsd-!t-margin-top-4 nhsd-!t-margin-left-4 nhsd-!t-margin-left-s-4">
+          <a class="nhsd-a-icon-link" href="#" data-toggle="step-{{ loop.index }}-substeps step-{{ loop.index }}-substeps-show-btn step-{{ loop.index }}-substeps-hide-btn" aria-controls="step-{{ loop.index }}-substeps" aria-expanded="true">
+            <span id="step-{{ loop.index }}-substeps-show-btn" class="nhsd-!t-display-hide">
+              <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16" width="42%" height="42%" x="29%" y="29%"><path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"></path></svg>
+              </span>
+              <span class="nhsd-a-icon-link__label">Show substeps</span>
+            </span>
+            <span id="step-{{ loop.index }}-substeps-hide-btn">
+              <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16" width="42%" height="42%" x="29%" y="29%"><path d="M8,4l7,6.5L13.5,12L8,6.8L2.5,12L1,10.5L8,4z"></path></svg>
+              </span>
+              <span class="nhsd-a-icon-link__label">Hide substeps</span>
+            </span>
+          </a>
+          <ol id="step-{{ loop.index }}-substeps" class="nhsd-!t-margin-top-2 {{componentClassName}}__substeps">
+            {%- for substep in step.substeps -%}
+              <li><a href="#">{{ substep.title }}</a></li>
+            {%- endfor -%}
+          </ol>
+        </div>
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ol>

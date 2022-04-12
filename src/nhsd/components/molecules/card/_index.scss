@@ -24,23 +24,28 @@ $-box-padding: 1.111rem;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    padding: $-box-padding $-box-padding 0;
   }
 
   &__content_container {
+    grid-row: 2;
+    grid-column: 1;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     justify-content: space-between;
     height: 100%;
+    padding: $-box-padding;
+
+    @include mq($until: s) {
+      grid-row: 2;
+    }
   }
 
   &__button-box {
-    padding: 0 $-box-padding $-box-padding;
+    font-size: 0;
   }
 
   &__download-card {
-    margin: nhsd-spacing.get(1) $-box-padding;
+    margin-top: $-box-padding;
 
     .nhsd-m-download-card {
       min-height: 0;
@@ -125,11 +130,15 @@ $-box-padding: 1.111rem;
   }
 
   .nhsd-a-box {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     height: 100%;
-    flex-direction: column;
-    flex: 1;
     padding: 0;
+    overflow: hidden;
+
+    @include mq($until: s) {
+      margin: 0;
+    }
 
     &--bg-dark-grey,
     &--bg-dark-green,
@@ -180,26 +189,35 @@ $-box-padding: 1.111rem;
     .nhsd-a-box {
       flex-direction: row-reverse;
       justify-content: space-between;
-      grid-template-columns: 1fr;
+      grid-template-columns: auto 66%;
+
+      @include mq($until: l) {
+        grid-template-columns: auto 55%;
+      }
 
       @include mq($until: s) {
-        display: grid;
-        grid-auto-rows: 1fr;
+        grid-template-columns: 100%;
+        grid-auto-rows: 1fr auto;
+      }
+    }
+
+    #{$-root}__content_container {
+      grid-row: 1;
+
+      @include mq($until: s) {
+        grid-row: 2;
       }
     }
 
     #{$-root}__image_container {
-      width: 66%;
+      grid-row: 1;
+      grid-column: 2;
       margin-left: nhsd-spacing.get(2);
       flex-shrink: 0;
 
-      @include mq($until: l) {
-        width: 55%;
-      }
-
       @include mq($until: s) {
-        width: 100%;
         margin: 0;
+        grid-column: 1;
       }
     }
   }
@@ -227,7 +245,7 @@ $-box-padding: 1.111rem;
     padding-bottom: 50px;
 
     #{$-root}__content_container {
-      padding-bottom: 50px;
+      padding-bottom: 70px;
     }
 
     #{$-root}__author {
