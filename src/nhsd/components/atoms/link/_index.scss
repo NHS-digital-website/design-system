@@ -12,7 +12,7 @@
 // Private members
 $-root: ".nhsd-a-link";
 
-#{$-root} {
+#{$-root}, a:not(a[class^="nhsd-"]) {
   @include nhsd-utils.box-sizing;
   @include nhsd-fonts.font-family;
 
@@ -43,7 +43,9 @@ $-root: ".nhsd-a-link";
     color: nhsd-colours.get("blue");
     background-color: transparent;
   }
+}
 
+#{$-root} {
   &--col-white {
     &,
     &:visited {

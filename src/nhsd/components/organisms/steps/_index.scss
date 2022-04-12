@@ -1,0 +1,88 @@
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+$key-size: 34px;
+
+// Private members
+$-root: ".nhsd-o-steps";
+
+#{$-root} {
+  margin: 0;
+  padding: 0;
+  counter-reset: steps;
+  list-style: none;
+
+  &__step {
+    position: relative;
+    padding-bottom: nhsd-spacing.get(5);
+    padding-left: #{nhsd-utils.px-to-rem($key-size) + nhsd-spacing.get(5)};
+    counter-increment: steps;
+
+    &:before {
+      content: counter(steps);
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $key-size;
+      height: $key-size;
+      border: 2px solid nhsd-colours.get("pale-grey");
+      border-radius: 50%;
+      color: nhsd-colours.get("mid-grey");
+      background: nhsd-colours.get("white");
+      font-size: .9rem;
+      font-weight: bold;
+      line-height: .9rem;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: #{$key-size + 5px};
+      bottom: 5px;
+      left: #{($key-size / 2) - 1px};
+      border-left: 2px solid nhsd-colours.get("pale-grey");
+    }
+
+    &:first-child {
+      #{$-root}__step-content {
+        margin-top: 0;
+      }
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+
+      #{$-root}__step-key {
+        margin-bottom: 0;
+      }
+
+      #{$-root}__step-content {
+        margin-bottom: 0;
+      }
+
+      &:after {
+        content: none;
+      }
+    }
+  }
+
+  &__substeps {
+    padding: 0;
+    counter-reset: substeps;
+    list-style: none;
+
+    li {
+      counter-increment: substeps;
+
+      &:before {
+        content: counter(steps) "."  counter(substeps) ".";
+        margin-right: nhsd-spacing.get(3);
+      }
+    }
+  }
+}
