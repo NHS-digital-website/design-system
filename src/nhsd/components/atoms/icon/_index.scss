@@ -19,6 +19,7 @@ $-sizes: (
   l: 30px,
   xl: 36px,
   xxl: 58px,
+  xxxl: 72px,
 );
 
 // TODO 2 - Define what colours we want to support
@@ -29,8 +30,8 @@ $-colours: "black", "dark-grey", "mid-grey", "white", "yellow", "blue", "red", "
 
   display: inline-block;
   position: relative;
-  max-width: map.get($-sizes, "xxl");
-  max-height: map.get($-sizes, "xxl");
+  max-width: map.get($-sizes, "xxxl");
+  max-height: map.get($-sizes, "xxxl");
 
   & > svg {
     display: block;

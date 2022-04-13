@@ -71,6 +71,7 @@ $-positions: (
     }
 
     img {
+      position: relative;
       object-fit: cover;
     }
   }
@@ -87,6 +88,15 @@ $-positions: (
     &--position-#{$-name} {
       img {
         object-position: #{$-value};
+      }
+    }
+  }
+
+  &--square,
+  &--4by3 {
+    #{$-root}__picture {
+      img {
+        position: absolute;
       }
     }
   }
