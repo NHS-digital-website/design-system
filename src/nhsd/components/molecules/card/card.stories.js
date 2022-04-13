@@ -230,7 +230,7 @@ ComponentVariant5.args = {
   },
   hexIcon: {
     classes: 'nhsd-a-icon--size-xxl nhsd-m-card__icon',
-    svgSource: nhsdIcon('chart'),
+    id: 'chart',
     nested: true,
   },
   arrowIcon: {
@@ -272,7 +272,7 @@ ComponentVariant6.args = {
     href: '#',
   },
   hexIcon: {
-    classes: 'nhsd-m-card__icon',
+    classes: 'nhsd-m-card__icon nhsd-a-icon--size-xl',
     svgSource: nhsdIcon('search'),
     nested: true,
   },
@@ -313,7 +313,7 @@ ComponentVariant9.args = {
     href: '#',
   },
   hexIcon: {
-    classes: 'nhsd-a-icon--col-black nhsd-m-card__icon',
+    classes: 'nhsd-a-icon--col-black nhsd-m-card__icon nhsd-a-icon--size-xl',
     svgSource: nhsdIcon('x'),
     nested: true,
   },
@@ -387,7 +387,7 @@ ComponentVariant10.args = {
     classes: 'nhsd-a-box-link--focus-orange',
   },
   hexIcon: {
-    classes: 'nhsd-a-icon--col-black nhsd-m-card__icon',
+    classes: 'nhsd-a-icon--col-black nhsd-m-card__icon nhsd-a-icon--size-xl',
     svgSource: nhsdIcon('arrow_right'),
     nested: true,
   },
