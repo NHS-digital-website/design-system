@@ -1,0 +1,47 @@
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+
+// Private members
+$-root: ".nhsd-t-svg";
+
+$states: 'hover', 'focus', 'active';
+
+#{$-root} {
+  @each $colourKey, $colourValue in nhsd-colours.$colours {
+    &--fill-#{$colourKey} {
+      fill: $colourValue;
+
+      svg {
+        fill: $colourValue;
+      }
+    }
+
+    @each $state in $states {
+      &--fill-#{$state}-#{$colourKey}:#{$state} {
+        fill: $colourValue;
+
+        svg {
+          fill: $colourValue;
+        }
+      }
+    }
+  }
+
+  &--fill {
+    fill: var(--nhsd-svg-fill);
+
+    svg {
+      fill: var(--nhsd-svg-fill);
+    }
+
+    @each $state in $states {
+      &-#{$state}:#{$state} {
+        fill: var(--nhsd-svg-fill-#{$state});
+
+        svg {
+          fill: var(--nhsd-svg-fill-#{$state});
+        }
+      }
+    }
+  }
+}

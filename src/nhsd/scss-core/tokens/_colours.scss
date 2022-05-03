@@ -5,7 +5,7 @@
 
 // Private members
 $-root: ".nhsd-";
-$-colours: (
+$colours: (
   "dark-blue": #003087,
   "accessible-blue": #004da8,
   "blue": #005bbb,
@@ -38,11 +38,11 @@ $-colours: (
   "white": #ffffff,
 );
 
-$-gradients: (
-  "grey": linear-gradient(135deg, map.get($-colours, "pale-grey-40-tint") 0%, map.get($-colours, "pale-grey") 40%),
-  "blue": linear-gradient(135deg, map.get($-colours, "bright-blue-10-tint") 0%, map.get($-colours, "bright-blue-20-tint") 40%),
-  "yellow": linear-gradient(135deg, map.get($-colours, "yellow-10-tint") 0%, map.get($-colours, "yellow-20-tint") 40%),
-  "black": linear-gradient(135deg, #383233 0%, map.get($-colours, "black") 40%),
+$gradients: (
+  "grey": linear-gradient(135deg, map.get($colours, "pale-grey-40-tint") 0%, map.get($colours, "pale-grey") 40%),
+  "blue": linear-gradient(135deg, map.get($colours, "bright-blue-10-tint") 0%, map.get($colours, "bright-blue-20-tint") 40%),
+  "yellow": linear-gradient(135deg, map.get($colours, "yellow-10-tint") 0%, map.get($colours, "yellow-20-tint") 40%),
+  "black": linear-gradient(135deg, #383233 0%, map.get($colours, "black") 40%),
 );
 
 // Public members
@@ -53,18 +53,18 @@ $-gradients: (
 @function get($colour) {
   $colour: quote($colour);
 
-  @if not map-has-key($-colours, $colour) {
+  @if not map-has-key($colours, $colour) {
     @error "Unknown colour `#{$colour}`";
   }
 
-  @return map.get($-colours, $colour);
+  @return map.get($colours, $colour);
 }
 
 // =========================================================
 // Utility override classes
 // =========================================================
 
-@each $colourKey, $colourValue in $-colours {
+@each $colourKey, $colourValue in $colours {
   #{$-root}\!t-col-#{$colourKey} {
     color: $colourValue !important;
   }
@@ -78,7 +78,7 @@ $-gradients: (
   }
 }
 
-@each $gradKey, $gradValue in $-gradients {
+@each $gradKey, $gradValue in $gradients {
   #{$-root}\!t-bg-grad-#{$gradKey} {
     background: $gradValue !important;
   }
