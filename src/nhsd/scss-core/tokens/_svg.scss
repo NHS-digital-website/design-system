@@ -6,42 +6,76 @@ $-root: ".nhsd-t-svg";
 
 $states: 'hover', 'focus', 'active';
 
-#{$-root} {
+// stylelint-disable declaration-no-important
+svg#{$-root} {
   @each $colourKey, $colourValue in nhsd-colours.$colours {
     &--fill-#{$colourKey} {
-      fill: $colourValue;
-
-      svg {
-        fill: $colourValue;
+      &,
+      * {
+        fill: $colourValue !important;
       }
     }
 
     @each $state in $states {
       &--fill-#{$state}-#{$colourKey}:#{$state} {
-        fill: $colourValue;
-
-        svg {
-          fill: $colourValue;
+        &,
+        * {
+          fill: $colourValue !important;
         }
       }
     }
   }
 
   &--fill {
-    fill: var(--nhsd-svg-fill);
-
-    svg {
-      fill: var(--nhsd-svg-fill);
+    &,
+    * {
+      fill: var(--nhsd-svg-fill) !important;
     }
 
     @each $state in $states {
       &-#{$state}:#{$state} {
-        fill: var(--nhsd-svg-fill-#{$state});
-
-        svg {
-          fill: var(--nhsd-svg-fill-#{$state});
+        &,
+        * {
+          fill: var(--nhsd-svg-fill-#{$state}) !important;
         }
       }
     }
   }
 }
+
+#{$-root} {
+  @each $colourKey, $colourValue in nhsd-colours.$colours {
+    &--fill-#{$colourKey} {
+      > svg,
+      > svg * {
+        fill: $colourValue !important;
+      }
+    }
+
+    @each $state in $states {
+      &--fill-#{$state}-#{$colourKey}:#{$state} {
+        > svg,
+        > svg * {
+          fill: $colourValue !important;
+        }
+      }
+    }
+  }
+
+  &--fill {
+    > svg,
+    > svg * {
+      fill: var(--nhsd-svg-fill) !important;
+    }
+
+    @each $state in $states {
+      &-#{$state}:#{$state} {
+        > svg,
+        > svg * {
+          fill: var(--nhsd-svg-fill-#{$state}) !important;
+        }
+      }
+    }
+  }
+}
+// stylelint-enable declaration-no-important
