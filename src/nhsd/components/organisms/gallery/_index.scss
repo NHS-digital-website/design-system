@@ -18,7 +18,6 @@ $-root: ".nhsd-o-gallery";
 
   &__card-container {
     height: 100%;
-    margin-bottom: nhsd-spacing.get(3);
 
     .nhsd-m-card__button-box {
       padding: 0;
@@ -29,11 +28,7 @@ $-root: ".nhsd-o-gallery";
     }
 
     .nhsd-m-card {
-      &,
-      .nhsd-a-box {
-        display: flex;
-        height: 100%;
-      }
+      height: 100%;
     }
 
     .nhsd-a-image {
@@ -47,10 +42,6 @@ $-root: ".nhsd-o-gallery";
     &.download-card-only {
       .nhsd-m-card__content-box {
         padding: nhsd-spacing.get(2);
-      }
-
-      .nhsd-m-card__download-card {
-        margin-top: 0;
       }
     }
   }

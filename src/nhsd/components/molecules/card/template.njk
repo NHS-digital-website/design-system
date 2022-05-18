@@ -60,7 +60,9 @@
       {{ nhsd_a_image(params.image) }}
     </div>
   {%- endif %}
+
   <div class="nhsd-m-card__content_container">
+    {% if params.tags or params.date|length or params.title or params.subtitle or params.text or params.content or params.contentTag -%}
     <div class="nhsd-m-card__content-box">
        {% if params.tags -%}
         <div class="nhsd-m-card__tag-list">
@@ -94,6 +96,7 @@
       {{ nhsd_a_tag(params.contentTag) }}
       {% endif -%}
     </div>
+    {%- endif -%}
 
     {%- if params.button or params.arrowIcon -%}
     <div class="nhsd-m-card__button-box">
