@@ -22,6 +22,7 @@ $-root: ".nhsd-a-tag";
   font-size: .556rem;
   letter-spacing: .0555rem;
   text-transform: uppercase;
+  white-space: nowrap;
 
   .nhsd-a-icon {
     margin-bottom: 3px;
@@ -50,6 +51,18 @@ $-root: ".nhsd-a-tag";
 
   &--bg-light-green {
     background: nhsd-colours.get("green-20-tint");
+  }
+
+  &--bg-light-amber {
+    background: nhsd-colours.get("light-amber");
+  }
+
+  &--bg-light-yellow {
+    background: nhsd-colours.get("light-yellow");
+  }
+
+  &--bg-light-purple {
+    background: nhsd-colours.get("light-purple");
   }
 
   // Meta tag shorthand
