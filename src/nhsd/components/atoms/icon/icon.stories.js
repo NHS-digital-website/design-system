@@ -28,9 +28,10 @@ const storyDescription = `${sbConfig.heading.lab}
 |**XS**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xs</span>|16px|
 |**S**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-s</span>|20px|
 |**M**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-m</span>|24px|
-|**L**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-l</span>|48px|
-|**XL**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xl</span>|128px|
-|**XXL**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xxl</span>|256px|
+|**L**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-l</span>|30px|
+|**XL**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xl</span>|36px|
+|**XXL**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xxl</span>|58px|
+|**XXXL**|<span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-a-icon--size-xxxl</span>|72px|
 
 ### Supported colours
 |Colour name|Colour|Class name|
