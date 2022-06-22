@@ -1,6 +1,9 @@
 // Load icons
 import nhsdIcon from '@/helpers/icons/inline-icon';
 
+// Load images
+import backgroundImg from '../../../assets/images/background-image.jpg';
+
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
@@ -138,7 +141,7 @@ EmphasisBoxWithIcon.args = {
   title: 'Emphasis box',
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl',
+    classes: 'nhsd-a-icon--size-xxxl',
     svgSource: nhsdIcon('chart', true),
   },
 };
@@ -182,7 +185,7 @@ EmphasisBoxWithIconAndButton.args = {
   title: 'Emphasis box with optional icon and optional button',
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl',
+    classes: 'nhsd-a-icon--size-xxxl',
     svgSource: nhsdIcon('chart', true),
   },
   button: {
@@ -209,7 +212,7 @@ EmphasisBoxWithImage.args = {
   title: 'Emphasis box with large icon',
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: backgroundImg,
     alt: 'Abstract lights',
   },
 };
@@ -230,7 +233,7 @@ EmphasisBoxWithIconAndButtonAndImage.args = {
   title: 'Emphasis box with optional icon, button and image',
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl',
+    classes: 'nhsd-a-icon--size-xxxl',
     svgSource: nhsdIcon('chart', true),
   },
   button: {
@@ -240,7 +243,7 @@ EmphasisBoxWithIconAndButtonAndImage.args = {
     classes: 'nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0',
   },
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: backgroundImg,
     alt: 'Abstract lights',
   },
 };
@@ -290,7 +293,7 @@ EmphasisBoxWithIconAndButtonWide.args = {
   title: 'Emphasis box with optional icon and optional button, wide (with extra padding)',
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl',
+    classes: 'nhsd-a-icon--size-xxxl',
     svgSource: nhsdIcon('chart', true),
   },
   button: {
@@ -318,7 +321,7 @@ EmphasisBoxWithIconAndButtonWideCentred.args = {
   title: 'Emphasis box with optional icon and optional button, centred and wide (with extra padding)',
   text: 'You can use the "emphasis" type emphasis box to draw attention to a particular piece of content. <a href="#" class="nhsd-a-link">The default "emphasis" level</a> should be used for most content you need to draw attention to.',
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl',
+    classes: 'nhsd-a-icon--size-xxxl',
     svgSource: nhsdIcon('chart', true),
   },
   button: {
@@ -345,7 +348,7 @@ NoteBox.args = {
   title: 'Notes box',
   text: 'You can use the "note" type emphasis box to distinguish some text, but which isn\'t as important.',
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl',
+    classes: 'nhsd-a-icon--size-xxxl',
     svgSource: nhsdIcon('chart', true),
   },
   button: {
@@ -372,7 +375,7 @@ ImportantBox.args = {
   title: 'Important box',
   text: 'You can use the "important" type emphasis box to draw attention to particularly important content which you don\'t want users to miss.',
   hexIcon: {
-    classes: 'nhsd-a-icon--size-xxl',
+    classes: 'nhsd-a-icon--size-xxxl',
     svgSource: nhsdIcon('chart', true),
   },
   button: {
