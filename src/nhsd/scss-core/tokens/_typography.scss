@@ -20,7 +20,7 @@ $-root: ".nhsd-t";
 
   display: block;
   margin: 0 0 nhsd-spacing.get(4);
-  color: nhsd-colours.get("black");
+  color: nhsd-colours.theme("heading-colour");
   letter-spacing: -.0622rem;
   line-height: 1.1666;
 
@@ -276,7 +276,7 @@ $-root: ".nhsd-t";
 
     position: relative;
     margin: 0 auto nhsd-spacing.get(3);
-    color: nhsd-colours.get("dark-grey");
+    color: nhsd-colours.theme("content-colour");
     font-size: 1.445rem;
     letter-spacing: -.01666rem;
     line-height: 1.19252;

@@ -3,6 +3,11 @@
 // Built in modules
 @use "sass:map";
 
+// Public members
+// =========================================================
+// Functions and mixins
+// =========================================================
+
 // Private members
 $-root: ".nhsd-";
 $colours: (
@@ -41,17 +46,21 @@ $colours: (
   "white": #ffffff,
 );
 
+$default-theme-colours: (
+  "primary-colour": get('blue'),
+  "heading-colour": get('black'),
+  "content-colour": get('dark-grey'),
+  "link-colour": theme('primary-colour'),
+  "bg-colour": get('white'),
+  "border-colour": get('pale-grey'),
+);
+
 $gradients: (
   "grey": linear-gradient(135deg, map.get($colours, "pale-grey-40-tint") 0%, map.get($colours, "pale-grey") 40%),
   "blue": linear-gradient(135deg, map.get($colours, "bright-blue-10-tint") 0%, map.get($colours, "bright-blue-20-tint") 40%),
   "yellow": linear-gradient(135deg, map.get($colours, "yellow-10-tint") 0%, map.get($colours, "yellow-20-tint") 40%),
   "black": linear-gradient(135deg, #383233 0%, map.get($colours, "black") 40%),
 );
-
-// Public members
-// =========================================================
-// Functions and mixins
-// =========================================================
 
 @function get($colour) {
   $colour: quote($colour);
@@ -60,7 +69,17 @@ $gradients: (
     @error "Unknown colour `#{$colour}`";
   }
 
-  @return map.get($colours, $colour);
+  @return var(--#{$colour}, map.get($colours, $colour));
+}
+
+@function theme($key) {
+  $key: quote($key);
+
+  @if not map-has-key($default-theme-colours, $key) {
+    @error "Unknown key `#{$key}`";
+  }
+
+  @return var(--#{$key}, map.get($default-theme-colours, $key));
 }
 
 // =========================================================
@@ -69,15 +88,29 @@ $gradients: (
 
 @each $colourKey, $colourValue in $colours {
   #{$-root}\!t-col-#{$colourKey} {
-    color: $colourValue !important;
+    color: get($colourKey) !important;
   }
 
   #{$-root}\!t-bg-#{$colourKey} {
-    background-color: $colourValue !important;
+    background-color: get($colourKey) !important;
   }
 
   #{$-root}\!t-border-#{$colourKey} {
-    border: 1px solid $colourValue !important;
+    border: 1px solid get($colourKey) !important;
+  }
+}
+
+@each $themeKey, $themeValue in $default-theme-colours {
+  #{$-root}\!t-col-#{$themeKey} {
+    color: theme($themeKey) !important;
+  }
+
+  #{$-root}\!t-bg-#{$themeKey} {
+    background-color: theme($themeKey) !important;
+  }
+
+  #{$-root}\!t-border-#{$themeKey} {
+    border: 1px solid theme($themeKey) !important;
   }
 }
 
@@ -85,6 +118,18 @@ $gradients: (
   #{$-root}\!t-bg-grad-#{$gradKey} {
     background: $gradValue !important;
   }
+}
+
+#{$-root}\!t-colour {
+  color: theme('content-colour') !important;
+}
+
+#{$-root}\!t-bg {
+  background-color: theme('bg-colour') !important;
+}
+
+#{$-root}\!t-border {
+  border: 1px solid theme('border-colour') !important;
 }
 
 // stylelint-enable declaration-no-important

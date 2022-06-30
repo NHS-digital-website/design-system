@@ -23,7 +23,7 @@ $-root: ".nhsd-m-image-with-link";
     display: inline;
 
     &:not(:focus):not(:hover) {
-      color: nhsd-colours.get("blue");
+      color: nhsd-colours.theme("link-colour");
     }
   }
 

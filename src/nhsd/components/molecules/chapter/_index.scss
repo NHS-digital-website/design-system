@@ -33,8 +33,8 @@ $-root: ".nhsd-m-chapter";
   &__link {
     padding-top: calc(#{vars.$base-line-thickness} + #{vars.$active-line-thickness});
     padding-bottom: vars.$active-line-thickness;
-    border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
-    color: nhsd-colours.get("blue");
+    border-bottom: vars.$base-line-thickness solid nhsd-colours.theme("link-colour");
+    color: nhsd-colours.theme("link-colour");
     text-decoration: none;
     transition-property: background-color, color;
     transition-duration: nhsd-transition.$transition-duration;
