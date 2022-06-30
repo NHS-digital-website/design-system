@@ -9,7 +9,7 @@ html {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  color: nhsd-colours.get("dark-grey");
+  color: nhsd-colours.theme("content-colour");
 }
 
 html {

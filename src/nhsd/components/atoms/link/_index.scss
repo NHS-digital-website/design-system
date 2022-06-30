@@ -18,8 +18,8 @@ $-root: ".nhsd-a-link";
     #{$element} {
       padding-bottom: 2px;
       border: none;
-      border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
-      color: nhsd-colours.get("blue");
+      border-bottom: vars.$base-line-thickness solid nhsd-colours.theme("link-colour");
+      color: nhsd-colours.theme("link-colour");
       line-height: 1.6;
 
       transition-property: background-color, color;
@@ -41,7 +41,7 @@ $-root: ".nhsd-a-link";
   &:active {
     #{$element} {
       border-bottom: vars.$active-line-thickness solid transparent;
-      color: nhsd-colours.get("blue");
+      color: nhsd-colours.theme("link-colour");
       background-color: transparent;
     }
   }
