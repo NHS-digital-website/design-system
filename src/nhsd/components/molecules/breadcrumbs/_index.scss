@@ -25,9 +25,10 @@ $-root: ".nhsd-m-breadcrumbs";
   }
 
   &__item {
-    display: inline-block;
+    display: block;
     margin-bottom: 0;
     align-items: center;
+    float: left;
 
     &:not(:last-child):not(&--button) {
       margin-right: nhsd-spacing.get(1);
