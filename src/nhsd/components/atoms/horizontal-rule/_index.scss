@@ -7,11 +7,9 @@
 $-root: ".nhsd-a-horizontal-rule";
 
 #{$-root} {
-  display: block;
   width: 100%;
-  @include nhsd-utils.box-sizing;
-
-  border: 0;
+  height: 0;
+  border: none;
   border-bottom: 1px solid nhsd-colours.get("mid-grey-20-tint");
 
   &,
@@ -36,6 +34,6 @@ $-root: ".nhsd-a-horizontal-rule";
   }
 
   &--black-band {
-    border: 1rem solid nhsd-colours.get("black");
+    border-bottom: 2rem solid nhsd-colours.get("black");
   }
 }
