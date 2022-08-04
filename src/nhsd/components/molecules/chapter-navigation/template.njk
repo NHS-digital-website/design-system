@@ -1,0 +1,50 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_box_start,
+  nhsd_a_box_end,
+  nhsd_a_horizontal_rule,
+  nhsd_a_link,
+  nhsd_a_icon
+-%}
+
+{#- Set classes -#}
+{% set baseClass = "nhsd-m-chapter-navigation" %}
+{%- if params.classes -%}
+  {% set classNames = baseClass + " " + params.classes %}
+{%- endif -%}
+
+{% macro chapterLink(params) %}
+  <a class="{{ baseClass }}__link" href="{{ params.href }}" aria-label="{{ params.chapterDescription }}">
+    <div class="{{ baseClass }}__link-content">
+        {%- if params.leftIcon -%}
+        {{ nhsd_a_icon(params.leftIcon) }}
+        {%- endif -%}
+        <span>
+          {%- if params.chapterName -%}<span class="nhsd-!t-font-weight-bold">{{ params.chapterName }}<br /></span>{%- endif -%}
+          <span class="{{ baseClass }}__link-label">{{params.chapterDescription}}</span>
+        </span>
+        {%- if params.rightIcon -%}
+        {{ nhsd_a_icon(params.rightIcon) }}
+        {%- endif -%}
+    </div>
+  </a>
+{%- endmacro -%}
+
+<div class="{{ classNames }}">
+  <div class="{{ baseClass }}__chapter-content">
+    <div class="{{ baseClass }}__previous-chapter">
+      {{ chapterLink(params.previousChapter) }}
+    </div>
+    {%- if params.currentChapter -%}
+      <div class="{{ baseClass }}__current-chapter">
+        <div>
+          <div><span class="nhsd-!t-font-weight-bold">Current Chapter -</span> {{params.currentChapter.text}}</div>
+          <div>{{ nhsd_a_link( params.currentChapter.link ) }}</div>
+        </div>
+      </div>
+    {%- endif -%}
+    <div class="{{ baseClass }}__next-chapter">
+      {{ chapterLink(params.nextChapter) }}
+    </div>
+  </div>
+</div>

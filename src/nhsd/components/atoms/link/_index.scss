@@ -12,37 +12,49 @@
 // Private members
 $-root: ".nhsd-a-link";
 
+@mixin link-styling($element: "&") {
+  &,
+  &:visited {
+    #{$element} {
+      padding-bottom: 2px;
+      border: none;
+      border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
+      color: nhsd-colours.get("blue");
+      line-height: 1.6;
+
+      transition-property: background-color, color;
+      transition-duration: nhsd-transition.$transition-duration;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    #{$element} {
+      padding-bottom: 0;
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      outline: none;
+      color: nhsd-colours.get("black");
+      background-color: nhsd-colours.get("yellow");
+    }
+  }
+
+  &:active {
+    #{$element} {
+      border-bottom: vars.$active-line-thickness solid transparent;
+      color: nhsd-colours.get("blue");
+      background-color: transparent;
+    }
+  }
+}
+
 #{$-root}, a:not(a[class^="nhsd-"]) {
   @include nhsd-utils.box-sizing;
   @include nhsd-fonts.font-family;
 
   position: relative;
-  padding-top: calc(#{vars.$base-line-thickness} + #{vars.$active-line-thickness});
-  padding-bottom: 1px;
-  border: vars.$active-line-thickness hidden;
   text-decoration: none;
-  transition-property: background-color, color;
-  transition-duration: nhsd-transition.$transition-duration;
 
-  &,
-  &:visited {
-    border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
-    color: nhsd-colours.get("blue");
-  }
-
-  &:focus,
-  &:hover {
-    border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
-    outline: none;
-    color: nhsd-colours.get("black");
-    background-color: nhsd-colours.get("yellow");
-  }
-
-  &:active {
-    border-bottom: vars.$active-line-thickness solid transparent;
-    color: nhsd-colours.get("blue");
-    background-color: transparent;
-  }
+  @include link-styling;
 }
 
 #{$-root} {

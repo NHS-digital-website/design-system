@@ -39,16 +39,27 @@ $-device-breakpoints: (xs,s,m,l,xl);
     }
   }
 
+  &-sticky-offset-none {
+    top: auto;
+  }
+
   &-sticky {
     position: sticky !important;
     top: nhsd-spacing.get(4);
     max-height: calc(100vh - #{nhsd-spacing.get(4) * 2});
+
+    &#{$-root}-sticky-offset-none {
+      top: 0;
+    }
   }
 
-  &-chapters {
-    .nhsd-m-sticky-navigation {
-      top: 146px;
-      max-height: calc(100vh - #{nhsd-utils.px-to-rem(146px) + nhsd-spacing.get(4)});
+  &-sticky-bottom {
+    position: sticky !important;
+    bottom: nhsd-spacing.get(4);
+    max-height: calc(100vh - #{nhsd-spacing.get(4) * 2});
+
+    &#{$-root}-sticky-offset-none {
+      bottom: 0;
     }
   }
 }

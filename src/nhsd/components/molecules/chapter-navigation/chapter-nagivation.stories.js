@@ -13,12 +13,12 @@ import template from './template.njk';
 const componentName = 'Chapter Navigation';
 const storyDescription = `${sbConfig.heading.lab}
 ${sbConfig.heading.basicRules}`;
-const sourceCode = `// Sass import \n@use "nhsd/components/organisms/chapter-navigation";
+const sourceCode = `// Sass import \n@use "nhsd/components/molecules/chapter-navigation";
 // HTML\n`;
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
   parameters: {
     docs: {
       description: {
@@ -37,7 +37,6 @@ LabComponent.args = {
   classes: 'nhsd-!t-bg-pale-grey-80-tint',
   previousChapter: {
     href: '#',
-    chapterName: 'Previous Chapter',
     chapterDescription: 'Digital inclusion for health and social care',
     leftIcon: {
       svgSource: nhsdIcon('arrow_left'),
@@ -56,7 +55,6 @@ LabComponent.args = {
     link: {
       href: '#',
     },
-    chapterName: 'Next Chapter',
     chapterDescription: 'What it means in health and social care',
     rightIcon: {
       svgSource: nhsdIcon('arrow_right'),
@@ -86,7 +84,7 @@ FooterVariant.args = {
   classes: 'nhsd-o-chapter-navigation--footer',
   previousChapter: {
     href: '#',
-    chapterName: 'Previous Chapter',
+    chapterName: 'Previous',
     chapterDescription: 'Digital inclusion for health and social care',
     leftIcon: {
       svgSource: nhsdIcon('arrow_left'),
@@ -98,7 +96,7 @@ FooterVariant.args = {
     link: {
       href: '#',
     },
-    chapterName: 'Next Chapter',
+    chapterName: 'Next',
     chapterDescription: 'What it means in health and social care',
     rightIcon: {
       svgSource: nhsdIcon('arrow_right'),
