@@ -11,22 +11,26 @@
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
+
+@use "../../atoms/link/index" as nhsd-link;
 
 // Private members
-$-root: ".nhsd-o-chapter-navigation";
+$-root: ".nhsd-m-chapter-navigation";
 
 $-breakpoints: "xs", "s", "m", "l", "xl";
 
 #{$-root} {
-  .nhsd-a-box {
+  width: 100%;
+  color: nhsd-colours.get('black');
+  @include z-index.get('chapter-nav');
+  @extend %body-base;
+
+  &__chapter-content {
     display: flex;
-    max-width: 100%;
-    min-height: 130px;
+    height: 100px;
     margin: 0 auto;
-    padding: vars.$gutter vars.$gutter * 2;
-    border-radius: 0;
-    justify-content: space-between;
-    background: none;
+    padding: vars.$gutter * 2;
 
     @include mq($until: s) {
       padding: vars.$small-gutter vars.$small-gutter * 2;
@@ -37,19 +41,48 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
         max-width: map.get(vars.$content-width, $-breakpoint);
       }
     }
+
+    .nhsd-a-icon {
+      flex-shrink: 0;
+    }
+  }
+
+  &__link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    color: nhsd-colours.get('black');
+    text-decoration: none;
+    align-items: center;
+
+    @include nhsd-link.link-styling('#{$-root}__link-label');
+  }
+
+  &__link-content {
+    display: flex;
+    align-items: center;
+    gap: nhsd-spacing.get(1);
   }
 
   &__next-chapter,
-  &__previous-chapter {
+  &__previous-chapter,
+  &__current-chapter {
     display: flex;
-    align-items: center;
     width: 33%;
+    align-items: center;
+  }
+
+  &__next-chapter {
+    #{$-root}__link {
+      justify-content: flex-end;
+    }
   }
 
   &__current-chapter {
-    display: block;
     width: 34%;
+    padding: 0 nhsd-spacing.get(1);
     text-align: center;
+    justify-content: center;
 
     @include mq($from: s) {
       &:first-child {
@@ -62,47 +95,34 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
     }
   }
 
+  &--footer {
+    #{$-root}__chapter-content {
+      padding: 0;
+    }
+
+    #{$-root}__next-chapter,
+    #{$-root}__previous-chapter {
+      width: 100%;
+    }
+  }
+
   @include mq($until: s) {
-    .nhsd-a-box {
+    &__chapter-content {
       display: block;
-      justify-content: flex-start;
-      flex-direction: column;
+      height: auto;
+    }
+
+    &__link {
+      display: block;
     }
 
     &__current-chapter,
     &__previous-chapter,
     &__next-chapter {
+      display: block;
       width: 100%;
       padding: nhsd-spacing.get(2) 0;
-    }
-
-    &__current-chapter {
       text-align: left;
-    }
-
-    &__next-chapter {
-      .nhsd-m-chapter__content {
-        justify-content: flex-start;
-      }
-
-      .nhsd-m-chapter__link {
-        margin-right: auto;
-        margin-left: 0;
-      }
-    }
-  }
-
-  @include mq($from: s) {
-    &__current-chapter {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    &:not(&--footer) {
-      position: sticky;
-      @include z-index.get('chapter-nav');
-      top: 0;
     }
   }
 }
