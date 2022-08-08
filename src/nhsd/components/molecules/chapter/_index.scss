@@ -1,0 +1,79 @@
+// Settings
+@use "scss-core/settings/media-queries" as *;
+@use "scss-core/settings/vars";
+
+// Token
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+
+// Private members
+$-root: ".nhsd-m-chapter";
+
+#{$-root} {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+
+  .nhsd-t-body-s {
+    display: inline;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+
+  .nhsd-t-heading-xs {
+    margin-left: nhsd-spacing.get(1);
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__link {
+    padding-top: calc(#{vars.$base-line-thickness} + #{vars.$active-line-thickness});
+    padding-bottom: vars.$active-line-thickness;
+    border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
+    color: nhsd-colours.get("blue");
+    text-decoration: none;
+    transition-property: background-color, color;
+    transition-duration: nhsd-transition.$transition-duration;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    #{$-root}__link {
+      margin-bottom: 1px;
+      padding-bottom: 0;
+      border-bottom: vars.$active-line-thickness solid nhsd-colours.get("black");
+      outline: none;
+      color: nhsd-colours.get("black");
+      background-color: nhsd-colours.get("yellow");
+    }
+
+    .nhsd-a-icon {
+      background: nhsd-colours.get("yellow");
+    }
+  }
+
+  &--right {
+    @include mq($from: s) {
+      text-align: right;
+    }
+
+    #{$-root}__content {
+      justify-content: flex-end;
+    }
+
+    .nhsd-t-heading-xs {
+      margin-right: nhsd-spacing.get(1);
+      margin-left: 0;
+    }
+
+    .nhsd-t-body-s {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+}
