@@ -10,6 +10,8 @@ import template from './template.njk';
 import bannerImage from '../../../assets/images/banner-image.jpg';
 import backgroundBannerImage from '../../../assets/images/background-image.jpg';
 
+import fibreImage from '../../../assets/images/fibre.jpg';
+
 const componentName = 'Hero';
 const storyDescription = `${sbConfig.heading.lab}
 
@@ -463,7 +465,7 @@ ImageHero.args = {
   colourBar: true,
   image: {
     ariaHidden: true,
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
   },
 };
@@ -497,7 +499,7 @@ AccentedImageMirrored.args = {
   colourBar: true,
   image: {
     ariaHidden: true,
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
   },
 };

@@ -4,8 +4,9 @@ import nhsdIcon from '@/helpers/icons/inline-icon';
 // Load storybook config
 import * as sbConfig from '../../../../../.storybook/storybook-config';
 
-// Author image
+// Images
 import authorImage from '../../../assets/images/author-image.jpg';
+import fibreImage from '../../../assets/images/fibre.jpg';
 
 // Load template file
 import template from './template.njk';
@@ -52,7 +53,7 @@ LabComponent.args = {
     href: '#',
   },
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
   },
   title: 'About NHS Digital',
@@ -82,7 +83,7 @@ ComponentVariant1.args = {
   image: {
     sourceSet: [{
       media: '(max-width: 500px)',
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: fibreImage,
     }, {
       url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
     }],
@@ -552,7 +553,7 @@ FeedListVariant.args = {
   date: 'Thursday 28 January 2021',
   image: {
     classes: 'nhsd-a-image--cover',
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
   },
   imagePosition: 'adjacent',
@@ -584,7 +585,7 @@ GalleryCard.args = {
   image: {
     sourceSet: [{
       media: '(max-width: 500px)',
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: fibreImage,
     }, {
       url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
     }],
@@ -631,7 +632,7 @@ GalleryCard2.args = {
   image: {
     sourceSet: [{
       media: '(max-width: 500px)',
-      url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      url: fibreImage,
     }, {
       url: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/corporate-information-and-documents/nhs-digitals-style-guidelines/image-sizes/lab-testing_992x661.jpg',
     }],
@@ -699,7 +700,7 @@ AuthorCard.args = {
   },
   classes: 'nhsd-m-card--author',
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
   },
   title: 'About NHS Digital',
