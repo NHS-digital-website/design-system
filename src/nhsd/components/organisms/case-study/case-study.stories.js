@@ -4,6 +4,8 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
+import fibreImage from '../../../assets/images/fibre.jpg';
+
 const componentName = 'Case study';
 const storyDescription = `${sbConfig.heading.lab}
 
@@ -82,7 +84,7 @@ LabComponent.args = {
     classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     ratio: 'nhsd-t-ratio-16x9',
     alt: 'Abstract lights',
     classes: 'nhsd-t-round',
@@ -121,7 +123,7 @@ MirroredComponent.args = {
     classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     ratio: 'nhsd-t-ratio-16x9',
     alt: 'Abstract lights',
     classes: 'nhsd-t-round',
@@ -148,7 +150,7 @@ WideComponent.args = {
     classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     ratio: 'nhsd-t-ratio-16x9',
     alt: 'Abstract lights',
     classes: 'nhsd-t-round',
@@ -177,7 +179,7 @@ WideMirroredComponent.args = {
     classes: 'nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0',
   },
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     ratio: 'nhsd-t-ratio-16x9',
     alt: 'Abstract lights',
     classes: 'nhsd-t-round',

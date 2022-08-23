@@ -8,6 +8,8 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
+import fibreImage from '../../../assets/images/fibre.jpg';
+
 const componentName = 'Featured Card Layout';
 const storyDescription = `${sbConfig.heading.lab}
 
@@ -56,7 +58,7 @@ FeatureCardLayout.args = {
     date: 'Thursday 28 January 2021',
     image: {
       classes: 'nhsd-a-image--cover',
-      src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+      src: fibreImage,
       alt: 'Abstract lights',
     },
     imagePosition: 'adjacent',

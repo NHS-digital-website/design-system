@@ -7,6 +7,8 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
+import fibreImage from '../../../assets/images/fibre.jpg';
+
 const componentName = 'Graphic block';
 const storyDescription = `${sbConfig.heading.lab}`;
 const sourceCode = `// Sass import \n@use "nhsd/components/molecules/graphic-block";
@@ -32,7 +34,7 @@ export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
     ratio: 'nhsd-t-ratio-1x1',
   },
@@ -54,7 +56,7 @@ export const WithIcon = Template.bind({});
 WithIcon.storyName = 'With icon';
 WithIcon.args = {
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
     ratio: 'nhsd-t-ratio-1x1',
   },
@@ -80,7 +82,7 @@ export const WithLink = Template.bind({});
 WithLink.storyName = 'With link';
 WithLink.args = {
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
     ratio: 'nhsd-t-ratio-1x1',
   },
@@ -106,7 +108,7 @@ export const WithLinkAndIcon = Template.bind({});
 WithLinkAndIcon.storyName = 'With link and icon';
 WithLinkAndIcon.args = {
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
     ratio: 'nhsd-t-ratio-1x1',
   },

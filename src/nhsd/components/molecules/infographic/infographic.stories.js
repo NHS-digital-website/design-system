@@ -7,6 +7,8 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
+import fibreImage from '../../../assets/images/fibre.jpg';
+
 const componentName = 'Infographic';
 const storyDescription = `${sbConfig.heading.lab}
 
@@ -140,7 +142,7 @@ WithImage.args = {
     classes: 'nhsd-a-box--bg-light-grey',
   },
   image: {
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
   },
   headline: '29,625 new complaints between July and September 2019',

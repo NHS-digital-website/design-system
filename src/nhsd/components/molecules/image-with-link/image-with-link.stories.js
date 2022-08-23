@@ -4,6 +4,8 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
+import fibreImage from '../../../assets/images/fibre.jpg';
+
 const componentName = 'Image with link';
 const storyDescription = `${sbConfig.heading.lab}
 
@@ -38,7 +40,7 @@ LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
   image: {
     ariaHidden: true,
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
     classes: 'nhsd-t-round nhsd-!t-margin-bottom-2',
   },
@@ -60,7 +62,7 @@ ComponentVariant1.storyName = 'Internal link';
 ComponentVariant1.args = {
   image: {
     ariaHidden: true,
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
     classes: 'nhsd-t-round nhsd-!t-margin-bottom-2',
   },
@@ -82,7 +84,7 @@ ComponentVariant2.storyName = 'External link';
 ComponentVariant2.args = {
   image: {
     ariaHidden: true,
-    src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+    src: fibreImage,
     alt: 'Abstract lights',
     classes: 'nhsd-t-round nhsd-!t-margin-bottom-2',
   },

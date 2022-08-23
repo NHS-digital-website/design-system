@@ -7,6 +7,8 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 // Load template file
 import template from './template.njk';
 
+import fibreImage from '../../../assets/images/fibre.jpg';
+
 const componentName = 'Graphic block list';
 const storyDescription = `${sbConfig.heading.lab}
 
@@ -36,7 +38,7 @@ ComponentVariant1.args = {
   blocks: [
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -48,7 +50,7 @@ ComponentVariant1.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -60,7 +62,7 @@ ComponentVariant1.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -72,7 +74,7 @@ ComponentVariant1.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -98,7 +100,7 @@ ComponentVariant2.args = {
   blocks: [
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -114,7 +116,7 @@ ComponentVariant2.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -130,7 +132,7 @@ ComponentVariant2.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -146,7 +148,7 @@ ComponentVariant2.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -176,7 +178,7 @@ ComponentVariant3.args = {
   blocks: [
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -192,7 +194,7 @@ ComponentVariant3.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -204,7 +206,7 @@ ComponentVariant3.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -220,7 +222,7 @@ ComponentVariant3.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -250,7 +252,7 @@ ComponentVariant4.args = {
   blocks: [
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -270,7 +272,7 @@ ComponentVariant4.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -290,7 +292,7 @@ ComponentVariant4.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
@@ -310,7 +312,7 @@ ComponentVariant4.args = {
     },
     {
       image: {
-        src: 'https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg',
+        src: fibreImage,
         alt: 'Abstract lights',
         ratio: 'nhsd-t-ratio-1x1',
       },
