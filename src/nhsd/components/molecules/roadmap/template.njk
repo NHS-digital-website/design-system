@@ -1,0 +1,46 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import nhsd_a_avatar -%}
+
+{# Set classes #}
+{%- set baseClass = "nhsd-m-roadmap" -%}
+{% set classNames = baseClass %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{classNames}}" style="--column-width: 400px">
+  <table class="{{classNames}}__table">
+    <tr class="{{baseClass}}__row {{baseClass}}__row--date">
+      <td class="{{baseClass}}__cell {{baseClass}}__cell--empty"></td>
+      {% for heading in params.dateHeadings -%}
+        <th class="{{baseClass}}__cell">
+          <div class="{{baseClass}}__cell-container">
+            <div class="{{baseClass}}__item">{{ heading }}</div>
+          </div>
+        </th>
+      {% endfor -%}
+    </tr>
+    {% for category in params.categories -%}
+      <tr class="{{baseClass}}__row">
+        <td class="{{baseClass}}__cell {{baseClass}}__cell--heading">
+          <span>{{ category.heading }}</span>
+        </td>
+        {% for heading in params.dateHeadings -%}
+          <td class="{{baseClass}}__cell">
+            <div class="{{baseClass}}__cell-container">
+              {% set dateColLoop = loop %}
+              {% set colLastPos = 0 %}
+              {% for item in category.roadmapItems -%}
+                {% if dateColLoop.index == item.date %}
+                  <div class="{{baseClass}}__item" style="--item-vertical-position:{{ item.verticalPosition }}; --item-length:{{ item.length }}; --item-partial-length:{{ item.partialLength }}; --date-offset: {{ item.dateOffset }};">
+                    <div class="{{baseClass}}__item-content">{{item.content|safe}}</div>
+                  </div>
+                {% endif -%}
+              {% endfor -%}
+            </div>
+          </td>
+        {% endfor -%}
+      </tr>
+    {% endfor -%}
+  </table>
+</div>

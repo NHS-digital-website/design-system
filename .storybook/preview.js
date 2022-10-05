@@ -31,6 +31,7 @@ export const parameters = {
       { name: 'dark', value: '#231f20' },
       { name: 'blue', value: '#005bbb' },
       { name: 'bright', value: '#fae100' },
+      { name: 'grey', value: '#edf1f1' },
     ],
   },
   viewport: {

@@ -36,7 +36,7 @@ $-dirs: top, right, bottom, left;
 // Functions and mixins
 // =========================================================
 
-@function get($index: 0) {
+@function get-px($index: 0) {
   $value: null;
   @if ($index >= 0) {
     $value: map.get($-steps, $index);
@@ -44,6 +44,12 @@ $-dirs: top, right, bottom, left;
     $value: map.get($-steps, -$index);
     $value: -$value;
   }
+
+  @return $value;
+}
+
+@function get($index: 0) {
+  $value: get-px($index);
 
   @return nhsd-utils.px-to-rem($value);
 }
