@@ -30,19 +30,8 @@ $-root: ".nhsd-t";
   }
 }
 
-%body-base {
-  @extend %-typo-base;
-
-  margin: 0 auto nhsd-spacing.get(3);
+%regular-text {
   font-size: 1rem;
-
-  &:last-child {
-    margin: 0 auto;
-  }
-
-  a {
-    line-height: 1.63;
-  }
 
   @include mq($until: s) {
     font-size: .888rem;
@@ -50,7 +39,35 @@ $-root: ".nhsd-t";
   }
 }
 
+%small-text {
+  font-size: .888rem;
+  letter-spacing: -.0166rem;
+  line-height: 1.4375;
+
+  @include mq($until: s) {
+    font-size: .778rem;
+    line-height: 1.389;
+  }
+}
+
+%body-base {
+  @extend %-typo-base;
+  @extend %regular-text;
+
+  margin: 0 0 nhsd-spacing.get(3);
+
+  &:last-child {
+    margin: 0;
+  }
+
+  a {
+    line-height: 1.63;
+  }
+}
+
 %body-base-s {
+  @extend %small-text;
+
   font-size: .888rem;
   letter-spacing: -.0166rem;
   line-height: 1.4375;
@@ -60,9 +77,6 @@ $-root: ".nhsd-t";
   }
 
   @include mq($until: s) {
-    font-size: .778rem;
-    line-height: 1.389;
-
     a {
       line-height: 1.75;
     }
