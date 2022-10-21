@@ -11,7 +11,7 @@
     "template"
   ],
   "engines": {
-    "node": "12.6.2"
+    "node": "14.17.3"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",

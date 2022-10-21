@@ -1,3 +1,5 @@
+/* global document */
+
 // Load icons
 import nhsdIcon from '@/helpers/icons/inline-icon';
 
@@ -388,6 +390,65 @@ ExternalLink.parameters = {
     },
     source: {
       code: `${sourceCode}\n${ExternalLink(ExternalLink.args)}`,
+    },
+  },
+};
+
+const heightMatchArgs = {
+  classes: 'nhsd-m-nav-block--full-height',
+  box: {
+    classes: 'nhsd-a-box--bg-light-grey',
+  },
+  title: 'General practice data hub',
+  text: 'A collection of interactive dashboards, published under the open data licence, covering general practices in England.',
+  hexIcon: {
+    classes: 'nhsd-a-icon--size-xxl',
+    svgSource: nhsdIcon('chart', true),
+  },
+  button: {
+    label: 'Visit the hub',
+    el: 'span',
+  },
+  boxLink: {
+    href: '#',
+  },
+  digiblocks: {
+    classes: 'nhsd-a-digiblocks--col-light-grey nhsd-a-digiblocks--pos-bl',
+  },
+};
+
+const shortHeightMatchArgs = {
+  ...heightMatchArgs,
+  title: 'Short Title',
+  text: 'Short content',
+};
+
+export const HeightMatchComponent = () => {
+  const div = document.createElement('div');
+  div.innerHTML = `<div class="nhsd-t-grid">
+  <div class="nhsd-t-row">
+    <div class="nhsd-t-col-4">${LabComponent(heightMatchArgs)}</div>
+    <div class="nhsd-t-col-4">${LabComponent(heightMatchArgs)}</div>
+    <div class="nhsd-t-col-4">${LabComponent(shortHeightMatchArgs)}</div>
+  </div>
+</div>`;
+  return div;
+};
+
+HeightMatchComponent.storyName = 'Height match';
+HeightMatchComponent.parameters = {
+  docs: {
+    description: {
+      story: 'Where a nav block component is used in grid layout and needs to match the height of adjacent nav blocks the class `nhsd-m-nav-block--full-height` can be applied.',
+    },
+    source: {
+      code: `<div class="nhsd-t-grid">
+        <div class="nhsd-t-row">
+          <div class="nhsd-t-col-3">${LabComponent(heightMatchArgs)}</div>
+          <div class="nhsd-t-col-3">${LabComponent(heightMatchArgs)}</div>
+          <div class="nhsd-t-col-3">${LabComponent(shortHeightMatchArgs)}</div>
+        </div>
+      </div>`,
     },
   },
 };

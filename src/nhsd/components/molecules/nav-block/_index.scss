@@ -10,12 +10,7 @@
 @use "scss-core/tokens/utils" as nhsd-utils;
 
 // Component imports
-@use "../../atoms/box";
-@use "../../atoms/box-link";
 @use "../../atoms/button";
-@use "../../atoms/digiblocks";
-@use "../../atoms/icon";
-@use "../../atoms/link";
 
 // Private members
 $-root: ".nhsd-m-nav-block";
@@ -90,5 +85,17 @@ $-box-padding: 3.333rem;
 
   &--light-text {
     @include nhsd-utils.light-text;
+  }
+
+  &--full-height {
+    height: 100%;
+
+    .nhsd-a-box-link {
+      height: 100%;
+    }
+
+    .nhsd-a-box {
+      height: 100%;
+    }
   }
 }
