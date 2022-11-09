@@ -4,14 +4,9 @@
 
 // Tokens
 @use "scss-core/tokens/colours" as nhsd-colours;
-@use "scss-core/tokens/grid" as nhsd-grid;
 @use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
-@use "scss-core/tokens/typography" as nhsd-typography;
-
-// Component imports
-@use "../../atoms/button";
-@use "../../atoms/image";
+@use 'scss-core/utilities/ratio' as nhsd-ratio;
 
 // Private members
 $-root: ".nhsd-o-case-study";
@@ -38,17 +33,15 @@ $-skeleton-height: 41.9%;
     background: nhsd-colours.get("pale-grey");
   }
 
-  figure.nhsd-a-image,
-  &__image-container {
-    @include nhsd-spacing.set-responsive("margin-bottom", 3);
+  &__picture-skeleton {
+    @include nhsd-ratio.nhsd-t-ratio;
   }
 
-  // For backwards compatiblity, to be removed
-  picture.nhsd-a-image__picture {
-    border-radius: nhsd-vars.$border-radius;
-    @include mq($until: s) {
-      border-radius: 0;
-    }
+  figure.nhsd-a-image,
+  &__image-container {
+    @include nhsd-spacing.set-responsive("margin-top", 6);
+    @include nhsd-spacing.set-responsive("margin-bottom", 6);
+    overflow: hidden;
   }
 
   [class^="nhsd-t-heading"] {
@@ -71,7 +64,7 @@ $-skeleton-height: 41.9%;
       z-index: 2;
       top: 0;
       width: $-picture-width;
-      padding-bottom: $-skeleton-height;
+      margin-left: -7.5%;
     }
 
     figure.nhsd-a-image,
@@ -80,50 +73,32 @@ $-skeleton-height: 41.9%;
       z-index: -1;
       top: 0;
       right: 0;
+      bottom: 0;
       width: $-picture-width;
-      margin-bottom: 0;
+      margin: 0;
+
+      &:before {
+        content: none;
+      }
     }
 
     &--mirrored {
       #{$-root}__wrapper {
-        transform: translateX($-picture-width - 5.2%);
+        flex-direction: row-reverse;
       }
 
-      figure.nhsd-a-image,
       #{$-root}__image-container {
-        right: 100% - 5.2%;
+        left: 0;
       }
 
       #{$-root}__picture-skeleton {
-        right: 100%;
-      }
-    }
-
-    // Regular width variant
-    .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(2);
+        left: 7.5%;
       }
     }
 
     // Wide variant
     [class^="nhsd-t-body"] {
       @include nhsd-utils.clamped-text(4);
-    }
-
-    // No label variant
-    &--no-label {
-      // Regular width variant
-      .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
-        [class^="nhsd-t-body"] {
-          @include nhsd-utils.clamped-text(3);
-        }
-      }
-
-      // Wide variant
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(5);
-      }
     }
   }
 
@@ -132,91 +107,19 @@ $-skeleton-height: 41.9%;
     [class^="nhsd-t-body"] {
       @include nhsd-utils.clamped-text(7);
     }
-
-    // No label variant
-    &--no-label {
-      // Wide variant
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(8);
-      }
-    }
   }
 
   @include mq($from: l) {
-    // Regular width variant
-    .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(7);
-      }
-    }
-
     // Wide variant
     [class^="nhsd-t-body"] {
       @include nhsd-utils.clamped-text(9);
     }
-
-    // No label variant
-    &--no-label {
-      // Regular width variant
-      .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
-        [class^="nhsd-t-body"] {
-          @include nhsd-utils.clamped-text(9);
-        }
-      }
-
-      // Wide variant
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(10);
-      }
-    }
   }
 
   @include mq($from: xl) {
-    // Regular width variant
-    .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(11);
-      }
-    }
-
     // Wide variant
     [class^="nhsd-t-body"] {
       @include nhsd-utils.clamped-text(13);
-    }
-
-    // No label variant
-    &--no-label {
-      // Regular width variant
-      .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
-        [class^="nhsd-t-body"] {
-          @include nhsd-utils.clamped-text(12);
-        }
-      }
-
-      // Wide variant
-      [class^="nhsd-t-body"] {
-        @include nhsd-utils.clamped-text(14);
-      }
-    }
-  }
-
-  @include mq($from: m, $until: l) {
-    .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
-      #{$-root}__content-box {
-        width: 73%;
-      }
-    }
-
-    &--mirrored {
-      .nhsd-t-grid:not(.nhsd-t-grid--full-width) {
-        #{$-root}__wrapper {
-          transform: translateX($-picture-width - 24%);
-        }
-
-        figure.nhsd-a-image, #{$-root}__image-container {
-          right: 100% - 24%;
-        }
-      }
     }
   }
 }
