@@ -9,52 +9,35 @@
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
-{%- if not params.label -%}
-  {% set classNames = classNames + " nhsd-o-case-study--no-label" %}
-{%- endif -%}
-
-{#- Set grid classes -#}
-{% set gridClassNames = "nhsd-t-grid" %}
-{%- set gridColumnClassNames = "nhsd-t-col-12" -%}
-{%- if params.wide -%}
-  {%- set gridClassNames = gridClassNames + " nhsd-t-grid--full-width nhsd-!t-no-gutters" -%}
-  {%- set gridColumnClassNames = gridClassNames + " nhsd-!t-no-gutters" -%}
-{%- endif -%}
 
 <article class="{{ classNames }}">
-  <div class="{{ gridClassNames }}">
-    <div class="nhsd-t-row">
-      <div class="{{ gridColumnClassNames }}">
-        <div class="nhsd-o-case-study__wrapper">
-          <div class="nhsd-o-case-study__content-box">
-            <div class="nhsd-o-case-study__contents">
-              {% if params.label -%}
-              <div class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-2">{{ params.label }}</div>
-              {%- endif %}
+  <div class="nhsd-o-case-study__wrapper">
+    <div class="nhsd-o-case-study__content-box">
+      <div class="nhsd-o-case-study__contents">
+        {% if params.label -%}
+        <div class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-2">{{ params.label }}</div>
+        {%- endif %}
 
-              {% if params.title -%}
-              <h1 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-3">{{ params.title }}</h1>
-              {%- endif %}
+        {% if params.title -%}
+        <h1 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-3">{{ params.title }}</h1>
+        {%- endif %}
 
-              {% if params.image -%}
-              <div class="nhsd-o-case-study__image-container">
-                {{ nhsd_a_image(params.image) }}
-              </div>
-              {%- endif %}
-
-              {% if params.text -%}
-              <p class="nhsd-t-body">{{ params.text }}</p>
-              {%- endif %}
-
-              {% if params.button -%}
-              {{ nhsd_a_button(params.button) }}
-              {%- endif %}
-            </div>
-          </div>
-
-          <div class="nhsd-o-case-study__picture-skeleton"></div>
+        {% if params.image -%}
+        <div class="nhsd-o-case-study__image-container nhsd-t-round">
+          {{ nhsd_a_image(params.image) }}
         </div>
-        </div>
+        {%- endif %}
+
+        {% if params.text -%}
+        <p class="nhsd-t-body">{{ params.text }}</p>
+        {%- endif %}
+
+        {% if params.button -%}
+        {{ nhsd_a_button(params.button) }}
+        {%- endif %}
+      </div>
     </div>
+
+    <div class="nhsd-o-case-study__picture-skeleton"></div>
   </div>
 </article>
