@@ -20,7 +20,7 @@ Item CSS variables (\`.nhsd-m-roadmap__item\`):
 - \`--item-vertical-position\` — Veritical position of the roadmap item (default 1).
 - \`--item-length\` — The number of whole columns the item should span (default 1).
 - \`--item-partial-length\` — If the item doesn't span a full column a partial length can be specificed as a decimal value, eg. 0.5 (default 1).
-- \`--date-start-offset\` — Specifics the starting offset for the item as a decimal value, eg. 0.5 (default 0).
+- \`--date-offset\` — Specifics the starting offset for the item as a decimal value, eg. 0.5 (default 0).
 `;
 const sourceCode = `// Sass import \n@use "nhsd/components/molecules/roadmap";
 
