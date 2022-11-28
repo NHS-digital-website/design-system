@@ -3,7 +3,6 @@
 @use "scss-core/settings/vars" as nhsd-vars;
 
 // Tokens
-@use "scss-core/tokens/utils" as nhsd-utils;
 @use "scss-core/tokens/typography" as nhsd-typography;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/colours" as nhsd-colours;
@@ -36,7 +35,7 @@ $-column-inner-width: '(var(--column-width) - #{(nhsd-spacing.get-px(2) * 2) + n
     display: table-row;
 
     &--date {
-      #{$-root}__col {
+      #{$-root}__cell {
         @include nhsd-fonts.font-weight(bold);
         border-top: none;
 
@@ -73,8 +72,8 @@ $-column-inner-width: '(var(--column-width) - #{(nhsd-spacing.get-px(2) * 2) + n
     display: flex;
     position: relative;
     z-index: 1;
-    width: calc(#{nhsd-spacing.get-px(2) * 2} + ((#{$-column-inner-width}) * var(--item-partial-length)) + (var(--column-width) * (var(--item-length) - 1)));
-    margin-left: calc(var(--column-width) * var(--date-offset));
+    width: calc(#{nhsd-spacing.get-px(2) * 2} + ((#{$-column-inner-width}) * var(--item-partial-length)) + (var(--column-width) * (var(--item-length) - 1)) + (#{(nhsd-spacing.get-px(2) * 2) + nhsd-spacing.get-px(1)} * var(--date-offset)));
+    margin-left: calc((#{$-column-inner-width}) * var(--date-offset));
     padding: 0 nhsd-spacing.get(2);
     align-items: center;
     grid-column: 1;
@@ -138,6 +137,7 @@ $-column-inner-width: '(var(--column-width) - #{(nhsd-spacing.get-px(2) * 2) + n
       }
 
       &:before {
+        left: 0;
         background: nhsd-colours.get("dark-grey");
       }
     }
