@@ -6,6 +6,7 @@ function load() {
   init();
 
   document.documentElement.classList.remove('nhsd-no-js');
+  document.removeEventListener('DOMContentLoaded', load, false);
 }
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
