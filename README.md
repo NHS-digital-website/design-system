@@ -60,28 +60,14 @@ or
 #### Build static version of Storybook
 
 	$ npm run storybook:build
-	
-#### Build & deploy Storybook to S3
 
-The latest version of the Storybook instance is available at [http://sb.ui-toolkit.digital.nhs.uk.s3-website.eu-west-2.amazonaws.com/](http://sb.ui-toolkit.digital.nhs.uk.s3-website.eu-west-2.amazonaws.com/). This is used for development, QA, and demo purposes only, but not intended to act as documentation. 
-
-To deploy the Storybook containing the UI toolkit components, the UI developer has to have AWS access to the `sb.ui-toolkit.digital.nhs.uk` S3 bucket, and their credentials and the bucket details have to be added to the repository. The documentation about the bucket details can be found on the [NHS Digital Confluence](https://nhsd-confluence.digital.nhs.uk/display/CW/Brand+-+UI+toolkit+AWS+setup). Use the `aws-config.sample.json` file to configure AWS. When the AWS config is correctly set up, the following command builds a static version Storybook with the UI components, and it syncs the files to the S3 bucket:
-
-    $ npm run storybook:build:deploy
-	
-#### Dist and Package tasks
-
-> Note the `dist` and `package` build tasks are work in progress stage - when we need distribution via CDN and NPM delivery, we'll tailor these task to our needs.
-
-**The `dist` and `package` build tasks are the following:**
+#### Build dist files
 
 	$ npm run dist:build
-    $ npm run dist:build:watch
-    $ npm run dist:build:prod
 
-    $ npm run package:build
-    $ npm run package:build:watch
-    $ npm run package:build:prod
+or
+
+    $ npm run dist:build:prod
 
 ### Naming and ordering (in general)
 
@@ -142,12 +128,6 @@ Elements, that not yet have been atomised can be named using BEM style `__` nami
 - The **responsive breakpoint** and **media query config** can be found [here](src/nhsd/scss-core/settings/_media-queries.scss).
 - To switch off the breakpoint debug showing in the browser, comment [this line](https://github.com/NHS-digital-website/nhsd-frontend/blob/e7ce90d6ac3621550aa97f919147493c436861a1/src/nhsd/scss-core/settings/_media-queries.scss#L19) out.
 - The **grid config** can be found [here](src/nhsd/scss-core/tokens/_grid.scss).
-
-## (Hosting static files - this needs figuring out, it doesn't work yet!
-
-The static files (fonts, icons, compiled CSS) is hosted on an AWS bucket using Cloudfront for distribution. The CORS settings allow any website to load up these files. The URL of the static server is [https://d3ao5xdv7leyhd.cloudfront.net/](https://d3ao5xdv7leyhd.cloudfront.net/), but it will soon change to a more human readable, on brand URL [ie. https://files.ui-toolkit.digital.nhs.uk](https://files.ui-toolkit.digital.nhs.uk))
-
-Currently the above setup isn't working due to CORS issues, so the UI toolkit loads the font files from the NHSUK static file server ([https://assets.nhs.uk/](https://assets.nhs.uk/fonts/)).
 
 ## Tokens
 
@@ -222,6 +202,37 @@ The new component should also be added to the
 - [] Sass include in the corresponding ATOMIC SASS file (`ATOMICLEVEL/_index.scss`)
 - [] Add the new component to the corresponding Nunjucks Macro file (`njk/macros/ATOMICLEVEL.njk`)
 
+## Deployment & releases
+
+### Versioned deployments
+
+To deploy a new version of the toolkit, a tag should be created following [semantic versioning](https://semver.org/) rules and prefixed with "v". Eg, "v1.0.2-beta".
+
+Once pushed, the distribtion workflow will deploy a version of storybook and CDN matching the tagged version name.
+
+For example, tag "v1.0.2-beta" would create the following resources:
+
+https://design-system.digital.nhs.uk/storybook/v1.0.2-beta/
+
+https://design-system.digital.nhs.uk/cdn/v1.0.2-beta/
+
+Release versions should always be created from the master branch. Note: this will require elevated repo permissions.
+
+### Releases
+
+Releases can be created from the Github release page.
+
+To create a release, a version must first be tagged and pushed. Once pushed the tag can be selected from the new release page.
+
+Next, enter a release title (typically the version number) and a description of the changes - this should include any breaking changes and mirgration information.
+
+Once the release has been created release assets will be automatically built and attached to the release. The "latest" version of storybook and the CDN will also be updated and can be found here:
+
+https://design-system.digital.nhs.uk/storybook/latest/
+
+https://design-system.digital.nhs.uk/cdn/latest/
+
+Finally, any changes to the design system homepage (https://design-system.digital.nhs.uk/) will be deployed.
 
 ## Actions to take
 
