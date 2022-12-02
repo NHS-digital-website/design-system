@@ -1,9 +1,8 @@
-name: Distribution Workflow
+name: Release Workflow
 
 on:
-  push:
-    tags:
-      - v*
+  release:
+    types: [published]
 
 jobs:
   #
@@ -160,7 +159,6 @@ jobs:
             dist/static/
             dist/stylesheets/
 
-
   #
   # Build Storybook from source
   #
@@ -223,7 +221,7 @@ jobs:
       #
       - name: Build Storybook
         env:
-          STORYBOOK_VERSION: ${{ github.ref_name }}
+          STORYBOOK_VERSION: ${{ github.event.release.tag_name }}
         run: npm run storybook:build
 
       #
@@ -245,7 +243,6 @@ jobs:
     timeout-minutes: 10
 
     steps:
-
       #
       # Step 1
       # Checkout the project's sourcecode
@@ -311,6 +308,119 @@ jobs:
           path: |
             package/
 
+  add_release_assets:
+    name: "Add release assets"
+    needs:
+      - build_homepage
+      - build_dist
+      - build_storybook
+      - build_npm_package
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      #
+      # Step 1
+      #
+      - name: Download all workflow artifacts
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          path: workflow-artifacts
+
+      #
+      # Step 2
+      #
+      - name: Read version
+        id: version
+        run: |
+          echo "::set-output name=version::$(cat ${{steps.download.outputs.download-path}}/version/version)"
+      #
+      # Step 3
+      # Zip up each build artifacts with it's version number injected.
+      #
+
+      #
+      # Step 3.1
+      #
+      - name: Zip CDN distribution
+        run: |
+          echo ${{ steps.version.outputs.version }} > version
+          zip -r ../cdn-dist.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/cdn-dist
+
+      #
+      # Step 3.2
+      #
+      - name: Zip storybook distribution
+        run: |
+          echo ${{ steps.version.outputs.version }} > version
+          zip -r ../storybook.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/storybook-dist
+
+      #
+      # Step 3.3
+      #
+      - name: Zip NPM package distribution
+        run: |
+          echo ${{ steps.version.outputs.version }} > version
+          zip -r ../npm-dist.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/npm-dist
+
+      #
+      # Step 3.4
+      #
+      - name: Zip Homepage distribution
+        run: |
+          echo ${{ steps.version.outputs.version }} > version
+          zip -r ../homepage-dist.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/homepage-dist
+
+      #
+      # Step 4
+      # Add release assets
+      # - Adds dist, storybook and package to the release
+      #
+      - name: Upload Homepage Dist Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path:  ${{steps.download.outputs.download-path}}/homepage-dist.zip
+          asset_name: homepage-dist-${{ steps.version.outputs.version }}.zip
+          asset_content_type: application/zip
+
+      - name: Upload CDN Dist Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path:  ${{steps.download.outputs.download-path}}/cdn-dist.zip
+          asset_name: cdn-dist-${{ steps.version.outputs.version }}.zip
+          asset_content_type: application/zip
+
+      - name: Upload Storybook Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path:  ${{steps.download.outputs.download-path}}/storybook.zip
+          asset_name: storybook-dist-${{ steps.version.outputs.version }}.zip
+          asset_content_type: application/zip
+
+      - name: Upload NPM Package Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path:  ${{steps.download.outputs.download-path}}/npm-dist.zip
+          asset_name: npm-dist-${{ steps.version.outputs.version }}.zip
+          asset_content_type: application/zip
+
   #
   # Put CDN distribution artifact onto the S3 origin.
   #
@@ -322,7 +432,6 @@ jobs:
     timeout-minutes: 20
 
     steps:
-
       #
       # Step 1
       # Download CDN artifact and merge version artifact into the same folder
@@ -347,11 +456,11 @@ jobs:
 
       #
       # Step 3
-      # Create versioned release in S3
+      # Replace 'latest' folder's content
       #
-      - name: Create version
+      - name: Replace latest
         working-directory: ${{steps.download.outputs.download-path}}
-        run: aws s3 cp . s3://${{ secrets.S3_ORIGIN }}/cdn/${{ github.ref_name }} --recursive
+        run: aws s3 sync . s3://${{ secrets.S3_ORIGIN }}/cdn/latest --delete
 
   #
   # Put the Storybook distribution artifact onto the S3 origin.
@@ -388,8 +497,88 @@ jobs:
 
       #
       # Step 3
+      # Replace 'latest' folder's content
+      #
+      - name: Replace latest
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: aws s3 sync . s3://${{ secrets.S3_ORIGIN }}/storybook/latest --delete
+
+  #
+  # Put the homepage distribution artifact onto the S3 origin.
+  #
+  dist_homepage:
+    name: "Distribute Homepage"
+    needs:
+      - build_homepage
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      #
+      # Step 1
+      # Download CDN artifact and merge version artifact into the same folder
+      #
+      - name: Download all workflow artifacts
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: homepage-dist
+          path: homepage-dist
+      - name: Download version artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: homepage-dist
+
+      #
+      # Step 2
+      # Set up AWS CLI
+      #
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      #
+      # Step 3
       # Create versioned release in S3
       #
-      - name: Create version
+      # WARNING BEFORE UPDATING CONFIG
+      # The sync --delete has the power to remove everything from the bucket. Please try --dryrun before committing an
+      # update!!!
+      #
+      - name: Replace homepage and it's assets
         working-directory: ${{steps.download.outputs.download-path}}
-        run: aws s3 cp . s3://${{ secrets.S3_ORIGIN }}/storybook/${{ github.ref_name }} --recursive
+        run: aws s3 sync . s3://${{ secrets.S3_ORIGIN }}/ --exclude "cdn/*" --exclude "storybook/*" --exclude="error.html" --delete
+
+  #
+  # Clear the CloudFront cache.
+  #
+  clear_cache:
+    name: "Clear CloudFront Cache"
+    needs:
+      - dist_homepage
+      - dist_cdn
+      - dist_storybook
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      #
+      # Step 1
+      # Set up AWS CLI
+      #
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      #
+      # Step 2
+      # Replace latest and invalid CloudFront's catch of latest
+      #
+      - name: Refesh CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/storybook/latest/*" "/cdn/latest/*" "/index.html"
