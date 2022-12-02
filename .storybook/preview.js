@@ -1,6 +1,6 @@
 import "../src/nhsd/nhsd-frontend.scss";
 import init from "../src/nhsd/script-core/init";
-import nhsd from '@/nhsd';
+import "../src/nhsd/nhsd-frontend";
 
 const rootNode = document.getElementById('root');
 const docsRootNode = document.getElementById('docs-root');
@@ -10,7 +10,7 @@ window.nhsd = Object.assign(nhsd, init);
 // Wait for storybook to initalise
 const observer = new MutationObserver(() => {
   observer.disconnect();
-  init();
+  nhsd.init();
   MathJax.startup.defaultReady();
   MathJax.startup.promise.then(() => {
     observer.observe(rootNode, { childList: true, attributes: true });
