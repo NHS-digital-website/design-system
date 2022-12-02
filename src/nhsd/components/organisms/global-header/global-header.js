@@ -37,7 +37,7 @@ export default class NHSDGlobalHeader {
       megaMenuButton.setAttribute('aria-expanded', true);
     }
     this.hostEl.classList.add('nhsd-o-global-header--mega-menu-active');
-    scrollLock(true, 'mobile');
+    scrollLock(true);
     this.focusTrapper.focus(this.megaMenu);
   }
 
@@ -50,7 +50,7 @@ export default class NHSDGlobalHeader {
       megaMenuButtons.forEach((megaMenuButton) => megaMenuButton.classList.remove('nhsd-a-menu-item--active'));
     }
 
-    scrollLock(false, 'mobile');
+    scrollLock(false);
 
     const megaMenuContentEls = this.megaMenu.querySelectorAll('.nhsd-o-global-header__mega-menu-content--active');
     if (!megaMenuContentEls) return;
