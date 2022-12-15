@@ -46,6 +46,16 @@ $colours: (
   "white": #ffffff,
 );
 
+@function get($colour) {
+  $colour: quote($colour);
+
+  @if not map-has-key($colours, $colour) {
+    @error "Unknown colour `#{$colour}`";
+  }
+
+  @return var(--#{$colour}, map.get($colours, $colour));
+}
+
 $default-theme-colours: (
   "primary-colour": get('blue'),
   "heading-colour": get('black'),
@@ -61,16 +71,6 @@ $gradients: (
   "yellow": linear-gradient(135deg, map.get($colours, "yellow-10-tint") 0%, map.get($colours, "yellow-20-tint") 40%),
   "black": linear-gradient(135deg, #383233 0%, map.get($colours, "black") 40%),
 );
-
-@function get($colour) {
-  $colour: quote($colour);
-
-  @if not map-has-key($colours, $colour) {
-    @error "Unknown colour `#{$colour}`";
-  }
-
-  @return var(--#{$colour}, map.get($colours, $colour));
-}
 
 @function theme($key) {
   $key: quote($key);
@@ -91,6 +91,10 @@ $gradients: (
     color: get($colourKey) !important;
   }
 
+  #{$-root}\!t-colour-#{$colourKey} {
+    color: get($colourKey) !important;
+  }
+
   #{$-root}\!t-bg-#{$colourKey} {
     background-color: get($colourKey) !important;
   }
@@ -102,6 +106,10 @@ $gradients: (
 
 @each $themeKey, $themeValue in $default-theme-colours {
   #{$-root}\!t-col-#{$themeKey} {
+    color: theme($themeKey) !important;
+  }
+
+  #{$-root}\!t-colour-#{$themeKey} {
     color: theme($themeKey) !important;
   }
 
