@@ -251,12 +251,12 @@ ColourPalette.parameters = {
 };
 
 export const ColourOverrides = () => `<div class="nhsd-a-box nhsd-!t-bg-yellow-10-tint nhsd-!t-border-black">
-  <span class="nhsd-t-heading-l nhsd-!t-col-red">Override tokens in action</span>
+  <span class="nhsd-t-heading-l nhsd-!t-colour-red">Override tokens in action</span>
   <p class="nhsd-t-body nhsd-!t-border-blue">This box is using the following colour override tokens:</p>
   <ul class="nhsd-t-list nhsd-t-list--bullet">
     <li><span class="nhsd-a-text-highlight nhsd-a-text-highlight--bg-dark-grey nhsd-!t-font-family-mono nhsd-!t-font-weight-regular">.nhsd-!t-bg-yellow-10-tint</span></li>
     <li><span class="nhsd-a-text-highlight nhsd-a-text-highlight--bg-dark-grey nhsd-!t-font-family-mono nhsd-!t-font-weight-regular">.nhsd-!t-border-black</span></li>
-    <li><span class="nhsd-a-text-highlight nhsd-a-text-highlight--bg-dark-grey nhsd-!t-font-family-mono nhsd-!t-font-weight-regular">.nhsd-!t-col-red</span></li>
+    <li><span class="nhsd-a-text-highlight nhsd-a-text-highlight--bg-dark-grey nhsd-!t-font-family-mono nhsd-!t-font-weight-regular">.nhsd-!t-colour-red</span></li>
     <li><span class="nhsd-a-text-highlight nhsd-a-text-highlight--bg-dark-grey nhsd-!t-font-family-mono nhsd-!t-font-weight-regular">.nhsd-!t-border-blue</span></li>
   </ul>
 </div>`;
@@ -271,7 +271,7 @@ ColourOverrides.parameters = {
   - **Border:** Sets a 1px solid border using the appropriate colour
 - **Class names:**
   - The token class names follow the naming convention of the other tokens. The name pattern is the following:
-  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-col-KEY</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-bg-KEY</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-border-KEY</span>, where KEY is the colour key (see primary and secondary colours above)
+  - <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-colour-KEY</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-bg-KEY</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code-s">.nhsd-!t-border-KEY</span>, where KEY is the colour key (see primary and secondary colours above)
   `,
     },
     source: {

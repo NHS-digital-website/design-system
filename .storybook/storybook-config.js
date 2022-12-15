@@ -21,6 +21,7 @@ module.exports = {
     lab: "Lab",
     defaultStory: "Default",
     latestVersion: "Latest version",
+    themes: "Themes (beta)",
   },
   heading: {
     lab: "\n\n ## Lab",
