@@ -221,7 +221,7 @@ jobs:
       #
       - name: Build Storybook
         env:
-          STORYBOOK_VERSION: ${{ github.event.release.tag_name }}
+          STORYBOOK_VERSION: ${{ github.ref_name }}
         run: npm run storybook:build
 
       #
@@ -345,7 +345,7 @@ jobs:
       #
       - name: Zip CDN distribution
         run: |
-          echo ${{ steps.version.outputs.version }} > version
+          echo ${{ github.ref_name }} > version
           zip -r ../cdn-dist.zip .
         working-directory: ${{steps.download.outputs.download-path}}/cdn-dist
 
@@ -354,7 +354,7 @@ jobs:
       #
       - name: Zip storybook distribution
         run: |
-          echo ${{ steps.version.outputs.version }} > version
+          echo ${{ github.ref_name }} > version
           zip -r ../storybook.zip .
         working-directory: ${{steps.download.outputs.download-path}}/storybook-dist
 
@@ -363,7 +363,7 @@ jobs:
       #
       - name: Zip NPM package distribution
         run: |
-          echo ${{ steps.version.outputs.version }} > version
+          echo ${{ github.ref_name }} > version
           zip -r ../npm-dist.zip .
         working-directory: ${{steps.download.outputs.download-path}}/npm-dist
 
@@ -372,7 +372,7 @@ jobs:
       #
       - name: Zip Homepage distribution
         run: |
-          echo ${{ steps.version.outputs.version }} > version
+          echo ${{ github.ref_name }} > version
           zip -r ../homepage-dist.zip .
         working-directory: ${{steps.download.outputs.download-path}}/homepage-dist
 
@@ -388,7 +388,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path:  ${{steps.download.outputs.download-path}}/homepage-dist.zip
-          asset_name: homepage-dist-${{ steps.version.outputs.version }}.zip
+          asset_name: homepage-dist-${{ github.ref_name }}.zip
           asset_content_type: application/zip
 
       - name: Upload CDN Dist Zip
@@ -398,7 +398,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path:  ${{steps.download.outputs.download-path}}/cdn-dist.zip
-          asset_name: cdn-dist-${{ steps.version.outputs.version }}.zip
+          asset_name: cdn-dist-${{ github.ref_name }}.zip
           asset_content_type: application/zip
 
       - name: Upload Storybook Zip
@@ -408,7 +408,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path:  ${{steps.download.outputs.download-path}}/storybook.zip
-          asset_name: storybook-dist-${{ steps.version.outputs.version }}.zip
+          asset_name: storybook-dist-${{ github.ref_name }}.zip
           asset_content_type: application/zip
 
       - name: Upload NPM Package Zip
@@ -418,7 +418,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path:  ${{steps.download.outputs.download-path}}/npm-dist.zip
-          asset_name: npm-dist-${{ steps.version.outputs.version }}.zip
+          asset_name: npm-dist-${{ github.ref_name }}.zip
           asset_content_type: application/zip
 
   #
