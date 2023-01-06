@@ -46,6 +46,22 @@ $colours: (
   "white": #ffffff,
 );
 
+$default-theme-colours: (
+  "primary-colour": map.get($colours, 'blue'),
+  "heading-colour": map.get($colours, 'black'),
+  "content-colour": map.get($colours, 'dark-grey'),
+  "link-colour": var(--primary-colour, map.get($colours, 'blue')),
+  "bg-colour": map.get($colours, 'white'),
+  "border-colour": map.get($colours, 'pale-grey'),
+);
+
+$gradients: (
+  "grey": linear-gradient(135deg, map.get($colours, "pale-grey-40-tint") 0%, map.get($colours, "pale-grey") 40%),
+  "blue": linear-gradient(135deg, map.get($colours, "bright-blue-10-tint") 0%, map.get($colours, "bright-blue-20-tint") 40%),
+  "yellow": linear-gradient(135deg, map.get($colours, "yellow-10-tint") 0%, map.get($colours, "yellow-20-tint") 40%),
+  "black": linear-gradient(135deg, #383233 0%, map.get($colours, "black") 40%),
+);
+
 @function get($colour) {
   $colour: quote($colour);
 
@@ -55,22 +71,6 @@ $colours: (
 
   @return var(--#{$colour}, map.get($colours, $colour));
 }
-
-$default-theme-colours: (
-  "primary-colour": get('blue'),
-  "heading-colour": get('black'),
-  "content-colour": get('dark-grey'),
-  "link-colour": theme('primary-colour'),
-  "bg-colour": get('white'),
-  "border-colour": get('pale-grey'),
-);
-
-$gradients: (
-  "grey": linear-gradient(135deg, map.get($colours, "pale-grey-40-tint") 0%, map.get($colours, "pale-grey") 40%),
-  "blue": linear-gradient(135deg, map.get($colours, "bright-blue-10-tint") 0%, map.get($colours, "bright-blue-20-tint") 40%),
-  "yellow": linear-gradient(135deg, map.get($colours, "yellow-10-tint") 0%, map.get($colours, "yellow-20-tint") 40%),
-  "black": linear-gradient(135deg, #383233 0%, map.get($colours, "black") 40%),
-);
 
 @function theme($key) {
   $key: quote($key);
