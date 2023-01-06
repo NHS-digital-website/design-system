@@ -4,6 +4,12 @@
 @use "scss-core/tokens/fonts" as nhsd-fonts;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 
+:root {
+  @each $themeKey, $themeValue in nhsd-colours.$default-theme-colours {
+    --#{$themeKey}: #{$themeValue};
+  }
+}
+
 body,
 html {
   min-height: 100%;
