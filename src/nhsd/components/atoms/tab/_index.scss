@@ -20,6 +20,7 @@ $-root: ".nhsd-a-tab";
   display: inline-block;
   position: relative;
   margin: 0 nhsd-spacing.get(4) 0 0;
+  margin-bottom: nhsd-spacing.get-px(3) + (vars.$active-line-thickness - vars.$base-line-thickness);
   padding-top: calc(#{vars.$base-line-thickness} + #{vars.$active-line-thickness});
   border-bottom: vars.$base-line-thickness solid nhsd-colours.get("blue");
   color: nhsd-colours.get("blue");

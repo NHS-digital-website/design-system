@@ -1,4 +1,4 @@
-/* global document */
+/* global document navigator */
 
 import nhsd from '@/nhsd';
 
@@ -17,12 +17,8 @@ function triggerLabelChange(buttonLabel) {
 }
 
 function copyElementText(element) {
-    const textArea = document.createElement('textarea');
-    textArea.value = element.innerText;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('Copy');
-    textArea.remove();
+    const textToCopy = element.innerText;
+    navigator.clipboard.writeText(textToCopy);
 }
 
 function copyCode(codeElement) {
@@ -41,7 +37,7 @@ function createCopyButton(codeElement) {
     const copyElement = document.createElement('div');
     copyElement.classList.add('nhsd-o-code-viewer__copy-code');
     copyElement.setAttribute('aria-live', 'polite');
-    copyElement.innerHTML = '<button class="nhsd-a-button nhsd-a-button nhsd-a-button--invert" type="button"><span class="nhsd-a-button__label">Copy</span></button>';
+    copyElement.innerHTML = '<button class="nhsd-a-button nhsd-a-button--invert"><span class="nhsd-a-button__label">Copy</span></button>';
     codeElement.insertBefore(copyElement, codeElement.firstChild);
     const copyButton = copyElement.querySelector('button');
     if (!copyButton) return;
