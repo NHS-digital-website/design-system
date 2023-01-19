@@ -9,22 +9,26 @@
 $-root: ".nhsd-o-code-viewer";
 
 #{$-root} {
+  display: flex;
   width: 100%;
 
   overflow: hidden;
 
   border: 2px solid nhsd-colours.get("pale-grey");
   border-radius: vars.$border-radius;
+  background: nhsd-colours.get("pale-grey");
+  flex-direction: column;
+  gap: 2px;
 
   &__header,
   &__footer,
   &__example {
     padding: nhsd-spacing.get(3);
+    background: nhsd-colours.get("white");
   }
 
   &__footer {
     padding-bottom: 0;
-    border-top: 2px solid nhsd-colours.get("pale-grey");
   }
 
   &__header {
@@ -34,19 +38,16 @@ $-root: ".nhsd-o-code-viewer";
   &__tab-content {
     display: flex;
     flex-direction: column;
-    border-top: 2px solid nhsd-colours.get("pale-grey");
-  }
-
-  &__header,
-  &__tab-content {
-    &:nth-child(1) {
-      border-top: none;
-    }
+    background: nhsd-colours.get("white");
   }
 
   &__code,
   &__example {
     height: 500px;
+  }
+
+  &__example {
+    background: nhsd-colours.get("pale-grey-40-tint");
   }
 
   &__code {
