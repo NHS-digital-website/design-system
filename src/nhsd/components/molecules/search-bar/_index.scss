@@ -23,10 +23,11 @@ $-root: ".nhsd-m-search-bar";
   flex-direction: column;
 
   .nhsd-t-form-input {
+    padding-right: calc(#{vars.$min-button-size} * 2.2);
+
     &,
     &:not(:last-child) {
       margin-bottom: 0;
-      padding-right: calc(#{vars.$min-button-size} * 2.2);
     }
   }
 
@@ -45,7 +46,7 @@ $-root: ".nhsd-m-search-bar";
     .nhsd-t-form-input {
       height: nhsd-spacing.get(7);
       padding: 0 nhsd-spacing.get(3);
-      padding-right: calc(#{vars.$min-button-size} * 2.1);
+      padding-right: calc(#{vars.$min-button-size} * 2);
     }
 
     .nhsd-t-form-control__button {
