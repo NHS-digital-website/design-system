@@ -159,9 +159,7 @@ export default class NHSDDropDown {
   #setItems(items) {
     if (!this.dropdownContainer) return;
 
-    const dropdownList = this.dropdownContainer.querySelector('ul');
-    dropdownList.innerHTML = '';
-    if (!dropdownList) return;
+    const dropdownList = document.createElement('ul');
 
     items.forEach((item) => {
       let itemEl;
@@ -175,6 +173,9 @@ export default class NHSDDropDown {
       itemsListItem.appendChild(itemEl);
       dropdownList.appendChild(itemsListItem);
     });
+
+    this.dropdownContainer.innerHTML = '';
+    this.dropdownContainer.appendChild(dropdownList);
 
     this.#bindSelectionEvent();
   }
