@@ -92,7 +92,6 @@ Hopefully this makes sense - but even if it doesn't necesserily - follow this na
 **Some "list" organism examples:**
 
 - Card list
-- Graphic block list
 - Nav block list 
 - Image with link list
 
