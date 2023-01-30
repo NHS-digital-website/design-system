@@ -38,3 +38,7 @@
         {{ nhsd_a_box_end() }}
     </div>
 </div>
+
+{%- if params.openButton -%}
+  <button class="nhsd-a-button" data-modal-open="{{ params.id }}">Open Modal</button>
+{%- endif -%}
