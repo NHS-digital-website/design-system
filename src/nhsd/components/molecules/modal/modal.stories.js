@@ -63,7 +63,7 @@ LabComponent.storyName = sbConfig.title.default;
 LabComponent.args = {
   id: 'default',
   title: 'An example modal',
-  classes: 'nhsd-m-modal--open',
+  openButton: true,
   box: {
     classes: 'nhsd-!t-padding-3',
   },
@@ -100,6 +100,7 @@ MandatoryModal.storyName = 'Mandatory';
 MandatoryModal.args = {
   ...LabComponent.args,
   id: 'mandatory',
+  openButton: true,
   classes: '',
   mandatory: true,
 };
@@ -125,6 +126,7 @@ OverflowModal.args = {
   ...LabComponent.args,
   id: 'overflow',
   classes: 'nhsd-m-modal--overflow',
+  openButton: true,
   mandatory: true,
 };
 OverflowModal.parameters = {
