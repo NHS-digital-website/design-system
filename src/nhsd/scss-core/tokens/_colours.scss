@@ -62,14 +62,18 @@ $gradients: (
   "black": linear-gradient(135deg, #383233 0%, map.get($colours, "black") 40%),
 );
 
-@function get($colour) {
+@function raw($colour) {
   $colour: quote($colour);
 
   @if not map-has-key($colours, $colour) {
     @error "Unknown colour `#{$colour}`";
   }
 
-  @return var(--#{$colour}, map.get($colours, $colour));
+  @return map.get($colours, $colour);
+}
+
+@function get($colour) {
+  @return var(--#{$colour}, raw($colour));
 }
 
 @function theme($key) {

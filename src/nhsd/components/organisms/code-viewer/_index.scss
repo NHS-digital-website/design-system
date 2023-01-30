@@ -8,6 +8,27 @@
 // Private members
 $-root: ".nhsd-o-code-viewer";
 
+@mixin scrollbars {
+  & {
+    scrollbar-color: rgba(nhsd-colours.raw('mid-grey'), .5) rgba(nhsd-colours.raw('black'), .1);
+  }
+
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-corner {
+    width: 8px;
+    height: 8px;
+    background: rgba(nhsd-colours.raw('black'), .1);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(nhsd-colours.raw('black'), .1);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(nhsd-colours.raw('mid-grey'), .5);
+  }
+}
+
 #{$-root} {
   display: flex;
   width: 100%;
@@ -47,7 +68,9 @@ $-root: ".nhsd-o-code-viewer";
   }
 
   &__example {
+    overflow: auto;
     background: nhsd-colours.get("pale-grey-40-tint");
+    @include scrollbars;
   }
 
   &__code {
@@ -56,24 +79,9 @@ $-root: ".nhsd-o-code-viewer";
     color: nhsd-colours.get('white');
     background: nhsd-colours.get('black');
 
-    & * {
-      scrollbar-width: thin;
-      scrollbar-color: nhsd-colours.get('dark-grey') nhsd-colours.get('black');
-    }
-
-    & *::-webkit-scrollbar,
-    & *::-webkit-scrollbar-corner {
-      width: 8px;
-      height: 8px;
-      background: rgba(nhsd-colours.get('black'), .2);
-    }
-
-    & *::-webkit-scrollbar-track {
-      background: rgba(nhsd-colours.get('black'), .2);
-    }
-
-    & *::-webkit-scrollbar-thumb {
-      background-color: rgba(nhsd-colours.get('white'), .2);
+    &,
+    * {
+      @include scrollbars;
     }
   }
 
