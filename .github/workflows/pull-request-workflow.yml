@@ -29,7 +29,7 @@ jobs:
       - name: Request Node Version
         uses: actions/setup-node@v2
         with:
-          node-version: '12.6.0'
+          node-version: '16.19.0'
 
       #
       # Step 3
@@ -95,7 +95,7 @@ jobs:
       - name: Request Node Version
         uses: actions/setup-node@v2
         with:
-          node-version: '12.6.0'
+          node-version: '16.19.0'
 
       #
       # Step 3
@@ -160,7 +160,7 @@ jobs:
       - name: Request Node Version
         uses: actions/setup-node@v2
         with:
-          node-version: '12.6.0'
+          node-version: '16.19.0'
 
       #
       # Step 3
@@ -225,7 +225,7 @@ jobs:
       - name: Request Node Version
         uses: actions/setup-node@v2
         with:
-          node-version: '12.6.0'
+          node-version: '16.19.0'
 
       #
       # Step 3

@@ -1,7 +1,7 @@
 /* global ENV PATHS */
 
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const csso = require('gulp-csso');
 const gulpIf = require('gulp-if');
 const lint = require('gulp-stylelint');
@@ -10,8 +10,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const through2 = require('through2');
 const rework = require('rework');
 const reworkFunction = require('rework-plugin-function');
-
-sass.compiler = require('sass');
 
 const getDestPath = () => PATHS.dist.stylesheets;
 

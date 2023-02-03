@@ -11,7 +11,7 @@
     "template"
   ],
   "engines": {
-    "node": "14.17.3"
+    "node": "16.19.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
@@ -37,12 +37,12 @@
     "@babel/eslint-parser": "^7.15.7",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-stage-3": "^7.8.3",
-    "@storybook/addon-a11y": "^6.4.12",
-    "@storybook/addon-essentials": "^6.4.12",
-    "@storybook/builder-webpack5": "^6.4.12",
-    "@storybook/client-api": "^6.4.12",
-    "@storybook/html": "^6.4.12",
-    "@storybook/manager-webpack5": "^6.4.12",
+    "@storybook/addon-a11y": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/client-api": "^6.5.16",
+    "@storybook/html": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
     "acorn": "^8.0.4",
     "chalklet": "^1.0.0",
     "css-loader": "^5.0.0",
@@ -52,7 +52,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-storybook": "^0.5.5",
+    "eslint-plugin-storybook": "^0.6.10",
     "eslint-webpack-plugin": "^2.5.0",
     "fs": "0.0.1-security",
     "gulp": "^4.0.2",
@@ -64,7 +64,7 @@
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-newer": "^1.4.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify-es": "^2.0.0",
