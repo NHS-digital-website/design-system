@@ -35,12 +35,4 @@ $-root: ".nhsd-m-checklist";
     width: nhsd-spacing.get(6);
   }
 
-  &__icon-list {
-    display: table;
-    table-layout: fixed;
-
-    span {
-      display: table-cell;
-    }
-  }
 }
