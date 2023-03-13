@@ -1,0 +1,427 @@
+name: Slack Deployment Command for Design System Test
+#Slack deployment command for design system on test
+on:
+  repository_dispatch:
+    types:
+      - slack-deploy-command-for-design-system-test
+
+jobs:
+
+  integrity:
+    name: Slack Integrity Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+
+    steps:
+
+      # Validate that the command is called from deployment-od2-prod
+      - name: Checking source
+        uses: actions/github-script@v6
+        env:
+          CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+        if: ${{ env.CHANNEL_ID !='C026PH4GQSH' }}
+        with:
+          script: |
+            core.setFailed('Caller source not verified!')
+
+      #
+      # Provide a URL to the active GitHub Actions Workflow run
+      #
+      - name: Slack message (Track progress message)
+        if: ${{ success() }}
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "The pipeline logs are here ${{ env.GITHUB_WORKFLOW_URL }}",  "color": "#005EB8" }] }'
+        env:
+          SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
+          GITHUB_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+
+  #
+  # Build homepage distribution from source
+  #
+  build_homepage:
+    name: "Build Homepage Distribution"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      #
+      # Step 1
+      # Checkout the project's sourcecode
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #
+      # Step 2
+      # Set Node.js version
+      #
+      - name: Request Node Version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.19.0'
+
+      #
+      # Step 3
+      # Cache Management (CDN Distribution)
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v3
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nhs-digital-homepage-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-nhs-digital-homepage-${{ env.YEAR }}-
+            ${{ runner.os }}-nhs-digital-homepage-
+
+      #
+      # Step 4
+      #
+      - name: Initialise NPM
+        run: npm i
+        working-directory: homepage
+
+      #
+      # Step 5
+      #
+      - name: Build dist folder
+        run: npm run build
+        working-directory: homepage
+
+      #
+      # Step 6
+      # Store homepage distribution workflow artifacts
+      #
+      - name: Archive dist artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: homepage-dist
+          path: homepage/dist/
+
+  #
+  # Build CDN Distribution from source
+  #
+  build_dist:
+    name: "Build CDN Distribution"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      #
+      # Step 1
+      # Checkout the project's sourcecode
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #
+      # Step 2
+      # Set Node.js version
+      #
+      - name: Request Node Version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.19.0'
+
+      #
+      # Step 3
+      # Cache Management (CDN Distribution)
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v3
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nhs-digital-distribution-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-nhs-digital-distribution-${{ env.YEAR }}-
+            ${{ runner.os }}-nhs-digital-distribution-
+
+      #
+      # Step 4
+      #
+      - name: Initialise NPM
+        run: npm i
+
+      #
+      # Step 5
+      #
+      - name: Build dist folder
+        run: npm run dist:build:prod
+
+      #
+      # Step 6
+      # Store CDN distribution workflow artifacts
+      #
+      - name: Archive dist artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: cdn-dist
+          path: |
+            dist/fonts/
+            dist/icons/
+            dist/images/
+            dist/scripts/
+            dist/static/
+            dist/stylesheets/
+
+
+  #
+  # Build Storybook from source
+  #
+  build_storybook:
+    name: "Build Storybook Distribution"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      #
+      # Step 1
+      # Checkout the project's sourcecode
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #
+      # Step 2
+      # Set Node.js version
+      #
+      - name: Request Node Version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.19.0'
+
+      #
+      # Step 3
+      # Cache Management (Storybook)
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v3
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nhs-digital-storybook-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-nhs-digital-storybook-${{ env.YEAR }}-
+            ${{ runner.os }}-nhs-digital-storybook-
+
+      #
+      # Step 4
+      #
+      - name: Initialise NPM
+        run: npm i
+
+      #
+      # Step 7
+      # Build storybook project
+      #
+      - name: Build Storybook
+        env:
+          STORYBOOK_VERSION: ${{ github.ref_name }}
+        run: npm run storybook:build
+
+      #
+      # Step 8
+      # Store Storybook workflow artifacts
+      #
+      - name: Archive storybook artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-dist
+          path: storybook-static/
+
+  #
+  # Build NPM Package from source
+  #
+  build_npm_package:
+    name: "Build NPM Distribution"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+
+      #
+      # Step 1
+      # Checkout the project's sourcecode
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #
+      # Step 2
+      # Set Node.js version
+      #
+      - name: Request Node Version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.19.0'
+
+      #
+      # Step 3
+      # Cache Management (NPM package)
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v3
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nhs-digital-npm-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-nhs-digital-npm-${{ env.YEAR }}-
+            ${{ runner.os }}-nhs-digital-npm-
+
+      #
+      # Step 4
+      #
+      - name: Initialise NPM
+        run: npm i
+
+      #
+      # Step 5
+      #
+      - name: Build NPM
+        run: npm run package:build:prod
+
+      #
+      # Step 6
+      # Store NPM Package workflow artifacts
+      #
+      - name: Archive NPM package artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: npm-dist
+          path: |
+            package/
+
+  #
+  # Put CDN distribution artifact onto the S3 origin.
+  #
+  dist_cdn:
+    name: "Distribute CDN"
+    needs:
+      - build_dist
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+
+      #
+      # Step 1
+      # Download CDN artifact and merge version artifact into the same folder
+      #
+      - name: Download CDN artifacts
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: cdn-dist
+          path: cdn-dist
+
+      #
+      # Step 2
+      # Set up AWS CLI
+      #
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.TEST_PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.TEST_PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{secrets.TEST_S3_ORIGIN }}
+
+      #
+      # Step 3
+      # Create versioned release in S3
+      #
+      - name: Create version
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: aws s3 cp . s3://${{ secrets.TEST_S3_ORIGIN }}/cdn/${{ github.ref_name }} --recursive
+
+  #
+  # Put the Storybook distribution artifact onto the S3 origin.
+  #
+  dist_storybook:
+    name: "Distribute Storybook"
+    needs:
+      - build_storybook
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      #
+      # Step 1
+      # Download CDN artifact and merge version artifact into the same folder
+      #
+      - name: Download all workflow artifacts
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: storybook-dist
+          path: storybook-dist
+
+      #
+      # Step 2
+      # Set up AWS CLI
+      #
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.TEST_PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.TEST_PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{secrets.TEST_S3_ORIGIN }}
+
+      #
+      # Step 3
+      # Create versioned release in S3
+      #
+      - name: Create version
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: aws s3 cp . s3://${{ secrets.TEST_S3_ORIGIN }}/storybook/${{ github.ref_name }} --recursive
