@@ -20,52 +20,27 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16.19.0'
+          cache: 'npm'
 
       #
       # Step 3
-      # Cache Management (Homepage)
-      #
-      - name: Get cache key helper values
-        uses: actions/github-script@v3
-        id: cache-key-helper
-        with:
-          result-encoding: string
-          script: |
-            return JSON.stringify({
-              "year" : new Date().getFullYear(),
-              "rotation" : new Date().getTimezoneOffset()
-            })
-      - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
-        env:
-          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
-          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-homepage-${{ env.YEAR }}-${{ env.ROTATION }}
-          restore-keys: |
-            ${{ runner.os }}-homepage-${{ env.YEAR }}-
-            ${{ runner.os }}-homepage-
-
-      #
-      # Step 4
       #
       - name: Initialise NPM
         run: npm i
         working-directory: homepage
 
       #
-      # Step 5
+      # Step 4
       #
       - name: Build NPM Package
         run: npm run build
@@ -86,51 +61,26 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16.19.0'
+          cache: 'npm'
 
       #
       # Step 3
-      # Cache Management (storybook)
-      #
-      - name: Get cache key helper values
-        uses: actions/github-script@v3
-        id: cache-key-helper
-        with:
-          result-encoding: string
-          script: |
-            return JSON.stringify({
-              "year" : new Date().getFullYear(),
-              "rotation" : new Date().getTimezoneOffset()
-            })
-      - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
-        env:
-          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
-          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-nhs-digital-storybook-${{ env.YEAR }}-${{ env.ROTATION }}
-          restore-keys: |
-            ${{ runner.os }}-nhs-digital-storybook-${{ env.YEAR }}-
-            ${{ runner.os }}-nhs-digital-storybook-
-
-      #
-      # Step 4
       #
       - name: Initialise NPM
         run: npm i
 
       #
-      # Step 5
+      # Step 4
       #
       - name: Build StoryBook
         run: npm run storybook:build
@@ -151,51 +101,26 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16.19.0'
+          cache: 'npm'
 
       #
       # Step 3
-      # Cache Management (CDN distribution)
-      #
-      - name: Get cache key helper values
-        uses: actions/github-script@v3
-        id: cache-key-helper
-        with:
-          result-encoding: string
-          script: |
-            return JSON.stringify({
-              "year" : new Date().getFullYear(),
-              "rotation" : new Date().getTimezoneOffset()
-            })
-      - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
-        env:
-          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
-          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-nhs-digital-distribution-${{ env.YEAR }}-${{ env.ROTATION }}
-          restore-keys: |
-            ${{ runner.os }}-nhs-digital-distribution-${{ env.YEAR }}-
-            ${{ runner.os }}-nhs-digital-distribution-
-
-      #
-      # Step 4
       #
       - name: Initialise NPM
         run: npm i
 
       #
-      # Step 5
+      # Step 4
       #
       - name: Build Distribution
         run: npm run dist:build:prod
@@ -216,51 +141,26 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16.19.0'
+          cache: 'npm'
 
       #
       # Step 3
-      # Cache Management (NPM Package)
-      #
-      - name: Get cache key helper values
-        uses: actions/github-script@v3
-        id: cache-key-helper
-        with:
-          result-encoding: string
-          script: |
-            return JSON.stringify({
-              "year" : new Date().getFullYear(),
-              "rotation" : new Date().getTimezoneOffset()
-            })
-      - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
-        env:
-          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
-          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-nhs-digital-package-${{ env.YEAR }}-${{ env.ROTATION }}
-          restore-keys: |
-            ${{ runner.os }}-nhs-digital-package-${{ env.YEAR }}-
-            ${{ runner.os }}-nhs-digital-package-
-
-      #
-      # Step 4
       #
       - name: Initialise NPM
         run: npm i
 
       #
-      # Step 5
+      # Step 4
       #
       - name: Build NPM Package
         run: npm run package:build:prod
