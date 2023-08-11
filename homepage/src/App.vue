@@ -31,6 +31,9 @@
                 <li class="nhsd-m-sticky-navigation__item" data-nav-content="content-delivery-network">
                   <a class="nhsd-a-link" href="#content-delivery-network">Content Delivery Network</a>
                 </li>
+                <li class="nhsd-m-sticky-navigation__item" data-nav-content="contribute">
+                  <a class="nhsd-a-link" href="#contribute">Contribute</a>
+                </li>
                 <li class="nhsd-m-sticky-navigation__item" data-nav-content="node-package-manger">
                   <a class="nhsd-a-link" href="#node-package-manger">NPM Distribution</a>
                 </li>
@@ -48,6 +51,10 @@
           <hr class="nhsd-a-horizontal-rule" />
           <div id="content-delivery-network">
             <content-delivery-network-card :releases="releases" />
+          </div>
+          <hr class="nhsd-a-horizontal-rule" />
+          <div id="contribute">
+            <ContributeCard />
           </div>
           <hr class="nhsd-a-horizontal-rule" />
           <div id="node-package-manger">
@@ -70,7 +77,8 @@ import PhaseBanner from '@/components/PhaseBanner'
 import HomeBannerHero from '@/components/HomeBannerHero'
 import ContentDeliveryNetworkCard from './components/ContentDeliveryNetworkCard'
 import StorybookCard from './components/StorybookCard'
-import NodePackageManagerCard from '@/components/NodePackageManagerCard';
+import NodePackageManagerCard from '@/components/NodePackageManagerCard'
+import ContributeCard from '@/components/ContributeCard'
 import axios from 'axios';
 
 export default {
@@ -82,7 +90,8 @@ export default {
     HomeBannerHero,
     ContentDeliveryNetworkCard,
     StorybookCard,
-    NodePackageManagerCard
+    NodePackageManagerCard,
+    ContributeCard
   },
   data() {
     return {
