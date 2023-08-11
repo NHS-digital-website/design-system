@@ -282,7 +282,7 @@ jobs:
       # - Adds dist, storybook and package to the release
       #
       - name: Upload Homepage Dist Zip
-        uses: actions/upload-release-asset@v1
+        uses: ./.github/actions/upload-release-asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -292,7 +292,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload CDN Dist Zip
-        uses: actions/upload-release-asset@v1
+        uses: ./.github/actions/upload-release-asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -302,7 +302,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload Storybook Zip
-        uses: actions/upload-release-asset@v1
+        uses: ./.github/actions/upload-release-asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -312,7 +312,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload NPM Package Zip
-        uses: actions/upload-release-asset@v1
+        uses: ./.github/actions/upload-release-asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
