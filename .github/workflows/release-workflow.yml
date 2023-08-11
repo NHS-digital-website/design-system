@@ -280,9 +280,13 @@ jobs:
       # Step 4
       # Add release assets
       # - Adds dist, storybook and package to the release
-      #
+
+      # Checkout is required for the upload-release-asset action to work.
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Upload Homepage Dist Zip
-        uses: actions/upload-release-asset@v1
+        uses: ./.github/actions/upload-release-asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -292,7 +296,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload CDN Dist Zip
-        uses: actions/upload-release-asset@v1
+        uses: ./.github/actions/upload-release-asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -302,7 +306,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload Storybook Zip
-        uses: actions/upload-release-asset@v1
+        uses: ./.github/actions/upload-release-asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -312,7 +316,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload NPM Package Zip
-        uses: actions/upload-release-asset@v1
+        uses: ./.github/actions/upload-release-asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
