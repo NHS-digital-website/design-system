@@ -125,7 +125,8 @@ function makeResponsive(table) {
         Array.from(tableCells).forEach((tableCell, index) => {
           listElHtml += '<li><span><b>';
           if (tableHeadings[index]) {
-            listElHtml += tableHeadings[index].innerText;
+            const strippedHtml = tableHeadings[index].innerHTML.replace(/^<[^>]+>|<\/[^>]+>$/g, '');
+            listElHtml += strippedHtml;
           }
           listElHtml += `</b></span><span>${tableCell.innerHTML}</span>`;
           listElHtml += '</li>';
