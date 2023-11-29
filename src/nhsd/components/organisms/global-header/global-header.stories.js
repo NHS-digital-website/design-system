@@ -60,34 +60,34 @@ LabComponent.args = {
   buttonNav: {
     classes: 'nhsd-m-button-nav--condensed nhsd-m-button-nav--non-responsive nhsd-o-global-header__button-nav',
     buttons: [
-    {
-      el: 'a',
-      id: 'nhsd-global-header__search-button',
-      href: '/search',
-      aria: {
-        label: 'Open search',
-        controls: 'nhsd-global-header__search',
-        expanded: false,
-      },
-      classes: 'nhsd-a-button--circle',
-      icon: {
-        svgSource: nhsdIcon('search'),
-        classes: 'nhsd-a-icon--size-s',
-      },
-    }, {
-      el: 'button',
-      id: 'nhsd-global-header__menu-button',
-      label: 'Menu',
-      aria: {
-        controls: 'nhsd-global-header__menu',
-        expanded: false,
-      },
-      classes: 'nhsd-o-global-header__menu-button',
-      icon: {
-        svgSource: nhsdIcon('burger'),
-        classes: 'nhsd-a-icon--size-s',
-      },
-    }],
+      {
+        el: 'a',
+        id: 'nhsd-global-header__search-button',
+        href: '/search',
+        aria: {
+          label: 'Open search',
+          controls: 'nhsd-global-header__search',
+          expanded: false,
+        },
+        classes: 'nhsd-a-button--circle',
+        icon: {
+          svgSource: nhsdIcon('search'),
+          classes: 'nhsd-a-icon--size-s',
+        },
+      }, {
+        el: 'button',
+        id: 'nhsd-global-header__menu-button',
+        label: 'Menu',
+        aria: {
+          controls: 'nhsd-global-header__menu',
+          expanded: false,
+        },
+        classes: 'nhsd-o-global-header__menu-button',
+        icon: {
+          svgSource: nhsdIcon('burger'),
+          classes: 'nhsd-a-icon--size-s',
+        },
+      }],
   },
   search: true,
 };
@@ -96,6 +96,76 @@ LabComponent.parameters = {
   docs: {
     source: {
       code: `${sourceCode}\n${LabComponent(LabComponent.args)}`,
+    },
+  },
+};
+
+export const DescriptorAtom = Template.bind({});
+DescriptorAtom.args = {
+  paragraph: {
+      classes: 'digital-descriptor-text',
+      text: 'Digital',
+      id: 'digital-descriptor-text-id',
+  },
+  menuBar: {
+    links: [
+      {
+        label: 'Coronavirus',
+      }, {
+        label: 'Data',
+      }, {
+        label: 'Services',
+      }, {
+        label: 'Cyber',
+      }, {
+        label: 'Developer',
+      }, {
+        label: 'News',
+      }, {
+        label: 'About us',
+      },
+    ],
+  },
+  buttonNav: {
+    classes: 'nhsd-m-button-nav--condensed nhsd-m-button-nav--non-responsive nhsd-o-global-header__button-nav',
+    buttons: [
+      {
+        el: 'a',
+        id: 'nhsd-global-header__search-button',
+        href: '/search',
+        aria: {
+          label: 'Open search',
+          controls: 'nhsd-global-header__search',
+          expanded: false,
+        },
+        classes: 'nhsd-a-button--circle',
+        icon: {
+          svgSource: nhsdIcon('search'),
+          classes: 'nhsd-a-icon--size-s',
+        },
+      }, {
+        el: 'button',
+        id: 'nhsd-global-header__menu-button',
+        label: 'Menu',
+        aria: {
+          controls: 'nhsd-global-header__menu',
+          expanded: false,
+        },
+        classes: 'nhsd-o-global-header__menu-button',
+        icon: {
+          svgSource: nhsdIcon('burger'),
+          classes: 'nhsd-a-icon--size-s',
+        },
+      }],
+  },
+  search: true,
+  descriptorAtom: true,
+};
+DescriptorAtom.parameters = {
+  layout: 'fullscreen',
+  docs: {
+    source: {
+      code: `${sourceCode}\n${DescriptorAtom(DescriptorAtom.args)}`,
     },
   },
 };

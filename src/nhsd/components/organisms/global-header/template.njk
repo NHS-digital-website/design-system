@@ -32,9 +32,13 @@
         <div class="nhsd-o-global-header__content-box">
           <div class="nhsd-o-global-header__background"></div>
           <div class="nhsd-o-global-header__logo-container">
+            {%- if params.descriptorAtom -%}
+              <div class="nhsd-o-global-header__descriptor-atom"><p class="{{ params.paragraph.classes }}" id="{{ params.paragraph.id }}"> {{ params.paragraph.text }} </p></div>
+            {%- else  -%}
             {{ nhsd_m_logo_link(params.logoLink) }}
             {%- if params.productName -%}
               <div class="nhsd-o-global-header__product-name">{{ params.productName }}</div>
+            {%- endif -%}
             {%- endif -%}
           </div>
           <div class="nhsd-o-global-header__menu" id="nhsd-global-header__menu">
@@ -109,7 +113,7 @@
                 <div class="nhsd-o-global-header__mega-menu-content" id="{{ menu.id }}">
                   {{ nhsd_m_menu_bar(menu) }}
                   <div class="nhsd-o-global-header__mega-menu-image">
-                    {{ nhsd_a_image(menu.image) }}
+                     {{ nhsd_a_image(menu.image) }}
                   </div>
                 </div>
               {% endfor %}
