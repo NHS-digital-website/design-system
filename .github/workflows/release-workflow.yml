@@ -19,14 +19,14 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16.19.0'
           cache: 'npm'
@@ -50,7 +50,7 @@ jobs:
       # Store homepage distribution workflow artifacts
       #
       - name: Archive dist artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: homepage-dist
           path: homepage/dist/
@@ -69,14 +69,14 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16.19.0'
           cache: 'npm'
@@ -98,7 +98,7 @@ jobs:
       # Store CDN distribution workflow artifacts
       #
       - name: Archive dist artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cdn-dist
           path: |
@@ -122,14 +122,14 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16.19.0'
           cache: 'npm'
@@ -154,7 +154,7 @@ jobs:
       # Store Storybook workflow artifacts
       #
       - name: Archive storybook artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: storybook-dist
           path: storybook-static/
@@ -173,14 +173,14 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16.19.0'
           cache: 'npm'
@@ -202,7 +202,7 @@ jobs:
       # Store NPM Package workflow artifacts
       #
       - name: Archive NPM package artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: npm-dist
           path: |
@@ -225,14 +225,14 @@ jobs:
       # Checkout is required for the upload-release-asset action to work.
       #
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
 
       #
       # Step 1
       #
       - name: Download all workflow artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         id: download
         with:
           path: workflow-artifacts
@@ -346,7 +346,7 @@ jobs:
       # Download CDN artifact and merge version artifact into the same folder
       #
       - name: Download CDN artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         id: download
         with:
           name: cdn-dist
@@ -387,7 +387,7 @@ jobs:
       # Download CDN artifact and merge version artifact into the same folder
       #
       - name: Download all workflow artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         id: download
         with:
           name: storybook-dist
@@ -428,13 +428,13 @@ jobs:
       # Download CDN artifact and merge version artifact into the same folder
       #
       - name: Download all workflow artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         id: download
         with:
           name: homepage-dist
           path: homepage-dist
       - name: Download version artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: homepage-dist
 
