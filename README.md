@@ -114,14 +114,14 @@ We welcome your feedback and feature requests.
 
 If you notice a bug please raise an issue along with as much detail as possible.
 
-We will then investigate the issue and work on a fix if required. Alternatively, you are welcome to raise a pull request with your proposed fix and a link to the issue. We will then review your changes and merge or decline with an explaination.
+We will then investigate the issue and work on a fix if required. Alternatively, you are welcome to raise a pull request with your proposed fix and a link to the issue. We will then review your changes and merge or decline with an explanation.
 
 
 ### Request a new feature / component
 
 If you believe a new feature or component would be useful you may raise an issue with your proposal.
 
-You should include an explaination of the feature / component, along with the reasoning for the proposal.
+You should include an explanation of the feature / component, along with the reasoning for the proposal.
 
 Generally speaking new features and components will only be considered if they introduce some unique, and useful, functionality which can't be achieved with existing components.
 
@@ -142,7 +142,7 @@ Before contributing code please see our [contributing page](/CONTRIBUTING.md).
 
 To deploy a new version of the toolkit, a tag should be created following [semantic versioning](https://semver.org/) rules and prefixed with "v". Eg, "v1.0.2-beta".
 
-Once pushed, the distribtion workflow will deploy a version of storybook and CDN matching the tagged version name.
+Once pushed, the distribution workflow will deploy a version of storybook and CDN matching the tagged version name.
 
 For example, tag "v1.0.2-beta" would create the following resources:
 
@@ -150,7 +150,7 @@ https://design-system.digital.nhs.uk/storybook/v1.0.2-beta/
 
 https://design-system.digital.nhs.uk/cdn/v1.0.2-beta/
 
-Release versions should always be created from the master branch. Note: this will require elevated repo permissions.
+Release versions should always be created from the main branch. Note: this will require elevated repo permissions.
 
 ### Releases
 
@@ -158,7 +158,7 @@ Releases can be created from the Github release page.
 
 To create a release, a version must first be tagged and pushed. Once pushed the tag can be selected from the new release page.
 
-Next, enter a release title (typically the version number) and a description of the changes - this should include any breaking changes and mirgration information.
+Next, enter a release title (typically the version number) and a description of the changes - this should include any breaking changes and migration information.
 
 Once the release has been created release assets will be automatically built and attached to the release. The "latest" version of storybook and the CDN will also be updated and can be found here:
 
