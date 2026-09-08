@@ -116,10 +116,10 @@ LabComponent.args = {
     }, {
       classes: 'nhsd-a-link--col-dark-grey',
       href: 'https://twitter.com/NHSDigital',
-      label: 'Twitter',
+      label: 'X',
       external: true,
       icon: {
-        svgSource: nhsdIcon('twitter', true),
+        svgSource: nhsdIcon('x_social', true),
         classes: 'nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey',
       },
     }],
