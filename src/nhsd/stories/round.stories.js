@@ -18,7 +18,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/round";\n\n//HT
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.round}`,
+  title: "Design System / Tokens / Round",
   parameters: {
     docs: {
       description: {

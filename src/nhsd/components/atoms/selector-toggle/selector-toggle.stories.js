@@ -29,7 +29,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/atoms/selector-toggle
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Selector toggle",
   parameters: {
     docs: {
       description: {

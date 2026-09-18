@@ -15,9 +15,16 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organisms/global-foot
 
 // HTML`;
 
+const twoColumnFooter = (Story) => `<style>
+.nhsd-o-global-footer .nhsd-t-col-l-3 { width: 50%; }
+.nhsd-o-global-footer .nhsd-t-grid .nhsd-t-grid { max-width: 100%; }
+.nhsd-o-global-footer .nhsd-t-grid .nhsd-t-grid .nhsd-t-row > .nhsd-t-col-l-3:nth-child(-n + 2) { margin-bottom: 1.666rem; }
+</style>${Story()}`;
+
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: "Design System / Components / Organisms / Global footer",
+  decorators: [twoColumnFooter],
   parameters: {
     docs: {
       description: {

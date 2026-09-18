@@ -19,7 +19,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/colours";\n\n//
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.colours}`,
+  title: "Design System / Tokens / Colours",
   parameters: {
     docs: {
       description: {

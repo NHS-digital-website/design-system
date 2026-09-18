@@ -28,7 +28,7 @@ Other tokens which support theming include, \`nhsd-!t-bg\` (--bg-colour) and \`n
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.themes}`,
+  title: "Design System / Themes (beta)",
   parameters: {
     docs: {
       description: {

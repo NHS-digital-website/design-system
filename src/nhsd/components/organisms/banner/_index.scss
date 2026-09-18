@@ -1,5 +1,6 @@
 // Built in modules
 @use "sass:map";
+@use "sass:math";
 
 // Settings
 @use "scss-core/settings/vars";
@@ -61,7 +62,7 @@ $-breakpoints: "xs", "s", "m", "l", "xl";
   }
 
   @include mq($until: s) {
-    width: 100% / 12 * 11;
+    width: math.div(100%, 12) * 11;
     flex-direction: column-reverse;
 
     &__content-container,

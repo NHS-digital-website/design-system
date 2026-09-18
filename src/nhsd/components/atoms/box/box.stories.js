@@ -14,7 +14,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/atoms/box";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Box",
   parameters: {
     docs: {
       description: {
@@ -42,6 +42,20 @@ LabComponent.parameters = {
 
 export const WhiteBox = Template.bind({});
 WhiteBox.storyName = 'Background / White';
+WhiteBox.globals = {
+  backgrounds: {
+    value: '#425563',
+  },
+};
+WhiteBox.decorators = [
+  (Story, context) => {
+    const bleed = context.viewMode === 'docs'
+      ? 'box-shadow: 0 0 0 32px #425563; margin-top: -22px; margin-bottom: -22px;'
+      : '';
+    const padding = context.viewMode === 'docs' ? '22px 22px 22px 0' : '22px';
+    return `<div style="background-color: #425563; padding: ${padding}; box-sizing: border-box; ${bleed}">${Story()}</div>`;
+  },
+];
 WhiteBox.parameters = {
   backgrounds: {
     default: 'dim',

@@ -37,7 +37,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/statistics-
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Statistics Block",
   parameters: {
     docs: {
       description: {

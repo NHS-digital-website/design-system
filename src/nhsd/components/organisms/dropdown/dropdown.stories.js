@@ -75,9 +75,16 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organism/dropdown";
 
 // HTML`;
 
+const initializeDropdown = (Story) => {
+  const markup = Story();
+  setTimeout(() => globalThis.nhsd?.init(), 0);
+  return markup;
+};
+
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: "Design System / Components / Organisms / Dropdown",
+  decorators: [initializeDropdown],
   parameters: {
     docs: {
       description: {

@@ -67,7 +67,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/spacing";\n\n//
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.spacing}`,
+  title: "Design System / Tokens / Spacing",
   parameters: {
     docs: {
       description: {

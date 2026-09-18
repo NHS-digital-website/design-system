@@ -37,7 +37,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/filter-menu
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Filter Menu Section",
   parameters: {
     docs: {
       description: {
@@ -50,8 +50,15 @@ export default {
 // Component template
 const Template = (args) => pretty(template.render({ params: { ...args, nhsdIcon } }), { ocd: true });
 
+const initializeFilterMenu = (Story) => {
+  const markup = Story();
+  setTimeout(() => globalThis.nhsd?.init(), 0);
+  return markup;
+};
+
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
+LabComponent.decorators = [initializeFilterMenu];
 LabComponent.args = {
   title: 'Heading',
   options: [

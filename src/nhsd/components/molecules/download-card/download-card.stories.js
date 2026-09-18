@@ -36,7 +36,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/download-ca
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Download card",
   parameters: {
     docs: {
       description: {

@@ -18,7 +18,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/publication
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Publication Chapter Navigation",
   parameters: {
     docs: {
       description: {

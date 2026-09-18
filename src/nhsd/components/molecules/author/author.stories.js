@@ -15,7 +15,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/author";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Author",
   parameters: {
     docs: {
       description: {

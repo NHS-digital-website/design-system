@@ -17,7 +17,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/error-summa
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Error summary",
   parameters: {
     docs: {
       description: {

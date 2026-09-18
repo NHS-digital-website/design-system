@@ -4,6 +4,20 @@ ignoreFiles: src/nhsd/vendor/**/*
 plugins:
   - stylelint-order
 rules:
+  # Retain project conventions while adopting the updated GDS baseline.
+  block-no-redundant-nested-style-rules: null
+  color-function-alias-notation: null
+  declaration-property-value-keyword-no-deprecated: null
+  number-max-precision: null
+  property-no-deprecated: null
+  selector-attribute-quotes: null
+  selector-no-qualifying-type: null
+  selector-not-notation: null
+  selector-pseudo-element-colon-notation: null
+  scss/at-if-no-null: null
+  scss/at-rule-conditional-no-parentheses: null
+  scss/load-no-partial-leading-underscore: null
+
   # govuk-frontend has a specific ordering pattern that should be applied to
   # rules
   #

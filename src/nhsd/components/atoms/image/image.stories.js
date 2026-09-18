@@ -6,8 +6,7 @@ import * as sbConfig from '../../../../../.storybook/storybook-config';
 
 // Load template file
 import template from './template.njk';
-
-require('./_example.scss');
+import './_example.scss';
 
 const componentName = 'Image';
 const storyDescription = `${sbConfig.heading.lab}
@@ -20,7 +19,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/atoms/image";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Image",
   parameters: {
     docs: {
       description: {

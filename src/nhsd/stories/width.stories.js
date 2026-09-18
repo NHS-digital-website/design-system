@@ -25,7 +25,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/width";\n\n//HT
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.width}`,
+  title: "Design System / Tokens / Width",
   parameters: {
     docs: {
       description: {

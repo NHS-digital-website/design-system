@@ -29,7 +29,7 @@ const charList = chars.map((char) => ({
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Character block list",
   parameters: {
     docs: {
       description: {

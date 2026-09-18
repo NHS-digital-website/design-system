@@ -57,7 +57,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/nav-block";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Nav block",
   parameters: {
     docs: {
       description: {
@@ -432,7 +432,7 @@ export const HeightMatchComponent = () => {
     <div class="nhsd-t-col-4">${LabComponent(shortHeightMatchArgs)}</div>
   </div>
 </div>`;
-  return div;
+  return div.outerHTML;
 };
 
 HeightMatchComponent.storyName = 'Height match';

@@ -24,7 +24,7 @@ const storyDescription = `${sbConfig.heading.lab}
 
 // Component defaults
 export default {
-    title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.templates} / ${componentName}`,
+    title: "Design System / Components / Templates / Featured Card Layout",
     parameters: {
       docs: {
         description: {

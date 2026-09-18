@@ -7,7 +7,7 @@ const storyDescription = `${sbConfig.heading.lab}`;
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.latestVersion}`,
+  title: "Design System / Latest version",
   parameters: {
     docs: {
       description: {

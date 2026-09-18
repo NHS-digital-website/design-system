@@ -59,9 +59,17 @@ https://design-system.digital.nhs.uk/cdn/[TOOLKIT_VERSION]/icons/hex/[ICON_ID].s
 `;
 const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HTML';
 
+const backdrop = (colour) => (Story, context) => {
+  const bleed = context.viewMode === 'docs'
+    ? `box-shadow: 0 0 0 32px ${colour}; margin-top: -22px; margin-bottom: -22px;`
+    : '';
+  const padding = context.viewMode === 'docs' ? '22px 22px 22px 0' : '22px';
+  return `<div style="background-color: ${colour}; padding: ${padding}; box-sizing: border-box; ${bleed}">${Story()}</div>`;
+};
+
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Icon",
   parameters: {
     docs: {
       description: {
@@ -94,6 +102,7 @@ const Template = (args) => {
 export const LabComponent = Template.bind({});
 LabComponent.args = {
   nested: true,
+  id: 'arrow_right',
   classes: 'nhsd-a-icon--size-xxl',
 };
 LabComponent.storyName = sbConfig.title.lab;
@@ -150,6 +159,14 @@ ComponentVariant3.parameters = {
     },
   },
 };
+ComponentVariant3.globals = {
+  backgrounds: {
+    value: '#005bbb',
+  },
+};
+ComponentVariant3.decorators = [
+  backdrop('#005bbb'),
+];
 
 export const ComponentVariant4 = Template.bind({});
 ComponentVariant4.args = {
@@ -168,6 +185,7 @@ ComponentVariant4.parameters = {
     },
   },
 };
+ComponentVariant4.decorators = [backdrop('#231f20')];
 
 export const DarkGreyColour = Template.bind({});
 DarkGreyColour.args = {

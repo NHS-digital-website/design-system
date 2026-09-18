@@ -22,7 +22,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/image-with-
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Image with link",
   parameters: {
     docs: {
       description: {

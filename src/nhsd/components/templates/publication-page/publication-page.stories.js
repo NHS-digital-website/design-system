@@ -23,7 +23,7 @@ Content headers are given a unique \`id\` and referenced by sticky nav items wit
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.templates} / ${componentName}`,
+  title: "Design System / Components / Templates / Publication Page",
   parameters: {
     docs: {
       description: {

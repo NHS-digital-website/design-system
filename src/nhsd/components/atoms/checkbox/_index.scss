@@ -113,7 +113,7 @@ $-root: ".nhsd-a-checkbox";
       position: absolute;
       top: 3px;
       left: 9px;
-      width: math.floor($-check-size / 2);
+      width: math.floor(math.div($-check-size, 2));
       height: $-check-size;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
@@ -183,7 +183,7 @@ $-root: ".nhsd-a-checkbox";
     input:checked {
       ~ .checkmark:after {
         left: 7px;
-        width: math.floor($-check-size-s / 2);
+        width: math.floor(math.div($-check-size-s, 2));
         height: $-check-size-s;
       }
     }
@@ -218,7 +218,7 @@ $-root: ".nhsd-a-checkbox";
       ~ .checkmark:after {
         top: 3px;
         left: 12px;
-        width: math.floor($-check-size-l / 2);
+        width: math.floor(math.div($-check-size-l, 2));
         height: $-check-size-l;
         border-width: 0 3px 3px 0;
       }

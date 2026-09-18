@@ -2,6 +2,7 @@
 
 // Built in modules
 @use "sass:map";
+@use "sass:math";
 
 // Settings
 @use "scss-core/settings/vars";
@@ -62,7 +63,10 @@ $-responsive-data-map: (
 
 @function px-to-rem($px) {
   @if $px != null {
-    @return if($px == 0, 0, ($px / fonts.$base-font-size) * 1rem);
+    @if $px == 0 {
+      @return 0;
+    }
+    @return math.div($px, fonts.$base-font-size) * 1rem;
   }
   @return null;
 }
@@ -72,7 +76,11 @@ $-responsive-data-map: (
   @if $value == null {
     $value: map.get($-directions, left);
   }
-  text-align: $value if($override == true, !important, null);
+  @if $override == true {
+    text-align: $value !important;
+  } @else {
+    text-align: $value;
+  }
 }
 
 @mixin box-sizing($value: border-box) {
@@ -118,7 +126,7 @@ $-responsive-data-map: (
   @if $withGutters == true {
     $gutter-width: (vars.$gutter * 2);
   }
-  @return #{((map.get(vars.$content-width, $breakpoint) - $gutter-width) / 12 * $colWidth) - $gutter-width};
+  @return #{(math.div(map.get(vars.$content-width, $breakpoint) - $gutter-width, 12) * $colWidth) - $gutter-width};
 }
 
 // =========================================================

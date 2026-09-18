@@ -16,12 +16,10 @@ const logInfo = () => {
     verticalLayout: 'default',
   };
 
-  /* eslint-disable no-console */
   console.log('\n\n\n');
   console.log(chalklet.generate(text, colorOptions, fontOptions));
   console.log(`\n    version: ${VERSION} | build target: ${ENV.getBuildTarget()} | build mode: ${ENV.getBuildMode()}`);
   console.log('\n\n\n');
-  /* eslint-enable no-console */
 };
 
 gulp.task('init:dist', (done) => {
