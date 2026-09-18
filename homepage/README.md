@@ -1,8 +1,11 @@
 # homepage
 
 ## Project setup
+
+Use Node.js 24 (`nvm use 24` from the repository root), then install dependencies:
+
 ```
-npm install
+npm ci
 ```
 
 ### Compiles and hot-reloads for development

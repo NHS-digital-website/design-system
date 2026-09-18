@@ -11,9 +11,12 @@
     "template"
   ],
   "engines": {
-    "node": "16.19.0"
+    "node": ">=24 <25"
   },
   "scripts": {
+    "homepage": "npm --prefix homepage run serve",
+    "homepage:build": "npm --prefix homepage run build",
+    "homepage:lint": "npm --prefix homepage run lint",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook --no-dll",
     "dist:build": "gulp build:dist",
@@ -45,7 +48,7 @@
     "@storybook/manager-webpack5": "^6.5.16",
     "acorn": "^8.0.4",
     "chalklet": "^1.0.0",
-    "css-loader": "^5.0.0",
+    "css-loader": "^6.11.0",
     "debounce": "^1.2.1",
     "del": "^6.0.0",
     "eslint": "^7.32.0",
