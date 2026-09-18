@@ -55,6 +55,8 @@ Unfortunately this isn't supported yet. Check back soon when we hope to have sup
 
 We recommend you install nvm to manage your node versions.
 
+Use Node.js 24 for both the toolkit and homepage builds. From the repository root, run `nvm install 24` if needed, then `nvm use 24`. Check `node --version` before installing dependencies.
+
 Mac & Linux: https://github.com/nvm-sh/nvm#installing-and-updating
 
 Windows: https://github.com/coreybutler/nvm-windows
@@ -63,7 +65,7 @@ Windows: https://github.com/coreybutler/nvm-windows
 
 Before you begin you will need to install the npm dependencies:
 
-`npm install`
+`npm ci`
 
 ## Distribution Assets
 
@@ -89,17 +91,29 @@ You can also build Storybook for distribution:
 
 ## Design System Homepage
 
-To build the design system homepage first cd into the `/homepage` directory.
+The homepage is a separate Vue application in the `/homepage` directory. From the repository root, install its dependencies with:
 
-Then install the npm dependencies:
+`npm --prefix homepage ci`
 
-`npm install`
+To start the homepage development server:
 
-To start a development server:
+`npm run homepage`
+
+To build the homepage for static hosting:
+
+`npm run homepage:build`
+
+To lint the homepage:
+
+`npm run homepage:lint`
+
+Alternatively, run the homepage commands directly from its directory:
+
+`cd homepage`
+
+`npm ci`
 
 `npm run serve`
-
-Or to build the homepage ready for static hosting:
 
 `npm run build`
 

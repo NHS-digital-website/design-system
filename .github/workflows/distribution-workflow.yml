@@ -11,7 +11,7 @@ jobs:
   #
   build_homepage:
     name: "Build Homepage Distribution"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
 
     steps:
@@ -20,23 +20,24 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '16.19.0'
+          node-version-file: '.nvmrc'
           cache: 'npm'
+          cache-dependency-path: 'homepage/package-lock.json'
 
       #
       # Step 3
       #
       - name: Initialise NPM
-        run: npm i
+        run: npm ci
         working-directory: homepage
 
       #
@@ -61,7 +62,7 @@ jobs:
   #
   build_dist:
     name: "Build CDN Distribution"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
 
     steps:
@@ -70,23 +71,23 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '16.19.0'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       #
       # Step 3
       #
       - name: Initialise NPM
-        run: npm i
+        run: npm ci
 
       #
       # Step 4
@@ -116,7 +117,7 @@ jobs:
   #
   build_storybook:
     name: "Build Storybook Distribution"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       #
@@ -124,23 +125,23 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '16.19.0'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       #
       # Step 3
       #
       - name: Initialise NPM
-        run: npm i
+        run: npm ci
 
       #
       # Step 4
@@ -166,7 +167,7 @@ jobs:
   #
   build_npm_package:
     name: "Build NPM Distribution"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
 
     steps:
@@ -176,23 +177,23 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '16.19.0'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       #
       # Step 3
       #
       - name: Initialise NPM
-        run: npm i
+        run: npm ci
 
       #
       # Step 4
@@ -218,7 +219,7 @@ jobs:
     name: "Distribute CDN"
     needs:
       - build_dist
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
 
     steps:
@@ -260,7 +261,7 @@ jobs:
     name: "Distribute Storybook"
     needs:
       - build_storybook
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
 
     steps:
