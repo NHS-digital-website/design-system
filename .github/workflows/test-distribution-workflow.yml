@@ -14,7 +14,7 @@ jobs:
 
     steps:
 
-      # Validate that the command is called from deployment-od2-prod
+      # Validate that the command is called from deployment-dev (calling it does not affect BR stuff)
       - name: Checking source
         uses: actions/github-script@v6
         env:
@@ -24,25 +24,12 @@ jobs:
           script: |
             core.setFailed('Caller source not verified!')
 
-      #
-      # Provide a URL to the active GitHub Actions Workflow run
-      #
-      - name: Slack message (Track progress message)
-        if: ${{ success() }}
-        uses: muinmomin/webhook-action@v1.0.0
-        with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "The pipeline logs are here ${{ env.GITHUB_WORKFLOW_URL }}",  "color": "#005EB8" }] }'
-        env:
-          SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
-          GITHUB_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
-
   #
   # Build homepage distribution from source
   #
   build_homepage:
     name: "Build Homepage Distribution"
+    needs: integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -93,6 +80,7 @@ jobs:
   #
   build_dist:
     name: "Build CDN Distribution"
+    needs: integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -148,6 +136,7 @@ jobs:
   #
   build_storybook:
     name: "Build Storybook Distribution"
+    needs: integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -198,6 +187,7 @@ jobs:
   #
   build_npm_package:
     name: "Build NPM Distribution"
+    needs: integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -275,7 +265,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.TEST_PIPELINE_AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.TEST_PIPELINE_AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{secrets.TEST_S3_ORIGIN }}
+          aws-region: eu-west-1
 
       #
       # Step 3
@@ -316,7 +306,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.TEST_PIPELINE_AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.TEST_PIPELINE_AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{secrets.TEST_S3_ORIGIN }}
+          aws-region: eu-west-1
 
       #
       # Step 3
