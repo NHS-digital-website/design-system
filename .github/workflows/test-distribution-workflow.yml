@@ -315,3 +315,41 @@ jobs:
       - name: Create version
         working-directory: ${{steps.download.outputs.download-path}}
         run: aws s3 cp . s3://${{ secrets.TEST_S3_ORIGIN }}/storybook/${{ github.ref_name }} --recursive
+
+  #
+  # Put the homepage distribution artifact onto the test S3 origin.
+  #
+  # Keep the homepage at the bucket root, as the production distribution does,
+  # while preserving the CDN and Storybook prefixes deployed above.
+  #
+  dist_homepage:
+    name: "Distribute Homepage"
+    needs:
+      - build_homepage
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+
+      - name: Download homepage artifacts
+        uses: actions/download-artifact@v4
+        id: download
+        with:
+          name: homepage-dist
+          path: homepage-dist
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.TEST_PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.TEST_PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: Replace homepage and its assets
+        working-directory: ${{steps.download.outputs.download-path}}
+        run: >-
+          aws s3 sync . s3://${{ secrets.TEST_S3_ORIGIN }}/
+          --exclude "cdn/*"
+          --exclude "storybook/*"
+          --exclude "error.html"
+          --delete
