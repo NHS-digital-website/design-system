@@ -18,11 +18,52 @@ jobs:
       - name: Checking source
         uses: actions/github-script@v6
         env:
+          AGENT: ${{ github.event.client_payload.integrity.agent }}
+          BODY: ${{ github.event.client_payload.integrity.body }}
           CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+          SIGNATURE: ${{ github.event.client_payload.integrity.signature }}
+          SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
+          TIMESTAMP: ${{ github.event.client_payload.integrity.timestamp }}
+          BRANCH: ${{ github.event.client_payload.data.text }}
         if: ${{ env.CHANNEL_ID !='C026PH4GQSH' }}
         with:
           script: |
             core.setFailed('Caller source not verified!')
+
+      - name: Validate Slack request and branch
+        uses: actions/github-script@v6
+        env:
+          AGENT: ${{ github.event.client_payload.integrity.agent }}
+          BODY: ${{ github.event.client_payload.integrity.body }}
+          SIGNATURE: ${{ github.event.client_payload.integrity.signature }}
+          SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
+          TIMESTAMP: ${{ github.event.client_payload.integrity.timestamp }}
+          BRANCH: ${{ github.event.client_payload.data.text }}
+        with:
+          script: |
+            const crypto = require('crypto');
+            const agent = process.env.AGENT || '';
+            const timestamp = process.env.TIMESTAMP || '';
+            const body = process.env.BODY || '';
+            const signature = process.env.SIGNATURE || '';
+            const secret = process.env.SIGNING_SECRET || '';
+            const branch = (process.env.BRANCH || '').trim();
+
+            if (!agent.startsWith('Slackbot')) {
+              core.setFailed('User agent mismatch.');
+              return;
+            }
+
+            const base = `v0:${timestamp}:${body}`;
+            const hash = crypto.createHmac('sha256', secret).update(base).digest('hex');
+            if (signature !== `v0=${hash}`) {
+              core.setFailed('The origin integrity check failed.');
+              return;
+            }
+
+            if (!branch) {
+              core.setFailed('No branch was supplied. Use /test-design-system <branch>.');
+            }
 
   #
   # Build homepage distribution from source
@@ -32,6 +73,8 @@ jobs:
     needs: integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      BRANCH: ${{ github.event.client_payload.data.text }}
 
     steps:
       #
@@ -40,6 +83,9 @@ jobs:
       #
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0
 
       #
       # Step 2
@@ -48,14 +94,15 @@ jobs:
       - name: Request Node Version
         uses: actions/setup-node@v4
         with:
-          node-version: '16.19.0'
+          node-version-file: '.nvmrc'
           cache: 'npm'
+          cache-dependency-path: homepage/package-lock.json
 
       #
       # Step 3
       #
       - name: Initialise NPM
-        run: npm i
+        run: npm ci
         working-directory: homepage
 
       #
@@ -83,6 +130,8 @@ jobs:
     needs: integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      BRANCH: ${{ github.event.client_payload.data.text }}
 
     steps:
       #
@@ -91,6 +140,9 @@ jobs:
       #
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0
 
       #
       # Step 2
@@ -99,14 +151,14 @@ jobs:
       - name: Request Node Version
         uses: actions/setup-node@v4
         with:
-          node-version: '16.19.0'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       #
       # Step 3
       #
       - name: Initialise NPM
-        run: npm i
+        run: npm ci
 
       #
       # Step 4
@@ -139,6 +191,8 @@ jobs:
     needs: integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      BRANCH: ${{ github.event.client_payload.data.text }}
     steps:
       #
       # Step 1
@@ -146,6 +200,9 @@ jobs:
       #
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0
 
       #
       # Step 2
@@ -154,14 +211,14 @@ jobs:
       - name: Request Node Version
         uses: actions/setup-node@v4
         with:
-          node-version: '16.19.0'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       #
       # Step 3
       #
       - name: Initialise NPM
-        run: npm i
+        run: npm ci
 
       #
       # Step 4
@@ -169,7 +226,7 @@ jobs:
       #
       - name: Build Storybook
         env:
-          STORYBOOK_VERSION: ${{ github.ref_name }}
+          STORYBOOK_VERSION: ${{ env.BRANCH }}
         run: npm run storybook:build
 
       #
@@ -190,6 +247,8 @@ jobs:
     needs: integrity
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      BRANCH: ${{ github.event.client_payload.data.text }}
 
     steps:
 
@@ -199,6 +258,9 @@ jobs:
       #
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0
 
       #
       # Step 2
@@ -207,14 +269,14 @@ jobs:
       - name: Request Node Version
         uses: actions/setup-node@v4
         with:
-          node-version: '16.19.0'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       #
       # Step 3
       #
       - name: Initialise NPM
-        run: npm i
+        run: npm ci
 
       #
       # Step 4
@@ -242,6 +304,9 @@ jobs:
       - build_dist
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      BRANCH: ${{ github.event.client_payload.data.text }}
+      S3_BUCKET: ${{ secrets.TEST_S3_ORIGIN }}
 
     steps:
 
@@ -269,11 +334,16 @@ jobs:
 
       #
       # Step 3
-      # Create versioned release in S3
+      # Publish both the branch-specific and latest CDN distributions
       #
-      - name: Create version
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
+      - name: Publish branch and latest CDN distributions
         working-directory: ${{steps.download.outputs.download-path}}
-        run: aws s3 cp . s3://${{ secrets.TEST_S3_ORIGIN }}/cdn/${{ github.ref_name }} --recursive
+        run: |
+          aws s3 sync . "s3://${S3_BUCKET}/cdn/${BRANCH}" --delete
+          aws s3 sync . "s3://${S3_BUCKET}/cdn/latest" --delete
 
   #
   # Put the Storybook distribution artifact onto the S3 origin.
@@ -284,6 +354,9 @@ jobs:
       - build_storybook
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      BRANCH: ${{ github.event.client_payload.data.text }}
+      S3_BUCKET: ${{ secrets.TEST_S3_ORIGIN }}
 
     steps:
       #
@@ -310,11 +383,16 @@ jobs:
 
       #
       # Step 3
-      # Create versioned release in S3
+      # Publish both the branch-specific and latest Storybook distributions
       #
-      - name: Create version
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
+      - name: Publish branch and latest Storybook distributions
         working-directory: ${{steps.download.outputs.download-path}}
-        run: aws s3 cp . s3://${{ secrets.TEST_S3_ORIGIN }}/storybook/${{ github.ref_name }} --recursive
+        run: |
+          aws s3 sync . "s3://${S3_BUCKET}/storybook/${BRANCH}" --delete
+          aws s3 sync . "s3://${S3_BUCKET}/storybook/latest" --delete
 
   #
   # Put the homepage distribution artifact onto the test S3 origin.
@@ -328,6 +406,8 @@ jobs:
       - build_homepage
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      S3_BUCKET: ${{ secrets.TEST_S3_ORIGIN }}
 
     steps:
 
@@ -345,11 +425,48 @@ jobs:
           aws-secret-access-key: ${{ secrets.TEST_PIPELINE_AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
 
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
       - name: Replace homepage and its assets
         working-directory: ${{steps.download.outputs.download-path}}
         run: >-
-          aws s3 sync . s3://${{ secrets.TEST_S3_ORIGIN }}/
+          aws s3 sync . "s3://${S3_BUCKET}/"
           --exclude "cdn/*"
           --exclude "storybook/*"
           --exclude "error.html"
           --delete
+
+  #
+  # Invalidate cached latest assets after all distributions are updated.
+  #
+  clear_cache:
+    name: "Clear Test CloudFront Cache"
+    needs:
+      - dist_cdn
+      - dist_storybook
+      - dist_homepage
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TEST_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.TEST_CLOUDFRONT_DISTRIBUTION_ID }}
+
+    steps:
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.TEST_PIPELINE_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.TEST_PIPELINE_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: Invalidate latest test assets
+        if: ${{ env.TEST_CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        run: >-
+          aws cloudfront create-invalidation
+          --distribution-id "${TEST_CLOUDFRONT_DISTRIBUTION_ID}"
+          --paths "/storybook/latest/*" "/cdn/latest/*" "/index.html"
+
+      - name: Report missing CloudFront distribution configuration
+        if: ${{ env.TEST_CLOUDFRONT_DISTRIBUTION_ID == '' }}
+        run: echo "TEST_CLOUDFRONT_DISTRIBUTION_ID is not configured; latest assets may remain cached."
