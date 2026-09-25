@@ -1,4 +1,4 @@
-/* global document CustomEvent */
+/* global document */
 
 const NHSD_EVENT = {
     UUID: 0,

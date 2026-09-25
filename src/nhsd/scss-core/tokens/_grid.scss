@@ -1,5 +1,6 @@
 // Built in modules
 @use "sass:map";
+@use "sass:math";
 
 // Settings
 @use "scss-core/settings/vars";
@@ -169,22 +170,22 @@ $small-gutter: vars.$small-gutter;
       @if $-device == "m" {
         &-col-#{$-step} {
           @extend %-column-base;
-          width: $-step / vars.$grid-columns * 100%;
+          width: math.div($-step, vars.$grid-columns) * 100%;
         }
 
         &-off-#{$-step} {
-          margin-left: $-step / vars.$grid-columns * 100%;
+          margin-left: math.div($-step, vars.$grid-columns) * 100%;
         }
       }
 
       // Responsive
       @include mq($from: $-bp-from, $until: $-bp-until) {
         &-col-#{$-prefix}-#{$-step} {
-          width: $-step / vars.$grid-columns * 100%;
+          width: math.div($-step, vars.$grid-columns) * 100%;
         }
 
         &-off-#{$-prefix}-#{$-step} {
-          margin-left: $-step / vars.$grid-columns * 100%;
+          margin-left: math.div($-step, vars.$grid-columns) * 100%;
         }
       }
 

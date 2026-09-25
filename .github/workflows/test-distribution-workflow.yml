@@ -9,7 +9,7 @@ jobs:
 
   integrity:
     name: Slack Integrity Check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 1
 
     steps:
@@ -71,7 +71,7 @@ jobs:
   build_homepage:
     name: "Build Homepage Distribution"
     needs: integrity
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       BRANCH: ${{ github.event.client_payload.data.text }}
@@ -82,17 +82,14 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ env.BRANCH }}
-          fetch-depth: 0
+        uses: actions/checkout@v7
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -128,7 +125,7 @@ jobs:
   build_dist:
     name: "Build CDN Distribution"
     needs: integrity
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       BRANCH: ${{ github.event.client_payload.data.text }}
@@ -139,17 +136,14 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ env.BRANCH }}
-          fetch-depth: 0
+        uses: actions/checkout@v7
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -189,7 +183,7 @@ jobs:
   build_storybook:
     name: "Build Storybook Distribution"
     needs: integrity
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       BRANCH: ${{ github.event.client_payload.data.text }}
@@ -199,17 +193,14 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ env.BRANCH }}
-          fetch-depth: 0
+        uses: actions/checkout@v7
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -245,7 +236,7 @@ jobs:
   build_npm_package:
     name: "Build NPM Distribution"
     needs: integrity
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       BRANCH: ${{ github.event.client_payload.data.text }}
@@ -257,17 +248,14 @@ jobs:
       # Checkout the project's sourcecode
       #
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ env.BRANCH }}
-          fetch-depth: 0
+        uses: actions/checkout@v7
 
       #
       # Step 2
       # Set Node.js version
       #
       - name: Request Node Version
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -302,7 +290,7 @@ jobs:
     name: "Distribute CDN"
     needs:
       - build_dist
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       BRANCH: ${{ github.event.client_payload.data.text }}
@@ -352,7 +340,7 @@ jobs:
     name: "Distribute Storybook"
     needs:
       - build_storybook
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       BRANCH: ${{ github.event.client_payload.data.text }}

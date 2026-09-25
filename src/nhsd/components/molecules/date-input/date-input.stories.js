@@ -17,7 +17,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecule/date-input";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Date input",
   parameters: {
     docs: {
       description: {

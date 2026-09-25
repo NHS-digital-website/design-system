@@ -15,7 +15,6 @@ export default class NHSDNotificationBanner {
     closeIconDiv.addEventListener('click', () => this.fadeOutEffect(this.hostEl));
   }
 
-  // eslint-disable-next-line class-methods-use-this
   fadeOutEffect(fadeTarget) {
     fadeTarget.classList.add('nhsd-m-notification-banner--fade-out');
     setTimeout(() => {

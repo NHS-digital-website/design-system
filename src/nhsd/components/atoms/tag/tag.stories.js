@@ -13,9 +13,17 @@ const sourceCode = `// Sass import \n@use "nhsd/components/atoms/tag";
 
 // HTML`;
 
+const dimBackdrop = (Story, context) => {
+  const bleed = context.viewMode === 'docs'
+    ? 'box-shadow: 0 0 0 32px #425563; margin-top: -22px; margin-bottom: -22px;'
+    : '';
+  const padding = context.viewMode === 'docs' ? '22px 22px 22px 0' : '22px';
+  return `<div style="background-color: #425563; padding: ${padding}; box-sizing: border-box; ${bleed}">${Story()}</div>`;
+};
+
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Tag",
   parameters: {
     docs: {
       description: {
@@ -31,6 +39,9 @@ const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
+LabComponent.args = {
+  label: 'Simple label',
+};
 LabComponent.parameters = {
   backgrounds: {
     default: 'dim',
@@ -41,6 +52,8 @@ LabComponent.parameters = {
     },
   },
 };
+LabComponent.globals = { backgrounds: { value: '#425563' } };
+LabComponent.decorators = [dimBackdrop];
 
 export const ComponentVariant1 = Template.bind({});
 ComponentVariant1.storyName = 'Dark grey background';
@@ -128,6 +141,8 @@ MetaTag.parameters = {
     },
   },
 };
+MetaTag.globals = { backgrounds: { value: '#425563' } };
+MetaTag.decorators = [dimBackdrop];
 
 export const MetaTagLight = Template.bind({});
 MetaTagLight.storyName = 'Meta tag / Light';
@@ -145,6 +160,8 @@ MetaTagLight.parameters = {
     },
   },
 };
+MetaTagLight.globals = { backgrounds: { value: '#425563' } };
+MetaTagLight.decorators = [dimBackdrop];
 
 export const PhaseTag = Template.bind({});
 PhaseTag.storyName = 'Phase tag';

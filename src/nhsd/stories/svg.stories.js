@@ -12,7 +12,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/svg";\n\n//HTML
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / SVG`,
+  title: "Design System / Tokens / SVG",
   parameters: {
     docs: {
       description: {

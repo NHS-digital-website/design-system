@@ -29,6 +29,10 @@ export default class {
 
     disableTrapping = false;
 
+    originalParent = null;
+
+    originalNextSibling = null;
+
     constructor(componentEl) {
         if (!componentEl) return null;
         this.componentEl = componentEl;
@@ -40,7 +44,22 @@ export default class {
 
         this.focusTrapper = new FocusTrapper(this.modalContainer);
         this.bindEvents();
+        if (this.componentEl.classList.contains('nhsd-m-modal--open')) this.moveToBody();
         this.focusModal();
+    }
+
+    moveToBody() {
+        if (this.componentEl.parentElement === document.body) return;
+        this.originalParent = this.componentEl.parentElement;
+        this.originalNextSibling = this.componentEl.nextSibling;
+        document.body.appendChild(this.componentEl);
+    }
+
+    restorePosition() {
+        if (!this.originalParent) return;
+        this.originalParent.insertBefore(this.componentEl, this.originalNextSibling);
+        this.originalParent = null;
+        this.originalNextSibling = null;
     }
 
     focusModal() {
@@ -51,6 +70,7 @@ export default class {
 
     bindEvents() {
         nhsd(this.componentEl).on('modal-open.modal', () => {
+            this.moveToBody();
             this.componentEl.classList.add('nhsd-m-modal--open');
             lockScrollBar();
             this.focusModal();
@@ -59,6 +79,7 @@ export default class {
         nhsd(this.componentEl).on('modal-close.modal', () => {
             this.componentEl.classList.remove('nhsd-m-modal--open');
             lockScrollBar();
+            this.restorePosition();
         });
 
         const openButtons = Array.from(document.querySelectorAll(`[data-modal-open="${this.componentId}"]`));

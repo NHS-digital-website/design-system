@@ -10,7 +10,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/typography";\n\
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.typography}`,
+  title: "Design System / Tokens / Typography",
   parameters: {
     docs: {
       description: {
@@ -558,6 +558,20 @@ export const MathJaxComponent = () => {
   return div;
 };
 MathJaxComponent.storyName = 'MathJax';
+MathJaxComponent.decorators = [
+  (Story) => {
+    const markup = Story();
+    setTimeout(() => {
+      const startup = globalThis.MathJax?.startup?.promise;
+      if (startup) {
+        startup.then(() => globalThis.MathJax.typesetPromise?.()).catch(() => undefined);
+      } else {
+        globalThis.MathJax?.typesetPromise?.().catch(() => undefined);
+      }
+    }, 0);
+    return markup;
+  },
+];
 MathJaxComponent.parameters = {
   docs: {
     source: {

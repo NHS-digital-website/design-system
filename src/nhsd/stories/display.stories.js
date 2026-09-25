@@ -11,7 +11,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/display";\n\n//
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${componentName}`,
+  title: "Design System / Tokens / Display",
   parameters: {
     docs: {
       description: {

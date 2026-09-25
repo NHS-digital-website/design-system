@@ -17,7 +17,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/contact-us"
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Contact us",
   parameters: {
     docs: {
       description: {

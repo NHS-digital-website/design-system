@@ -37,7 +37,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organisms/nav-block-l
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: "Design System / Components / Organisms / Nav block list",
   parameters: {
     docs: {
       description: {
@@ -142,7 +142,7 @@ TwoInARowNested.parameters = {
 export const ThreeInARow = Template.bind({});
 ThreeInARow.storyName = '3D/2T/1M';
 ThreeInARow.args = {
-  desktopColumns: 3,
+  desktopColumns: 2,
   blocks: [
     {
       classes: 'nhsd-m-nav-block--light-text',

@@ -30,7 +30,7 @@ const sourceCode = '// Sass import \n@use "nhsd/components/atoms/icon";\n\n// HT
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Document icon",
   parameters: {
     docs: {
       description: {
@@ -72,6 +72,10 @@ const Template = (args) => template.render({ params: { ...args } });
 
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
+LabComponent.args = {
+  id: 'document_doc',
+  classes: 'nhsd-a-document-icon--size-l',
+};
 LabComponent.parameters = {
   docs: {
     source: {

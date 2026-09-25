@@ -1,7 +1,8 @@
 /* global ENV PATHS */
 
 const gulp = require('gulp');
-const del = require('del');
+const fs = require('fs');
+const path = require('path');
 
 const getDestPath = () => {
   let destPath = PATHS.dist.root;
@@ -11,21 +12,15 @@ const getDestPath = () => {
   return destPath;
 };
 
-const getProtectedFiles = () => {
-  let protectedFiles = [
-    `!${PATHS.dist.root}/README.md`,
-    `!${PATHS.dist.root}/test/**`,
-  ];
-  if (ENV.isTargetPackage()) {
-    protectedFiles = [
-      `!${PATHS.package.root}/README.md`,
-      `!${PATHS.package.root}/package.json`,
-    ];
-  }
-  return protectedFiles;
-};
-
 gulp.task('clean:dest', (done) => {
-  del.sync([`${getDestPath()}/*`, ...getProtectedFiles()]);
+  const destPath = getDestPath();
+  const protectedNames = ENV.isTargetPackage() ? ['README.md', 'package.json'] : ['README.md', 'test'];
+  if (fs.existsSync(destPath)) {
+    fs.readdirSync(destPath).forEach((name) => {
+      if (!protectedNames.includes(name)) {
+        fs.rmSync(path.join(destPath, name), { recursive: true, force: true });
+      }
+    });
+  }
   done();
 });

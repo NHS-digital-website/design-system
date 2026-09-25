@@ -21,7 +21,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/ratio";\n\n//HT
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.ratio}`,
+  title: "Design System / Tokens / Ratio",
   parameters: {
     docs: {
       description: {

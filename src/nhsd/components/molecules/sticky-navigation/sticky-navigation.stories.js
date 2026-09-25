@@ -22,7 +22,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/sticky-navi
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Sticky Navigation",
   parameters: {
     argsTypes: {
       headerText: { control: 'text', defaultValue: 'Page of contents', description: 'Modifies header text' },

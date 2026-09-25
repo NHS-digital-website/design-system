@@ -15,7 +15,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/tag-list";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Tag List",
   parameters: {
     docs: {
       description: {

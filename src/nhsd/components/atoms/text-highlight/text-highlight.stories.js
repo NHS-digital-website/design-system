@@ -14,7 +14,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/atoms/text-highlight"
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.atoms} / ${componentName}`,
+  title: "Design System / Components / Atoms / Text highlight",
   parameters: {
     docs: {
       description: {
@@ -121,13 +121,13 @@ export const TextHighlightDemoAll = () => {
   const p = document.createElement('p');
   p.classList.add('nhsd-t-body');
   p.innerHTML = `Continually engineer e-business e-business before error-free e-commerce. Proactively synthesize extensive web-readiness for ${TextHighlightDemo5()} be tolerated. Progressively synthesize technically sound e-services whereas ${TextHighlightDemo2()} bleeding-edge methodologies. Seamlessly repurpose web-enabled ${TextHighlightDemo4()} applications after market-driven convergence. Rapidiously ${TextHighlightDemo3()} hello world. Assertively leverage ${TextHighlightDemo1()} existing vertical results.`;
-  return p;
+  return p.outerHTML;
 };
 TextHighlightDemoAll.storyName = 'Multiple highlights';
 TextHighlightDemoAll.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${TextHighlightDemoAll().outerHTML}`,
+      code: `${sourceCode}\n${TextHighlightDemoAll()}`,
     },
   },
 };

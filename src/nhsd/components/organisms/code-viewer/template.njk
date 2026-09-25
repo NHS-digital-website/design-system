@@ -67,7 +67,8 @@ window.Prism.manual = true;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-twig.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 <script>
-Array.from(document.querySelectorAll('.nhsd-o-code-viewer__code code')).forEach(function(block) {
+var codeViewer = document.currentScript.previousElementSibling;
+Array.from(codeViewer.querySelectorAll('.nhsd-o-code-viewer__code code')).forEach(function(block) {
   Prism.highlightElement(block);
 });
 </script>

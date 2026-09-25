@@ -31,7 +31,7 @@ For more information about binding to modal events please refer to the <a href="
 
 // Component defaults
 export default {
-    title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.templates} / ${componentName}`,
+    title: "Design System / Components / Templates / Cookie Notice",
     parameters: {
       docs: {
         description: {

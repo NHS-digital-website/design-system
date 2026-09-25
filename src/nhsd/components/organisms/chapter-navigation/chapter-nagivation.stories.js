@@ -18,7 +18,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organisms/chapter-nav
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: "Design System / Components / Organisms / Chapter Navigation",
   parameters: {
     docs: {
       description: {

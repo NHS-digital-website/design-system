@@ -26,7 +26,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/phase-banne
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Phase Banner",
   parameters: {
     docs: {
       description: {

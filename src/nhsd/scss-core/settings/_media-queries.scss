@@ -7,22 +7,20 @@ $-bp-l: 1366px;
 $-bp-xl: 1580px;
 
 // Initialise the grid system with the custom settings
-@use "sass-mq/mq" with (
-  $mq-responsive: true,
-  $mq-breakpoints: (
+@use "mq" as * with (
+  $breakpoints: (
     xs: $-bp-xs,
     t:  $-bp-t,
     s:  $-bp-s,
     m:  $-bp-m,
     l:  $-bp-l,
     xl: $-bp-xl,
-  ),
-  $mq-static-breakpoint: m
-  // $mq-show-breakpoints: (xs, s, m, l, xl)
+  )
+  // $show-breakpoints: (xs, s, m, l, xl)
   // Uncomment the above line if want to see debug information
 );
 
-@forward "sass-mq/mq";
+@forward "mq";
 
 // JS exports
 :export {

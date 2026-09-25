@@ -22,7 +22,7 @@ const sourceCode = '// Sass import \n@use "nhsd/scss-core/tokens/grid";\n\n//HTM
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.tokens} / ${sbConfig.title.gridSystem}`,
+  title: "Design System / Tokens / Grid system",
   parameters: {
     docs: {
       description: {

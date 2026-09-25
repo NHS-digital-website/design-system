@@ -33,7 +33,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organisms/statistics-
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: "Design System / Components / Organisms / Statistics Block List",
   parameters: {
     docs: {
       description: {

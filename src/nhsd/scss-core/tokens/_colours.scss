@@ -2,6 +2,7 @@
 
 // Built in modules
 @use "sass:map";
+@use "sass:string";
 
 // Public members
 // =========================================================
@@ -63,9 +64,9 @@ $gradients: (
 );
 
 @function raw($colour) {
-  $colour: quote($colour);
+  $colour: string.quote($colour);
 
-  @if not map-has-key($colours, $colour) {
+  @if not map.has-key($colours, $colour) {
     @error "Unknown colour `#{$colour}`";
   }
 
@@ -77,9 +78,9 @@ $gradients: (
 }
 
 @function theme($key) {
-  $key: quote($key);
+  $key: string.quote($key);
 
-  @if not map-has-key($default-theme-colours, $key) {
+  @if not map.has-key($default-theme-colours, $key) {
     @error "Unknown key `#{$key}`";
   }
 

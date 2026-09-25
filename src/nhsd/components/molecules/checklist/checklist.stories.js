@@ -33,7 +33,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/molecules/checklist";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.molecules} / ${componentName}`,
+  title: "Design System / Components / Molecules / Checklist",
   parameters: {
     docs: {
       description: {

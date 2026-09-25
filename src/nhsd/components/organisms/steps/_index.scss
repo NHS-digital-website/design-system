@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "scss-core/tokens/colours" as nhsd-colours;
 @use "scss-core/tokens/spacing" as nhsd-spacing;
 @use "scss-core/tokens/utils" as nhsd-utils;
@@ -44,7 +45,7 @@ $-root: ".nhsd-o-steps";
       position: absolute;
       top: #{$key-size + 5px};
       bottom: 5px;
-      left: #{($key-size / 2) - 1px};
+      left: #{math.div($key-size, 2) - 1px};
       border-left: 2px solid nhsd-colours.get("pale-grey");
     }
 

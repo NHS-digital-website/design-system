@@ -2,6 +2,7 @@
 
 // Built in modules
 @use "sass:map";
+@use "sass:math";
 
 // Private members
 $-root: ".nhsd-";
@@ -21,7 +22,7 @@ $-font-weights: (
 // =========================================================
 
 $base-font-size: 18px;
-$relative-base-font-size: ($base-font-size / 16px) * 1rem; // Relative to the traditional 16px base font size in REMs
+$relative-base-font-size: math.div($base-font-size, 16px) * 1rem; // Relative to the traditional 16px base font size in REMs
 
 // =========================================================
 // Functions and mixins
@@ -32,7 +33,11 @@ $relative-base-font-size: ($base-font-size / 16px) * 1rem; // Relative to the tr
   @if $value == null {
     $value: map.get($-font-families, brand);
   }
-  font-family: $value if($override == true, !important, null);
+  @if $override == true {
+    font-family: $value !important;
+  } @else {
+    font-family: $value;
+  }
 }
 
 @mixin font-weight($key: regular, $override: false) {
@@ -40,7 +45,11 @@ $relative-base-font-size: ($base-font-size / 16px) * 1rem; // Relative to the tr
   @if $value == null {
     $value: map.get($-font-weights, regular);
   }
-  font-weight: $value if($override == true, !important, null);
+  @if $override == true {
+    font-weight: $value !important;
+  } @else {
+    font-weight: $value;
+  }
 }
 
 // =========================================================

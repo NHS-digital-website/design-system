@@ -19,7 +19,7 @@ const sourceCode = `// Sass import \n@use "nhsd/components/organisms/card-list";
 
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.organisms} / ${componentName}`,
+  title: "Design System / Components / Organisms / Card list",
   parameters: {
     docs: {
       description: {
@@ -434,6 +434,15 @@ Component4.parameters = {
     },
   },
 };
+Component4.decorators = [
+  (Story, context) => {
+    if (context.viewMode !== 'docs') return Story();
+
+    // The published Docs canvas uses the two-column tablet layout for this
+    // example, while the standalone story demonstrates four desktop cards.
+    return `<style>.nhsd-o-card-list .nhsd-t-col-l-3 { width: 50%; }</style>${Story()}`;
+  },
+];
 
 export const Component5 = Template.bind({});
 Component5.storyName = 'Colour cards - with title and buttons - 3D/3T/1M';

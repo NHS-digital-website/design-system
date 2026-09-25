@@ -26,13 +26,11 @@ function initComponent(selector, componentClass) {
         if (componentList.includes(componentEl)) return;
         componentList.push(componentEl);
 
-        /* eslint-disable no-new, new-cap, no-console */
         try {
             new componentClass(componentEl);
         } catch (e) {
             console.error(`Failed to initialise ${componentClass.name}`, e);
         }
-        /* eslint-enable no-new, new-cap, no-console */
     });
 }
 

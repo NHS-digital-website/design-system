@@ -13,9 +13,16 @@ ${sbConfig.heading.basicRules}
 
 Tabs can be linked to content using the \`data-tab-content\` attribute and specifying an element ID. E.g. \`data-tab-content="content-1"\``;
 
+const initializeTabbedContent = (Story) => {
+  const markup = Story();
+  setTimeout(() => globalThis.nhsd?.init(), 0);
+  return markup;
+};
+
 // Component defaults
 export default {
-  title: `${sbConfig.title.designSystem} / ${sbConfig.title.components} / ${sbConfig.title.templates} / ${componentName}`,
+  title: "Design System / Components / Templates / Tabbed Content Layout",
+  decorators: [initializeTabbedContent],
   parameters: {
     docs: {
       description: {

@@ -39,7 +39,7 @@ $-root: ".nhsd-o-dropdown";
 
     @include nhsd-spacing.set-responsive('margin-top', 2);
     padding: nhsd-spacing.get(2) 0;
-    overflow: auto;
+    overflow: hidden;
     transition: opacity nhsd-transition.$transition-duration, visibility nhsd-transition.$transition-duration;
     border: 1px solid nhsd-colours.get("pale-grey");
     border-radius: vars.$border-radius;
@@ -105,6 +105,7 @@ $-root: ".nhsd-o-dropdown";
   &--open {
     #{$-root}__dropdown {
       visibility: visible;
+      overflow: auto;
       opacity: 1;
     }
   }

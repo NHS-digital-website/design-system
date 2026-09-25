@@ -2,10 +2,11 @@
 {%- from "../../../njk/macros/atoms.njk" import
   nhsd_a_button,
   nhsd_a_box_start,
-  nhsd_a_box_end
+  nhsd_a_box_end,
+  nhsd_a_horizontal_rule
 -%}
 
-{%- from "../../../njk/macros/organisms.njk" import nhsd_o_expander_list -%}
+{%- from "../../../njk/macros/molecules.njk" import nhsd_m_expander -%}
 
 {#- Set classes -#}
 {% set componentName = "nhsd-m-modal" %}
@@ -26,8 +27,25 @@
             <p class="nhsd-t-body-s">{{ params.topContent|safe }}</p>
             <p class="nhsd-t-body-s">{{ params.bottomContent|safe }}</p>
             {%- if params.expanderList -%}
-                <div>
-                    {{ nhsd_o_expander_list(params.expanderList) }}
+                <div class="nhsd-o-expander-list">
+                  {% for expander in params.expanderList.expanders %}
+                    {% if params.expanderList.type === 'simple expander' %}
+                      <div class="nhsd-o-expander-list__expander">
+                        {{ nhsd_m_expander({ heading: expander.heading, content: expander.content, type: params.expanderList.type, toggle: params.expanderList.toggle, expanderTable: expander.expanderTable }) }}
+                      </div>
+                      {% if params.expanderList.removeLastHR %}
+                        {% if not (params.expanderList.expanders | last === expander) %}
+                          {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
+                        {% endif %}
+                      {% else %}
+                        {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
+                      {% endif %}
+                    {% else %}
+                      <div class="nhsd-o-expander-list__expander nhsd-!t-margin-bottom-3">
+                        {{ nhsd_m_expander({ heading: expander.heading, content: expander.content, type: params.expanderList.type, toggle: params.expanderList.toggle, expanderTable: expander.expanderTable }) }}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
                 </div>
             {%- endif -%} 
 
